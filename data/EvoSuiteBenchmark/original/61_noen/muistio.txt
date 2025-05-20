@@ -1,0 +1,45 @@
+-riippuvuuksien tarkastelu ja hallinta on vaikeaa. viittauksia komponenttien yli, mik� aiheuttaa isoja ongelmia..
+-jaetut luokat pluginien v�lill�, ent�s jos p�ivitt�� kun on jaettuja luokkia?
+-p�ivittimell� pit�� olla todella minimaaliset dependenssit kaikesta kun esim. xmlrpc kirjastot on eri bundlessa ja sen k�ytt� toisessa ja kaiken joutuu updateen?
+-kummallisia virheit�: server.shared bundlesta viitattiin registryyn ja siell� oli bmdescription. t�m� n�kyi webbisivun virheen� ja miss��n felixiss� ei suoraan vikaa
+ollut esill�. eli shared bundled ei saisi viitata mihink��n muuhun tai joutuu kaiken kopioimaan ymp�riins�. vian l�yt�minen on arpomista ja lopulta pit�� menn� siihen
+ett� katsoo itse manuaalisesti miss� bundlessa sit� k�ytet��n ja mit� ne mahdolliset ristiinviittaukset olis mitk� tuo ongelmia..
+-pitk�lle viety erottelu ahdistaa ihmist�. eli deletoin measurelistpluginin koska en n�hnyt ett� sit� k�ytet��n miss��n. koska staattinen analyysi ei
+n�ytt�nyt ett� sit� olisi miss��n k�ytetty. mutta sit� kuitenkin k�ytettiin ep�suorasti requestien kautta. eli poistaminen rikkoi sitten historypagen..
+-toiminnallisuutta ja tiloja joutuu toistamaan useammassa kohdassa jos haluaa tehd� homman helposti. esim. serveragent tarvii saada probe id:lle xmlrpc olion, mutta se on rekisteriss�. on hinkua ja vinkua pist�� sama lista my�s serveragentille..
+-blackboardin kautta k�ytt� aiheuttaa ongelmia synkronoinnissa. jos ei k�yt� erillisi� threadej�/taskeja niin synkronointi vet�� deadlockkiin. miten t�llaiselle tekee sitten testit? mihin ne failaa jos edes tehty� saa?
+-jaottelu plugineihin auttaa kun on erilliset komponentit. selke�sti pakottaa jaottelemaan mitk� menee mink� alle ja est�� kytkem�st� osia toisiin liian tiukasti. esim probe-sharediin ei voi laittaa xmlrpc osioita vaikka jonku tekis mieli. osa piti siirt�� j�rkev�mmin toisten sis��n kuiten kuuluikin n��s.
+-kun muutti pois noista arvoista joita blackboardin kautta l�hettelee niin sielt� tulikin sitten iso l�j� lis�� dependenssej� manifesteihin. etua ja haittaa..
+
+esimerkkitestej� joissa mutkikkaampi kattavuus:
+-DMTests:
+--input tyypit pit�� kattaa: boolean, int, string, ...
+--eri m��r� inputteja pit�� kattaa: n kappaletta base measureita
+--merkkijohon eri ominaisuudet, eli scriptauksen yhteenlaskut, miinukset, yms. t�m� tulee itse asiassa tuettavien laskutapojen vaatimuksista? ei tarvi kuin pari koska perustuu kirjastoon joka pit�� toimia jos skriptin rakentaminen vain toimii
+--eri ominaisuuksien yhdistelm�t: n kappaletta base measureita ja eri tyyppisi�
+--eri funktiojonojen yhdistelm�t: blackboardille rekister�i, poistaa rekister�innin, rekister�i taas...
+-testien tekeminen ja katselu selkeytt�� toimintaa: merkkijonossa "" muuten ei. precision pit�� olla BM kuvauksessa tai ei voi tiet�� mit� probeja on saatavilla ja mit� tehd� low-precision arvoilla. tai mik� sit� edes on.
+-registryplugin aloittaa thradin, miss� sen lopettaminen testatan? miten aloitettujen threadien lopettaminen yleens�kin tarkastelu
+-base measure testit joissa eri parameterit on nullia, sama probe infolle
+
+cacm ajatuksia (11/10)
+-deployattavia monitorointi plugineja erillisiin nodeihin. t�m� siit� security in the cloud hommasta ja sen security featureista
+-komponentteja jotka monitoroi kommunikaatiota ulkoap�in. eli ei mitenk��n n�y toisille. tyyliin yksi vm joka vain monitoroi muita vm:i� ja niiden sis�lt�mi� prosesseja vs mit� raportoidaan sis�lt�p�in. n�in built-in vs external vertailu ja mit� n�hd��n. onko esim. rootkitti piilottamassa jotain tietoja. n�idne monimutkainen yhdess�olo on sitten oma testauksensa kohde..
+-homman esittely tyyliin t�ss� journalissa systeemi esitetty, tehty tutkimushankkeessa, yhteisty�t� eri partnerien v�lill�, jne.
+-eri nodeissa mahdollisuus logata tietoa (ja prosessoida halun mukaan ensin). tyyliin persistence plugin ja sille hsqldb. t�m�n deploymentti remotena olisi nerokasta.
+-obm evaluointi t�lle. esimerkkin� vain ett� piti saada suoraan markkinoilla ja kiire oli. todelliset varmennukset parempi tehd� lopussa kun integrointi oli jo mahdollista aloittaa. arkkitehtuuri on ainoa mik� siin� vaiheessa on merkitt�v��. sen j�lkeen v�hemm�n. vertailu kattavuuksista
+-testikattavuudet: suoraan esimerkkin� ett� t�llaisia tarpeita oli. tavallinen testikattavuus ty�kalu ollut k�yt�ss�. t�m�n j�lkeen katsottu mit� muuta tarvittu kun j�rkev� kattavuus on saavutettu (85%?). t�st� kattavuuskriteereit�. n�ille mbt evaluaattori.
+
+-cxf konfigurointi on rasittavaa kaikkine palikoineen. pit�isi poistaa se jetty riippuvuus ja linkata set OSGI serviceen
+
+-pointsi: käynnistys bundleactivatorista. konffaus jos tarvii niin bundleactivatorin parameterilla, jolloin defaulttina no-args, mutta testeissä args.. jiihaa..
+
+puuttuvia testeja:
+-setprobeconfiguration josta puuttuu tarvittavia parametreja. mita eventtia tulee jne
+-setprobeconfiguration kun on parametreja mukana mita ei tueta. mita eventtia tulee jne.
+
+-gosh pysaytti koko roskan kun sen oli jaanyt sinne mukaan..
+-yung2
+
+
+-jotain mikä toimisi todella hyvin: sequence kaaviot valituista interaktioista mita on itse sinne traceen laitettu.

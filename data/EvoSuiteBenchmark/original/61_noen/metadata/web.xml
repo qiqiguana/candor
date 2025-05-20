@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (C) 2009 VTT Technical Research Centre of Finland.
+  ~
+  ~ This file is part of NOEN framework.
+  ~
+  ~ NOEN framework is free software; you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation; version 2.
+  ~
+  ~ NOEN framework is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program; if not, write to the Free Software
+  ~ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+  -->
+
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+         version="2.4">
+  <display-name>TestUI</display-name>
+  <description>Test Automation UI</description>
+
+  <filter>
+    <filter-name>TesterApplication</filter-name>
+    <filter-class>org.apache.wicket.protocol.http.WicketFilter</filter-class>
+    <init-param>
+      <param-name>applicationClassName</param-name>
+      <param-value>sf.noen.webui.wicket.WicketApplication</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>TesterApplication</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  <!---servlet>
+    <servlet-name>Stapler</servlet-name>
+    <servlet-class>org.kohsuke.stapler.Stapler</servlet-class>
+    <init-param>
+      <param-name>default-encodings</param-name>
+      <param-value>text/html=UTF-8</param-value>
+    </init-param>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>Stapler</servlet-name>
+    <url-pattern>/</url-pattern>
+  </servlet-mapping>
+
+  <filter>
+    <filter-name>authentication-filter</filter-name>
+    <filter-class>hudson.security.HudsonFilter</filter-class>
+  </filter>
+
+  <filter-mapping>
+    <filter-name>authentication-filter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping-->
+</web-app>

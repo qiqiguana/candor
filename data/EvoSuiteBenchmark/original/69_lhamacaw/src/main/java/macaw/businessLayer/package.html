@@ -1,0 +1,58 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head></head>
+<body>
+Contains classes that represent business concepts in the system.  
+Most of the classes will support three kinds of activities:
+<ul>
+<li> setting and getting properties that are expressed as form fields in the GUI
+and as database fields in an underlying SQL database.
+<li>
+<li> validation code to determine when an instance of a model class contains errors. 
+</li>
+<li> code that detects when some property has changed.  This is used a lot in Macaw's
+system for tracking changes made to a record by different users.
+</li>
+</ul>
+
+
+
+<h2>Understanding the Business Concepts</h2>
+A {@link macaw.businessLayer.Variable} represents a single type of data that has been 
+uniformly gathered about each member in the NSHD study.  In most cases, a 
+variable will describe some survey question and its associated results for 
+each case study member.  Each variable is associated with a number of attributes 
+such as 
+<ul>
+<li>a name (eg: "HT61") </li>
+<li>a label (eg: height in 1961)</li>
+<li>a year</li>
+<li>question number and form of some survey</li>
+<li>whether the answers were encoded electronically</li>
+<li>
+<li>start and stop column numbers that identify where in an ASCII text file
+the results for the variable may be found</li>
+<li>free text notes</li>
+</ul>
+
+<p>
+These ideas are described more thoroughly in the {@link macaw.businessLayer.Variable} class.  
+A Variable also has a number of other attributes which are represented as objects of
+these classes:
+<ul>
+<li>{@link macaw.businessLayer.SupportingDocument}, which is a document that scientists can 
+read to find out how results for a variable were determined.  For example, a PDF 
+document called "Ethnicity Definitions" could describe how scientists recorded the 
+ethnicity of someone from the study.
+</li>
+<li>{@link macaw.businessLayer.OntologyTerm}, which is a concept that is used to tag a variable 
+so that the variable can be picked up in a search based on concepts and not by text phrases
+that appear in fields of Variable classes. 
+</li>
+<li>{@link macaw.businessLayer.AliasFilePath}
+</ul>
+
+
+
+</body>
+</html>

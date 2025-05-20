@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<datasources>
+	<local-tx-datasource>
+		<jndi-name>BeanBinDS</jndi-name>
+		<connection-url>
+			jdbc:postgresql://localhost:5432/beanbin
+		</connection-url>
+		<min-pool-size>5</min-pool-size>
+	    <max-pool-size>20</max-pool-size>
+	    <idle-timeout-minutes>0</idle-timeout-minutes>
+	    <set-tx-query-timeout>true</set-tx-query-timeout>
+		<driver-class>org.postgresql.Driver</driver-class>
+		<user-name>beanbin</user-name>
+		<password>beanbin</password>
+		<exception-sorter-class-name>
+			org.jboss.resource.adapter.jdbc.NullExceptionSorter
+		</exception-sorter-class-name>
+		<metadata>
+			<type-mapping>PostgreSQL</type-mapping>
+		</metadata>
+	</local-tx-datasource>
+</datasources>

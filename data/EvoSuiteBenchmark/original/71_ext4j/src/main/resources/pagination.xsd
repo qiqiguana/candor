@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema 
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+	elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="pagination">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="currentPage" type="xs:int" minOccurs="1" maxOccurs="1" />
+				<xs:element name="totalPages" type="xs:int" minOccurs="1" maxOccurs="1" />
+				<xs:element name="firstPage" type="StaticPage" minOccurs="0" maxOccurs="1" />
+				<xs:element name="previousPage" type="StaticPage" minOccurs="0" maxOccurs="1" />
+				<xs:element name="nextPage" type="StaticPage" minOccurs="0" maxOccurs="1" />
+				<xs:element name="lastPage" type="StaticPage" minOccurs="0" maxOccurs="1" />
+				<xs:element name="pages" type="Pages" minOccurs="1" maxOccurs="1" />				
+			</xs:sequence>
+		</xs:complexType>	
+	</xs:element>	
+	
+	<xs:complexType name="StaticPage">
+		<xs:sequence>
+			<xs:element name="url" type="xs:string" minOccurs="1" maxOccurs="1" />
+		</xs:sequence>
+	</xs:complexType>	
+
+	<xs:complexType name="Pages">
+		<xs:sequence>
+			<xs:element name="page" type="Page" minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="Page">
+		<xs:sequence>
+			<xs:element name="url" type="xs:string" minOccurs="1" maxOccurs="1" />
+		</xs:sequence>
+		<xs:attribute name="n" type="xs:int"/>
+	</xs:complexType>
+</xs:schema>

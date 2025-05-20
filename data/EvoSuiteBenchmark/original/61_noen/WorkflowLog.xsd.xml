@@ -1,0 +1,46 @@
+
+<WorkflowLog description="Name of workflow" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="src/fi/vtt/noen/testgen/observations/formatter/WorkflowLog.xsd">
+  <!--Optional:-->
+  <Data>
+    <!--1 or more repetitions:-->
+    <Attribute name="string">string</Attribute>
+  </Data>
+  <!--Optional:-->
+  <Source program="What is the trace for? Which program?">
+    <!--Optional:-->
+    <Data>
+      <!--1 or more repetitions:-->
+      <Attribute name="string">string</Attribute>
+    </Data>
+  </Source>
+  <!--1 or more repetitions:-->
+  <Process id="identifies a program run suite. increasing integer value" description="descriptive string of suite">
+    <!--Optional:-->
+    <Data>
+      <!--1 or more repetitions:-->
+      <Attribute name="string">string</Attribute>
+    </Data>
+    <!--Zero or more repetitions:-->
+    <ProcessInstance id="id for single program run, increasing integer" description="descriptive string of run">
+      <!--Optional:-->
+      <Data>
+        <!--1 or more repetitions:-->
+        <Attribute name="string">string</Attribute>
+      </Data>
+      <!--Zero or more repetitions:-->
+      <AuditTrailEntry> <!-- This is a single event in the trace-->
+        <!--Optional:-->
+        <Data>
+          <!--1 or more repetitions:-->
+          <Attribute name="Parameter name">Parameter value</Attribute>
+        </Data>
+        <WorkflowModelElement>Event name comes here</WorkflowModelElement>
+        <EventType unknowntype="What is this?">complete</EventType>
+        <!--Optional:-->
+        <Timestamp>2007-10-26T09:36:28</Timestamp>
+        <!--Optional:-->
+        <Originator>Where does this come from</Originator>
+      </AuditTrailEntry>
+    </ProcessInstance>
+  </Process>
+</WorkflowLog>

@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Measurement Framework OSGI Tester
+Bundle-SymbolicName: fi.vtt.noen.mfw.OSGITester
+Bundle-Version: 1.0.0
+Bundle-Activator: fi.vtt.noen.mfw.integrationtests.agent.server.TesterActivator
+Bundle-Classpath: .,lib/junit-4.8.1.jar
+Import-Package: org.osgi.framework,
+  fi.vtt.noen.mfw.agent.server.blackboard,
+  fi.vtt.noen.mfw.agent.server.plugins.control,
+  fi.vtt.noen.mfw.agent.server.plugins.event,
+  fi.vtt.noen.mfw.agent.server.plugins.derivedmeasure,
+  fi.vtt.noen.mfw.agent.server.plugins.persistence,
+  fi.vtt.noen.mfw.agent.server.plugins
+ 

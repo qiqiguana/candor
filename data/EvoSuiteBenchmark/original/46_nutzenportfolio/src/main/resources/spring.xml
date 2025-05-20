@@ -1,0 +1,536 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+		"http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+  	<property name="location" value="classpath:spring.properties"/>
+	</bean>
+	
+	<bean name="/login" class="ch.bfh.egov.nutzenportfolio.action.BenutzerAction">
+	  <constructor-arg index="0" ref="benutzerService"/>
+  </bean>
+  
+  <bean name="/adm/customizing" class="ch.bfh.egov.nutzenportfolio.action.CustomizingAction">
+    <constructor-arg index="0" ref="customizingService"/>
+    <constructor-arg index="1" ref="commonService"/>
+    <constructor-arg index="2" ref="strategischeZieleService"/>
+    <constructor-arg index="3" ref="detailzieleService"/>
+    <constructor-arg index="4" ref="auswahlfeldService"/>
+    <constructor-arg index="5" ref="kategorieService"/>
+    <constructor-arg index="6" ref="nutzenkriteriumService"/>
+    <constructor-arg index="7" ref="fragebogenNaOpNuService"/>
+    <constructor-arg index="8" ref="fragebogenPaService"/>
+    <constructor-arg index="9" ref="projektgruppeService"/>
+  </bean>
+  
+  <bean name="/adm/customizing/view" class="ch.bfh.egov.nutzenportfolio.action.CustomizingAction">
+    <constructor-arg index="0" ref="customizingService"/>
+    <constructor-arg index="1" ref="commonService"/>
+    <constructor-arg index="2" ref="strategischeZieleService"/>
+    <constructor-arg index="3" ref="detailzieleService"/>
+    <constructor-arg index="4" ref="auswahlfeldService"/>
+    <constructor-arg index="5" ref="kategorieService"/>
+    <constructor-arg index="6" ref="nutzenkriteriumService"/>
+    <constructor-arg index="7" ref="fragebogenNaOpNuService"/>
+    <constructor-arg index="8" ref="fragebogenPaService"/>
+    <constructor-arg index="9" ref="projektgruppeService"/>
+  </bean>
+  
+  <bean name="/adm/strategischeZiele" class="ch.bfh.egov.nutzenportfolio.action.StrategischeZieleAction">
+    <constructor-arg index="0" ref="strategischeZieleService"/>
+    <constructor-arg index="1" ref="commonService"/>
+    <constructor-arg index="2" ref="customizingService"/>
+    <constructor-arg index="3" ref="detailzieleService"/>
+  </bean>
+  
+  <bean name="/adm/strategischeZiele/view" class="ch.bfh.egov.nutzenportfolio.action.StrategischeZieleAction">
+    <constructor-arg index="0" ref="strategischeZieleService"/>
+    <constructor-arg index="1" ref="commonService"/>
+    <constructor-arg index="2" ref="customizingService"/>
+    <constructor-arg index="3" ref="detailzieleService"/>
+  </bean>
+  
+  <bean name="/adm/detailziele" class="ch.bfh.egov.nutzenportfolio.action.DetailzieleAction">
+    <constructor-arg index="0" ref="detailzieleService"/>
+    <constructor-arg index="1" ref="strategischeZieleService"/>
+    <constructor-arg index="2" ref="commonService"/>
+    <constructor-arg index="3" ref="customizingService"/>
+  </bean>
+  
+  <bean name="/adm/detailziele/view" class="ch.bfh.egov.nutzenportfolio.action.DetailzieleAction">
+    <constructor-arg index="0" ref="detailzieleService"/>
+    <constructor-arg index="1" ref="strategischeZieleService"/>
+    <constructor-arg index="2" ref="commonService"/>
+    <constructor-arg index="3" ref="customizingService"/>
+  </bean>
+  
+  <bean name="/adm/realisierbarkeit" class="ch.bfh.egov.nutzenportfolio.action.AuswahlfeldAction">
+    <constructor-arg index="0" ref="auswahlfeldService"/>
+    <constructor-arg index="1" ref="nutzenkriteriumService"/>
+    <constructor-arg index="2" ref="commonService"/>
+    <constructor-arg index="3" ref="customizingService"/>
+    <constructor-arg index="4" ref="strategischeZieleService"/>
+  </bean>
+  
+  <bean name="/adm/realisierbarkeit/view" class="ch.bfh.egov.nutzenportfolio.action.AuswahlfeldAction">
+    <constructor-arg index="0" ref="auswahlfeldService"/>
+    <constructor-arg index="1" ref="nutzenkriteriumService"/>
+    <constructor-arg index="2" ref="commonService"/>
+    <constructor-arg index="3" ref="customizingService"/>
+    <constructor-arg index="4" ref="strategischeZieleService"/>
+  </bean>
+
+  <bean name="/adm/kategorien" class="ch.bfh.egov.nutzenportfolio.action.KategorieAction">
+    <constructor-arg index="0" ref="kategorieService"/>
+    <constructor-arg index="1" ref="commonService"/>
+    <constructor-arg index="2" ref="customizingService"/>
+    <constructor-arg index="3" ref="nutzenkriteriumService"/>
+  </bean>
+  
+  <bean name="/adm/kategorien/view" class="ch.bfh.egov.nutzenportfolio.action.KategorieAction">
+    <constructor-arg index="0" ref="kategorieService"/>
+    <constructor-arg index="1" ref="commonService"/>
+    <constructor-arg index="2" ref="customizingService"/>
+    <constructor-arg index="3" ref="nutzenkriteriumService"/>
+  </bean>
+  
+  <bean name="/adm/nutzenkriterien" class="ch.bfh.egov.nutzenportfolio.action.NutzenkriteriumAction">
+    <constructor-arg index="0" ref="nutzenkriteriumService"/>
+    <constructor-arg index="1" ref="auswahlfeldService"/>
+    <constructor-arg index="2" ref="commonService"/>
+    <constructor-arg index="3" ref="kategorieService"/>
+    <constructor-arg index="4" ref="customizingService"/>
+  </bean>
+  
+  <bean name="/adm/nutzenkriterien/view" class="ch.bfh.egov.nutzenportfolio.action.NutzenkriteriumAction">
+    <constructor-arg index="0" ref="nutzenkriteriumService"/>
+    <constructor-arg index="1" ref="auswahlfeldService"/>
+    <constructor-arg index="2" ref="commonService"/>
+    <constructor-arg index="3" ref="kategorieService"/>
+    <constructor-arg index="4" ref="customizingService"/>
+  </bean>
+  
+  <bean name="/adm/fragen" class="ch.bfh.egov.nutzenportfolio.action.NutzenkriteriumAction">
+    <constructor-arg index="0" ref="nutzenkriteriumService"/>
+    <constructor-arg index="1" ref="auswahlfeldService"/>
+    <constructor-arg index="2" ref="commonService"/>
+    <constructor-arg index="3" ref="kategorieService"/>
+    <constructor-arg index="4" ref="customizingService"/>
+  </bean>
+  
+  <bean name="/adm/fragen/view" class="ch.bfh.egov.nutzenportfolio.action.NutzenkriteriumAction">
+    <constructor-arg index="0" ref="nutzenkriteriumService"/>
+    <constructor-arg index="1" ref="auswahlfeldService"/>
+    <constructor-arg index="2" ref="commonService"/>
+    <constructor-arg index="3" ref="kategorieService"/>
+    <constructor-arg index="4" ref="customizingService"/>
+  </bean>
+  
+  <bean name="/adm/abstufungen" class="ch.bfh.egov.nutzenportfolio.action.NutzenkriteriumAction">
+    <constructor-arg index="0" ref="nutzenkriteriumService"/>
+    <constructor-arg index="1" ref="auswahlfeldService"/>
+    <constructor-arg index="2" ref="commonService"/>
+    <constructor-arg index="3" ref="kategorieService"/>
+    <constructor-arg index="4" ref="customizingService"/>
+  </bean>
+  
+  <bean name="/adm/stufenbeschriebe" class="ch.bfh.egov.nutzenportfolio.action.AuswahlfeldAction">
+    <constructor-arg index="0" ref="auswahlfeldService"/>
+    <constructor-arg index="1" ref="nutzenkriteriumService"/>
+    <constructor-arg index="2" ref="commonService"/>
+    <constructor-arg index="3" ref="customizingService"/>
+    <constructor-arg index="4" ref="strategischeZieleService"/>
+  </bean>
+  
+  <bean name="/adm/gewichtungstyp" class="ch.bfh.egov.nutzenportfolio.action.NutzenkriteriumAction">
+    <constructor-arg index="0" ref="nutzenkriteriumService"/>
+    <constructor-arg index="1" ref="auswahlfeldService"/>
+    <constructor-arg index="2" ref="commonService"/>
+    <constructor-arg index="3" ref="kategorieService"/>
+    <constructor-arg index="4" ref="customizingService"/>
+  </bean>
+  
+  <bean name="/adm/gewichtung/direkt" class="ch.bfh.egov.nutzenportfolio.action.NutzenkriteriumAction">
+    <constructor-arg index="0" ref="nutzenkriteriumService"/>
+    <constructor-arg index="1" ref="auswahlfeldService"/>
+    <constructor-arg index="2" ref="commonService"/>
+    <constructor-arg index="3" ref="kategorieService"/>
+    <constructor-arg index="4" ref="customizingService"/>
+  </bean>
+  
+    <bean name="/adm/gewichtungsabstufung" class="ch.bfh.egov.nutzenportfolio.action.NutzenkriteriumAction">
+    <constructor-arg index="0" ref="nutzenkriteriumService"/>
+    <constructor-arg index="1" ref="auswahlfeldService"/>
+    <constructor-arg index="2" ref="commonService"/>
+    <constructor-arg index="3" ref="kategorieService"/>
+    <constructor-arg index="4" ref="customizingService"/>
+  </bean>
+  
+  <bean name="/adm/gewichtung" class="ch.bfh.egov.nutzenportfolio.action.AuswahlfeldAction">
+    <constructor-arg index="0" ref="auswahlfeldService"/>
+    <constructor-arg index="1" ref="nutzenkriteriumService"/>
+    <constructor-arg index="2" ref="commonService"/>
+    <constructor-arg index="3" ref="customizingService"/>
+    <constructor-arg index="4" ref="strategischeZieleService"/>
+  </bean>
+  
+  <bean name="/adm/projektgruppen" class="ch.bfh.egov.nutzenportfolio.action.ProjektgruppeAction">
+	  <constructor-arg index="0" ref="projektgruppeService"/>
+    <constructor-arg index="1" ref="customizingService"/>
+  </bean>
+  
+  <bean name="/adm/projektgruppen/view" class="ch.bfh.egov.nutzenportfolio.action.ProjektgruppeAction">
+	  <constructor-arg index="0" ref="projektgruppeService"/>
+    <constructor-arg index="1" ref="customizingService"/>
+  </bean>
+  
+  <bean name="/adm/projekte" class="ch.bfh.egov.nutzenportfolio.action.ProjektAction">
+	  <constructor-arg index="0" ref="projektService"/>
+    <constructor-arg index="1" ref="projektgruppeService"/>
+  </bean>
+  
+  <bean name="/adm/projekte/view" class="ch.bfh.egov.nutzenportfolio.action.ProjektAction">
+	  <constructor-arg index="0" ref="projektService"/>
+	  <constructor-arg index="1" ref="projektgruppeService"/>
+  </bean>
+  
+  <bean name="/adm/auswertungen/projektgruppen" class="ch.bfh.egov.nutzenportfolio.action.ProjektgruppeAction">
+	  <constructor-arg index="0" ref="projektgruppeService"/>
+    <constructor-arg index="1" ref="customizingService"/>
+  </bean>
+  
+  <bean name="/adm/auswertungen/projekte/view" class="ch.bfh.egov.nutzenportfolio.action.ProjektAction">
+	  <constructor-arg index="0" ref="projektService"/>
+    <constructor-arg index="1" ref="projektgruppeService"/>
+  </bean>
+  
+  <bean name="/adm/auswertungen/projekte" class="ch.bfh.egov.nutzenportfolio.action.ProjektAction">
+	  <constructor-arg index="0" ref="projektService"/>
+	  <constructor-arg index="1" ref="projektgruppeService"/>
+  </bean>
+  
+  <bean name="/adm/verwaltung/strategischeZiele" class="ch.bfh.egov.nutzenportfolio.action.StrategischeZieleAction">
+ 	  <constructor-arg index="0" ref="strategischeZieleService"/>
+    <constructor-arg index="1" ref="commonService"/>
+    <constructor-arg index="2" ref="customizingService"/>
+    <constructor-arg index="3" ref="detailzieleService"/>
+  </bean>
+  
+  <bean name="/adm/verwaltung/strategischeZiele/view" class="ch.bfh.egov.nutzenportfolio.action.StrategischeZieleAction">
+ 	  <constructor-arg index="0" ref="strategischeZieleService"/>
+    <constructor-arg index="1" ref="commonService"/>
+    <constructor-arg index="2" ref="customizingService"/>
+    <constructor-arg index="3" ref="detailzieleService"/>
+  </bean>
+  
+  <bean name="/adm/verwaltung/detailziele" class="ch.bfh.egov.nutzenportfolio.action.DetailzieleAction">
+    <constructor-arg index="0" ref="detailzieleService"/>
+    <constructor-arg index="1" ref="strategischeZieleService"/>
+    <constructor-arg index="2" ref="commonService"/>
+    <constructor-arg index="3" ref="customizingService"/>
+  </bean>
+  
+  <bean name="/adm/verwaltung/detailziele/view" class="ch.bfh.egov.nutzenportfolio.action.DetailzieleAction">
+    <constructor-arg index="0" ref="detailzieleService"/>
+    <constructor-arg index="1" ref="strategischeZieleService"/>
+    <constructor-arg index="2" ref="commonService"/>
+    <constructor-arg index="3" ref="customizingService"/>
+  </bean>
+  
+  <bean name="/adm/verwaltung/eintrittswahrscheinlichkeiten" class="ch.bfh.egov.nutzenportfolio.action.AuswahlfeldAction">
+    <constructor-arg index="0" ref="auswahlfeldService"/>
+    <constructor-arg index="1" ref="nutzenkriteriumService"/>
+    <constructor-arg index="2" ref="commonService"/>
+    <constructor-arg index="3" ref="customizingService"/>
+    <constructor-arg index="4" ref="strategischeZieleService"/>
+  </bean>
+  
+  <bean name="/adm/verwaltung/eintrittswahrscheinlichkeiten/view" class="ch.bfh.egov.nutzenportfolio.action.AuswahlfeldAction">
+    <constructor-arg index="0" ref="auswahlfeldService"/>
+    <constructor-arg index="1" ref="nutzenkriteriumService"/>
+    <constructor-arg index="2" ref="commonService"/>
+    <constructor-arg index="3" ref="customizingService"/>
+    <constructor-arg index="4" ref="strategischeZieleService"/>
+  </bean>
+  
+  <bean name="/adm/verwaltung/eintrittszeitpunkte" class="ch.bfh.egov.nutzenportfolio.action.AuswahlfeldAction">
+    <constructor-arg index="0" ref="auswahlfeldService"/>
+    <constructor-arg index="1" ref="nutzenkriteriumService"/>
+    <constructor-arg index="2" ref="commonService"/>
+    <constructor-arg index="3" ref="customizingService"/>
+    <constructor-arg index="4" ref="strategischeZieleService"/>
+  </bean>
+  
+  <bean name="/adm/verwaltung/eintrittszeitpunkte/view" class="ch.bfh.egov.nutzenportfolio.action.AuswahlfeldAction">
+    <constructor-arg index="0" ref="auswahlfeldService"/>
+    <constructor-arg index="1" ref="nutzenkriteriumService"/>
+    <constructor-arg index="2" ref="commonService"/>
+    <constructor-arg index="3" ref="customizingService"/>
+    <constructor-arg index="4" ref="strategischeZieleService"/>
+  </bean>
+  
+  <bean name="/adm/verwaltung/abstufungen" class="ch.bfh.egov.nutzenportfolio.action.AuswahlfeldAction">
+    <constructor-arg index="0" ref="auswahlfeldService"/>
+    <constructor-arg index="1" ref="nutzenkriteriumService"/>
+    <constructor-arg index="2" ref="commonService"/>
+    <constructor-arg index="3" ref="customizingService"/>
+    <constructor-arg index="4" ref="strategischeZieleService"/>
+  </bean>
+  
+  <bean name="/adm/verwaltung/abstufungen/view" class="ch.bfh.egov.nutzenportfolio.action.AuswahlfeldAction">
+    <constructor-arg index="0" ref="auswahlfeldService"/>
+    <constructor-arg index="1" ref="nutzenkriteriumService"/>
+    <constructor-arg index="2" ref="commonService"/>
+    <constructor-arg index="3" ref="customizingService"/>
+    <constructor-arg index="4" ref="strategischeZieleService"/>
+  </bean>
+  
+  <bean name="/adm/verwaltung/gewichtungen" class="ch.bfh.egov.nutzenportfolio.action.AuswahlfeldAction">
+    <constructor-arg index="0" ref="auswahlfeldService"/>
+    <constructor-arg index="1" ref="nutzenkriteriumService"/>
+    <constructor-arg index="2" ref="commonService"/>
+    <constructor-arg index="3" ref="customizingService"/>
+    <constructor-arg index="4" ref="strategischeZieleService"/>
+  </bean>
+  
+  <bean name="/adm/verwaltung/gewichtungen/view" class="ch.bfh.egov.nutzenportfolio.action.AuswahlfeldAction">
+    <constructor-arg index="0" ref="auswahlfeldService"/>
+    <constructor-arg index="1" ref="nutzenkriteriumService"/>
+    <constructor-arg index="2" ref="commonService"/>
+    <constructor-arg index="3" ref="customizingService"/>
+    <constructor-arg index="4" ref="strategischeZieleService"/>
+  </bean>
+  
+  <bean name="/adm/verwaltung/kategorien" class="ch.bfh.egov.nutzenportfolio.action.KategorieAction">
+    <constructor-arg index="0" ref="kategorieService"/>
+    <constructor-arg index="1" ref="commonService"/>
+    <constructor-arg index="2" ref="customizingService"/>
+    <constructor-arg index="3" ref="nutzenkriteriumService"/>
+  </bean>
+  
+  <bean name="/adm/verwaltung/kategorien/view" class="ch.bfh.egov.nutzenportfolio.action.KategorieAction">
+    <constructor-arg index="0" ref="kategorieService"/>
+    <constructor-arg index="1" ref="commonService"/>
+    <constructor-arg index="2" ref="customizingService"/>
+    <constructor-arg index="3" ref="nutzenkriteriumService"/>
+  </bean>
+  
+  <bean name="/adm/verwaltung/nutzenkriterien" class="ch.bfh.egov.nutzenportfolio.action.NutzenkriteriumAction">
+    <constructor-arg index="0" ref="nutzenkriteriumService"/>
+    <constructor-arg index="1" ref="auswahlfeldService"/>
+    <constructor-arg index="2" ref="commonService"/>
+    <constructor-arg index="3" ref="kategorieService"/>
+    <constructor-arg index="4" ref="customizingService"/>
+  </bean>
+  
+  <bean name="/adm/verwaltung/nutzenkriterien/view" class="ch.bfh.egov.nutzenportfolio.action.NutzenkriteriumAction">
+    <constructor-arg index="0" ref="nutzenkriteriumService"/>
+    <constructor-arg index="1" ref="auswahlfeldService"/>
+    <constructor-arg index="2" ref="commonService"/>
+    <constructor-arg index="3" ref="kategorieService"/>
+    <constructor-arg index="4" ref="customizingService"/>
+  </bean>
+  
+  <bean name="/adm/benutzer" class="ch.bfh.egov.nutzenportfolio.action.BenutzerAction">
+	  <constructor-arg index="0" ref="benutzerService"/>
+  </bean>
+  
+  <bean name="/adm/benutzer/view" class="ch.bfh.egov.nutzenportfolio.action.BenutzerAction">
+	  <constructor-arg index="0" ref="benutzerService"/>
+  </bean>
+  
+  <bean name="/fragebogen/login/view" class="ch.bfh.egov.nutzenportfolio.action.FragebogenPaAction">
+	  <constructor-arg index="0" ref="fragebogenPaService"/>
+  </bean>
+  
+  <bean name="/fragebogen/projektattraktivitaet/login" class="ch.bfh.egov.nutzenportfolio.action.FragebogenPaAction">
+	  <constructor-arg index="0" ref="fragebogenPaService"/>
+  </bean>
+  
+  <bean
+  		name="/fragebogen/nutzenattraktivitaet/operativer/nutzen/login"
+  		class="ch.bfh.egov.nutzenportfolio.action.FragebogenNaOpNuAction">
+	  <constructor-arg index="0" ref="fragebogenNaOpNuService"/>
+  </bean>
+  
+  <bean name="/fragebogen/projektattraktivitaet" class="ch.bfh.egov.nutzenportfolio.action.FragebogenPaAction">
+	  <constructor-arg index="0" ref="fragebogenPaService"/>
+  </bean>
+  
+  <bean name="/fragebogen/projektattraktivitaet/view" class="ch.bfh.egov.nutzenportfolio.action.FragebogenPaAction">
+	  <constructor-arg index="0" ref="fragebogenPaService"/>
+  </bean>
+  
+  <bean
+  		name="/fragebogen/nutzenattraktivitaet/operativer/nutzen"
+  		class="ch.bfh.egov.nutzenportfolio.action.FragebogenNaOpNuAction">
+	  <constructor-arg index="0" ref="fragebogenNaOpNuService"/>
+  </bean>
+  
+  <bean
+  		name="/fragebogen/nutzenattraktivitaet/operativer/nutzen/view"
+  		class="ch.bfh.egov.nutzenportfolio.action.FragebogenNaOpNuAction">
+	  <constructor-arg index="0" ref="fragebogenNaOpNuService"/>
+  </bean>
+
+  <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+    <property name="driverClassName" value="${driverClassName}"/>
+    <property name="url" value="${url}"/>
+    <property name="username" value="${username}"/>
+    <property name="password" value="${password}"/>
+  </bean>
+
+  <bean id="sqlMapClient"
+			class="org.springframework.orm.ibatis.SqlMapClientFactoryBean">
+    <property name="configLocation">
+      <value>classpath:ch/bfh/egov/nutzenportfolio/persistence/SqlMapConfig.xml</value>
+    </property>
+    <property name="useTransactionAwareDataSource">
+      <value>true</value>
+    </property>
+    <property name="dataSource">
+      <ref bean="dataSource"/>
+    </property>
+  </bean>
+
+  <bean id="sqlMapClientTemplate"
+      class="org.springframework.orm.ibatis.SqlMapClientTemplate">
+    <property name="sqlMapClient">
+      <ref bean="sqlMapClient"/>
+    </property>
+  </bean>
+  
+  <bean id="commonDao" class="ch.bfh.egov.nutzenportfolio.persistence.common.CommonIbatisDao">
+    <property name="sqlMapClient">
+      <ref bean="sqlMapClient"/>
+    </property>
+  </bean>
+
+  <bean id="commonService" class="ch.bfh.egov.nutzenportfolio.service.common.CommonDaoService">
+    <constructor-arg index="0" ref="commonDao"/>
+  </bean>
+
+  <bean id="customizingDao" class="ch.bfh.egov.nutzenportfolio.persistence.customizing.CustomizingIbatisDao">
+    <property name="sqlMapClient">
+      <ref bean="sqlMapClient"/>
+    </property>
+  </bean>
+
+  <bean id="customizingService" class="ch.bfh.egov.nutzenportfolio.service.customizing.CustomizingDaoService">
+    <constructor-arg index="0" ref="customizingDao"/>
+  </bean>
+  
+  <bean id="strategischeZieleDao" class="ch.bfh.egov.nutzenportfolio.persistence.strategischeziele.StrategischeZieleIbatisDao">
+	  <property name="sqlMapClient">
+	    <ref bean="sqlMapClient"/>
+	  </property>
+  </bean>
+
+  <bean id="strategischeZieleService" class="ch.bfh.egov.nutzenportfolio.service.strategischeziele.StrategischeZieleDaoService">
+    <constructor-arg index="0" ref="strategischeZieleDao"/>
+  </bean>
+  
+  <bean id="detailzieleDao" class="ch.bfh.egov.nutzenportfolio.persistence.detailziele.DetailzieleIbatisDao">
+    <property name="sqlMapClient">
+      <ref bean="sqlMapClient"/>
+    </property>
+  </bean>
+
+  <bean id="detailzieleService" class="ch.bfh.egov.nutzenportfolio.service.detailziele.DetailzieleDaoService">
+    <constructor-arg index="0" ref="detailzieleDao"/>
+  </bean>
+  
+  <bean id="auswahlfeldDao" class="ch.bfh.egov.nutzenportfolio.persistence.auswahlfeld.AuswahlfeldIbatisDao">
+    <property name="sqlMapClient">
+      <ref bean="sqlMapClient"/>
+    </property>
+  </bean>
+
+  <bean id="auswahlfeldService" class="ch.bfh.egov.nutzenportfolio.service.auswahlfeld.AuswahlfeldDaoService">
+    <constructor-arg index="0" ref="auswahlfeldDao"/>
+  </bean>
+  
+  <bean id="kategorieDao" class="ch.bfh.egov.nutzenportfolio.persistence.kategorie.KategorieIbatisDao">
+    <property name="sqlMapClient">
+      <ref bean="sqlMapClient"/>
+    </property>
+  </bean>
+
+  <bean id="kategorieService" class="ch.bfh.egov.nutzenportfolio.service.kategorie.KategorieDaoService">
+    <constructor-arg index="0" ref="kategorieDao"/>
+  </bean>
+  
+  <bean id="nutzenkriteriumDao" class="ch.bfh.egov.nutzenportfolio.persistence.nutzenkriterium.NutzenkriteriumIbatisDao">
+    <property name="sqlMapClient">
+      <ref bean="sqlMapClient"/>
+    </property>
+  </bean>
+
+  <bean id="nutzenkriteriumService" class="ch.bfh.egov.nutzenportfolio.service.nutzenkriterium.NutzenkriteriumDaoService">
+    <constructor-arg index="0" ref="nutzenkriteriumDao"/>
+  </bean>
+  
+  <bean id="projektgruppeDao" class="ch.bfh.egov.nutzenportfolio.persistence.projektgruppe.ProjektgruppeIbatisDao">
+    <property name="sqlMapClient">
+      <ref bean="sqlMapClient"/>
+    </property>
+  </bean>
+
+  <bean id="projektgruppeService" class="ch.bfh.egov.nutzenportfolio.service.projektgruppe.ProjektgruppeDaoService">
+      <constructor-arg index="0" ref="projektgruppeDao"/>
+  </bean>
+  
+  <bean id="projektDao" class="ch.bfh.egov.nutzenportfolio.persistence.projekt.ProjektIbatisDao">
+    <property name="sqlMapClient">
+      <ref bean="sqlMapClient"/>
+    </property>
+  </bean>
+
+  <bean id="projektService" class="ch.bfh.egov.nutzenportfolio.service.projekt.ProjektDaoService">
+      <constructor-arg index="0" ref="projektDao"/>
+      <constructor-arg index="1" ref="projektgruppeService"/>
+      <constructor-arg index="2" ref="fragebogenNaOpNuDao"/>
+  </bean>
+  
+  <bean id="benutzerDao" class="ch.bfh.egov.nutzenportfolio.persistence.benutzer.BenutzerIbatisDao">
+    <property name="sqlMapClient">
+      <ref bean="sqlMapClient"/>
+    </property>
+  </bean>
+
+  <bean id="benutzerService" class="ch.bfh.egov.nutzenportfolio.service.benutzer.BenutzerDaoService">
+      <constructor-arg index="0" ref="benutzerDao"/>
+  </bean>
+  
+  <bean id="fragebogenPaDao" class="ch.bfh.egov.nutzenportfolio.persistence.fragebogen.ProjektattraktivitaetIbatisDao">
+    <property name="sqlMapClient">
+      <ref bean="sqlMapClient"/>
+    </property>
+  </bean>
+
+  <bean id="fragebogenPaService" class="ch.bfh.egov.nutzenportfolio.service.fragebogen.ProjektattraktivitaetDaoService">
+    <constructor-arg index="0" ref="fragebogenPaDao"/>
+    <constructor-arg index="1" ref="projektService"/>      
+    <constructor-arg index="2" ref="strategischeZieleService"/>
+    <constructor-arg index="3" ref="detailzieleService"/>
+    <constructor-arg index="4" ref="auswahlfeldService"/>
+    <constructor-arg index="5" ref="customizingService"/>
+  </bean>
+  
+  <bean id="fragebogenNaOpNuDao" class="ch.bfh.egov.nutzenportfolio.persistence.fragebogen.NaOpNuIbatisDao">
+    <property name="sqlMapClient">
+      <ref bean="sqlMapClient"/>
+    </property>
+  </bean>
+
+  <bean id="fragebogenNaOpNuService" class="ch.bfh.egov.nutzenportfolio.service.fragebogen.NaOpNuDaoService">
+    <constructor-arg index="0" ref="fragebogenNaOpNuDao"/>
+    <constructor-arg index="1" ref="projektService"/>      
+    <constructor-arg index="2" ref="kategorieService"/>
+    <constructor-arg index="3" ref="nutzenkriteriumService"/>
+    <constructor-arg index="4" ref="auswahlfeldService"/>
+  </bean>
+
+</beans>

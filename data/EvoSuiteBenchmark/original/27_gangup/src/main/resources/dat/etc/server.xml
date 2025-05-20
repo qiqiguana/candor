@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!DOCTYPE config [
+<!ELEMENT config (section*)>
+<!ATTLIST section 
+	  id	ID	#IMPLIED
+	  name	CDATA	#REQUIRED
+>
+<!ELEMENT section (variable*)>
+<!ELEMENT variable EMPTY>
+<!ATTLIST variable
+	  id	ID	#IMPLIED
+	  name	CDATA	#REQUIRED
+	  value	CDATA	#REQUIRED
+	  options 	CDATA	#IMPLIED
+	  description	CDATA	"No description"
+>
+]>
+
+<config>
+
+ <!-- Kernel Configuration -->
+
+ <section id="kernel" name="Kernel">
+  <variable name="autoload" value="module.ServerNetworkModule,module.GameModule,module.Logger"/>
+ </section>
+
+ <!-- Server Configuration -->
+
+ <section name="ServerNetwork">
+  <variable name="port" value="1119"/>
+ </section>
+
+ <!-- GameModule Configuration -->
+
+ <section name="GameModule">
+  <variable name="mintimemove" value="5000" description="Minimum time to wait between attacking two persons."/>
+  <variable name="strengthpow" value="1" description="In a fight the gangs' strength will be raised to this value before compared."/>
+  <variable name="warmuptime" value="3000" description="Duration of warmup time in milliseconds."/>
+  <variable name="rounds" value="2" description="Amount of rounds per game."/>
+  <variable name="moneyval" value="150" description="Money. See moneytype variable."/>
+  <variable name="moneytype" value="firstrank" options="total,firstplace" description="If set to total option money is the total amount of money dealt out. If set to firstplace it's the amount of money the no 1 ranked will get."/>
+  <variable name="minstrength" value="1" description="Minimum player strength."/>
+  <variable name="maxstrength" value="10" description="Maximum player strength."/>
+ </section>
+
+ <!-- GameState Configuration -->
+
+ <section name="GameState">
+  <variable name="max_players" value="32"/>
+ </section>
+
+ <!-- IRCProxy Configuration -->
+
+ <section name="IRCProxy">
+  <variable name="nick"    value="hurricaneboy"/>
+  <variable name="server"  value="irc.quakenet.org"/>
+  <variable name="port"    value="6667"/>
+  <variable name="channel" value="#gangup"/>
+ </section>
+
+ <!-- PlayerData Configuration -->
+
+ <section name="PlayerData">
+  <variable name="playerdatafile"	 value="dat/etc/playerdata.txt"/>
+ </section>
+
+ <!-- Logger information -->
+
+ <section name="Logger">
+  <variable name="logdir" value="log"/>
+ </section>
+
+</config>

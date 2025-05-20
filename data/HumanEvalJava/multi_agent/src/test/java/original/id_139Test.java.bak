@@ -1,0 +1,35 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of SpecialFactorial.
+*/
+class SpecialFactorialTest {
+    @Test
+    void testSpecialFactorial_With4_Returns288() {
+        // Arrange
+        int input = 4;
+        long expected = 288;
+        
+        // Act
+        long actual = SpecialFactorial.specialFactorial(input);
+        
+        // Assert
+        assertEquals(expected, actual);
+    }
+    @Test
+    public void testSpecialFactorialClassInitialization() {
+        assertDoesNotThrow(() -> new SpecialFactorial());
+    }
+    @Test
+    public void testSpecialFactorialWithPositiveInteger() {
+        long result = SpecialFactorial.specialFactorial(5);
+        assertEquals(34560L, result);
+    }
+    @Test
+    public void testSpecialFactorialWithBoundaryValue1() {
+        long result = SpecialFactorial.specialFactorial(1);
+        assertEquals(1L, result);
+    }
+}

@@ -1,0 +1,45 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of RoundedAvg.
+*/
+class RoundedAvgTest {
+    @Test
+    void testRoundedAvg_nLessThanM() {
+        Object result = RoundedAvg.roundedAvg(1, 5);
+        assertEquals("0b11", result);
+    }
+    
+    @Test
+        void testNothing(){
+            RoundedAvg s = new RoundedAvg();
+            }
+    @Test
+    public void testRoundedAverageWithNLessThanM() {
+        Object result = RoundedAvg.roundedAvg(1, 5);
+        assertEquals("0b11", result);
+    }
+    @Test
+    public void testRoundedAverageWithNGreaterThanM() {
+        Object result = RoundedAvg.roundedAvg(7, 5);
+        assertEquals(-1, result);
+    }
+    @Test
+    public void testRoundedAverageWithNEqualM() {
+        Object result = RoundedAvg.roundedAvg(5, 5);
+        assertEquals("0b101", result);
+    }
+    @Test
+    public void testRoundedAverageWithLargeNumbers() {
+        Object result = RoundedAvg.roundedAvg(560, 851);
+        assertEquals("0b1011000010", result);
+    }
+    @Test
+    public void testRoundedAverageWithNegativeReturnValue() {
+        Object result = RoundedAvg.roundedAvg(5, 1);
+        assertEquals(-1, result);
+    }
+                                    
+}

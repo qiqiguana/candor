@@ -1,0 +1,78 @@
+;; name: bw-ran-problems.5.lisp
+;; #blocks: 5
+;; seed:948169917
+;;---------------------------------------------
+;;problem-name: bw-ran-5-1 towers: 3
+
+(defproblem bw-ran-5-1 blocks-normal
+ ((arm-empty)
+ (on-table b1) (clear b1)
+ (on-table b2) (on b4 b2) (clear b4)
+ (on-table b3) (on b5 b3) (clear b5)
+ )
+ ((achieve-goals ( list 
+ (on-table b1) (on b3 b1) (clear b3)
+ (on-table b2) (on b4 b2) (on b5 b4) (clear b5)
+ ))))
+
+
+;;---------------------------------------------
+;;problem-name: bw-ran-5-2 towers: 3
+
+(defproblem bw-ran-5-2 blocks-normal
+ ((arm-empty)
+ (on-table b1) (on b2 b1) (on b3 b2) (clear b3)
+ (on-table b4) (clear b4)
+ (on-table b5) (clear b5)
+ )
+ ((achieve-goals ( list 
+ (on-table b1) (on b2 b1) (clear b2)
+ (on-table b3) (on b4 b3) (on b5 b4) (clear b5)
+ ))))
+
+
+;;---------------------------------------------
+;;problem-name: bw-ran-5-3 towers: 3
+
+(defproblem bw-ran-5-3 blocks-normal
+ ((arm-empty)
+ (on-table b1) (on b2 b1) (clear b2)
+ (on-table b3) (clear b3)
+ (on-table b4) (on b5 b4) (clear b5)
+ )
+ ((achieve-goals ( list 
+ (on-table b1) (on b2 b1) (on b3 b2) (clear b3)
+ (on-table b4) (on b5 b4) (clear b5)
+ ))))
+
+
+;;---------------------------------------------
+;;problem-name: bw-ran-5-4 towers: 3
+
+(defproblem bw-ran-5-4 blocks-normal
+ ((arm-empty)
+ (on-table b1) (on b2 b1) (on b3 b2) (clear b3)
+ (on-table b4) (clear b4)
+ (on-table b5) (clear b5)
+ )
+ ((achieve-goals ( list 
+ (on-table b1) (on b2 b1) (on b4 b2) (on b5 b4) (clear b5)
+ (on-table b3) (clear b3)
+ ))))
+
+
+;;---------------------------------------------
+;;problem-name: bw-ran-5-5 towers: 1
+
+(defproblem bw-ran-5-5 blocks-normal
+ ((arm-empty)
+ (on-table b1) (on b2 b1) (on b3 b2) (on b4 b3) (on b5 b4) (clear b5)
+ )
+ ((achieve-goals ( list 
+ (on-table b1) (on b2 b1) (on b3 b2) (clear b3)
+ (on-table b4) (clear b4)
+ (on-table b5) (clear b5)
+ ))))
+
+
+

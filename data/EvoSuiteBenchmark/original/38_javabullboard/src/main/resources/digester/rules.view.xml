@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+
+<digester-rules>
+   <object-create-rule pattern="view" classname="framework.persistence.jdbc.View" />
+
+   <set-properties-rule pattern="view">
+      <alias attr-name="name" prop-name="name" />
+      <alias attr-name="packageName" prop-name="packageName" />
+      <alias attr-name="targetClassName" prop-name="targetClassName" />
+      <alias attr-name="version" prop-name="version" />
+      <alias attr-name="timestamp" prop-name="timestamp" />
+   </set-properties-rule>
+
+   <pattern value="view">
+      <call-method-rule pattern="comment" methodname="setComment"
+	                paramcount="0" />
+   </pattern>
+
+   <pattern value="view">
+      <call-method-rule pattern="sqlQuery" methodname="setSqlQuery"
+	                paramcount="0" />
+   </pattern>
+
+   <set-properties-rule pattern="view/valueListHandler">
+      <alias attr-name="retrieveRowCount" prop-name="retrieveRowCount" />
+      <alias attr-name="rowCountMethod" prop-name="rowCountMethod" />
+      <alias attr-name="rowsPerPage" prop-name="rowsPerPage" />
+   </set-properties-rule>
+
+   <set-properties-rule pattern="view/tuning">
+      <alias attr-name="maxFetchSize" prop-name="maxFetchSize" />
+   </set-properties-rule>
+
+   <pattern value="view/attribute">
+      <object-create-rule classname="framework.persistence.jdbc.Attribute" />
+      <call-method-rule pattern="name" methodname="setName"
+	                paramcount="0" />
+      <call-method-rule pattern="columnName" methodname="setColumnName" 
+	                paramcount="0" />
+      <call-method-rule pattern="columnClassName" methodname="setColumnClassName" 
+	                paramcount="0" />
+      <call-method-rule pattern="columnType" methodname="setColumnType"
+	                paramcount="0" />
+      <call-method-rule pattern="columnTypeName" methodname="setColumnTypeName"
+	                paramcount="0" />
+      <call-method-rule pattern="precision" methodname="setPrecision"
+	                paramcount="0" />
+      <call-method-rule pattern="scale" methodname="setScale"
+	                paramcount="0" />
+      <call-method-rule pattern="isNullable" methodname="setNullable"
+	                paramcount="0" />
+      <set-next-rule methodname="addAttribute" />
+   </pattern>
+
+</digester-rules>

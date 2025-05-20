@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<messages>
+    <message id="ADT_MED">
+		<description>
+			ADT MED
+		</description>
+		<group>
+			<segment id="MSH"/>
+			<segment id="EVN"/>
+            <segment id="PID"/>
+            <segment id="ROL" repeatable="Y" required="N"/>
+            <segment id="NK1" repeatable="Y" required="N"/>
+            <segment id="PV1"/>
+            <segment id="PV2" required="N"/>
+            <segment id="ROL" repeatable="Y" required="N"/>
+            <segment id="DB1" repeatable="Y" required="N"/>
+            <segment id="OBX" repeatable="Y" required="N"/>
+            <segment id="AL1" repeatable="Y" required="N"/>
+            <segment id="DG1" repeatable="Y" required="N"/>
+            <segment id="DRG" required="N"/>
+            <group repeatable="Y" required="N">
+				<segment id="PR1" required="N"/>
+				<segment id="ROL" repeatable="Y" required="N"/>
+            </group>
+            <!--
+            <segment id="GT1" repeatable="Y"  required="N"/>
+            <group repeatable="Y" required="N">
+				<segment id="IN1"/>
+                <segment id="IN2" required="N"/>
+                <segment id="IN3" required="N" repeatable="Y"/>
+                <segment id="ROL" repeatable="Y" required="N"/>
+            </group>
+            <segment id="ACC" required="N"/>
+            <segment id="UB1" required="N"/>
+            <segment id="UB2" required="N"/>
+            <segment id="PDA" required="N"/>
+              -->
+        </group>
+    </message>
+    <message id="ORU_MED">
+		<description>
+			Unsolicited Transmission of an Observation
+		</description>
+		<group>
+			<segment id="MSH"/>
+			<group repeatable="Y">
+				<group required="N">
+					<segment id="PID"/>
+					<segment id="PD1" required="N"/>
+					<segment id="NK1" repeatable="Y" required="N"/>
+					<segment id="NTE" repeatable="Y" required="N"/>
+					<group required="N">
+						<segment id="PV1"/>
+						<segment id="PV2" required="N"/>
+					</group>
+				</group>
+				<group repeatable="Y">
+					<segment id="ORC" required="N"/>
+					<segment id="OBR"/>
+					<segment id="NTE" repeatable="Y" required="N"/>
+					<group repeatable="Y">
+						<segment id="OBX" required="N"/>
+						<segment id="NTE" repeatable="Y" required="N"/>
+					</group>
+					<segment id="ZPS" repeatable="Y" required="N"/>
+				</group>
+
+			</group>
+		</group>
+	</message>
+</messages>

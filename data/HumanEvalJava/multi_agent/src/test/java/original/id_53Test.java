@@ -1,0 +1,84 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of Add.
+*/
+class AddTest {
+    @Test
+    void testAddTwoPositiveNumbers() {
+        int x = 5;
+        int y = 10;
+        assertEquals(15, Add.add(x, y));
+    }
+    @Test
+    public void TestAddTwoNegativeNumbers() {
+        assertEquals("-8", Integer.toString(add(-3, -5)));
+    }
+    @Test
+    public void TestAddPositiveAndNegativeNumber() {
+        assertEquals("5", Integer.toString(add(7, -2)));
+    }
+    @Test
+    public void TestAddZeroToNumber() {
+        assertEquals("5", Integer.toString(add(0, 5)));
+    }
+    @Test
+    public void TestAddZeroToZero() {
+        assertEquals("0", Integer.toString(add(0, 0)));
+    }
+    @Test
+    public void add_ZeroToMaxValue_ReturnsCorrectResult() {
+        // Arrange
+        int x = 2147483647;
+        int y = 0;
+        int expectedResult = 2147483647;
+        // Act
+        int result = add(x, y);
+        // Assert
+        assertEquals(expectedResult, result);
+    }
+    @Test
+    public void add_ZeroToMinValue_ReturnsCorrectResult() {
+        // Arrange
+        int x = -2147483648;
+        int y = 0;
+        int expectedResult = -2147483648;
+        // Act
+        int result = add(x, y);
+        // Assert
+        assertEquals(expectedResult, result);
+    }
+    @Test
+    public void test_add_OVerflow_ReturnsCorrectResult() {
+        assertEquals(-2147483648, add(2147483647, 1));
+    }
+    @Test
+    public void test_add_Underflow_ReturnsCorrectResult() {
+        assertEquals(2147483647, add(-2147483648, -1));
+    }
+    @Test
+    public void TestAddTwoPositiveNumbers() {
+    	assertEquals(15, add(5,10));
+    }
+    @Test
+    public void TestAddZeroToMaxValue() {
+    	assertEquals(2147483647, add(Integer.MAX_VALUE, 0));
+    }
+    @Test
+    public void TestAddZeroToMinValue() {
+    	assertEquals(Integer.MIN_VALUE, add(Integer.MIN_VALUE, 0));
+    }
+    @Test
+    public void TestOverflow() {
+    	assertEquals(Integer.MIN_VALUE, add(Integer.MAX_VALUE, 1));
+    }
+    @Test
+    public void TestUnderflow() {
+    	assertEquals(Integer.MAX_VALUE, add(Integer.MIN_VALUE, -1));
+    }
+    public static int add(int x, int y) {
+            return x + y;
+    }
+}

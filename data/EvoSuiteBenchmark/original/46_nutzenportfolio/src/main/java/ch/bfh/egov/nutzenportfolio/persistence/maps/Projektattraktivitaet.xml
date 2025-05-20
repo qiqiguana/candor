@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="Projektattraktivitaet">
+
+  <typeAlias
+  		alias="ProjektattraktivitaetObject"
+		  type="ch.bfh.egov.nutzenportfolio.tos.Projektattraktivitaet"/>
+  <typeAlias
+  		alias="ProjektattraktivitaetLineObject"
+  		type="ch.bfh.egov.nutzenportfolio.common.ProjektattraktivitaetLine"/>
+
+  <resultMap id="projektattraktivitaetResult" class="ProjektattraktivitaetObject">
+    <result property="projektattraktivitaetResultatId"	column="projektattraktivitaetResultatId"/>
+    <result property="customizingId"										column="customizingId"/>
+    <result property="projektId"												column="projektId"/>
+    <result property="email"														column="email"/>
+	  <result property="resultat"													column="resultat"/>
+  </resultMap>
+  
+  <resultMap id="projektattraktivitaetUIDResult" class="ProjektattraktivitaetObject">
+    <result property="projektattraktivitaetId"	column="projektattraktivitaetId"/>
+    <result property="customizingId"						column="customizingId"/>
+	  <result property="paUID"										column="paUID"/>
+  </resultMap>
+  
+  <select
+  		id="getByEmail"
+  		resultMap="projektattraktivitaetResult"
+  		parameterClass="ProjektattraktivitaetObject">
+	  SELECT
+	  	projektattraktivitaetResultatId, customizingId, projektId, email, resultat
+	  FROM ProjektattraktivitaetResultat
+	  WHERE
+	  	projektId = #projektId# AND
+	  	email LIKE #email#
+  </select>
+  
+  <select
+  		id="getByUID"
+  		resultMap="projektattraktivitaetUIDResult"
+  		parameterClass="java.lang.Long">
+	  SELECT
+	  	projektattraktivitaetId, customizingId, paUID
+	  FROM Projektattraktivitaet
+	  WHERE paUID = #value#
+  </select>
+
+  <insert
+  		id="insertProjektattraktivitaetResultat"
+  		parameterClass="ProjektattraktivitaetObject">
+    INSERT INTO ProjektattraktivitaetResultat
+    	(customizingId, projektId, email, resultat)
+    VALUES
+    	(#customizingId#, #projektId#, #email#, #resultat#)
+    <selectKey resultClass="java.lang.Integer" keyProperty="projektattraktivitaetResultatId">
+			SELECT LAST_INSERT_ID() AS projektattraktivitaetResultatId
+		</selectKey>
+  </insert>
+  
+  <delete id="deleteAssignments" parameterClass="java.lang.Integer">
+    DELETE
+    FROM ProjektattraktivitaetResultat
+    WHERE customizingId = #value#
+  </delete>
+
+</sqlMap>

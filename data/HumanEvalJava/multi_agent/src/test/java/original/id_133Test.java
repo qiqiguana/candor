@@ -1,0 +1,35 @@
+package original;
+
+import static org.junit.jupiter.api.Assertions.assertEquals; import java.util.Arrays;
+import java.util.List;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.ArrayList;
+/**
+* Test class of SumSquares.
+*/
+class SumSquaresTest {
+    @Test
+    void testSumSquaresCeilingValue() {
+        List<Number> numbers = new ArrayList<>();
+        numbers.add(1.4);
+        numbers.add(4.2);
+        numbers.add(0);
+        int expected = 29;
+        assertEquals(expected, SumSquares.sumSquares(numbers));
+    }
+    @Test
+    void testSumSquaresInstantiation() {
+        assertDoesNotThrow(() -> new SumSquares());
+    }
+    @Test
+    void testSumSquaresEmptyList() {
+        List<Number> input = new ArrayList<>();
+        assertEquals(0, SumSquares.sumSquares(input));
+    }
+    public void testSumSquaresWithEmptyList() { List<Number> lst = Arrays.asList(); int result = SumSquares.sumSquares(lst); assertEquals(0, result); }
+    public void testSumSquaresWithZero() { List<Number> lst = Arrays.asList(0); int result = SumSquares.sumSquares(lst); assertEquals(0, result); }
+    public void testSumSquaresWithDecimalNumbers() { List<Number> lst = Arrays.asList(1.4, 2.5, 3.6); int result = SumSquares.sumSquares(lst); assertEquals(29, result); }
+    public void testSumSquaresWithNegativeNumbers() { List<Number> lst = Arrays.asList(-1, -2, -3); int result = SumSquares.sumSquares(lst); assertEquals(14, result); }
+    public void testSumSquaresWithPositiveNumbers() { List<Number> lst = Arrays.asList(1, 2, 3); int result = SumSquares.sumSquares(lst); assertEquals(14, result); }
+}

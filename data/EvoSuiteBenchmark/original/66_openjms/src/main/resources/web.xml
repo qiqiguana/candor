@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!DOCTYPE web-app
+        PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+        "http://java.sun.com/dtd/web-app_2_3.dtd">
+
+<web-app>
+
+    <display-name>OpenJMS HTTP tunnel</display-name>
+
+    <servlet>
+        <servlet-name>TunnelServlet</servlet-name>
+        <servlet-class>org.exolab.jms.net.tunnel.TunnelServlet</servlet-class>
+
+        <init-param>
+            <param-name>host</param-name>
+            <param-value>localhost</param-value>
+            <description>The host the OpenJMS server is running on</description>
+        </init-param>
+        <init-param>
+            <param-name>port</param-name>
+            <param-value>3030</param-value>
+            <description>The port the OpenJMS server is listening on</description>
+        </init-param>
+        <init-param>
+          <param-name>readTimeout</param-name>
+          <param-value>30</param-value>
+          <description>The maximum period of time a connection may wait to read
+            data before returning, in seconds. A value of 0 indicates to block
+            indefinitely.
+            Note that while a connection is blocking, this is using one
+            webserver thread.
+          </description>
+        </init-param>
+        <init-param>
+            <param-name>idlePeriod</param-name>
+            <param-value>300</param-value>
+            <description>The maximum period of time a connection may be idle
+                         before being reaped, in seconds.
+                         A value of 0 disables connection reaping.
+            </description>
+        </init-param>
+        <load-on-startup>0</load-on-startup>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>TunnelServlet</servlet-name>
+        <url-pattern>/tunnel</url-pattern>
+    </servlet-mapping>
+
+</web-app>

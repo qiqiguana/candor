@@ -1,0 +1,47 @@
+<!--
+  ~ Copyright (C) 2010-2011 VTT Technical Research Centre of Finland.
+  ~
+  ~ This library is free software; you can redistribute it and/or
+  ~ modify it under the terms of the GNU Lesser General Public
+  ~ License as published by the Free Software Foundation;
+  ~ version 2.1 of the License.
+  ~
+  ~ This library is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+  ~ Lesser General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU Lesser General Public
+  ~ License along with this library; if not, write to the Free Software
+  ~ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+  -->
+
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+             version="2.0">
+  <persistence-unit name="mfw-persistence-manager" transaction-type="RESOURCE_LOCAL">
+    <provider>org.hibernate.ejb.HibernatePersistence</provider>
+    <class>fi.vtt.noen.mfw.bundle.server.shared.datamodel.BMDescription</class>
+    <class>fi.vtt.noen.mfw.bundle.server.shared.datamodel.ProbeDescription</class>
+    <class>fi.vtt.noen.mfw.bundle.server.shared.datamodel.TargetDescription</class>
+    <class>fi.vtt.noen.mfw.bundle.server.shared.datamodel.Value</class>
+    <class>fi.vtt.noen.mfw.bundle.server.shared.datamodel.ServerEvent</class>
+    <exclude-unlisted-classes/>
+    <properties>
+      <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect"/>
+      <property name="hibernate.hbm2ddl.auto" value="update"/>
+      <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
+      <property name="hibernate.connection.url" value="jdbc:mysql://localhost/mfw_db"/>
+      <property name="hibernate.connection.username" value="noen-mfw"/>
+      <property name="hibernate.connection.password" value="tru4A7rU"/>
+      <property name="hibernate.connection.pool_size" value="5"/>
+      <property name="hibernate.connection.autocommit" value="false"/>
+      <property name="hibernate.cache.provider_class" value="org.hibernate.cache.NoCacheProvider"/>
+      <property name="hibernate.id.new_generator_mappings" value="true"/>
+      <property name="hibernate.show_sql" value="false"/>
+      <property name="hibernate.transaction.factory_class" value="org.hibernate.transaction.JDBCTransactionFactory"/>
+      <property name="hibernate.current_session_context_class" value="thread"/>
+    </properties>
+  </persistence-unit>
+</persistence>

@@ -1,0 +1,31 @@
+package original;
+
+import org.junit.jupiter.api.Test; import static org.junit.jupiter.api.Assertions.assertFalse;
+import org.junit.jupiter.api.Test; import static org.junit.jupiter.api.Assertions.assertTrue;
+import java.util.ArrayList;
+
+import java.util.Collections;
+
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of IsNested.
+*/
+class IsNestedTest {
+    @Test
+void testIsNested1() {
+assertThrows(ClassCastException.class, () -> ((ArrayList<Integer>) (Object) Collections.singletonList(1)).get(0));
+}
+    @Test
+    public void testValidNestedBracketSequenceWithOneLayer() {
+        boolean result = IsNested.isNested("[[]]");
+        assertTrue(result);
+    }
+    @Test void testIsNested() { assertTrue(IsNested.isNested("[[]]")); }
+    @Test void testIsNotNested() { assertFalse(IsNested.isNested("[][]")); }
+    @Test void testSingleBracket() { assertFalse(IsNested.isNested("[]")); }
+    @Test void testEmptyString() { assertFalse(IsNested.isNested("")); }
+    @Test void testMultipleNestedBrackets() { assertTrue(IsNested.isNested("[[][]]")); }
+    @Test void testNonMatchingBrackets() { assertFalse(IsNested.isNested("[)]")); }
+}

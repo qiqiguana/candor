@@ -1,0 +1,470 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
+<html>
+<head>
+<title>
+com.pmdesigns.jvc.tools.TokenMgrError
+</title>
+<link href="files/prettify.css" type="text/css" rel="stylesheet" />
+<link href="files/style.css" rel="stylesheet" type="text/css" media="screen"/>
+<script type="text/javascript" src="files/prettify.js"></script>
+<script type="text/javascript" src="files/jquery.js"></script>
+<script type="text/javascript" src="files/foldButton.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('H2#tests').foldButton();
+    $('H2#source').foldButton();
+    $('H2#parameters').foldButton();
+  });</script>
+<link href="files/foldButton.css" rel="stylesheet" type="text/css">
+</head>
+<body onload="prettyPrint()">
+<div id="wrapper">
+<img src="files/evosuite.png" height="40"/>
+<br><br><h2 class=title>Summary</h2>
+<ul><li>Target class: com.pmdesigns.jvc.tools.TokenMgrError: 90.63%</ul><ul>
+<li>26336 fitness evaluations, 528 generations, 172807 statements, 18060 tests.
+<li>Time: 0:05:01(Search: 0:05:01, minimization: 0:00:00)
+<li>Coverage: 25/28 branches, 6/6 methods, 29/32 total goals
+<li>Mutation score: 91%
+</ul>
+<div id="page"><div id="page-bgtop"><div id="page-bgbtm"><div id="content"><div id="post"><h2 class=title id=tests>Test suite</h2>
+<div class=tests>
+<h3>Test case 1</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>TokenMgrError tokenMgrError0 = new TokenMgrError(false, 1200, 1200, 1200, &quot;&quot;, '\f', (int) '\f');
+<span class="nocode"><a name="2">  2: </a></span>assertNotNull(tokenMgrError0);
+<span class="nocode"><a name="3">  3: </a></span>
+<span class="nocode"><a name="4">  4: </a></span>String string0 = tokenMgrError0.getLocalizedMessage();
+<span class="nocode"><a name="5">  5: </a></span>assertEquals(&quot;com.pmdesigns.jvc.tools.TokenMgrError: Lexical error at line 1200, column 1200.  Encountered: \&quot;\\f\&quot; (12), after : \&quot;\&quot;&quot;, tokenMgrError0.toString());
+<span class="nocode"><a name="6">  6: </a></span>assertEquals(12, tokenMgrError0.errorCode);
+<span class="nocode"><a name="7">  7: </a></span>assertEquals(&quot;Lexical error at line 1200, column 1200.  Encountered: \&quot;\\f\&quot; (12), after : \&quot;\&quot;&quot;, string0);
+</pre>
+<h3>Test case 2</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>TokenMgrError tokenMgrError0 = new TokenMgrError();
+<span class="nocode"><a name="2">  2: </a></span>assertEquals(&quot;com.pmdesigns.jvc.tools.TokenMgrError&quot;, tokenMgrError0.toString());
+</pre>
+<h3>Test case 3</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>TokenMgrError tokenMgrError0 = new TokenMgrError(false, 1194, 1194, 1194, &quot;LexicalRerror at line &quot;, '\u0000', (int) '\u0000');
+<span class="nocode"><a name="2">  2: </a></span>assertNotNull(tokenMgrError0);
+<span class="nocode"><a name="3">  3: </a></span>assertEquals(0, tokenMgrError0.errorCode);
+<span class="nocode"><a name="4">  4: </a></span>assertEquals(&quot;com.pmdesigns.jvc.tools.TokenMgrError: Lexical error at line 1194, column 1194.  Encountered: \&quot;\&quot; (0), after : \&quot;LexicalRerror at line \&quot;&quot;, tokenMgrError0.toString());
+</pre>
+<h3>Test case 4</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>String string0 = TokenMgrError.LexicalError(false, (-1268), (-1268), (-1268), &quot;UM}+*E67_=#%,&quot;, '\b');
+<span class="nocode"><a name="2">  2: </a></span>assertEquals(&quot;Lexical error at line -1268, column -1268.  Encountered: \&quot;\\b\&quot; (8), after : \&quot;UM}+*E67_=\\u007f#%,\&quot;&quot;, string0);
+<span class="nocode"><a name="3">  3: </a></span>assertNotNull(string0);
+</pre>
+<h3>Test case 5</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>String string0 = TokenMgrError.LexicalError(false, (-1287), (-1287), (-1287), &quot;Lexical error at line &quot;, '\t');
+<span class="nocode"><a name="2">  2: </a></span>assertEquals(&quot;Lexical error at line -1287, column -1287.  Encountered: \&quot;\\t\&quot; (9), after : \&quot;Lexical error at line \&quot;&quot;, string0);
+<span class="nocode"><a name="3">  3: </a></span>assertNotNull(string0);
+</pre>
+<h3>Test case 6</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>String string0 = TokenMgrError.LexicalError(false, (int) '\f', (int) '\f', 1200, &quot;Lexical error at line 1200, column 1200.  Encountered: \&quot;\f\&quot; (12), after : \&quot;\&quot;&quot;, '\f');
+<span class="nocode"><a name="2">  2: </a></span>assertEquals(&quot;Lexical error at line 12, column 1200.  Encountered: \&quot;\\f\&quot; (12), after : \&quot;Lexical error at line 1200, column 1200.  Encountered: \\\&quot;\\f\\\&quot; (12), after : \\\&quot;\\\&quot;\&quot;&quot;, string0);
+<span class="nocode"><a name="3">  3: </a></span>assertNotNull(string0);
+</pre>
+<h3>Test case 7</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>TokenMgrError tokenMgrError0 = null;
+<span class="nocode"><a name="2">  2: </a></span>try {
+<span class="nocode"><a name="3">  3: </a></span>  tokenMgrError0 = new TokenMgrError(false, (-857), (-857), (-857), (String) null, '\'', (-857));
+<span class="nocode"><a name="4">  4: </a></span>  fail(&quot;Expecting exception: NullPointerException&quot;);
+<span class="nocode"><a name="5">  5: </a></span>} catch(NullPointerException e) {
+<span class="nocode"><a name="6">  6: </a></span>}
+</pre>
+<h3>Test case 8</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>TokenMgrError tokenMgrError0 = new TokenMgrError(false, 1209, 1209, 1209, &quot;LexicalRerror at line &quot;, '\u0007', (int) '\u0007');
+<span class="nocode"><a name="2">  2: </a></span>assertEquals(7, tokenMgrError0.errorCode);
+<span class="nocode"><a name="3">  3: </a></span>assertNotNull(tokenMgrError0);
+<span class="nocode"><a name="4">  4: </a></span>assertEquals(&quot;com.pmdesigns.jvc.tools.TokenMgrError: Lexical error at line 1209, column 1209.  Encountered: \&quot;\\u0007\&quot; (7), after : \&quot;LexicalRerror at line \&quot;&quot;, tokenMgrError0.toString());
+</pre>
+<h3>Test case 9</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>String string0 = TokenMgrError.LexicalError(true, 0, 0, 0, &quot;t&quot;, 'B');
+<span class="nocode"><a name="2">  2: </a></span>assertNotNull(string0);
+<span class="nocode"><a name="3">  3: </a></span>assertEquals(&quot;Lexical error at line 0, column 0.  Encountered: &lt;EOF&gt; after : \&quot;t\&quot;&quot;, string0);
+</pre>
+</div></div><div id="post"></div><div id="post"><h2 class=title id=source>Source Code</h2>
+<div class=source><p><pre class="prettyprint" style="border: 1px solid #888;padding: 2px"><span class="nocode"><a name="1">  1: </a></span>/* Generated By:JavaCC: Do not edit this line. TokenMgrError.java Version 4.1 */
+<span class="nocode"><a name="2">  2: </a></span>/* JavaCCOptions: */
+<span class="nocode"><a name="3">  3: </a></span>package com.pmdesigns.jvc.tools;
+<span class="nocode"><a name="4">  4: </a></span>
+<span class="nocode"><a name="5">  5: </a></span>/** Token Manager Error. */
+<span class="nocode"><a name="6">  6: </a></span>public class TokenMgrError extends Error
+<span class="nocode"><a name="7">  7: </a></span>{
+<span class="nocode"><a name="8">  8: </a></span>
+<span class="nocode"><a name="9">  9: </a></span>  /**
+<span class="nocode"><a name="10"> 10: </a></span>   * The version identifier for this Serializable class.
+<span class="nocode"><a name="11"> 11: </a></span>   * Increment only if the &lt;i&gt;serialized&lt;/i&gt; form of the
+<span class="nocode"><a name="12"> 12: </a></span>   * class changes.
+<span class="nocode"><a name="13"> 13: </a></span>   */
+<span class="nocode"><a name="14"> 14: </a></span>  private static final long serialVersionUID = 1L;
+<span class="nocode"><a name="15"> 15: </a></span>
+<span class="nocode"><a name="16"> 16: </a></span>  /*
+<span class="nocode"><a name="17"> 17: </a></span>   * Ordinals for various reasons why an Error of this type can be thrown.
+<span class="nocode"><a name="18"> 18: </a></span>   */
+<span class="nocode"><a name="19"> 19: </a></span>
+<span class="nocode"><a name="20"> 20: </a></span>  /**
+<span class="nocode"><a name="21"> 21: </a></span>   * Lexical error occurred.
+<span class="nocode"><a name="22"> 22: </a></span>   */
+<span class="nocode"><a name="23"> 23: </a></span>  static final int LEXICAL_ERROR = 0;
+<span class="nocode"><a name="24"> 24: </a></span>
+<span class="nocode"><a name="25"> 25: </a></span>  /**
+<span class="nocode"><a name="26"> 26: </a></span>   * An attempt was made to create a second instance of a static token manager.
+<span class="nocode"><a name="27"> 27: </a></span>   */
+<span class="nocode"><a name="28"> 28: </a></span>  static final int STATIC_LEXER_ERROR = 1;
+<span class="nocode"><a name="29"> 29: </a></span>
+<span class="nocode"><a name="30"> 30: </a></span>  /**
+<span class="nocode"><a name="31"> 31: </a></span>   * Tried to change to an invalid lexical state.
+<span class="nocode"><a name="32"> 32: </a></span>   */
+<span class="nocode"><a name="33"> 33: </a></span>  static final int INVALID_LEXICAL_STATE = 2;
+<span class="nocode"><a name="34"> 34: </a></span>
+<span class="nocode"><a name="35"> 35: </a></span>  /**
+<span class="nocode"><a name="36"> 36: </a></span>   * Detected (and bailed out of) an infinite loop in the token manager.
+<span class="nocode"><a name="37"> 37: </a></span>   */
+<span class="nocode"><a name="38"> 38: </a></span>  static final int LOOP_DETECTED = 3;
+<span class="nocode"><a name="39"> 39: </a></span>
+<span class="nocode"><a name="40"> 40: </a></span>  /**
+<span class="nocode"><a name="41"> 41: </a></span>   * Indicates the reason why the exception is thrown. It will have
+<span class="nocode"><a name="42"> 42: </a></span>   * one of the above 4 values.
+<span class="nocode"><a name="43"> 43: </a></span>   */
+<span class="nocode"><a name="44"> 44: </a></span>  int errorCode;
+<span class="nocode"><a name="45"> 45: </a></span>
+<span class="nocode"><a name="46"> 46: </a></span>  /**
+<span class="nocode"><a name="47"> 47: </a></span>   * Replaces unprintable characters by their escaped (or unicode escaped)
+<span class="nocode"><a name="48"> 48: </a></span>   * equivalents in the given string
+<span class="nocode"><a name="49"> 49: </a></span>   */
+<span class="nocode"><a name="50"> 50: </a></span>  protected static final String addEscapes(String str) {
+<span class="nocode"><a name="51"> 51: </a></span><span style="background-color: #ffffcc">    StringBuffer retval = new StringBuffer();</span>
+<span class="nocode"><a name="52"> 52: </a></span>    char ch;
+<span class="nocode"><a name="53"> 53: </a></span><span style="background-color: #ffffcc">    for (int i = 0; i &lt; str.length(); i++) {</span>
+<span class="nocode"><a name="54"> 54: </a></span><span style="background-color: #ffffcc">      switch (str.charAt(i))</span>
+<span class="nocode"><a name="55"> 55: </a></span>      {
+<span class="nocode"><a name="56"> 56: </a></span>        case 0 :
+<span class="nocode"><a name="57"> 57: </a></span><span style="background-color: #ffffcc">          continue;</span>
+<span class="nocode"><a name="58"> 58: </a></span>        case '\b':
+<span class="nocode"><a name="59"> 59: </a></span><span style="background-color: #ffffcc">          retval.append(&quot;\\b&quot;);</span>
+<span class="nocode"><a name="60"> 60: </a></span><span style="background-color: #ffffcc">          continue;</span>
+<span class="nocode"><a name="61"> 61: </a></span>        case '\t':
+<span class="nocode"><a name="62"> 62: </a></span><span style="background-color: #ffffcc">          retval.append(&quot;\\t&quot;);</span>
+<span class="nocode"><a name="63"> 63: </a></span><span style="background-color: #ffffcc">          continue;</span>
+<span class="nocode"><a name="64"> 64: </a></span>        case '\n':
+<span class="nocode"><a name="65"> 65: </a></span>          retval.append(&quot;\\n&quot;);
+<span class="nocode"><a name="66"> 66: </a></span>          continue;
+<span class="nocode"><a name="67"> 67: </a></span>        case '\f':
+<span class="nocode"><a name="68"> 68: </a></span><span style="background-color: #ffffcc">          retval.append(&quot;\\f&quot;);</span>
+<span class="nocode"><a name="69"> 69: </a></span><span style="background-color: #ffffcc">          continue;</span>
+<span class="nocode"><a name="70"> 70: </a></span>        case '\r':
+<span class="nocode"><a name="71"> 71: </a></span>          retval.append(&quot;\\r&quot;);
+<span class="nocode"><a name="72"> 72: </a></span>          continue;
+<span class="nocode"><a name="73"> 73: </a></span>        case '\&quot;':
+<span class="nocode"><a name="74"> 74: </a></span><span style="background-color: #ffffcc">          retval.append(&quot;\\\&quot;&quot;);</span>
+<span class="nocode"><a name="75"> 75: </a></span><span style="background-color: #ffffcc">          continue;</span>
+<span class="nocode"><a name="76"> 76: </a></span>        case '\'':
+<span class="nocode"><a name="77"> 77: </a></span><span style="background-color: #ffffcc">          retval.append(&quot;\\\'&quot;);</span>
+<span class="nocode"><a name="78"> 78: </a></span><span style="background-color: #ffffcc">          continue;</span>
+<span class="nocode"><a name="79"> 79: </a></span>        case '\\':
+<span class="nocode"><a name="80"> 80: </a></span>          retval.append(&quot;\\\\&quot;);
+<span class="nocode"><a name="81"> 81: </a></span>          continue;
+<span class="nocode"><a name="82"> 82: </a></span>        default:
+<span class="nocode"><a name="83"> 83: </a></span><span style="background-color: #ffffcc">          if ((ch = str.charAt(i)) &lt; 0x20 || ch &gt; 0x7e) {</span>
+<span class="nocode"><a name="84"> 84: </a></span><span style="background-color: #ffffcc">            String s = &quot;0000&quot; + Integer.toString(ch, 16);</span>
+<span class="nocode"><a name="85"> 85: </a></span><span style="background-color: #ffffcc">            retval.append(&quot;\\u&quot; + s.substring(s.length() - 4, s.length()));</span>
+<span class="nocode"><a name="86"> 86: </a></span><span style="background-color: #ffffcc">          } else {</span>
+<span class="nocode"><a name="87"> 87: </a></span><span style="background-color: #ffffcc">            retval.append(ch);</span>
+<span class="nocode"><a name="88"> 88: </a></span>          }
+<span class="nocode"><a name="89"> 89: </a></span>          continue;
+<span class="nocode"><a name="90"> 90: </a></span>      }
+<span class="nocode"><a name="91"> 91: </a></span>    }
+<span class="nocode"><a name="92"> 92: </a></span><span style="background-color: #ffffcc">    return retval.toString();</span>
+<span class="nocode"><a name="93"> 93: </a></span>  }
+<span class="nocode"><a name="94"> 94: </a></span>
+<span class="nocode"><a name="95"> 95: </a></span>  /**
+<span class="nocode"><a name="96"> 96: </a></span>   * Returns a detailed message for the Error when it is thrown by the
+<span class="nocode"><a name="97"> 97: </a></span>   * token manager to indicate a lexical error.
+<span class="nocode"><a name="98"> 98: </a></span>   * Parameters :
+<span class="nocode"><a name="99"> 99: </a></span>   *    EOFSeen     : indicates if EOF caused the lexical error
+<span class="nocode"><a name="100">100: </a></span>   *    curLexState : lexical state in which this error occurred
+<span class="nocode"><a name="101">101: </a></span>   *    errorLine   : line number when the error occurred
+<span class="nocode"><a name="102">102: </a></span>   *    errorColumn : column number when the error occurred
+<span class="nocode"><a name="103">103: </a></span>   *    errorAfter  : prefix that was seen before this error occurred
+<span class="nocode"><a name="104">104: </a></span>   *    curchar     : the offending character
+<span class="nocode"><a name="105">105: </a></span>   * Note: You can customize the lexical error message by modifying this method.
+<span class="nocode"><a name="106">106: </a></span>   */
+<span class="nocode"><a name="107">107: </a></span>  protected static String LexicalError(boolean EOFSeen, int lexState, int errorLine, int errorColumn, String errorAfter, char curChar) {
+<span class="nocode"><a name="108">108: </a></span><span style="background-color: #ffffcc">    return(&quot;Lexical error at line &quot; +</span>
+<span class="nocode"><a name="109">109: </a></span>          errorLine + &quot;, column &quot; +
+<span class="nocode"><a name="110">110: </a></span>          errorColumn + &quot;.  Encountered: &quot; +
+<span class="nocode"><a name="111">111: </a></span>          (EOFSeen ? &quot;&lt;EOF&gt; &quot; : (&quot;\&quot;&quot; + addEscapes(String.valueOf(curChar)) + &quot;\&quot;&quot;) + &quot; (&quot; + (int)curChar + &quot;), &quot;) +
+<span class="nocode"><a name="112">112: </a></span>          &quot;after : \&quot;&quot; + addEscapes(errorAfter) + &quot;\&quot;&quot;);
+<span class="nocode"><a name="113">113: </a></span>  }
+<span class="nocode"><a name="114">114: </a></span>
+<span class="nocode"><a name="115">115: </a></span>  /**
+<span class="nocode"><a name="116">116: </a></span>   * You can also modify the body of this method to customize your error messages.
+<span class="nocode"><a name="117">117: </a></span>   * For example, cases like LOOP_DETECTED and INVALID_LEXICAL_STATE are not
+<span class="nocode"><a name="118">118: </a></span>   * of end-users concern, so you can return something like :
+<span class="nocode"><a name="119">119: </a></span>   *
+<span class="nocode"><a name="120">120: </a></span>   *     &quot;Internal Error : Please file a bug report .... &quot;
+<span class="nocode"><a name="121">121: </a></span>   *
+<span class="nocode"><a name="122">122: </a></span>   * from this method for such cases in the release version of your parser.
+<span class="nocode"><a name="123">123: </a></span>   */
+<span class="nocode"><a name="124">124: </a></span>  public String getMessage() {
+<span class="nocode"><a name="125">125: </a></span><span style="background-color: #ffffcc">    return super.getMessage();</span>
+<span class="nocode"><a name="126">126: </a></span>  }
+<span class="nocode"><a name="127">127: </a></span>
+<span class="nocode"><a name="128">128: </a></span>  /*
+<span class="nocode"><a name="129">129: </a></span>   * Constructors of various flavors follow.
+<span class="nocode"><a name="130">130: </a></span>   */
+<span class="nocode"><a name="131">131: </a></span>
+<span class="nocode"><a name="132">132: </a></span>  /** No arg constructor. */
+<span class="nocode"><a name="133">133: </a></span>  public TokenMgrError() {
+<span class="nocode"><a name="134">134: </a></span><span style="background-color: #ffffcc">  }</span>
+<span class="nocode"><a name="135">135: </a></span>
+<span class="nocode"><a name="136">136: </a></span>  /** Constructor with message and reason. */
+<span class="nocode"><a name="137">137: </a></span>  public TokenMgrError(String message, int reason) {
+<span class="nocode"><a name="138">138: </a></span>    super(message);
+<span class="nocode"><a name="139">139: </a></span><span style="background-color: #ffffcc">    errorCode = reason;</span>
+<span class="nocode"><a name="140">140: </a></span><span style="background-color: #ffffcc">  }</span>
+<span class="nocode"><a name="141">141: </a></span>
+<span class="nocode"><a name="142">142: </a></span>  /** Full Constructor. */
+<span class="nocode"><a name="143">143: </a></span>  public TokenMgrError(boolean EOFSeen, int lexState, int errorLine, int errorColumn, String errorAfter, char curChar, int reason) {
+<span class="nocode"><a name="144">144: </a></span>    this(LexicalError(EOFSeen, lexState, errorLine, errorColumn, errorAfter, curChar), reason);
+<span class="nocode"><a name="145">145: </a></span><span style="background-color: #ffffcc">  }</span>
+<span class="nocode"><a name="146">146: </a></span>}
+<span class="nocode"><a name="147">147: </a></span>/* JavaCC - OriginalChecksum=82dc66cde10355bf09c83b5cf41ef7b1 (do not edit this line) */
+</pre>
+</p></div>
+</div><div id="post"><h2 id=parameters>EvoSuite Parameters</h2>
+<div class=statistics><ul>
+<li>inheritance_file: evosuite-files/inheritance.xml.gz
+<li>client_on_thread: false
+<li>alternative_fitness_range: 100.0
+<li>starve_by_fitness: true
+<li>dynamic_pool_size: 50
+<li>old_statistics: true
+<li>test_includes: test.includes
+<li>TT_stack: 10
+<li>dynamic_pool: 0.5
+<li>minimization_timeout: 600
+<li>kincompensation: 1.0
+<li>max_generic_depth: 1
+<li>local_search_rate: -1
+<li>target_method: 
+<li>selection_function: RANK
+<li>ctg_schedule: SIMPLE
+<li>assertion_strategy: MUTATION
+<li>tt_scope: ALL
+<li>process_communication_port: 17043
+<li>TT: false
+<li>chromosome_length: 40
+<li>adaptive_local_search_dse: false
+<li>UI_BACKGROUND_COVERAGE_DELAY: -1
+<li>random_perturbation: 0.2
+<li>test_factory: RANDOM
+<li>enable_alternative_fitness_calculation: false
+<li>debug: false
+<li>plot: false
+<li>log_goals: false
+<li>alternative_fitness_calculation_mode: SUM
+<li>inline: true
+<li>crossover_function: SINGLEPOINTRELATIVE
+<li>local_search_budget: 100
+<li>static_hack: false
+<li>OUTPUT_DIR: evosuite-files
+<li>dse_keep_all_tests: false
+<li>junit_extend: 
+<li>junit_prefix: 
+<li>hierarchy_data: hierarchy.xml
+<li>num_tests: 2
+<li>max_size: 100
+<li>statistics_backend: CSV
+<li>max_length: 0
+<li>mutation_generations: 10
+<li>rank_bias: 1.7
+<li>primitive_reuse_probability: 0.5
+<li>num_random_tests: 20
+<li>filter_assertions: true
+<li>global_timeout: 600
+<li>log.level: null
+<li>new_statistics: false
+<li>assertions: true
+<li>object_pool: 0.0
+<li>timeline_interval: 60000
+<li>concolic_timeout: 15000
+<li>crossover_rate: 0.75
+<li>recycle_chromosomes: false
+<li>assertion_timeout: 600
+<li>serialize_result: false
+<li>string_length: 20
+<li>testability_transformation: false
+<li>p_special_type_call: 0.05
+<li>filter_sandbox_tests: false
+<li>connection_data: connection.xml
+<li>dse_budget: 1
+<li>show_progress: true
+<li>ctg_cores: 1
+<li>p_test_delete: 0.3333333333333333
+<li>local_search_references: true
+<li>dse_rate: -1
+<li>primitive_pool: 0.5
+<li>object_reuse_probability: 0.9
+<li>shuffle_goals: true
+<li>use_deprecated: false
+<li>max_coverage_depth: -1
+<li>penalize_overwriting_definitions_flat: false
+<li>max_attempts: 1000
+<li>print_current_goals: false
+<li>PROJECT_PREFIX: com
+<li>TARGET_CLASS: com.pmdesigns.jvc.tools.TokenMgrError
+<li>p_test_insertion: 0.1
+<li>make_accessible: false
+<li>population: 50
+<li>check_best_length: true
+<li>seed_types: true
+<li>PROJECT_DIR: null
+<li>skip_covered: true
+<li>check_contracts: false
+<li>write_cfg: false
+<li>minimize: true
+<li>seed_clone: 0.2
+<li>target_method_prefix: 
+<li>mutation_timeouts: 3
+<li>instrument_parent: false
+<li>junit_tests: true
+<li>coverage: true
+<li>sandbox: true
+<li>randomize_difficulty: true
+<li>break_on_exception: true
+<li>html: true
+<li>CP: lib/commons-fileupload-1.2.1.jar:lib/javacc.jar:lib/junit-4.5.jar:lib/log4j-1.2.15.jar:lib/pmd.jar:lib/servlet-api.jar:lib/servlet.jar:javaviewcontrol.jar
+<li>search_budget: 300
+<li>max_replace_mutants: 100
+<li>check_contracts_end: false
+<li>log.target: null
+<li>array_limit: 1000000
+<li>minimize_values: false
+<li>secondary_objectives: totallength
+<li>log_timeout: false
+<li>p_test_change: 0.3333333333333333
+<li>restricted_read: false
+<li>null_probability: 0.1
+<li>configuration_id: null
+<li>save_all_data: true
+<li>branch_eval: false
+<li>remote_testing: false
+<li>dse_adaptive_rate: 2.0
+<li>local_search_budget_type: STATEMENTS
+<li>branch_statement: false
+<li>check_parents_length: false
+<li>dse_constraint_solver_timeout_millis: 0
+<li>elite: 1
+<li>local_search_probes: 10
+<li>enable_asserts_for_sut: true
+<li>output_granularity: MERGED
+<li>criterion: BRANCH
+<li>restrict_pool: false
+<li>shutdown_timeout: 1000
+<li>output_variables: null
+<li>structured_tests: false
+<li>random_tests: 0
+<li>initially_enforced_randomness: 0.4
+<li>selected_junit: null
+<li>p_change_parameter: 0.1
+<li>port: 1044
+<li>defuse_aliases: true
+<li>dse_constraint_length: 100000
+<li>reuse_budget: true
+<li>test_dir: evosuite-tests
+<li>replace_calls: false
+<li>max_initial_tests: 10
+<li>TARGET_CLASS_PREFIX: 
+<li>dse_adaptive_probability: 0.0
+<li>algorithm: STEADYSTATEGA
+<li>report_dir: evosuite-report
+<li>target_method_list: 
+<li>local_search_arrays: true
+<li>dse_constant_probability: 0.5
+<li>max_int: 2048
+<li>error_branches: false
+<li>stopping_condition: MAXTIME
+<li>local_search_primitives: true
+<li>minimize_old: false
+<li>max_mutants_per_method: 700
+<li>adaptive_local_search: OFF
+<li>replacement_function: DEFAULT
+<li>number_of_mutations: 1
+<li>test_comments: true
+<li>defuse_debug_mode: false
+<li>shutdown_hook: true
+<li>bloat_factor: 2
+<li>dse_variable_resets: 2
+<li>test_format: JUNIT4
+<li>penalize_overwriting_definitions_linearly: false
+<li>max_stalled_threads: 10
+<li>insertion_score_object: 1
+<li>instrumentation_skip_debug: false
+<li>sandbox_mode: RECOMMENDED
+<li>call_probability: 0.0
+<li>check_max_length: true
+<li>max_recursion: 10
+<li>usage_rate: 0.5
+<li>max_mutants: 100
+<li>p_statement_insertion: 0.5
+<li>usage_models: 
+<li>test_carving: false
+<li>evosuite_use_uispec: false
+<li>instrument_context: false
+<li>ctg_time: 2
+<li>ctg_memory: 1000
+<li>classpath: 
+<li>max_array: 10
+<li>dse_negate_all_conditions: false
+<li>seed_mutations: 2
+<li>tournament_size: 10
+<li>dse_budget_type: INDIVIDUALS
+<li>dse_rank_branch_conditions: false
+<li>concolic_mutation: 0.0
+<li>stop_zero: true
+<li>parent_check: true
+<li>insertion_score_parameter: 1
+<li>junit_suffix: EvoSuiteTest
+<li>min_initial_tests: 1
+<li>max_delta: 20
+<li>cpu_timeout: false
+<li>dynamic_limit: false
+<li>min_free_mem: 50000000
+<li>test_excludes: test.excludes
+<li>write_pool: false
+<li>epsilon: 0.0010
+<li>enable_asserts_for_evosuite: false
+<li>analysis_criteria: 
+<li>junit_strict: false
+<li>print_to_system: false
+<li>virtual_fs: false
+<li>sandbox_folder: evosuite-sandbox
+<li>strategy: EVOSUITE
+<li>enable_alternative_suite_fitness: false
+<li>max_mutants_per_test: 100
+<li>stopping_port: -1
+<li>insertion_score_uut: 1
+<li>sourcepath: 
+<li>print_covered_goals: false
+<li>extra_timeout: 120
+<li>string_replacement: true
+<li>cluster_recursion: 10
+<li>population_limit: INDIVIDUALS
+<li>p_test_insert: 0.3333333333333333
+<li>constraint_solution_attempts: 3
+<li>timeout: 5000
+</ul></div>
+</div><p><br><a href="../report-generation.html">Back to Overview</a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<?xml version="1.0" ?> 
+
+<database>
+
+  <table name="openjms_pprops">
+    <attribute name="name" type="varchar(255)" not-null="true"
+               primary-key="true"/>
+    <attribute name="value" type="varchar(255)" not-null="true"/>
+  </table>
+
+  <table name="openjms_pdest">
+    <attribute name="destination_id" type="bigint" not-null="true"
+               primary-key="true"/>
+    <attribute name="name" type="varchar(255)" unique="true" not-null="true"/>
+    <attribute name="is_queue" type="tinyint(1)" not-null="true"/>
+  </table>
+
+  <table name="openjms_pmsg">
+    <attribute name="message_id" type="varchar(50)" not-null="true"
+               primary-key="true"/>
+    <attribute name="message_type" type="varchar(20)" not-null="true"/>
+    <attribute name="correlation_id" type="varchar(255)"/>
+    <attribute name="delivery_mode" type="integer" not-null="true"/>
+    <attribute name="destination_id" type="bigint" not-null="true"/>
+    <attribute name="expiration" type="bigint" not-null="true"/>
+    <attribute name="priority" type="integer" not-null="true"/>
+    <attribute name="redelivered" type="tinyint(1)" not-null="true"/>
+    <attribute name="reply_to_id" type="bigint" />
+    <attribute name="timestamp" type="bigint" not-null="true"/>
+    <attribute name="type" type="varchar(255)" />
+    <attribute name="body" type="blob" />
+  </table>
+
+  <table name="openjms_pmsg_props">
+    <attribute name="message_id" type="varchar(50)" not-null="true"/>
+    <attribute name="name" type="varchar(255)" not-null="true"/>
+    <attribute name="value" type="blob"/>
+    <primary-key>
+      <column name="message_id"/>
+      <column name="name"/>
+    </primary-key>
+  </table>
+
+  <table name="openjms_pcons">
+    <attribute name="consumer_id" type="bigint" not-null="true"
+               primary-key="true"/>
+    <attribute name="name" type="varchar(255)" not-null="true"/>
+    <attribute name="client_id" type="varchar(255)"/>
+    <attribute name="queue_consumer" type="tinyint(1)" not-null="true"/>
+    <index name="openjms_pcons_idx" unique="true">
+      <column name="name"/>
+      <column name="client_id"/>
+    </index>
+  </table>
+
+  <table name="openjms_psubs">
+    <attribute name="consumer_id" type="bigint" not-null="true"/>
+    <attribute name="destination_id" type="bigint" not-null="true"/>
+    <primary-key>
+      <column name="consumer_id"/>
+      <column name="destination_id"/>
+    </primary-key>
+  </table>
+
+  <table name="openjms_phdl">
+    <attribute name="message_id" type="varchar(50)" not-null="true"/>
+    <attribute name="destination_id" type="bigint" not-null="true"/>
+    <attribute name="consumer_id" type="bigint" not-null="true"/>
+    <attribute name="delivered" type="tinyint(1)" not-null="true"/>
+    <primary-key>
+      <column name="message_id"/>
+      <column name="consumer_id"/>
+      <column name="destination_id"/>
+    </primary-key>
+  </table>
+
+  <table name="openjms_puser">
+    <attribute name="username" type="varchar(50)" not-null="true"
+               primary-key="true"/>
+    <attribute name="password" type="varchar(50)"/>
+  </table>
+
+</database>

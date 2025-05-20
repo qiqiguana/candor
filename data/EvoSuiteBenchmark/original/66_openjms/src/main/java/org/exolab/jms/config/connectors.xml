@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+
+<connectorResources>
+
+  <connectorResource scheme="tcp">
+    <description>OpenJMS TCP connector</description>
+
+    <server>
+      <proxy-class>org.exolab.jms.client.net.JmsServerStubImpl</proxy-class>
+      <implementation-class>org.exolab.jms.server.net.RemoteServerConnector</implementation-class>
+    </server>
+
+    <jndi>
+      <initial-context-class>org.exolab.jms.jndi.InitialContextFactory</initial-context-class>
+    </jndi>
+
+  </connectorResource>
+
+  <connectorResource scheme="tcps">
+    <description>OpenJMS SSL TCP connector</description>
+
+    <server>
+      <proxy-class>org.exolab.jms.client.net.JmsServerStubImpl</proxy-class>
+      <implementation-class>org.exolab.jms.server.net.RemoteServerConnector</implementation-class>
+    </server>
+
+    <jndi>
+      <initial-context-class>org.exolab.jms.jndi.InitialContextFactory</initial-context-class>
+    </jndi>
+
+  </connectorResource>
+
+
+  <connectorResource scheme="http">
+    <description>OpenJMS HTTP connector</description>
+
+    <server>
+      <proxy-class>org.exolab.jms.client.net.JmsServerStubImpl</proxy-class>
+      <implementation-class>org.exolab.jms.server.net.RemoteServerConnector</implementation-class>
+    </server>
+
+    <jndi>
+      <initial-context-class>org.exolab.jms.jndi.InitialContextFactory</initial-context-class>
+    </jndi>
+
+  </connectorResource>
+
+
+  <connectorResource scheme="https">
+    <description>OpenJMS SSL HTTP connector</description>
+
+    <server>
+      <proxy-class>org.exolab.jms.client.net.JmsServerStubImpl</proxy-class>
+      <implementation-class>org.exolab.jms.server.net.RemoteServerConnector</implementation-class>
+    </server>
+
+    <jndi>
+      <initial-context-class>org.exolab.jms.jndi.InitialContextFactory</initial-context-class>
+    </jndi>
+
+  </connectorResource>
+
+
+  <connectorResource scheme="rmi">
+    <description>OpenJMS RMI connector</description>
+
+    <server>
+      <proxy-class>org.exolab.jms.client.net.JmsServerStubImpl</proxy-class>
+      <implementation-class>org.exolab.jms.server.net.RemoteServerConnector</implementation-class>
+    </server>
+
+    <jndi>
+      <initial-context-class>org.exolab.jms.jndi.InitialContextFactory</initial-context-class>
+    </jndi>
+
+  </connectorResource>
+
+
+  <connectorResource scheme="embedded">
+    <description>OpenJMS embedded server connector</description>
+
+    <server>
+      <proxy-class>org.exolab.jms.client.net.JmsServerStubImpl</proxy-class>
+      <implementation-class>org.exolab.jms.server.net.RemoteServerConnector</implementation-class>
+    </server>
+
+    <jndi>
+      <initial-context-class>org.exolab.jms.jndi.InitialContextFactory</initial-context-class>
+    </jndi>
+
+  </connectorResource>
+
+</connectorResources>

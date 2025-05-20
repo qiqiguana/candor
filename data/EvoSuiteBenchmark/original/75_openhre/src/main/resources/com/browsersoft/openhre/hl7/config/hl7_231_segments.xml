@@ -1,0 +1,2137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<segments>
+    <segment id="MSH">
+        <description>
+            Message Header
+        </description>
+        <fields>
+            <field sequential="2" maximumLength="4" dataType="ST" required="R" reference="00002">
+                <description>
+                    Encoding characters
+                </description>
+            </field>
+            <field sequential="3" maximumLength="180" dataType="HD" required="O" reference="00003">
+                <description>
+                    Sending application
+                </description>
+            </field>
+            <field sequential="4" maximumLength="180" dataType="HD" required="O" reference="00004">
+                <description>
+                    Sending facility
+                </description>
+            </field>
+            <field sequential="5" maximumLength="180" dataType="HD" required="O" reference="00005">
+                <description>
+                    Receiving application
+                </description>
+            </field>
+            <field sequential="6" maximumLength="180" dataType="HD" required="O" reference="00006">
+                <description>
+                    Receiving facility
+                </description>
+            </field>
+            <field sequential="7" maximumLength="26" dataType="TS" required="O" reference="00007">
+                <description>
+                    Date/Time of message
+                </description>
+            </field>
+            <field sequential="8" maximumLength="40" dataType="ST" required="O" reference="00008">
+                <description>
+                    Security
+                </description>
+            </field>
+            <field sequential="9" maximumLength="7" dataType="CM" required="R" table="0076,0003" reference="00009">
+                <description>
+                    Message type
+                </description>
+            </field>
+            <field sequential="10" maximumLength="20" dataType="ST" required="R" reference="00010">
+                <description>
+                    Message control ID
+                </description>
+            </field>
+            <field sequential="11" maximumLength="3" dataType="PT" required="R" reference="00011">
+                <description>
+                    Processing ID
+                </description>
+            </field>
+            <field sequential="12" maximumLength="60" dataType="VID" required="R" table="0104" reference="00012">
+                <description>
+                    Version ID
+                </description>
+            </field>
+            <field sequential="13" maximumLength="15" dataType="NM" required="O" reference="00013">
+                <description>
+                    Sequence number
+                </description>
+            </field>
+            <field sequential="14" maximumLength="180" dataType="ST" required="O" reference="00014">
+                <description>
+                    Continuation pointer
+                </description>
+            </field>
+            <field sequential="15" maximumLength="2" dataType="ID" required="O" table="0155" reference="00015">
+                <description>
+                    Accept acknowledgment type
+                </description>
+            </field>
+            <field sequential="16" maximumLength="2" dataType="ID" required="O" table="0155" reference="00016">
+                <description>
+                    Application acknowledgment type
+                </description>
+            </field>
+            <field sequential="17" maximumLength="2" dataType="ID" required="O" reference="00017">
+                <description>
+                    Country code
+                </description>
+            </field>
+            <field sequential="18" maximumLength="10" dataType="ID" required="O" repeatable="Y" table="0211" reference="00692">
+                <description>
+                    Character set
+                </description>
+            </field>
+            <field sequential="19" maximumLength="60" dataType="CE" required="O" reference="00693">
+                <description>
+                    Principal language of message
+                </description>
+            </field>
+            <field sequential="20" maximumLength="20" dataType="ID" required="O" table="0356" reference="01317">
+                <description>
+                    Alternate character set handling scheme
+                </description>
+            </field>
+        </fields>
+    </segment>
+    <segment id="MSA">
+        <description>
+            Message Acknowledgment
+        </description>
+        <fields>
+            <field sequential="1" maximumLength="2" dataType="ID" required="R" table="0008" reference="00018">
+                <description>
+                    Acknowledgment code
+                </description>
+            </field>
+            <field sequential="2" maximumLength="20" dataType="ST" required="R" reference="00010">
+                <description>
+                    Message control ID
+                </description>
+            </field>
+            <field sequential="3" maximumLength="80" dataType="ST" required="O" reference="00020">
+                <description>
+                    Text message
+                </description>
+            </field>
+            <field sequential="4" maximumLength="15" dataType="NM" required="O" reference="00021">
+                <description>
+                    Expected sequence number
+                </description>
+            </field>
+            <field sequential="5" maximumLength="1" dataType="ID" required="B" table="0102" reference="00022">
+                <description>
+                    Delayed acknowledgment type
+                </description>
+            </field>
+            <field sequential="6" maximumLength="100" dataType="CE" required="O" reference="00023">
+                <description>
+                    Error condition
+                </description>
+            </field>
+        </fields>
+    </segment>
+    <segment id="ERR">
+        <description>
+            Error
+        </description>
+        <fields>
+            <field sequential="1" maximumLength="80" dataType="CM" required="R" repeatable="Y" table="0357" reference="00024">
+                <description>
+                    Error code and location
+                </description>
+            </field>
+        </fields>
+    </segment>
+    <segment id="QRD">
+        <description>
+            Query Definition
+        </description>
+        <fields>
+            <field sequential="1" maximumLength="26" dataType="TS" required="R" reference="00025">
+                <description>
+                    Query date/time
+                </description>
+            </field>
+            <field sequential="2" maximumLength="1" dataType="ID" required="R" table="0106" reference="00026">
+                <description>
+                    Query format code
+                </description>
+            </field>
+            <field sequential="3" maximumLength="1" dataType="ID" required="R" table="0091" reference="00027">
+                <description>
+                    Query priority
+                </description>
+            </field>
+            <field sequential="4" maximumLength="10" dataType="ST" required="R" reference="00028">
+                <description>
+                    Query ID
+                </description>
+            </field>
+            <field sequential="5" maximumLength="1" dataType="ID" required="O" table="0107" reference="00029">
+                <description>
+                    Deferred response type
+                </description>
+            </field>
+            <field sequential="6" maximumLength="26" dataType="TS" required="O" reference="00030">
+                <description>
+                    Deferred response date/time
+                </description>
+            </field>
+            <field sequential="7" maximumLength="10" dataType="CQ" required="R" table="0126" reference="00031">
+                <description>
+                    Quantity limited request
+                </description>
+            </field>
+            <field sequential="8" maximumLength="60" dataType="XCN" required="R" repeatable="Y" reference="00032">
+                <description>
+                    Who subject filter
+                </description>
+            </field>
+            <field sequential="9" maximumLength="60" dataType="CE" required="R" repeatable="Y" table="0048" reference="00033">
+                <description>
+                    What subject filter
+                </description>
+            </field>
+            <field sequential="10" maximumLength="60" dataType="CE" required="R" repeatable="Y" reference="00034">
+                <description>
+                    What department data code
+                </description>
+            </field>
+            <field sequential="11" maximumLength="20" dataType="CM" required="O" repeatable="Y" reference="00035">
+                <description>
+                    What data code value qualifier
+                </description>
+            </field>
+            <field sequential="12" maximumLength="1" dataType="ID" required="O" table="0108" reference="00036">
+                <description>
+                    Query results level
+                </description>
+            </field>
+        </fields>
+    </segment>
+    <segment id="QRF">
+        <description>
+            Query Filter
+        </description>
+        <fields>
+            <field sequential="1" maximumLength="20" dataType="ST" required="R" repeatable="Y" reference="00037">
+                <description>
+                    Where subject filter
+                </description>
+            </field>
+            <field sequential="2" maximumLength="26" dataType="TS" required="O" reference="00038">
+                <description>
+                    When data start date/time
+                </description>
+            </field>
+            <field sequential="3" maximumLength="26" dataType="TS" required="O" reference="00039">
+                <description>
+                    When data end date/time
+                </description>
+            </field>
+            <field sequential="4" maximumLength="60" dataType="ST" required="O" repeatable="Y" reference="00040">
+                <description>
+                    What user qualifier
+                </description>
+            </field>
+            <field sequential="5" maximumLength="60" required="O" repeatable="Y" reference="00041" dependingType="repeatable">
+                <depends>
+                    <position number="1" dataType="ST"/>
+                    <position number="2" dataType="DT"/>
+                    <position number="3" dataType="ID"/>
+                    <position number="4" dataType="ST"/>
+                    <position number="5" dataType="ST"/>
+                    <position number="6" dataType="PN"/>
+                    <position number="7" dataType="ST"/>
+                    <position number="8" dataType="ST"/>
+                    <position number="9" dataType="PN"/>
+                    <position number="10" dataType="ST"/>
+                </depends>
+                <description>
+                    Other query subject filter
+                </description>
+            </field>
+            <field sequential="6" maximumLength="12" dataType="ID" required="O" repeatable="Y" table="0156" reference="00042">
+                <description>
+                    Which date/time qualifier
+                </description>
+            </field>
+            <field sequential="7" maximumLength="12" dataType="ID" required="O" repeatable="Y" table="0157" reference="00043">
+                <description>
+                    Which date/time status qualifier
+                </description>
+            </field>
+            <field sequential="8" maximumLength="12" dataType="ID" required="O" repeatable="Y" table="0158" reference="00044">
+                <description>
+                    Date/time selection qualifier
+                </description>
+            </field>
+            <field sequential="9" maximumLength="60" dataType="TQ" required="O" reference="00694">
+                <description>
+                    When quantity/timing qualifier
+                </description>
+            </field>
+        </fields>
+    </segment>
+    <segment id="FHS">
+        <description>
+            File Header
+        </description>
+        <fields>
+            <field sequential="1" maximumLength="1" dataType="ST" required="R" reference="00067">
+                <description>
+                    File field separator
+                </description>
+            </field>
+            <field sequential="2" maximumLength="4" dataType="ST" required="R" reference="00068">
+                <description>
+                    File encoding characters
+                </description>
+            </field>
+            <field sequential="3" maximumLength="15" dataType="ST" required="O" reference="00069">
+                <description>
+                    File sending application
+                </description>
+            </field>
+            <field sequential="4" maximumLength="20" dataType="ST" required="O" reference="00070">
+                <description>
+                    File sending facility
+                </description>
+            </field>
+            <field sequential="5" maximumLength="15" dataType="ST" required="O" reference="00071">
+                <description>
+                    File receiving application
+                </description>
+            </field>
+            <field sequential="6" maximumLength="20" dataType="ST" required="O" reference="00072">
+                <description>
+                    File receiving facility
+                </description>
+            </field>
+            <field sequential="7" maximumLength="26" dataType="TS" required="O" reference="00073">
+                <description>
+                    File creation date/time
+                </description>
+            </field>
+            <field sequential="8" maximumLength="40" dataType="ST" required="O" reference="00074">
+                <description>
+                    File security
+                </description>
+            </field>
+            <field sequential="9" maximumLength="20" dataType="ST" required="O" reference="00075">
+                <description>
+                    File name/ID/type
+                </description>
+            </field>
+            <field sequential="10" maximumLength="80" dataType="ST" required="O" reference="00076">
+                <description>
+                    File comment
+                </description>
+            </field>
+            <field sequential="11" maximumLength="20" dataType="ST" required="O" reference="00077">
+                <description>
+                    File control ID
+                </description>
+            </field>
+            <field sequential="12" maximumLength="20" dataType="ST" required="O" reference="00078">
+                <description>
+                    Reference file control ID
+                </description>
+            </field>
+        </fields>
+    </segment>
+    <segment id="FTS">
+        <description>
+            File Trailer
+        </description>
+        <fields>
+            <field sequential="1" maximumLength="10" dataType="NM" required="O" reference="00079">
+                <description>
+                    File batch count
+                </description>
+            </field>
+            <field sequential="2" maximumLength="80" dataType="ST" required="O" reference="00080">
+                <description>
+                    File trailer comment
+                </description>
+            </field>
+        </fields>
+    </segment>
+    <segment id="BHS">
+        <description>
+            Batch Header
+        </description>
+        <fields>
+            <field sequential="1" maximumLength="1" dataType="ST" required="R" reference="00081">
+                <description>
+                    Batch field separator
+                </description>
+            </field>
+            <field sequential="2" maximumLength="3" dataType="ST" required="R" reference="00082">
+                <description>
+                    Batch encoding characters
+                </description>
+            </field>
+            <field sequential="3" maximumLength="15" dataType="ST" required="O" reference="00083">
+                <description>
+                    Batch sending application
+                </description>
+            </field>
+            <field sequential="4" maximumLength="20" dataType="ST" required="O" reference="00084">
+                <description>
+                    Batch sending facility
+                </description>
+            </field>
+            <field sequential="5" maximumLength="15" dataType="ST" required="O" reference="00085">
+                <description>
+                    Batch receiving application
+                </description>
+            </field>
+            <field sequential="6" maximumLength="20" dataType="ST" required="O" reference="00086">
+                <description>
+                    Batch receiving facility
+                </description>
+            </field>
+            <field sequential="7" maximumLength="26" dataType="TS" required="O" reference="00087">
+                <description>
+                    Batch creation date/time
+                </description>
+            </field>
+            <field sequential="8" maximumLength="40" dataType="ST" required="O" reference="00088">
+                <description>
+                    Batch security
+                </description>
+            </field>
+            <field sequential="9" maximumLength="20" dataType="ST" required="O" reference="00089">
+                <description>
+                    Batch name/ID/type
+                </description>
+            </field>
+            <field sequential="10" maximumLength="80" dataType="ST" required="O" reference="00090">
+                <description>
+                    Batch comment
+                </description>
+            </field>
+            <field sequential="11" maximumLength="20" dataType="ST" required="O" reference="00091">
+                <description>
+                    Batch control ID
+                </description>
+            </field>
+            <field sequential="12" maximumLength="20" dataType="ST" required="O" reference="00092">
+                <description>
+                    Reference batch control ID
+                </description>
+            </field>
+        </fields>
+    </segment>
+    <segment id="BTS">
+        <description>
+            Batch Trailer
+        </description>
+        <fields>
+            <field sequential="1" maximumLength="10" dataType="ST" required="O" reference="00093">
+                <description>
+                    Batch message count
+                </description>
+            </field>
+            <field sequential="2" maximumLength="80" dataType="ST" required="O" reference="00094">
+                <description>
+                    Batch comment
+                </description>
+            </field>
+            <field sequential="3" maximumLength="100" dataType="NM" required="O" repeatable="Y" reference="00095">
+                <description>
+                    Batch totals
+                </description>
+            </field>
+        </fields>
+    </segment>
+	<segment id="PID">
+        <description>
+            Patient Identification
+        </description>
+        <fields>
+            <field sequential="1" maximumLength="4" dataType="SI" required="O" reference="00104">
+                <description>
+                    Set ID - PID
+                </description>
+            </field>
+	        <field sequential="2" maximumLength="20" dataType="CX" required="B" reference="00105">
+                <description>
+                    Patient ID
+                </description>
+            </field>
+	        <field sequential="3" maximumLength="20" dataType="CX" required="R" repeatable="Y" reference="00106">
+                <description>
+                    Patient identifier list
+                </description>
+            </field>
+	        <field sequential="4" maximumLength="20" dataType="CX" required="B" repeatable="Y" reference="00107">
+                <description>
+                    Alternate patient ID - PID
+                </description>
+            </field>
+	        <field sequential="5" maximumLength="48" dataType="XPN" required="R" repeatable="Y" reference="00108">
+                <description>
+                    Patient name
+                </description>
+            </field>
+	        <field sequential="6" maximumLength="48" dataType="XPN" required="O" repeatable="Y" reference="00109">
+                <description>
+                    Mother maiden name
+                </description>
+            </field>
+	        <field sequential="7" maximumLength="26" dataType="TS" required="O" reference="00110">
+                <description>
+                    Date/time of birth
+                </description>
+            </field>
+	        <field sequential="8" maximumLength="1" dataType="IS" required="O" table="0001" reference="00111">
+                <description>
+                    Sex
+                </description>
+            </field>
+	        <field sequential="9" maximumLength="48" dataType="XPN" required="O" repeatable="Y" reference="00112">
+                <description>
+                    Patient alias
+                </description>
+            </field>
+	        <field sequential="10" maximumLength="80" dataType="CE" required="O" repeatable="Y" table="0005" reference="00113">
+                <description>
+                    Race
+                </description>
+            </field>
+	        <field sequential="11" maximumLength="106" dataType="XAD" required="O" repeatable="Y" reference="00114">
+                <description>
+                    Patient address
+                </description>
+            </field>
+	        <field sequential="12" maximumLength="4" dataType="IS" required="B" table="0289" reference="00115">
+                <description>
+                    Patient address
+                </description>
+            </field>
+	        <field sequential="13" maximumLength="40" dataType="XTN" required="O" repeatable="Y"  reference="00116">
+                <description>
+                    Phone number - home
+                </description>
+            </field>
+	        <field sequential="14" maximumLength="40" dataType="XTN" required="O" repeatable="Y"  reference="00117">
+                <description>
+                    Phone number - business
+                </description>
+            </field>
+	        <field sequential="15" maximumLength="60" dataType="CE" required="O" table="0296" reference="00118">
+                <description>
+                    Primary language
+                </description>
+            </field>
+	        <field sequential="16" maximumLength="80" dataType="CE" required="O" table="0002" reference="00119">
+                <description>
+                    Marital status
+                </description>
+            </field>
+	        <field sequential="16" maximumLength="80" dataType="CE" required="O" table="0002" reference="00119">
+                <description>
+                    Marital status
+                </description>
+            </field>
+	        <field sequential="17" maximumLength="80" dataType="CE" required="O" table="0006" reference="00120">
+                <description>
+                    Religion
+                </description>
+            </field>
+	        <field sequential="18" maximumLength="20" dataType="CX" required="O" reference="00121">
+                <description>
+                    Patient account number
+                </description>
+            </field>
+	        <field sequential="19" maximumLength="16" dataType="ST" required="B" reference="00122">
+                <description>
+                    SSN number - patient
+                </description>
+            </field>
+	        <field sequential="20" maximumLength="25" dataType="DLN" required="O" reference="00123">
+                <description>
+                    Driver license number - patient
+                </description>
+            </field>
+	        <field sequential="21" maximumLength="20" dataType="CX" required="O" repeatable="Y"  reference="00124">
+                <description>
+                    Mother identifier
+                </description>
+            </field>
+	        <field sequential="22" maximumLength="80" dataType="CE" required="O" repeatable="Y"  table="0189" reference="00125">
+                <description>
+                    Ethnic group
+                </description>
+            </field>
+	        <field sequential="23" maximumLength="60" dataType="ST" required="O" reference="00126">
+                <description>
+                    Birth place
+                </description>
+            </field>
+	        <field sequential="24" maximumLength="1" dataType="ID" required="O" table="0136" reference="00127">
+                <description>
+                    Multiple birth indicator
+                </description>
+            </field>
+	        <field sequential="25" maximumLength="2" dataType="NM" required="O" reference="00128">
+                <description>
+                    Birth order
+                </description>
+            </field>
+	        <field sequential="26" maximumLength="80" dataType="CE" required="O" repeatable="Y" table="0171"  reference="00129">
+                <description>
+                    Citizenship
+                </description>
+            </field>
+	        <field sequential="27" maximumLength="60" dataType="CE" required="O" table="0172"  reference="00130">
+                <description>
+                    Veterans military status
+                </description>
+            </field>
+	        <field sequential="28" maximumLength="80" dataType="CE" required="O" table="0212"  reference="00739">
+                <description>
+                    Nationality
+                </description>
+            </field>
+	        <field sequential="29" maximumLength="26" dataType="TS" required="O" reference="00740">
+                <description>
+                    Patient death date and time
+                </description>
+            </field>
+	        <field sequential="30" maximumLength="1" dataType="ID" required="O" table="0136" reference="00741">
+                <description>
+                    Patient death indicator
+                </description>
+            </field>
+        </fields>
+    </segment>
+	<segment id="PD1">
+        <description>
+            Patient Additional Demographic
+        </description>
+        <fields>
+            <field sequential="1" maximumLength="2" dataType="IS" required="O" repeatable="Y" table="0223" reference="00755">
+                <description>
+                    Living dependency
+                </description>
+            </field>
+			<field sequential="2" maximumLength="2" dataType="IS" required="O" table="0220" reference="00742">
+                <description>
+                    Living arrangement
+                </description>
+            </field>
+	        <field sequential="3" maximumLength="90" dataType="XON" required="O" repeatable="Y" reference="00756">
+                <description>
+                    Patient primary facility
+                </description>
+            </field>
+	        <field sequential="4" maximumLength="90" dataType="XCN" required="O" repeatable="Y" reference="00757">
+                <description>
+                    Patient primary care provider name and ID number
+                </description>
+            </field>
+	        <field sequential="5" maximumLength="2" dataType="IS" required="O" table="0231" reference="00745">
+                <description>
+                    Student indicator
+                </description>
+            </field>
+	        <field sequential="6" maximumLength="2" dataType="IS" required="O" table="0295" reference="00753">
+                <description>
+                    Handicap
+                </description>
+            </field>
+	        <field sequential="7" maximumLength="2" dataType="IS" required="O" table="0315" reference="00759">
+                <description>
+                    Living will
+                </description>
+            </field>
+	        <field sequential="8" maximumLength="2" dataType="IS" required="O" table="0316" reference="00760">
+                <description>
+                    Living will
+                </description>
+            </field>
+	        <field sequential="9" maximumLength="1" dataType="ID" required="O" table="0136" reference="00761">
+                <description>
+                    Separate bill
+                </description>
+            </field>
+	        <field sequential="10" maximumLength="20" dataType="CX" required="O" repeatable="Y" reference="00762">
+                <description>
+                    Separate bill
+                </description>
+            </field>
+	        <field sequential="11" maximumLength="80" dataType="CE" required="O" repeatable="Y" table="0215" reference="00763">
+                <description>
+                    Publicity code
+                </description>
+            </field>
+	        <field sequential="12" maximumLength="1" dataType="ID" required="O" table="0136" reference="00744">
+                <description>
+                    Protection indicator
+                </description>
+            </field>
+	        <field sequential="13" maximumLength="8" dataType="DT" required="O" reference="01566">
+                <description>
+                    Protection Indicator effective date
+                </description>
+            </field>
+	        <field sequential="14" maximumLength="250" dataType="XON" required="O" repeatable="Y" reference="01567">
+                <description>
+                    Place of worship
+                </description>
+            </field>
+	        <field sequential="15" maximumLength="250" dataType="CE" required="O" repeatable="Y" reference="01568">
+                <description>
+                    Advance directive code
+                </description>
+            </field>
+	        <field sequential="16" maximumLength="1" dataType="IS" required="O" table="0441" reference="01569">
+                <description>
+                    Immunization registry status
+                </description>
+            </field>
+	        <field sequential="17" maximumLength="8" dataType="DT" required="O" reference="01570">
+                <description>
+                    Immunization registry status effective date
+                </description>
+            </field>
+	        <field sequential="18" maximumLength="8" dataType="DT" required="O" reference="01571">
+                <description>
+                    Publicity code effective date
+                </description>
+            </field>
+        </fields>
+    </segment>
+    <segment id="PV1">
+        <description>
+            Patient Visit
+        </description>
+        <fields>
+            <field sequential="1" maximumLength="4" dataType="SI" required="O" reference="00131">
+                <description>
+                    Set ID - PV1
+                </description>
+            </field>
+	        <field sequential="2" maximumLength="1" dataType="IS" required="R" table="0004" reference="00132">
+                <description>
+                    Patient class
+                </description>
+            </field>
+	        <field sequential="3" maximumLength="80" dataType="PL" required="O" reference="00133">
+                <description>
+                    Assigned patient location
+                </description>
+            </field>
+	        <field sequential="4" maximumLength="2" dataType="IS" required="O" table="0007" reference="00134">
+                <description>
+                    Admission type
+                </description>
+            </field>
+	        <field sequential="5" maximumLength="20" dataType="CX" required="O" reference="00135">
+                <description>
+                    Preadmit number
+                </description>
+            </field>
+	        <field sequential="6" maximumLength="80" dataType="PL" required="O" reference="00136">
+                <description>
+                    Prior patient location
+                </description>
+            </field>
+	        <field sequential="7" maximumLength="60" dataType="XCN" required="O" repeatable="Y"  table="0010" reference="00137">
+                <description>
+                    Attending doctor
+                </description>
+            </field>
+	        <field sequential="8" maximumLength="60" dataType="XCN" required="O" repeatable="Y"  table="0010" reference="00138">
+                <description>
+                    Referring doctor
+                </description>
+            </field>
+	        <field sequential="9" maximumLength="60" dataType="XCN" required="O" repeatable="Y"  table="0010" reference="00139">
+                <description>
+                    Consulting doctor
+                </description>
+            </field>
+	        <field sequential="10" maximumLength="3" dataType="IS" required="O" table="0069" reference="00140">
+                <description>
+                    Consulting doctor
+                </description>
+            </field>
+	        <field sequential="11" maximumLength="80" dataType="PL" required="O" reference="00141">
+                <description>
+                    Temporary location
+                </description>
+            </field>
+	        <field sequential="12" maximumLength="2" dataType="IS" required="O" table="0087" reference="00142">
+                <description>
+                    Preadmit test indicator
+                </description>
+            </field>
+	        <field sequential="13" maximumLength="2" dataType="IS" required="O" table="0092" reference="00143">
+                <description>
+                    Re-admission indicator
+                </description>
+            </field>
+	        <field sequential="14" maximumLength="3" dataType="IS" required="O" table="0023" reference="00144">
+                <description>
+                    Admit source
+                </description>
+            </field>
+	        <field sequential="15" maximumLength="2" dataType="IS" required="O" repeatable="Y" table="0009" reference="00145">
+                <description>
+                    Ambulatory status
+                </description>
+            </field>
+	        <field sequential="16" maximumLength="2" dataType="IS" required="O" table="0099" reference="00146">
+                <description>
+                    VIP indicator
+                </description>
+            </field>
+	        <field sequential="17" maximumLength="60" dataType="XCN" required="O" repeatable="Y" table="0010" reference="00147">
+                <description>
+                    Admitting doctor
+                </description>
+            </field>
+	        <field sequential="18" maximumLength="2" dataType="IS" required="O" table="0018" reference="00148">
+                <description>
+                    Patient type
+                </description>
+            </field>
+	        <field sequential="19" maximumLength="20" dataType="CX" required="O" reference="00149">
+                <description>
+                    Visit number
+                </description>
+            </field>
+	        <field sequential="20" maximumLength="50" dataType="FC" required="O" repeatable="Y" table="0064" reference="00150">
+                <description>
+                    Financial class
+                </description>
+            </field>
+	        <field sequential="21" maximumLength="2" dataType="IS" required="O" table="0032" reference="00151">
+                <description>
+                    Financial class
+                </description>
+            </field>
+	        <field sequential="22" maximumLength="2" dataType="IS" required="O" table="0045" reference="00152">
+                <description>
+                    Courtesy code
+                </description>
+            </field>
+	        <field sequential="23" maximumLength="2" dataType="IS" required="O" table="0046" reference="00153">
+                <description>
+                    Credit rating
+                </description>
+            </field>
+	        <field sequential="24" maximumLength="2" dataType="IS" required="O" repeatable="Y" table="0044" reference="00154">
+                <description>
+                    Contract code
+                </description>
+            </field>
+	        <field sequential="25" maximumLength="8" dataType="DT" required="O" repeatable="Y" reference="00155">
+                <description>
+                    Contract effective date
+                </description>
+            </field>
+	        <field sequential="26" maximumLength="12" dataType="NM" required="O" repeatable="Y" reference="00156">
+                <description>
+                    Contract amount
+                </description>
+            </field>
+	        <field sequential="27" maximumLength="3" dataType="NM" required="O" repeatable="Y" reference="00157">
+                <description>
+                    Contract period
+                </description>
+            </field>
+	        <field sequential="28" maximumLength="2" dataType="NM" required="O" table="0073" reference="00158">
+                <description>
+                    Interest code
+                </description>
+            </field>
+	        <field sequential="29" maximumLength="1" dataType="IS" required="O" table="0110" reference="00159">
+                <description>
+                    Transfer to bad debt code
+                </description>
+            </field>
+	        <field sequential="30" maximumLength="8" dataType="DT" required="O" reference="00160">
+                <description>
+                    Transfer to bad debt date
+                </description>
+            </field>
+	        <field sequential="31" maximumLength="10" dataType="IS" required="O" table="0021" reference="00161">
+                <description>
+                    Bad debt agency code
+                </description>
+            </field>
+	        <field sequential="32" maximumLength="12" dataType="NM" required="O" reference="00162">
+                <description>
+                    Bad debt transfer amount
+                </description>
+            </field>
+	        <field sequential="33" maximumLength="12" dataType="NM" required="O" reference="00163">
+                <description>
+                    Bad debt recovery amount
+                </description>
+            </field>
+	        <field sequential="34" maximumLength="1" dataType="IS" required="O" table="0111" reference="00164">
+                <description>
+                    Delete account indicator
+                </description>
+            </field>
+	        <field sequential="35" maximumLength="8" dataType="DT" required="O" reference="00165">
+                <description>
+                    Delete account date
+                </description>
+            </field>
+	        <field sequential="36" maximumLength="3" dataType="IS" required="O" table="0112" reference="00166">
+                <description>
+                    Discharge disposition
+                </description>
+            </field>
+	        <field sequential="37" maximumLength="25" dataType="CM" required="O" table="0113" reference="00167">
+                <description>
+                    Discharged to location
+                </description>
+            </field>
+	        <field sequential="38" maximumLength="80" dataType="CE" required="O" table="0114" reference="00168">
+                <description>
+                    Diet type
+                </description>
+            </field>
+	        <field sequential="39" maximumLength="2" dataType="IS" required="O" table="0115" reference="00169">
+                <description>
+                    Servicing facility
+                </description>
+            </field>
+	        <field sequential="40" maximumLength="1" dataType="IS" required="B" table="0116" reference="00170">
+                <description>
+                    Bed status
+                </description>
+            </field>
+	        <field sequential="41" maximumLength="2" dataType="IS" required="O" table="0117" reference="00171">
+                <description>
+                    Account status
+                </description>
+            </field>
+	        <field sequential="42" maximumLength="80" dataType="PL" required="O" reference="00172">
+                <description>
+                    Pending location
+                </description>
+            </field>
+	        <field sequential="43" maximumLength="80" dataType="PL" required="O" reference="00173">
+                <description>
+                    Prior temporary location
+                </description>
+            </field>
+	        <field sequential="44" maximumLength="26" dataType="TS" required="O" reference="00174">
+                <description>
+                    Admit date/time
+                </description>
+            </field>
+	        <field sequential="45" maximumLength="26" dataType="TS" required="O" reference="00175">
+                <description>
+                    Discharge date/time
+                </description>
+            </field>
+	        <field sequential="46" maximumLength="12" dataType="NM" required="O" reference="00176">
+                <description>
+                    Current patient balance
+                </description>
+            </field>
+	        <field sequential="47" maximumLength="12" dataType="NM" required="O" reference="00177">
+                <description>
+                    Total charges
+                </description>
+            </field>
+	        <field sequential="48" maximumLength="12" dataType="NM" required="O" reference="00178">
+                <description>
+                    Total adjustments
+                </description>
+            </field>
+	        <field sequential="49" maximumLength="12" dataType="NM" required="O" reference="00179">
+                <description>
+                    Total payments
+                </description>
+            </field>
+	        <field sequential="50" maximumLength="20" dataType="CX" required="O" table="0203" reference="00180">
+                <description>
+                    Alternate visit ID
+                </description>
+            </field>
+	        <field sequential="51" maximumLength="1" dataType="IS" required="O" table="0326" reference="01226">
+                <description>
+                    Visit indicator
+                </description>
+            </field>
+	        <field sequential="52" maximumLength="60" dataType="XCN" required="O" repeatable="Y" table="0010" reference="01274">
+                <description>
+                    Other healthcare provider
+                </description>
+            </field>
+        </fields>
+    </segment>
+	<segment id="PV2">
+        <description>
+            Patient Visit - Additional Information
+        </description>
+        <fields>
+            <field sequential="1" maximumLength="80" dataType="PL" required="C" reference="00181">
+                <description>
+                    Prior pending location
+                </description>
+            </field>
+	        <field sequential="2" maximumLength="60" dataType="CE" required="O" table="0129" reference="00182">
+                <description>
+                    Prior pending location
+                </description>
+            </field>
+	        <field sequential="3" maximumLength="60" dataType="CE" required="O" reference="00183">
+                <description>
+                    Admit reason
+                </description>
+            </field>
+	        <field sequential="4" maximumLength="60" dataType="CE" required="O" reference="00184">
+                <description>
+                    Transfer reason
+                </description>
+            </field>
+	        <field sequential="5" maximumLength="25" dataType="ST" required="O" repeatable="Y" reference="00185">
+                <description>
+                    Patient valuables
+                </description>
+            </field>
+	        <field sequential="6" maximumLength="25" dataType="ST" required="O" reference="00186">
+                <description>
+                    Patient valuables location
+                </description>
+            </field>
+	        <field sequential="7" maximumLength="2" dataType="IS" required="O" table="0130" reference="00187">
+                <description>
+                    Visit user code
+                </description>
+            </field>
+	        <field sequential="8" maximumLength="26" dataType="TS" required="O" reference="00188">
+                <description>
+                    Expected admit date/time
+                </description>
+            </field>
+	        <field sequential="9" maximumLength="26" dataType="TS" required="O" reference="00189">
+                <description>
+                    Expected discharge date/time
+                </description>
+            </field>
+	        <field sequential="10" maximumLength="3" dataType="NM" required="O" reference="00711">
+                <description>
+                    Estimated maximumLength of inpatient stay
+                </description>
+            </field>
+	        <field sequential="11" maximumLength="3" dataType="NM" required="O" reference="00712">
+                <description>
+                    Actual maximumLength of inpatient stay
+                </description>
+            </field>
+	        <field sequential="12" maximumLength="50" dataType="ST" required="O" reference="00713">
+                <description>
+                    Visit description
+                </description>
+            </field>
+	        <field sequential="13" maximumLength="90" dataType="XCN" required="O" repeatable="Y" reference="00714">
+                <description>
+                    Referral source code
+                </description>
+            </field>
+	        <field sequential="14" maximumLength="8" dataType="DT" required="O" reference="00715">
+                <description>
+                    Previous service date
+                </description>
+            </field>
+	        <field sequential="15" maximumLength="1" dataType="ID" required="O" table="0136" reference="00716">
+                <description>
+                    Employment illness related indicator
+                </description>
+            </field>
+	        <field sequential="16" maximumLength="1" dataType="IS" required="O" table="0213" reference="00717">
+                <description>
+                    Purge status code
+                </description>
+            </field>
+	        <field sequential="17" maximumLength="8" dataType="DT" required="O" reference="00718">
+                <description>
+                    Purge status date
+                </description>
+            </field>
+	        <field sequential="18" maximumLength="2" dataType="IS" required="O" table="0214" reference="00719">
+                <description>
+                    Special program code
+                </description>
+            </field>
+	        <field sequential="19" maximumLength="1" dataType="ID" required="O" table="0136" reference="00720">
+                <description>
+                    Retention indicator
+                </description>
+            </field>
+	        <field sequential="20" maximumLength="1" dataType="NM" required="O" reference="00721">
+                <description>
+                    Expected number of insurance plans
+                </description>
+            </field>
+	        <field sequential="21" maximumLength="1" dataType="IS" required="O" repeatable="Y" table="0215" reference="00722">
+                <description>
+                    Visit publicity code
+                </description>
+            </field>
+	        <field sequential="22" maximumLength="1" dataType="ID" required="O" table="0136" reference="00723">
+                <description>
+                    Visit protection indicator
+                </description>
+            </field>
+	        <field sequential="23" maximumLength="90" dataType="XON" required="O" repeatable="Y" reference="00724">
+                <description>
+                    Clinic organization name
+                </description>
+            </field>
+	        <field sequential="24" maximumLength="2" dataType="IS" required="O" table="0216" reference="00725">
+                <description>
+                    Patient status code
+                </description>
+            </field>
+	        <field sequential="25" maximumLength="1" dataType="IS" required="O" table="0217" reference="00726">
+                <description>
+                    Visit priority code
+                </description>
+            </field>
+	        <field sequential="26" maximumLength="8" dataType="DT" required="O" reference="00727">
+                <description>
+                    Previous treatment date
+                </description>
+            </field>
+	        <field sequential="27" maximumLength="2" dataType="IS" required="O" table="0112" reference="00728">
+                <description>
+                    Expected discharge disposition
+                </description>
+            </field>
+	        <field sequential="28" maximumLength="8" dataType="DT" required="O" reference="00729">
+                <description>
+                    Signature on file date
+                </description>
+            </field>
+	        <field sequential="29" maximumLength="8" dataType="DT" required="O" reference="00730">
+                <description>
+                    First similar illness date
+                </description>
+            </field>
+	        <field sequential="30" maximumLength="80" dataType="CE" required="O" table="0218" reference="00731">
+                <description>
+                    Patient charge adjustment code
+                </description>
+            </field>
+	        <field sequential="31" maximumLength="2" dataType="IS" required="O" table="0219" reference="00732">
+                <description>
+                    Recurring service code
+                </description>
+            </field>
+	        <field sequential="32" maximumLength="1" dataType="ID" required="O" table="0136" reference="00733">
+                <description>
+                    Billing media code
+                </description>
+            </field>
+	        <field sequential="33" maximumLength="26" dataType="TS" required="O" reference="00734">
+                <description>
+                    Expected surgery date and time
+                </description>
+            </field>
+	        <field sequential="34" maximumLength="1" dataType="ID" required="O" table="0136" reference="00735">
+                <description>
+                    Military partnership code
+                </description>
+            </field>
+	        <field sequential="35" maximumLength="1" dataType="ID" required="O" table="0136" reference="00736">
+                <description>
+                    Military non-availability code
+                </description>
+            </field>
+	        <field sequential="36" maximumLength="1" dataType="ID" required="O" table="0136" reference="00737">
+                <description>
+                    Newborn baby indicator
+                </description>
+            </field>
+	        <field sequential="37" maximumLength="1" dataType="ID" required="O" table="0136" reference="00738">
+                <description>
+                    Baby detained indicator
+                </description>
+            </field>
+        </fields>
+    </segment>
+    <segment id="NK1">
+        <description>
+            Next of Kin
+        </description>
+        <fields>
+            <field sequential="1" maximumLength="4" dataType="SI" required="R" reference="00190">
+                <description>
+                    Set ID - NK1
+                </description>
+            </field>
+	        <field sequential="2" maximumLength="48" dataType="XPN" required="O" repeatable="Y" reference="00191">
+                <description>
+                    Name
+                </description>
+            </field>
+	        <field sequential="3" maximumLength="60" dataType="CE" required="O" table="0063" reference="00192">
+                <description>
+                    Relationship
+                </description>
+            </field>
+	        <field sequential="4" maximumLength="106" dataType="XAD" required="O" repeatable="Y" reference="00193">
+                <description>
+                    Address
+                </description>
+            </field>
+	        <field sequential="5" maximumLength="40" dataType="XTN" required="O" repeatable="Y" reference="00194">
+                <description>
+                    Phone number
+                </description>
+            </field>
+	        <field sequential="6" maximumLength="40" dataType="XTN" required="O" repeatable="Y" reference="00195">
+                <description>
+                    Business phone number
+                </description>
+            </field>
+	        <field sequential="7" maximumLength="60" dataType="CE" required="O" table="0131" reference="00196">
+                <description>
+                    Contact role
+                </description>
+            </field>
+	        <field sequential="8" maximumLength="8" dataType="DT" required="O" reference="00197">
+                <description>
+                    Start date
+                </description>
+            </field>
+	        <field sequential="9" maximumLength="8" dataType="DT" required="O" reference="00198">
+                <description>
+                    End date
+                </description>
+            </field>
+	        <field sequential="10" maximumLength="60" dataType="ST" required="O" reference="00199">
+                <description>
+                    Next of kin/AP job title
+                </description>
+            </field>
+	        <field sequential="11" maximumLength="20" dataType="JCC" required="O" table="0327,0328" reference="00200">
+                <description>
+                    Next of kin/AP job code/class
+                </description>
+            </field>
+	        <field sequential="12" maximumLength="20" dataType="CX" required="O" reference="00201">
+                <description>
+                    Next of kin/AP employee number
+                </description>
+            </field>
+	        <field sequential="13" maximumLength="90" dataType="XON" required="O"  repeatable="Y" reference="00202">
+                <description>
+                    Organization name - NK1
+                </description>
+            </field>
+	        <field sequential="14" maximumLength="80" dataType="CE" required="O"  table="0002" reference="00119">
+                <description>
+                    Marital status
+                </description>
+            </field>
+	        <field sequential="15" maximumLength="1" dataType="IS" required="O"  table="0001" reference="00111">
+                <description>
+                    Sex
+                </description>
+            </field>
+	        <field sequential="16" maximumLength="26" dataType="TS" required="O"  reference="00110">
+                <description>
+                    Date/time of birth
+                </description>
+            </field>
+	        <field sequential="17" maximumLength="2" dataType="IS" required="O" repeatable="Y" table="0223"  reference="00755">
+                <description>
+                    Living dependency
+                </description>
+            </field>
+	        <field sequential="18" maximumLength="2" dataType="IS" required="O" repeatable="Y" table="0009"  reference="00145">
+                <description>
+                    Ambulatory status
+                </description>
+            </field>
+	        <field sequential="19" maximumLength="80" dataType="CE" required="O" repeatable="Y" table="0171"  reference="00129">
+                <description>
+                    Citizenship
+                </description>
+            </field>
+	        <field sequential="20" maximumLength="60" dataType="CE" required="O"  table="0296"  reference="00118">
+                <description>
+                    Primary language
+                </description>
+            </field>
+	        <field sequential="21" maximumLength="2" dataType="IS" required="O"  table="0220"  reference="00742">
+                <description>
+                    Living arrangement
+                </description>
+            </field>
+	        <field sequential="22" maximumLength="80" dataType="CE" required="O"  table="0215"  reference="00743">
+                <description>
+                    Publicity code
+                </description>
+            </field>
+	        <field sequential="23" maximumLength="1" dataType="ID" required="O"  table="0136"  reference="00744">
+                <description>
+                    Publicity code
+                </description>
+            </field>
+	        <field sequential="24" maximumLength="2" dataType="IS" required="O"  table="0231"  reference="00745">
+                <description>
+                    Student indicator
+                </description>
+            </field>
+	        <field sequential="25" maximumLength="80" dataType="CE" required="O"  table="0006"  reference="00120">
+                <description>
+                    Religion
+                </description>
+            </field>
+	        <field sequential="26" maximumLength="48" dataType="XPN" required="O"  repeatable="Y"  reference="00746">
+                <description>
+                   Mother maiden name
+                </description>
+            </field>
+	        <field sequential="27" maximumLength="80" dataType="CE" required="O"  table="0212"  reference="00739">
+                <description>
+                   Nationality
+                </description>
+            </field>
+	        <field sequential="28" maximumLength="80" dataType="CE" required="O"  repeatable="Y"  table="0189"  reference="00125">
+                <description>
+                   Ethnic group
+                </description>
+            </field>
+	        <field sequential="29" maximumLength="80" dataType="CE" required="O"  repeatable="Y"  table="0222"  reference="00747">
+                <description>
+                   Contact reason
+                </description>
+            </field>
+	        <field sequential="30" maximumLength="48" dataType="XPN" required="O"  repeatable="Y"  reference="00748">
+                <description>
+                   Contact person name
+                </description>
+            </field>
+	        <field sequential="31" maximumLength="40" dataType="XTN" required="O"  repeatable="Y"  reference="00749">
+                <description>
+                   Contact person telephone number
+                </description>
+            </field>
+	        <field sequential="32" maximumLength="106" dataType="XAD" required="O"  repeatable="Y"  reference="00750">
+                <description>
+                   Contact person address
+                </description>
+            </field>
+	        <field sequential="33" maximumLength="32" dataType="CX" required="O"  repeatable="Y"  reference="00751">
+                <description>
+                   Next of kin/AP identifiers
+                </description>
+            </field>
+	        <field sequential="34" maximumLength="2" dataType="IS" required="O"  table="0311" reference="00752">
+                <description>
+                   Job status
+                </description>
+            </field>
+	        <field sequential="35" maximumLength="80" dataType="CE" required="O" repeatable="Y" table="0005" reference="00113">
+                <description>
+                   Race
+                </description>
+            </field>
+	        <field sequential="36" maximumLength="2" dataType="IS" required="O" table="0295" reference="00753">
+                <description>
+                   Handicap
+                </description>
+            </field>
+	        <field sequential="37" maximumLength="16" dataType="ST" required="O" reference="00754">
+                <description>
+	                Contact person social security #Handicap
+                </description>
+            </field>
+        </fields>
+    </segment>
+    <segment id="ORC">
+        <description>
+            Common Order
+        </description>
+        <fields>
+            <field sequential="1" maximumLength="2" dataType="ID" required="R" table="0119" reference="00215">
+                <description>
+                    Order control
+                </description>
+            </field>
+	        <field sequential="2" maximumLength="22" dataType="EI" required="C" reference="00216">
+                <description>
+                    Placer order number
+                </description>
+            </field>
+	        <field sequential="3" maximumLength="22" dataType="EI" required="C" reference="00217">
+                <description>
+                    Filler order number
+                </description>
+            </field>
+	        <field sequential="4" maximumLength="22" dataType="EI" required="O" reference="00218">
+                <description>
+                    Placer group number
+                </description>
+            </field>
+	        <field sequential="5" maximumLength="2" dataType="ID" required="O" table="0038" reference="00219">
+                <description>
+                    Order status
+                </description>
+            </field>
+	        <field sequential="6" maximumLength="1" dataType="ID" required="O" table="0121" reference="00220">
+                <description>
+                    Response flag
+                </description>
+            </field>
+	        <field sequential="7" maximumLength="200" dataType="TQ" required="O" reference="00221">
+                <description>
+                    Quantity/timing
+                </description>
+            </field>
+	        <field sequential="8" maximumLength="200" dataType="CM" required="O" reference="00222">
+                <description>
+                    Parent
+                </description>
+            </field>
+	        <field sequential="9" maximumLength="26" dataType="TS" required="O" reference="00223">
+                <description>
+                    Date/time of transaction
+                </description>
+            </field>
+	        <field sequential="10" maximumLength="120" dataType="XCN" required="O" reference="00224">
+                <description>
+                    Entered by
+                </description>
+            </field>
+	        <field sequential="11" maximumLength="120" dataType="XCN" required="O" reference="00225">
+                <description>
+                    Verified by
+                </description>
+            </field>
+	        <field sequential="12" maximumLength="120" dataType="XCN" required="O" reference="00226">
+                <description>
+                    Ordering provider
+                </description>
+            </field>
+	        <field sequential="13" maximumLength="80" dataType="PL" required="O" reference="00227">
+                <description>
+                    Enterer location
+                </description>
+            </field>
+	        <field sequential="14" maximumLength="40" dataType="XTN" required="O" repeatable="Y" reference="00228">
+                <description>
+                    Call back phone number
+                </description>
+            </field>
+	        <field sequential="15" maximumLength="26" dataType="TS" required="O" reference="00229">
+                <description>
+                    Order effective date/time
+                </description>
+            </field>
+	        <field sequential="16" maximumLength="200" dataType="CE" required="O" reference="00230">
+                <description>
+                    Order control code reason
+                </description>
+            </field>
+	        <field sequential="17" maximumLength="60" dataType="CE" required="O" reference="00231">
+                <description>
+                    Entering organization
+                </description>
+            </field>
+	        <field sequential="18" maximumLength="60" dataType="CE" required="O" reference="00232">
+                <description>
+                    Entering device
+                </description>
+            </field>
+	        <field sequential="19" maximumLength="120" dataType="XCN" required="O" reference="00233">
+                <description>
+                    Action by
+                </description>
+            </field>
+	        <field sequential="20" maximumLength="40" dataType="CE" required="O" table="0339" reference="01310">
+                <description>
+                    Advanced beneficiary notice code
+                </description>
+            </field>
+	        <field sequential="21" maximumLength="60" dataType="XON" required="O" repeatable="Y" reference="01311">
+                <description>
+                    Ordering facility name
+                </description>
+            </field>
+	        <field sequential="22" maximumLength="106" dataType="XAD" required="O" repeatable="Y" reference="01312">
+                <description>
+                    Ordering facility address
+                </description>
+            </field>
+	        <field sequential="23" maximumLength="48" dataType="XTN" required="O" repeatable="Y" reference="01313">
+                <description>
+                    Ordering facility phone number
+                </description>
+            </field>
+	        <field sequential="24" maximumLength="106" dataType="XAD" required="O" repeatable="Y" reference="01314">
+                <description>
+                    Ordering provider address
+                </description>
+            </field>
+        </fields>
+    </segment>
+    <segment id="RXR">
+        <description>
+            Pharmacy/Treatment Route
+        </description>
+        <fields>
+            <field sequential="1" maximumLength="60" dataType="CE" required="R" table="0162" reference="00309">
+                <description>
+                    Route
+                </description>
+            </field>
+	        <field sequential="2" maximumLength="60" dataType="CE" required="O" table="0163" reference="00310">
+                <description>
+                    Site
+                </description>
+            </field>
+	        <field sequential="3" maximumLength="60" dataType="CE" required="O" table="0164" reference="00311">
+                <description>
+                    Administration Device
+                </description>
+            </field>
+	        <field sequential="4" maximumLength="60" dataType="CE" required="O" table="0165" reference="00312">
+                <description>
+                    Administration Method
+                </description>
+            </field>
+	        <field sequential="5" maximumLength="60" dataType="CE" required="O" reference="01315">
+                <description>
+                    Routing Instruction
+                </description>
+            </field>
+        </fields>
+    </segment>
+	<segment id="RXA">
+        <description>
+            Pharmacy/Treatment Administration
+        </description>
+        <fields>
+            <field sequential="1" maximumLength="4" dataType="NM" required="R" reference="00342">
+                <description>
+                    Route
+                </description>
+            </field>
+	        <field sequential="2" maximumLength="4" dataType="NM" required="R" reference="00344">
+                <description>
+                    Administration sub-ID counter
+                </description>
+            </field>
+	        <field sequential="3" maximumLength="26" dataType="TS" required="R" reference="00345">
+                <description>
+                    Date/time start of administration
+                </description>
+            </field>
+	        <field sequential="4" maximumLength="26" dataType="TS" required="R" reference="00346">
+                <description>
+                    Date/time end of administration
+                </description>
+            </field>
+	        <field sequential="5" maximumLength="100" dataType="CE" required="R" table="0292" reference="00347">
+                <description>
+                    Administered code
+                </description>
+            </field>
+	        <field sequential="6" maximumLength="20" dataType="NM" required="R" reference="00348">
+                <description>
+                    Administered amount
+                </description>
+            </field>
+	        <field sequential="7" maximumLength="60" dataType="CE" required="C" reference="00349">
+                <description>
+                    Administered units
+                </description>
+            </field>
+	        <field sequential="8" maximumLength="60" dataType="CE" required="O" reference="00350">
+                <description>
+                    Administered dosage form
+                </description>
+            </field>
+	        <field sequential="9" maximumLength="200" dataType="CE" required="O" repeatable="Y" reference="00351">
+                <description>
+                    Administration notes
+                </description>
+            </field>
+	        <field sequential="10" maximumLength="200" dataType="XCN" required="O" repeatable="Y" reference="00352">
+                <description>
+                    Administering provider
+                </description>
+            </field>
+	        <field sequential="11" maximumLength="200" dataType="CM" required="C" reference="00353">
+                <description>
+                    Administered-at location
+                </description>
+            </field>
+	        <field sequential="12" maximumLength="20" dataType="ST" required="C" reference="00354">
+                <description>
+                    Administered per (time unit)
+                </description>
+            </field>
+	        <field sequential="13" maximumLength="20" dataType="NM" required="O" reference="01134">
+                <description>
+                    Administered strength
+                </description>
+            </field>
+	        <field sequential="14" maximumLength="60" dataType="CE" required="O" reference="01135">
+                <description>
+                    Administered strength units
+                </description>
+            </field>
+	        <field sequential="15" maximumLength="20" dataType="ST" required="O" repeatable="Y" reference="01129">
+                <description>
+                    Substance lot number
+                </description>
+            </field>
+	        <field sequential="16" maximumLength="26" dataType="TS" required="O" repeatable="Y" reference="01130">
+                <description>
+                    Substance expiration date
+                </description>
+            </field>
+	        <field sequential="17" maximumLength="60" dataType="CE" required="O" repeatable="Y" table="0227" reference="01131">
+                <description>
+                    Substance manufacturer name
+                </description>
+            </field>
+	        <field sequential="18" maximumLength="200" dataType="CE" required="O" repeatable="Y" reference="01136">
+                <description>
+                    Substance refusal reason
+                </description>
+            </field>
+	        <field sequential="19" maximumLength="200" dataType="CE" required="O" repeatable="Y" reference="01123">
+                <description>
+                    Indication
+                </description>
+            </field>
+	        <field sequential="20" maximumLength="2" dataType="ID" required="O" table="0322" reference="01223">
+                <description>
+                    Completion status
+                </description>
+            </field>
+	        <field sequential="21" maximumLength="2" dataType="ID" required="O" table="0323" reference="01224">
+                <description>
+                    Action code-RXA
+                </description>
+            </field>
+	        <field sequential="22" maximumLength="26" dataType="TS" required="O" reference="01225">
+                <description>
+                   System entry date/time
+                </description>
+            </field>
+		</fields>
+    </segment>
+    <segment id="OBR">
+        <description>
+            Error
+        </description>
+        <fields>
+            <field sequential="1" maximumLength="4" dataType="SI" required="O" reference="00237">
+                <description>
+                    SetID
+                </description>
+            </field>
+	        <field sequential="2" maximumLength="22" dataType="EI" required="C" reference="00216">
+                <description>
+                    Placer Order Number
+                </description>
+            </field>
+	        <field sequential="3" maximumLength="22" dataType="EI" required="C" reference="00217">
+                <description>
+                    Filler Order Number
+                </description>
+            </field>
+	        <field sequential="4" maximumLength="200" dataType="CE" required="R" reference="00238">
+                <description>
+                    Universal Service ID
+                </description>
+            </field>
+	        <field sequential="5" maximumLength="2" dataType="ID" required="X" reference="00239">
+                <description>
+                    Priority
+                </description>
+            </field>
+	        <field sequential="6" maximumLength="26" dataType="TS" required="X" reference="00240">
+                <description>
+                    Requested Date/Time
+                </description>
+            </field>
+	        <field sequential="7" maximumLength="26" dataType="TS" required="C" reference="00241">
+                <description>
+                    Observation Date/Time
+                </description>
+            </field>
+	        <field sequential="8" maximumLength="26" dataType="TS" required="O" reference="00242">
+                <description>
+                    Observation End Date/Time
+                </description>
+            </field>
+	        <field sequential="9" maximumLength="20" dataType="CQ" required="O" reference="00243">
+                <description>
+                    Collection Volume
+                </description>
+            </field>
+	        <field sequential="10" maximumLength="60" dataType="XCN" required="O" repeatable="Y" reference="00244">
+                <description>
+                    Collector Identifier
+                </description>
+            </field>
+	        <field sequential="11" maximumLength="1" dataType="ID" required="O" table="0065" reference="00245">
+                <description>
+                    Specimen Action Code
+                </description>
+            </field>
+	        <field sequential="12" maximumLength="60" dataType="CE" required="O" reference="00246">
+                <description>
+                    Danger Code
+                </description>
+            </field>
+	        <field sequential="13" maximumLength="300" dataType="ST" required="O" reference="00247">
+                <description>
+                    Relevant Clinical Info.
+                </description>
+            </field>
+	        <field sequential="14" maximumLength="26" dataType="TS" required="C" reference="00248">
+                <description>
+                    Specimen Received Date/Time
+                </description>
+            </field>
+	        <field sequential="15" maximumLength="300" dataType="CM" required="C" table="0070" reference="00249">
+                <description>
+                    Specimen Source
+                </description>
+            </field>
+	        <field sequential="16" maximumLength="80" dataType="XCN" required="O" repeatable="Y" reference="00226">
+                <description>
+                    Ordering Provider
+                </description>
+            </field>
+	        <field sequential="17" maximumLength="40" dataType="XTN" required="O" repeatable="Y" reference="00250">
+                <description>
+                    Order Callback Phone Number
+                </description>
+            </field>
+	        <field sequential="18" maximumLength="60" dataType="ST" required="O" reference="00251">
+                <description>
+                    Placer Field 1
+                </description>
+            </field>
+	        <field sequential="19" maximumLength="60" dataType="ST" required="O" reference="00252">
+                <description>
+                    Placer Field 2
+                </description>
+            </field>
+	        <field sequential="20" maximumLength="60" dataType="ST" required="O" reference="00253">
+                <description>
+                    Filler Field 1
+                </description>
+            </field>
+	        <field sequential="21" maximumLength="60" dataType="ST" required="O" reference="00254">
+                <description>
+                    Filler Field 2
+                </description>
+            </field>
+	        <field sequential="22" maximumLength="26" dataType="TS" required="C" reference="00255">
+                <description>
+                    Results Rpt/Status Chng-Date/Time
+                </description>
+            </field>
+	        <field sequential="23" maximumLength="40" dataType="CM" required="O" reference="00256">
+                <description>
+                    Charge to Practice
+                </description>
+            </field>
+	        <field sequential="24" maximumLength="10" dataType="ID" required="O" table="0074" reference="00257">
+                <description>
+                    Diagnostic Serv Sect ID
+                </description>
+            </field>
+	        <field sequential="25" maximumLength="1" dataType="ID" required="C" table="0123" reference="00258">
+                <description>
+                    Result Status
+                </description>
+            </field>
+	        <field sequential="26" maximumLength="400" dataType="CM" required="O" reference="00259">
+                <description>
+                    Parent Result
+                </description>
+            </field>
+	        <field sequential="27" maximumLength="200" dataType="TQ" required="O" repeatable="Y" reference="00221">
+                <description>
+                    Quantity/Timing
+                </description>
+            </field>
+	        <field sequential="28" maximumLength="150" dataType="XCN" required="O" repeatable="Y" reference="00260">
+                <description>
+                    Result Copies To
+                </description>
+            </field>
+	        <field sequential="29" maximumLength="200" dataType="CM" required="O" reference="00261">
+                <description>
+                    Parent
+                </description>
+            </field>
+	        <field sequential="30" maximumLength="20" dataType="ID" required="O" table="0124" reference="00262">
+                <description>
+                    Transportation Mode
+                </description>
+            </field>
+	        <field sequential="31" maximumLength="300" dataType="CE" required="O" repeatable="Y" reference="00263">
+                <description>
+                    Reason for Study
+                </description>
+            </field>
+	        <field sequential="32" maximumLength="200" dataType="CM" required="O" reference="00264">
+                <description>
+                    Principal Result Interpreter
+                </description>
+            </field>
+	        <field sequential="33" maximumLength="200" dataType="CM" required="O" repeatable="Y" reference="00265">
+                <description>
+                    Assistant Result Interpreter
+                </description>
+            </field>
+	        <field sequential="34" maximumLength="200" dataType="CM" required="O" repeatable="Y" reference="00266">
+                <description>
+                    Technician
+                </description>
+            </field>
+	        <field sequential="35" maximumLength="200" dataType="CM" required="O" repeatable="Y" reference="00267">
+                <description>
+                    Transcriptionist
+                </description>
+            </field>
+	        <field sequential="36" maximumLength="26" dataType="TS" required="O" reference="00268">
+                <description>
+                   Scheduled Date/Time
+                </description>
+            </field>
+	        <field sequential="37" maximumLength="4" dataType="NM" required="O" reference="01028">
+                <description>
+                   Number of Sample Containers
+                </description>
+            </field>
+	        <field sequential="38" maximumLength="60" dataType="CE" required="O" repeatable="Y" reference="01029">
+                <description>
+                   Transport Logistics of Collected Sample
+                </description>
+            </field>
+	        <field sequential="39" maximumLength="200" dataType="CE" required="O" repeatable="Y" reference="01030">
+                <description>
+                   Collectors Comment
+                </description>
+            </field>
+	        <field sequential="40" maximumLength="60" dataType="CE" required="O" reference="01031">
+                <description>
+                   Transport Arrangement Responsibility
+                </description>
+            </field>
+	        <field sequential="41" maximumLength="30" dataType="ID" required="O" table="0224" reference="01032">
+                <description>
+                   Transport Arranged
+                </description>
+            </field>
+	        <field sequential="42" maximumLength="1" dataType="ID" required="O" table="0225" reference="01033">
+                <description>
+                   Escort Required
+                </description>
+            </field>
+	        <field sequential="43" maximumLength="200" dataType="CE" required="O" repeatable="Y" reference="01034">
+                <description>
+                   Planned Patient Transport Comment
+                </description>
+            </field>
+	        <field sequential="44" maximumLength="80" dataType="CE" required="O" table="0088" reference="00393">
+                <description>
+                   Procedure Code
+                </description>
+            </field>
+	        <field sequential="45" maximumLength="80" dataType="CE" required="O" repeatable="Y" table="0340" reference="01316">
+                <description>
+                   Procedure Code Modifier
+                </description>
+            </field>
+        </fields>
+    </segment>
+    <segment id="OBX">
+        <description>
+            Observation/Result
+        </description>
+        <fields>
+            <field sequential="1" maximumLength="4" dataType="SI" required="O" reference="00569">
+                <description>
+                    Set ID-OBX
+                </description>
+            </field>
+	        <field sequential="2" maximumLength="3" dataType="ID" required="C" table="0125" reference="00570">
+                <description>
+                    Value type
+                </description>
+            </field>
+	        <field sequential="3" maximumLength="80" dataType="CE" required="R" reference="00571">
+                <description>
+                    Value type
+                </description>
+            </field>
+	        <field sequential="4" maximumLength="20" dataType="ST" required="C" reference="00572">
+                <description>
+                    Observation sub-ID
+                </description>
+            </field>
+	        <!-- WARNING: This is exception, Field OBX-2 contains the data type which defines the format of the observation value in
+				 OBX-5. A full explanation of possible data types is given below so that users will have complete
+				 information. However, for immunization registries, this field will usually be CE, NM, ST, DT, or TS.-->
+	        <field sequential="5" maximumLength="65536" required="C" reference="00573" dependingType="given">
+                <depends from="OBX.2"/>
+                <description>
+                    Observation value
+                </description>
+            </field>
+	        <field sequential="6" maximumLength="60" dataType="CE" required="O" reference="00574">
+                <description>
+                    Units
+                </description>
+            </field>
+	        <field sequential="7" maximumLength="60" dataType="ST" required="O" reference="00575">
+                <description>
+                    Reference ranges
+                </description>
+            </field>
+	        <field sequential="8" maximumLength="5" dataType="ID" required="O" repeatable="Y" table="0078" reference="00576">
+                <description>
+                    Abnormal flags
+                </description>
+            </field>
+	        <field sequential="9" maximumLength="5" dataType="NM" required="O" reference="00577">
+                <description>
+                    Abnormal flags
+                </description>
+            </field>
+	        <field sequential="10" maximumLength="2" dataType="ID" required="O" repeatable="Y" table="0080" reference="00578">
+                <description>
+                    Nature of abnormal test
+                </description>
+            </field>
+	        <field sequential="11" maximumLength="1" dataType="ID" required="R" table="0085" reference="00579">
+                <description>
+                    Observ result status
+                </description>
+            </field>
+	        <field sequential="12" maximumLength="26" dataType="TS" required="O" reference="00580">
+                <description>
+                    Date last obs normal values
+                </description>
+            </field>
+	        <field sequential="13" maximumLength="20" dataType="ST" required="O" reference="00581">
+                <description>
+                    User defined access checks
+                </description>
+            </field>
+	        <field sequential="14" maximumLength="26" dataType="TS" required="O" reference="00582">
+                <description>
+                    Date/time of the observation
+                </description>
+            </field>
+	        <field sequential="15" maximumLength="60" dataType="CE" required="O" reference="00583">
+                <description>
+                    Producers ID
+                </description>
+            </field>
+	        <field sequential="16" maximumLength="80" dataType="XCN" required="O" repeatable="Y" reference="00584">
+                <description>
+                    Responsible observer
+                </description>
+            </field>
+	        <field sequential="17" maximumLength="60" dataType="CE" required="O" repeatable="Y" reference="00936">
+                <description>
+                    Observation method
+                </description>
+            </field>
+        </fields>
+    </segment>
+    <segment id="NTE">
+        <description>
+            Notes and Comments
+        </description>
+        <fields>
+            <field sequential="1" maximumLength="4" dataType="SI" required="O" reference="00096">
+                <description>
+                    Set ID-NTE
+                </description>
+            </field>
+	        <field sequential="2" maximumLength="8" dataType="ID" required="O" table="0105" reference="00097">
+                <description>
+                    Source of comment
+                </description>
+            </field>
+	        <field sequential="3" maximumLength="65536" dataType="FT" required="O" repeatable="Y" reference="00098">
+                <description>
+                    Comment
+                </description>
+            </field>
+	        <field sequential="4" maximumLength="60" dataType="CE" required="O" reference="01318">
+                <description>
+                    Comment type
+                </description>
+            </field>
+        </fields>
+    </segment>
+	<segment id="EVN">
+        <description>
+           Event Type
+        </description>
+        <fields>
+            <field sequential="1" maximumLength="3" dataType="ID" required="B" table="0003" reference="00099">
+                <description>
+                    Event type code
+                </description>
+            </field>
+	        <field sequential="2" maximumLength="26" dataType="TS" required="R" reference="00100">
+                <description>
+                    Recorded date/time
+                </description>
+            </field>
+	        <field sequential="3" maximumLength="26" dataType="TS" required="O" reference="00101">
+                <description>
+                    Date/time planned event
+                </description>
+            </field>
+	        <field sequential="4" maximumLength="3" dataType="IS" required="O" table="0062" reference="00102">
+                <description>
+                    Event reason code
+                </description>
+            </field>
+	        <field sequential="5" maximumLength="60" dataType="XCN" required="O" repeatable="Y" table="0188" reference="00103">
+                <description>
+                    Operator ID
+                </description>
+            </field>
+	        <field sequential="6" maximumLength="26" dataType="TS" required="O" repeatable="Y" reference="01278">
+                <description>
+                    Event occurred
+                </description>
+            </field>
+		</fields>
+    </segment>
+	<segment id="MRG">
+        <description>
+           Merge Patient Information
+        </description>
+        <fields>
+            <field sequential="1" maximumLength="20" dataType="CX" required="R" repeatable="Y" reference="00211">
+                <description>
+                    Prior patient identifier list
+                </description>
+            </field>
+	        <field sequential="2" maximumLength="20" dataType="CX" required="O" repeatable="Y" reference="00212">
+                <description>
+                    Prior alternate patient ID
+                </description>
+            </field>
+	        <field sequential="3" maximumLength="20" dataType="CX" required="O" reference="00213">
+                <description>
+                    Prior patient account number
+                </description>
+            </field>
+	        <field sequential="4" maximumLength="20" dataType="CX" required="O" reference="00214">
+                <description>
+                    Prior patient ID
+                </description>
+            </field>
+	        <field sequential="5" maximumLength="20" dataType="CX" required="O" reference="01279">
+                <description>
+                    Prior visit number
+                </description>
+            </field>
+	        <field sequential="6" maximumLength="20" dataType="CX" required="O" reference="01280">
+                <description>
+                    Prior alternate visit ID
+                </description>
+            </field>
+	        <field sequential="7" maximumLength="48" dataType="XPN" required="O" repeatable="Y" reference="01281">
+                <description>
+                    Prior patient name
+                </description>
+            </field>
+		</fields>
+    </segment>
+    <segment id="CTI">
+        <description>
+           Clinical Trial Identification Segment
+        </description>
+        <fields>
+            <field sequential="1" maximumLength="60" dataType="EI" required="R" reference="01011">
+                <description>
+                    Sponsor Study ID
+                </description>
+            </field>
+            <field sequential="2" maximumLength="250" dataType="CE" required="C" reference="01022">
+                <description>
+                    Study Phase Identifier
+                </description>
+            </field>
+            <field sequential="3" maximumLength="250" dataType="CE" required="O" reference="01055">
+                <description>
+                    Study Scheduled Time Point
+                </description>
+            </field>
+        </fields>
+    </segment>
+    <segment id="QAK">
+        <description>
+           query acknowledgment segment
+        </description>
+        <fields>
+            <field sequential="1" maximumLength="32" dataType="ST" required="C" reference="00696">
+                <description>
+                    Query Tag
+                </description>
+            </field>
+            <field sequential="2" maximumLength="2" dataType="ID" required="O" table="0208" reference="00708">
+                <description>
+                   Query Response Status
+                </description>
+            </field>
+            <field sequential="3" maximumLength="250" dataType="CE" required="O" table="0471" reference="01375">
+                <description>
+                    Message Query Name
+                </description>
+            </field>
+            <field sequential="4" maximumLength="10" dataType="NM" required="O" reference="01434">
+                <description>
+                    Hit Count
+                </description>
+            </field>
+            <field sequential="5" maximumLength="10" dataType="NM" required="O" reference="01622">
+                <description>
+                    This payload
+                </description>
+            </field>
+            <field sequential="6" maximumLength="10" dataType="NM" required="O" reference="01623">
+                <description>
+                    Hits remaining
+                </description>
+            </field>
+        </fields>
+    </segment>
+</segments>

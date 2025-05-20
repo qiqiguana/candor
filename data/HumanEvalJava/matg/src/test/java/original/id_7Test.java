@@ -1,0 +1,55 @@
+package original;
+
+import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of FilterBySubstring.
+*/
+class FilterBySubstringTest {
+    @Test
+    void filterBySubstring_should_ReturnEmptyList_WhenInputIsEmpty() {
+        List<Object> strings = new ArrayList<>();
+        String substring = "a";
+        List<Object> result = FilterBySubstring.filterBySubstring(strings, substring);
+        assertTrue(result.isEmpty());
+    }
+    
+    @Test
+        void testNothing(){
+            FilterBySubstring s = new FilterBySubstring();
+            }
+    @Test
+    public void testEmptyList() {
+        List<Object> result = FilterBySubstring.filterBySubstring(new ArrayList<>(), "a");
+        assertTrue(result.isEmpty());
+    }
+    @Test
+    public void testNoMatches() {
+        List<Object> input = Arrays.asList("xxx", "asd", "xxy");
+        List<Object> result = FilterBySubstring.filterBySubstring(input, "john");
+        assertTrue(result.isEmpty());
+    }
+    @Test
+    public void testEmptyInputList() {
+        List<Object> input = new ArrayList<>();
+        List<Object> result = FilterBySubstring.filterBySubstring(input, "a");
+        assertEquals(0, result.size());
+    }
+    @Test
+    public void testMultipleMatchesCorrected() {
+        List<Object> input = Arrays.asList("xxx", "aaaxxy", "xxxAAA", "xxx");
+        List<Object> result = FilterBySubstring.filterBySubstring(input, "xx");
+        assertEquals(4, result.size());
+    }
+    @Test
+    public void testEmptySubstring() {
+        List<Object> input = Arrays.asList("xxx", "asd", "xxy");
+        List<Object> result = FilterBySubstring.filterBySubstring(input, "");
+        assertEquals(3, result.size());
+    }
+                                    
+}

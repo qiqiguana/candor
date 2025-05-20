@@ -1,0 +1,78 @@
+package original;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of GetRow.
+*/
+class GetRowTest {
+    @Test
+    void testGetRow_SortedCoordinates() {
+        List<Object> lst = new ArrayList<>();
+        List<Object> row1 = new ArrayList<>();
+        row1.add(1);
+        row1.add(2);
+        row1.add(3);
+        row1.add(4);
+        row1.add(5);
+        row1.add(6);
+        lst.add(row1);
+
+        List<Object> row2 = new ArrayList<>();
+        row2.add(1);
+        row2.add(2);
+        row2.add(3);
+        row2.add(4);
+        row2.add(1);
+        row2.add(6);
+        lst.add(row2);
+
+        List<Object> row3 = new ArrayList<>();
+        row3.add(1);
+        row3.add(2);
+        row3.add(3);
+        row3.add(4);
+        row3.add(5);
+        row3.add(1);
+        lst.add(row3);
+
+        List<Object> expected = new ArrayList<>();
+        List<Object> coordinate1 = new ArrayList<>();
+        coordinate1.add(0);
+        coordinate1.add(0);
+        expected.add(coordinate1);
+
+        List<Object> coordinate2 = new ArrayList<>();
+        coordinate2.add(1);
+        coordinate2.add(4);
+        expected.add(coordinate2);
+
+        List<Object> coordinate3 = new ArrayList<>();
+        coordinate3.add(1);
+        coordinate3.add(0);
+        expected.add(coordinate3);
+
+        List<Object> coordinate4 = new ArrayList<>();
+        coordinate4.add(2);
+        coordinate4.add(5);
+        expected.add(coordinate4);
+
+        List<Object> coordinate5 = new ArrayList<>();
+        coordinate5.add(2);
+        coordinate5.add(0);
+        expected.add(coordinate5);
+
+        assertEquals(expected, GetRow.getRow(lst, 1));
+    }
+    
+    @Test
+        public void testNothing(){
+            GetRow s = new GetRow();
+            }
+                                    
+}

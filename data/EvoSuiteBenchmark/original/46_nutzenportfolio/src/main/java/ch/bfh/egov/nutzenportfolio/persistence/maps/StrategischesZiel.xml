@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="StrategischesZiel">
+
+  <typeAlias alias="StrategischesZielObject" type="ch.bfh.egov.nutzenportfolio.tos.StrategischesZiel"/>
+  <typeAlias alias="ProjektObject" type="ch.bfh.egov.nutzenportfolio.tos.Projekt"/>
+  <typeAlias alias="CustomizingObject" type="ch.bfh.egov.nutzenportfolio.tos.Customizing"/>
+  <typeAlias alias="DetailzielObject" type="ch.bfh.egov.nutzenportfolio.tos.Detailziel"/>
+
+  <resultMap id="strategischesZielResult" class="StrategischesZielObject">
+    <result property="strategischesZielId"		column="strategischesZielId"/>
+    <result property="mandantId"							column="mandantId"/>
+    <result property="name"										column="name"/>
+    <result property="beschreibung"						column="beschreibung"/>
+    <result property="system"									column="system"/>
+  </resultMap>
+  
+  <resultMap id="strategischesZielAssignmentResult" class="StrategischesZielObject">
+    <result property="strategischesZielId"			column="strategischesZielId"/>
+    <result property="projektattraktivitaetId"	column="projektattraktivitaetId"/>
+    <result property="mandantId"								column="mandantId"/>
+    <result property="name"											column="name"/>
+    <result property="beschreibung"							column="beschreibung"/>
+    <result property="system"										column="system"/>
+  </resultMap>
+  
+  <resultMap id="customizingResult" class="CustomizingObject">
+    <result property="customizingId"			column="customizingId"/>
+    <result property="name"								column="name"/>
+    <result property="status"							column="status"/>
+  </resultMap>
+  
+  <resultMap id="detailzielResult" class="DetailzielObject">
+	  <result property="detailzielId"							column="detailzielId"/>
+	  <result property="name"											column="name"/>
+	  <result property="quantifizierbar"					column="quantifizierbar"/>
+	  <result property="strategischesZielId"			column="strategischesZielId"/>
+	  <result property="mandantId"								column="mandantId"/>
+  </resultMap>
+  
+  <select
+  		id="getAll"
+  		parameterClass="java.lang.Integer"
+  		resultMap="strategischesZielResult">
+    SELECT
+      strategischesZielId, mandantId, name, beschreibung, system
+    FROM StrategischesZiel
+    WHERE
+    	mandantId = #value#
+  </select>
+  
+  <select
+  		id="getById"
+  		parameterClass="StrategischesZielObject"
+  		resultMap="strategischesZielResult">
+    SELECT
+      strategischesZielId, mandantId, name, beschreibung, system
+    FROM StrategischesZiel
+    WHERE
+    	strategischesZielId = #strategischesZielId# AND
+    	mandantId = #mandantId#
+  </select>
+  
+  <select
+  		id="getByName"
+  		parameterClass="StrategischesZielObject"
+  		resultMap="strategischesZielResult">
+    SELECT
+      strategischesZielId, mandantId, name, beschreibung, system
+    FROM StrategischesZiel
+    WHERE
+    	name LIKE #name#
+    	AND mandantId = #mandantId#
+  </select>
+  
+  <select
+  		id="getByProjektId"
+  		parameterClass="ProjektObject"
+  		resultMap="strategischesZielResult">
+    SELECT s.strategischesZielId, s.mandantId, s.name, s.beschreibung, s.system
+    FROM
+    	StrategischesZiel AS s,
+    	StrategischesZiel_has_Projektattraktivitaet AS sp,
+    	Projektattraktivitaet AS pa,
+    	Customizing AS c,
+    	Projektgruppe AS pg,
+    	Projekt AS p
+    WHERE
+    	s.strategischesZielId = sp.strategischesZielId AND
+    	sp.projektattraktivitaetId = pa.projektattraktivitaetId AND
+    	pa.customizingId = c.customizingId AND
+    	pg.customizingId = c.customizingId AND
+    	p.projektgruppeId = pg.projektgruppeId AND
+			p.projektId = #projektId#
+  </select>
+  
+  <select
+  		id="getAssignments"
+  		parameterClass="StrategischesZielObject"
+  		resultMap="strategischesZielAssignmentResult">
+    SELECT
+    	s.strategischesZielId, s.mandantId, s.name, s.system,
+    	s.beschreibung, p.projektattraktivitaetId
+    FROM
+    	StrategischesZiel AS s,
+    	StrategischesZiel_has_Projektattraktivitaet AS sp,
+	    Projektattraktivitaet AS p
+    WHERE
+    	s.strategischesZielId = sp.strategischesZielId AND
+    	p.projektattraktivitaetId = sp.projektattraktivitaetId AND
+    	customizingId = #customizingId# AND
+    	mandantId = #mandantId#
+  </select>
+  
+  <select
+  		id="getLinkedCustomizings"
+  		parameterClass="StrategischesZielObject"
+  		resultMap="customizingResult">
+    SELECT c.customizingId, name, status
+    FROM
+    	Customizing AS c, Projektattraktivitaet AS p,
+    	StrategischesZiel_has_Projektattraktivitaet AS sp
+    WHERE
+    	c.customizingId = p.customizingId
+    	AND sp.projektattraktivitaetId = p.projektattraktivitaetId
+    	AND strategischesZielId = #strategischesZielId#
+    	AND mandantId = #mandantId#
+  </select>
+  
+  <select
+  		id="getLinkedDetailziele"
+  		parameterClass="StrategischesZielObject"
+  		resultMap="detailzielResult">
+    SELECT detailzielId, d.name, d.quantifizierbar, d.strategischesZielId, d.mandantId
+    FROM Detailziel AS d, StrategischesZiel AS s
+    WHERE
+      d.strategischesZielId = s.strategischesZielId
+    	AND s.strategischesZielId = #strategischesZielId#
+    	AND s.mandantId = #mandantId#
+  </select>
+  
+  <insert id="insert" parameterClass="StrategischesZielObject">
+    INSERT INTO StrategischesZiel
+    	(name, beschreibung, mandantId)
+    VALUES (#name#, #beschreibung#, #mandantId#)
+  </insert>
+  
+  <update id="update" parameterClass="StrategischesZielObject">
+    UPDATE StrategischesZiel
+    SET
+	    name = #name#,
+	    beschreibung = #beschreibung#
+    WHERE
+    	strategischesZielId = #strategischesZielId# AND
+    	mandantId = #mandantId#
+  </update>
+  
+  <delete id="delete" parameterClass="StrategischesZielObject">
+    DELETE FROM StrategischesZiel
+    WHERE
+    	strategischesZielId = #strategischesZielId# AND
+    	mandantId = #mandantId#
+  </delete>
+  
+  <insert id="insertAssignment" parameterClass="StrategischesZielObject">
+    INSERT INTO StrategischesZiel_has_Projektattraktivitaet
+    	(strategischesZielId, projektattraktivitaetId)
+    VALUES (#strategischesZielId#, #projektattraktivitaetId#)
+  </insert>
+  
+  <delete id="deleteAssignments" parameterClass="java.lang.Integer">
+    DELETE
+    FROM StrategischesZiel_has_Projektattraktivitaet
+    WHERE
+    	projektattraktivitaetId = #projektattraktivitaetId#
+  </delete>
+</sqlMap>

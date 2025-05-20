@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_89.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HumanEvalJava</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_89.java</span></div><h1>id_89.java</h1><pre class="source lang-java linenums">package original;
+
+<span class="fc" id="L3">class Encrypt {</span>
+    /**
+     * Create a function encrypt that takes a string as an argument and
+     * returns a string encrypted with the alphabet being rotated.
+     * The alphabet should be rotated in a manner such that the letters
+     * shift down by two multiplied to two places.
+     * For example:
+     * encrypt('hi') returns 'lm'
+     * encrypt('asdfghjkl') returns 'ewhjklnop'
+     * encrypt('gf') returns 'kj'
+     * encrypt('et') returns 'ix'
+     *
+     * &gt; encrypt(&quot;hi&quot;)
+     * &quot;lm&quot;
+     * &gt; encrypt(&quot;asdfghjkl&quot;)
+     * &quot;ewhjklnop&quot;
+     * &gt; encrypt(&quot;gf&quot;)
+     * &quot;kj&quot;
+     * &gt; encrypt(&quot;et&quot;)
+     * &quot;ix&quot;
+     * &gt; encrypt(&quot;faewfawefaewg&quot;)
+     * &quot;jeiajeaijeiak&quot;
+     * &gt; encrypt(&quot;hellomyfriend&quot;)
+     * &quot;lippsqcjvmirh&quot;
+     * &gt; encrypt(&quot;dxzdlmnilfuhmilufhlihufnmlimnufhlimnufhfucufh&quot;)
+     * &quot;hbdhpqrmpjylqmpyjlpmlyjrqpmqryjlpmqryjljygyjl&quot;
+     * &gt; encrypt(&quot;a&quot;)
+     * &quot;e&quot;
+     */
+    public static String encrypt(String s) {
+<span class="fc" id="L33">        String result = &quot;&quot;;</span>
+<span class="fc bfc" id="L34" title="All 2 branches covered.">        for (int i = 0; i &lt; s.length(); i++) {</span>
+<span class="fc" id="L35">            char c = s.charAt(i);</span>
+<span class="fc bfc" id="L36" title="All 4 branches covered.">            if (c &gt;= 'a' &amp;&amp; c &lt;= 'z') {</span>
+<span class="fc" id="L37">                c += 2 * 2;</span>
+<span class="fc bfc" id="L38" title="All 2 branches covered.">                if (c &gt; 'z') {</span>
+<span class="fc" id="L39">                    c -= 26;</span>
+                }
+            }
+<span class="fc" id="L42">            result += c;</span>
+        }
+<span class="fc" id="L44">        return result;</span>
+    }
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

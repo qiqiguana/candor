@@ -1,0 +1,48 @@
+package original;
+
+import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of OrderByPoints.
+*/
+class OrderByPointsTest {
+
+    @Test
+    void testOrderByPoints_SimpleCase() {
+        List<Object> input = new ArrayList<>();
+        input.add(1);
+        input.add(11);
+        input.add(-1);
+        input.add(-11);
+        input.add(-12);
+        List<Object> expectedOutput = new ArrayList<>();
+        expectedOutput.add(-1);
+        expectedOutput.add(-11);
+        expectedOutput.add(1);
+        expectedOutput.add(-12);
+        expectedOutput.add(11);
+        assertEquals(expectedOutput, OrderByPoints.orderByPoints(input));
+    }
+    
+    @Test
+        public void testNothing(){
+            OrderByPoints s = new OrderByPoints();
+            }
+    @Test
+    void test_empty_list() {
+        List<Object> nums = new ArrayList<>();
+        assertEquals(new ArrayList<>(), OrderByPoints.orderByPoints(nums));
+    }
+    @Test
+    void test_single_element_list() {
+        List<Object> nums = new ArrayList<>(Arrays.asList(1));
+        assertEquals(new ArrayList<>(Arrays.asList(1)), OrderByPoints.orderByPoints(nums));
+    }
+                                    
+}

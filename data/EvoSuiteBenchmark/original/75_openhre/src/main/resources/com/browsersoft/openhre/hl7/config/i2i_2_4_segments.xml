@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<segments>
+      <segment id="OBR.I2I">
+        <description>
+            Error
+        </description>
+        <fields>
+            <field sequential="1" maximumLength="4" dataType="SI" required="O" reference="00237">
+                <description>
+                    SetID
+                </description>
+            </field>
+	        <field sequential="2" maximumLength="22" dataType="EI" required="C" reference="00216">
+                <description>
+                    Placer Order Number
+                </description>
+            </field>
+            <!-- maximumLength="255" not match with specification ( originaly maximumLength="22") ,
+                but a lot of errors occured with this value in testing data -->
+            <field sequential="3" maximumLength="250" dataType="EI" required="C" reference="00217">
+                <description>
+                    Filler Order Number
+                </description>
+            </field>
+	        <field sequential="4" maximumLength="250" dataType="CE" required="R" reference="00238">
+                <description>
+                    Universal Service ID
+                </description>
+            </field>
+	        <field sequential="5" maximumLength="2" dataType="ID" required="X" reference="00239">
+                <description>
+                    Priority
+                </description>
+            </field>
+	        <field sequential="6" maximumLength="26" dataType="TS" required="X" reference="00240">
+                <description>
+                    Requested Date/Time
+                </description>
+            </field>
+	        <field sequential="7" maximumLength="26" dataType="TS" required="C" reference="00241">
+                <description>
+                    Observation Date/Time
+                </description>
+            </field>
+	        <field sequential="8" maximumLength="26" dataType="TS" required="O" reference="00242">
+                <description>
+                    Observation End Date/Time
+                </description>
+            </field>
+	        <field sequential="9" maximumLength="20" dataType="CQ" required="O" reference="00243">
+                <description>
+                    Collection Volume
+                </description>
+            </field>
+	        <field sequential="10" maximumLength="250" dataType="XCN" required="O" repeatable="Y" reference="00244">
+                <description>
+                    Collector Identifier
+                </description>
+            </field>
+	        <field sequential="11" maximumLength="1" dataType="ID" required="O" table="0065" reference="00245">
+                <description>
+                    Specimen Action Code
+                </description>
+            </field>
+	        <field sequential="12" maximumLength="250" dataType="CE" required="O" reference="00246">
+                <description>
+                    Danger Code
+                </description>
+            </field>
+	        <field sequential="13" maximumLength="300" dataType="ST" required="O" reference="00247">
+                <description>
+                    Relevant Clinical Info.
+                </description>
+            </field>
+	        <field sequential="14" maximumLength="26" dataType="TS" required="C" reference="00248">
+                <description>
+                    Specimen Received Date/Time
+                </description>
+            </field>
+	        <field sequential="15" maximumLength="300" dataType="SPS" required="C" table="0070" reference="00249">
+                <description>
+                    Specimen Source
+                </description>
+            </field>
+	        <field sequential="16" maximumLength="80" dataType="XCN" required="O" repeatable="Y" reference="00226">
+                <description>
+                    Ordering Provider
+                </description>
+            </field>
+	        <field sequential="17" maximumLength="40" dataType="XTN" required="O" repeatable="Y" reference="00250">
+                <description>
+                    Order Callback Phone Number
+                </description>
+            </field>
+	        <field sequential="18" maximumLength="60" dataType="ST" required="O" reference="00251">
+                <description>
+                    Placer Field 1
+                </description>
+            </field>
+	        <field sequential="19" maximumLength="60" dataType="ST" required="O" reference="00252">
+                <description>
+                    Placer Field 2
+                </description>
+            </field>
+	        <field sequential="20" maximumLength="60" dataType="ST" required="O" reference="00253">
+                <description>
+                    Filler Field 1
+                </description>
+            </field>
+	        <field sequential="21" maximumLength="60" dataType="CE" required="O" reference="00254">
+                <description>
+                    Filler Field 2
+                </description>
+            </field>
+	        <field sequential="22" maximumLength="26" dataType="TS" required="C" reference="00255">
+                <description>
+                    Results Rpt/Status Chng-Date/Time
+                </description>
+            </field>
+	        <field sequential="23" maximumLength="40" dataType="MOC" required="O" reference="00256">
+                <description>
+                    Charge to Practice
+                </description>
+            </field>
+	        <field sequential="24" maximumLength="10" dataType="ID" required="O" table="0074" reference="00257">
+                <description>
+                    Diagnostic Serv Sect ID
+                </description>
+            </field>
+	        <field sequential="25" maximumLength="1" dataType="ID" required="C" table="0123" reference="00258">
+                <description>
+                    Result Status
+                </description>
+            </field>
+	        <field sequential="26" maximumLength="400" dataType="PRL" required="O" reference="00259">
+                <description>
+                    Parent Result
+                </description>
+            </field>
+	        <field sequential="27" maximumLength="200" dataType="TQ" required="O" repeatable="Y" reference="00221">
+                <description>
+                    Quantity/Timing
+                </description>
+            </field>
+	        <field sequential="28" maximumLength="250" dataType="XCN" required="O" repeatable="Y" reference="00260">
+                <description>
+                    Result Copies To
+                </description>
+            </field>
+	        <field sequential="29" maximumLength="200" dataType="EIP" required="O" reference="00261">
+                <description>
+                    Parent
+                </description>
+            </field>
+	        <field sequential="30" maximumLength="20" dataType="ID" required="O" table="0124" reference="00262">
+                <description>
+                    Transportation Mode
+                </description>
+            </field>
+	        <field sequential="31" maximumLength="250" dataType="CE" required="O" repeatable="Y" reference="00263">
+                <description>
+                    Reason for Study
+                </description>
+            </field>
+	        <field sequential="32" maximumLength="200" dataType="NDL" required="O" reference="00264">
+                <description>
+                    Principal Result Interpreter
+                </description>
+            </field>
+	        <field sequential="33" maximumLength="200" dataType="NDL" required="O" repeatable="Y" reference="00265">
+                <description>
+                    Assistant Result Interpreter
+                </description>
+            </field>
+	        <field sequential="34" maximumLength="200" dataType="NDL" required="O" repeatable="Y" reference="00266">
+                <description>
+                    Technician
+                </description>
+            </field>
+	        <field sequential="35" maximumLength="200" dataType="NDL" required="O" repeatable="Y" reference="00267">
+                <description>
+                    Transcriptionist
+                </description>
+            </field>
+	        <field sequential="36" maximumLength="26" dataType="TS" required="O" reference="00268">
+                <description>
+                   Scheduled Date/Time
+                </description>
+            </field>
+	        <field sequential="37" maximumLength="4" dataType="NM" required="O" reference="01028">
+                <description>
+                   Number of Sample Containers
+                </description>
+            </field>
+	        <field sequential="38" maximumLength="60" dataType="CE" required="O" repeatable="Y" reference="01029">
+                <description>
+                   Transport Logistics of Collected Sample
+                </description>
+            </field>
+	        <field sequential="39" maximumLength="200" dataType="CE" required="O" repeatable="Y" reference="01030">
+                <description>
+                   Collectors Comment
+                </description>
+            </field>
+	        <field sequential="40" maximumLength="60" dataType="CE" required="O" reference="01031">
+                <description>
+                   Transport Arrangement Responsibility
+                </description>
+            </field>
+	        <field sequential="41" maximumLength="30" dataType="ID" required="O" table="0224" reference="01032">
+                <description>
+                   Transport Arranged
+                </description>
+            </field>
+	        <field sequential="42" maximumLength="1" dataType="ID" required="O" table="0225" reference="01033">
+                <description>
+                   Escort Required
+                </description>
+            </field>
+	        <field sequential="43" maximumLength="250" dataType="CE" required="O" repeatable="Y" reference="01034">
+                <description>
+                   Planned Patient Transport Comment
+                </description>
+            </field>
+	        <field sequential="44" maximumLength="250" dataType="CE" required="O" table="0088" reference="00393">
+                <description>
+                   Procedure Code
+                </description>
+            </field>
+	        <field sequential="45" maximumLength="250" dataType="CE" required="O" repeatable="Y" table="0340" reference="01316">
+                <description>
+                   Procedure Code Modifier
+                </description>
+            </field>
+            <field sequential="46" maximumLength="250" dataType="CE" required="O" repeatable="Y" table="0411" reference="01474">
+                <description>
+                   Placer Supplemental Service Information
+                </description>
+            </field>
+            <field sequential="47" maximumLength="250" dataType="CE" required="O" repeatable="Y" table="0411" reference="01475">
+                <description>
+                   Filler Supplemental Service Information
+                </description>
+            </field>
+            <field sequential="48" maximumLength="250" dataType="CWE" required="C" repeatable="Y" table="0476" reference="01646">
+                <description>
+                   Medically Necessary Duplicate Procedure Reason.
+                </description>
+            </field>
+            <field sequential="49" maximumLength="2" dataType="IS" required="O" table="0507" reference="01647">
+                <description>
+                   Result Handling
+                </description>
+            </field>
+        </fields>
+    </segment>
+    <segment id="Z01">
+        <description>
+            Lab Product Segment
+        </description>
+        <fields>
+            <field sequential="1" maximumLength="4" dataType="SI" required="O" reference="">
+                <description>
+                    Set ID
+                </description>
+            </field>
+            <field sequential="2" maximumLength="50" dataType="ST" required="O" reference="">
+                <description>
+                    Product Type ID - This corresponds to the ID returned in the OBR.0403 HL7 Lab Result field.
+                    The code that the lab source uses to identify the product.
+                    This is the code that should be sent to the lab source to identify a product that is being ordered.
+                </description>
+            </field>
+            <field sequential="3" maximumLength="50" dataType="ST" required="O" reference="">
+                <description>
+                    Name - The name of the product
+                </description>
+            </field>
+            <field sequential="4" maximumLength="50" dataType="ST" required="O" reference="">
+                <description>
+                    Description - The description of the product.
+                </description>
+            </field>
+            <field sequential="5" maximumLength="20" dataType="ST" required="O" reference="">
+                <description>
+                    CPT Code - The equivalent CPT code (if any).
+                </description>
+            </field>
+            <field sequential="6" maximumLength="1" dataType="ST" required="O" reference="">
+                <description>
+                   Can Order Alone - Whether or not this product can be ordered alone (Y = Yes, N = No).
+                   Some products, for example, can only be ordered as part of a group of products (i.e. panel or profile).
+                </description>
+            </field>
+            <field sequential="7" maximumLength="1" dataType="ST" required="O" reference="">
+                <description>
+                    Is Panel - Whether or not this product is a panel (Y = Yes, N = No).
+                </description>
+            </field>
+        </fields>
+    </segment>
+    <segment id="Z02">
+        <description>
+            Lab Sub-Product Segment
+        </description>
+        <fields>
+            <field sequential="1" maximumLength="4" dataType="SI" required="R" reference="">
+                <description>
+                    Set ID - Z02
+                </description>
+            </field>
+            <field sequential="2" maximumLength="50" dataType="ST" required="R" reference="">
+                <description>
+                    Main Product Type ID - The ID of the main product type
+                </description>
+            </field>
+            <field sequential="3" maximumLength="50" dataType="ST" required="R" reference="">
+                <description>
+                    Sub Product Type ID - The ID of the product type that is ordered as part of the main product type
+                </description>
+            </field>
+        </fields>
+    </segment>
+    <segment id="Z03">
+        <description>
+            Lab Test Segment
+        </description>
+        <fields>
+            <field sequential="1" maximumLength="4" dataType="SI" required="O" reference="">
+                <description>
+                    Set ID - Z03
+                </description>
+            </field>
+            <field sequential="2" maximumLength="50" dataType="ST" required="O" reference="">
+                <description>
+                    Test Type ID - The code that is used by the lab source to identify the test.
+                    This is the code that is returned by the lab source to identify the test when a result
+                    is being reported. This corresponds to the ID returned in the OBX.0303 field in the HL7 Lab Result.
+                </description>
+            </field>
+            <field sequential="3" maximumLength="50" dataType="ST" required="O" reference="">
+                <description>
+                    Name - The name of the test
+                </description>
+            </field>
+            <field sequential="4" maximumLength="50" dataType="ST" required="O" reference="">
+                <description>
+                    Description - The description of the test.
+                </description>
+            </field>
+            <field sequential="5" maximumLength="1" dataType="ST" required="O" reference="">
+                <description>
+                    ValueType - The value type of the tests result (N = Number, T = Text, L = List).
+                </description>
+            </field>
+            <field sequential="6" maximumLength="50" dataType="ST" required="O" reference="">
+                <description>
+                    Units - The units of measure of the tests result (i.e. mg/dL).
+                </description>
+            </field>
+        </fields>
+    </segment>
+    <segment id="Z04">
+        <description>
+            Lab Product Test Segment
+        </description>
+        <fields>
+            <field sequential="1" maximumLength="4" dataType="SI" required="O" reference="">
+                <description>
+                    Set ID - Z04
+                </description>
+            </field>
+            <field sequential="2" maximumLength="50" dataType="ST" required="O" reference="">
+                <description>
+                    Product ID
+                </description>
+            </field>
+            <field sequential="3" maximumLength="50" dataType="ST" required="O" reference="">
+                <description>
+                    Test Type ID - The ID of the test type that is performed when the product is ordered
+                </description>
+            </field>
+        </fields>
+    </segment>
+</segments>

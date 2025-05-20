@@ -1,0 +1,73 @@
+<!--
+  ~ Copyright (C) 2009 VTT Technical Research Centre of Finland.
+  ~
+  ~ This file is part of NOEN framework.
+  ~
+  ~ NOEN framework is free software; you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation; version 2.
+  ~
+  ~ NOEN framework is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program; if not, write to the Free Software
+  ~ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+  -->
+
+<html>
+<head>
+  <link rel="Stylesheet" type="text/css" href="style.css"/>
+  <title>
+    Test Automation
+  </title>
+</head>
+<body>
+
+<br>
+Testing URL: <span wicket:id="target">url</span>
+<br>
+<br>
+
+<table>
+  <thead>
+  <tr>
+    <td>
+      Name
+    </td>
+    <td>
+      Status
+    </td>
+    <td>
+      Description
+    </td>
+  </tr>
+  </thead>
+  <tbody wicket:id="resultstable">
+  <tr wicket:id="results" class="even">
+    <td><span wicket:id="name">Test ID</span></td>
+    <td><span wicket:id="status">Test ID</span></td>
+    <td><span wicket:id="description">Test ID</span></td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr wicket:id="totalrow">
+    <td>
+      Total
+    </td>
+    <td><span wicket:id="total">Test ID</span></td>
+    <td>
+      Tests executed
+    </td>
+  </tr>
+  </tfoot>
+</table>
+
+
+<wicket:link>
+<a href="StartPage.html">click</a>
+</wicket:link> to go back to start page.
+</body>
+</html>

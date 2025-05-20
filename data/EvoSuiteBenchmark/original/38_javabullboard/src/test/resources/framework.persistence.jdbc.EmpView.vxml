@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<view name="EmpView" packageName="framework.persistence.jdbc"
+  targetClassName="java.util.HashMap" timestamp="1084053897359" version="0.9.0">
+  <sqlQuery><![CDATA[
+select * from emp
+]]></sqlQuery>
+  <valueListHandler retrieveRowCount="false" rowCountMethod="java" rowsPerPage="10"/>
+  <tuning maxFetchSize="0"/>
+  <comment><![CDATA[This is a simple View on Emp table]]></comment>
+  <attribute>
+    <name>Sal</name>
+    <columnClassName>java.math.BigDecimal</columnClassName>
+    <columnName>sal</columnName>
+    <columnType>3</columnType>
+    <columnTypeName>DECIMAL</columnTypeName>
+    <precision>10</precision>
+    <scale>2</scale>
+    <isNullable>true</isNullable>
+    <isPrimaryKey>false</isPrimaryKey>
+    <keySeq>0</keySeq>
+  </attribute>
+  <attribute>
+    <name>Job</name>
+    <columnClassName>java.lang.String</columnClassName>
+    <columnName>job</columnName>
+    <columnType>12</columnType>
+    <columnTypeName>VARCHAR</columnTypeName>
+    <precision>0</precision>
+    <scale>0</scale>
+    <isNullable>false</isNullable>
+    <isPrimaryKey>false</isPrimaryKey>
+    <keySeq>0</keySeq>
+  </attribute>
+  <attribute>
+    <name>Ename</name>
+    <columnClassName>java.lang.String</columnClassName>
+    <columnName>ename</columnName>
+    <columnType>12</columnType>
+    <columnTypeName>VARCHAR</columnTypeName>
+    <precision>0</precision>
+    <scale>0</scale>
+    <isNullable>false</isNullable>
+    <isPrimaryKey>false</isPrimaryKey>
+    <keySeq>0</keySeq>
+  </attribute>
+  <attribute>
+    <name>Hiredate</name>
+    <columnClassName>java.sql.Date</columnClassName>
+    <columnName>hiredate</columnName>
+    <columnType>91</columnType>
+    <columnTypeName>DATE</columnTypeName>
+    <precision>0</precision>
+    <scale>0</scale>
+    <isNullable>true</isNullable>
+    <isPrimaryKey>false</isPrimaryKey>
+    <keySeq>0</keySeq>
+  </attribute>
+  <attribute>
+    <name>Empno</name>
+    <columnClassName>java.lang.Integer</columnClassName>
+    <columnName>empno</columnName>
+    <columnType>4</columnType>
+    <columnTypeName>LONG</columnTypeName>
+    <precision>4</precision>
+    <scale>0</scale>
+    <isNullable>false</isNullable>
+    <isPrimaryKey>false</isPrimaryKey>
+    <keySeq>0</keySeq>
+  </attribute>
+  <attribute>
+    <name>Deptno</name>
+    <columnClassName>java.lang.Integer</columnClassName>
+    <columnName>deptno</columnName>
+    <columnType>4</columnType>
+    <columnTypeName>LONG</columnTypeName>
+    <precision>2</precision>
+    <scale>0</scale>
+    <isNullable>false</isNullable>
+    <isPrimaryKey>false</isPrimaryKey>
+    <keySeq>0</keySeq>
+  </attribute>
+  <attribute>
+    <name>Mgr</name>
+    <columnClassName>java.lang.Integer</columnClassName>
+    <columnName>mgr</columnName>
+    <columnType>4</columnType>
+    <columnTypeName>LONG</columnTypeName>
+    <precision>4</precision>
+    <scale>0</scale>
+    <isNullable>true</isNullable>
+    <isPrimaryKey>false</isPrimaryKey>
+    <keySeq>0</keySeq>
+  </attribute>
+  <attribute>
+    <name>Comm</name>
+    <columnClassName>java.math.BigDecimal</columnClassName>
+    <columnName>comm</columnName>
+    <columnType>3</columnType>
+    <columnTypeName>DECIMAL</columnTypeName>
+    <precision>10</precision>
+    <scale>2</scale>
+    <isNullable>true</isNullable>
+    <isPrimaryKey>false</isPrimaryKey>
+    <keySeq>0</keySeq>
+  </attribute>
+</view>

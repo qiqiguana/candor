@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!ELEMENT InterfaceSpec  ( Header?, Lines, RecordTypes, Trailer?, Groups? ) >
+	<!-- Root element -->
+<!ATTLIST InterfaceSpec Name NMTOKEN #REQUIRED >
+
+
+
+<!ELEMENT Header ( (Field | Group)+ ) >
+	<!-- File header -->
+<!ATTLIST Header Name NMTOKEN #REQUIRED >
+
+
+
+<!ELEMENT Lines ( RecordGroup+ | RecordType+ ) >
+	<!-- List of all record types and specification of their order.
+		 If <RecordOrder>="Structured", records are grouped, thus the first
+		 level below <Lines> is the list of record groups. In this case the  records
+		 types are listed for each group one level below.
+		 Otherwise <Lines> driectly contains the list of all records - no record groups
+		 are present. -->
+<!ATTLIST Lines RecordIdentification (TypeIdentifier | RecordOrder) #REQUIRED >
+	<!-- <RecordIdentification> may be
+				"TypeIdentifier" - The records are identified by a contained id field.
+				"RecordOrder" - The record type is determined by the line order.
+					Works only with <RecordOrder>="Ordered"/"Structured". -->
+<!ATTLIST Lines IdentifierPos NMTOKEN #IMPLIED >
+	<!-- Necessary for <RecordIdentification>="TypeIdentifier":
+		 Position in row. Counting starts at 0. -->
+<!ATTLIST Lines IdentifierLength NMTOKEN #IMPLIED >
+	<!-- Necessary for <RecordIdentification>="TypeIdentifier" -->
+<!ATTLIST Lines RecordOrder (Arbitrary | Ordered | Structured) #REQUIRED >
+	<!-- <RecordOrder> may be
+				"Arbitrary" - The records are in arbitrary order.
+					Works only with <RecordIdentification>="TypeIdentifier".
+				"Ordered" - The records are ordered due to the record type order in 
+					the <Lines> list.
+					Record types may be optional.
+					Together with <RecordIdentification>="RecordOrder" all optional 
+					record types must have an existance indicator, cf. RecordType 
+					attributes.
+				"Structured" - Records form groups and the interface content can be
+					described as a list of such groups.
+					In this case the possible groups are specified one level below
+					<Lines>. The record types are listed for each group another level
+					deeper. Their order within the groups is defined by the corresponding
+					<RecordType> specification. Record types - despite of the first 
+					one - may be optional. The first record type for each group must
+					have cardinality "1". Together with 
+					<RecordIdentification>="RecordOrder" all optional record types 
+					must have an existance indicator, cf. RecordType attributes.
+					Groups of records appear in arbitrary order and cardinality in the
+					interface content.
+					Only if <RecordIdentification>="TypeIdentifier" groups of different
+					structure may be defined - otherwise there may be only one record
+					group specification. -->
+		 
+
+<!ELEMENT RecordGroup ( RecordType+ ) >
+	<!-- Used if <RecordOrder>="Structured" to define the structuring groups.
+		 There may only be several group specifications if 
+		 <RecordIdentification>="TypeIdentifier" beacuse otherwise the different 
+		 group types cannot be distinguished.-->
+
+
+<!ELEMENT RecordType ( #PCDATA ) >
+	<!-- Declaration of a record type -->
+<!ATTLIST RecordType Identifier CDATA #IMPLIED >
+	<!-- Necessary if <RecordIdentification>="TypeIdentifier".
+		 Specifies the used record type identifier value. -->
+<!ATTLIST RecordType IdentifierLow NMTOKEN #IMPLIED >
+<!ATTLIST RecordType IdentifierHigh NMTOKEN #IMPLIED >
+	<!-- If <RecordIdentification>="TypeIdentifier" but records are numbered in their 
+		 identifier field, these two attributes are used to specify the first and the
+		 last possible id.
+		 The order relation is defined as the lexicographical string order. 
+		 Used record identifiers must be ascending and between the two limits but 
+		 need not to be subsequent. -->
+<!ATTLIST RecordType Occurrences CDATA #REQUIRED >
+	<!--  Declares the number of occurrences 
+		  - within the whole interface file (<RecordOrder>="Ordered" or "Arbitrary")
+		  - within a record group (RecordOrder=Structured). -->
+<!ATTLIST RecordType ExistIndicatorField NMTOKEN #IMPLIED >
+<!ATTLIST RecordType ExistIndicatorValue CDATA #IMPLIED >
+	<!-- Necessary if a specific field value in the preceding record indicates that 
+		 a record of this type follows. (Value set <=> Record follows)
+		 In particular essential if <RecordIdentification>="RecordOrder" and
+		 this record type is optional.-->
+
+
+
+<!ELEMENT RecordTypes ( RecordTypeSpec+ ) >
+	<!-- Structure descriptions of all record types -->
+
+
+
+<!ELEMENT RecordTypeSpec ( (Field | Group)+ ) >
+	<!-- Structure description for a single record type. -->
+<!ATTLIST RecordTypeSpec Name NMTOKEN #REQUIRED >
+
+
+
+<!ELEMENT Trailer ( (Field | Group)+ ) >
+	<!-- File trailer -->
+<!ATTLIST Trailer Name NMTOKEN #REQUIRED >
+
+
+
+<!ELEMENT Group EMPTY >
+	<!-- Occurrence of a group in a record.
+		 A group constists of fields which occurr repeatedly in this structure. -->
+<!ATTLIST Group Name NMTOKEN #REQUIRED >
+
+
+
+<!ELEMENT Groups ( GroupSpec+ ) >
+	<!-- Structure description of all field groups occurring in the records. -->
+
+
+
+<!ELEMENT GroupSpec ( Field+ ) >
+	<!-- Structure description of a single field group. -->
+<!ATTLIST GroupSpec Name NMTOKEN #REQUIRED >
+
+
+
+<!ELEMENT Field EMPTY >
+	<!-- Specification of a single field -->
+<!ATTLIST Field Name NMTOKEN #REQUIRED >
+<!ATTLIST Field Format ( alpha | blank | const | date | num ) #REQUIRED >
+<!ATTLIST Field Value CDATA #IMPLIED >
+	<!-- Necessary if <Format>="const".
+		 Specifies the constant value. -->
+<!ATTLIST Field DateFormat NMTOKEN #IMPLIED >
+	<!-- Necessary if <Format>="date". 
+		 Format strings like "yyMMdd" should be used which obey the 
+		 java.text.SimpleDateFormat conventions. -->
+<!ATTLIST Field DecimalPoint ( comma | dot ) #IMPLIED >
+	<!-- Necesssary if <Format>="num" and float values may be specified. --> 
+<!ATTLIST Field Length NMTOKEN #REQUIRED >

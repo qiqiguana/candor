@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="selector" class="java.nio.channels.Selector"
+	      factory-method="open" scope="prototype" />
+
+	<bean id="networkService" class="net.sourceforge.nekomud.nio.NetworkServiceNioImpl">
+		<property name="configuration" ref="configuration" />
+	</bean>
+	
+</beans>

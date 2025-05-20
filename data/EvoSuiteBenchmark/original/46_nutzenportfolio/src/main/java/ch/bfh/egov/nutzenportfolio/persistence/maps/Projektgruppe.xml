@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="Projektgruppe">
+
+  <typeAlias alias="ProjektgruppeObject" type="ch.bfh.egov.nutzenportfolio.tos.Projektgruppe"/>
+
+  <resultMap id="projektgruppeResult" class="ProjektgruppeObject">
+    <result property="projektgruppeId"				column="projektgruppeId"/>
+    <result property="mandantId"							column="mandantId"/>
+    <result property="customizingId"					column="customizingId"/>
+    <result property="name"										column="name"/>
+    <result property="beschreibung"						column="beschreibung"/>
+  </resultMap>
+
+  <select
+			id="getAll"
+			parameterClass="java.lang.Integer"
+			resultMap="projektgruppeResult">
+		SELECT projektgruppeId, mandantId, customizingId, name, beschreibung
+		FROM Projektgruppe
+		WHERE mandantId = #value#
+		ORDER BY name
+  </select>
+
+  <select
+  		id="getById"
+  		parameterClass="ProjektgruppeObject"
+  		resultMap="projektgruppeResult">
+    SELECT projektgruppeId, mandantId, customizingId, name, beschreibung
+    FROM Projektgruppe
+    WHERE
+			projektgruppeId = #projektgruppeId# AND
+			mandantId = #mandantId#
+  </select>
+  
+  <select
+  		id="getByName"
+  		parameterClass="ProjektgruppeObject"
+  		resultMap="projektgruppeResult">
+    SELECT projektgruppeId, mandantId, customizingId, name, beschreibung
+    FROM Projektgruppe
+    WHERE
+			name = #name# AND
+			mandantId = #mandantId#
+  </select>
+
+  <update id="update" parameterClass="ProjektgruppeObject">
+    UPDATE Projektgruppe
+    SET
+      customizingId = #customizingId#,
+      name = #name#,
+      beschreibung = #beschreibung#
+    WHERE
+    	projektgruppeId = #projektgruppeId# AND
+    	mandantId = #mandantId#
+  </update>
+
+  <insert id="insert" parameterClass="ProjektgruppeObject">
+	  INSERT INTO Projektgruppe (mandantId, customizingId, name, beschreibung)
+	  VALUES (#mandantId#, #customizingId#, #name#, #beschreibung#)
+	  <selectKey resultClass="java.lang.Integer" keyProperty="projektgruppeId">
+	 		SELECT LAST_INSERT_ID() AS projektgruppeId
+		</selectKey>
+  </insert>
+
+  <delete id="delete" parameterClass="ProjektgruppeObject">
+      DELETE
+      FROM Projektgruppe
+      WHERE
+      	projektgruppeId = #projektgruppeId# AND
+      	mandantId = #mandantId#
+  </delete>
+  
+  <update id="unsetCustomizingId" parameterClass="java.lang.Integer">
+    UPDATE Projektgruppe
+    SET customizingId = null
+    WHERE customizingId = #value#
+  </update>
+</sqlMap>

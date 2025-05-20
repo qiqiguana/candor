@@ -1,0 +1,56 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of Simplify.
+*/
+class SimplifyTest {
+    @Test
+    void testSimplify() {
+        String x = "1/5";
+        String n = "5/1";
+        assertTrue(Simplify.simplify(x, n));
+    }
+    
+    @Test
+     void testNothing(){
+         Simplify s = new Simplify();
+         }
+    @Test
+    public void test_Non_simplifiable_fraction() {
+    	String x = "1/2";
+    	String n = "3/5";
+    	Boolean result = Simplify.simplify(x, n);
+    	assertFalse(result);
+    }
+    @Test
+    public void test_Zero_numerator() {
+    	String x = "0/1";
+    	String n = "2/1";
+    	Boolean result = Simplify.simplify(x, n);
+    	assertTrue(result);
+    }
+    @Test
+    public void test_Large_numbers() {
+    	String x = "1000000/1";
+    	String n = "1/1000000";
+    	Boolean result = Simplify.simplify(x, n);
+    	assertTrue(result);
+    }
+    @Test
+    public void test_Fraction_with_same_denominator() {
+    	String x = "2/3";
+    	String n = "4/3";
+    	Boolean result = Simplify.simplify(x, n);
+    	assertFalse(result);
+    }
+    @Test
+    public void test_Simplify_fraction_corrected_2() {
+        String x = "1/2";
+        String n = "3/1";
+        Boolean result = Simplify.simplify(x, n);
+        assertFalse(result);
+    }
+                                  
+}

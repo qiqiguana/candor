@@ -1,0 +1,35 @@
+nohup: ignoring input
+2025-05-02 22:49:16,700   INFO : Processing file: /home/qinghua/projects/matg/data/HumanEvalJava/matg/src/main/java/original/id_150.java
+2025-05-02 22:49:17,177   INFO : ======================================================================
+
+2025-05-02 22:49:17,177   INFO : 🚀 Starting MATG: Multi-Agent LLM-Based Test Generation Framework
+2025-05-02 22:49:17,177   INFO : 📘 Purpose : Automated test generation for Java using LLM agents
+2025-05-02 22:49:17,177   INFO : 🧠 Agents  : Planner, Generator, Executor, and Evaluator
+2025-05-02 22:49:17,177   INFO : 🛠️  Engine  : Powered by matg (Machine-Assisted Test Generation)
+2025-05-02 22:49:17,177   INFO : ======================================================================
+
+2025-05-02 22:49:17,192   INFO : Test file already exists at /home/qinghua/projects/matg/data/HumanEvalJava/matg/src/test/java/original/id_150Test.java
+
+
+                                    ███    ███      █████     ███████       ██████  
+                                    ████  ████     ██   ██      ███      ██    
+                                    ██ ████ ██     ███████      ███      ██   ████
+                                    ██  ██  ██     ██   ██      ███      ██     ██ 
+                                    ██      ██     ██   ██      ███        ███████  
+
+Traceback (most recent call last):
+  File "/home/qinghua/projects/matg/main.py", line 68, in <module>
+    main()
+  File "/home/qinghua/projects/matg/main.py", line 60, in main
+    initializer.run()
+  File "/home/qinghua/projects/matg/initialize.py", line 49, in run
+    subprocess.run(self.config.test_command.split(),capture_output=True,text=True,cwd=os.getcwd(), check=True)
+  File "/home/qinghua/anaconda3/envs/llm4test/lib/python3.11/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['mvn', '-f', '/home/qinghua/projects/matg/data/HumanEvalJava/matg/pom.xml', 'clean', 'test', 'jacoco:report']' returned non-zero exit status 1.
+Traceback (most recent call last):
+  File "/home/qinghua/projects/matg/experiments/preliminary/v0/run.py", line 31, in <module>
+    subprocess.run(command, check=True)
+  File "/home/qinghua/anaconda3/envs/llm4test/lib/python3.11/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['python', '/home/qinghua/projects/matg/main.py', 'initialize', '--data-path', '/home/qinghua/projects/matg/data/HumanEvalJava/matg', '--relative-source-file-path', '/home/qinghua/projects/matg/data/HumanEvalJava/matg/src/main/java/original/id_150.java', '--relative-test-file-path', '/home/qinghua/projects/matg/data/HumanEvalJava/matg/src/test/java/original/id_150Test.java', '--coverage-report-path', '/home/qinghua/projects/matg/data/HumanEvalJava/matg/target/site/jacoco', '--test-command', 'mvn -f /home/qinghua/projects/matg/data/HumanEvalJava/matg/pom.xml clean test jacoco:report', '--generator', 'matg', '--max-attempts', '3']' returned non-zero exit status 1.

@@ -1,0 +1,64 @@
+<body>
+
+All algorithms which operate samples, other than indexing (clean, sum,
+etc.).
+
+
+
+<h2>How to use in an application</h2>
+
+<p>The use of these classes should be intuitive.  To create a summed
+file from a set of Samples:
+
+<pre>
+Sum s = new Sum(mySampleSet);		// create the sum
+s.run();				// run it
+Sample output = s.getSum();		// extract the summed file
+</pre>
+
+As with some other classes, this is Runnable, but will probably go
+fast enough for most purposes that it doesn't need its own Thread.</p>
+
+<p>Cleaning a summed file operates in-place:
+
+<pre>
+Clean c = new Clean(mySummedSample);	// create a cleaner
+c.run();				// run it
+</pre>
+
+This is even faster than summing.  (So why is it Runnable?)</p>
+
+
+
+<h2>How to add a new manipulation</h2>
+
+<p>There isn't any class heirarchy or underlying scheme to the
+manipulations here.  They happen to be Runnable, so the user-interface
+can run them in a separate thread to be nice, but they don't have to
+be.  I can't anticipate what sort of manipulations might be wanted in
+the future.  Please, try to keep the code clean!</p>
+
+<p><i>Would the index package be more appropriate as a subpackage of
+manip?</i></p>
+
+
+
+<h2>Future: manip as an interface</h2>
+
+<p>Manip should be an interface, not a package of classes with
+different APIs.  There should also be standard behavior: perhaps an
+abstract class, then.  Common behavior includes:
+
+<ul>
+  <li>undo/redo support</li>
+</ul>
+
+All manips simply take an input sample and generate an output
+sample.</p>
+
+<p>Indexes are types of Manips, too.  Index should be a subpackage
+(and subclass) of manip.</p>
+
+
+
+</body>

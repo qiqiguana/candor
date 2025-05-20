@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+
+<DefaultConfiguration>
+
+  <ServerConfiguration host="localhost" embeddedJNDI="true" />
+
+  <Connectors>
+    <Connector scheme="tcp">
+      <ConnectionFactories>
+        <ConnectionFactory name="ConnectionFactory" />
+      </ConnectionFactories>
+    </Connector>
+  </Connectors>
+
+  <TcpConfiguration port="3035"/>
+
+  <TcpsConfiguration port="3035"
+                     keyStore="${openjms.home}/config/openjms.keystore"
+                     keyStorePassword="openjms">
+  </TcpsConfiguration>
+
+  <RmiConfiguration embeddedRegistry="true"
+                    registryHost="localhost"
+                    registryPort="1099">
+  </RmiConfiguration>
+
+  <HttpConfiguration port="3030"
+                     webServerHost="localhost"
+                     webServerPort="80">
+  </HttpConfiguration>
+
+  <HttpsConfiguration port="3030"
+                      webServerHost="localhost"
+                      webServerPort="443">
+  </HttpsConfiguration>
+
+  <MessageManagerConfiguration destinationCacheSize="10000" />
+
+  <SchedulerConfiguration maxThreads="10" />
+
+  <GarbageCollectionConfiguration memoryCheckInterval="60"
+                                  lowWaterThreshold="20"
+                                  garbageCollectionInterval="120"
+                                  garbageCollectionThreadPriority="5">
+  </GarbageCollectionConfiguration>
+
+  <LoggerConfiguration file="${openjms.home}/config/log4j.xml" />
+                
+  <SecurityConfiguration securityEnabled="false" />
+  
+</DefaultConfiguration>

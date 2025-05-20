@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="http://webservices.macaw/" xmlns:tns="http://webservices.macaw/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="getVariable" nillable="true" type="tns:getVariable"/>
+
+  <xs:element name="getVariableResponse" nillable="true" type="tns:getVariableResponse"/>
+
+  <xs:element name="search" nillable="true" type="tns:search"/>
+
+  <xs:element name="searchResponse" nillable="true" type="tns:searchResponse"/>
+
+  <xs:complexType name="getVariable">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:string" minOccurs="0"/>
+      <xs:element name="arg1" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getVariableResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:searchResultVariable" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="searchResultVariable">
+    <xs:sequence>
+      <xs:element name="alternativeVariableName" type="xs:string" minOccurs="0"/>
+      <xs:element name="cleaned" type="xs:boolean"/>
+      <xs:element name="cleaningDescription" type="xs:string" minOccurs="0"/>
+      <xs:element name="cleaningStatus" type="xs:string" minOccurs="0"/>
+      <xs:element name="coded" type="xs:boolean"/>
+      <xs:element name="dataSensitivityLevel" type="xs:string" minOccurs="0"/>
+      <xs:element name="form" type="xs:string" minOccurs="0"/>
+      <xs:element name="identifier" type="xs:int"/>
+      <xs:element name="label" type="xs:string" minOccurs="0"/>
+      <xs:element name="metaDataSensitivityLevel" type="xs:string" minOccurs="0"/>
+      <xs:element name="name" type="xs:string" minOccurs="0"/>
+      <xs:element name="notes" type="xs:string" minOccurs="0"/>
+      <xs:element name="question" type="xs:string" minOccurs="0"/>
+      <xs:element name="questionNumber" type="xs:string" minOccurs="0"/>
+      <xs:element name="supportingDocumentTitles" type="xs:string" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="tags" type="xs:string" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="valueLabels" type="tns:searchResultValueLabel" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="versionNumber" type="xs:double"/>
+      <xs:element name="year" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="searchResultValueLabel">
+    <xs:sequence>
+      <xs:element name="identifier" type="xs:int"/>
+      <xs:element name="label" type="xs:string" minOccurs="0"/>
+      <xs:element name="missingValue" type="xs:boolean"/>
+      <xs:element name="value" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="search">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:string" minOccurs="0"/>
+      <xs:element name="arg1" type="xs:string" minOccurs="0"/>
+      <xs:element name="arg2" type="xs:string" minOccurs="0"/>
+      <xs:element name="arg3" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="searchResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:searchResultVariable" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_146.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HumanEvalJava</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_146.java</span></div><h1>id_146.java</h1><pre class="source lang-java linenums">package original;
+
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+
+<span class="fc" id="L9">class Specialfilter {</span>
+    /**
+     * Write a function that takes an array of numbers as input and returns
+     * the number of elements in the array that are greater than 10 and both
+     * first and last digits of a number are odd (1, 3, 5, 7, 9).
+     * For example:
+     * specialFilter([15, -73, 14, -15]) =&gt; 1
+     * specialFilter([33, -2, -3, 45, 21, 109]) =&gt; 2
+     *
+     * &gt; specialfilter([5, -2, 1, -5])
+     * 0
+     * &gt; specialfilter([15, -73, 14, -15])
+     * 1
+     * &gt; specialfilter([33, -2, -3, 45, 21, 109])
+     * 2
+     * &gt; specialfilter([43, -12, 93, 125, 121, 109])
+     * 4
+     * &gt; specialfilter([71, -2, -33, 75, 21, 19])
+     * 3
+     * &gt; specialfilter([1])
+     * 0
+     * &gt; specialfilter([])
+     * 0
+     */
+    public static int specialfilter(List&lt;Object&gt; nums) {
+<span class="fc" id="L34">        int count = 0;</span>
+<span class="fc bfc" id="L35" title="All 2 branches covered.">        for (Object num : nums) {</span>
+<span class="fc bfc" id="L36" title="All 2 branches covered.">            if ((int) num &gt; 10) {</span>
+
+<span class="fc" id="L38">                Set odd_digits = new HashSet&lt;Integer&gt;(Arrays.asList(1, 3, 5, 7, 9));</span>
+<span class="fc" id="L39">                String number_as_string = Integer.toString((int) num);</span>
+<span class="fc bfc" id="L40" title="All 4 branches covered.">                if (odd_digits.contains(Integer.parseInt(number_as_string.substring(0, 1))) &amp;&amp; odd_digits.contains(Integer.parseInt(number_as_string.substring(number_as_string.length() - 1)))) {</span>
+<span class="fc" id="L41">                    count += 1;</span>
+                }
+            }
+<span class="fc" id="L44">        }</span>
+<span class="fc" id="L45">        return count;</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

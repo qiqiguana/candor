@@ -1,0 +1,1729 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
+<html>
+<head>
+<title>
+com.eteks.sweethome3d.j3d.PhotoRenderer
+</title>
+<link href="files/prettify.css" type="text/css" rel="stylesheet" />
+<link href="files/style.css" rel="stylesheet" type="text/css" media="screen"/>
+<script type="text/javascript" src="files/prettify.js"></script>
+<script type="text/javascript" src="files/jquery.js"></script>
+<script type="text/javascript" src="files/foldButton.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('H2#tests').foldButton();
+    $('H2#source').foldButton();
+    $('H2#parameters').foldButton();
+  });</script>
+<link href="files/foldButton.css" rel="stylesheet" type="text/css">
+</head>
+<body onload="prettyPrint()">
+<div id="wrapper">
+<img src="files/evosuite.png" height="40"/>
+<br><br><h2 class=title>Summary</h2>
+<ul><li>Target class: com.eteks.sweethome3d.j3d.PhotoRenderer: 1.97%</ul><ul>
+<li>888 fitness evaluations, 19 generations, 5237 statements, 767 tests.
+<li>Time: 0:01:03(Search: 0:01:01, minimization: 0:00:02)
+<li>Coverage: 7/492 branches, 5/36 methods, 10/508 total goals
+<li>Mutation score: 0%
+</ul>
+<div id="page"><div id="page-bgtop"><div id="page-bgbtm"><div id="content"><div id="post"><h2 class=title id=tests>Test suite</h2>
+<div class=tests>
+<h3>Test case 1</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>Home home0 = new Home();
+<span class="nocode"><a name="2">  2: </a></span>PhotoRenderer.Quality photoRenderer_Quality0 = PhotoRenderer.Quality.HIGH;
+<span class="nocode"><a name="3">  3: </a></span>PhotoRenderer photoRenderer0 = new PhotoRenderer(home0, photoRenderer_Quality0);
+</pre>
+<h3>Test case 2</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>PhotoRenderer.SphereLightWithNoRepresentation photoRenderer_SphereLightWithNoRepresentation0 = new PhotoRenderer.SphereLightWithNoRepresentation();
+<span class="nocode"><a name="2">  2: </a></span>Instance instance0 = photoRenderer_SphereLightWithNoRepresentation0.createInstance();
+<span class="nocode"><a name="3">  3: </a></span>assertNull(instance0);
+</pre>
+<h3>Test case 3</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>Home home0 = new Home();
+<span class="nocode"><a name="2">  2: </a></span>float[][] floatArray0 = new float[4][5];
+<span class="nocode"><a name="3">  3: </a></span>Room room0 = new Room(floatArray0);
+<span class="nocode"><a name="4">  4: </a></span>home0.addRoom(room0, 0);
+<span class="nocode"><a name="5">  5: </a></span>PhotoRenderer.Quality photoRenderer_Quality0 = PhotoRenderer.Quality.HIGH;
+<span class="nocode"><a name="6">  6: </a></span>PhotoRenderer photoRenderer0 = new PhotoRenderer(home0, photoRenderer_Quality0);
+</pre>
+</div></div><div id="post"></div><div id="post"><h2 class=title id=source>Source Code</h2>
+<div class=source><p><pre class="prettyprint" style="border: 1px solid #888;padding: 2px"><span class="nocode"><a name="1">  1: </a></span>/*
+<span class="nocode"><a name="2">  2: </a></span> * PhotoRenderer.java 22 janv. 2009
+<span class="nocode"><a name="3">  3: </a></span> *
+<span class="nocode"><a name="4">  4: </a></span> * Sweet Home 3D, Copyright (c) 2009 Emmanuel PUYBARET / eTeks &lt;info@eteks.com&gt;
+<span class="nocode"><a name="5">  5: </a></span> *
+<span class="nocode"><a name="6">  6: </a></span> * This program is free software; you can redistribute it and/or modify
+<span class="nocode"><a name="7">  7: </a></span> * it under the terms of the GNU General Public License as published by
+<span class="nocode"><a name="8">  8: </a></span> * the Free Software Foundation; either version 2 of the License, or
+<span class="nocode"><a name="9">  9: </a></span> * (at your option) any later version.
+<span class="nocode"><a name="10"> 10: </a></span> *
+<span class="nocode"><a name="11"> 11: </a></span> * This program is distributed in the hope that it will be useful,
+<span class="nocode"><a name="12"> 12: </a></span> * but WITHOUT ANY WARRANTY; without even the implied warranty of
+<span class="nocode"><a name="13"> 13: </a></span> * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+<span class="nocode"><a name="14"> 14: </a></span> * GNU General Public License for more details.
+<span class="nocode"><a name="15"> 15: </a></span> *
+<span class="nocode"><a name="16"> 16: </a></span> * You should have received a copy of the GNU General Public License
+<span class="nocode"><a name="17"> 17: </a></span> * along with this program; if not, write to the Free Software
+<span class="nocode"><a name="18"> 18: </a></span> * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+<span class="nocode"><a name="19"> 19: </a></span> */
+<span class="nocode"><a name="20"> 20: </a></span>package com.eteks.sweethome3d.j3d;
+<span class="nocode"><a name="21"> 21: </a></span>
+<span class="nocode"><a name="22"> 22: </a></span>import java.awt.AlphaComposite;
+<span class="nocode"><a name="23"> 23: </a></span>import java.awt.EventQueue;
+<span class="nocode"><a name="24"> 24: </a></span>import java.awt.Graphics2D;
+<span class="nocode"><a name="25"> 25: </a></span>import java.awt.geom.Point2D;
+<span class="nocode"><a name="26"> 26: </a></span>import java.awt.image.BufferedImage;
+<span class="nocode"><a name="27"> 27: </a></span>import java.awt.image.ImageObserver;
+<span class="nocode"><a name="28"> 28: </a></span>import java.awt.image.RenderedImage;
+<span class="nocode"><a name="29"> 29: </a></span>import java.io.File;
+<span class="nocode"><a name="30"> 30: </a></span>import java.io.IOException;
+<span class="nocode"><a name="31"> 31: </a></span>import java.io.InputStream;
+<span class="nocode"><a name="32"> 32: </a></span>import java.net.URL;
+<span class="nocode"><a name="33"> 33: </a></span>import java.util.ArrayList;
+<span class="nocode"><a name="34"> 34: </a></span>import java.util.Arrays;
+<span class="nocode"><a name="35"> 35: </a></span>import java.util.Enumeration;
+<span class="nocode"><a name="36"> 36: </a></span>import java.util.HashMap;
+<span class="nocode"><a name="37"> 37: </a></span>import java.util.HashSet;
+<span class="nocode"><a name="38"> 38: </a></span>import java.util.List;
+<span class="nocode"><a name="39"> 39: </a></span>import java.util.Map;
+<span class="nocode"><a name="40"> 40: </a></span>import java.util.Set;
+<span class="nocode"><a name="41"> 41: </a></span>import java.util.UUID;
+<span class="nocode"><a name="42"> 42: </a></span>
+<span class="nocode"><a name="43"> 43: </a></span>import javax.imageio.ImageIO;
+<span class="nocode"><a name="44"> 44: </a></span>import javax.media.j3d.Appearance;
+<span class="nocode"><a name="45"> 45: </a></span>import javax.media.j3d.ColoringAttributes;
+<span class="nocode"><a name="46"> 46: </a></span>import javax.media.j3d.Geometry;
+<span class="nocode"><a name="47"> 47: </a></span>import javax.media.j3d.GeometryArray;
+<span class="nocode"><a name="48"> 48: </a></span>import javax.media.j3d.GeometryStripArray;
+<span class="nocode"><a name="49"> 49: </a></span>import javax.media.j3d.Group;
+<span class="nocode"><a name="50"> 50: </a></span>import javax.media.j3d.ImageComponent2D;
+<span class="nocode"><a name="51"> 51: </a></span>import javax.media.j3d.IndexedGeometryArray;
+<span class="nocode"><a name="52"> 52: </a></span>import javax.media.j3d.IndexedGeometryStripArray;
+<span class="nocode"><a name="53"> 53: </a></span>import javax.media.j3d.IndexedLineArray;
+<span class="nocode"><a name="54"> 54: </a></span>import javax.media.j3d.IndexedLineStripArray;
+<span class="nocode"><a name="55"> 55: </a></span>import javax.media.j3d.IndexedQuadArray;
+<span class="nocode"><a name="56"> 56: </a></span>import javax.media.j3d.IndexedTriangleArray;
+<span class="nocode"><a name="57"> 57: </a></span>import javax.media.j3d.IndexedTriangleFanArray;
+<span class="nocode"><a name="58"> 58: </a></span>import javax.media.j3d.IndexedTriangleStripArray;
+<span class="nocode"><a name="59"> 59: </a></span>import javax.media.j3d.LineArray;
+<span class="nocode"><a name="60"> 60: </a></span>import javax.media.j3d.LineStripArray;
+<span class="nocode"><a name="61"> 61: </a></span>import javax.media.j3d.Link;
+<span class="nocode"><a name="62"> 62: </a></span>import javax.media.j3d.Material;
+<span class="nocode"><a name="63"> 63: </a></span>import javax.media.j3d.Node;
+<span class="nocode"><a name="64"> 64: </a></span>import javax.media.j3d.QuadArray;
+<span class="nocode"><a name="65"> 65: </a></span>import javax.media.j3d.RenderingAttributes;
+<span class="nocode"><a name="66"> 66: </a></span>import javax.media.j3d.Shape3D;
+<span class="nocode"><a name="67"> 67: </a></span>import javax.media.j3d.TexCoordGeneration;
+<span class="nocode"><a name="68"> 68: </a></span>import javax.media.j3d.Texture;
+<span class="nocode"><a name="69"> 69: </a></span>import javax.media.j3d.Transform3D;
+<span class="nocode"><a name="70"> 70: </a></span>import javax.media.j3d.TransformGroup;
+<span class="nocode"><a name="71"> 71: </a></span>import javax.media.j3d.TransparencyAttributes;
+<span class="nocode"><a name="72"> 72: </a></span>import javax.media.j3d.TriangleArray;
+<span class="nocode"><a name="73"> 73: </a></span>import javax.media.j3d.TriangleFanArray;
+<span class="nocode"><a name="74"> 74: </a></span>import javax.media.j3d.TriangleStripArray;
+<span class="nocode"><a name="75"> 75: </a></span>import javax.vecmath.Color3f;
+<span class="nocode"><a name="76"> 76: </a></span>import javax.vecmath.Point3f;
+<span class="nocode"><a name="77"> 77: </a></span>import javax.vecmath.TexCoord2f;
+<span class="nocode"><a name="78"> 78: </a></span>import javax.vecmath.Vector3f;
+<span class="nocode"><a name="79"> 79: </a></span>import javax.vecmath.Vector4f;
+<span class="nocode"><a name="80"> 80: </a></span>
+<span class="nocode"><a name="81"> 81: </a></span>import org.sunflow.PluginRegistry;
+<span class="nocode"><a name="82"> 82: </a></span>import org.sunflow.SunflowAPI;
+<span class="nocode"><a name="83"> 83: </a></span>import org.sunflow.core.Display;
+<span class="nocode"><a name="84"> 84: </a></span>import org.sunflow.core.Instance;
+<span class="nocode"><a name="85"> 85: </a></span>import org.sunflow.core.ParameterList;
+<span class="nocode"><a name="86"> 86: </a></span>import org.sunflow.core.ParameterList.InterpolationType;
+<span class="nocode"><a name="87"> 87: </a></span>import org.sunflow.core.light.SphereLight;
+<span class="nocode"><a name="88"> 88: </a></span>import org.sunflow.core.light.SunSkyLight;
+<span class="nocode"><a name="89"> 89: </a></span>import org.sunflow.core.primitive.TriangleMesh;
+<span class="nocode"><a name="90"> 90: </a></span>import org.sunflow.image.Color;
+<span class="nocode"><a name="91"> 91: </a></span>import org.sunflow.math.Matrix4;
+<span class="nocode"><a name="92"> 92: </a></span>import org.sunflow.math.Point3;
+<span class="nocode"><a name="93"> 93: </a></span>import org.sunflow.math.Vector3;
+<span class="nocode"><a name="94"> 94: </a></span>import org.sunflow.system.UI;
+<span class="nocode"><a name="95"> 95: </a></span>import org.sunflow.system.ui.SilentInterface;
+<span class="nocode"><a name="96"> 96: </a></span>
+<span class="nocode"><a name="97"> 97: </a></span>import com.eteks.sweethome3d.model.Camera;
+<span class="nocode"><a name="98"> 98: </a></span>import com.eteks.sweethome3d.model.Compass;
+<span class="nocode"><a name="99"> 99: </a></span>import com.eteks.sweethome3d.model.Home;
+<span class="nocode"><a name="100">100: </a></span>import com.eteks.sweethome3d.model.HomeEnvironment;
+<span class="nocode"><a name="101">101: </a></span>import com.eteks.sweethome3d.model.HomeFurnitureGroup;
+<span class="nocode"><a name="102">102: </a></span>import com.eteks.sweethome3d.model.HomeLight;
+<span class="nocode"><a name="103">103: </a></span>import com.eteks.sweethome3d.model.HomePieceOfFurniture;
+<span class="nocode"><a name="104">104: </a></span>import com.eteks.sweethome3d.model.HomeTexture;
+<span class="nocode"><a name="105">105: </a></span>import com.eteks.sweethome3d.model.Level;
+<span class="nocode"><a name="106">106: </a></span>import com.eteks.sweethome3d.model.LightSource;
+<span class="nocode"><a name="107">107: </a></span>import com.eteks.sweethome3d.model.ObserverCamera;
+<span class="nocode"><a name="108">108: </a></span>import com.eteks.sweethome3d.model.Room;
+<span class="nocode"><a name="109">109: </a></span>import com.eteks.sweethome3d.model.Selectable;
+<span class="nocode"><a name="110">110: </a></span>import com.eteks.sweethome3d.model.Wall;
+<span class="nocode"><a name="111">111: </a></span>import com.eteks.sweethome3d.tools.OperatingSystem;
+<span class="nocode"><a name="112">112: </a></span>import com.eteks.sweethome3d.viewcontroller.Object3DFactory;
+<span class="nocode"><a name="113">113: </a></span>
+<span class="nocode"><a name="114">114: </a></span>/**
+<span class="nocode"><a name="115">115: </a></span> * A renderer able to create a photo realistic image of a home.
+<span class="nocode"><a name="116">116: </a></span> * @author Emmanuel Puybaret
+<span class="nocode"><a name="117">117: </a></span> * @author Fr�d�ric Mantegazza (Sun location algorithm)
+<span class="nocode"><a name="118">118: </a></span> */
+<span class="nocode"><a name="119">119: </a></span>public class PhotoRenderer {
+<span class="nocode"><a name="120">120: </a></span>  public enum Quality {LOW, HIGH}
+<span class="nocode"><a name="121">121: </a></span>  
+<span class="nocode"><a name="122">122: </a></span>  private final Quality quality;
+<span class="nocode"><a name="123">123: </a></span>  private final Compass compass;
+<span class="nocode"><a name="124">124: </a></span>  private final int homeLightColor;
+<span class="nocode"><a name="125">125: </a></span>  
+<span class="nocode"><a name="126">126: </a></span>  private final SunflowAPI sunflow;
+<span class="nocode"><a name="127">127: </a></span>  private boolean useSunSky;
+<span class="nocode"><a name="128">128: </a></span>  private boolean useAmbientOcclusion;
+<span class="nocode"><a name="129">129: </a></span>  private String sunSkyLightName;
+<span class="nocode"><a name="130">130: </a></span>  private String sunLightName;
+<span class="nocode"><a name="131">131: </a></span><span style="background-color: #ffffcc">  private final Map&lt;TransparentTextureKey, String&gt; textureImagesCache = new HashMap&lt;TransparentTextureKey, String&gt;();</span>
+<span class="nocode"><a name="132">132: </a></span>  private Thread renderingThread;
+<span class="nocode"><a name="133">133: </a></span>
+<span class="nocode"><a name="134">134: </a></span>  static {
+<span class="nocode"><a name="135">135: </a></span>    // Ignore logs
+<span class="nocode"><a name="136">136: </a></span>    UI.set(new SilentInterface());
+<span class="nocode"><a name="137">137: </a></span>    // Use small triangles for better rendering
+<span class="nocode"><a name="138">138: </a></span>    TriangleMesh.setSmallTriangles(true);
+<span class="nocode"><a name="139">139: </a></span>    PluginRegistry.lightSourcePlugins.registerPlugin(&quot;sphere&quot;, SphereLightWithNoRepresentation.class);
+<span class="nocode"><a name="140">140: </a></span>  }
+<span class="nocode"><a name="141">141: </a></span>
+<span class="nocode"><a name="142">142: </a></span>  /**
+<span class="nocode"><a name="143">143: </a></span>   * Creates an instance ready to render the scene matching the given &lt;code&gt;home&lt;/code&gt;.
+<span class="nocode"><a name="144">144: </a></span>   * @throws IOException if texture image files required in the scene couldn't be created. 
+<span class="nocode"><a name="145">145: </a></span>   */
+<span class="nocode"><a name="146">146: </a></span>  public PhotoRenderer(Home home, Quality quality) throws IOException {
+<span class="nocode"><a name="147">147: </a></span>    this(home, 
+<span class="nocode"><a name="148">148: </a></span>        new Object3DBranchFactory() {
+<span class="nocode"><a name="149">149: </a></span>          public Object createObject3D(Home home, Selectable item, boolean waitForLoading) {
+<span class="nocode"><a name="150">150: </a></span><span style="background-color: #ffffcc">            if (item instanceof Room) {</span>
+<span class="nocode"><a name="151">151: </a></span>              // Never display ceiling with top camera
+<span class="nocode"><a name="152">152: </a></span><span style="background-color: #ffffcc">              return new Room3D((Room)item, home, home.getCamera() == home.getTopCamera(), true, waitForLoading);</span>
+<span class="nocode"><a name="153">153: </a></span>            } else {
+<span class="nocode"><a name="154">154: </a></span>              return super.createObject3D(home, item, waitForLoading);
+<span class="nocode"><a name="155">155: </a></span>            }  
+<span class="nocode"><a name="156">156: </a></span>          }
+<span class="nocode"><a name="157">157: </a></span>        }, quality);
+<span class="nocode"><a name="158">158: </a></span>  }
+<span class="nocode"><a name="159">159: </a></span>  
+<span class="nocode"><a name="160">160: </a></span>  /**
+<span class="nocode"><a name="161">161: </a></span>   * Creates an instance ready to render the scene matching the given &lt;code&gt;home&lt;/code&gt;.
+<span class="nocode"><a name="162">162: </a></span>   * @param home the home to render
+<span class="nocode"><a name="163">163: </a></span>   * @param object3DFactory a factory able to create 3D objects from &lt;code&gt;home&lt;/code&gt; items.
+<span class="nocode"><a name="164">164: </a></span>   *            The {@link Object3DFactory#createObject3D(Home, Selectable, boolean) createObject3D} of 
+<span class="nocode"><a name="165">165: </a></span>   *            this factory is expected to return an instance of {@link Node} in current implementation.
+<span class="nocode"><a name="166">166: </a></span>   * @throws IOException if texture image files required in the scene couldn't be created. 
+<span class="nocode"><a name="167">167: </a></span>   */
+<span class="nocode"><a name="168">168: </a></span>  public PhotoRenderer(Home home,
+<span class="nocode"><a name="169">169: </a></span>                       Object3DFactory object3DFactory,
+<span class="nocode"><a name="170">170: </a></span>                       Quality quality) throws IOException {
+<span class="nocode"><a name="171">171: </a></span><span style="background-color: #ffffcc">    this.compass = home.getCompass();</span>
+<span class="nocode"><a name="172">172: </a></span><span style="background-color: #ffffcc">    this.quality = quality;</span>
+<span class="nocode"><a name="173">173: </a></span><span style="background-color: #ffffcc">    this.sunflow = new SunflowAPI();</span>
+<span class="nocode"><a name="174">174: </a></span>    
+<span class="nocode"><a name="175">175: </a></span><span style="background-color: #ffffcc">    this.useAmbientOcclusion = home.getCamera() instanceof ObserverCamera;</span>
+<span class="nocode"><a name="176">176: </a></span>    // SunFlow produce too much white spots when silk shader is used with sun sky
+<span class="nocode"><a name="177">177: </a></span>    // so use this shader only when observer is used 
+<span class="nocode"><a name="178">178: </a></span><span style="background-color: #ffffcc">    boolean silk = this.useAmbientOcclusion &amp;&amp; quality == Quality.HIGH;</span>
+<span class="nocode"><a name="179">179: </a></span>    
+<span class="nocode"><a name="180">180: </a></span>    // Export to SunFlow the Java 3D shapes and appearance of the ground, the walls, the furniture and the rooms
+<span class="nocode"><a name="181">181: </a></span><span style="background-color: #ffffcc">    HomeEnvironment homeEnvironment = home.getEnvironment();</span>
+<span class="nocode"><a name="182">182: </a></span><span style="background-color: #ffffcc">    float subpartSize = homeEnvironment.getSubpartSizeUnderLight();</span>
+<span class="nocode"><a name="183">183: </a></span>    // Dividing walls and rooms surface in subparts is useless
+<span class="nocode"><a name="184">184: </a></span><span style="background-color: #ffffcc">    homeEnvironment.setSubpartSizeUnderLight(0); </span>
+<span class="nocode"><a name="185">185: </a></span><span style="background-color: #ffffcc">    for (Wall wall : home.getWalls()) {</span>
+<span class="nocode"><a name="186">186: </a></span>      exportNode((Node)object3DFactory.createObject3D(home, wall, true), true, silk);
+<span class="nocode"><a name="187">187: </a></span>    }
+<span class="nocode"><a name="188">188: </a></span><span style="background-color: #ffffcc">    for (HomePieceOfFurniture piece : home.getFurniture()) {</span>
+<span class="nocode"><a name="189">189: </a></span>      exportNode((Node)object3DFactory.createObject3D(home, piece, true), false, silk);
+<span class="nocode"><a name="190">190: </a></span>    }
+<span class="nocode"><a name="191">191: </a></span><span style="background-color: #ffffcc">    for (Room room : home.getRooms()) {</span>
+<span class="nocode"><a name="192">192: </a></span><span style="background-color: #ffffcc">      exportNode((Node)object3DFactory.createObject3D(home, room, true), true, silk);</span>
+<span class="nocode"><a name="193">193: </a></span>    } 
+<span class="nocode"><a name="194">194: </a></span>    // Create a 3D ground large enough to join the sky at the horizon  
+<span class="nocode"><a name="195">195: </a></span><span style="background-color: #ffffcc">    Ground3D ground = new Ground3D(home, -1E7f / 2, -1E7f / 2, 1E7f, 1E7f, true);</span>
+<span class="nocode"><a name="196">196: </a></span>    Transform3D translation = new Transform3D();
+<span class="nocode"><a name="197">197: </a></span>    translation.setTranslation(new Vector3f(0, -0.1f, 0));
+<span class="nocode"><a name="198">198: </a></span>    TransformGroup groundTransformGroup = new TransformGroup(translation);
+<span class="nocode"><a name="199">199: </a></span>    groundTransformGroup.addChild(ground);
+<span class="nocode"><a name="200">200: </a></span>    exportNode(groundTransformGroup, true, silk);
+<span class="nocode"><a name="201">201: </a></span>    homeEnvironment.setSubpartSizeUnderLight(subpartSize);
+<span class="nocode"><a name="202">202: </a></span>
+<span class="nocode"><a name="203">203: </a></span>    HomeTexture skyTexture = homeEnvironment.getSkyTexture();
+<span class="nocode"><a name="204">204: </a></span>    this.useSunSky = skyTexture == null || !(home.getCamera() instanceof ObserverCamera);
+<span class="nocode"><a name="205">205: </a></span>    if (!this.useSunSky) {
+<span class="nocode"><a name="206">206: </a></span>      // If observer camera is used with a sky texture, 
+<span class="nocode"><a name="207">207: </a></span>      // create an image base light from sky texture  
+<span class="nocode"><a name="208">208: </a></span>      InputStream skyImageStream = skyTexture.getImage().openStream();
+<span class="nocode"><a name="209">209: </a></span>      BufferedImage skyImage = ImageIO.read(skyImageStream);
+<span class="nocode"><a name="210">210: </a></span>      skyImageStream.close();
+<span class="nocode"><a name="211">211: </a></span>      // Create a temporary image base light twice as high that will contain sky image in the top part
+<span class="nocode"><a name="212">212: </a></span>      BufferedImage imageBaseLightImage = new BufferedImage(skyImage.getWidth(), 
+<span class="nocode"><a name="213">213: </a></span>          skyImage.getHeight() * 2, BufferedImage.TYPE_INT_RGB);
+<span class="nocode"><a name="214">214: </a></span>      Graphics2D g2D = (Graphics2D)imageBaseLightImage.getGraphics();
+<span class="nocode"><a name="215">215: </a></span>      g2D.drawRenderedImage(skyImage, null);
+<span class="nocode"><a name="216">216: </a></span>      g2D.dispose();
+<span class="nocode"><a name="217">217: </a></span>      File imageFile = OperatingSystem.createTemporaryFile(&quot;ibl&quot;, &quot;.png&quot;);
+<span class="nocode"><a name="218">218: </a></span>      ImageIO.write(imageBaseLightImage, &quot;png&quot;, imageFile);
+<span class="nocode"><a name="219">219: </a></span>      
+<span class="nocode"><a name="220">220: </a></span>      this.sunflow.parameter(&quot;texture&quot;, imageFile.getAbsolutePath());
+<span class="nocode"><a name="221">221: </a></span>      this.sunflow.parameter(&quot;center&quot;, new Vector3(-1, 0, 0));
+<span class="nocode"><a name="222">222: </a></span>      this.sunflow.parameter(&quot;up&quot;, new Vector3(0, 1, 0));
+<span class="nocode"><a name="223">223: </a></span>      this.sunflow.parameter(&quot;fixed&quot;, true);
+<span class="nocode"><a name="224">224: </a></span>      this.sunflow.parameter(&quot;samples&quot;, 0); 
+<span class="nocode"><a name="225">225: </a></span>      this.sunflow.light(UUID.randomUUID().toString(), &quot;ibl&quot;);
+<span class="nocode"><a name="226">226: </a></span>    } 
+<span class="nocode"><a name="227">227: </a></span>    
+<span class="nocode"><a name="228">228: </a></span>    // Set light settings 
+<span class="nocode"><a name="229">229: </a></span>    int ceillingLightColor = homeEnvironment.getCeillingLightColor();
+<span class="nocode"><a name="230">230: </a></span>    this.homeLightColor = homeEnvironment.getLightColor();
+<span class="nocode"><a name="231">231: </a></span>    if (ceillingLightColor &gt; 0) {
+<span class="nocode"><a name="232">232: </a></span>      // Add lights at the top of each room 
+<span class="nocode"><a name="233">233: </a></span>      for (Room room : home.getRooms()) {
+<span class="nocode"><a name="234">234: </a></span>        Level roomLevel = room.getLevel();
+<span class="nocode"><a name="235">235: </a></span>        if (room.isCeilingVisible() 
+<span class="nocode"><a name="236">236: </a></span>            &amp;&amp; (roomLevel == null || roomLevel.isVisible())) {
+<span class="nocode"><a name="237">237: </a></span>          float xCenter = room.getXCenter();
+<span class="nocode"><a name="238">238: </a></span>          float yCenter = room.getYCenter();
+<span class="nocode"><a name="239">239: </a></span>          
+<span class="nocode"><a name="240">240: </a></span>          double smallestDistance = Float.POSITIVE_INFINITY;
+<span class="nocode"><a name="241">241: </a></span>          float roomElevation = roomLevel != null
+<span class="nocode"><a name="242">242: </a></span>              ? roomLevel.getElevation()
+<span class="nocode"><a name="243">243: </a></span>              : 0;
+<span class="nocode"><a name="244">244: </a></span>          float roomHeight = roomElevation + 
+<span class="nocode"><a name="245">245: </a></span>              (roomLevel == null ? home.getWallHeight() : roomLevel.getHeight());
+<span class="nocode"><a name="246">246: </a></span>          List&lt;Level&gt; levels = home.getLevels();
+<span class="nocode"><a name="247">247: </a></span>          if (roomLevel == null || levels.indexOf(roomLevel) == levels.size() - 1) {
+<span class="nocode"><a name="248">248: </a></span>            // Search the height of the wall closest to the point xCenter, yCenter
+<span class="nocode"><a name="249">249: </a></span>            for (Wall wall : home.getWalls()) {
+<span class="nocode"><a name="250">250: </a></span>              if (wall.isAtLevel(roomLevel)) {
+<span class="nocode"><a name="251">251: </a></span>                float wallElevation = wall.getLevel() == null ? 0 : wall.getLevel().getElevation();
+<span class="nocode"><a name="252">252: </a></span>                Float wallHeightAtStart = wall.getHeight();
+<span class="nocode"><a name="253">253: </a></span>                float [][] points = wall.getPoints();
+<span class="nocode"><a name="254">254: </a></span>                for (int i = 0; i &lt; points.length; i++) {
+<span class="nocode"><a name="255">255: </a></span>                  double distanceToWallPoint = Point2D.distanceSq(points [i][0], points [i][1], xCenter, yCenter);
+<span class="nocode"><a name="256">256: </a></span>                  if (distanceToWallPoint &lt; smallestDistance) {
+<span class="nocode"><a name="257">257: </a></span>                    smallestDistance = distanceToWallPoint; 
+<span class="nocode"><a name="258">258: </a></span>                    if (i == 0 || i == points.length - 1) { // Wall start
+<span class="nocode"><a name="259">259: </a></span>                      roomHeight = wallHeightAtStart != null 
+<span class="nocode"><a name="260">260: </a></span>                          ? wallHeightAtStart 
+<span class="nocode"><a name="261">261: </a></span>                          : home.getWallHeight();
+<span class="nocode"><a name="262">262: </a></span>                    } else { // Wall end
+<span class="nocode"><a name="263">263: </a></span>                      roomHeight = wall.isTrapezoidal() 
+<span class="nocode"><a name="264">264: </a></span>                          ? wall.getHeightAtEnd() 
+<span class="nocode"><a name="265">265: </a></span>                          : (wallHeightAtStart != null ? wallHeightAtStart : home.getWallHeight());
+<span class="nocode"><a name="266">266: </a></span>                    }
+<span class="nocode"><a name="267">267: </a></span>                    roomHeight += wallElevation;
+<span class="nocode"><a name="268">268: </a></span>                  }
+<span class="nocode"><a name="269">269: </a></span>                }
+<span class="nocode"><a name="270">270: </a></span>              }
+<span class="nocode"><a name="271">271: </a></span>            }
+<span class="nocode"><a name="272">272: </a></span>          }
+<span class="nocode"><a name="273">273: </a></span>          
+<span class="nocode"><a name="274">274: </a></span>          float power = (float)Math.sqrt(room.getArea()) / 3;
+<span class="nocode"><a name="275">275: </a></span>          this.sunflow.parameter(&quot;radiance&quot;, null, 
+<span class="nocode"><a name="276">276: </a></span>              power * (ceillingLightColor &gt;&gt; 16) / 0xD0 * (this.homeLightColor &gt;&gt; 16) / 255, 
+<span class="nocode"><a name="277">277: </a></span>              power * ((ceillingLightColor &gt;&gt; 8) &amp; 0xFF) / 0xD0 * ((this.homeLightColor &gt;&gt; 8) &amp; 0xFF) / 255, 
+<span class="nocode"><a name="278">278: </a></span>              power * (ceillingLightColor &amp; 0xFF) / 0xD0 * (this.homeLightColor &amp; 0xFF) / 255);
+<span class="nocode"><a name="279">279: </a></span>          this.sunflow.parameter(&quot;center&quot;, new Point3(xCenter, roomHeight - 25, yCenter));                    
+<span class="nocode"><a name="280">280: </a></span>          this.sunflow.parameter(&quot;radius&quot;, 20f);
+<span class="nocode"><a name="281">281: </a></span>          this.sunflow.parameter(&quot;samples&quot;, 4);
+<span class="nocode"><a name="282">282: </a></span>          this.sunflow.light(UUID.randomUUID().toString(), &quot;sphere&quot;);
+<span class="nocode"><a name="283">283: </a></span>        } 
+<span class="nocode"><a name="284">284: </a></span>      }
+<span class="nocode"><a name="285">285: </a></span>    }
+<span class="nocode"><a name="286">286: </a></span>
+<span class="nocode"><a name="287">287: </a></span>    // Add visible and turned on lights
+<span class="nocode"><a name="288">288: </a></span>    for (HomeLight light : getLights(home.getFurniture())) {
+<span class="nocode"><a name="289">289: </a></span>      float lightPower = light.getPower();
+<span class="nocode"><a name="290">290: </a></span>      Level level = light.getLevel();
+<span class="nocode"><a name="291">291: </a></span>      if (light.isVisible()
+<span class="nocode"><a name="292">292: </a></span>          &amp;&amp; lightPower &gt; 0f
+<span class="nocode"><a name="293">293: </a></span>          &amp;&amp; (level == null
+<span class="nocode"><a name="294">294: </a></span>              || level.isVisible())) {
+<span class="nocode"><a name="295">295: </a></span>        float angle = light.getAngle();
+<span class="nocode"><a name="296">296: </a></span>        float cos = (float)Math.cos(angle);
+<span class="nocode"><a name="297">297: </a></span>        float sin = (float)Math.sin(angle);
+<span class="nocode"><a name="298">298: </a></span>        for (LightSource lightSource : ((HomeLight)light).getLightSources()) {
+<span class="nocode"><a name="299">299: </a></span>          float lightRadius = lightSource.getDiameter() != null 
+<span class="nocode"><a name="300">300: </a></span>                  ? lightSource.getDiameter() * light.getWidth() / 2 
+<span class="nocode"><a name="301">301: </a></span>                  : 3.25f; // Default radius compatible with most lights available before version 3.0
+<span class="nocode"><a name="302">302: </a></span>          float power = 5 * lightPower * lightPower / (lightRadius * lightRadius);
+<span class="nocode"><a name="303">303: </a></span>          int lightColor = lightSource.getColor();
+<span class="nocode"><a name="304">304: </a></span>          this.sunflow.parameter(&quot;radiance&quot;, null,
+<span class="nocode"><a name="305">305: </a></span>              power * (lightColor &gt;&gt; 16) * (this.homeLightColor &gt;&gt; 16),
+<span class="nocode"><a name="306">306: </a></span>              power * ((lightColor &gt;&gt; 8) &amp; 0xFF) * ((this.homeLightColor &gt;&gt; 8) &amp; 0xFF),
+<span class="nocode"><a name="307">307: </a></span>              power * (lightColor &amp; 0xFF) * (this.homeLightColor &amp; 0xFF));
+<span class="nocode"><a name="308">308: </a></span>          float xLightSourceInLight = -light.getWidth() / 2 + (lightSource.getX() * light.getWidth());
+<span class="nocode"><a name="309">309: </a></span>          float yLightSourceInLight = light.getDepth() / 2 - (lightSource.getY() * light.getDepth());
+<span class="nocode"><a name="310">310: </a></span>          float lightElevation = light.getGroundElevation();
+<span class="nocode"><a name="311">311: </a></span>          this.sunflow.parameter(&quot;center&quot;,
+<span class="nocode"><a name="312">312: </a></span>              new Point3(light.getX() + xLightSourceInLight * cos - yLightSourceInLight * sin,
+<span class="nocode"><a name="313">313: </a></span>                  lightElevation + (lightSource.getZ() * light.getHeight()),
+<span class="nocode"><a name="314">314: </a></span>                  light.getY() + xLightSourceInLight * sin + yLightSourceInLight * cos));                    
+<span class="nocode"><a name="315">315: </a></span>          this.sunflow.parameter(&quot;radius&quot;, lightRadius);
+<span class="nocode"><a name="316">316: </a></span>          this.sunflow.parameter(&quot;samples&quot;, 4);
+<span class="nocode"><a name="317">317: </a></span>          this.sunflow.light(UUID.randomUUID().toString(), &quot;sphere&quot;);
+<span class="nocode"><a name="318">318: </a></span>        }
+<span class="nocode"><a name="319">319: </a></span>      }
+<span class="nocode"><a name="320">320: </a></span>    }
+<span class="nocode"><a name="321">321: </a></span>
+<span class="nocode"><a name="322">322: </a></span>    this.sunflow.parameter(&quot;depths.diffuse&quot;, 1);
+<span class="nocode"><a name="323">323: </a></span>    this.sunflow.parameter(&quot;depths.reflection&quot;, 4);
+<span class="nocode"><a name="324">324: </a></span>    this.sunflow.parameter(&quot;depths.refraction&quot;, 16);
+<span class="nocode"><a name="325">325: </a></span>    this.sunflow.options(SunflowAPI.DEFAULT_OPTIONS);
+<span class="nocode"><a name="326">326: </a></span>    
+<span class="nocode"><a name="327">327: </a></span>    // Use a spiral computing
+<span class="nocode"><a name="328">328: </a></span>    this.sunflow.parameter(&quot;bucket.size&quot;, 32);
+<span class="nocode"><a name="329">329: </a></span>    this.sunflow.parameter(&quot;bucket.order&quot;, &quot;spiral&quot;);
+<span class="nocode"><a name="330">330: </a></span>    this.sunflow.options(SunflowAPI.DEFAULT_OPTIONS);
+<span class="nocode"><a name="331">331: </a></span>  }
+<span class="nocode"><a name="332">332: </a></span>
+<span class="nocode"><a name="333">333: </a></span>  /**
+<span class="nocode"><a name="334">334: </a></span>   * Renders home in &lt;code&gt;image&lt;/code&gt; at the given &lt;code&gt;camera&lt;/code&gt; location and image size.
+<span class="nocode"><a name="335">335: </a></span>   * The rendered objects of the home are the ones given in constructor, meaning any change made in 
+<span class="nocode"><a name="336">336: </a></span>   * home since the instantiation of this renderer won't be updated. 
+<span class="nocode"><a name="337">337: </a></span>   */
+<span class="nocode"><a name="338">338: </a></span>  public void render(final BufferedImage image, 
+<span class="nocode"><a name="339">339: </a></span>                     Camera camera, 
+<span class="nocode"><a name="340">340: </a></span>                     final ImageObserver observer) {
+<span class="nocode"><a name="341">341: </a></span>    this.renderingThread = Thread.currentThread();
+<span class="nocode"><a name="342">342: </a></span>
+<span class="nocode"><a name="343">343: </a></span>    if (this.sunSkyLightName != null) {
+<span class="nocode"><a name="344">344: </a></span>      this.sunflow.remove(this.sunSkyLightName);
+<span class="nocode"><a name="345">345: </a></span>    }
+<span class="nocode"><a name="346">346: </a></span>    if (this.sunLightName != null) {
+<span class="nocode"><a name="347">347: </a></span>      this.sunflow.remove(this.sunLightName);
+<span class="nocode"><a name="348">348: </a></span>    }
+<span class="nocode"><a name="349">349: </a></span>    float [] sunDirection = getSunDirection(this.compass, Camera.convertTimeToTimeZone(camera.getTime(), this.compass.getTimeZone()));
+<span class="nocode"><a name="350">350: </a></span>    // Update Sun direction during daytime
+<span class="nocode"><a name="351">351: </a></span>    if (sunDirection [1] &gt; -0.075f) {
+<span class="nocode"><a name="352">352: </a></span>      if (this.useSunSky) {
+<span class="nocode"><a name="353">353: </a></span>        this.sunflow.parameter(&quot;up&quot;, new Vector3(0, 1, 0));
+<span class="nocode"><a name="354">354: </a></span>        this.sunflow.parameter(&quot;east&quot;, 
+<span class="nocode"><a name="355">355: </a></span>            new Vector3((float)Math.sin(compass.getNorthDirection()), 0, (float)Math.cos(compass.getNorthDirection())));
+<span class="nocode"><a name="356">356: </a></span>        this.sunflow.parameter(&quot;sundir&quot;, new Vector3(sunDirection [0], sunDirection [1], sunDirection [2]));
+<span class="nocode"><a name="357">357: </a></span>        this.sunflow.parameter(&quot;turbidity&quot;, 6f);
+<span class="nocode"><a name="358">358: </a></span>        this.sunflow.parameter(&quot;samples&quot;, this.useAmbientOcclusion ? 0 : 12); 
+<span class="nocode"><a name="359">359: </a></span>        this.sunSkyLightName = UUID.randomUUID().toString();
+<span class="nocode"><a name="360">360: </a></span>        this.sunflow.light(this.sunSkyLightName, &quot;sunsky&quot;);
+<span class="nocode"><a name="361">361: </a></span>      }
+<span class="nocode"><a name="362">362: </a></span>
+<span class="nocode"><a name="363">363: </a></span>      // Retrieve sun color
+<span class="nocode"><a name="364">364: </a></span>      SunSkyLight sunSkyLight = new SunSkyLight();
+<span class="nocode"><a name="365">365: </a></span>      ParameterList parameterList = new ParameterList();
+<span class="nocode"><a name="366">366: </a></span>      parameterList.addVectors(&quot;up&quot;, InterpolationType.NONE, new float [] {0, 1, 0});
+<span class="nocode"><a name="367">367: </a></span>      parameterList.addVectors(&quot;east&quot;, InterpolationType.NONE, 
+<span class="nocode"><a name="368">368: </a></span>          new float [] {(float)Math.sin(compass.getNorthDirection()), 0, (float)Math.cos(compass.getNorthDirection())});
+<span class="nocode"><a name="369">369: </a></span>      parameterList.addVectors(&quot;sundir&quot;, InterpolationType.NONE, 
+<span class="nocode"><a name="370">370: </a></span>          new float [] {sunDirection [0], sunDirection [1], sunDirection [2]});
+<span class="nocode"><a name="371">371: </a></span>      sunSkyLight.update(parameterList, this.sunflow);
+<span class="nocode"><a name="372">372: </a></span>      float [] sunColor = sunSkyLight.getSunColor().getRGB();
+<span class="nocode"><a name="373">373: </a></span>      
+<span class="nocode"><a name="374">374: </a></span>      // Simulate additional Sun with a faraway sphere light of a color depending of the hour of the day
+<span class="nocode"><a name="375">375: </a></span>      int sunPower = this.useAmbientOcclusion ? 40 : 10; 
+<span class="nocode"><a name="376">376: </a></span>      this.sunflow.parameter(&quot;radiance&quot;, null,
+<span class="nocode"><a name="377">377: </a></span>          (this.homeLightColor &gt;&gt; 16) * sunPower * (float)Math.sqrt(sunColor [0]), 
+<span class="nocode"><a name="378">378: </a></span>          ((this.homeLightColor &gt;&gt; 8) &amp; 0xFF) * sunPower * (float)Math.sqrt(sunColor [1]), 
+<span class="nocode"><a name="379">379: </a></span>          (this.homeLightColor &amp; 0xFF) * sunPower * (float)Math.sqrt(sunColor [2]));
+<span class="nocode"><a name="380">380: </a></span>      this.sunflow.parameter(&quot;center&quot;, new Point3(1000000 * sunDirection [0], 1000000 * sunDirection [1], 1000000 * sunDirection [2])); 
+<span class="nocode"><a name="381">381: </a></span>      this.sunflow.parameter(&quot;radius&quot;, 10000f);  
+<span class="nocode"><a name="382">382: </a></span>      this.sunflow.parameter(&quot;samples&quot;, 4);
+<span class="nocode"><a name="383">383: </a></span>      this.sunLightName = UUID.randomUUID().toString();
+<span class="nocode"><a name="384">384: </a></span>      this.sunflow.light(this.sunLightName, &quot;sphere&quot;);
+<span class="nocode"><a name="385">385: </a></span>
+<span class="nocode"><a name="386">386: </a></span>      if (this.useAmbientOcclusion) {
+<span class="nocode"><a name="387">387: </a></span>        this.sunflow.parameter(&quot;gi.engine&quot;, &quot;ambocc&quot;);
+<span class="nocode"><a name="388">388: </a></span>        this.sunflow.parameter(&quot;gi.ambocc.bright&quot;, null, new float [] {1, 1, 1});
+<span class="nocode"><a name="389">389: </a></span>        // Use complementary color
+<span class="nocode"><a name="390">390: </a></span>        this.sunflow.parameter(&quot;gi.ambocc.dark&quot;, null, 
+<span class="nocode"><a name="391">391: </a></span>            new float [] {(sunColor [1] + sunColor [2]) / 200, 
+<span class="nocode"><a name="392">392: </a></span>                          (sunColor [0] + sunColor [2]) / 200,
+<span class="nocode"><a name="393">393: </a></span>                          (sunColor [0] + sunColor [1]) / 200});
+<span class="nocode"><a name="394">394: </a></span>        this.sunflow.parameter(&quot;gi.ambocc.samples&quot;, 1);
+<span class="nocode"><a name="395">395: </a></span>        this.sunflow.options(SunflowAPI.DEFAULT_OPTIONS);
+<span class="nocode"><a name="396">396: </a></span>      }
+<span class="nocode"><a name="397">397: </a></span>    }
+<span class="nocode"><a name="398">398: </a></span>
+<span class="nocode"><a name="399">399: </a></span>    // Update camera lens 
+<span class="nocode"><a name="400">400: </a></span>    final String CAMERA_NAME = &quot;camera&quot;;    
+<span class="nocode"><a name="401">401: </a></span>    switch (camera.getLens()) {
+<span class="nocode"><a name="402">402: </a></span>      case SPHERICAL:
+<span class="nocode"><a name="403">403: </a></span>        this.sunflow.camera(CAMERA_NAME, &quot;spherical&quot;);
+<span class="nocode"><a name="404">404: </a></span>        break;
+<span class="nocode"><a name="405">405: </a></span>      case FISHEYE:
+<span class="nocode"><a name="406">406: </a></span>        this.sunflow.camera(CAMERA_NAME, &quot;fisheye&quot;);
+<span class="nocode"><a name="407">407: </a></span>        break;
+<span class="nocode"><a name="408">408: </a></span>      case NORMAL:
+<span class="nocode"><a name="409">409: </a></span>        this.sunflow.parameter(&quot;focus.distance&quot;, 250f);
+<span class="nocode"><a name="410">410: </a></span>        this.sunflow.parameter(&quot;lens.radius&quot;, 1f);
+<span class="nocode"><a name="411">411: </a></span>        this.sunflow.camera(CAMERA_NAME, &quot;thinlens&quot;);
+<span class="nocode"><a name="412">412: </a></span>        break;
+<span class="nocode"><a name="413">413: </a></span>      case PINHOLE:
+<span class="nocode"><a name="414">414: </a></span>      default: 
+<span class="nocode"><a name="415">415: </a></span>        this.sunflow.camera(CAMERA_NAME, &quot;pinhole&quot;);
+<span class="nocode"><a name="416">416: </a></span>        break;
+<span class="nocode"><a name="417">417: </a></span>    }
+<span class="nocode"><a name="418">418: </a></span>    
+<span class="nocode"><a name="419">419: </a></span>    // Update camera location 
+<span class="nocode"><a name="420">420: </a></span>    Point3 eye = new Point3(camera.getX(), camera.getZ(), camera.getY());
+<span class="nocode"><a name="421">421: </a></span>    Matrix4 transform;
+<span class="nocode"><a name="422">422: </a></span>    float yaw = camera.getYaw();
+<span class="nocode"><a name="423">423: </a></span>    float pitch;
+<span class="nocode"><a name="424">424: </a></span>    if (camera.getLens() == Camera.Lens.SPHERICAL) {
+<span class="nocode"><a name="425">425: </a></span>      pitch = 0;
+<span class="nocode"><a name="426">426: </a></span>    } else {
+<span class="nocode"><a name="427">427: </a></span>      pitch = camera.getPitch();
+<span class="nocode"><a name="428">428: </a></span>    }
+<span class="nocode"><a name="429">429: </a></span>    double pitchCos = Math.cos(pitch);
+<span class="nocode"><a name="430">430: </a></span>    if (Math.abs(pitchCos) &gt; 1E-6) {
+<span class="nocode"><a name="431">431: </a></span>      // Set the point the camera is pointed to 
+<span class="nocode"><a name="432">432: </a></span>      Point3 target = new Point3(
+<span class="nocode"><a name="433">433: </a></span>          camera.getX() - (float)(Math.sin(yaw) * pitchCos), 
+<span class="nocode"><a name="434">434: </a></span>          camera.getZ() - (float)Math.sin(pitch), 
+<span class="nocode"><a name="435">435: </a></span>          camera.getY() + (float)(Math.cos(yaw) * pitchCos)); 
+<span class="nocode"><a name="436">436: </a></span>      Vector3 up = new Vector3(0, 1, 0);              
+<span class="nocode"><a name="437">437: </a></span>      transform = Matrix4.lookAt(eye, target, up);
+<span class="nocode"><a name="438">438: </a></span>    } else {
+<span class="nocode"><a name="439">439: </a></span>      // Compute matrix directly when the camera points is at top
+<span class="nocode"><a name="440">440: </a></span>      transform = new Matrix4((float)-Math.cos(yaw), (float)-Math.sin(yaw), 0, camera.getX(), 
+<span class="nocode"><a name="441">441: </a></span>          0, 0, 1, camera.getZ(), 
+<span class="nocode"><a name="442">442: </a></span>          (float)-Math.sin(yaw), (float)Math.cos(yaw), 0, camera.getY());
+<span class="nocode"><a name="443">443: </a></span>    }
+<span class="nocode"><a name="444">444: </a></span>    this.sunflow.parameter(&quot;transform&quot;, transform);
+<span class="nocode"><a name="445">445: </a></span>    this.sunflow.parameter(&quot;fov&quot;, (float)Math.toDegrees(camera.getFieldOfView()));
+<span class="nocode"><a name="446">446: </a></span>    this.sunflow.parameter(&quot;aspect&quot;, (float)image.getWidth() / image.getHeight());
+<span class="nocode"><a name="447">447: </a></span>    // Update camera
+<span class="nocode"><a name="448">448: </a></span>    this.sunflow.camera(CAMERA_NAME, null);
+<span class="nocode"><a name="449">449: </a></span>
+<span class="nocode"><a name="450">450: </a></span>    // Set image size and quality
+<span class="nocode"><a name="451">451: </a></span>    this.sunflow.parameter(&quot;resolutionX&quot;, image.getWidth());
+<span class="nocode"><a name="452">452: </a></span>    this.sunflow.parameter(&quot;resolutionY&quot;, image.getHeight());
+<span class="nocode"><a name="453">453: </a></span>    
+<span class="nocode"><a name="454">454: </a></span>    if (this.quality == Quality.HIGH) {
+<span class="nocode"><a name="455">455: </a></span>      this.sunflow.parameter(&quot;filter&quot;, &quot;blackman-harris&quot;); // box, gaussian, blackman-harris, sinc, mitchell or triangle
+<span class="nocode"><a name="456">456: </a></span>      // The bigger aa.max is, the cleanest rendering you get
+<span class="nocode"><a name="457">457: </a></span>      this.sunflow.parameter(&quot;aa.min&quot;, 1);
+<span class="nocode"><a name="458">458: </a></span>      this.sunflow.parameter(&quot;aa.max&quot;,  2);
+<span class="nocode"><a name="459">459: </a></span>    } else {
+<span class="nocode"><a name="460">460: </a></span>      this.sunflow.parameter(&quot;filter&quot;, &quot;box&quot;);
+<span class="nocode"><a name="461">461: </a></span>      this.sunflow.parameter(&quot;aa.min&quot;, 0);
+<span class="nocode"><a name="462">462: </a></span>      this.sunflow.parameter(&quot;aa.max&quot;, 0); 
+<span class="nocode"><a name="463">463: </a></span>    }
+<span class="nocode"><a name="464">464: </a></span>    this.sunflow.parameter(&quot;sampler&quot;, &quot;bucket&quot;); // ipr, fast or bucket 
+<span class="nocode"><a name="465">465: </a></span>
+<span class="nocode"><a name="466">466: </a></span>    // Render image with default camera
+<span class="nocode"><a name="467">467: </a></span>    this.sunflow.parameter(&quot;camera&quot;, CAMERA_NAME);
+<span class="nocode"><a name="468">468: </a></span>    this.sunflow.options(SunflowAPI.DEFAULT_OPTIONS);
+<span class="nocode"><a name="469">469: </a></span>    this.sunflow.render(SunflowAPI.DEFAULT_OPTIONS, new BufferedImageDisplay(image, observer));
+<span class="nocode"><a name="470">470: </a></span>  }
+<span class="nocode"><a name="471">471: </a></span>  
+<span class="nocode"><a name="472">472: </a></span>  /**
+<span class="nocode"><a name="473">473: </a></span>   * Stops the rendering process.
+<span class="nocode"><a name="474">474: </a></span>   */
+<span class="nocode"><a name="475">475: </a></span>  public void stop() {
+<span class="nocode"><a name="476">476: </a></span>    if (this.renderingThread != null) {
+<span class="nocode"><a name="477">477: </a></span>      if (!this.renderingThread.isInterrupted()) {
+<span class="nocode"><a name="478">478: </a></span>        this.renderingThread.interrupt();
+<span class="nocode"><a name="479">479: </a></span>      }
+<span class="nocode"><a name="480">480: </a></span>      this.renderingThread = null;
+<span class="nocode"><a name="481">481: </a></span>    }
+<span class="nocode"><a name="482">482: </a></span>  }
+<span class="nocode"><a name="483">483: </a></span>
+<span class="nocode"><a name="484">484: </a></span>  /**
+<span class="nocode"><a name="485">485: </a></span>   * Returns all the light children of the given &lt;code&gt;furniture&lt;/code&gt;.  
+<span class="nocode"><a name="486">486: </a></span>   */
+<span class="nocode"><a name="487">487: </a></span>  private List&lt;HomeLight&gt; getLights(List&lt;HomePieceOfFurniture&gt; furniture) {
+<span class="nocode"><a name="488">488: </a></span>    List&lt;HomeLight&gt; lights = new ArrayList&lt;HomeLight&gt;();
+<span class="nocode"><a name="489">489: </a></span>    for (HomePieceOfFurniture piece : furniture) {
+<span class="nocode"><a name="490">490: </a></span>      if (piece instanceof HomeLight) {
+<span class="nocode"><a name="491">491: </a></span>        lights.add((HomeLight)piece);
+<span class="nocode"><a name="492">492: </a></span>      } else if (piece instanceof HomeFurnitureGroup) {
+<span class="nocode"><a name="493">493: </a></span>        lights.addAll(getLights(((HomeFurnitureGroup)piece).getFurniture()));
+<span class="nocode"><a name="494">494: </a></span>      } 
+<span class="nocode"><a name="495">495: </a></span>    }
+<span class="nocode"><a name="496">496: </a></span>    return lights;
+<span class="nocode"><a name="497">497: </a></span>  }
+<span class="nocode"><a name="498">498: </a></span>
+<span class="nocode"><a name="499">499: </a></span>  /**
+<span class="nocode"><a name="500">500: </a></span>   * Returns sun direction at a given &lt;code&gt;time&lt;/code&gt;. 
+<span class="nocode"><a name="501">501: </a></span>   * @author Fr�d�ric Mantegazza
+<span class="nocode"><a name="502">502: </a></span>   */
+<span class="nocode"><a name="503">503: </a></span>  private float [] getSunDirection(Compass compass, long time) {
+<span class="nocode"><a name="504">504: </a></span>    float elevation = compass.getSunElevation(time);
+<span class="nocode"><a name="505">505: </a></span>    float azimuth = compass.getSunAzimuth(time);
+<span class="nocode"><a name="506">506: </a></span>    azimuth += compass.getNorthDirection() - Math.PI / 2f;
+<span class="nocode"><a name="507">507: </a></span>    return new float [] {(float)(Math.cos(azimuth) * Math.cos(elevation)),
+<span class="nocode"><a name="508">508: </a></span>                         (float)Math.sin(elevation),
+<span class="nocode"><a name="509">509: </a></span>                         (float)(Math.sin(azimuth) * Math.cos(elevation))};
+<span class="nocode"><a name="510">510: </a></span>  }
+<span class="nocode"><a name="511">511: </a></span>
+<span class="nocode"><a name="512">512: </a></span>  /**
+<span class="nocode"><a name="513">513: </a></span>   * Exports the given Java 3D &lt;code&gt;node&lt;/code&gt; and its children with SunFlow API.  
+<span class="nocode"><a name="514">514: </a></span>   */
+<span class="nocode"><a name="515">515: </a></span>  private void exportNode(Node node, boolean ignoreTransparency, boolean silk) throws IOException {
+<span class="nocode"><a name="516">516: </a></span>    exportNode(node, ignoreTransparency, silk, new Transform3D());
+<span class="nocode"><a name="517">517: </a></span>  }
+<span class="nocode"><a name="518">518: </a></span>
+<span class="nocode"><a name="519">519: </a></span>  /**
+<span class="nocode"><a name="520">520: </a></span>   * Exports all the 3D shapes children of &lt;code&gt;node&lt;/code&gt; with SunFlow API.
+<span class="nocode"><a name="521">521: </a></span>   */ 
+<span class="nocode"><a name="522">522: </a></span>  private void exportNode(Node node, 
+<span class="nocode"><a name="523">523: </a></span>                          boolean ignoreTransparency,
+<span class="nocode"><a name="524">524: </a></span>                          boolean silk,
+<span class="nocode"><a name="525">525: </a></span>                          Transform3D parentTransformations) throws IOException {
+<span class="nocode"><a name="526">526: </a></span>    if (node instanceof Group) {
+<span class="nocode"><a name="527">527: </a></span>      if (node instanceof TransformGroup) {
+<span class="nocode"><a name="528">528: </a></span>        parentTransformations = new Transform3D(parentTransformations);
+<span class="nocode"><a name="529">529: </a></span>        Transform3D transform = new Transform3D();
+<span class="nocode"><a name="530">530: </a></span>        ((TransformGroup)node).getTransform(transform);
+<span class="nocode"><a name="531">531: </a></span>        parentTransformations.mul(transform);
+<span class="nocode"><a name="532">532: </a></span>      }
+<span class="nocode"><a name="533">533: </a></span>      // Export all children
+<span class="nocode"><a name="534">534: </a></span>      Enumeration&lt;?&gt; enumeration = ((Group)node).getAllChildren(); 
+<span class="nocode"><a name="535">535: </a></span>      while (enumeration.hasMoreElements()) {
+<span class="nocode"><a name="536">536: </a></span>        exportNode((Node)enumeration.nextElement(), ignoreTransparency, silk, parentTransformations);
+<span class="nocode"><a name="537">537: </a></span>      }
+<span class="nocode"><a name="538">538: </a></span>    } else if (node instanceof Link) {
+<span class="nocode"><a name="539">539: </a></span>      exportNode(((Link)node).getSharedGroup(), ignoreTransparency, silk, parentTransformations);
+<span class="nocode"><a name="540">540: </a></span>    } else if (node instanceof Shape3D) {
+<span class="nocode"><a name="541">541: </a></span>      Shape3D shape = (Shape3D)node;
+<span class="nocode"><a name="542">542: </a></span>      Appearance appearance = shape.getAppearance();
+<span class="nocode"><a name="543">543: </a></span>      RenderingAttributes renderingAttributes = appearance != null 
+<span class="nocode"><a name="544">544: </a></span>          ? appearance.getRenderingAttributes() : null;
+<span class="nocode"><a name="545">545: </a></span>      TransparencyAttributes transparencyAttributes = appearance != null 
+<span class="nocode"><a name="546">546: </a></span>          ? appearance.getTransparencyAttributes() : null;
+<span class="nocode"><a name="547">547: </a></span>      // Ignore invisible shapes and fully transparency shapes without a texture 
+<span class="nocode"><a name="548">548: </a></span>      if ((renderingAttributes == null
+<span class="nocode"><a name="549">549: </a></span>              || renderingAttributes.getVisible())
+<span class="nocode"><a name="550">550: </a></span>          &amp;&amp; (transparencyAttributes == null
+<span class="nocode"><a name="551">551: </a></span>              || transparencyAttributes.getTransparency() != 1)) {
+<span class="nocode"><a name="552">552: </a></span>        String shapeName = (String)shape.getUserData();
+<span class="nocode"><a name="553">553: </a></span>        // Build a unique object name
+<span class="nocode"><a name="554">554: </a></span>        String uuid = UUID.randomUUID().toString();
+<span class="nocode"><a name="555">555: </a></span>  
+<span class="nocode"><a name="556">556: </a></span>        String appearanceName = null;
+<span class="nocode"><a name="557">557: </a></span>        TexCoordGeneration texCoordGeneration = null;
+<span class="nocode"><a name="558">558: </a></span>        if (appearance != null) {
+<span class="nocode"><a name="559">559: </a></span>          texCoordGeneration = appearance.getTexCoordGeneration();
+<span class="nocode"><a name="560">560: </a></span>          appearanceName = &quot;shader&quot; + uuid;
+<span class="nocode"><a name="561">561: </a></span>          boolean mirror = shapeName != null
+<span class="nocode"><a name="562">562: </a></span>              &amp;&amp; shapeName.startsWith(ModelManager.MIRROR_SHAPE_PREFIX);
+<span class="nocode"><a name="563">563: </a></span>          exportAppearance(appearance, appearanceName, mirror, ignoreTransparency, silk);
+<span class="nocode"><a name="564">564: </a></span>        }
+<span class="nocode"><a name="565">565: </a></span>
+<span class="nocode"><a name="566">566: </a></span>        // Export object geometries
+<span class="nocode"><a name="567">567: </a></span>        for (int i = 0, n = shape.numGeometries(); i &lt; n; i++) {
+<span class="nocode"><a name="568">568: </a></span>          String objectNameBase = &quot;object&quot; + uuid + &quot;-&quot; + i;
+<span class="nocode"><a name="569">569: </a></span>          // Always ignore normals on walls
+<span class="nocode"><a name="570">570: </a></span>          String [] objectsName = exportNodeGeometry(shape.getGeometry(i), parentTransformations, texCoordGeneration, 
+<span class="nocode"><a name="571">571: </a></span>              objectNameBase);
+<span class="nocode"><a name="572">572: </a></span>          if (objectsName != null) {
+<span class="nocode"><a name="573">573: </a></span>            for (String objectName : objectsName) {
+<span class="nocode"><a name="574">574: </a></span>              if (appearanceName != null) {
+<span class="nocode"><a name="575">575: </a></span>                this.sunflow.parameter(&quot;shaders&quot;, new String [] {appearanceName});
+<span class="nocode"><a name="576">576: </a></span>              }
+<span class="nocode"><a name="577">577: </a></span>              this.sunflow.instance(objectName + &quot;.instance&quot;, objectName);
+<span class="nocode"><a name="578">578: </a></span>            }
+<span class="nocode"><a name="579">579: </a></span>          }
+<span class="nocode"><a name="580">580: </a></span>        }
+<span class="nocode"><a name="581">581: </a></span>      }
+<span class="nocode"><a name="582">582: </a></span>    }    
+<span class="nocode"><a name="583">583: </a></span>  }
+<span class="nocode"><a name="584">584: </a></span>  
+<span class="nocode"><a name="585">585: </a></span>  /**
+<span class="nocode"><a name="586">586: </a></span>   * Returns the names of the exported 3D geometries with SunFlow API.
+<span class="nocode"><a name="587">587: </a></span>   */
+<span class="nocode"><a name="588">588: </a></span>  private String [] exportNodeGeometry(Geometry geometry, 
+<span class="nocode"><a name="589">589: </a></span>                                       Transform3D parentTransformations, 
+<span class="nocode"><a name="590">590: </a></span>                                       TexCoordGeneration texCoordGeneration, 
+<span class="nocode"><a name="591">591: </a></span>                                       String objectNameBase) {
+<span class="nocode"><a name="592">592: </a></span>    if (geometry instanceof GeometryArray) {
+<span class="nocode"><a name="593">593: </a></span>      GeometryArray geometryArray = (GeometryArray)geometry;
+<span class="nocode"><a name="594">594: </a></span>      
+<span class="nocode"><a name="595">595: </a></span>      // Create vertices indices array according to geometry class
+<span class="nocode"><a name="596">596: </a></span>      int [] verticesIndices = null;
+<span class="nocode"><a name="597">597: </a></span>      int [] stripVertexCount = null;
+<span class="nocode"><a name="598">598: </a></span>      if (geometryArray instanceof IndexedGeometryArray) {
+<span class="nocode"><a name="599">599: </a></span>        if (geometryArray instanceof IndexedLineArray) {
+<span class="nocode"><a name="600">600: </a></span>          verticesIndices = new int [((IndexedGeometryArray)geometryArray).getIndexCount()];
+<span class="nocode"><a name="601">601: </a></span>        } else if (geometryArray instanceof IndexedTriangleArray) {
+<span class="nocode"><a name="602">602: </a></span>          verticesIndices = new int [((IndexedGeometryArray)geometryArray).getIndexCount()];
+<span class="nocode"><a name="603">603: </a></span>        } else if (geometryArray instanceof IndexedQuadArray) {
+<span class="nocode"><a name="604">604: </a></span>          verticesIndices = new int [((IndexedQuadArray)geometryArray).getIndexCount() * 3 / 2];
+<span class="nocode"><a name="605">605: </a></span>        } else if (geometryArray instanceof IndexedGeometryStripArray) {
+<span class="nocode"><a name="606">606: </a></span>          IndexedTriangleStripArray geometryStripArray = (IndexedTriangleStripArray)geometryArray;
+<span class="nocode"><a name="607">607: </a></span>          stripVertexCount = new int [geometryStripArray.getNumStrips()];
+<span class="nocode"><a name="608">608: </a></span>          geometryStripArray.getStripIndexCounts(stripVertexCount);          
+<span class="nocode"><a name="609">609: </a></span>          if (geometryArray instanceof IndexedLineStripArray) {
+<span class="nocode"><a name="610">610: </a></span>            verticesIndices = new int [getLineCount(stripVertexCount) * 2];
+<span class="nocode"><a name="611">611: </a></span>          } else {
+<span class="nocode"><a name="612">612: </a></span>            verticesIndices = new int [getTriangleCount(stripVertexCount) * 3];
+<span class="nocode"><a name="613">613: </a></span>          } 
+<span class="nocode"><a name="614">614: </a></span>        }
+<span class="nocode"><a name="615">615: </a></span>      } else {
+<span class="nocode"><a name="616">616: </a></span>        if (geometryArray instanceof LineArray) {
+<span class="nocode"><a name="617">617: </a></span>          verticesIndices = new int [((GeometryArray)geometryArray).getVertexCount()];
+<span class="nocode"><a name="618">618: </a></span>        } else if (geometryArray instanceof TriangleArray) {
+<span class="nocode"><a name="619">619: </a></span>          verticesIndices = new int [((GeometryArray)geometryArray).getVertexCount()];
+<span class="nocode"><a name="620">620: </a></span>        } else if (geometryArray instanceof QuadArray) {
+<span class="nocode"><a name="621">621: </a></span>          verticesIndices = new int [((QuadArray)geometryArray).getVertexCount() * 3 / 2];
+<span class="nocode"><a name="622">622: </a></span>        } else if (geometryArray instanceof GeometryStripArray) {
+<span class="nocode"><a name="623">623: </a></span>          GeometryStripArray geometryStripArray = (GeometryStripArray)geometryArray;
+<span class="nocode"><a name="624">624: </a></span>          stripVertexCount = new int [geometryStripArray.getNumStrips()];
+<span class="nocode"><a name="625">625: </a></span>          geometryStripArray.getStripVertexCounts(stripVertexCount);
+<span class="nocode"><a name="626">626: </a></span>          if (geometryArray instanceof LineStripArray) {
+<span class="nocode"><a name="627">627: </a></span>            verticesIndices = new int [getLineCount(stripVertexCount) * 2];
+<span class="nocode"><a name="628">628: </a></span>          } else {
+<span class="nocode"><a name="629">629: </a></span>            verticesIndices = new int [getTriangleCount(stripVertexCount) * 3];
+<span class="nocode"><a name="630">630: </a></span>          }       
+<span class="nocode"><a name="631">631: </a></span>        }
+<span class="nocode"><a name="632">632: </a></span>      }
+<span class="nocode"><a name="633">633: </a></span>
+<span class="nocode"><a name="634">634: </a></span>      if (verticesIndices != null) {
+<span class="nocode"><a name="635">635: </a></span>        boolean line = geometryArray instanceof IndexedLineArray
+<span class="nocode"><a name="636">636: </a></span>            || geometryArray instanceof IndexedLineStripArray
+<span class="nocode"><a name="637">637: </a></span>            || geometryArray instanceof LineArray
+<span class="nocode"><a name="638">638: </a></span>            || geometryArray instanceof LineStripArray;
+<span class="nocode"><a name="639">639: </a></span>        float [] vertices = new float [geometryArray.getVertexCount() * 3];
+<span class="nocode"><a name="640">640: </a></span>        float [] normals = !line &amp;&amp; (geometryArray.getVertexFormat() &amp; GeometryArray.NORMALS) != 0
+<span class="nocode"><a name="641">641: </a></span>            ? new float [geometryArray.getVertexCount() * 3]
+<span class="nocode"><a name="642">642: </a></span>            : null;        
+<span class="nocode"><a name="643">643: </a></span>        // Store temporarily exported triangles to avoid to add their opposite triangles 
+<span class="nocode"><a name="644">644: </a></span>        // (SunFlow doesn't render correctly a face and its opposite)  
+<span class="nocode"><a name="645">645: </a></span>        Set&lt;Triangle&gt; exportedTriangles = line
+<span class="nocode"><a name="646">646: </a></span>            ? null
+<span class="nocode"><a name="647">647: </a></span>            : new HashSet&lt;Triangle&gt;(geometryArray.getVertexCount());
+<span class="nocode"><a name="648">648: </a></span>        
+<span class="nocode"><a name="649">649: </a></span>        boolean uvsGenerated = false;
+<span class="nocode"><a name="650">650: </a></span>        Vector4f planeS = null;
+<span class="nocode"><a name="651">651: </a></span>        Vector4f planeT = null;
+<span class="nocode"><a name="652">652: </a></span>        if (!line &amp;&amp; texCoordGeneration != null) {
+<span class="nocode"><a name="653">653: </a></span>          uvsGenerated = texCoordGeneration.getGenMode() == TexCoordGeneration.OBJECT_LINEAR
+<span class="nocode"><a name="654">654: </a></span>              &amp;&amp; texCoordGeneration.getEnable();
+<span class="nocode"><a name="655">655: </a></span>          if (uvsGenerated) {
+<span class="nocode"><a name="656">656: </a></span>            planeS = new Vector4f();
+<span class="nocode"><a name="657">657: </a></span>            planeT = new Vector4f();
+<span class="nocode"><a name="658">658: </a></span>            texCoordGeneration.getPlaneS(planeS);
+<span class="nocode"><a name="659">659: </a></span>            texCoordGeneration.getPlaneT(planeT);
+<span class="nocode"><a name="660">660: </a></span>          }
+<span class="nocode"><a name="661">661: </a></span>        } 
+<span class="nocode"><a name="662">662: </a></span>  
+<span class="nocode"><a name="663">663: </a></span>        float [] uvs;
+<span class="nocode"><a name="664">664: </a></span>        if (uvsGenerated
+<span class="nocode"><a name="665">665: </a></span>            || (geometryArray.getVertexFormat() &amp; GeometryArray.TEXTURE_COORDINATE_2) != 0) {
+<span class="nocode"><a name="666">666: </a></span>          uvs = new float [geometryArray.getVertexCount() * 2];
+<span class="nocode"><a name="667">667: </a></span>        } else {
+<span class="nocode"><a name="668">668: </a></span>          uvs = null;
+<span class="nocode"><a name="669">669: </a></span>        }
+<span class="nocode"><a name="670">670: </a></span>       
+<span class="nocode"><a name="671">671: </a></span>        if ((geometryArray.getVertexFormat() &amp; GeometryArray.BY_REFERENCE) != 0) {
+<span class="nocode"><a name="672">672: </a></span>          if ((geometryArray.getVertexFormat() &amp; GeometryArray.INTERLEAVED) != 0) {
+<span class="nocode"><a name="673">673: </a></span>            float [] vertexData = geometryArray.getInterleavedVertices();
+<span class="nocode"><a name="674">674: </a></span>            int vertexSize = vertexData.length / geometryArray.getVertexCount();
+<span class="nocode"><a name="675">675: </a></span>            // Export vertices coordinates 
+<span class="nocode"><a name="676">676: </a></span>            for (int index = 0, i = vertexSize - 3, n = geometryArray.getVertexCount(); 
+<span class="nocode"><a name="677">677: </a></span>                 index &lt; n; index++, i += vertexSize) {
+<span class="nocode"><a name="678">678: </a></span>              Point3f vertex = new Point3f(vertexData [i], vertexData [i + 1], vertexData [i + 2]);
+<span class="nocode"><a name="679">679: </a></span>              exportVertex(parentTransformations, vertex, index, vertices);
+<span class="nocode"><a name="680">680: </a></span>            }
+<span class="nocode"><a name="681">681: </a></span>            // Export normals
+<span class="nocode"><a name="682">682: </a></span>            if (normals != null) {
+<span class="nocode"><a name="683">683: </a></span>              for (int index = 0, i = vertexSize - 6, n = geometryArray.getVertexCount(); 
+<span class="nocode"><a name="684">684: </a></span>                   index &lt; n; index++, i += vertexSize) {
+<span class="nocode"><a name="685">685: </a></span>                Vector3f normal = new Vector3f(vertexData [i], vertexData [i + 1], vertexData [i + 2]);
+<span class="nocode"><a name="686">686: </a></span>                exportNormal(parentTransformations, normal, index, normals);
+<span class="nocode"><a name="687">687: </a></span>              }
+<span class="nocode"><a name="688">688: </a></span>            }
+<span class="nocode"><a name="689">689: </a></span>            // Export texture coordinates
+<span class="nocode"><a name="690">690: </a></span>            if (texCoordGeneration != null) {
+<span class="nocode"><a name="691">691: </a></span>              if (uvsGenerated) {
+<span class="nocode"><a name="692">692: </a></span>                for (int index = 0, i = vertexSize - 3, n = geometryArray.getVertexCount(); 
+<span class="nocode"><a name="693">693: </a></span>                      index &lt; n; index++, i += vertexSize) {
+<span class="nocode"><a name="694">694: </a></span>                  TexCoord2f textureCoordinates = generateTextureCoordinates(
+<span class="nocode"><a name="695">695: </a></span>                      vertexData [i], vertexData [i + 1], vertexData [i + 2], planeS, planeT);
+<span class="nocode"><a name="696">696: </a></span>                  exportTextureCoordinates(textureCoordinates, index, uvs);
+<span class="nocode"><a name="697">697: </a></span>                }
+<span class="nocode"><a name="698">698: </a></span>              }
+<span class="nocode"><a name="699">699: </a></span>            } else if (uvs != null) {
+<span class="nocode"><a name="700">700: </a></span>              for (int index = 0, i = 0, n = geometryArray.getVertexCount(); 
+<span class="nocode"><a name="701">701: </a></span>                    index &lt; n; index++, i += vertexSize) {
+<span class="nocode"><a name="702">702: </a></span>                TexCoord2f textureCoordinates = new TexCoord2f(vertexData [i], vertexData [i + 1]);
+<span class="nocode"><a name="703">703: </a></span>                exportTextureCoordinates(textureCoordinates, index, uvs);
+<span class="nocode"><a name="704">704: </a></span>              }
+<span class="nocode"><a name="705">705: </a></span>            }
+<span class="nocode"><a name="706">706: </a></span>          } else {
+<span class="nocode"><a name="707">707: </a></span>            // Export vertices coordinates
+<span class="nocode"><a name="708">708: </a></span>            float [] vertexCoordinates = geometryArray.getCoordRefFloat();
+<span class="nocode"><a name="709">709: </a></span>            for (int index = 0, i = 0, n = geometryArray.getVertexCount(); index &lt; n; index++, i += 3) {
+<span class="nocode"><a name="710">710: </a></span>              Point3f vertex = new Point3f(vertexCoordinates [i], vertexCoordinates [i + 1], vertexCoordinates [i + 2]);
+<span class="nocode"><a name="711">711: </a></span>              exportVertex(parentTransformations, vertex, index, vertices);
+<span class="nocode"><a name="712">712: </a></span>            }
+<span class="nocode"><a name="713">713: </a></span>            // Export normals
+<span class="nocode"><a name="714">714: </a></span>            if (normals != null) {
+<span class="nocode"><a name="715">715: </a></span>              float [] normalCoordinates = geometryArray.getNormalRefFloat();
+<span class="nocode"><a name="716">716: </a></span>              for (int index = 0, i = 0, n = geometryArray.getVertexCount(); index &lt; n; index++, i += 3) {
+<span class="nocode"><a name="717">717: </a></span>                Vector3f normal = new Vector3f(normalCoordinates [i], normalCoordinates [i + 1], normalCoordinates [i + 2]);
+<span class="nocode"><a name="718">718: </a></span>                exportNormal(parentTransformations, normal, index, normals);
+<span class="nocode"><a name="719">719: </a></span>              }
+<span class="nocode"><a name="720">720: </a></span>            }
+<span class="nocode"><a name="721">721: </a></span>            // Export texture coordinates
+<span class="nocode"><a name="722">722: </a></span>            if (texCoordGeneration != null) {
+<span class="nocode"><a name="723">723: </a></span>              if (uvsGenerated) {
+<span class="nocode"><a name="724">724: </a></span>                for (int index = 0, i = 0, n = geometryArray.getVertexCount(); index &lt; n; index++, i += 3) {
+<span class="nocode"><a name="725">725: </a></span>                  TexCoord2f textureCoordinates = generateTextureCoordinates(
+<span class="nocode"><a name="726">726: </a></span>                      vertexCoordinates [i], vertexCoordinates [i + 1], vertexCoordinates [i + 2], planeS, planeT);
+<span class="nocode"><a name="727">727: </a></span>                  exportTextureCoordinates(textureCoordinates, index, uvs);
+<span class="nocode"><a name="728">728: </a></span>                }
+<span class="nocode"><a name="729">729: </a></span>              }
+<span class="nocode"><a name="730">730: </a></span>            } else if (uvs != null) {
+<span class="nocode"><a name="731">731: </a></span>              float [] textureCoordinatesArray = geometryArray.getTexCoordRefFloat(0);
+<span class="nocode"><a name="732">732: </a></span>              for (int index = 0, i = 0, n = geometryArray.getVertexCount(); index &lt; n; index++, i += 2) {
+<span class="nocode"><a name="733">733: </a></span>                TexCoord2f textureCoordinates = new TexCoord2f(textureCoordinatesArray [i], textureCoordinatesArray [i + 1]);
+<span class="nocode"><a name="734">734: </a></span>                exportTextureCoordinates(textureCoordinates, index, uvs);
+<span class="nocode"><a name="735">735: </a></span>              }
+<span class="nocode"><a name="736">736: </a></span>            }
+<span class="nocode"><a name="737">737: </a></span>          }
+<span class="nocode"><a name="738">738: </a></span>        } else {
+<span class="nocode"><a name="739">739: </a></span>          // Export vertices coordinates
+<span class="nocode"><a name="740">740: </a></span>          for (int index = 0, n = geometryArray.getVertexCount(); index &lt; n; index++) {
+<span class="nocode"><a name="741">741: </a></span>            Point3f vertex = new Point3f();
+<span class="nocode"><a name="742">742: </a></span>            geometryArray.getCoordinate(index, vertex);
+<span class="nocode"><a name="743">743: </a></span>            exportVertex(parentTransformations, vertex, index, vertices);
+<span class="nocode"><a name="744">744: </a></span>          }
+<span class="nocode"><a name="745">745: </a></span>          // Export normals
+<span class="nocode"><a name="746">746: </a></span>          if (normals != null) {
+<span class="nocode"><a name="747">747: </a></span>            for (int index = 0, n = geometryArray.getVertexCount(); index &lt; n; index++) {
+<span class="nocode"><a name="748">748: </a></span>              Vector3f normal = new Vector3f();
+<span class="nocode"><a name="749">749: </a></span>              geometryArray.getNormal(index, normal);
+<span class="nocode"><a name="750">750: </a></span>              exportNormal(parentTransformations, normal, index, normals);
+<span class="nocode"><a name="751">751: </a></span>            }
+<span class="nocode"><a name="752">752: </a></span>          }
+<span class="nocode"><a name="753">753: </a></span>          // Export texture coordinates
+<span class="nocode"><a name="754">754: </a></span>          if (texCoordGeneration != null) {
+<span class="nocode"><a name="755">755: </a></span>            if (uvsGenerated) {
+<span class="nocode"><a name="756">756: </a></span>              for (int index = 0, n = geometryArray.getVertexCount(); index &lt; n; index++) {
+<span class="nocode"><a name="757">757: </a></span>                Point3f vertex = new Point3f();
+<span class="nocode"><a name="758">758: </a></span>                geometryArray.getCoordinate(index, vertex);
+<span class="nocode"><a name="759">759: </a></span>                TexCoord2f textureCoordinates = generateTextureCoordinates(
+<span class="nocode"><a name="760">760: </a></span>                    vertex.x, vertex.y, vertex.z, planeS, planeT);
+<span class="nocode"><a name="761">761: </a></span>                exportTextureCoordinates(textureCoordinates, index, uvs);
+<span class="nocode"><a name="762">762: </a></span>              }
+<span class="nocode"><a name="763">763: </a></span>            }
+<span class="nocode"><a name="764">764: </a></span>          } else if (uvs != null) {
+<span class="nocode"><a name="765">765: </a></span>            for (int index = 0, n = geometryArray.getVertexCount(); index &lt; n; index++) {
+<span class="nocode"><a name="766">766: </a></span>              TexCoord2f textureCoordinates = new TexCoord2f();
+<span class="nocode"><a name="767">767: </a></span>              geometryArray.getTextureCoordinate(0, index, textureCoordinates);
+<span class="nocode"><a name="768">768: </a></span>              exportTextureCoordinates(textureCoordinates, index, uvs);
+<span class="nocode"><a name="769">769: </a></span>            }
+<span class="nocode"><a name="770">770: </a></span>          }
+<span class="nocode"><a name="771">771: </a></span>        }
+<span class="nocode"><a name="772">772: </a></span>
+<span class="nocode"><a name="773">773: </a></span>        // Export lines, triangles or quadrilaterals according to the geometry
+<span class="nocode"><a name="774">774: </a></span>        if (geometryArray instanceof IndexedGeometryArray) {
+<span class="nocode"><a name="775">775: </a></span>          int [] normalsIndices = normals != null
+<span class="nocode"><a name="776">776: </a></span>              ? new int [verticesIndices.length]
+<span class="nocode"><a name="777">777: </a></span>              : null;
+<span class="nocode"><a name="778">778: </a></span>          int [] uvsIndices = uvs != null
+<span class="nocode"><a name="779">779: </a></span>              ? new int [verticesIndices.length]
+<span class="nocode"><a name="780">780: </a></span>              : null;
+<span class="nocode"><a name="781">781: </a></span>              
+<span class="nocode"><a name="782">782: </a></span>          if (geometryArray instanceof IndexedLineArray) {
+<span class="nocode"><a name="783">783: </a></span>            IndexedLineArray lineArray = (IndexedLineArray)geometryArray;
+<span class="nocode"><a name="784">784: </a></span>            for (int i = 0, n = lineArray.getIndexCount(); i &lt; n; i += 2) {
+<span class="nocode"><a name="785">785: </a></span>              exportIndexedLine(lineArray, i, i + 1, verticesIndices, i);
+<span class="nocode"><a name="786">786: </a></span>            }
+<span class="nocode"><a name="787">787: </a></span>          } else {
+<span class="nocode"><a name="788">788: </a></span>            if (geometryArray instanceof IndexedTriangleArray) {
+<span class="nocode"><a name="789">789: </a></span>              IndexedTriangleArray triangleArray = (IndexedTriangleArray)geometryArray;
+<span class="nocode"><a name="790">790: </a></span>              for (int i = 0, n = triangleArray.getIndexCount(), triangleIndex = 0; i &lt; n; i += 3) {
+<span class="nocode"><a name="791">791: </a></span>                triangleIndex = exportIndexedTriangle(triangleArray, i, i + 1, i + 2, 
+<span class="nocode"><a name="792">792: </a></span>                    verticesIndices, normalsIndices, uvsIndices, triangleIndex, vertices, exportedTriangles);
+<span class="nocode"><a name="793">793: </a></span>              }
+<span class="nocode"><a name="794">794: </a></span>            } else if (geometryArray instanceof IndexedQuadArray) {
+<span class="nocode"><a name="795">795: </a></span>              IndexedQuadArray quadArray = (IndexedQuadArray)geometryArray;
+<span class="nocode"><a name="796">796: </a></span>              for (int i = 0, n = quadArray.getIndexCount(), triangleIndex = 0; i &lt; n; i += 4) {
+<span class="nocode"><a name="797">797: </a></span>                triangleIndex = exportIndexedTriangle(quadArray, i, i + 1, i + 2, 
+<span class="nocode"><a name="798">798: </a></span>                    verticesIndices, normalsIndices, uvsIndices, triangleIndex, vertices, exportedTriangles);
+<span class="nocode"><a name="799">799: </a></span>                triangleIndex = exportIndexedTriangle(quadArray, i, i + 2, i + 3, 
+<span class="nocode"><a name="800">800: </a></span>                    verticesIndices, normalsIndices, uvsIndices, triangleIndex, vertices, exportedTriangles);
+<span class="nocode"><a name="801">801: </a></span>              }
+<span class="nocode"><a name="802">802: </a></span>            } else if (geometryArray instanceof IndexedLineStripArray) {
+<span class="nocode"><a name="803">803: </a></span>              IndexedLineStripArray lineStripArray = (IndexedLineStripArray)geometryArray;
+<span class="nocode"><a name="804">804: </a></span>              for (int initialIndex = 0, lineIndex = 0, strip = 0; strip &lt; stripVertexCount.length; strip++) {
+<span class="nocode"><a name="805">805: </a></span>                for (int i = initialIndex, n = initialIndex + stripVertexCount [strip] - 1; 
+<span class="nocode"><a name="806">806: </a></span>                     i &lt; n; i++, lineIndex += 2) {
+<span class="nocode"><a name="807">807: </a></span>                   exportIndexedLine(lineStripArray, i, i + 1, verticesIndices, lineIndex);
+<span class="nocode"><a name="808">808: </a></span>                }
+<span class="nocode"><a name="809">809: </a></span>                initialIndex += stripVertexCount [strip];
+<span class="nocode"><a name="810">810: </a></span>              }
+<span class="nocode"><a name="811">811: </a></span>            } else if (geometryArray instanceof IndexedTriangleStripArray) {
+<span class="nocode"><a name="812">812: </a></span>              IndexedTriangleStripArray triangleStripArray = (IndexedTriangleStripArray)geometryArray;
+<span class="nocode"><a name="813">813: </a></span>              for (int initialIndex = 0, triangleIndex = 0, strip = 0; strip &lt; stripVertexCount.length; strip++) {
+<span class="nocode"><a name="814">814: </a></span>                for (int i = initialIndex, n = initialIndex + stripVertexCount [strip] - 2, j = 0; 
+<span class="nocode"><a name="815">815: </a></span>                     i &lt; n; i++, j++) {
+<span class="nocode"><a name="816">816: </a></span>                  if (j % 2 == 0) {
+<span class="nocode"><a name="817">817: </a></span>                    triangleIndex = exportIndexedTriangle(triangleStripArray, i, i + 1, i + 2, 
+<span class="nocode"><a name="818">818: </a></span>                        verticesIndices, normalsIndices, uvsIndices, triangleIndex, vertices, exportedTriangles);
+<span class="nocode"><a name="819">819: </a></span>                  } else { // Vertices of odd triangles are in reverse order               
+<span class="nocode"><a name="820">820: </a></span>                    triangleIndex = exportIndexedTriangle(triangleStripArray, i, i + 2, i + 1, 
+<span class="nocode"><a name="821">821: </a></span>                        verticesIndices, normalsIndices, uvsIndices, triangleIndex, vertices, exportedTriangles);
+<span class="nocode"><a name="822">822: </a></span>                  }
+<span class="nocode"><a name="823">823: </a></span>                }
+<span class="nocode"><a name="824">824: </a></span>                initialIndex += stripVertexCount [strip];
+<span class="nocode"><a name="825">825: </a></span>              }
+<span class="nocode"><a name="826">826: </a></span>            } else if (geometryArray instanceof IndexedTriangleFanArray) {
+<span class="nocode"><a name="827">827: </a></span>              IndexedTriangleFanArray triangleFanArray = (IndexedTriangleFanArray)geometryArray;
+<span class="nocode"><a name="828">828: </a></span>              for (int initialIndex = 0, triangleIndex = 0, strip = 0; strip &lt; stripVertexCount.length; strip++) {
+<span class="nocode"><a name="829">829: </a></span>                for (int i = initialIndex, n = initialIndex + stripVertexCount [strip] - 2; 
+<span class="nocode"><a name="830">830: </a></span>                     i &lt; n; i++) {
+<span class="nocode"><a name="831">831: </a></span>                  triangleIndex = exportIndexedTriangle(triangleFanArray, initialIndex, i + 1, i + 2, 
+<span class="nocode"><a name="832">832: </a></span>                      verticesIndices, normalsIndices, uvsIndices, triangleIndex, vertices, exportedTriangles);
+<span class="nocode"><a name="833">833: </a></span>                }
+<span class="nocode"><a name="834">834: </a></span>                initialIndex += stripVertexCount [strip];
+<span class="nocode"><a name="835">835: </a></span>              }
+<span class="nocode"><a name="836">836: </a></span>            }
+<span class="nocode"><a name="837">837: </a></span>          }
+<span class="nocode"><a name="838">838: </a></span>          
+<span class="nocode"><a name="839">839: </a></span>          if (normalsIndices != null &amp;&amp; !Arrays.equals(verticesIndices, normalsIndices)
+<span class="nocode"><a name="840">840: </a></span>              || uvsIndices != null &amp;&amp; !Arrays.equals(verticesIndices, uvsIndices)) {
+<span class="nocode"><a name="841">841: </a></span>            // Remove indirection in verticesIndices, normals and uvsIndices
+<span class="nocode"><a name="842">842: </a></span>            // because SunFlow uses only verticesIndices
+<span class="nocode"><a name="843">843: </a></span>            float [] directVertices = new float [verticesIndices.length * 3];
+<span class="nocode"><a name="844">844: </a></span>            float [] directNormals =  normalsIndices != null
+<span class="nocode"><a name="845">845: </a></span>                ? new float [verticesIndices.length * 3]
+<span class="nocode"><a name="846">846: </a></span>                : null;
+<span class="nocode"><a name="847">847: </a></span>            float [] directUvs =  uvsIndices != null
+<span class="nocode"><a name="848">848: </a></span>                ? new float [verticesIndices.length * 2]
+<span class="nocode"><a name="849">849: </a></span>                : null;
+<span class="nocode"><a name="850">850: </a></span>            int verticeIndex = 0;
+<span class="nocode"><a name="851">851: </a></span>            int normalIndex = 0;
+<span class="nocode"><a name="852">852: </a></span>            int uvIndex = 0;
+<span class="nocode"><a name="853">853: </a></span>            for (int i = 0; i &lt; verticesIndices.length; i++) {
+<span class="nocode"><a name="854">854: </a></span>              int indirectIndex = verticesIndices [i] * 3;
+<span class="nocode"><a name="855">855: </a></span>              directVertices [verticeIndex++] = vertices [indirectIndex++];
+<span class="nocode"><a name="856">856: </a></span>              directVertices [verticeIndex++] = vertices [indirectIndex++];
+<span class="nocode"><a name="857">857: </a></span>              directVertices [verticeIndex++] = vertices [indirectIndex++];
+<span class="nocode"><a name="858">858: </a></span>              if (normalsIndices != null) {
+<span class="nocode"><a name="859">859: </a></span>                indirectIndex = normalsIndices [i] * 3;
+<span class="nocode"><a name="860">860: </a></span>                directNormals [normalIndex++] = normals [indirectIndex++];
+<span class="nocode"><a name="861">861: </a></span>                directNormals [normalIndex++] = normals [indirectIndex++];
+<span class="nocode"><a name="862">862: </a></span>                directNormals [normalIndex++] = normals [indirectIndex++];
+<span class="nocode"><a name="863">863: </a></span>              }
+<span class="nocode"><a name="864">864: </a></span>              if (uvsIndices != null) {
+<span class="nocode"><a name="865">865: </a></span>                indirectIndex = uvsIndices [i] * 2;
+<span class="nocode"><a name="866">866: </a></span>                directUvs [uvIndex++] = uvs [indirectIndex++];
+<span class="nocode"><a name="867">867: </a></span>                directUvs [uvIndex++] = uvs [indirectIndex++];
+<span class="nocode"><a name="868">868: </a></span>              }
+<span class="nocode"><a name="869">869: </a></span>              verticesIndices [i] = i;
+<span class="nocode"><a name="870">870: </a></span>            }
+<span class="nocode"><a name="871">871: </a></span>            vertices = directVertices;
+<span class="nocode"><a name="872">872: </a></span>            normals = directNormals;
+<span class="nocode"><a name="873">873: </a></span>            uvs = directUvs;
+<span class="nocode"><a name="874">874: </a></span>          }
+<span class="nocode"><a name="875">875: </a></span>        } else {
+<span class="nocode"><a name="876">876: </a></span>          if (geometryArray instanceof LineArray) {
+<span class="nocode"><a name="877">877: </a></span>            LineArray lineArray = (LineArray)geometryArray;
+<span class="nocode"><a name="878">878: </a></span>            for (int i = 0, n = lineArray.getVertexCount(); i &lt; n; i += 2) {
+<span class="nocode"><a name="879">879: </a></span>              exportLine(lineArray, i, i + 1, verticesIndices, i);
+<span class="nocode"><a name="880">880: </a></span>            }
+<span class="nocode"><a name="881">881: </a></span>          } else { 
+<span class="nocode"><a name="882">882: </a></span>            if (geometryArray instanceof TriangleArray) {
+<span class="nocode"><a name="883">883: </a></span>              TriangleArray triangleArray = (TriangleArray)geometryArray;
+<span class="nocode"><a name="884">884: </a></span>              for (int i = 0, n = triangleArray.getVertexCount(), triangleIndex = 0; i &lt; n; i += 3) {
+<span class="nocode"><a name="885">885: </a></span>                triangleIndex = exportTriangle(triangleArray, i, i + 1, i + 2, 
+<span class="nocode"><a name="886">886: </a></span>                    verticesIndices, triangleIndex, vertices, exportedTriangles);
+<span class="nocode"><a name="887">887: </a></span>              }
+<span class="nocode"><a name="888">888: </a></span>            } else if (geometryArray instanceof QuadArray) {
+<span class="nocode"><a name="889">889: </a></span>              QuadArray quadArray = (QuadArray)geometryArray;
+<span class="nocode"><a name="890">890: </a></span>              for (int i = 0, n = quadArray.getVertexCount(), triangleIndex = 0; i &lt; n; i += 4) {
+<span class="nocode"><a name="891">891: </a></span>                triangleIndex = exportTriangle(quadArray, i, i + 1, i + 2, 
+<span class="nocode"><a name="892">892: </a></span>                    verticesIndices, triangleIndex, vertices, exportedTriangles);
+<span class="nocode"><a name="893">893: </a></span>                triangleIndex = exportTriangle(quadArray, i + 2, i + 3, i, 
+<span class="nocode"><a name="894">894: </a></span>                    verticesIndices, triangleIndex, vertices, exportedTriangles);
+<span class="nocode"><a name="895">895: </a></span>              }
+<span class="nocode"><a name="896">896: </a></span>            } else if (geometryArray instanceof LineStripArray) {
+<span class="nocode"><a name="897">897: </a></span>              LineStripArray lineStripArray = (LineStripArray)geometryArray;
+<span class="nocode"><a name="898">898: </a></span>              for (int initialIndex = 0, lineIndex = 0, strip = 0; strip &lt; stripVertexCount.length; strip++) {
+<span class="nocode"><a name="899">899: </a></span>                for (int i = initialIndex, n = initialIndex + stripVertexCount [strip] - 1; 
+<span class="nocode"><a name="900">900: </a></span>                     i &lt; n; i++, lineIndex += 2) {
+<span class="nocode"><a name="901">901: </a></span>                  exportLine(lineStripArray, i, i + 1, verticesIndices, lineIndex);
+<span class="nocode"><a name="902">902: </a></span>                }
+<span class="nocode"><a name="903">903: </a></span>                initialIndex += stripVertexCount [strip];
+<span class="nocode"><a name="904">904: </a></span>              }
+<span class="nocode"><a name="905">905: </a></span>            } else if (geometryArray instanceof TriangleStripArray) {
+<span class="nocode"><a name="906">906: </a></span>              TriangleStripArray triangleStripArray = (TriangleStripArray)geometryArray;
+<span class="nocode"><a name="907">907: </a></span>              for (int initialIndex = 0, triangleIndex = 0, strip = 0; strip &lt; stripVertexCount.length; strip++) {
+<span class="nocode"><a name="908">908: </a></span>                for (int i = initialIndex, n = initialIndex + stripVertexCount [strip] - 2, j = 0; 
+<span class="nocode"><a name="909">909: </a></span>                     i &lt; n; i++, j++) {
+<span class="nocode"><a name="910">910: </a></span>                  if (j % 2 == 0) {
+<span class="nocode"><a name="911">911: </a></span>                    triangleIndex = exportTriangle(triangleStripArray, i, i + 1, i + 2, 
+<span class="nocode"><a name="912">912: </a></span>                        verticesIndices, triangleIndex, vertices, exportedTriangles);
+<span class="nocode"><a name="913">913: </a></span>                  } else { // Vertices of odd triangles are in reverse order               
+<span class="nocode"><a name="914">914: </a></span>                    triangleIndex = exportTriangle(triangleStripArray, i, i + 2, i + 1, 
+<span class="nocode"><a name="915">915: </a></span>                        verticesIndices, triangleIndex, vertices, exportedTriangles);
+<span class="nocode"><a name="916">916: </a></span>                  }
+<span class="nocode"><a name="917">917: </a></span>                }
+<span class="nocode"><a name="918">918: </a></span>                initialIndex += stripVertexCount [strip];
+<span class="nocode"><a name="919">919: </a></span>              }
+<span class="nocode"><a name="920">920: </a></span>            } else if (geometryArray instanceof TriangleFanArray) {
+<span class="nocode"><a name="921">921: </a></span>              TriangleFanArray triangleFanArray = (TriangleFanArray)geometryArray;
+<span class="nocode"><a name="922">922: </a></span>              for (int initialIndex = 0, triangleIndex = 0, strip = 0; strip &lt; stripVertexCount.length; strip++) {
+<span class="nocode"><a name="923">923: </a></span>                for (int i = initialIndex, n = initialIndex + stripVertexCount [strip] - 2; 
+<span class="nocode"><a name="924">924: </a></span>                     i &lt; n; i++) {
+<span class="nocode"><a name="925">925: </a></span>                  triangleIndex = exportTriangle(triangleFanArray, initialIndex, i + 1, i + 2, verticesIndices, 
+<span class="nocode"><a name="926">926: </a></span>                      triangleIndex, vertices, exportedTriangles);
+<span class="nocode"><a name="927">927: </a></span>                }
+<span class="nocode"><a name="928">928: </a></span>                initialIndex += stripVertexCount [strip];
+<span class="nocode"><a name="929">929: </a></span>              }
+<span class="nocode"><a name="930">930: </a></span>            }
+<span class="nocode"><a name="931">931: </a></span>          }
+<span class="nocode"><a name="932">932: </a></span>        }
+<span class="nocode"><a name="933">933: </a></span>      
+<span class="nocode"><a name="934">934: </a></span>        if (line) {
+<span class="nocode"><a name="935">935: </a></span>          String [] objectNames = new String [verticesIndices.length / 2];
+<span class="nocode"><a name="936">936: </a></span>          for (int startIndex = 0; startIndex &lt; verticesIndices.length; startIndex += 2) {
+<span class="nocode"><a name="937">937: </a></span>            String objectName = objectNameBase + &quot;-&quot; + startIndex;
+<span class="nocode"><a name="938">938: </a></span>            objectNames [startIndex / 2] = objectName;
+<span class="nocode"><a name="939">939: </a></span>            
+<span class="nocode"><a name="940">940: </a></span>            // Get points coordinates of a segment
+<span class="nocode"><a name="941">941: </a></span>            float [] points = new float [6];
+<span class="nocode"><a name="942">942: </a></span>            int pointIndex = 0;
+<span class="nocode"><a name="943">943: </a></span>            for (int i = startIndex; i &lt;= startIndex + 1; i++) {
+<span class="nocode"><a name="944">944: </a></span>              int indirectIndex = verticesIndices [i] * 3;
+<span class="nocode"><a name="945">945: </a></span>              points [pointIndex++] = vertices [indirectIndex++];
+<span class="nocode"><a name="946">946: </a></span>              points [pointIndex++] = vertices [indirectIndex++];
+<span class="nocode"><a name="947">947: </a></span>              points [pointIndex++] = vertices [indirectIndex];
+<span class="nocode"><a name="948">948: </a></span>            }
+<span class="nocode"><a name="949">949: </a></span>            
+<span class="nocode"><a name="950">950: </a></span>            // Create as many hairs as segments otherwise long hairs become invisible
+<span class="nocode"><a name="951">951: </a></span>            this.sunflow.parameter(&quot;segments&quot;, 1);
+<span class="nocode"><a name="952">952: </a></span>            this.sunflow.parameter(&quot;widths&quot;, 0.15f);
+<span class="nocode"><a name="953">953: </a></span>            this.sunflow.parameter(&quot;points&quot;, &quot;point&quot;, &quot;vertex&quot;, points);
+<span class="nocode"><a name="954">954: </a></span>            this.sunflow.geometry(objectName, &quot;hair&quot;);
+<span class="nocode"><a name="955">955: </a></span>          }
+<span class="nocode"><a name="956">956: </a></span>          return objectNames;
+<span class="nocode"><a name="957">957: </a></span>        } else {
+<span class="nocode"><a name="958">958: </a></span>          int exportedTrianglesVertexCount = exportedTriangles.size() * 3;
+<span class="nocode"><a name="959">959: </a></span>          if (exportedTrianglesVertexCount &lt; verticesIndices.length) {
+<span class="nocode"><a name="960">960: </a></span>            // Reduce verticesIndices array to contain only exported triangles
+<span class="nocode"><a name="961">961: </a></span>            int [] tmp = new int [exportedTrianglesVertexCount];
+<span class="nocode"><a name="962">962: </a></span>            System.arraycopy(verticesIndices, 0, tmp, 0, tmp.length);
+<span class="nocode"><a name="963">963: </a></span>            verticesIndices = tmp;              
+<span class="nocode"><a name="964">964: </a></span>          }
+<span class="nocode"><a name="965">965: </a></span>          
+<span class="nocode"><a name="966">966: </a></span>          this.sunflow.parameter(&quot;triangles&quot;, verticesIndices);
+<span class="nocode"><a name="967">967: </a></span>          this.sunflow.parameter(&quot;points&quot;, &quot;point&quot;, &quot;vertex&quot;, vertices);
+<span class="nocode"><a name="968">968: </a></span>          if (normals != null) {
+<span class="nocode"><a name="969">969: </a></span>            // Check there's no NaN values in normals to avoid endless loop in SunFlow
+<span class="nocode"><a name="970">970: </a></span>            boolean noNaN = true;
+<span class="nocode"><a name="971">971: </a></span>            for (float val : normals) {
+<span class="nocode"><a name="972">972: </a></span>              if (Float.isNaN(val)) {
+<span class="nocode"><a name="973">973: </a></span>                noNaN = false;
+<span class="nocode"><a name="974">974: </a></span>                break;
+<span class="nocode"><a name="975">975: </a></span>              }
+<span class="nocode"><a name="976">976: </a></span>            }
+<span class="nocode"><a name="977">977: </a></span>            if (noNaN)  {
+<span class="nocode"><a name="978">978: </a></span>              this.sunflow.parameter(&quot;normals&quot;, &quot;vector&quot;, &quot;vertex&quot;, normals);
+<span class="nocode"><a name="979">979: </a></span>            }
+<span class="nocode"><a name="980">980: </a></span>          }
+<span class="nocode"><a name="981">981: </a></span>          if (uvs != null) {
+<span class="nocode"><a name="982">982: </a></span>            // Check there's no huge values in uvs to avoid problems in SunFlow
+<span class="nocode"><a name="983">983: </a></span>            boolean noHugeValues = true;
+<span class="nocode"><a name="984">984: </a></span>            for (float val : uvs) {
+<span class="nocode"><a name="985">985: </a></span>              if (Math.abs(val) &gt; 1E9) {
+<span class="nocode"><a name="986">986: </a></span>                noHugeValues = false;
+<span class="nocode"><a name="987">987: </a></span>                break;
+<span class="nocode"><a name="988">988: </a></span>              }
+<span class="nocode"><a name="989">989: </a></span>            }
+<span class="nocode"><a name="990">990: </a></span>            if (noHugeValues)  {
+<span class="nocode"><a name="991">991: </a></span>              this.sunflow.parameter(&quot;uvs&quot;, &quot;texcoord&quot;, &quot;vertex&quot;, uvs);
+<span class="nocode"><a name="992">992: </a></span>            }
+<span class="nocode"><a name="993">993: </a></span>          }
+<span class="nocode"><a name="994">994: </a></span>          this.sunflow.geometry(objectNameBase, &quot;triangle_mesh&quot;);
+<span class="nocode"><a name="995">995: </a></span>          return new String [] {objectNameBase};
+<span class="nocode"><a name="996">996: </a></span>        }
+<span class="nocode"><a name="997">997: </a></span>      }
+<span class="nocode"><a name="998">998: </a></span>    } 
+<span class="nocode"><a name="999">999: </a></span>    return null;
+<span class="nocode"><a name="1000">1000: </a></span>  }
+<span class="nocode"><a name="1001">1001: </a></span>  
+<span class="nocode"><a name="1002">1002: </a></span>  /**
+<span class="nocode"><a name="1003">1003: </a></span>   * Returns texture coordinates generated with &lt;code&gt;texCoordGeneration&lt;/code&gt; computed
+<span class="nocode"><a name="1004">1004: </a></span>   * as described in &lt;code&gt;TexCoordGeneration&lt;/code&gt; javadoc.
+<span class="nocode"><a name="1005">1005: </a></span>   */
+<span class="nocode"><a name="1006">1006: </a></span>  private TexCoord2f generateTextureCoordinates(float x, float y, float z, 
+<span class="nocode"><a name="1007">1007: </a></span>                                                Vector4f planeS, 
+<span class="nocode"><a name="1008">1008: </a></span>                                                Vector4f planeT) {
+<span class="nocode"><a name="1009">1009: </a></span>    return new TexCoord2f(x * planeS.x + y * planeS.y + z * planeS.z + planeS.w, 
+<span class="nocode"><a name="1010">1010: </a></span>        x * planeT.x + y * planeT.y + z * planeT.z + planeT.w);
+<span class="nocode"><a name="1011">1011: </a></span>  }
+<span class="nocode"><a name="1012">1012: </a></span>
+<span class="nocode"><a name="1013">1013: </a></span>  /**
+<span class="nocode"><a name="1014">1014: </a></span>   * Returns the sum of line integers in &lt;code&gt;stripVertexCount&lt;/code&gt; array.
+<span class="nocode"><a name="1015">1015: </a></span>   */
+<span class="nocode"><a name="1016">1016: </a></span>  private int getLineCount(int [] stripVertexCount) {
+<span class="nocode"><a name="1017">1017: </a></span>    int lineCount = 0;
+<span class="nocode"><a name="1018">1018: </a></span>    for (int strip = 0; strip &lt; stripVertexCount.length; strip++) {
+<span class="nocode"><a name="1019">1019: </a></span>      lineCount += stripVertexCount [strip] - 1;
+<span class="nocode"><a name="1020">1020: </a></span>    }
+<span class="nocode"><a name="1021">1021: </a></span>    return lineCount;
+<span class="nocode"><a name="1022">1022: </a></span>  }
+<span class="nocode"><a name="1023">1023: </a></span>
+<span class="nocode"><a name="1024">1024: </a></span>  /**
+<span class="nocode"><a name="1025">1025: </a></span>   * Returns the sum of triangle integers in &lt;code&gt;stripVertexCount&lt;/code&gt; array.
+<span class="nocode"><a name="1026">1026: </a></span>   */
+<span class="nocode"><a name="1027">1027: </a></span>  private int getTriangleCount(int [] stripVertexCount) {
+<span class="nocode"><a name="1028">1028: </a></span>    int triangleCount = 0;
+<span class="nocode"><a name="1029">1029: </a></span>    for (int strip = 0; strip &lt; stripVertexCount.length; strip++) {
+<span class="nocode"><a name="1030">1030: </a></span>      triangleCount += stripVertexCount [strip] - 2;
+<span class="nocode"><a name="1031">1031: </a></span>    }
+<span class="nocode"><a name="1032">1032: </a></span>    return triangleCount;
+<span class="nocode"><a name="1033">1033: </a></span>  }
+<span class="nocode"><a name="1034">1034: </a></span>
+<span class="nocode"><a name="1035">1035: </a></span>  /**
+<span class="nocode"><a name="1036">1036: </a></span>   * Applies to &lt;code&gt;vertex&lt;/code&gt; the given transformation, and stores it in &lt;code&gt;vertices&lt;/code&gt;.  
+<span class="nocode"><a name="1037">1037: </a></span>   */
+<span class="nocode"><a name="1038">1038: </a></span>  private void exportVertex(Transform3D transformationToParent,
+<span class="nocode"><a name="1039">1039: </a></span>                            Point3f vertex, int index,
+<span class="nocode"><a name="1040">1040: </a></span>                            float [] vertices) {
+<span class="nocode"><a name="1041">1041: </a></span>    transformationToParent.transform(vertex);
+<span class="nocode"><a name="1042">1042: </a></span>    index *= 3;
+<span class="nocode"><a name="1043">1043: </a></span>    vertices [index++] = vertex.x;
+<span class="nocode"><a name="1044">1044: </a></span>    vertices [index++] = vertex.y;
+<span class="nocode"><a name="1045">1045: </a></span>    vertices [index] = vertex.z;
+<span class="nocode"><a name="1046">1046: </a></span>  }
+<span class="nocode"><a name="1047">1047: </a></span>
+<span class="nocode"><a name="1048">1048: </a></span>  /**
+<span class="nocode"><a name="1049">1049: </a></span>   * Applies to &lt;code&gt;normal&lt;/code&gt; the given transformation, and stores it in &lt;code&gt;normals&lt;/code&gt;.  
+<span class="nocode"><a name="1050">1050: </a></span>   */
+<span class="nocode"><a name="1051">1051: </a></span>  private void exportNormal(Transform3D transformationToParent,
+<span class="nocode"><a name="1052">1052: </a></span>                            Vector3f normal, int index,
+<span class="nocode"><a name="1053">1053: </a></span>                            float [] normals) {
+<span class="nocode"><a name="1054">1054: </a></span>    transformationToParent.transform(normal);
+<span class="nocode"><a name="1055">1055: </a></span>    int i = index * 3;
+<span class="nocode"><a name="1056">1056: </a></span>    normals [i++] = normal.x;
+<span class="nocode"><a name="1057">1057: </a></span>    normals [i++] = normal.y;
+<span class="nocode"><a name="1058">1058: </a></span>    normals [i] = normal.z;
+<span class="nocode"><a name="1059">1059: </a></span>  }
+<span class="nocode"><a name="1060">1060: </a></span>
+<span class="nocode"><a name="1061">1061: </a></span>  /**
+<span class="nocode"><a name="1062">1062: </a></span>   * Stores &lt;code&gt;textureCoordinates&lt;/code&gt; in &lt;code&gt;uvs&lt;/code&gt;.  
+<span class="nocode"><a name="1063">1063: </a></span>   */
+<span class="nocode"><a name="1064">1064: </a></span>  private void exportTextureCoordinates(TexCoord2f textureCoordinates, int index,
+<span class="nocode"><a name="1065">1065: </a></span>                                        float [] uvs) {
+<span class="nocode"><a name="1066">1066: </a></span>    index *= 2;
+<span class="nocode"><a name="1067">1067: </a></span>    uvs [index++] = textureCoordinates.x;
+<span class="nocode"><a name="1068">1068: </a></span>    uvs [index] = textureCoordinates.y;
+<span class="nocode"><a name="1069">1069: </a></span>  }
+<span class="nocode"><a name="1070">1070: </a></span>
+<span class="nocode"><a name="1071">1071: </a></span>  /**
+<span class="nocode"><a name="1072">1072: </a></span>   * Stores in &lt;code&gt;verticesIndices&lt;/code&gt; the indices given at vertexIndex1, vertexIndex2. 
+<span class="nocode"><a name="1073">1073: </a></span>   */
+<span class="nocode"><a name="1074">1074: </a></span>  private void exportIndexedLine(IndexedGeometryArray geometryArray, 
+<span class="nocode"><a name="1075">1075: </a></span>                                 int vertexIndex1, int vertexIndex2,
+<span class="nocode"><a name="1076">1076: </a></span>                                 int [] verticesIndices, 
+<span class="nocode"><a name="1077">1077: </a></span>                                 int index) {
+<span class="nocode"><a name="1078">1078: </a></span>    verticesIndices [index++] = geometryArray.getCoordinateIndex(vertexIndex1);
+<span class="nocode"><a name="1079">1079: </a></span>    verticesIndices [index] = geometryArray.getCoordinateIndex(vertexIndex2);
+<span class="nocode"><a name="1080">1080: </a></span>  }
+<span class="nocode"><a name="1081">1081: </a></span>    
+<span class="nocode"><a name="1082">1082: </a></span>  /**
+<span class="nocode"><a name="1083">1083: </a></span>   * Stores in &lt;code&gt;verticesIndices&lt;/code&gt; the indices given at vertexIndex1, vertexIndex2, vertexIndex3. 
+<span class="nocode"><a name="1084">1084: </a></span>   */
+<span class="nocode"><a name="1085">1085: </a></span>  private int exportIndexedTriangle(IndexedGeometryArray geometryArray, 
+<span class="nocode"><a name="1086">1086: </a></span>                                    int vertexIndex1, int vertexIndex2, int vertexIndex3,
+<span class="nocode"><a name="1087">1087: </a></span>                                    int [] verticesIndices, int [] normalsIndices, int [] textureCoordinatesIndices, 
+<span class="nocode"><a name="1088">1088: </a></span>                                    int index, 
+<span class="nocode"><a name="1089">1089: </a></span>                                    float [] vertices, 
+<span class="nocode"><a name="1090">1090: </a></span>                                    Set&lt;Triangle&gt; exportedTriangles) {
+<span class="nocode"><a name="1091">1091: </a></span>    int coordinateIndex1 = geometryArray.getCoordinateIndex(vertexIndex1);
+<span class="nocode"><a name="1092">1092: </a></span>    int coordinateIndex2 = geometryArray.getCoordinateIndex(vertexIndex2);
+<span class="nocode"><a name="1093">1093: </a></span>    int coordinateIndex3 = geometryArray.getCoordinateIndex(vertexIndex3);
+<span class="nocode"><a name="1094">1094: </a></span>    Triangle exportedTriangle = new Triangle(vertices, coordinateIndex1, coordinateIndex2, coordinateIndex3);
+<span class="nocode"><a name="1095">1095: </a></span>    if (!exportedTriangles.contains(exportedTriangle)) {
+<span class="nocode"><a name="1096">1096: </a></span>      exportedTriangles.add(exportedTriangle);
+<span class="nocode"><a name="1097">1097: </a></span>      verticesIndices [index] = coordinateIndex1;
+<span class="nocode"><a name="1098">1098: </a></span>      verticesIndices [index + 1] = coordinateIndex2;
+<span class="nocode"><a name="1099">1099: </a></span>      verticesIndices [index + 2] = coordinateIndex3;
+<span class="nocode"><a name="1100">1100: </a></span>      if (normalsIndices != null) {
+<span class="nocode"><a name="1101">1101: </a></span>        normalsIndices [index] = geometryArray.getNormalIndex(vertexIndex1);
+<span class="nocode"><a name="1102">1102: </a></span>        normalsIndices [index + 1] = geometryArray.getNormalIndex(vertexIndex2);
+<span class="nocode"><a name="1103">1103: </a></span>        normalsIndices [index + 2] = geometryArray.getNormalIndex(vertexIndex3);
+<span class="nocode"><a name="1104">1104: </a></span>      }
+<span class="nocode"><a name="1105">1105: </a></span>      if (textureCoordinatesIndices != null) {
+<span class="nocode"><a name="1106">1106: </a></span>        textureCoordinatesIndices [index] = geometryArray.getTextureCoordinateIndex(0, vertexIndex1);
+<span class="nocode"><a name="1107">1107: </a></span>        textureCoordinatesIndices [index + 1] = geometryArray.getTextureCoordinateIndex(0, vertexIndex2);
+<span class="nocode"><a name="1108">1108: </a></span>        textureCoordinatesIndices [index + 2] = geometryArray.getTextureCoordinateIndex(0, vertexIndex3);
+<span class="nocode"><a name="1109">1109: </a></span>      }
+<span class="nocode"><a name="1110">1110: </a></span>      return index + 3;
+<span class="nocode"><a name="1111">1111: </a></span>    }
+<span class="nocode"><a name="1112">1112: </a></span>    return index;
+<span class="nocode"><a name="1113">1113: </a></span>  }
+<span class="nocode"><a name="1114">1114: </a></span>    
+<span class="nocode"><a name="1115">1115: </a></span>  /**
+<span class="nocode"><a name="1116">1116: </a></span>   * Stores in &lt;code&gt;verticesIndices&lt;/code&gt; the indices vertexIndex1 and vertexIndex2. 
+<span class="nocode"><a name="1117">1117: </a></span>   */
+<span class="nocode"><a name="1118">1118: </a></span>  private void exportLine(GeometryArray geometryArray, 
+<span class="nocode"><a name="1119">1119: </a></span>                          int vertexIndex1, int vertexIndex2, 
+<span class="nocode"><a name="1120">1120: </a></span>                          int [] verticesIndices, int index) {
+<span class="nocode"><a name="1121">1121: </a></span>    verticesIndices [index++] = vertexIndex1;
+<span class="nocode"><a name="1122">1122: </a></span>    verticesIndices [index] = vertexIndex2;
+<span class="nocode"><a name="1123">1123: </a></span>  }
+<span class="nocode"><a name="1124">1124: </a></span>    
+<span class="nocode"><a name="1125">1125: </a></span>  /**
+<span class="nocode"><a name="1126">1126: </a></span>   * Stores in &lt;code&gt;verticesIndices&lt;/code&gt; the indices vertexIndex1, vertexIndex2, vertexIndex3. 
+<span class="nocode"><a name="1127">1127: </a></span>   */
+<span class="nocode"><a name="1128">1128: </a></span>  private int exportTriangle(GeometryArray geometryArray, 
+<span class="nocode"><a name="1129">1129: </a></span>                             int vertexIndex1, int vertexIndex2, int vertexIndex3,
+<span class="nocode"><a name="1130">1130: </a></span>                             int [] verticesIndices, int index, 
+<span class="nocode"><a name="1131">1131: </a></span>                             float [] vertices, 
+<span class="nocode"><a name="1132">1132: </a></span>                             Set&lt;Triangle&gt; exportedTriangles) {
+<span class="nocode"><a name="1133">1133: </a></span>    Triangle exportedTriangle = new Triangle(vertices, vertexIndex1, vertexIndex2, vertexIndex3);
+<span class="nocode"><a name="1134">1134: </a></span>    if (!exportedTriangles.contains(exportedTriangle)) {
+<span class="nocode"><a name="1135">1135: </a></span>      exportedTriangles.add(exportedTriangle);
+<span class="nocode"><a name="1136">1136: </a></span>      verticesIndices [index++] = vertexIndex1;
+<span class="nocode"><a name="1137">1137: </a></span>      verticesIndices [index++] = vertexIndex2;
+<span class="nocode"><a name="1138">1138: </a></span>      verticesIndices [index++] = vertexIndex3;
+<span class="nocode"><a name="1139">1139: </a></span>    } 
+<span class="nocode"><a name="1140">1140: </a></span>    return index;
+<span class="nocode"><a name="1141">1141: </a></span>  }
+<span class="nocode"><a name="1142">1142: </a></span>    
+<span class="nocode"><a name="1143">1143: </a></span>  /**
+<span class="nocode"><a name="1144">1144: </a></span>   * Exports a Java3D appearance as a SunFlow shader.  
+<span class="nocode"><a name="1145">1145: </a></span>   */
+<span class="nocode"><a name="1146">1146: </a></span>  private void exportAppearance(Appearance appearance,
+<span class="nocode"><a name="1147">1147: </a></span>                                String appearanceName, 
+<span class="nocode"><a name="1148">1148: </a></span>                                boolean mirror,
+<span class="nocode"><a name="1149">1149: </a></span>                                boolean ignoreTransparency,
+<span class="nocode"><a name="1150">1150: </a></span>                                boolean silk) throws IOException {
+<span class="nocode"><a name="1151">1151: </a></span>    Texture texture = appearance.getTexture();    
+<span class="nocode"><a name="1152">1152: </a></span>    if (mirror) {
+<span class="nocode"><a name="1153">1153: </a></span>      Material material = appearance.getMaterial();
+<span class="nocode"><a name="1154">1154: </a></span>      if (material != null) {
+<span class="nocode"><a name="1155">1155: </a></span>        Color3f color = new Color3f();
+<span class="nocode"><a name="1156">1156: </a></span>        material.getDiffuseColor(color);
+<span class="nocode"><a name="1157">1157: </a></span>        this.sunflow.parameter(&quot;color&quot;, null, new float [] {color.x, color.y, color.z});
+<span class="nocode"><a name="1158">1158: </a></span>      }
+<span class="nocode"><a name="1159">1159: </a></span>      this.sunflow.shader(appearanceName, &quot;mirror&quot;);
+<span class="nocode"><a name="1160">1160: </a></span>    } else if (texture != null) {
+<span class="nocode"><a name="1161">1161: </a></span>      // Check shape transparency 
+<span class="nocode"><a name="1162">1162: </a></span>      TransparencyAttributes transparencyAttributes = appearance.getTransparencyAttributes();
+<span class="nocode"><a name="1163">1163: </a></span>      float transparency;
+<span class="nocode"><a name="1164">1164: </a></span>      if (transparencyAttributes != null
+<span class="nocode"><a name="1165">1165: </a></span>          &amp;&amp; transparencyAttributes.getTransparency() &gt; 0
+<span class="nocode"><a name="1166">1166: </a></span>          &amp;&amp; !ignoreTransparency) {
+<span class="nocode"><a name="1167">1167: </a></span>        transparency = 1 - transparencyAttributes.getTransparency();
+<span class="nocode"><a name="1168">1168: </a></span>      } else {
+<span class="nocode"><a name="1169">1169: </a></span>        transparency = 1;
+<span class="nocode"><a name="1170">1170: </a></span>      }
+<span class="nocode"><a name="1171">1171: </a></span>      
+<span class="nocode"><a name="1172">1172: </a></span>      TransparentTextureKey key = new TransparentTextureKey(texture, transparency);      
+<span class="nocode"><a name="1173">1173: </a></span>      String imagePath = this.textureImagesCache.get(key);
+<span class="nocode"><a name="1174">1174: </a></span>      if (imagePath == null) {
+<span class="nocode"><a name="1175">1175: </a></span>        if (texture.getUserData() instanceof URL &amp;&amp; transparency == 1) {
+<span class="nocode"><a name="1176">1176: </a></span>          imagePath = texture.getUserData().toString();
+<span class="nocode"><a name="1177">1177: </a></span>        } else {
+<span class="nocode"><a name="1178">1178: </a></span>          ImageComponent2D imageComponent = (ImageComponent2D)texture.getImage(0);
+<span class="nocode"><a name="1179">1179: </a></span>          RenderedImage image = imageComponent.getRenderedImage();
+<span class="nocode"><a name="1180">1180: </a></span>          if (transparency &lt; 1) {
+<span class="nocode"><a name="1181">1181: </a></span>            // Compute a partially transparent image
+<span class="nocode"><a name="1182">1182: </a></span>            BufferedImage transparentImage = new BufferedImage(image.getWidth(), 
+<span class="nocode"><a name="1183">1183: </a></span>                image.getHeight(), BufferedImage.TYPE_INT_ARGB);
+<span class="nocode"><a name="1184">1184: </a></span>            Graphics2D g2D = (Graphics2D)transparentImage.getGraphics();
+<span class="nocode"><a name="1185">1185: </a></span>            g2D.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, transparency));
+<span class="nocode"><a name="1186">1186: </a></span>            g2D.drawRenderedImage(image, null);
+<span class="nocode"><a name="1187">1187: </a></span>            g2D.dispose();
+<span class="nocode"><a name="1188">1188: </a></span>            image = transparentImage;
+<span class="nocode"><a name="1189">1189: </a></span>          }
+<span class="nocode"><a name="1190">1190: </a></span>          File imageFile = OperatingSystem.createTemporaryFile(&quot;texture&quot;, &quot;.png&quot;);
+<span class="nocode"><a name="1191">1191: </a></span>          ImageIO.write(image, &quot;png&quot;, imageFile);
+<span class="nocode"><a name="1192">1192: </a></span>          imagePath = imageFile.getAbsolutePath();
+<span class="nocode"><a name="1193">1193: </a></span>        }
+<span class="nocode"><a name="1194">1194: </a></span>        this.textureImagesCache.put(key, imagePath);
+<span class="nocode"><a name="1195">1195: </a></span>      }
+<span class="nocode"><a name="1196">1196: </a></span>      Material material = appearance.getMaterial();
+<span class="nocode"><a name="1197">1197: </a></span>      float shininess;
+<span class="nocode"><a name="1198">1198: </a></span>      if (material != null
+<span class="nocode"><a name="1199">1199: </a></span>          &amp;&amp; (shininess = material.getShininess()) &gt; 1) {
+<span class="nocode"><a name="1200">1200: </a></span>        if (silk) {
+<span class="nocode"><a name="1201">1201: </a></span>          this.sunflow.parameter(&quot;diffuse.texture&quot;, imagePath);
+<span class="nocode"><a name="1202">1202: </a></span>          Color3f color = new Color3f();
+<span class="nocode"><a name="1203">1203: </a></span>          material.getSpecularColor(color);
+<span class="nocode"><a name="1204">1204: </a></span>          float [] specularColor = new float [] {
+<span class="nocode"><a name="1205">1205: </a></span>              (float)Math.sqrt(color.x) / 2, (float)Math.sqrt(color.y) / 2, (float)Math.sqrt(color.z) / 2};
+<span class="nocode"><a name="1206">1206: </a></span>          this.sunflow.parameter(&quot;specular&quot;, null, specularColor);
+<span class="nocode"><a name="1207">1207: </a></span>          this.sunflow.parameter(&quot;glossyness&quot;, (float)Math.pow(10, -Math.log(shininess) / Math.log(5)));
+<span class="nocode"><a name="1208">1208: </a></span>          this.sunflow.parameter(&quot;samples&quot;, 1);
+<span class="nocode"><a name="1209">1209: </a></span>          this.sunflow.shader(appearanceName, &quot;uber&quot;);
+<span class="nocode"><a name="1210">1210: </a></span>        } else {
+<span class="nocode"><a name="1211">1211: </a></span>          this.sunflow.parameter(&quot;texture&quot;, imagePath);
+<span class="nocode"><a name="1212">1212: </a></span>          this.sunflow.parameter(&quot;shiny&quot;, shininess / 512f);
+<span class="nocode"><a name="1213">1213: </a></span>          this.sunflow.shader(appearanceName, &quot;textured_shiny_diffuse&quot;);
+<span class="nocode"><a name="1214">1214: </a></span>        }
+<span class="nocode"><a name="1215">1215: </a></span>      } else {
+<span class="nocode"><a name="1216">1216: </a></span>        this.sunflow.parameter(&quot;texture&quot;, imagePath);
+<span class="nocode"><a name="1217">1217: </a></span>        this.sunflow.shader(appearanceName, &quot;textured_diffuse&quot;);
+<span class="nocode"><a name="1218">1218: </a></span>      }
+<span class="nocode"><a name="1219">1219: </a></span>    } else {
+<span class="nocode"><a name="1220">1220: </a></span>      Material material = appearance.getMaterial();
+<span class="nocode"><a name="1221">1221: </a></span>      if (material != null) {
+<span class="nocode"><a name="1222">1222: </a></span>        Color3f color = new Color3f();
+<span class="nocode"><a name="1223">1223: </a></span>        material.getDiffuseColor(color);
+<span class="nocode"><a name="1224">1224: </a></span>        float [] diffuseColor = new float [] {color.x, color.y, color.z};
+<span class="nocode"><a name="1225">1225: </a></span>
+<span class="nocode"><a name="1226">1226: </a></span>        TransparencyAttributes transparencyAttributes = appearance.getTransparencyAttributes();
+<span class="nocode"><a name="1227">1227: </a></span>        if (transparencyAttributes != null
+<span class="nocode"><a name="1228">1228: </a></span>            &amp;&amp; transparencyAttributes.getTransparency() &gt; 0
+<span class="nocode"><a name="1229">1229: </a></span>            &amp;&amp; !ignoreTransparency) {
+<span class="nocode"><a name="1230">1230: </a></span>          if (material instanceof OBJMaterial
+<span class="nocode"><a name="1231">1231: </a></span>              &amp;&amp; ((OBJMaterial)material).isOpticalDensitySet()) {
+<span class="nocode"><a name="1232">1232: </a></span>            this.sunflow.parameter(&quot;eta&quot;, ((OBJMaterial)material).getOpticalDensity());
+<span class="nocode"><a name="1233">1233: </a></span>          } else {
+<span class="nocode"><a name="1234">1234: </a></span>            // Use glass ETA as default
+<span class="nocode"><a name="1235">1235: </a></span>            this.sunflow.parameter(&quot;eta&quot;, 1.55f);
+<span class="nocode"><a name="1236">1236: </a></span>          }
+<span class="nocode"><a name="1237">1237: </a></span>          float transparency = 1 - transparencyAttributes.getTransparency();
+<span class="nocode"><a name="1238">1238: </a></span>          this.sunflow.parameter(&quot;color&quot;, null,
+<span class="nocode"><a name="1239">1239: </a></span>              new float [] {(1 - transparency) + transparency * diffuseColor [0], 
+<span class="nocode"><a name="1240">1240: </a></span>                            (1 - transparency) + transparency * diffuseColor [1], 
+<span class="nocode"><a name="1241">1241: </a></span>                            (1 - transparency) + transparency * diffuseColor [2]});
+<span class="nocode"><a name="1242">1242: </a></span>          this.sunflow.parameter(&quot;absorption.color&quot;, null, 
+<span class="nocode"><a name="1243">1243: </a></span>              new float [] {transparency * (1 - diffuseColor [0]), 
+<span class="nocode"><a name="1244">1244: </a></span>                            transparency * (1 - diffuseColor [1]), 
+<span class="nocode"><a name="1245">1245: </a></span>                            transparency * (1 - diffuseColor [2])});
+<span class="nocode"><a name="1246">1246: </a></span>          this.sunflow.shader(appearanceName, &quot;glass&quot;);
+<span class="nocode"><a name="1247">1247: </a></span>        } else if (material.getLightingEnable()) {  
+<span class="nocode"><a name="1248">1248: </a></span>          this.sunflow.parameter(&quot;diffuse&quot;, null, diffuseColor);
+<span class="nocode"><a name="1249">1249: </a></span>          float shininess = material.getShininess();
+<span class="nocode"><a name="1250">1250: </a></span>          if (shininess &gt; 1) {
+<span class="nocode"><a name="1251">1251: </a></span>            if (silk) {
+<span class="nocode"><a name="1252">1252: </a></span>              material.getSpecularColor(color);
+<span class="nocode"><a name="1253">1253: </a></span>              float [] specularColor = new float [] {
+<span class="nocode"><a name="1254">1254: </a></span>                   (float)Math.sqrt(color.x) / 2, (float)Math.sqrt(color.y) / 2, (float)Math.sqrt(color.z) / 2};
+<span class="nocode"><a name="1255">1255: </a></span>              this.sunflow.parameter(&quot;specular&quot;, null, specularColor);
+<span class="nocode"><a name="1256">1256: </a></span>              this.sunflow.parameter(&quot;glossyness&quot;, (float)Math.pow(10, -Math.log(shininess) / Math.log(5)));
+<span class="nocode"><a name="1257">1257: </a></span>              this.sunflow.parameter(&quot;samples&quot;, 1);
+<span class="nocode"><a name="1258">1258: </a></span>              this.sunflow.shader(appearanceName, &quot;uber&quot;);
+<span class="nocode"><a name="1259">1259: </a></span>            } else { 
+<span class="nocode"><a name="1260">1260: </a></span>              this.sunflow.parameter(&quot;shiny&quot;, shininess / 512f);
+<span class="nocode"><a name="1261">1261: </a></span>              this.sunflow.shader(appearanceName, &quot;shiny_diffuse&quot;);
+<span class="nocode"><a name="1262">1262: </a></span>            }
+<span class="nocode"><a name="1263">1263: </a></span>          } else {
+<span class="nocode"><a name="1264">1264: </a></span>            this.sunflow.shader(appearanceName, &quot;diffuse&quot;);
+<span class="nocode"><a name="1265">1265: </a></span>          }
+<span class="nocode"><a name="1266">1266: </a></span>        } else {
+<span class="nocode"><a name="1267">1267: </a></span>          this.sunflow.parameter(&quot;color&quot;, null, diffuseColor);
+<span class="nocode"><a name="1268">1268: </a></span>          this.sunflow.shader(appearanceName, &quot;constant&quot;);
+<span class="nocode"><a name="1269">1269: </a></span>        }
+<span class="nocode"><a name="1270">1270: </a></span>      } else {
+<span class="nocode"><a name="1271">1271: </a></span>        ColoringAttributes coloringAttributes = appearance.getColoringAttributes();
+<span class="nocode"><a name="1272">1272: </a></span>        if (coloringAttributes != null) {
+<span class="nocode"><a name="1273">1273: </a></span>          Color3f color = new Color3f();
+<span class="nocode"><a name="1274">1274: </a></span>          coloringAttributes.getColor(color);
+<span class="nocode"><a name="1275">1275: </a></span>          this.sunflow.parameter(&quot;color&quot;, null, new float [] {color.x, color.y, color.z});
+<span class="nocode"><a name="1276">1276: </a></span>          this.sunflow.shader(appearanceName, &quot;constant&quot;);
+<span class="nocode"><a name="1277">1277: </a></span>        }
+<span class="nocode"><a name="1278">1278: </a></span>      }
+<span class="nocode"><a name="1279">1279: </a></span>    }
+<span class="nocode"><a name="1280">1280: </a></span>  }
+<span class="nocode"><a name="1281">1281: </a></span>
+<span class="nocode"><a name="1282">1282: </a></span>  /**
+<span class="nocode"><a name="1283">1283: </a></span>   * A SunFlow display that updates an existing image.
+<span class="nocode"><a name="1284">1284: </a></span>   * Implementation mostly copied from org.sunflow.system.ImagePanel.
+<span class="nocode"><a name="1285">1285: </a></span>   */
+<span class="nocode"><a name="1286">1286: </a></span>  private static final class BufferedImageDisplay implements Display {
+<span class="nocode"><a name="1287">1287: </a></span>    private static final int BASE_INFO_FLAGS = ImageObserver.WIDTH | ImageObserver.HEIGHT | ImageObserver.PROPERTIES;
+<span class="nocode"><a name="1288">1288: </a></span>    private static final int [] BORDERS = {Color.RED.toRGB(), Color.GREEN.toRGB(), Color.BLUE.toRGB(), 
+<span class="nocode"><a name="1289">1289: </a></span>                                           Color.YELLOW.toRGB(), Color.CYAN.toRGB(), Color.MAGENTA.toRGB(),
+<span class="nocode"><a name="1290">1290: </a></span>                                           new Color(1, 0.5f, 0).toRGB(), new Color(0.5f, 1, 0).toRGB()};
+<span class="nocode"><a name="1291">1291: </a></span>    
+<span class="nocode"><a name="1292">1292: </a></span>    private final ImageObserver observer;
+<span class="nocode"><a name="1293">1293: </a></span>    private final BufferedImage image;
+<span class="nocode"><a name="1294">1294: </a></span>
+<span class="nocode"><a name="1295">1295: </a></span>    private BufferedImageDisplay(BufferedImage image, ImageObserver observer) {
+<span class="nocode"><a name="1296">1296: </a></span>      this.observer = observer;
+<span class="nocode"><a name="1297">1297: </a></span>      this.image = image;
+<span class="nocode"><a name="1298">1298: </a></span>    }
+<span class="nocode"><a name="1299">1299: </a></span>
+<span class="nocode"><a name="1300">1300: </a></span>    public synchronized void imageBegin(int width, int height, int bucketSize) {
+<span class="nocode"><a name="1301">1301: </a></span>      for (int y = 0; y &lt; height; y++) {
+<span class="nocode"><a name="1302">1302: </a></span>        for (int x = 0; x &lt; width; x++) {
+<span class="nocode"><a name="1303">1303: </a></span>          int rgba = this.image.getRGB(x, y);
+<span class="nocode"><a name="1304">1304: </a></span>          this.image.setRGB(x, y, ((rgba &amp; 0xFEFEFEFE) &gt;&gt;&gt; 1) + ((rgba &amp; 0xFCFCFCFC) &gt;&gt;&gt; 2));
+<span class="nocode"><a name="1305">1305: </a></span>        }
+<span class="nocode"><a name="1306">1306: </a></span>      }
+<span class="nocode"><a name="1307">1307: </a></span>      notifyObserver(ImageObserver.FRAMEBITS | BASE_INFO_FLAGS, 0, 0, width, height);
+<span class="nocode"><a name="1308">1308: </a></span>    }
+<span class="nocode"><a name="1309">1309: </a></span>
+<span class="nocode"><a name="1310">1310: </a></span>    public synchronized void imagePrepare(int x, int y, int width, int height, int id) {
+<span class="nocode"><a name="1311">1311: </a></span>      int border = BORDERS [id % BORDERS.length] | 0xFF000000;
+<span class="nocode"><a name="1312">1312: </a></span>      for (int by = 0; by &lt; height; by++) {
+<span class="nocode"><a name="1313">1313: </a></span>        for (int bx = 0; bx &lt; width; bx++) {
+<span class="nocode"><a name="1314">1314: </a></span>          if (bx &lt; 2 || bx &gt; width - 3) {
+<span class="nocode"><a name="1315">1315: </a></span>            if (5 * by &lt; height || 5 * (height - by - 1) &lt; height) {
+<span class="nocode"><a name="1316">1316: </a></span>              this.image.setRGB(x + bx, y + by, border);
+<span class="nocode"><a name="1317">1317: </a></span>            }
+<span class="nocode"><a name="1318">1318: </a></span>          } else if (by &lt; 2 || by &gt; height - 3) {
+<span class="nocode"><a name="1319">1319: </a></span>            if (5 * bx &lt; width || 5 * (width - bx - 1) &lt; width) {
+<span class="nocode"><a name="1320">1320: </a></span>              this.image.setRGB(x + bx, y + by, border);
+<span class="nocode"><a name="1321">1321: </a></span>            }
+<span class="nocode"><a name="1322">1322: </a></span>          }
+<span class="nocode"><a name="1323">1323: </a></span>        }
+<span class="nocode"><a name="1324">1324: </a></span>      }
+<span class="nocode"><a name="1325">1325: </a></span>      notifyObserver(ImageObserver.SOMEBITS | BASE_INFO_FLAGS, x, y, width, height);
+<span class="nocode"><a name="1326">1326: </a></span>    }
+<span class="nocode"><a name="1327">1327: </a></span>
+<span class="nocode"><a name="1328">1328: </a></span>    public synchronized void imageUpdate(int x, int y, int width, int height, Color [] data, float [] alpha) {
+<span class="nocode"><a name="1329">1329: </a></span>      for (int j = 0, index = 0; j &lt; height; j++) {
+<span class="nocode"><a name="1330">1330: </a></span>        for (int i = 0; i &lt; width; i++, index++) {
+<span class="nocode"><a name="1331">1331: </a></span>          this.image.setRGB(x + i, y + j, 
+<span class="nocode"><a name="1332">1332: </a></span>              data [index].copy().mul(1.0f / alpha [index]).toNonLinear().toRGBA(alpha [index]));
+<span class="nocode"><a name="1333">1333: </a></span>        }
+<span class="nocode"><a name="1334">1334: </a></span>      }
+<span class="nocode"><a name="1335">1335: </a></span>      notifyObserver(ImageObserver.SOMEBITS | BASE_INFO_FLAGS, x, y, width, height);
+<span class="nocode"><a name="1336">1336: </a></span>    }
+<span class="nocode"><a name="1337">1337: </a></span>
+<span class="nocode"><a name="1338">1338: </a></span>    public synchronized void imageFill(int x, int y, int width, int height, Color c, float alpha) {
+<span class="nocode"><a name="1339">1339: </a></span>      int rgba = c.copy().mul(1.0f / alpha).toNonLinear().toRGBA(alpha);
+<span class="nocode"><a name="1340">1340: </a></span>      for (int j = 0; j &lt; height; j++) {
+<span class="nocode"><a name="1341">1341: </a></span>        for (int i = 0; i &lt; width; i++) {
+<span class="nocode"><a name="1342">1342: </a></span>          this.image.setRGB(x + i, y + j, rgba);
+<span class="nocode"><a name="1343">1343: </a></span>        }
+<span class="nocode"><a name="1344">1344: </a></span>      }
+<span class="nocode"><a name="1345">1345: </a></span>      notifyObserver(ImageObserver.SOMEBITS | BASE_INFO_FLAGS, x, y, width, height);
+<span class="nocode"><a name="1346">1346: </a></span>    }
+<span class="nocode"><a name="1347">1347: </a></span>
+<span class="nocode"><a name="1348">1348: </a></span>    public void imageEnd() {
+<span class="nocode"><a name="1349">1349: </a></span>      notifyObserver(ImageObserver.FRAMEBITS | BASE_INFO_FLAGS, 
+<span class="nocode"><a name="1350">1350: </a></span>            0, 0, this.image.getWidth(), this.image.getHeight());
+<span class="nocode"><a name="1351">1351: </a></span>    }
+<span class="nocode"><a name="1352">1352: </a></span>
+<span class="nocode"><a name="1353">1353: </a></span>    private void notifyObserver(final int flags, final int x, final int y, final int width, final int height) {
+<span class="nocode"><a name="1354">1354: </a></span>      if (observer != null) {
+<span class="nocode"><a name="1355">1355: </a></span>        EventQueue.invokeLater(new Runnable() {
+<span class="nocode"><a name="1356">1356: </a></span>            public void run() {
+<span class="nocode"><a name="1357">1357: </a></span>              observer.imageUpdate(image, flags, x, y, width, height);
+<span class="nocode"><a name="1358">1358: </a></span>            }
+<span class="nocode"><a name="1359">1359: </a></span>          });
+<span class="nocode"><a name="1360">1360: </a></span>      }
+<span class="nocode"><a name="1361">1361: </a></span>    }
+<span class="nocode"><a name="1362">1362: </a></span>  }
+<span class="nocode"><a name="1363">1363: </a></span>
+<span class="nocode"><a name="1364">1364: </a></span>  /**
+<span class="nocode"><a name="1365">1365: </a></span>   * A SunFlow sphere light with no representation.
+<span class="nocode"><a name="1366">1366: </a></span>   */
+<span class="nocode"><a name="1367">1367: </a></span>  public static class SphereLightWithNoRepresentation extends SphereLight {
+<span class="nocode"><a name="1368">1368: </a></span>    public Instance createInstance() {
+<span class="nocode"><a name="1369">1369: </a></span><span style="background-color: #ffffcc">      return null;</span>
+<span class="nocode"><a name="1370">1370: </a></span>    }
+<span class="nocode"><a name="1371">1371: </a></span>  }
+<span class="nocode"><a name="1372">1372: </a></span>  
+<span class="nocode"><a name="1373">1373: </a></span>  /**
+<span class="nocode"><a name="1374">1374: </a></span>   * A triangle used to remove faces cited more that once (opposite faces included).
+<span class="nocode"><a name="1375">1375: </a></span>   */
+<span class="nocode"><a name="1376">1376: </a></span>  private static class Triangle {
+<span class="nocode"><a name="1377">1377: </a></span>    private float [] point1;
+<span class="nocode"><a name="1378">1378: </a></span>    private float [] point2;
+<span class="nocode"><a name="1379">1379: </a></span>    private float [] point3;
+<span class="nocode"><a name="1380">1380: </a></span>    private int      hashCode;
+<span class="nocode"><a name="1381">1381: </a></span>    private boolean  hashCodeSet;
+<span class="nocode"><a name="1382">1382: </a></span>    
+<span class="nocode"><a name="1383">1383: </a></span>    public Triangle(float [] vertices, int index1, int index2, int index3) {
+<span class="nocode"><a name="1384">1384: </a></span>      this.point1 = new float [] {vertices [index1 * 3], vertices [index1 * 3 + 1], vertices [index1 * 3 + 2]};
+<span class="nocode"><a name="1385">1385: </a></span>      this.point2 = new float [] {vertices [index2 * 3], vertices [index2 * 3 + 1], vertices [index2 * 3 + 2]};
+<span class="nocode"><a name="1386">1386: </a></span>      this.point3 = new float [] {vertices [index3 * 3], vertices [index3 * 3 + 1], vertices [index3 * 3 + 2]};
+<span class="nocode"><a name="1387">1387: </a></span>    }
+<span class="nocode"><a name="1388">1388: </a></span>
+<span class="nocode"><a name="1389">1389: </a></span>    @Override
+<span class="nocode"><a name="1390">1390: </a></span>    public int hashCode() {
+<span class="nocode"><a name="1391">1391: </a></span>      if (!this.hashCodeSet) {
+<span class="nocode"><a name="1392">1392: </a></span>        this.hashCode = 31 * Arrays.hashCode(this.point1) 
+<span class="nocode"><a name="1393">1393: </a></span>            + 31 * Arrays.hashCode(this.point2) 
+<span class="nocode"><a name="1394">1394: </a></span>            + 31 * Arrays.hashCode(this.point3);
+<span class="nocode"><a name="1395">1395: </a></span>        this.hashCodeSet = true;
+<span class="nocode"><a name="1396">1396: </a></span>      }
+<span class="nocode"><a name="1397">1397: </a></span>      return this.hashCode;
+<span class="nocode"><a name="1398">1398: </a></span>    }
+<span class="nocode"><a name="1399">1399: </a></span>
+<span class="nocode"><a name="1400">1400: </a></span>    @Override
+<span class="nocode"><a name="1401">1401: </a></span>    public boolean equals(Object obj) {
+<span class="nocode"><a name="1402">1402: </a></span>      if (this == obj) {
+<span class="nocode"><a name="1403">1403: </a></span>        return true;
+<span class="nocode"><a name="1404">1404: </a></span>      } else if (obj instanceof Triangle) {
+<span class="nocode"><a name="1405">1405: </a></span>        Triangle triangle = (Triangle)obj;
+<span class="nocode"><a name="1406">1406: </a></span>        // Compare first with point with opposite face
+<span class="nocode"><a name="1407">1407: </a></span>        return Arrays.equals(this.point1, triangle.point3)
+<span class="nocode"><a name="1408">1408: </a></span>               &amp;&amp; Arrays.equals(this.point2, triangle.point2)
+<span class="nocode"><a name="1409">1409: </a></span>               &amp;&amp; Arrays.equals(this.point3, triangle.point1)
+<span class="nocode"><a name="1410">1410: </a></span>            || Arrays.equals(this.point1, triangle.point2)
+<span class="nocode"><a name="1411">1411: </a></span>               &amp;&amp; Arrays.equals(this.point2, triangle.point1)
+<span class="nocode"><a name="1412">1412: </a></span>               &amp;&amp; Arrays.equals(this.point3, triangle.point3)
+<span class="nocode"><a name="1413">1413: </a></span>            || Arrays.equals(this.point1, triangle.point1)
+<span class="nocode"><a name="1414">1414: </a></span>               &amp;&amp; Arrays.equals(this.point2, triangle.point3)
+<span class="nocode"><a name="1415">1415: </a></span>               &amp;&amp; Arrays.equals(this.point3, triangle.point2)
+<span class="nocode"><a name="1416">1416: </a></span>            || Arrays.equals(this.point1, triangle.point1)
+<span class="nocode"><a name="1417">1417: </a></span>               &amp;&amp; Arrays.equals(this.point2, triangle.point2)
+<span class="nocode"><a name="1418">1418: </a></span>               &amp;&amp; Arrays.equals(this.point3, triangle.point3);
+<span class="nocode"><a name="1419">1419: </a></span>      }
+<span class="nocode"><a name="1420">1420: </a></span>      return false;
+<span class="nocode"><a name="1421">1421: </a></span>    }
+<span class="nocode"><a name="1422">1422: </a></span>  }
+<span class="nocode"><a name="1423">1423: </a></span>  
+<span class="nocode"><a name="1424">1424: </a></span>  /**
+<span class="nocode"><a name="1425">1425: </a></span>   * A key used to manage textures at different levels of transparency. 
+<span class="nocode"><a name="1426">1426: </a></span>   */
+<span class="nocode"><a name="1427">1427: </a></span>  private static class TransparentTextureKey {
+<span class="nocode"><a name="1428">1428: </a></span>    private Texture texture;
+<span class="nocode"><a name="1429">1429: </a></span>    private float   transparency;
+<span class="nocode"><a name="1430">1430: </a></span>
+<span class="nocode"><a name="1431">1431: </a></span>    public TransparentTextureKey(Texture texture, float transparency) {
+<span class="nocode"><a name="1432">1432: </a></span>      this.texture = texture;
+<span class="nocode"><a name="1433">1433: </a></span>      this.transparency = transparency;
+<span class="nocode"><a name="1434">1434: </a></span>    }
+<span class="nocode"><a name="1435">1435: </a></span>    
+<span class="nocode"><a name="1436">1436: </a></span>    @Override
+<span class="nocode"><a name="1437">1437: </a></span>    public boolean equals(Object obj) {
+<span class="nocode"><a name="1438">1438: </a></span>      return ((TransparentTextureKey)obj).texture.equals(this.texture) 
+<span class="nocode"><a name="1439">1439: </a></span>          &amp;&amp; ((TransparentTextureKey)obj).transparency == this.transparency;
+<span class="nocode"><a name="1440">1440: </a></span>    }
+<span class="nocode"><a name="1441">1441: </a></span>    
+<span class="nocode"><a name="1442">1442: </a></span>    @Override
+<span class="nocode"><a name="1443">1443: </a></span>    public int hashCode() {
+<span class="nocode"><a name="1444">1444: </a></span>      return this.texture.hashCode() + Float.floatToIntBits(this.transparency);
+<span class="nocode"><a name="1445">1445: </a></span>    }
+<span class="nocode"><a name="1446">1446: </a></span>  }
+<span class="nocode"><a name="1447">1447: </a></span>}
+</pre>
+</p></div>
+</div><div id="post"><h2 id=parameters>EvoSuite Parameters</h2>
+<div class=statistics><ul>
+<li>inheritance_file: evosuite-files/inheritance.xml.gz
+<li>client_on_thread: false
+<li>alternative_fitness_range: 100.0
+<li>starve_by_fitness: true
+<li>dynamic_pool_size: 50
+<li>old_statistics: true
+<li>test_includes: test.includes
+<li>TT_stack: 10
+<li>dynamic_pool: 0.5
+<li>minimization_timeout: 600
+<li>kincompensation: 1.0
+<li>max_generic_depth: 1
+<li>local_search_rate: -1
+<li>target_method: 
+<li>selection_function: RANK
+<li>ctg_schedule: SIMPLE
+<li>assertion_strategy: MUTATION
+<li>tt_scope: ALL
+<li>process_communication_port: 6738
+<li>TT: false
+<li>chromosome_length: 40
+<li>adaptive_local_search_dse: false
+<li>UI_BACKGROUND_COVERAGE_DELAY: -1
+<li>random_perturbation: 0.2
+<li>test_factory: RANDOM
+<li>enable_alternative_fitness_calculation: false
+<li>debug: false
+<li>plot: false
+<li>log_goals: false
+<li>alternative_fitness_calculation_mode: SUM
+<li>inline: true
+<li>crossover_function: SINGLEPOINTRELATIVE
+<li>local_search_budget: 100
+<li>static_hack: false
+<li>OUTPUT_DIR: evosuite-files
+<li>dse_keep_all_tests: false
+<li>junit_extend: 
+<li>junit_prefix: 
+<li>hierarchy_data: hierarchy.xml
+<li>num_tests: 2
+<li>max_size: 100
+<li>statistics_backend: CSV
+<li>max_length: 0
+<li>mutation_generations: 10
+<li>rank_bias: 1.7
+<li>primitive_reuse_probability: 0.5
+<li>num_random_tests: 20
+<li>filter_assertions: true
+<li>global_timeout: 600
+<li>log.level: null
+<li>new_statistics: false
+<li>assertions: true
+<li>object_pool: 0.0
+<li>timeline_interval: 60000
+<li>concolic_timeout: 15000
+<li>crossover_rate: 0.75
+<li>recycle_chromosomes: false
+<li>assertion_timeout: 600
+<li>serialize_result: false
+<li>string_length: 20
+<li>testability_transformation: false
+<li>p_special_type_call: 0.05
+<li>filter_sandbox_tests: false
+<li>connection_data: connection.xml
+<li>dse_budget: 1
+<li>show_progress: true
+<li>ctg_cores: 1
+<li>p_test_delete: 0.3333333333333333
+<li>local_search_references: true
+<li>dse_rate: -1
+<li>primitive_pool: 0.5
+<li>object_reuse_probability: 0.9
+<li>shuffle_goals: true
+<li>use_deprecated: false
+<li>max_coverage_depth: -1
+<li>penalize_overwriting_definitions_flat: false
+<li>max_attempts: 1000
+<li>print_current_goals: false
+<li>PROJECT_PREFIX: com
+<li>TARGET_CLASS: com.eteks.sweethome3d.j3d.PhotoRenderer
+<li>p_test_insertion: 0.1
+<li>make_accessible: false
+<li>population: 50
+<li>check_best_length: true
+<li>seed_types: true
+<li>PROJECT_DIR: null
+<li>skip_covered: true
+<li>check_contracts: false
+<li>write_cfg: false
+<li>minimize: true
+<li>seed_clone: 0.2
+<li>target_method_prefix: 
+<li>mutation_timeouts: 3
+<li>instrument_parent: false
+<li>junit_tests: true
+<li>coverage: true
+<li>sandbox: true
+<li>randomize_difficulty: true
+<li>break_on_exception: true
+<li>html: true
+<li>CP: lib/abbot.jar:lib/AppleJavaExtensions.jar:lib/batik-svgpathparser-1.7.jar:lib/freehep-vectorgraphics-svg-2.1.1.jar:lib/gluegen-rt.jar:lib/gnu-regexp-1.1.0.jar:lib/iText-2.1.7.jar:lib/j3dcore.jar:lib/j3dutils.jar:lib/jdepend-2.9.jar:lib/jdom-1.0.jar:lib/jmf.jar:lib/jnlp.jar:lib/jogl.jar:lib/junit-4.4.jar:lib/Loader3DS1_2u.jar:lib/profile.jar:lib/sunflow-0.07.3g.jar:lib/vecmath.jar:sweethome3d.jar
+<li>search_budget: 60
+<li>max_replace_mutants: 100
+<li>check_contracts_end: false
+<li>log.target: null
+<li>array_limit: 1000000
+<li>minimize_values: false
+<li>secondary_objectives: totallength
+<li>log_timeout: false
+<li>p_test_change: 0.3333333333333333
+<li>restricted_read: false
+<li>null_probability: 0.1
+<li>configuration_id: null
+<li>save_all_data: true
+<li>branch_eval: false
+<li>remote_testing: false
+<li>dse_adaptive_rate: 2.0
+<li>local_search_budget_type: STATEMENTS
+<li>branch_statement: false
+<li>check_parents_length: false
+<li>dse_constraint_solver_timeout_millis: 0
+<li>elite: 1
+<li>local_search_probes: 10
+<li>enable_asserts_for_sut: true
+<li>output_granularity: MERGED
+<li>criterion: BRANCH
+<li>restrict_pool: false
+<li>shutdown_timeout: 1000
+<li>output_variables: null
+<li>structured_tests: false
+<li>random_tests: 0
+<li>initially_enforced_randomness: 0.4
+<li>selected_junit: null
+<li>p_change_parameter: 0.1
+<li>port: 1044
+<li>defuse_aliases: true
+<li>dse_constraint_length: 100000
+<li>reuse_budget: true
+<li>test_dir: evosuite-tests
+<li>replace_calls: false
+<li>max_initial_tests: 10
+<li>TARGET_CLASS_PREFIX: 
+<li>dse_adaptive_probability: 0.0
+<li>algorithm: STEADYSTATEGA
+<li>report_dir: evosuite-report
+<li>target_method_list: 
+<li>local_search_arrays: true
+<li>dse_constant_probability: 0.5
+<li>max_int: 2048
+<li>error_branches: false
+<li>stopping_condition: MAXTIME
+<li>local_search_primitives: true
+<li>minimize_old: false
+<li>max_mutants_per_method: 700
+<li>adaptive_local_search: OFF
+<li>replacement_function: DEFAULT
+<li>number_of_mutations: 1
+<li>test_comments: true
+<li>defuse_debug_mode: false
+<li>shutdown_hook: true
+<li>bloat_factor: 2
+<li>dse_variable_resets: 2
+<li>test_format: JUNIT4
+<li>penalize_overwriting_definitions_linearly: false
+<li>max_stalled_threads: 10
+<li>insertion_score_object: 1
+<li>instrumentation_skip_debug: false
+<li>sandbox_mode: RECOMMENDED
+<li>call_probability: 0.0
+<li>check_max_length: true
+<li>max_recursion: 10
+<li>usage_rate: 0.5
+<li>max_mutants: 100
+<li>p_statement_insertion: 0.5
+<li>usage_models: 
+<li>test_carving: false
+<li>evosuite_use_uispec: false
+<li>instrument_context: false
+<li>ctg_time: 2
+<li>ctg_memory: 1000
+<li>classpath: 
+<li>max_array: 10
+<li>dse_negate_all_conditions: false
+<li>seed_mutations: 2
+<li>tournament_size: 10
+<li>dse_budget_type: INDIVIDUALS
+<li>dse_rank_branch_conditions: false
+<li>concolic_mutation: 0.0
+<li>stop_zero: true
+<li>parent_check: true
+<li>insertion_score_parameter: 1
+<li>junit_suffix: EvoSuiteTest
+<li>min_initial_tests: 1
+<li>max_delta: 20
+<li>cpu_timeout: false
+<li>dynamic_limit: false
+<li>min_free_mem: 50000000
+<li>test_excludes: test.excludes
+<li>write_pool: false
+<li>epsilon: 0.0010
+<li>enable_asserts_for_evosuite: false
+<li>analysis_criteria: 
+<li>junit_strict: false
+<li>print_to_system: false
+<li>virtual_fs: false
+<li>sandbox_folder: evosuite-sandbox
+<li>strategy: EVOSUITE
+<li>enable_alternative_suite_fitness: false
+<li>max_mutants_per_test: 100
+<li>stopping_port: -1
+<li>insertion_score_uut: 1
+<li>sourcepath: 
+<li>print_covered_goals: false
+<li>extra_timeout: 120
+<li>string_replacement: true
+<li>cluster_recursion: 10
+<li>population_limit: INDIVIDUALS
+<li>p_test_insert: 0.3333333333333333
+<li>constraint_solution_attempts: 3
+<li>timeout: 5000
+</ul></div>
+</div><p><br><a href="../report-generation.html">Back to Overview</a></p>
+</div>
+</body>
+</html>

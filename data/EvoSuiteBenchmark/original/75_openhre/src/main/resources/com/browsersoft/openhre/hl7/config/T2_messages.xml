@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+   Warning:
+   I haven't definitions of segments DSC, CTI, QAK, IN1, IN2, IN3
+   From this reason it's possible that some kind of messages don't be accepted by parser.
+-->
+
+<messages>
+	<message id="QBP_Z01">
+		<description>
+			Observation Reporting Query
+		</description>
+		<group>
+			<segment id="MSH"/>
+			<segment id="QPD.Z01"/>
+			<segment id="PID"/>
+            <segment id="RCP.Z01"/>
+        </group>
+	</message>
+	
+    <message id="RSP_Z01">
+		<description>
+			Response to observation Reporting Query
+		</description>
+		<group>
+			<segment id="MSH"/>
+			<segment id="MSA"/>
+			<segment id="ERR" required="N"/>
+			<segment id="QAK" />
+            <segment id="QPD.Z01" />
+            <group repeatable="Y" additional="RSP_Z01.PATIENT_RESULT">
+                <group required="N" additional="RSP_Z01.PATIENT">
+                    <segment id="PID"/>
+                    <segment id="PD1" required="N"/>
+                    <segment id="NK1" repeatable="Y" required="N"/>
+                    <segment id="NTE" repeatable="Y" required="N"/>
+                    <group required="N" additional="RSP_Z01.PATIENT_VISIT">
+                        <segment id="PV1"/>
+                        <segment id="PV2" required="N"/>
+                    </group>
+                </group>
+                <group repeatable="Y" additional="RSP_Z01.ORDER_OBSERVATION">
+                    <segment id="ORC" required="N"/>
+                    <segment id="OBR"/>
+                    <segment id="NTE" repeatable="Y" required="N"/>
+                    <group repeatable="Y" additional="RSP_Z01.OBSERVATION">
+                        <segment id="OBX" required="N"/>
+                        <segment id="NTE" repeatable="Y" required="N"/>
+                    </group>
+                    <segment id="CTI" repeatable="Y" required="N"/>
+                </group>
+            </group>
+		</group>
+	</message>
+	
+	<message id="QBP_Z02">
+		<description>
+			Patient Identities Query
+		</description>
+		<group>
+			<segment id="MSH"/>
+			<segment id="QPD.Z02"/>
+			<segment id="PID"/>
+            <segment id="RCP.Z02"/>
+        </group>
+	</message>
+    <message id="RSP_Z02">
+		<description>
+			Response to patient Identities Query
+		</description>
+		<group>
+			<segment id="MSH"/>
+			<segment id="MSA"/>
+			<segment id="ERR" required="N"/>
+			<segment id="QAK" />
+            <segment id="QPD.Z02" />
+            <group repeatable="Y">
+                <group required="N" additional="RSP_Z02.QUERY_RESPONSE">
+                    <segment id="PID"/>
+                    <segment id="PD1" required="N"/>
+                    <segment id="NK1" repeatable="Y" required="N"/>
+                    <segment id="NTE" repeatable="Y" required="N"/>
+                </group>
+            </group>
+		</group>
+	</message>
+    <!--<message id="QBP_Z03">
+		<description>
+			Access History Query
+		</description>
+		<group>
+			<segment id="MSH"/>
+			<segment id="QPD"/>
+			<segment id="PID"/>
+            <segment id="RCP"/>
+        </group>
+	</message>
+    <message id="RTB_Z03">
+		<description>
+			Response to patient Identities Query
+		</description>
+		<group>
+			<segment id="MSH"/>
+			<segment id="MSA"/>
+			<segment id="ERR" required="N"/>
+			<segment id="QAK" />
+            <segment id="QPD" />
+            <group required="N" additional="RTB_Z03.ROW_DEFINITION">
+                <segment id="RDF"/>
+                <segment id="RDT" repeatable="Y" required="N"/>
+            </group>
+		</group>
+	</message>-->
+</messages>

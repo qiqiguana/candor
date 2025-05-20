@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<segments>
+    <segment id="QPD.Z01">
+        <description>
+            Query Parameter Definition for Z01
+        </description>
+        <fields>
+            <field sequential="1" maximumLength="60" dataType="CE" required="R" reference="">
+                <description>
+                    MessageQueryName
+                </description>
+            </field>
+            <field sequential="2" maximumLength="32" dataType="ST" required="R" reference="">
+                <description>
+                    QueryTag
+                </description>
+            </field>
+            <field sequential="3" maximumLength="65535" dataType="CE" required="O" repeatable="Y" table="0048" reference="">
+                <description>
+                    WhatData
+                </description>
+            </field>
+            <field sequential="4" maximumLength="65535" dataType="CE" required="O" reference="">
+                <description>
+                    ServiceCode
+                </description>
+            </field>
+            <field sequential="5" maximumLength="65535" dataType="CE" required="O" table="NHIN_0001" reference="">
+                <description>
+                    DepartmentCode
+                </description>
+            </field>
+            <field sequential="6" maximumLength="65535" dataType="TS" required="O" repeatable="Y" reference="">
+                <description>
+                    EarliestDataTime
+                </description>
+            </field>
+            <field sequential="7" maximumLength="65535" dataType="TS" required="O" repeatable="Y" reference="">
+                <description>
+                    LatestDataTime
+                </description>
+            </field>
+            <field sequential="8" maximumLength="65535" dataType="ID" required="O" table="NHIN_0002" repeatable="Y" reference="">
+                <description>
+                    TimeFilterDirection
+                </description>
+            </field>
+        </fields>
+    </segment>
+    <segment id="RCP.Z01">
+        <description>
+            Response Control Parameter for Z01
+        </description>
+        <fields>
+            <field sequential="1" maximumLength="1" dataType="ID" required="R" reference="">
+                <description>
+                    Query Priority
+                </description>
+            </field>
+            <field sequential="2" maximumLength="10" dataType="CQ" required="R" reference="">
+                <description>
+                    Quantity Limited Request
+                </description>
+            </field>
+        </fields>
+    </segment>
+    <segment id="QPD.Z02">
+        <description>
+            Query Parameter Definition for Z02
+        </description>
+        <fields>
+            <field sequential="1" maximumLength="60" dataType="CE" required="R" reference="">
+                <description>
+                    MessageQueryName
+                </description>
+            </field>
+            <field sequential="2" maximumLength="32" dataType="ST" required="R" reference="">
+                <description>
+                    QueryTag
+                </description>
+            </field>
+        </fields>
+    </segment>
+    <segment id="RCP.Z02">
+        <description>
+            Response Control Parameter for Z02
+        </description>
+        <fields>
+            <field sequential="1" maximumLength="1" dataType="ID" required="R" reference="">
+                <description>
+                    Query Priority
+                </description>
+            </field>
+            <field sequential="2" maximumLength="10" dataType="CQ" required="R" reference="">
+                <description>
+                    Quantity Limited Request
+                </description>
+            </field>
+        </fields>
+    </segment>
+</segments>

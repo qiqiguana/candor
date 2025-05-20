@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Test0013LDAP>
+<Result context="ou=xBus_Development" searchattributes="{title=title: Developer, sn=sn: Doe}">
+<Record>
+<objectClass>organizationalPerson</objectClass>
+<objectClass>person</objectClass>
+<objectClass>top</objectClass>
+<title>Developer</title>
+<sn>Doe</sn>
+<cn>John Doe</cn>
+</Record>
+</Result>
+<Result context="" searchattributes="No attributes">
+<Record>
+<ou>xBus_Development</ou>
+<objectClass>organizationalUnit</objectClass>
+<objectClass>top</objectClass>
+</Record>
+</Result>
+<Result context="ou=xBus_Development" searchstring="objectClass=top">
+<Record>
+<ou>xBus_Development</ou>
+<objectClass>organizationalUnit</objectClass>
+<objectClass>top</objectClass>
+</Record>
+<Record>
+<telephoneNumber>+49 xx yyyyyyzz</telephoneNumber>
+<objectClass>top</objectClass>
+<objectClass>organizationalPerson</objectClass>
+<title>Project Leader</title>
+<sn>Fleckenstein</sn>
+<cn>Stefan Fleckenstein</cn>
+</Record>
+<Record>
+<objectClass>organizationalPerson</objectClass>
+<objectClass>person</objectClass>
+<objectClass>top</objectClass>
+<title>Developer</title>
+<sn>Doe</sn>
+<cn>John Doe</cn>
+</Record>
+</Result>
+<Result context="" searchstring="cn=Stefan Fleckenstein">
+<Record>
+<telephoneNumber>+49 xx yyyyyyzz</telephoneNumber>
+<objectClass>top</objectClass>
+<objectClass>organizationalPerson</objectClass>
+<title>Project Leader</title>
+<sn>Fleckenstein</sn>
+<cn>Stefan Fleckenstein</cn>
+</Record>
+</Result>
+</Test0013LDAP>

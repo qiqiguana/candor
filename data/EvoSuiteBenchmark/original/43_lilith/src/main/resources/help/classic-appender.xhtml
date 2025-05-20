@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>Using the Lilith Classic Appender</title>
+	<link href="help.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<p><a href="index.xhtml">ToC</a></p>
+
+<h1><a name="top">Using the Lilith Classic Appender</a></h1>
+
+<p>The Lilith Classic Appender is a replacement for <code>ch.qos.logback.classic.net.SocketAppender</code>.<br/>
+	This appender, in contrast to logbacks, supports logger.debug("{} {}", new Object[]{foo, bar, throwable), i.e.
+	if the last given parameter of a log message is a Throwable and it is not used up in the message pattern then it
+	will
+	be used as the Throwable of the LoggingEvent, similar to logger.debug(""+foo+" "+bar, throwable).</p>
+
+<p>While LogBACK's appender is stream-based, i.e. it streams logging events using an <code>ObjectOutputStream</code> the
+	Lilith appender is message based, i.e. it sends logging events one after the other as single messages.</p>
+
+<p>A message consists of an integer that specifies the number of bytes of the following event, followed by the
+	bytes of the serialized event.</p>
+
+<p>This has several benefits:</p>
+<ul>
+	<li>Sending to multiple remote hosts is supported while the event is only serialized once.</li>
+	<li>Events can (and should) be compressed using GZIP.</li>
+	<li>The appender supports heartbeat and timeout.
+		<ul>
+			<li>The event receiver can find out that the event sender connection died if a heartbeat is missing.</li>
+			<li>The event sender can find out that the event receiver connection died by means of a timeout</li>
+		</ul>
+		This means that an application won't stop (at least not for very long) in case of network problems.
+	</li>
+</ul>
+
+<p>Add the following dependency to your applications <code>pom.xml</code> file:</p>
+		<pre><code><![CDATA[<dependency>
+  <groupId>de.huxhorn.lilith</groupId>
+  <artifactId>de.huxhorn.lilith.logback.appender.multiplex-classic</artifactId>
+  <version>${pom.version}</version>
+  <scope>runtime</scope>
+</dependency>]]></code></pre>
+
+<p>If you aren't using <a href="http://maven.apache.org">Maven</a> you can find a list of all required dependencies
+	here:<br/>
+	<a href="http://lilith.huxhorn.de/projects/de.huxhorn.lilith.logback.appender.multiplex-classic/dependencies.html">http://lilith.huxhorn.de/projects/de.huxhorn.lilith.logback.appender.multiplex-classic/dependencies.html</a>
+</p>
+
+
+<p>Then, add the following to your <code>logback.xml</code> file:</p>
+		<pre><code><![CDATA[<appender name="multiplex" class="de.huxhorn.lilith.logback.appender.ClassicMultiplexSocketAppender">
+  <Compressing>true</Compressing> <!-- will automatically use correct default port -->
+  <ReconnectionDelay>10000</ReconnectionDelay>
+  <IncludeCallerData>true</IncludeCallerData>
+  <RemoteHosts>localhost, 10.200.55.13</RemoteHosts>
+</appender>]]></code></pre>
+
+
+<p>You also have to attach the appender to some logger, e.g. the root logger...</p>
+		<pre><code><![CDATA[<root>
+  <level value="INFO"/>
+  <appender-ref ref="multiplex"/>
+</root>]]></code></pre>
+
+
+<p>... or a specific logger...</p>
+		<pre><code><![CDATA[<logger name="foo.Bar">
+  <level value="DEBUG"/>
+  <appender-ref ref="multiplex"/>
+</logger>]]></code></pre>
+
+<p><a href="#top">Back to top.</a></p>
+
+<h2>Using the Lilith Classic XML Appender</h2>
+
+<p>Alternatively, you could also use one of the Lilith Classic XML Appenders. Instead of serialized Java
+	objects those are using XML logging events. There's not much sense in using those, though, if you just
+	want to receive events in Lilith.</p>
+
+<p>The primary use of those appenders is to enable an application to send language-independent events.</p>
+
+<p>Lilith can understand those events so you are able to receive messages from non-Java systems, too, as
+	long as those systems support the sending of xml messages over sockets.</p>
+
+<p>That's also the sole reason for the zero-delimited appender. Zero-delimited events can be sent using
+	ActionScript's flash.net.XMLSocket</p>
+
+<p>The appenders were only implemented for symmetric reasons so there's both an event appender and an
+	event receiver available in the Lilith suite.</p>
+
+<p>The schema of the logging events can be found at
+	<a href="http://lilith.sf.net/schema/logging/13">http://lilith.sf.net/schema/logging/13</a>.</p>
+
+<p>Add the following dependency to your applications <code>pom.xml</code> file:</p>
+		<pre><code><![CDATA[<dependency>
+  <groupId>de.huxhorn.lilith</groupId>
+  <artifactId>de.huxhorn.lilith.logback.appender.multiplex-classic-xml</artifactId>
+  <version>${pom.version}</version>
+  <scope>runtime</scope>
+</dependency>]]></code></pre>
+
+<p>If you aren't using <a href="http://maven.apache.org">Maven</a> you can find a list of all required dependencies
+	here:<br/>
+	<a href="http://lilith.huxhorn.de/projects/de.huxhorn.lilith.logback.appender.multiplex-classic-xml/dependencies.html">http://lilith.huxhorn.de/projects/de.huxhorn.lilith.logback.appender.multiplex-classic-xml/dependencies.html</a>
+</p>
+
+<p>Then, add the following to your <code>logback.xml</code> file:</p>
+		<pre><code><![CDATA[<appender name="multiplex" class="de.huxhorn.lilith.logback.appender.ClassicXmlMultiplexSocketAppender">
+  <Compressing>true</Compressing> <!-- will automatically use correct default port -->
+  <ReconnectionDelay>10000</ReconnectionDelay>
+  <IncludeCallerData>true</IncludeCallerData>
+  <RemoteHosts>localhost, 10.200.55.13</RemoteHosts>
+</appender>]]></code></pre>
+
+<p>or, for zero-delimited messages instead of "size, event-bytes" messages,</p>
+
+		<pre><code><![CDATA[<appender name="multiplex" class="de.huxhorn.lilith.logback.appender.ZeroDelimitedClassicXmlMultiplexSocketAppender">
+  <ReconnectionDelay>10000</ReconnectionDelay>
+  <IncludeCallerData>true</IncludeCallerData>
+  <RemoteHosts>localhost, 10.200.55.13</RemoteHosts>
+</appender>]]></code></pre>
+
+<p><a href="#top">Back to top.</a></p>
+
+<h2>Cleanup</h2>
+
+<p>To prevent "java.lang.OutOfMemoryError: PermGen space" you'll want to shut down the
+	logback system properly in case of un- or redeployed web-applications.</p>
+
+<p>Add the following dependency to your applications <code>pom.xml</code> file:</p>
+		<pre><code><![CDATA[<dependency>
+  <groupId>de.huxhorn.lilith</groupId>
+  <artifactId>de.huxhorn.lilith.logback.servlet</artifactId>
+  <version>${pom.version}</version>
+  <scope>runtime</scope>
+</dependency>]]></code></pre>
+
+<p>If you aren't using <a href="http://maven.apache.org">Maven</a> you can find a list of all required dependencies
+	here:<br/>
+	<a href="http://lilith.huxhorn.de/projects/de.huxhorn.lilith.logback.servlet/dependencies.html">http://lilith.huxhorn.de/projects/de.huxhorn.lilith.logback.servlet/dependencies.html</a>
+</p>
+
+<p>Then add the following to your <code>web.xml</code> file.</p>
+
+		<pre><code><![CDATA[<listener>
+  <listener-class>
+    de.huxhorn.lilith.logback.servlet.LogbackShutdownServletContextListener
+  </listener-class>
+</listener>]]></code></pre>
+
+Or use the following if you are using JNDI:
+		<pre><code><![CDATA[<listener>
+  <listener-class>
+    ch.qos.logback.classic.selector.servlet.ContextDetachingSCL
+  </listener-class>
+</listener>]]></code></pre>
+
+<p>See <a href="http://logback.qos.ch/manual/contextSelector.html">Chapter 8 of the Logback Manual</a>
+	for more infos.</p>
+
+<p>If you want more infos about the problem itself, please visit the following links:</p>
+<ul>
+	<li><a href="http://blogs.sun.com/fkieviet/entry/classloader_leaks_the_dreaded_java">Classloader leaks: the dreaded
+		"java.lang.OutOfMemoryError: PermGen space" exception</a></li>
+	<li><a href="http://blogs.sun.com/fkieviet/entry/how_to_fix_the_dreaded">How to fix the dreaded
+		"java.lang.OutOfMemoryError: PermGen space" exception (classloader leaks)</a></li>
+</ul>
+
+<p><a href="#top">Back to top.</a></p>
+</body>
+</html>

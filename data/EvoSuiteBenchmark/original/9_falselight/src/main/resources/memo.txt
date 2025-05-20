@@ -1,0 +1,100 @@
+fonctionnement
+- les tests à faire sont rentré dans la bdd par l'ihm dés que ce sera fait
+- un fait le prog lancé, le scheduler s'active toutes les minutes :
+Toute les minutes, il démarre un thread qui effectue les uns à la suite des autres les tests de la minute en cours.
+algo du thread :
+	- lire les test a effectuer pour cette minute grace a la classe TestAccess (qui s'occupe de l'accés a la bdd pour ca)
+	- effectuer ces test avec Services
+	- Envoyer les résultats a TestAcces qui s'occupera de les rentrer dans la bdd
+	- thread teminé (--> auto suicide du thread avec un coup de sabre à l'ancienne)
+
+Le scheduler doit être arrété explicitement a la fin du programme
+
+//TODO
+- ajouté le config d'un timeout réglable
+- gestion des erreurs classes messages
+- les exceptions doivent être traité à la base comme dans la classe Services et indiquer avec un code de retour
+- tg matthieu
+- pk ww.falselght.org genere un erreur EOF unattended ?
+- mette en place systeme de logs
+
+
+
+
+- MEMO -
+http://db.apache.org/derby/
+
+conn.setRequestProperty("User-Agent", "Falselight"); //def de la requete http
+			conn.setRequestProperty("Accept", "*/*");
+			conn.setRequestProperty("HTTP-Version", "HTTP/1.0");
+
+After you've successfully created a URL object, you can call the URL object's openConnection method to get a URLConnection object, or one of its protocol specific subclasses, e.g. java.net.HttpURLConnection
+
+You can use this URLConnection object to setup parameters and general request properties that you may need before connecting. Connection to the remote object represented by the URL is only initiated when the URLConnection.connect method is called. When you do this you are initializing a communication link between your Java program and the URL over the network. For example, you can open a connection to the Yahoo site with the following code:
+
+    try {
+        URL yahoo = new URL("http://www.yahoo.com/");
+        URLConnection yahooConnection = yahoo.openConnection();
+        yahooConnection.connect();
+
+    } catch (MalformedURLException e) {     // new URL() failed
+        . . .
+    } catch (IOException e) {               // openConnection() failed
+        . . .
+    }
+
+A new URLConnection object is created every time by calling the openConnection method of the protocol handler for this URL.
+
+You are not always required to explicitly call the connect method to initiate the connection. Operations that depend on being connected, like getInputStream, getOutputStream, etc, will implicitly perform the connection, if necessary.
+
+Now that you've successfully connected to your URL, you can use the URLConnection object to perform actions such as reading from or writing to the connection. The next section shows you how. 
+
+
+-------
+SOCKET tcp bidirectionnelle
+-------
+
+   1. Open a socket.
+   2. Open an input stream and output stream to the socket.
+   3. Read from and write to the stream according to the server's protocol.
+   4. Close the streams.
+   5. Close the socket. 
+
+import java.io.*;
+import java.net.*;
+
+public static void main(String[] args) throws IOException {
+
+        Socket echoSocket = null;
+        PrintWriter out = null;
+        BufferedReader in = null;
+
+        try {
+            echoSocket = new Socket("ordinateur", 8080);
+            out = new PrintWriter(echoSocket.getOutputStream(), true);
+            in = new BufferedReader(new InputStreamReader(echoSocket.getInputStream()));
+        }
+        catch (UnknownHostException e) {....      System.exit(1);}
+        catch (IOException e) { System.err.println("Couldn't get I/O for " + "the connection to: taranis."); System.exit(1);}
+
+	BufferedReader stdIn = new BufferedReader(new InputStreamReader(System.in));
+	String userInput;
+
+	while ((userInput = stdIn.readLine()) != null)
+	{
+	    out.println(userInput);
+	    System.out.println("echo: " + in.readLine());
+	}
+
+	out.close(); in.close(); stdIn.close(); echoSocket.close();
+	}
+	
+-------
+udp
+-------
+http://java.sun.com/docs/books/tutorial/networking/datagrams/clientServer.html
+	
+-------
+server
+-------
+http://java.sun.com/docs/books/tutorial/networking/sockets/clientServer.html

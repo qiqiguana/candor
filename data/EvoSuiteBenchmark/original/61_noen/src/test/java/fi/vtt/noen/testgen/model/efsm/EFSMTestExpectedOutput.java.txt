@@ -1,0 +1,194 @@
+package fi.vtt.noen.testgen.model.efsm;
+
+import static org.junit.Assert.*;
+import static org.easymock.EasyMock.*;
+
+import org.easymock.EasyMock;
+import org.junit.Before;
+import org.junit.Test;
+import net.sourceforge.czt.modeljunit.Action;
+import net.sourceforge.czt.modeljunit.FsmModel;
+import net.sourceforge.czt.modeljunit.Tester;
+import net.sourceforge.czt.modeljunit.RandomTester;
+import net.sourceforge.czt.modeljunit.GraphListener;
+import net.sourceforge.czt.modeljunit.coverage.CoverageMetric;
+import net.sourceforge.czt.modeljunit.coverage.TransitionCoverage;
+
+import net.sourceforge.czt.modeljunit.Action;
+import java.util.Iterator;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Random;
+import fi.vtt.noen.testgen.TestInputInterface;
+import fi.vtt.noen.testgen.TestInputInterface2;
+import fi.vtt.noen.testgen.TestObject;
+import fi.vtt.noen.testgen.TestOutputInterface;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Map;
+
+public class EFSMTestExpectedOutput implements FsmModel {
+  private int testIndex = 1;
+  private List connections = new ArrayList();
+  private List clients = new ArrayList();
+  private String state = "";
+  private TestObject testObject;
+  private TestOutputInterface mockTestOutputInterface;
+
+  @Test
+  public void modelJUnitTest() throws Exception {
+    mockTestOutputInterface = createMock(TestOutputInterface.class);
+    Tester tester = new RandomTester(this);
+    GraphListener listener = tester.buildGraph();
+    listener.printGraphDot("EFSMTestExpectedOutput.dot");
+    CoverageMetric trCoverage = new TransitionCoverage();
+    tester.addListener(trCoverage);
+    tester.addListener("verbose");
+    tester.generate(20);
+    tester.getModel().printMessage(trCoverage.getName() + " was " + trCoverage.toString());
+  }
+
+  public void reset(boolean b) {
+    state = "";
+    System.out.println("------------------- STARTING TEST "+testIndex+"--------------------------");
+    testIndex++;
+    connections.clear();
+    clients.clear();
+    EasyMock.reset(mockTestOutputInterface);
+    try {
+      testObject = createTestObject(mockTestOutputInterface);
+    } catch (Exception e) {
+      throw new RuntimeException(e);
+    }
+  }
+
+  public Object getState() {
+    return state;
+  }
+
+  @Action
+  public void testMethod1() throws Exception {
+    this.state = "TestMethod1";
+    System.out.println("TESTMETHOD1");
+    replay(mockTestOutputInterface);
+    testObject.testMethod1();
+    verify(mockTestOutputInterface);
+    EasyMock.reset(mockTestOutputInterface);
+  }
+
+  public boolean testMethod1Guard() {
+    return true;
+  }
+
+  @Action
+  public void testMethod2() throws Exception {
+    this.state = "TestMethod2";
+    System.out.println("TESTMETHOD2");
+    replay(mockTestOutputInterface);
+    String rv1 = testObject.testMethod2(testMethod2_p0(), testMethod2_p1(), testMethod2_p2());
+    assertEquals("testing", rv1);
+    verify(mockTestOutputInterface);
+    EasyMock.reset(mockTestOutputInterface);
+  }
+
+  public boolean testMethod2Guard() {
+    if(connections.isEmpty()) return false;
+    return true;
+  }
+
+  @Action
+  public void testMethod2_outputState2() throws Exception {
+    this.state = "TestMethod2->OutputState2";
+    System.out.println("TESTMETHOD2->OUTPUTSTATE2");
+    expect(mockTestOutputInterface.outputState2((Collection)anyObject(), 0)).andReturn("jeejee");
+    replay(mockTestOutputInterface);
+    String rv2 = testObject.testMethod2(testMethod2_p0(), testMethod2_p1(), testMethod2_p2());
+    assertEquals("testing", rv2);
+    verify(mockTestOutputInterface);
+    EasyMock.reset(mockTestOutputInterface);
+  }
+
+  public boolean testMethod2_outputState2Guard() {
+    if(clients.isEmpty()) return false;
+    return true;
+  }
+
+  //---------- TODO IMPLEMENT METHODS IN THIS SECTION TO GENERATE OBJECTS ------------
+  private TestObject createTestObject(TestOutputInterface mockTestOutputInterface) throws Exception {
+    return null;
+  }
+
+  private Collection testMethod2_p0() {
+    return null;
+  }
+
+  private Map testMethod2_p1() {
+    return null;
+  }
+
+  private int testMethod2_p2() {
+    return cInt((int)511.12, (int)1001.55);
+  }
+
+  //---------- HELPER METHODS TO GENERATE PRIMITIVE VALUES -----------------------------------------
+  public int cInt() {
+    return (int) Math.round(cDouble());
+  }
+
+  public int cInt(int min, int max) {
+    return (int) Math.round(cDouble(min, max));
+  }
+
+  public float cFloat() {
+    return (float) Math.round(cDouble());
+  }
+
+  public float cFloat(float min, float max) {
+    return (float) Math.round(cDouble(min, max));
+  }
+
+  public long cLong() {
+    return (long) Math.round(cDouble());
+  }
+
+  public long cLong(long min, long max) {
+    return (long) Math.round(cDouble(min, max));
+  }
+
+  public byte cByte() {
+    return (byte) Math.round(cDouble());
+  }
+
+  public byte cByte(byte min, byte max) {
+    return (byte) Math.round(cDouble(min, max));
+  }
+
+  public char cChar() {
+    return (char) Math.round(cDouble());
+  }
+
+  public char cChar(char min, char max) {
+    return (char) Math.round(cDouble(min, max));
+  }
+
+  public double cDouble() {
+    double min = Integer.MIN_VALUE;
+    double max = Integer.MAX_VALUE;
+    return cDouble(min, max);
+  }
+
+  Random random = new Random(100);
+
+  public double cDouble(double min, double max) {
+    double diff = max-min;
+    double rnd = random.nextDouble();
+    rnd *= diff;
+    rnd += min;
+    return rnd;
+  }
+
+  public Object randomItemFrom(Collection array) {
+    List list = new ArrayList(array);
+    return list.get(cInt(0, array.size()-1));
+  }
+}

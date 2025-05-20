@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_93.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HumanEvalJava</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_93.java</span></div><h1>id_93.java</h1><pre class="source lang-java linenums">package original;
+
+<span class="fc" id="L3">class Encode {</span>
+    /**
+     * * Write a function that takes a message, and encodes in such a
+     * way that it swaps case of all letters, replaces all vowels in
+     * the message with the letter that appears 2 places ahead of that
+     * vowel in the english alphabet.
+     * Assume only letters.
+     *
+     * Examples:
+     * &gt;&gt;&gt; encode('test')
+     * 'TGST'
+     * &gt;&gt;&gt; encode('This is a message')
+     * 'tHKS KS C MGSSCGG'
+     *
+     * &gt; encode(&quot;TEST&quot;)
+     * &quot;tgst&quot;
+     * &gt; encode(&quot;Mudasir&quot;)
+     * &quot;mWDCSKR&quot;
+     * &gt; encode(&quot;YES&quot;)
+     * &quot;ygs&quot;
+     * &gt; encode(&quot;This is a message&quot;)
+     * &quot;tHKS KS C MGSSCGG&quot;
+     * &gt; encode(&quot;I DoNt KnOw WhAt tO WrItE&quot;)
+     * &quot;k dQnT kNqW wHcT Tq wRkTg&quot;
+     */
+    public static String encode(String message) {
+<span class="fc" id="L29">        String result = &quot;&quot;;</span>
+<span class="fc bfc" id="L30" title="All 2 branches covered.">        for (int i = 0; i &lt; message.length(); i++) {</span>
+<span class="fc" id="L31">            char c = message.charAt(i);</span>
+<span class="pc bpc" id="L32" title="2 of 4 branches missed.">            if (c &gt;= 'a' &amp;&amp; c &lt;= 'z') {</span>
+<span class="fc" id="L33">                c -= 32;</span>
+<span class="nc bnc" id="L34" title="All 4 branches missed.">            } else if (c &gt;= 'A' &amp;&amp; c &lt;= 'Z') {</span>
+<span class="nc" id="L35">                c += 32;</span>
+            }
+<span class="pc bpc" id="L37" title="9 of 20 branches missed.">            if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' || c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U') {</span>
+<span class="fc" id="L38">                c += 2;</span>
+            }
+<span class="fc" id="L40">            result += c;</span>
+        }
+<span class="fc" id="L42">        return result;</span>
+    }
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

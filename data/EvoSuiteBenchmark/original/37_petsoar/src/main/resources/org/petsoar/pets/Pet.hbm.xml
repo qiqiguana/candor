@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd">
+
+<hibernate-mapping>
+    <class
+        name="org.petsoar.pets.Pet"
+        table="PETS"
+        dynamic-update="false"
+        dynamic-insert="false"
+    >
+
+        <id
+            name="id"
+            column="PETID"
+            type="long"
+            unsaved-value="0"
+        >
+            <generator class="increment">
+            </generator>
+        </id>
+
+        <many-to-one
+            name="category"
+            class="org.petsoar.categories.Category"
+            cascade="none"
+            outer-join="auto"
+            update="true"
+            insert="true"
+            column="CATEGORY"
+            not-null="false"
+        />
+
+        <property
+            name="name"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="NAME"
+        />
+
+        <property
+            name="image"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="IMAGE"
+        />
+
+        <property
+            name="gender"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="GENDER"
+        />
+
+        <property
+            name="description"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="DESCRIPTION"
+            length="2000"
+        />
+
+        <property
+            name="personality"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="PERSONALITY"
+            length="2000"
+        />
+
+        <property
+            name="price"
+            type="java.math.BigDecimal"
+            update="true"
+            insert="true"
+            column="PRICE"
+        />
+
+        <!--
+            To add non XDoclet property mappings, create a file named
+                hibernate-properties-Pet.xml
+            containing the additional properties and place it in your merge dir.
+        -->
+
+    </class>
+
+</hibernate-mapping>

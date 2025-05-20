@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+
+<digester-rules>
+   <object-create-rule pattern="ViewObject" classname="framework.persistence.jdbc.View" />
+
+   <set-properties-rule pattern="ViewObject">
+      <alias attr-name="Name" prop-name="name" />
+      <alias attr-name="PackageName" prop-name="packageName" />
+   </set-properties-rule>
+
+   <pattern value="ViewObject">
+      <call-method-rule pattern="SQLQuery" methodname="setSqlQuery"
+	                paramcount="0" />
+   </pattern>
+
+   <pattern value="ViewObject/ViewAttribute">
+      <object-create-rule classname="framework.persistence.jdbc.Attribute" />
+      <call-method-rule pattern="Name" methodname="setName"
+	                paramcount="0" />
+      <call-method-rule pattern="AliasName" methodname="setColumnName" 
+	                paramcount="0" />
+      <call-method-rule pattern="Type" methodname="setColumnClassName" 
+	                paramcount="0" />
+      <call-method-rule pattern="SQLType" methodname="setColumnTypeName"
+	                paramcount="0" />
+      <call-method-rule pattern="Precision" methodname="setPrecision"
+	                paramcount="0" />
+      <call-method-rule pattern="Scale" methodname="setScale"
+	                paramcount="0" />
+      <call-method-rule pattern="IsNotNull" methodname="setNotNull"
+	                paramcount="0" />
+      <set-next-rule methodname="addAttribute" />
+   </pattern>
+
+</digester-rules>

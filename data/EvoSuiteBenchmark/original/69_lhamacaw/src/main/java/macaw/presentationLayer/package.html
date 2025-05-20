@@ -1,0 +1,68 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head></head>
+<body>
+This is the main package that produces the GUI application forms for Macaw.  When users first
+start Macaw, they are presented with a Password Dialog {@link macaw.presentationLayer.LoginDialog}.
+Assuming users enter a valid userID and password, the main application browser dialog will
+appear ({@link macaw.presentationLayer.MacawVariableBrowser}).  The top part of the browser is a search panel
+that allows users to lookup variables ({@link macaw.presentationLayer.VariableSearchPanel}).
+
+<p>
+<code>MacawVariableBrowser</code> lets people edit a row in the search results for variables.
+This involves having the browser dialog launching either a {@link macaw.presentationLayer.RawVariableEditor}
+or a {@link macaw.presentationLayer.DerivedVariableEditor}.  Both of these editors share a lot of common
+behaviour which is managed in their superclass {@link macaw.presentationLayer.VariableEditor}
+
+<p>
+Both variable editor classes share the following things in common:
+<ul>
+<li>a list of supporting documents (see {@link macaw.presentationLayer.SupportingDocumentsPanel}, 
+{@link macaw.presentationLayer.SupportingDocumentEditor},
+{@link macaw.presentationLayer.SupportingDocumentSelectionDialog},
+{@link macaw.presentationLayer.SupportingDocumentSearchTableModel})
+</li>
+<li>
+a sub-panel for filling out "is cleaned", a tick box that can cause a text field for
+"cleaning description" to be sensitised (see 
+{@link macaw.presentationLayer.CleaningStatePanel})
+<li>
+a list of ontology terms (see {@link macaw.presentationLayer.OntologyTermsPanel}, 
+{@link macaw.presentationLayer.OntologyTermEditor},
+{@link macaw.presentationLayer.OntologyTermSelectionDialog},
+{@link macaw.presentationLayer.OntologyTermSearchTableModel})
+</li>
+<li>
+a collection of value labels
+(see {@link macaw.presentationLayer.VariableLabelValueEditor}, 
+{@link macaw.presentationLayer.VariableLabelTable},
+{@link macaw.presentationLayer.VariableLabelTableModel})
+</li>
+<li>
+access via a button to see a history of changes made to the variables
+(see {@link macaw.presentationLayer.ChangeHistoryViewer}, 
+{@link macaw.presentationLayer.ChangeHistoryTableModel})
+</li>
+
+</ul>
+
+<p>
+The variable editors have drop lists for the following concepts:
+<ul>
+<li>categories</li>
+<li>availability states</li>
+<li>alias file paths</li>
+<li>cleaning states</li>
+</ul>
+
+<p>
+Values for these concepts are managed through individual editors:
+<ul>
+<li>{@link macaw.presentationLayer.CategoryStateEditor}</li>
+<li>{@link macaw.presentationLayer.AvailabilityStateEditor}</li>
+<li>{@link macaw.presentationLayer.AliasFilePathEditor}</li>
+<li>{@link macaw.presentationLayer.CleaningStateEditor}</li>
+</ul>
+
+</body>
+</html>

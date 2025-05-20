@@ -1,0 +1,26 @@
+##macro ( recursive $e $indent )
+#macro ( recursive $step $indent )
+#if( $step.getChildren().size() > 0 )
+$indent <STEP name="$step.name">
+#foreach ($child in $e.children )
+#recursive( $child "$indent  " )
+#end
+$indent </STEP>
+#else
+$indent <STEP>
+$indent    $step.description
+$indent </STEP>
+#end
+#end
+
+#set($i = "   ")
+
+<TEST_SUITE name="${suiteName}">
+#foreach ($test in $tests)
+  <TEST name="$test.name">
+#foreach ($step in $test.steps)
+#recursive( $step $i )
+#end
+  </TEST>
+#end
+</TEST_SUITE>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!DOCTYPE config [
+<!ELEMENT config (section*)>
+<!ATTLIST section 
+	  id	ID	#IMPLIED
+	  name	CDATA	#REQUIRED
+>
+<!ELEMENT section (variable*)>
+<!ELEMENT variable EMPTY>
+<!ATTLIST variable
+	  id	ID	#IMPLIED
+	  name	CDATA	#REQUIRED
+	  value	CDATA	#REQUIRED
+>
+]>
+
+<config>
+
+ <!-- Kernel Configuration -->
+
+ <section id="kernel" name="Kernel">
+  <variable name="autoload" value="module.ClientNetworkModule,module.GUIModule"/>
+ </section>
+
+ <!-- Server Configuration -->
+
+ <section name="ServerNetwork">
+  <variable name="port" value="1119"/>
+ </section>
+
+ <section name="ClientNetwork">
+  <variable name="host" value="localhost"/>
+  <variable name="port" value="1119"/>
+ </section>
+
+ <!-- GameState Configuration -->
+
+ <section name="GameState">
+  <variable name="max_players" value="32"/>
+ </section>
+
+ <!-- IRCProxy Configuration -->
+
+ <section name="IRCProxy">
+  <variable name="nick"    value="hurricaneboy"/>
+  <variable name="server"  value="irc.quakenet.org"/>
+  <variable name="port"    value="6667"/>
+  <variable name="channel" value="#gangup"/>
+ </section>
+
+ <!-- PlayerData Configuration -->
+
+ <section name="PlayerData">
+  <variable name="playerdatafile"	 value="dat/etc/playerdata.txt"/>
+ </section>
+
+ <!-- GUI Configuration -->
+
+ <section name="GUI">
+  <variable name="skinlf_enable" 	value="0"/>
+  <variable name="skinlf_themepack"	value="dat/themes/toxicthemepack.zip"/>
+ </section>
+</config>

@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+
+<digester-rules>
+   <object-create-rule pattern="entity" classname="framework.persistence.jdbc.Entity" />
+
+   <set-properties-rule pattern="entity" >
+      <alias attr-name="name" prop-name="name" />
+      <alias attr-name="packageName" prop-name="packageName" />
+      <alias attr-name="objectName" prop-name="objectName" />
+      <alias attr-name="targetClassName" prop-name="targetClassName" />
+      <alias attr-name="version" prop-name="version" />
+      <alias attr-name="timestamp" prop-name="timestamp" />
+   </set-properties-rule>
+
+   <pattern value="entity">
+      <call-method-rule pattern="comment" methodname="setComment"
+	                paramcount="0" />
+   </pattern>
+
+   <pattern value="entity/attribute">
+      <object-create-rule classname="framework.persistence.jdbc.Attribute" />
+      <call-method-rule pattern="name" methodname="setName"
+	                paramcount="0" />
+      <call-method-rule pattern="columnName" methodname="setColumnName" 
+	                paramcount="0" />
+      <call-method-rule pattern="columnClassName" methodname="setColumnClassName" 
+	                paramcount="0" />
+      <call-method-rule pattern="columnType" methodname="setColumnType"
+	                paramcount="0" />
+      <call-method-rule pattern="columnTypeName" methodname="setColumnTypeName"
+	                paramcount="0" />
+      <call-method-rule pattern="precision" methodname="setPrecision"
+	                paramcount="0" />
+      <call-method-rule pattern="scale" methodname="setScale"
+	                paramcount="0" />
+      <call-method-rule pattern="isNullable" methodname="setNullable"
+	                paramcount="0" />
+      <call-method-rule pattern="isPrimaryKey" methodname="setPrimaryKey"
+	                paramcount="0" />
+      <call-method-rule pattern="keySeq" methodname="setKeySeq"
+	                paramcount="0" />
+      <set-next-rule methodname="addAttribute" />
+   </pattern>
+
+</digester-rules>

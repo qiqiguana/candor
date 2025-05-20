@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!DOCTYPE config [
+<!ELEMENT config (section*)>
+<!ATTLIST section 
+	  id	ID	#IMPLIED
+	  name	CDATA	#REQUIRED
+>
+<!ELEMENT section (variable*)>
+<!ELEMENT variable EMPTY>
+<!ATTLIST variable
+	  id	ID	#IMPLIED
+	  name	CDATA	#REQUIRED
+	  value	CDATA	#REQUIRED
+>
+]>
+
+<config>
+
+ <!-- Kernel Configuration -->
+
+ <section id="kernel" name="Kernel">
+  <variable name="autoload" value="module.GameModule"/>
+ </section>
+
+ <!-- Server Configuration -->
+
+ <section name="ServerNetwork">
+  <variable name="port" value="1119"/>
+ </section>
+
+ <!-- GameState Configuration -->
+
+ <section name="GameState">
+  <variable name="max_players" value="32"/>
+ </section>
+
+ <!-- IRCProxy Configuration -->
+
+ <section name="IRCProxy">
+  <variable name="nick"    value="hurricaneboy"/>
+  <variable name="server"  value="irc.quakenet.org"/>
+  <variable name="port"    value="6667"/>
+  <variable name="channel" value="#gangup"/>
+ </section>
+
+ <!-- PlayerAttrib Configuration -->
+
+ <section name="PlayerAttrib">
+  <variable name="name"		value="Player"/>
+  <variable name="race"		value="Human"/>
+  <variable name="strength"	value="18"/>
+  <variable name="charisma"	value="3"/>
+  <variable name="intelligence" value="8"/>
+  <variable name="luck"		value="13"/>
+  <variable name="mana"		value="9"/>
+  <variable name="hitpoints"	value="19"/>
+ </section>
+
+ <!-- GUI Configuration -->
+
+ <section name="GUI">
+  <variable name="skinlf_enable" 	value="1"/>
+  <variable name="skinlf_themepack"	value="dat/themes/toxicthemepack.zip"/>
+ </section>
+
+ <!-- Logger information -->
+
+ <section name="Logger">
+  <variable name="logfile"	value="gangup.log"/>
+ </section>
+</config>

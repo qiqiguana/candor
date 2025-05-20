@@ -1,0 +1,44 @@
+<!ELEMENT jHandballMoves ( moveModel ) >
+<!ATTLIST jHandballMoves version NMTOKEN #REQUIRED >
+
+<!ELEMENT attacker EMPTY >
+<!ATTLIST attacker id NMTOKEN #REQUIRED >
+<!ATTLIST attacker startX NMTOKEN #REQUIRED >
+<!ATTLIST attacker startY NMTOKEN #REQUIRED >
+
+<!ELEMENT attackers ( attacker* ) >
+
+<!ELEMENT ballOwner EMPTY >
+<!ATTLIST ballOwner playerId NMTOKEN #REQUIRED >
+
+<!ELEMENT comment (#PCDATA) >
+
+<!ELEMENT defender EMPTY >
+<!ATTLIST defender id NMTOKEN #REQUIRED >
+<!ATTLIST defender startX NMTOKEN #REQUIRED >
+<!ATTLIST defender startY NMTOKEN #REQUIRED >
+
+<!ELEMENT defenders ( defender* ) >
+
+<!ELEMENT events ( move | pass )* >
+
+
+<!ELEMENT move EMPTY >
+<!ATTLIST move controllX NMTOKEN #REQUIRED >
+<!ATTLIST move controllY NMTOKEN #REQUIRED >
+<!ATTLIST move delay NMTOKEN #REQUIRED >
+<!ATTLIST move destX NMTOKEN #REQUIRED >
+<!ATTLIST move destY NMTOKEN #REQUIRED >
+<!ATTLIST move playerId NMTOKEN #REQUIRED >
+<!ATTLIST move sequence NMTOKEN #REQUIRED >
+
+<!ELEMENT moveModel ( defenders, attackers, events, ballOwner, comment ) >
+<!ATTLIST moveModel name NMTOKENS #REQUIRED >
+
+<!ELEMENT pass EMPTY >
+<!ATTLIST pass delay NMTOKEN #FIXED "0" >
+<!ATTLIST pass destX NMTOKEN #REQUIRED >
+<!ATTLIST pass destY NMTOKEN #REQUIRED >
+<!ATTLIST pass playerId NMTOKEN #REQUIRED >
+<!ATTLIST pass receiverId NMTOKEN #REQUIRED >
+<!ATTLIST pass sequence NMTOKEN #REQUIRED >

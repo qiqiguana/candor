@@ -1,0 +1,556 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<types>
+    <type id="ST">
+        <description>
+            string data
+        </description>
+        <parts>
+            <part reader="com.browsersoft.openhre.hl7.impl.parser.StringDataTypeReader"/>
+        </parts>
+    </type>
+    <type id="DT">
+        <description>
+            date ( Format: YYYY[MM[DD]])
+        </description>
+        <parts>
+            <part reader="com.browsersoft.openhre.hl7.impl.parser.StringDataTypeReader"/>
+        </parts>
+    </type>
+    <type id="NM">
+        <description>
+            numeric
+        </description>
+        <parts>
+            <part reader="com.browsersoft.openhre.hl7.impl.parser.NumericDataTypeReader"/>
+        </parts>
+    </type>
+    <type id="ID">
+        <description>
+            coded value for HL7-defined tables
+        </description>
+        <parts>
+            <part reader="com.browsersoft.openhre.hl7.impl.parser.StringDataTypeReader"/>
+        </parts>
+    </type>
+    <type id="IS">
+        <description>
+           coded value for userdefined tables
+        </description>
+        <parts>
+            <part reader="com.browsersoft.openhre.hl7.impl.parser.StringDataTypeReader"/>
+        </parts>
+    </type>
+    <type id="FT">
+        <description>
+          formatted text data
+        </description>
+        <parts>
+            <part reader="com.browsersoft.openhre.hl7.impl.parser.StringDataTypeReader"/>
+        </parts>
+    </type>
+    <type id="SI">
+        <description>
+          sequence ID
+        </description>
+        <parts>
+            <part reader="com.browsersoft.openhre.hl7.impl.parser.StringDataTypeReader"/>
+        </parts>
+    </type>
+    <type id="DTM">
+        <description>
+          date/time
+        </description>
+        <parts>
+            <part reader="com.browsersoft.openhre.hl7.impl.parser.StringDataTypeReader"/>
+        </parts>
+    </type>
+    <type id="TS">
+        <description>
+            time stamp - Format: YYYY[MM[DD[HHMM[SS[.S[S[S[S]]]]]]]][+/-ZZZZ]^degree of precision
+        </description>
+        <parts>
+            <part subtype="DTM" description="Time"/>
+            <part subtype="ID" description="Degree of Precision"/>
+        </parts>
+    </type>
+    <type id="TX">
+        <description>
+            text data
+        </description>
+        <parts>
+            <part reader="com.browsersoft.openhre.hl7.impl.parser.StringDataTypeReader"/>
+        </parts>
+    </type>
+    <type id="HD">
+        <description>
+          hierarchic designator
+        </description>
+        <parts>
+            <part subtype="IS" description="namespace ID"/>
+            <part subtype="ST" description="universal ID"/>
+            <part subtype="ID" description="universal ID type"/>
+        </parts>
+    </type>
+    <type id="MSG">
+        <description>
+          message type
+        </description>
+        <parts>
+            <part subtype="ID" description="Message Code"/>
+            <part subtype="ID" description="Trigger Event"/>
+            <part subtype="ID" description="Message Structure"/>
+        </parts>
+    </type>
+    <type id="MO">
+        <description>
+          money
+        </description>
+        <parts>
+            <part subtype="NM" description="quantity"/>
+            <part subtype="ID" description="denomination"/>
+        </parts>
+    </type>
+    <type id="CE">
+        <description>
+          coded element with formatted values
+        </description>
+        <parts>
+            <part subtype="ST" description="identifier"/>
+            <part subtype="ST" description="text" />
+            <part subtype="ID" description="name of coding system"/>
+            <part subtype="ST" description="alternate identifier"/>
+            <part subtype="ST" description="alternate text"/>
+            <part subtype="ID" description="name of alternate coding system"/>
+        </parts>
+    </type>
+    <type id="CK">
+        <description>
+          composite ID with check digit
+        </description>
+        <parts>
+            <part subtype="NM" description="ID number"/>
+            <part subtype="NM" description="check digit"/>
+            <part subtype="ID" description="code identifying the check digit scheme employed"/>
+            <part subtype="HD" description="assigning authority"/>
+        </parts>
+    </type>
+    <type id="CM" contentType="combination">
+        <description>
+          composite
+        </description>
+        <parts>
+        </parts>
+    </type>
+    <type id="CP">
+        <description>
+          composite price
+        </description>
+        <parts>
+            <part subtype="MO" description="price"/>
+            <part subtype="ID" description="price type"/>
+            <part subtype="NM" description="from value"/>
+            <part subtype="NM" description="to value"/>
+            <part subtype="CE" description="range units"/>
+            <part subtype="ID" description="range type"/>
+        </parts>
+    </type>
+    <type id="CQ">
+        <description>
+          composite quantity with units
+        </description>
+        <parts>
+            <part subtype="NM" description="quantity"/>
+            <part subtype="CE" description="units"/>
+        </parts>
+    </type>
+    <type id="CX">
+        <description>
+          extended composite ID with check digit
+        </description>
+        <parts>
+            <part subtype="ST" table="0203" description="ID"/>
+            <part subtype="ST" description="check digit"/>
+            <part subtype="ID" description="code identifying the check digit scheme employed"/>
+            <part subtype="HD" description="assigning authority"/>
+            <part subtype="ID" description="identifier type code"/>
+            <part subtype="HD" description="Assigning Facility"/>
+            <part subtype="DT" description="Effective Date"/>
+            <part subtype="DT" description="Expiration Date"/>
+            <part subtype="CWE" description="Assigning Jurisdiction"/>
+            <part subtype="CWE" description="Assigning Agency or Department"/>
+        </parts>
+    </type>
+    <type id="DLN">
+        <description>
+          drivers license number
+        </description>
+        <parts>
+            <part subtype="ST" description="license number"/>
+            <part subtype="IS" description="issuing state, province, country"/>
+            <part subtype="DT" description="expiration date"/>
+        </parts>
+    </type>
+    <type id="EI">
+        <description>
+          entity identifier
+        </description>
+        <parts>
+            <part subtype="ST" description="entity identifier"/>
+            <part subtype="IS" description="namespace ID"/>
+            <part subtype="ST" description="universal ID"/>
+            <part subtype="ID" description="universal ID type"/>
+        </parts>
+    </type>
+    <type id="FC">
+        <description>
+          financial class
+        </description>
+        <parts>
+            <part subtype="IS" description="financial class"/>
+            <part subtype="TS" description="effective date"/>
+        </parts>
+    </type>
+    <type id="JCC">
+        <description>
+          job code/class
+        </description>
+        <parts>
+            <part subtype="IS" description="job code"/>
+            <part subtype="IS" description="job class"/>
+            <part subtype="TX" description="Job Description Text"/>
+        </parts>
+    </type>
+    <type id="PL">
+        <description>
+          person location
+        </description>
+        <parts>
+            <part subtype="IS" description="point of care"/>
+            <part subtype="IS" description="room"/>
+            <part subtype="IS" description="bed"/>
+            <part subtype="HD" description="facility"/>
+            <part subtype="IS" description="location status"/>
+            <part subtype="IS" description="person location type"/>
+            <part subtype="IS" description="building"/>
+            <part subtype="IS" description="floor"/>
+            <part subtype="ST" description="location description"/>
+            <part subtype="EI" description="Comprehensive Location Identifier"/>
+            <part subtype="HD" description="Assigning Authority for Location"/>
+        </parts>
+    </type>
+    <type id="PN">
+        <description>
+          person name
+        </description>
+        <parts>
+            <part subtype="ST" description="family name"/>
+            <part subtype="ST" description="last name prefix"/>
+            <part subtype="ST" description="given name"/>
+            <part subtype="ST" description="middle initial or name"/>
+            <part subtype="ST" description="suffix (e.g., Jr. or III)"/>
+            <part subtype="ST" description="prefix (e.g., Dr.)"/>
+            <part subtype="IS" description="degree (e.g., MD)" table="0360"/>
+        </parts>
+    </type>
+    <type id="PT">
+        <description>
+          processing type
+        </description>
+        <parts>
+            <part subtype="ID" description="processing ID"/>
+            <part subtype="ID" description="processing mode"/>
+        </parts>
+    </type>
+    <type id="TQ">
+        <description>
+          timing quantity
+        </description>
+        <parts>
+            <part subtype="CQ" description="quantity"/>
+            <part subtype="RI" description="interval"/>
+            <part subtype="ST" description="duration"/>
+            <part subtype="TS" description="start date/time"/>
+            <part subtype="TS" description="end date/time"/>
+            <part subtype="ST" description="priority"/>
+            <part subtype="ST" description="condition"/>
+            <part subtype="TX" description="text"/>
+            <part subtype="ID" description="conjunction"/>
+            <part subtype="OSD" description="order sequencing"/>
+            <part subtype="CE" description="performance duration"/>
+            <part subtype="NM" description="total occurrences"/>
+        </parts>
+    </type>
+    <type id="VID">
+        <description>
+          version identifier
+        </description>
+        <parts>
+            <part subtype="ID" description="version ID" table="0104"/>
+            <part subtype="CE" description="internationalization code" table="0212"/>
+            <part subtype="CE" description="international version ID"/>
+        </parts>
+    </type>
+    <type id="XAD">
+        <description>
+          extended address
+        </description>
+        <parts>
+            <part subtype="SAD" description="street address"/>
+            <part subtype="ST" description="other designation"/>
+            <part subtype="ST" description="city"/>
+            <part subtype="ST" description="state or province"/>
+            <part subtype="ST" description="zip or postal code"/>
+            <part subtype="ID" description="country" table="0212"/>
+            <part subtype="ID" description="address type" table="0190"/>
+            <part subtype="ST" description="other geographic designation"/>
+            <part subtype="IS" description="county/parish code" table="0289"/>
+            <part subtype="IS" description="census tract" table="0288"/>
+            <part subtype="ID" description="address representation code" table="4000"/>
+            <part subtype="DR" description="Address Validity Range" />
+            <part subtype="TS" description="Effective Date" />
+            <part subtype="TS" description="Expiration Date" />
+        </parts>
+    </type>
+    <type id="XCN">
+        <description>
+          extended composite ID number and name for persons
+        </description>
+        <parts>
+            <part subtype="ST" description="ID number"/>
+            <part subtype="ST" description="family name"/>
+            <part subtype="ST" description="last name prefix"/>
+            <part subtype="ST" description="given name"/>
+            <part subtype="ST" description="middle initial or name"/>
+            <part subtype="ST" description="suffix (e.g., Jr. or III)"/>
+            <part subtype="ST" description="prefix (e.g., Dr.)"/>
+            <part subtype="IS" description="degree (e.g., MD)" table="0360"/>
+            <part subtype="IS" description="source table" table="0297"/>
+            <part subtype="HD" description="assigning authority"/>
+            <part subtype="ID" description="name type code" table="0200"/>
+            <part subtype="ST" description="identifier check digit"/>
+            <part subtype="ID" description="code identifying the check digit scheme employed"/>
+            <part subtype="IS" description="identifier type code" table="0203"/>
+            <part subtype="HD" description="assigning facility ID"/>
+            <part subtype="ID" description="name representation code" table="4000"/>
+        </parts>
+    </type>
+    <type id="XON">
+        <description>
+          extended composite name and identification number for organizations
+        </description>
+        <parts>
+            <part subtype="ST" description="organization name"/>
+            <part subtype="IS" description="organization name type code" table="0204"/>
+            <part subtype="NM" description="ID number"/>
+            <part subtype="NM" description="check digit"/>
+            <part subtype="ID" description="code identifying the check digit scheme employed"/>
+            <part subtype="HD" description="assigning authority"/>
+            <part subtype="IS" description="identifier type code" table="0203"/>
+            <part subtype="HD" description="assigning facility ID"/>
+            <part subtype="ID" description="name representation code" table="4000"/>
+            <part subtype="ST" description="Organization Identifier"/>
+        </parts>
+    </type>
+    <type id="XPN">
+        <description>
+          extended person name
+        </description>
+        <parts>
+            <part subtype="FN" description="family name"/>
+            <part subtype="ST" description="given name"/>
+            <part subtype="ST" description="Second and Further Given Names or Initials Thereof"/>
+            <part subtype="ST" description="suffix (e.g., Jr. or III)"/>
+            <part subtype="ST" description="prefix (e.g., Dr.)"/>
+            <part subtype="IS" description="degree (e.g., MD)" table="0360"/>
+            <part subtype="ID" description="name type code" table="0200"/>
+            <part subtype="ID" description="name representation code" table="4000"/>
+            <part subtype="CE" description="Name Context" />
+            <part subtype="DR" description="Name validity range" />
+            <part subtype="ID" description="Name Assembly Order" />
+            <part subtype="TS" description="Effective Date" />
+            <part subtype="TS" description="Expiration Date" />
+            <part subtype="ST" description="Professional Suffix" />
+        </parts>
+    </type>
+    <type id="XTN">
+        <description>
+          extended telecommunication number
+        </description>
+        <parts>
+            <part subtype="ST" description="Telephone Number"/>
+            <part subtype="ID" description="telecommunication use code" table="0201"/>
+            <part subtype="ID" description="telecommunication equipment type" table="0202"/>
+            <part subtype="ST" description="email address"/>
+            <part subtype="NM" description="country code"/>
+            <part subtype="NM" description="area/city code"/>
+            <part subtype="NM" description="phone number"/>
+            <part subtype="NM" description="extension"/>
+            <part subtype="ST" description="any text"/>
+            <part subtype="ST" description="Extension Prefix"/>
+            <part subtype="ST" description="Speed Dial Code"/>
+            <part subtype="ST" description="Unformatted Telephone number"/>
+        </parts>
+    </type>
+     <type id="CWE">
+        <description>
+          coded with exceptions
+        </description>
+        <parts>
+            <part subtype="ST" description="Identifier"/>
+            <part subtype="ST" description="Text"/>
+            <part subtype="ID" description="Name of Coding System" table="0396"/>
+            <part subtype="ST" description="Alternate Identifier"/>
+            <part subtype="ST" description="Alternate Text"/>
+            <part subtype="ID" description="Name of Alternate Coding System" table="0396"/>
+            <part subtype="ST" description="Coding System Version ID"/>
+            <part subtype="ST" description="Alternate Coding System Version ID"/>
+            <part subtype="ST" description="Original Text"/>
+        </parts>
+    </type>
+    <type id="DLD">
+        <description>
+          discharge to location and date
+        </description>
+        <parts>
+            <part subtype="IS" description="Discharge Location"/>
+            <part subtype="TS" description="Effective Date"/>
+        </parts>
+    </type>
+    <type id="EIP">
+        <description>
+          entity identifier pair
+        </description>
+        <parts>
+            <part subtype="EI" description="Placer Assigned Identifier"/>
+            <part subtype="EI" description="Filler Assigned Identifier"/>
+        </parts>
+    </type>
+    <type id="SPS">
+        <description>
+          specimen source
+        </description>
+        <parts>
+            <part subtype="CWE" description="Specimen Source Name or Code"/>
+            <part subtype="CWE" description="Additives"/>
+            <part subtype="TX" description="Specimen Collection Method"/>
+            <part subtype="CWE" description="Body Site"/>
+            <part subtype="CWE" description="Site Modifier"/>
+            <part subtype="CWE" description="Collection Method Modifier Code"/>
+            <part subtype="CWE" description="Specimen Role"/>
+        </parts>
+    </type>
+    <type id="MOC">
+        <description>
+          money and charge code
+        </description>
+        <parts>
+            <part subtype="MO" description="Monetary Amount"/>
+            <part subtype="CE" description="Charge Code"/>
+        </parts>
+    </type>
+    <type id="PRL">
+        <description>
+          parent result link
+        </description>
+        <parts>
+            <part subtype="CE" description="Parent Observation Identifier"/>
+            <part subtype="ST" description="Parent Observation Subidentifier"/>
+            <part subtype="TX" description="Parent Observation Value Descriptor"/>
+        </parts>
+    </type>
+    <type id="NDL">
+        <description>
+          name with date and location
+        </description>
+        <parts>
+            <part subtype="CNN" description="Name"/>
+            <part subtype="TS" description="Start Date/time"/>
+            <part subtype="TS" description="End Date/time"/>
+            <part subtype="IS" description="Point of Care"/>
+            <part subtype="IS" description="Room"/>
+            <part subtype="IS" description="Bed"/>
+            <part subtype="HD" description="Facility"/>
+            <part subtype="IS" description="Location Status"/>
+            <part subtype="IS" description="Patient Location Type"/>
+            <part subtype="IS" description="Building"/>
+            <part subtype="IS" description="Floor"/>
+        </parts>
+    </type>
+    <type id="CNN">
+        <description>
+          composite ID number and name simplified
+        </description>
+        <parts>
+            <part subtype="ST" description="ID Number"/>
+            <part subtype="ST" description="Family Name"/>
+            <part subtype="ST" description="Given Name"/>
+            <part subtype="ST" description="Second and Further Given Names or Initials Thereof"/>
+            <part subtype="ST" description="Suffix (e.g., JR or III)"/>
+            <part subtype="ST" description="Prefix (e.g., DR)"/>
+            <part subtype="IS" description="Degree (e.g., MD"/>
+            <part subtype="IS" description="Source Table"/>
+            <part subtype="IS" description="Assigning Authority - Namespace ID"/>
+            <part subtype="ST" description="Assigning Authority - UniversalID"/>
+            <part subtype="ID" description="Assigning Authority - Universal ID Type"/>
+        </parts>
+    </type>
+    <type id="RI">
+        <description>
+          repeat interval
+        </description>
+        <parts>
+            <part subtype="IS" description="Repeat Pattern"/>
+            <part subtype="ST" description="Explicit Time Interval"/>
+        </parts>
+    </type>
+    <type id="OSD">
+        <description>
+          order sequence definition
+        </description>
+        <parts>
+            <part subtype="ID" description="Sequence/Results Flag"/>
+            <part subtype="ST" description="Placer Order Number: Entity Identifier"/>
+            <part subtype="IS" description="Placer Order Number: Namespace ID"/>
+            <part subtype="ST" description="Filler Order Number: Entity Identifier"/>
+            <part subtype="IS" description="Filler Order Number: Namespace ID"/>
+            <part subtype="ST" description="Sequence Condition Value"/>
+            <part subtype="NM" description="Maximum Number of Repeats"/>
+            <part subtype="ST" description="Placer Order Number: Universal ID"/>
+            <part subtype="ID" description="Placer Order Number: Universal ID Type"/>
+            <part subtype="ST" description="Filler Order Number: Universal ID"/>
+            <part subtype="ID" description="Filler Order Number: Universal ID Type"/>
+        </parts>
+    </type>
+    <type id="SAD">
+        <description>
+          street address
+        </description>
+        <parts>
+            <part subtype="ST" description="Street or Mailing Address"/>
+            <part subtype="ST" description="Street Name"/>
+            <part subtype="ST" description="Dwelling Number"/>
+        </parts>
+    </type>
+    <type id="DR">
+        <description>
+          date/time range
+        </description>
+        <parts>
+            <part subtype="TS" description="Range Start Date/Time"/>
+            <part subtype="TS" description="Range End Date/Time"/>
+        </parts>
+    </type>
+    <type id="FN">
+        <description>
+          family name
+        </description>
+        <parts>
+            <part subtype="ST" description="Surname"/>
+            <part subtype="ST" description="Own Surname Prefix"/>
+            <part subtype="ST" description="Own Surname"/>
+            <part subtype="ST" description="Surname Prefix From Partner/Spouse"/>
+            <part subtype="ST" description="Surname From Partner/Spouse"/>
+        </parts>
+    </type>
+</types>

@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://jockmacmad.me.uk/jstate"
+ targetNamespace="http://jockmacmad.me.uk/jstate" version="1.0">
+
+ <xsd:complexType name="java_import">
+  <xsd:annotation>
+   <xsd:documentation> Allows the user to specify Java classes to import in the generated Java
+    Interface and class files. </xsd:documentation>
+  </xsd:annotation>
+  <xsd:attribute name="name" type="xsd:string" use="required"/>
+ </xsd:complexType>
+
+ <xsd:complexType name="constructor">
+  <xsd:annotation>
+   <xsd:documentation> Allows the user to specify the Java constructors in the gereated JAVA class
+    files. </xsd:documentation>
+  </xsd:annotation>
+  <xsd:sequence>
+   <xsd:element name="body" type="xsd:string"/>
+  </xsd:sequence>
+ </xsd:complexType>
+
+ <xsd:complexType name="state">
+  <xsd:sequence>
+   <xsd:element name="comment" type="xsd:string"/>
+   <xsd:element name="method" type="method" minOccurs="0" maxOccurs="unbounded"/>
+   <xsd:element name="property" type="property" minOccurs="0" maxOccurs="1"/>
+  </xsd:sequence>
+  <xsd:attribute name="name" type="xsd:string" use="required"/>
+ </xsd:complexType>
+
+ <xsd:complexType name="message_content">
+  <xsd:attribute name="name" type="xsd:string" use="required"/>
+  <xsd:attribute name="class" type="xsd:string" use="required"/>
+  <xsd:attribute name="type" type="xsd:string" use="required"/>
+ </xsd:complexType>
+
+ <xsd:complexType name="event">
+  <xsd:sequence>
+   <xsd:element name="comment" type="xsd:string"/>
+   <xsd:element name="message_content" type="message_content" minOccurs="0"/>
+  </xsd:sequence>
+  <xsd:attribute name="name" type="xsd:string" use="required"/>
+ </xsd:complexType>
+
+ <xsd:complexType name="predicate">
+  <xsd:sequence minOccurs="0" maxOccurs="1">
+   <xsd:element name="comment" type="xsd:string"/>
+  </xsd:sequence>
+  <xsd:attribute name="class" type="xsd:string" use="required"/>
+  <xsd:attribute name="value" type="xsd:string" use="required"/>
+  <xsd:attribute name="type" type="xsd:string" use="required"/>
+ </xsd:complexType>
+
+ <xsd:complexType name="transition">
+  <xsd:sequence>
+   <xsd:element name="predicate" type="predicate" minOccurs="0"/>
+   <xsd:element name="comment" type="xsd:string" minOccurs="0"/>
+  </xsd:sequence>
+  <xsd:attribute name="name" type="xsd:string" use="required"/>
+  <xsd:attribute name="trigger" type="xsd:string" use="required"/>
+  <xsd:attribute name="fromState" type="xsd:string" use="required"/>
+  <xsd:attribute name="toState" type="xsd:string" use="required"/>
+ </xsd:complexType>
+
+ <xsd:complexType name="trigger">
+  <xsd:attribute name="event" type="xsd:string" use="required"/>
+  <xsd:attribute name="on" type="xsd:string" use="required"/>
+ </xsd:complexType>
+
+ <xsd:complexType name="property">
+  <xsd:sequence>
+   <xsd:element name="comment" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+   <xsd:element name="trigger" type="trigger" minOccurs="0" maxOccurs="unbounded"/>
+  </xsd:sequence>
+  <xsd:attribute name="id" type="xsd:ID" use="required"/>
+  <xsd:attribute name="type" type="xsd:string" use="required"/>
+  <xsd:attribute name="getter" type="xsd:string"/>
+  <xsd:attribute name="setter" type="xsd:string"/>
+  <xsd:attribute name="defaultValue" type="xsd:string" use="required"/>
+  <xsd:attribute name="min" type="xsd:string"/>
+  <xsd:attribute name="max" type="xsd:string"/>
+  <xsd:attribute name="get" type="xsd:string"/>
+  <xsd:attribute name="set" type="xsd:string"/>
+  <xsd:attribute name="validate" type="xsd:string"/>
+  <xsd:attribute name="onInterface" type="xsd:string"/>
+  <xsd:attribute name="viaInterface" type="xsd:string"/>
+ </xsd:complexType>
+
+ <xsd:complexType name="parameter">
+  <xsd:sequence>
+   <xsd:element name="comment" type="xsd:string"/>
+  </xsd:sequence>
+  <xsd:attribute name="name" type="xsd:string" use="required"/>
+  <xsd:attribute name="type" type="xsd:string" use="required"/>
+  <xsd:attribute name="modifier" type="xsd:string" use="required"/>
+ </xsd:complexType>
+
+ <xsd:complexType name="method">
+  <xsd:sequence>
+   <xsd:sequence minOccurs="0" maxOccurs="1">
+    <xsd:element name="body" type="xsd:string"/>
+   </xsd:sequence>
+   <xsd:sequence minOccurs="0" maxOccurs="1">
+    <xsd:element name="comment" type="xsd:string"/>
+   </xsd:sequence>
+   <xsd:sequence minOccurs="0" maxOccurs="1">
+    <xsd:element name="parameter" type="parameter"/>
+   </xsd:sequence>
+  </xsd:sequence>
+  <xsd:attribute name="name" type="xsd:string" use="required"/>
+  <xsd:attribute name="scope" type="xsd:string" default=""/>
+  <xsd:attribute name="return" type="xsd:string" default=""/>
+  <xsd:attribute name="avail" type="xsd:string" default=""/>
+ </xsd:complexType>
+
+ <xsd:complexType name="interface">
+  <xsd:sequence>
+   <xsd:element name="property" type="property"/>
+   <xsd:sequence maxOccurs="unbounded">
+    <xsd:element name="method" type="method"/>
+   </xsd:sequence>
+  </xsd:sequence>
+  <xsd:attribute name="name" type="xsd:string" use="required"/>
+  <xsd:attribute name="package" type="xsd:string" use="required"/>
+ </xsd:complexType>
+
+ <xsd:complexType name="statemachine">
+  <xsd:sequence>
+   <xsd:element name="java_import" type="java_import" minOccurs="0" maxOccurs="unbounded"/>
+   <xsd:element name="constructor" type="constructor" minOccurs="0" maxOccurs="unbounded"/>
+   <xsd:element name="method" type="method" minOccurs="0" maxOccurs="unbounded"/>
+   <xsd:element name="state" type="state" minOccurs="2" maxOccurs="unbounded"/>
+   <xsd:element name="event" type="event" maxOccurs="unbounded"/>
+   <xsd:element name="transition" type="transition" maxOccurs="unbounded"/>
+   <xsd:element name="interface" type="interface"/>
+  </xsd:sequence>
+  <xsd:attribute name="class" type="xsd:string" use="required"/>
+  <xsd:attribute name="package" type="xsd:string" use="required"/>
+ </xsd:complexType>
+
+ <xsd:complexType name="jstate">
+  <xsd:sequence>
+   <xsd:element name="statemachine" type="statemachine"/>
+  </xsd:sequence>
+  <!--
+   <xsd:attribute name="xmlns:xsi" type="xsd:string" use="required"/>
+   <xsd:attribute name="xsi:noNamespaceSchemaLocation" type="xsd:string" use="required"/>
+  -->
+  <xsd:attribute name="useApacheCommonsLang" type="xsd:boolean" default="false"/>
+ </xsd:complexType>
+
+ <xsd:element name="jstate" type="jstate"/>
+</xsd:schema>

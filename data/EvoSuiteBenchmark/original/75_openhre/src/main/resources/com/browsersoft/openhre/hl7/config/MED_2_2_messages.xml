@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+   Warning:
+   I haven't definitions of segments DSC, CTI, QAK, IN1, IN2, IN3
+   From this reason it's possible that some kind of messages don't be accepted by parser.
+-->
+
+<messages>
+    <message id="ADT">
+		<description>
+			ADT/ACK - ADMIT/VISIT NOTIFICATION (EVENT A01, et al)
+		</description>
+		<group>
+			<segment id="MSH"/>
+			<segment id="EVN"/>
+            <segment id="PID"/>
+            <segment id="ROL" repeatable="Y" required="N"/>
+            <segment id="NK1" repeatable="Y" required="N"/>
+            <segment id="PV1"/>
+            <segment id="PV2" required="N"/>
+            <segment id="ROL" repeatable="Y" required="N"/>
+            <segment id="DB1" repeatable="Y" required="N"/>
+            <segment id="OBX" repeatable="Y" required="N"/>
+            <segment id="AL1" repeatable="Y" required="N"/>
+            <segment id="DG1" repeatable="Y" required="N"/>
+            
+            <!-- don@browsersoft.com added 11/7/2010 for novo -->
+            <!-- not sure about the order, see commented out group below -->
+            <segment id="GT1" repeatable="Y"  required="N"/>          
+            <segment id="IN1" repeatable="Y"  required="N"/>
+            <segment id="UB2" required="N"/>
+
+            <segment id="DRG" required="N"/>
+            <group repeatable="Y" required="N">
+                <segment id="PR1" required="N"/>
+                <segment id="ROL" repeatable="Y" required="N"/>
+            </group>
+            <!--
+            <group repeatable="Y" required="N">
+                <segment id="IN1"/>
+                <segment id="IN2" required="N"/>
+                <segment id="IN3" required="N" repeatable="Y"/>
+                <segment id="ROL" repeatable="Y" required="N"/>
+            </group>
+            <segment id="ACC" required="N"/>
+            <segment id="UB1" required="N"/>
+            <segment id="UB2" required="N"/>
+            <segment id="PDA" required="N"/>
+              -->
+        </group>
+    </message>
+
+
+    <message id="VXQ">
+		<description>
+			Query for Vaccination Record
+		</description>
+		<group>
+			<segment id="MSH"/>
+			<segment id="QRD"/>
+			<segment id="QRF" required="N"/>
+		</group>
+	</message>
+	<message id="VXX">
+		<description>
+			Response to Vaccination Query Returning Multiple PID Matches
+		</description>
+		<group>
+			<segment id="MSH"/>
+			<segment id="MSA"/>
+			<segment id="QRD"/>
+			<segment id="QRF" required="N"/>
+			<group repeatable="Y">
+				<segment id="PID"/>
+				<segment id="NK1" repeatable="Y" required="N"/>
+			</group>
+		</group>
+	</message>
+	<message id="VXR">
+		<description>
+			Response to Vaccination Query Returning the Vaccination Record
+		</description>
+		<group>
+			<segment id="MSH"/>
+			<segment id="MSA"/>
+			<segment id="QRD"/>
+			<segment id="QRF" required="N"/>
+			<segment id="PID"/>
+			<segment id="PD1" required="N"/>
+			<segment id="NK1" repeatable="Y" required="N"/>
+			<group required="N">
+				<segment id="PV1"/>
+				<segment id="PV2" required="N"/>
+			</group>
+			<!--
+			<group required="N" repeatable="Y">
+				<segment id="IN1"/>
+				<segment id="IN2" required="N"/>
+				<segment id="IN3" required="N"/>
+			</group>
+			-->
+			<group required="N" repeatable="Y">
+				<segment id="ORC" required="N"/>
+				<segment id="RXA"/>
+				<segment id="RXR" required="N"/>
+				<group required="N" repeatable="Y">
+					<segment id="OBX"/>
+					<segment id="NTE" repeatable="Y" required="N"/>
+				</group>
+			</group>
+		</group>
+	</message>
+	<message id="VXU">
+		<description>
+			Unsolicited Vaccination Record Update
+		</description>
+		<group>
+			<segment id="MSH"/>
+			<segment id="PID"/>
+			<segment id="PD1" required="N"/>
+			<segment id="NK1" repeatable="Y" required="N"/>
+			<group required="N">
+				<segment id="PV1"/>
+				<segment id="PV2" required="N"/>
+			</group>
+			<!--
+			<group required="N" repeatable="Y">
+				<segment id="IN1"/>
+				<segment id="IN2" required="N"/>
+				<segment id="IN3" required="N"/>
+			</group>
+			-->
+			<group required="N" repeatable="Y">
+				<segment id="ORC" required="N"/>
+				<segment id="RXA"/>
+				<segment id="RXR" required="N"/>
+				<group required="N" repeatable="Y">
+					<segment id="OBX"/>
+					<segment id="NTE" repeatable="Y" required="N"/>
+				</group>
+			</group>
+		</group>
+	</message>
+	<message id="ORU">
+		<description>
+			Unsolicited Transmission of an Observation
+		</description>
+		<group>
+			<segment id="MSH"/>
+			<group repeatable="Y">
+				<group required="N">
+					<segment id="PID"/>
+					<segment id="PD1" required="N"/>
+					<segment id="NK1" repeatable="Y" required="N"/>
+					<segment id="NTE" repeatable="Y" required="N"/>
+					<group required="N">
+						<segment id="PV1"/>
+						<segment id="PV2" required="N"/>
+					</group>
+				</group>
+				<group repeatable="Y">
+					<segment id="ORC" required="N"/>
+					<segment id="OBR"/>
+					<segment id="NTE" repeatable="Y" required="N"/>
+					<group repeatable="Y">
+						<segment id="OBX" required="N"/>
+						<segment id="NTE" repeatable="Y" required="N"/>
+					</group>
+					<!--
+					<segment id="CTI" repeatable="Y" required="N"/>
+					-->
+				</group>
+
+			</group>
+		<!--
+		<segment id="DSC" required="N" />
+		-->
+		</group>
+	</message>
+	<message id="ACK">
+		<description>
+			general default acknowledgment message
+		</description>
+		<group>
+			<segment id="MSH"/>
+			<segment id="MSA"/>
+			<segment id="ERR" required="N"/>
+		</group>
+	</message>
+	<message id="QCK">
+		<description>
+			query general default acknowledgment
+		</description>
+		<group>
+			<segment id="MSH"/>
+			<segment id="MSA"/>
+			<segment id="ERR" required="N"/>
+			<!-- I haven't definition of segments IN1 - IN3.
+			<segment id="QAK" required="N"/>
+			-->
+		</group>
+	</message>
+</messages>

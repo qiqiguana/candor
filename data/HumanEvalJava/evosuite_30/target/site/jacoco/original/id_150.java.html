@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_150.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HumanEvalJava</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_150.java</span></div><h1>id_150.java</h1><pre class="source lang-java linenums">package original;
+
+<span class="fc" id="L3">class XOrY {</span>
+    /**
+     * A simple program which should return the value of x if n is
+     * a prime number and should return the value of y otherwise.
+     *
+     * Examples:
+     * for xOrY(7, 34, 12) == 34
+     * for xOrY(15, 8, 5) == 5
+     *
+     *
+     * &gt; xOrY(7, 34, 12)
+     * 34
+     * &gt; xOrY(15, 8, 5)
+     * 5
+     * &gt; xOrY(3, 33, 5212)
+     * 33
+     * &gt; xOrY(1259, 3, 52)
+     * 3
+     * &gt; xOrY(7919, -1, 12)
+     * -1
+     * &gt; xOrY(3609, 1245, 583)
+     * 583
+     * &gt; xOrY(91, 56, 129)
+     * 129
+     * &gt; xOrY(6, 34, 1234)
+     * 1234
+     * &gt; xOrY(1, 2, 0)
+     * 0
+     * &gt; xOrY(2, 2, 0)
+     * 2
+     */
+    public static int xOrY(int n, int x, int y) {
+<span class="fc bfc" id="L35" title="All 2 branches covered.">        if (n == 1) {</span>
+<span class="fc" id="L36">            return y;</span>
+        }
+<span class="fc bfc" id="L38" title="All 2 branches covered.">        for (int i = 2; i &lt; n; i++) {</span>
+<span class="fc bfc" id="L39" title="All 2 branches covered.">            if (n % i == 0) {</span>
+<span class="fc" id="L40">                return y;</span>
+            }
+        }
+<span class="fc" id="L43">        return x;</span>
+    }
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

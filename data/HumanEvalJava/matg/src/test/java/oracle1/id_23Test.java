@@ -1,0 +1,42 @@
+package oracle1;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of Strlen.
+*/
+class StrlenTest {
+    @Test
+    void test_strlen_of_empty_string_returns_zero() {
+        assertEquals(0, Strlen.strlen(""));
+    }
+    
+    @Test
+     void testNothing(){
+         Strlen s = new Strlen();
+         }
+    @Test
+    public void testEmptyString() {
+        String input = "";
+        int expected = 0;
+        assertEquals(expected, Strlen.strlen(input));
+    }
+    @Test
+    public void testSingleCharacterString() {
+        String input = "x";
+        int expected = 1;
+        assertEquals(expected, Strlen.strlen(input));
+    }
+    @Test
+    public void testMultiCharacterString() {
+        String input = "asdasnakj";
+        int expected = 9;
+        assertEquals(expected, Strlen.strlen(input));
+    }
+    @Test
+    public void testNullInput() {
+        String input = null;
+        assertThrows(NullPointerException.class, () -> Strlen.strlen(input));
+    }
+                                  
+}

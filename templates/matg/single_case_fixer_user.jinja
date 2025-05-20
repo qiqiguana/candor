@@ -1,0 +1,38 @@
+# Unit Test Generator for Java using JUnit5
+## Task
+Generate additional unit tests for the given source code. 
+ 
+You are also given a test plan, guiding the process of test
+ 
+
+## Source File
+```Java
+{{ source_code }}
+```
+
+## Failed  Test. You have generate the following test case that has failed. A senior tester has pointed out the problem and potential fixes. FIx the test case accordingly. 
+#### Full Test Code
+{{feedback.test_case_code}}
+#### Error Information
+{{feedback.error_info}}
+###  Error Type
+{{feedback.error_type}}
+### Potential Fix
+{{feedback.potential_fix}}
+
+1. Fix the failed test case according to the potential fix and produce new correct test case. 
+2. Test code must assert one concept per test case.
+3. Test code must be full complete function in Java using JUnit5.
+4. Focus on testing a single behavior or outcome per test case.
+5. Include only the test function, not boilerplate code
+6. Specify new imports if needed. 
+7. Double check the test code for correctness
+8. Double check all the necessary imports are included
+9. Avoid duplicate test method definition. Append an increasing id number to the method name to avoid duplicate if necessary.
+10. Be extra careful with the data types. Use the same data types the requirement of the input and output. For example, use java.util.List<java.lang.Object> if the input data type is java.util.List<java.lang.Object>
+11. Test case must follow the conventions of JUnit5, starting with @Test, include only one assertion and add necessary imports..
+
+
+## Generate test case code following the Output Format. Output only valid JSON that conforms to the schema. Do not include explanations, markdown formatting (like ```), or any other content.
+## Generate only JSON not anything else.
+{{format_instructions}}

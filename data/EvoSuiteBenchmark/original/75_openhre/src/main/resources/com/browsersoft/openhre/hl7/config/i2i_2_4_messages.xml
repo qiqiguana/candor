@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+   Warning:                                   ,,..//
+   I haven't definitions of segments DSC, CTI, QAK, IN1, IN2, IN3
+   From this reason it's possible that some kind of messages don't be accepted by parser.
+-->
+
+<messages>
+	<message id="ORU_R01">
+		<description>
+			Lab Result Message
+		</description>
+		<group>
+			<segment id="MSH"/>
+			<segment id="PID"/>
+            <group repeatable="Y">
+                <segment id="ORC" required="N"/>
+                <segment id="OBR.I2I"/>
+                <group repeatable="Y">
+                    <segment id="OBX" required="N"/>
+                    <segment id="NTE" repeatable="Y" required="N"/>
+                </group>
+            </group>
+        </group>
+	</message>
+	
+    <message id="MFN_Z01">
+		<description>
+			Lab Product Message
+		</description>
+		<group>
+			<segment id="MSH"/>
+			<segment id="Z01" repeatable="Y" required="N"/>
+		</group>
+	</message>
+
+    <message id="MFN_Z02">
+		<description>
+	        Lab Sub-Product Message
+		</description>
+		<group>
+			<segment id="MSH"/>
+			<segment id="Z02" repeatable="Y" required="N"/>
+		</group>
+	</message>
+
+    <message id="MFN_Z03">
+		<description>
+	        Lab Test Segment
+		</description>
+		<group>
+			<segment id="MSH"/>
+			<segment id="Z03" repeatable="Y" required="N"/>
+		</group>
+	</message>
+
+    <message id="MFN_Z04">
+		<description>
+	        Lab Product Test Message
+		</description>
+		<group>
+			<segment id="MSH"/>
+			<segment id="Z04" repeatable="Y" required="N"/>
+		</group>
+	</message>
+    
+</messages>

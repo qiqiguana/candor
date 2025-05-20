@@ -1,0 +1,112 @@
+## Ensure the package name is all in lowercase as
+##   per the Java spec
+package ${StateMachine.Jstate.Statemachine.Package.toLowerCase()};
+
+import uk.me.jockmacmad.jstate.state.Event;
+import uk.me.jockmacmad.jstate.state.InvalidMethodInStateException;
+import uk.me.jockmacmad.jstate.state.StateMachine;
+/**
+ * The Java class that contains a StateMachine.
+ * This implements the interface that defines the
+ * operations on the StateMachine and delegates the
+ * calls to the current active State.  
+ * @author StateMachine2Java
+ */
+## Ensure we have the first character of our class name and
+## interface name in uppercase as per the Java standard
+#set( $classNameVar = "I${StateMachine.Jstate.Statemachine.Class1.substring(0,1).toUpperCase()}" +  "${StateMachine.Jstate.Statemachine.Class1.substring(1)}" )
+
+public final class ${StateMachine.Jstate.Statemachine.Class1}
+extends java.util.Observable 
+implements $classNameVar {
+	#foreach( $constructor in ${StateMachine.Jstate.Statemachine.ConstructorArray} )
+    /**
+     * Class constructor.
+     * @param pStateMachine the StateMachine to embed
+     * in this class.
+     */
+    public ${StateMachine.Jstate.Statemachine.Class1}
+    	(final StateMachine pStateMachine) {
+        super();
+        // We need to build the state machine for this class
+        mPhase = pStateMachine;
+        // We need to set the state machine as an observer
+        // This is so we receive a notification if it changes
+        // in some way that might effect it's state
+        this.addObserver( mPhase );
+        // User code start
+        #if(${constructor.Body})
+        // User data defined in StateMachine XML
+        ${constructor.Body}
+        #end
+		// User code end
+    }
+    #end
+    #foreach( $method in ${StateMachine.Jstate.Statemachine.Interface.MethodArray} )
+    	/**
+    	* ${method.Comment}.
+    	* <p>
+    	* If this method is not available in
+    	*   the current state and is invoked it
+    	*   will throw a InvalidMethodInStateException
+    	* @throws InvalidMethodInStateException the exception
+    	*/
+    	## Ensure the 1st letter of the operation is
+    	##   lowercase as per the Java spec
+#set( $methodNameVar = "${method.Name.substring(0,1).toLowerCase()}" +  "${method.Name.substring(1)}" )    	
+    	$method.Scope $method.Return ${methodNameVar}()
+    	throws InvalidMethodInStateException {
+    	#if( $method.body )
+	    	$method.body
+    	#end
+    	}
+    #end
+    
+    public boolean equals(uk.me.jockmacmad.jstate.state.IState pIState) {
+        boolean rc = false;
+        if ( (pIState != null) && (pIState instanceof ${StateMachine.Jstate.Statemachine.Class1}  ) ) {
+            rc = true;
+        }
+        return rc;
+    }
+    /**
+     * Insert the method's description here.
+     * Creation date: (19/02/01 4:31:49 PM)
+     * @return java.lang.String
+     */
+    public java.lang.String getName() {
+        return NAME;
+    }
+    /**
+     * Insert the method's description here.
+     * Creation date: (26/02/01 10:52:03 AM)
+     * @return java.lang.Object
+     */
+    public java.lang.Object toObject() {
+        return (java.lang.Object)this;
+    } 
+    // Delay in seconds to trigger state change
+    public int getTimeSignal() {
+        return mTimeSignal;
+    }
+    // Delay in seconds to trigger state change
+    public void setTimeSignal(int newValue) {
+        mTimeSignal = newValue;
+
+        setChanged();
+        java.util.Vector params = new java.util.Vector();
+        params.add(mTimeSignal);
+        notifyObservers(new uk.me.jockmacmad.jstate.state.Event("ChangeColourEvent", params, this));}
+    // Delay in seconds to trigger state change
+    // max variable value '3000' defined in StateMachine model file
+    private int mTimeSignal;
+    /**
+     * The embedded StateMachine.
+    */
+    private StateMachine mPhase;
+    /**
+     * The name of this class.
+    */
+    private static final java.lang.String NAME = 
+    	"${StateMachine.Jstate.Statemachine.Class1}";
+}

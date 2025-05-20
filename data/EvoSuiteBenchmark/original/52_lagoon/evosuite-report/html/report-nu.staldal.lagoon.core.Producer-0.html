@@ -1,0 +1,691 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
+<html>
+<head>
+<title>
+nu.staldal.lagoon.core.Producer
+</title>
+<link href="files/prettify.css" type="text/css" rel="stylesheet" />
+<link href="files/style.css" rel="stylesheet" type="text/css" media="screen"/>
+<script type="text/javascript" src="files/prettify.js"></script>
+<script type="text/javascript" src="files/jquery.js"></script>
+<script type="text/javascript" src="files/foldButton.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('H2#tests').foldButton();
+    $('H2#source').foldButton();
+    $('H2#parameters').foldButton();
+  });</script>
+<link href="files/foldButton.css" rel="stylesheet" type="text/css">
+</head>
+<body onload="prettyPrint()">
+<div id="wrapper">
+<img src="files/evosuite.png" height="40"/>
+<br><br><h2 class=title>Summary</h2>
+<ul><li>Target class: nu.staldal.lagoon.core.Producer: 88.46%</ul><ul>
+<li>62868 fitness evaluations, 1259 generations, 176803 statements, 37247 tests.
+<li>Time: 0:05:01(Search: 0:05:01, minimization: 0:00:00)
+<li>Coverage: 1/4 branches, 23/23 methods, 23/26 total goals
+<li>Mutation score: 14%
+</ul>
+<div id="page"><div id="page-bgtop"><div id="page-bgbtm"><div id="content"><div id="post"><h2 class=title id=tests>Test suite</h2>
+<div class=tests>
+<h3>Test case 1</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>LSSITransformer lSSITransformer0 = new LSSITransformer();
+<span class="nocode"><a name="2">  2: </a></span>lSSITransformer0.getEntryName();
+<span class="nocode"><a name="3">  3: </a></span>assertEquals(0, lSSITransformer0.getPosition());
+</pre>
+<h3>Test case 2</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>FileRead fileRead0 = new FileRead();
+<span class="nocode"><a name="2">  2: </a></span>fileRead0.doBeforeBuild();
+<span class="nocode"><a name="3">  3: </a></span>assertEquals(0, fileRead0.getPosition());
+</pre>
+<h3>Test case 3</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>DirSource dirSource0 = new DirSource();
+<span class="nocode"><a name="2">  2: </a></span>dirSource0.setSourceManager((SourceManagerProvider) null);
+<span class="nocode"><a name="3">  3: </a></span>assertEquals(0, dirSource0.getPosition());
+</pre>
+<h3>Test case 4</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>XMLParse xMLParse0 = new XMLParse();
+<span class="nocode"><a name="2">  2: </a></span>xMLParse0.getParam(&quot;_execute&quot;);
+<span class="nocode"><a name="3">  3: </a></span>assertEquals(0, xMLParse0.getPosition());
+</pre>
+<h3>Test case 5</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>LSSITransformer lSSITransformer0 = new LSSITransformer();
+<span class="nocode"><a name="2">  2: </a></span>// Undeclared exception!
+<span class="nocode"><a name="3">  3: </a></span>try {
+<span class="nocode"><a name="4">  4: </a></span>  lSSITransformer0.getObjectFromRepository((String) null);
+<span class="nocode"><a name="5">  5: </a></span>  fail(&quot;Expecting exception: NullPointerException&quot;);
+<span class="nocode"><a name="6">  6: </a></span>} catch(NullPointerException e) {
+<span class="nocode"><a name="7">  7: </a></span>}
+</pre>
+<h3>Test case 6</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>FileRead fileRead0 = new FileRead();
+<span class="nocode"><a name="2">  2: </a></span>fileRead0.doDestroy();
+<span class="nocode"><a name="3">  3: </a></span>assertEquals(0, fileRead0.getPosition());
+</pre>
+<h3>Test case 7</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>DirSource dirSource0 = new DirSource();
+<span class="nocode"><a name="2">  2: </a></span>dirSource0.doAfterBuild();
+<span class="nocode"><a name="3">  3: </a></span>assertEquals(0, dirSource0.getPosition());
+</pre>
+<h3>Test case 8</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>XMLFormatter xMLFormatter0 = new XMLFormatter();
+<span class="nocode"><a name="2">  2: </a></span>xMLFormatter0.setEntryName(&quot;qUdd_@i&quot;);
+<span class="nocode"><a name="3">  3: </a></span>// Undeclared exception!
+<span class="nocode"><a name="4">  4: </a></span>try {
+<span class="nocode"><a name="5">  5: </a></span>  xMLFormatter0.putObjectIntoRepository(&quot;qUdd_@i&quot;, &quot;qUdd_@i&quot;);
+<span class="nocode"><a name="6">  6: </a></span>  fail(&quot;Expecting exception: NullPointerException&quot;);
+<span class="nocode"><a name="7">  7: </a></span>} catch(NullPointerException e) {
+<span class="nocode"><a name="8">  8: </a></span>}
+</pre>
+<h3>Test case 9</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>IslandSplit islandSplit0 = new IslandSplit();
+<span class="nocode"><a name="2">  2: </a></span>islandSplit0.setProcessor((LagoonProcessor) null);
+<span class="nocode"><a name="3">  3: </a></span>assertEquals(0, islandSplit0.getPosition());
+</pre>
+<h3>Test case 10</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>LSSITransformer lSSITransformer0 = new LSSITransformer();
+<span class="nocode"><a name="2">  2: </a></span>lSSITransformer0.setPosition(72);
+<span class="nocode"><a name="3">  3: </a></span>assertEquals(72, lSSITransformer0.getPosition());
+</pre>
+<h3>Test case 11</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>XMLFormatter xMLFormatter0 = new XMLFormatter();
+<span class="nocode"><a name="2">  2: </a></span>// Undeclared exception!
+<span class="nocode"><a name="3">  3: </a></span>try {
+<span class="nocode"><a name="4">  4: </a></span>  xMLFormatter0.addParam((String) null, (String) null);
+<span class="nocode"><a name="5">  5: </a></span>  fail(&quot;Expecting exception: NullPointerException&quot;);
+<span class="nocode"><a name="6">  6: </a></span>} catch(NullPointerException e) {
+<span class="nocode"><a name="7">  7: </a></span>}
+</pre>
+<h3>Test case 12</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>IslandSplit islandSplit0 = new IslandSplit();
+<span class="nocode"><a name="2">  2: </a></span>// Undeclared exception!
+<span class="nocode"><a name="3">  3: </a></span>try {
+<span class="nocode"><a name="4">  4: </a></span>  islandSplit0.readFileFromRepository(&quot;_execute&quot;);
+<span class="nocode"><a name="5">  5: </a></span>  fail(&quot;Expecting exception: NullPointerException&quot;);
+<span class="nocode"><a name="6">  6: </a></span>} catch(NullPointerException e) {
+<span class="nocode"><a name="7">  7: </a></span>}
+</pre>
+<h3>Test case 13</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>LSSITransformer lSSITransformer0 = new LSSITransformer();
+<span class="nocode"><a name="2">  2: </a></span>int int0 = lSSITransformer0.getPosition();
+<span class="nocode"><a name="3">  3: </a></span>assertEquals(0, int0);
+</pre>
+<h3>Test case 14</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>DirSource dirSource0 = new DirSource();
+<span class="nocode"><a name="2">  2: </a></span>Enumeration&lt;Object&gt; enumeration0 = dirSource0.getParamNames();
+<span class="nocode"><a name="3">  3: </a></span>assertEquals(0, dirSource0.getPosition());
+<span class="nocode"><a name="4">  4: </a></span>assertNotNull(enumeration0);
+</pre>
+<h3>Test case 15</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>FileSource fileSource0 = new FileSource();
+<span class="nocode"><a name="2">  2: </a></span>// Undeclared exception!
+<span class="nocode"><a name="3">  3: </a></span>try {
+<span class="nocode"><a name="4">  4: </a></span>  fileSource0.storeFileInRepository((String) null);
+<span class="nocode"><a name="5">  5: </a></span>  fail(&quot;Expecting exception: NullPointerException&quot;);
+<span class="nocode"><a name="6">  6: </a></span>} catch(NullPointerException e) {
+<span class="nocode"><a name="7">  7: </a></span>}
+</pre>
+<h3>Test case 16</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>DirSource dirSource0 = new DirSource();
+<span class="nocode"><a name="2">  2: </a></span>dirSource0.getContext();
+<span class="nocode"><a name="3">  3: </a></span>assertEquals(0, dirSource0.getPosition());
+</pre>
+<h3>Test case 17</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>DirSource dirSource0 = new DirSource();
+<span class="nocode"><a name="2">  2: </a></span>// Undeclared exception!
+<span class="nocode"><a name="3">  3: </a></span>try {
+<span class="nocode"><a name="4">  4: </a></span>  dirSource0.hasBeenUpdated((-1619L));
+<span class="nocode"><a name="5">  5: </a></span>  fail(&quot;Expecting exception: RuntimeException&quot;);
+<span class="nocode"><a name="6">  6: </a></span>} catch(RuntimeException e) {
+<span class="nocode"><a name="7">  7: </a></span>  /*
+<span class="nocode"><a name="8">  8: </a></span>   * No SourceManager avaliable
+<span class="nocode"><a name="9">  9: </a></span>   */
+<span class="nocode"><a name="10"> 10: </a></span>}
+</pre>
+</div></div><div id="post"></div><div id="post"><h2 class=title id=source>Source Code</h2>
+<div class=source><p><pre class="prettyprint" style="border: 1px solid #888;padding: 2px"><span class="nocode"><a name="1">  1: </a></span>/*
+<span class="nocode"><a name="2">  2: </a></span> * Copyright (c) 2001-2002, Mikael St�ldal
+<span class="nocode"><a name="3">  3: </a></span> * All rights reserved.
+<span class="nocode"><a name="4">  4: </a></span> * 
+<span class="nocode"><a name="5">  5: </a></span> * Redistribution and use in source and binary forms, with or without 
+<span class="nocode"><a name="6">  6: </a></span> * modification, are permitted provided that the following conditions 
+<span class="nocode"><a name="7">  7: </a></span> * are met:
+<span class="nocode"><a name="8">  8: </a></span> * 
+<span class="nocode"><a name="9">  9: </a></span> * 1. Redistributions of source code must retain the above copyright 
+<span class="nocode"><a name="10"> 10: </a></span> * notice, this list of conditions and the following disclaimer.
+<span class="nocode"><a name="11"> 11: </a></span> * 
+<span class="nocode"><a name="12"> 12: </a></span> * 2. Redistributions in binary form must reproduce the above copyright 
+<span class="nocode"><a name="13"> 13: </a></span> * notice, this list of conditions and the following disclaimer in the 
+<span class="nocode"><a name="14"> 14: </a></span> * documentation and/or other materials provided with the distribution.
+<span class="nocode"><a name="15"> 15: </a></span> * 
+<span class="nocode"><a name="16"> 16: </a></span> * 3. Neither the name of the author nor the names of its contributors 
+<span class="nocode"><a name="17"> 17: </a></span> * may be used to endorse or promote products derived from this software 
+<span class="nocode"><a name="18"> 18: </a></span> * without specific prior written permission. 
+<span class="nocode"><a name="19"> 19: </a></span> * 
+<span class="nocode"><a name="20"> 20: </a></span> * 
+<span class="nocode"><a name="21"> 21: </a></span> * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS 
+<span class="nocode"><a name="22"> 22: </a></span> * ``AS IS'' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT 
+<span class="nocode"><a name="23"> 23: </a></span> * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR 
+<span class="nocode"><a name="24"> 24: </a></span> * A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE REGENTS OR 
+<span class="nocode"><a name="25"> 25: </a></span> * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, 
+<span class="nocode"><a name="26"> 26: </a></span> * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, 
+<span class="nocode"><a name="27"> 27: </a></span> * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
+<span class="nocode"><a name="28"> 28: </a></span> * PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY 
+<span class="nocode"><a name="29"> 29: </a></span> * OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT 
+<span class="nocode"><a name="30"> 30: </a></span> * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE 
+<span class="nocode"><a name="31"> 31: </a></span> * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+<span class="nocode"><a name="32"> 32: </a></span> * 
+<span class="nocode"><a name="33"> 33: </a></span> * 
+<span class="nocode"><a name="34"> 34: </a></span> * Note: This is known as &quot;the modified BSD license&quot;. It's an approved 
+<span class="nocode"><a name="35"> 35: </a></span> * Open Source and Free Software license, see 
+<span class="nocode"><a name="36"> 36: </a></span> * http://www.opensource.org/licenses/ 
+<span class="nocode"><a name="37"> 37: </a></span> * and
+<span class="nocode"><a name="38"> 38: </a></span> * http://www.gnu.org/philosophy/license-list.html
+<span class="nocode"><a name="39"> 39: </a></span> */
+<span class="nocode"><a name="40"> 40: </a></span>
+<span class="nocode"><a name="41"> 41: </a></span>package nu.staldal.lagoon.core;
+<span class="nocode"><a name="42"> 42: </a></span>
+<span class="nocode"><a name="43"> 43: </a></span>import java.io.*;
+<span class="nocode"><a name="44"> 44: </a></span>import java.util.*;
+<span class="nocode"><a name="45"> 45: </a></span>
+<span class="nocode"><a name="46"> 46: </a></span>import nu.staldal.util.Utils;
+<span class="nocode"><a name="47"> 47: </a></span>
+<span class="nocode"><a name="48"> 48: </a></span>
+<span class="nocode"><a name="49"> 49: </a></span>/**
+<span class="nocode"><a name="50"> 50: </a></span> * A Producer is one step in the pipeline process to build a
+<span class="nocode"><a name="51"> 51: </a></span> * file in a website.
+<span class="nocode"><a name="52"> 52: </a></span> */
+<span class="nocode"><a name="53"> 53: </a></span>public abstract class Producer implements ProducerInterface
+<span class="nocode"><a name="54"> 54: </a></span>{
+<span class="nocode"><a name="55"> 55: </a></span>    /**
+<span class="nocode"><a name="56"> 56: </a></span>     * Parameters to this producer.
+<span class="nocode"><a name="57"> 57: </a></span>     */
+<span class="nocode"><a name="58"> 58: </a></span><span style="background-color: #ffffcc">    private Hashtable params = new Hashtable();</span>
+<span class="nocode"><a name="59"> 59: </a></span>
+<span class="nocode"><a name="60"> 60: </a></span>    private String entryName;
+<span class="nocode"><a name="61"> 61: </a></span><span style="background-color: #ffffcc">	private SourceManagerProvider sourceMan = null;</span>
+<span class="nocode"><a name="62"> 62: </a></span><span style="background-color: #ffffcc">    private LagoonProcessor processor = null;</span>
+<span class="nocode"><a name="63"> 63: </a></span><span style="background-color: #ffffcc">    private int position = 0;</span>
+<span class="nocode"><a name="64"> 64: </a></span>
+<span class="nocode"><a name="65"> 65: </a></span>    
+<span class="nocode"><a name="66"> 66: </a></span>    public void destroy()
+<span class="nocode"><a name="67"> 67: </a></span>        throws java.io.IOException        
+<span class="nocode"><a name="68"> 68: </a></span>    {
+<span class="nocode"><a name="69"> 69: </a></span>        // empty default implementation 
+<span class="nocode"><a name="70"> 70: </a></span><span style="background-color: #ffffcc">    }</span>
+<span class="nocode"><a name="71"> 71: </a></span>    
+<span class="nocode"><a name="72"> 72: </a></span>
+<span class="nocode"><a name="73"> 73: </a></span>    public void beforeBuild()
+<span class="nocode"><a name="74"> 74: </a></span>        throws java.io.IOException        
+<span class="nocode"><a name="75"> 75: </a></span>    {
+<span class="nocode"><a name="76"> 76: </a></span>        // empty default implementation 
+<span class="nocode"><a name="77"> 77: </a></span><span style="background-color: #ffffcc">    }</span>
+<span class="nocode"><a name="78"> 78: </a></span>    
+<span class="nocode"><a name="79"> 79: </a></span>
+<span class="nocode"><a name="80"> 80: </a></span>    public void afterBuild()
+<span class="nocode"><a name="81"> 81: </a></span>        throws java.io.IOException        
+<span class="nocode"><a name="82"> 82: </a></span>    {
+<span class="nocode"><a name="83"> 83: </a></span>        // empty default implementation 
+<span class="nocode"><a name="84"> 84: </a></span><span style="background-color: #ffffcc">    }</span>
+<span class="nocode"><a name="85"> 85: </a></span>
+<span class="nocode"><a name="86"> 86: </a></span>    
+<span class="nocode"><a name="87"> 87: </a></span>    void doDestroy()
+<span class="nocode"><a name="88"> 88: </a></span>        throws java.io.IOException        
+<span class="nocode"><a name="89"> 89: </a></span>    {
+<span class="nocode"><a name="90"> 90: </a></span><span style="background-color: #ffffcc">        destroy();</span>
+<span class="nocode"><a name="91"> 91: </a></span><span style="background-color: #ffffcc">    }</span>
+<span class="nocode"><a name="92"> 92: </a></span>    
+<span class="nocode"><a name="93"> 93: </a></span>
+<span class="nocode"><a name="94"> 94: </a></span>    void doBeforeBuild()
+<span class="nocode"><a name="95"> 95: </a></span>        throws java.io.IOException        
+<span class="nocode"><a name="96"> 96: </a></span>    {
+<span class="nocode"><a name="97"> 97: </a></span><span style="background-color: #ffffcc">        beforeBuild();</span>
+<span class="nocode"><a name="98"> 98: </a></span><span style="background-color: #ffffcc">    }</span>
+<span class="nocode"><a name="99"> 99: </a></span>
+<span class="nocode"><a name="100">100: </a></span>
+<span class="nocode"><a name="101">101: </a></span>    void doAfterBuild()
+<span class="nocode"><a name="102">102: </a></span>        throws java.io.IOException        
+<span class="nocode"><a name="103">103: </a></span>    {
+<span class="nocode"><a name="104">104: </a></span><span style="background-color: #ffffcc">        afterBuild();</span>
+<span class="nocode"><a name="105">105: </a></span><span style="background-color: #ffffcc">    }</span>
+<span class="nocode"><a name="106">106: </a></span>    
+<span class="nocode"><a name="107">107: </a></span>    
+<span class="nocode"><a name="108">108: </a></span>	/**
+<span class="nocode"><a name="109">109: </a></span>	 * Set the name of the sitemap entry this producer is associated with.
+<span class="nocode"><a name="110">110: </a></span>	 * Used during initialization.
+<span class="nocode"><a name="111">111: </a></span>	 */
+<span class="nocode"><a name="112">112: </a></span>	void setEntryName(String entryName)
+<span class="nocode"><a name="113">113: </a></span>	{
+<span class="nocode"><a name="114">114: </a></span><span style="background-color: #ffffcc">        this.entryName = entryName;</span>
+<span class="nocode"><a name="115">115: </a></span><span style="background-color: #ffffcc">	}</span>
+<span class="nocode"><a name="116">116: </a></span>
+<span class="nocode"><a name="117">117: </a></span>	
+<span class="nocode"><a name="118">118: </a></span>	/**
+<span class="nocode"><a name="119">119: </a></span>	 * Get the name of the sitemap entry this producer is associated with.
+<span class="nocode"><a name="120">120: </a></span>	 */
+<span class="nocode"><a name="121">121: </a></span>	public String getEntryName()
+<span class="nocode"><a name="122">122: </a></span>	{
+<span class="nocode"><a name="123">123: </a></span><span style="background-color: #ffffcc">        return entryName;</span>
+<span class="nocode"><a name="124">124: </a></span>	}
+<span class="nocode"><a name="125">125: </a></span>
+<span class="nocode"><a name="126">126: </a></span>	
+<span class="nocode"><a name="127">127: </a></span>	/**
+<span class="nocode"><a name="128">128: </a></span>	 * Set the SourceManagerProvider this producer is associated with.
+<span class="nocode"><a name="129">129: </a></span>	 * Used during initialization.
+<span class="nocode"><a name="130">130: </a></span>	 */
+<span class="nocode"><a name="131">131: </a></span>	void setSourceManager(SourceManagerProvider sourceMan)
+<span class="nocode"><a name="132">132: </a></span>	{
+<span class="nocode"><a name="133">133: </a></span><span style="background-color: #ffffcc">        this.sourceMan = sourceMan;</span>
+<span class="nocode"><a name="134">134: </a></span><span style="background-color: #ffffcc">	}</span>
+<span class="nocode"><a name="135">135: </a></span>
+<span class="nocode"><a name="136">136: </a></span>	/**
+<span class="nocode"><a name="137">137: </a></span>	 * Set the position of this producer in the pipeline.
+<span class="nocode"><a name="138">138: </a></span>	 * Used during initialization.
+<span class="nocode"><a name="139">139: </a></span>	 */
+<span class="nocode"><a name="140">140: </a></span>	void setPosition(int pos)
+<span class="nocode"><a name="141">141: </a></span>	{
+<span class="nocode"><a name="142">142: </a></span><span style="background-color: #ffffcc">        this.position = pos;</span>
+<span class="nocode"><a name="143">143: </a></span><span style="background-color: #ffffcc">	}</span>
+<span class="nocode"><a name="144">144: </a></span>
+<span class="nocode"><a name="145">145: </a></span>
+<span class="nocode"><a name="146">146: </a></span>	/**
+<span class="nocode"><a name="147">147: </a></span>	 * Get the position of this producer in the pipeline.
+<span class="nocode"><a name="148">148: </a></span>	 */
+<span class="nocode"><a name="149">149: </a></span>	public int getPosition()
+<span class="nocode"><a name="150">150: </a></span>	{
+<span class="nocode"><a name="151">151: </a></span><span style="background-color: #ffffcc">        return position;</span>
+<span class="nocode"><a name="152">152: </a></span>	}
+<span class="nocode"><a name="153">153: </a></span>
+<span class="nocode"><a name="154">154: </a></span>
+<span class="nocode"><a name="155">155: </a></span>	/**
+<span class="nocode"><a name="156">156: </a></span>	 * Set the LagoonProcessor this producer is associated with.
+<span class="nocode"><a name="157">157: </a></span>	 * Used during initialization.
+<span class="nocode"><a name="158">158: </a></span>	 */
+<span class="nocode"><a name="159">159: </a></span>	void setProcessor(LagoonProcessor processor)
+<span class="nocode"><a name="160">160: </a></span>	{
+<span class="nocode"><a name="161">161: </a></span><span style="background-color: #ffffcc">        this.processor = processor;</span>
+<span class="nocode"><a name="162">162: </a></span><span style="background-color: #ffffcc">	}</span>
+<span class="nocode"><a name="163">163: </a></span>
+<span class="nocode"><a name="164">164: </a></span>
+<span class="nocode"><a name="165">165: </a></span>	/**
+<span class="nocode"><a name="166">166: </a></span>	 * Get the SourceManager this producer is associated with.
+<span class="nocode"><a name="167">167: </a></span>	 */
+<span class="nocode"><a name="168">168: </a></span>	public SourceManager getSourceMan()
+<span class="nocode"><a name="169">169: </a></span>	{
+<span class="nocode"><a name="170">170: </a></span><span style="background-color: #ffffcc">        if (sourceMan == null)</span>
+<span class="nocode"><a name="171">171: </a></span><span style="background-color: #ffffcc">            throw new RuntimeException(&quot;No SourceManager avaliable&quot;);</span>
+<span class="nocode"><a name="172">172: </a></span>		
+<span class="nocode"><a name="173">173: </a></span>		SourceManager sm = sourceMan.getSourceManager(); 
+<span class="nocode"><a name="174">174: </a></span>        
+<span class="nocode"><a name="175">175: </a></span>		if (sm == null)
+<span class="nocode"><a name="176">176: </a></span>            throw new RuntimeException(&quot;No SourceManager avaliable&quot;);
+<span class="nocode"><a name="177">177: </a></span>        
+<span class="nocode"><a name="178">178: </a></span>		return sm;
+<span class="nocode"><a name="179">179: </a></span>	}
+<span class="nocode"><a name="180">180: </a></span>
+<span class="nocode"><a name="181">181: </a></span>	
+<span class="nocode"><a name="182">182: </a></span>	/**
+<span class="nocode"><a name="183">183: </a></span>	 * Get the LagoonContext this producer is associated with.
+<span class="nocode"><a name="184">184: </a></span>	 */
+<span class="nocode"><a name="185">185: </a></span>	public LagoonContext getContext()
+<span class="nocode"><a name="186">186: </a></span>	{
+<span class="nocode"><a name="187">187: </a></span><span style="background-color: #ffffcc">		return processor;</span>
+<span class="nocode"><a name="188">188: </a></span>	}
+<span class="nocode"><a name="189">189: </a></span>
+<span class="nocode"><a name="190">190: </a></span>	
+<span class="nocode"><a name="191">191: </a></span>    /**
+<span class="nocode"><a name="192">192: </a></span>     * Add a parameter to this producer.
+<span class="nocode"><a name="193">193: </a></span>     * Used during initialization.
+<span class="nocode"><a name="194">194: </a></span>     *
+<span class="nocode"><a name="195">195: </a></span>     * @param name  the name of the paramter
+<span class="nocode"><a name="196">196: </a></span>     * @param value  the value of the parameter
+<span class="nocode"><a name="197">197: </a></span>     */
+<span class="nocode"><a name="198">198: </a></span>    void addParam(String name, String value)
+<span class="nocode"><a name="199">199: </a></span>    {
+<span class="nocode"><a name="200">200: </a></span><span style="background-color: #ffffcc">        params.put(name, value);</span>
+<span class="nocode"><a name="201">201: </a></span>    }
+<span class="nocode"><a name="202">202: </a></span>
+<span class="nocode"><a name="203">203: </a></span>	
+<span class="nocode"><a name="204">204: </a></span>    /**
+<span class="nocode"><a name="205">205: </a></span>     * Get a parameter.
+<span class="nocode"><a name="206">206: </a></span>     *
+<span class="nocode"><a name="207">207: </a></span>     * @param name  the name of the parameter to get
+<span class="nocode"><a name="208">208: </a></span>     * @return  the value of the requested parameter,
+<span class="nocode"><a name="209">209: </a></span>     *           or null if the parameter doesn't exitst
+<span class="nocode"><a name="210">210: </a></span>     */
+<span class="nocode"><a name="211">211: </a></span>    public String getParam(String name)
+<span class="nocode"><a name="212">212: </a></span>    {
+<span class="nocode"><a name="213">213: </a></span><span style="background-color: #ffffcc">        return (String)params.get(name);</span>
+<span class="nocode"><a name="214">214: </a></span>    }
+<span class="nocode"><a name="215">215: </a></span>
+<span class="nocode"><a name="216">216: </a></span>	
+<span class="nocode"><a name="217">217: </a></span>    /**
+<span class="nocode"><a name="218">218: </a></span>     * Get an Enumeration of all parameter names.
+<span class="nocode"><a name="219">219: </a></span>     */
+<span class="nocode"><a name="220">220: </a></span>    public Enumeration getParamNames()
+<span class="nocode"><a name="221">221: </a></span>    {
+<span class="nocode"><a name="222">222: </a></span><span style="background-color: #ffffcc">        return params.keys();</span>
+<span class="nocode"><a name="223">223: </a></span>    }
+<span class="nocode"><a name="224">224: </a></span>
+<span class="nocode"><a name="225">225: </a></span>
+<span class="nocode"><a name="226">226: </a></span>    private String makeKey(String key)
+<span class="nocode"><a name="227">227: </a></span>    {
+<span class="nocode"><a name="228">228: </a></span><span style="background-color: #ffffcc">        return getClass().getName() + &quot;.&quot; + position + &quot;.&quot; + key;</span>
+<span class="nocode"><a name="229">229: </a></span>    }
+<span class="nocode"><a name="230">230: </a></span>
+<span class="nocode"><a name="231">231: </a></span>	
+<span class="nocode"><a name="232">232: </a></span>    /**
+<span class="nocode"><a name="233">233: </a></span>     * Read from a file in the repository.
+<span class="nocode"><a name="234">234: </a></span>     * Read from the returned InputStream and close() it.
+<span class="nocode"><a name="235">235: </a></span>     *
+<span class="nocode"><a name="236">236: </a></span>     * @param key  the key to locate the file
+<span class="nocode"><a name="237">237: </a></span>     *
+<span class="nocode"><a name="238">238: </a></span>     * @return an InputStream to read the file from, or &lt;code&gt;null&lt;/code&gt;
+<span class="nocode"><a name="239">239: </a></span>     * if the file wasn't found.
+<span class="nocode"><a name="240">240: </a></span>     */
+<span class="nocode"><a name="241">241: </a></span>    public InputStream readFileFromRepository(String key)
+<span class="nocode"><a name="242">242: </a></span>    {
+<span class="nocode"><a name="243">243: </a></span><span style="background-color: #ffffcc">        return processor.readFileFromRepository(</span>
+<span class="nocode"><a name="244">244: </a></span>            Utils.encodePath(entryName),
+<span class="nocode"><a name="245">245: </a></span>            makeKey(key));
+<span class="nocode"><a name="246">246: </a></span>    }
+<span class="nocode"><a name="247">247: </a></span>
+<span class="nocode"><a name="248">248: </a></span>    /**
+<span class="nocode"><a name="249">249: </a></span>     * Store a file in the repository.
+<span class="nocode"><a name="250">250: </a></span>     * Write to the returned OutputStream and close() it.
+<span class="nocode"><a name="251">251: </a></span>     *
+<span class="nocode"><a name="252">252: </a></span>     * @param key  the key to locate the file
+<span class="nocode"><a name="253">253: </a></span>     *
+<span class="nocode"><a name="254">254: </a></span>     * @return  an OutputStream to write to the file, or &lt;code&gt;null&lt;/code&gt;
+<span class="nocode"><a name="255">255: </a></span>	 *          if the repository is unavailable.
+<span class="nocode"><a name="256">256: </a></span>     */
+<span class="nocode"><a name="257">257: </a></span>    public OutputStream storeFileInRepository(String key)
+<span class="nocode"><a name="258">258: </a></span>        throws IOException
+<span class="nocode"><a name="259">259: </a></span>    {
+<span class="nocode"><a name="260">260: </a></span><span style="background-color: #ffffcc">        return processor.storeFileInRepository(</span>
+<span class="nocode"><a name="261">261: </a></span>            Utils.encodePath(entryName),
+<span class="nocode"><a name="262">262: </a></span>            makeKey(key));
+<span class="nocode"><a name="263">263: </a></span>    }
+<span class="nocode"><a name="264">264: </a></span>
+<span class="nocode"><a name="265">265: </a></span>
+<span class="nocode"><a name="266">266: </a></span>    /**
+<span class="nocode"><a name="267">267: </a></span>     * Get an object from the repository.
+<span class="nocode"><a name="268">268: </a></span>     *
+<span class="nocode"><a name="269">269: </a></span>     * @param key  the key to locate the object
+<span class="nocode"><a name="270">270: </a></span>     *
+<span class="nocode"><a name="271">271: </a></span>     * @return  the object, or &lt;code&gt;null&lt;/code&gt; if not found
+<span class="nocode"><a name="272">272: </a></span>     */
+<span class="nocode"><a name="273">273: </a></span>    public Object getObjectFromRepository(String key)
+<span class="nocode"><a name="274">274: </a></span>        throws java.io.IOException
+<span class="nocode"><a name="275">275: </a></span>    {
+<span class="nocode"><a name="276">276: </a></span><span style="background-color: #ffffcc">        return processor.getObjectFromRepository(</span>
+<span class="nocode"><a name="277">277: </a></span>            Utils.encodePath(entryName),
+<span class="nocode"><a name="278">278: </a></span>            makeKey(key));
+<span class="nocode"><a name="279">279: </a></span>    }
+<span class="nocode"><a name="280">280: </a></span>
+<span class="nocode"><a name="281">281: </a></span>
+<span class="nocode"><a name="282">282: </a></span>    /**
+<span class="nocode"><a name="283">283: </a></span>     * Store an object into the repository.
+<span class="nocode"><a name="284">284: </a></span>     *
+<span class="nocode"><a name="285">285: </a></span>     * @param key  the key to locate the object
+<span class="nocode"><a name="286">286: </a></span>     * @param obj  the object to store, must be Serializable
+<span class="nocode"><a name="287">287: </a></span>	 *
+<span class="nocode"><a name="288">288: </a></span>	 * @return &lt;code&gt;true&lt;/code&gt; if successful, 
+<span class="nocode"><a name="289">289: </a></span>	 *		   &lt;code&gt;false&lt;/code&gt; if the repository is unavailable. 
+<span class="nocode"><a name="290">290: </a></span>     */
+<span class="nocode"><a name="291">291: </a></span>    public boolean putObjectIntoRepository(String key, Object obj)
+<span class="nocode"><a name="292">292: </a></span>        throws java.io.IOException
+<span class="nocode"><a name="293">293: </a></span>    {
+<span class="nocode"><a name="294">294: </a></span><span style="background-color: #ffffcc">        return processor.putObjectIntoRepository(</span>
+<span class="nocode"><a name="295">295: </a></span>            Utils.encodePath(entryName),
+<span class="nocode"><a name="296">296: </a></span>            makeKey(key),
+<span class="nocode"><a name="297">297: </a></span>            obj);
+<span class="nocode"><a name="298">298: </a></span>    }
+<span class="nocode"><a name="299">299: </a></span>}
+</pre>
+</p></div>
+</div><div id="post"><h2 id=parameters>EvoSuite Parameters</h2>
+<div class=statistics><ul>
+<li>inheritance_file: evosuite-files/inheritance.xml.gz
+<li>client_on_thread: false
+<li>alternative_fitness_range: 100.0
+<li>starve_by_fitness: true
+<li>dynamic_pool_size: 50
+<li>old_statistics: true
+<li>test_includes: test.includes
+<li>TT_stack: 10
+<li>dynamic_pool: 0.5
+<li>minimization_timeout: 600
+<li>kincompensation: 1.0
+<li>max_generic_depth: 1
+<li>local_search_rate: -1
+<li>target_method: 
+<li>selection_function: RANK
+<li>ctg_schedule: SIMPLE
+<li>assertion_strategy: MUTATION
+<li>tt_scope: ALL
+<li>process_communication_port: 7206
+<li>TT: false
+<li>chromosome_length: 40
+<li>adaptive_local_search_dse: false
+<li>UI_BACKGROUND_COVERAGE_DELAY: -1
+<li>random_perturbation: 0.2
+<li>test_factory: RANDOM
+<li>enable_alternative_fitness_calculation: false
+<li>debug: false
+<li>plot: false
+<li>log_goals: false
+<li>alternative_fitness_calculation_mode: SUM
+<li>inline: true
+<li>crossover_function: SINGLEPOINTRELATIVE
+<li>local_search_budget: 100
+<li>static_hack: false
+<li>OUTPUT_DIR: evosuite-files
+<li>dse_keep_all_tests: false
+<li>junit_extend: 
+<li>junit_prefix: 
+<li>hierarchy_data: hierarchy.xml
+<li>num_tests: 2
+<li>max_size: 100
+<li>statistics_backend: CSV
+<li>max_length: 0
+<li>mutation_generations: 10
+<li>rank_bias: 1.7
+<li>primitive_reuse_probability: 0.5
+<li>num_random_tests: 20
+<li>filter_assertions: true
+<li>global_timeout: 600
+<li>log.level: null
+<li>new_statistics: false
+<li>assertions: true
+<li>object_pool: 0.0
+<li>timeline_interval: 60000
+<li>concolic_timeout: 15000
+<li>crossover_rate: 0.75
+<li>recycle_chromosomes: false
+<li>assertion_timeout: 600
+<li>serialize_result: false
+<li>string_length: 20
+<li>testability_transformation: false
+<li>p_special_type_call: 0.05
+<li>filter_sandbox_tests: false
+<li>connection_data: connection.xml
+<li>dse_budget: 1
+<li>show_progress: true
+<li>ctg_cores: 1
+<li>p_test_delete: 0.3333333333333333
+<li>local_search_references: true
+<li>dse_rate: -1
+<li>primitive_pool: 0.5
+<li>object_reuse_probability: 0.9
+<li>shuffle_goals: true
+<li>use_deprecated: false
+<li>max_coverage_depth: -1
+<li>penalize_overwriting_definitions_flat: false
+<li>max_attempts: 1000
+<li>print_current_goals: false
+<li>PROJECT_PREFIX: nu
+<li>TARGET_CLASS: nu.staldal.lagoon.core.Producer
+<li>p_test_insertion: 0.1
+<li>make_accessible: false
+<li>population: 50
+<li>check_best_length: true
+<li>seed_types: true
+<li>PROJECT_DIR: null
+<li>skip_covered: true
+<li>check_contracts: false
+<li>write_cfg: false
+<li>minimize: true
+<li>seed_clone: 0.2
+<li>target_method_prefix: 
+<li>mutation_timeouts: 3
+<li>instrument_parent: false
+<li>junit_tests: true
+<li>coverage: true
+<li>sandbox: true
+<li>randomize_difficulty: true
+<li>break_on_exception: true
+<li>html: true
+<li>CP: lib/ant-1.7.1.jar:lib/batik-css.jar:lib/batik-dom.jar:lib/batik.jar:lib/batik-svg-dom.jar:lib/batik-transcoder-1.7.jar:lib/batik-util.jar:lib/fop-0.20.5.jar:lib/isorelax-20050913.jar:lib/logkit-2.0.jar:lib/lspc.jar:lib/lsprt.jar:lib/xml-apis-ext.jar:lib/xml-apis.jar:lib/xmlutil.jar:lagoon.jar
+<li>search_budget: 300
+<li>max_replace_mutants: 100
+<li>check_contracts_end: false
+<li>log.target: null
+<li>array_limit: 1000000
+<li>minimize_values: false
+<li>secondary_objectives: totallength
+<li>log_timeout: false
+<li>p_test_change: 0.3333333333333333
+<li>restricted_read: false
+<li>null_probability: 0.1
+<li>configuration_id: null
+<li>save_all_data: true
+<li>branch_eval: false
+<li>remote_testing: false
+<li>dse_adaptive_rate: 2.0
+<li>local_search_budget_type: STATEMENTS
+<li>branch_statement: false
+<li>check_parents_length: false
+<li>dse_constraint_solver_timeout_millis: 0
+<li>elite: 1
+<li>local_search_probes: 10
+<li>enable_asserts_for_sut: true
+<li>output_granularity: MERGED
+<li>criterion: BRANCH
+<li>restrict_pool: false
+<li>shutdown_timeout: 1000
+<li>output_variables: null
+<li>structured_tests: false
+<li>random_tests: 0
+<li>initially_enforced_randomness: 0.4
+<li>selected_junit: null
+<li>p_change_parameter: 0.1
+<li>port: 1044
+<li>defuse_aliases: true
+<li>dse_constraint_length: 100000
+<li>reuse_budget: true
+<li>test_dir: evosuite-tests
+<li>replace_calls: false
+<li>max_initial_tests: 10
+<li>TARGET_CLASS_PREFIX: 
+<li>dse_adaptive_probability: 0.0
+<li>algorithm: STEADYSTATEGA
+<li>report_dir: evosuite-report
+<li>target_method_list: 
+<li>local_search_arrays: true
+<li>dse_constant_probability: 0.5
+<li>max_int: 2048
+<li>error_branches: false
+<li>stopping_condition: MAXTIME
+<li>local_search_primitives: true
+<li>minimize_old: false
+<li>max_mutants_per_method: 700
+<li>adaptive_local_search: OFF
+<li>replacement_function: DEFAULT
+<li>number_of_mutations: 1
+<li>test_comments: true
+<li>defuse_debug_mode: false
+<li>shutdown_hook: true
+<li>bloat_factor: 2
+<li>dse_variable_resets: 2
+<li>test_format: JUNIT4
+<li>penalize_overwriting_definitions_linearly: false
+<li>max_stalled_threads: 10
+<li>insertion_score_object: 1
+<li>instrumentation_skip_debug: false
+<li>sandbox_mode: RECOMMENDED
+<li>call_probability: 0.0
+<li>check_max_length: true
+<li>max_recursion: 10
+<li>usage_rate: 0.5
+<li>max_mutants: 100
+<li>p_statement_insertion: 0.5
+<li>usage_models: 
+<li>test_carving: false
+<li>evosuite_use_uispec: false
+<li>instrument_context: false
+<li>ctg_time: 2
+<li>ctg_memory: 1000
+<li>classpath: 
+<li>max_array: 10
+<li>dse_negate_all_conditions: false
+<li>seed_mutations: 2
+<li>tournament_size: 10
+<li>dse_budget_type: INDIVIDUALS
+<li>dse_rank_branch_conditions: false
+<li>concolic_mutation: 0.0
+<li>stop_zero: true
+<li>parent_check: true
+<li>insertion_score_parameter: 1
+<li>junit_suffix: EvoSuiteTest
+<li>min_initial_tests: 1
+<li>max_delta: 20
+<li>cpu_timeout: false
+<li>dynamic_limit: false
+<li>min_free_mem: 50000000
+<li>test_excludes: test.excludes
+<li>write_pool: false
+<li>epsilon: 0.0010
+<li>enable_asserts_for_evosuite: false
+<li>analysis_criteria: 
+<li>junit_strict: false
+<li>print_to_system: false
+<li>virtual_fs: false
+<li>sandbox_folder: evosuite-sandbox
+<li>strategy: EVOSUITE
+<li>enable_alternative_suite_fitness: false
+<li>max_mutants_per_test: 100
+<li>stopping_port: -1
+<li>insertion_score_uut: 1
+<li>sourcepath: 
+<li>print_covered_goals: false
+<li>extra_timeout: 120
+<li>string_replacement: true
+<li>cluster_recursion: 10
+<li>population_limit: INDIVIDUALS
+<li>p_test_insert: 0.3333333333333333
+<li>constraint_solution_attempts: 3
+<li>timeout: 5000
+</ul></div>
+</div><p><br><a href="../report-generation.html">Back to Overview</a></p>
+</div>
+</body>
+</html>

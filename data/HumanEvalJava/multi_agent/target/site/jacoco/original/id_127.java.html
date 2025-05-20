@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_127.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HumanEvalJava</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_127.java</span></div><h1>id_127.java</h1><pre class="source lang-java linenums">package original;
+
+import java.util.List;
+
+
+<span class="nc" id="L6">class Intersection {</span>
+    /**
+     * You are given two intervals,
+     * where each interval is a pair of integers. For example, interval = (start, end) = (1, 2).
+     * The given intervals are closed which means that the interval (start, end)
+     * includes both start and end.
+     * For each given interval, it is assumed that its start is less or equal its end.
+     * Your task is to determine whether the length of intersection of these two
+     * intervals is a prime number.
+     * Example, the intersection of the intervals (1, 3), (2, 4) is (2, 3)
+     * which its length is 1, which not a prime number.
+     * If the length of the intersection is a prime number, return &quot;YES&quot;,
+     * otherwise, return &quot;NO&quot;.
+     * If the two intervals don't intersect, return &quot;NO&quot;.
+     *
+     *
+     * [input/output] samples:
+     * intersection((1, 2), (2, 3)) ==&gt; &quot;NO&quot;
+     * intersection((-1, 1), (0, 4)) ==&gt; &quot;NO&quot;
+     * intersection((-3, -1), (-5, 5)) ==&gt; &quot;YES&quot;
+     *
+     * &gt; intersection([1, 2], [2, 3])
+     * &quot;NO&quot;
+     * &gt; intersection([-1, 1], [0, 4])
+     * &quot;NO&quot;
+     * &gt; intersection([-3, -1], [-5, 5])
+     * &quot;YES&quot;
+     * &gt; intersection([-2, 2], [-4, 0])
+     * &quot;YES&quot;
+     * &gt; intersection([-11, 2], [-1, -1])
+     * &quot;NO&quot;
+     * &gt; intersection([1, 2], [3, 5])
+     * &quot;NO&quot;
+     * &gt; intersection([1, 2], [1, 2])
+     * &quot;NO&quot;
+     * &gt; intersection([-2, -2], [-3, -2])
+     * &quot;NO&quot;
+     */
+    public static String intersection(List&lt;Integer&gt; interval1, List&lt;Integer&gt; interval2) {
+
+<span class="fc" id="L46">        int start = Math.max(interval1.get(0), interval2.get(0));</span>
+<span class="fc" id="L47">        int end = Math.min(interval1.get(1), interval2.get(1));</span>
+<span class="pc bpc" id="L48" title="1 of 2 branches missed.">        if (start &gt; end) {</span>
+<span class="fc" id="L49">            return &quot;NO&quot;;</span>
+        }
+<span class="nc bnc" id="L51" title="All 2 branches missed.">        if (isPrime(end - start)) {</span>
+<span class="nc" id="L52">            return &quot;YES&quot;;</span>
+        }
+<span class="nc" id="L54">        return &quot;NO&quot;;</span>
+    }
+
+    private static boolean isPrime(int n) {
+<span class="nc bnc" id="L58" title="All 2 branches missed.">        if (n &lt; 2) {</span>
+<span class="nc" id="L59">            return false;</span>
+        }
+<span class="nc bnc" id="L61" title="All 2 branches missed.">        for (int i = 2; i &lt;= Math.sqrt(n); i++) {</span>
+<span class="nc bnc" id="L62" title="All 2 branches missed.">            if (n % i == 0) {</span>
+<span class="nc" id="L63">                return false;</span>
+            }
+        }
+<span class="nc" id="L66">        return true;</span>
+    }
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

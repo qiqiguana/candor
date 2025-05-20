@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Measurement Framework
+Bundle-SymbolicName: fi.vtt.noen.mfw.MeasurementFramework
+Bundle-Version: 1.0.0
+Bundle-Activator: fi.vtt.noen.mfw.bundle.probe.shared.ProbeBlackboardActivator
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-Classpath: .,lib/slf4j-osgi-1.0.jar,lib/slf4j-api-1.5.10.jar,lib/logback-core-0.9.18.jar,lib/logback-classic-0.9.18.jar,lib/xmlrpc-client-3.1.2.jar,lib/xmlrpc-common-3.1.2.jar,lib/xmlrpc-server-3.1.2.jar,lib/commons-logging-1.1.jar,lib/ws-commons-util-1.0.2.jar,lib/ganymed-ssh2-build251beta1.jar
+Import-Package: org.osgi.framework,org.osgi.service.log,org.xml.sax,org.xml.sax.helpers,javax.xml.parsers,javax.naming,org.w3c.dom,javax.xml.namespace
+Export-Package: fi.vtt.noen.mfw.agent.server.blackboard,fi.vtt.noen.mfw.agent.server.plugins.control,fi.vtt.noen.mfw.agent.server.plugins.event,fi.vtt.noen.mfw.agent.server.plugins.derivedmeasure,fi.vtt.noen.mfw.agent.server.plugins.persistence,fi.vtt.noen.mfw.agent.server.plugins

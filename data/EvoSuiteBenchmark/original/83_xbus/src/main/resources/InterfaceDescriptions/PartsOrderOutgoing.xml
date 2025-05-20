@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE InterfaceSpec SYSTEM "InterfaceSpec.dtd">
+
+<InterfaceSpec Name="PartsOrderOutgoing">
+
+	<Lines RecordIdentification="TypeIdentifier" IdentifierPos="0" IdentifierLength="2" RecordOrder="Structured">
+		<RecordGroup>
+			<RecordType Identifier="S1" Occurrences="1">OrderHeader</RecordType>
+			<RecordType Identifier="S2" Occurrences="1..*">OrderLine</RecordType>
+		</RecordGroup>
+	</Lines>
+		 
+	<RecordTypes>
+	
+		<RecordTypeSpec Name="OrderHeader">
+			<Field Name="RecordType" Length="2" Format="const" Value="S1" />
+			<Field Name="CustomerNumber" Length="5" Format="alpha" />
+			<Field Name="DispatchMode" Length="2" Format="alpha" />
+			<Field Name="Filler" Length="2" Format="blank" />
+			<Field Name="CombinedPacking" Length="1" Format="alpha" />
+			<Field Name="Filler" Length="9" Format="blank" />
+			<Field Name="CustomerOrderNumber" Length="10" Format="alpha" />
+			<Field Name="Filler" Length="6" Format="blank" />
+		</RecordTypeSpec>
+
+		<RecordTypeSpec Name="OrderLine">
+			<Field Name="RecordType" Length="2" Format="const" Value="S2" />
+			<Field Name="Filler" Length="2" Format="blank" />
+			<Field Name="PartNumber" Length="15" Format="alpha" />
+			<Field Name="CustomerNumber" Length="5" Format="alpha" />
+			<Field Name="CustomerOrderNumber" Length="10" Format="alpha" />
+			<Field Name="Quantity" Length="6" Format="num" />
+			<Field Name="TextForDealerUse" Length="10" Format="alpha" />
+			<Field Name="Filler" Length="30" Format="blank" />
+		</RecordTypeSpec>
+
+	</RecordTypes>
+
+</InterfaceSpec>

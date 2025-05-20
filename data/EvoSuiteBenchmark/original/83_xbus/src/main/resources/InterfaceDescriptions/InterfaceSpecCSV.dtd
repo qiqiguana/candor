@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!ELEMENT InterfaceSpec  ( Header?, Records?) >
+	<!-- Root element -->
+<!ATTLIST InterfaceSpec Name NMTOKEN #REQUIRED >
+
+
+
+<!ELEMENT Header ( Field+ ) >
+	<!-- File header -->
+<!ATTLIST Header Name NMTOKEN #IMPLIED >
+
+<!ELEMENT Records ( Record+ ) >
+	<!-- Part which contains the Content Fields-->
+
+<!ELEMENT Record ( Field+ ) >
+	<!-- Structure description for a single record type. -->
+<!ATTLIST Record Name NMTOKEN #REQUIRED >
+
+
+<!ELEMENT Field EMPTY >
+	<!-- Specification of a single field -->
+<!ATTLIST Field Name CDATA #REQUIRED >
+<!ATTLIST Field Format ( alpha | blank | const | date | num ) #IMPLIED >
+<!ATTLIST Field Value CDATA #IMPLIED >
+	<!-- Necessary if <Format>="const".
+		 Specifies the constant value. -->
+<!ATTLIST Field DateFormat NMTOKEN #IMPLIED >
+	<!-- Necessary if <Format>="date". 
+		 Format strings like "yyMMdd" should be used which obey the 
+		 java.text.SimpleDateFormat conventions. -->
+<!ATTLIST Field DecimalPoint ( comma | dot ) #IMPLIED >
+	<!-- Necesssary if <Format>="num" and float values may be specified. --> 
+<!ATTLIST Field Length NMTOKEN #IMPLIED >

@@ -1,0 +1,34 @@
+## Ensure the package name is all in lowercase as
+##   per the Java spec
+package ${StateMachine.Jstate.Statemachine.Package.toLowerCase()};
+
+import uk.me.jockmacmad.jstate.state.InvalidMethodInStateException;
+/**
+ * A JAVA Class representing the functional
+ *   interface of a StateMachine.
+ * <p>
+ * @author StateMachine2Java
+ */
+## Ensure we have the first character of our class name and
+## interface name in uppercase as per the Java standard
+#set( $classNameVar = "I${StateMachine.Jstate.Statemachine.Class1.substring(0,1).toUpperCase()}" +  "${StateMachine.Jstate.Statemachine.Class1.substring(1)}" )
+
+public interface $classNameVar
+extends uk.me.jockmacmad.jstate.state.IState {
+    #foreach( $method in $Interface.MethodArray )
+    	/**
+    	* ${method.Comment}.
+    	* <p>
+    	* If this method is not available in
+    	*   the current state and is invoked it
+    	*   will throw a InvalidMethodInStateException
+    	* @throws InvalidMethodInStateException the exception
+    	*/
+    	## Ensure the 1st letter of the operation is
+    	##   lowercase as per the Java spec
+#set( $methodNameVar = "${method.Name.substring(0,1).toLowerCase()}" +  "${method.Name.substring(1)}" )    	
+    	$method.Scope $method.Return ${methodNameVar}()
+    	throws InvalidMethodInStateException;
+    	
+    #end
+}

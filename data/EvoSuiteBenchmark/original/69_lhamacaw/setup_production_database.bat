@@ -1,0 +1,1 @@
+.\jre1.6.0_07\bin\java -cp .\lib\junit-3.8.2.jar;.\lib\mysql-connector-java-5.0.8-bin.jar;.\lib\macaw.jar macaw.persistenceLayer.production.SetupCurationDatabase

@@ -1,0 +1,43 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of ChooseNum.
+*/
+class ChooseNumTest {
+    @Test
+    void test_chooseNum_range_with_even_numbers() {
+        int result = ChooseNum.chooseNum(12, 15);
+        assertEquals(14, result);
+    }
+    @Test
+    public void testClassInstantiation() {
+        // Arrange & Act
+        ChooseNum chooseNum = new ChooseNum();
+        // Assert
+        assertNotNull(chooseNum);
+    }
+    @Test
+    public void testChooseNum_xGreaterThanY() {
+        // Arrange
+        int x = 13;
+        int y = 12;
+        int expectedResult = -1;
+        // Act
+        int actualResult = ChooseNum.chooseNum(x, y);
+        // Assert
+        assertEquals(expectedResult, actualResult);
+    }
+    @Test
+    public void testChooseNum_xEqualToYEven() {
+        // Arrange
+        int x = 546;
+        int y = 546;
+        int expectedResult = x;
+        // Act
+        int actualResult = ChooseNum.chooseNum(x, y);
+        // Assert
+        assertEquals(expectedResult, actualResult);
+    }
+}

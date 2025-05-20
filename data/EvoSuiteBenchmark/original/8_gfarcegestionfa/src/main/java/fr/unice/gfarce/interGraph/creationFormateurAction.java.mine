@@ -1,0 +1,68 @@
+package fr.unice.interGraph;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.AbstractAction;
+import javax.swing.JOptionPane;
+
+import fr.unice.gfarce.identity.Identite.TypeIdentite;
+import fr.unice.gfarce.main.Controler;
+
+public class creationFormateurAction  extends AbstractAction implements ActionListener {
+	private fenetrePrincipale fenetre;
+	private Controler c;
+	
+	public creationFormateurAction(fenetrePrincipale fenetre, String texte, Controler c){
+		super(texte);
+		this.fenetre = fenetre;
+		this.c = c;
+	}
+
+	public void actionPerformed(ActionEvent e) {
+		System.out.println("Vous avez cliqué sur le bouton pour creer un formateur.");
+
+		String nom = fenetre.textFieldNomResponsable.getText();
+		String prenom= fenetre.textFieldPrenomResponsable.getText();
+		String sexe = fenetre.comboBoxSexeResponsable.getSelectedItem().toString(); 
+		String email= fenetre.textFieldEmailResponsable.getText();
+		String telephone = fenetre.textFieldTelResponsable.getText();
+
+		if(nom != null && nom.length()>0 
+				&&
+				prenom != null && prenom.length()>0 ){
+			/*
+			System.out.println(nom);
+			System.out.println(prenom);
+			System.out.println(sexe);
+
+			System.out.println(email);
+
+			System.out.println(telephone);
+			*/
+			//fenetre.affichDonne(fenetre.dataResp);
+			zModel model1 = new zModel(fenetre.dataResp, fenetre.columnNamesResp);
+			c.createIdentite(nom, prenom, sexe, email,TypeIdentite.FORMATEUR,null,null,null,null, telephone,0,0,null);
+			fenetre.comboBoxResponsableDeLaFormation.addItem(nom+" "+prenom);
+			
+			Object[] donnee = new Object[]{"Angelo", "Rennais", "M", "@", "06"};
+			for(int i=0; i<donnee.length; i++){
+				System.out.println(donnee[i]);
+			}
+			((zModel) fenetre.tableResp.getModel()).addRow(donnee);
+			fenetre.tableResp.setModel(model1);
+			
+			
+		}
+		else{
+			System.out.println("erreur");
+			JOptionPane.showMessageDialog(fenetre, "Les champ avec un asterix sont obligatoire.", "Erreur",  JOptionPane.ERROR_MESSAGE);
+
+		}
+
+
+
+	}
+
+
+}

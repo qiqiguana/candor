@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:bb="http://www.bugyobeyond.org/SAC_MFW/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="SAC_MFW_service" targetNamespace="http://www.bugyobeyond.org/SAC_MFW/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <!-- This file describes the web services provided by the SAC and available to the MFW -->
+    <wsdl:types>
+        <xsd:schema xmlns:ns0="http://schemas.xmlsoap.org/soap/encoding/" targetNamespace="http://www.bugyobeyond.org/SAC_MFW/">
+            <xsd:element name="getMFW">
+                <xsd:complexType>
+                    <xsd:attribute name="sac_id" type="xsd:long" use="required" />
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="MFW">
+                <xsd:complexType>
+                    <xsd:attribute name="id" type="xsd:long" use="required" />
+                    <xsd:attribute name="version" type="xsd:string" use="optional" />
+                    <xsd:attribute name="ifs" type="xsd:string" use="optional" />
+                    <xsd:attribute name="company" type="xsd:string" use="optional" />
+                    <xsd:attribute name="time" type="xsd:dateTime" use="optional" />
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Device">
+                <xsd:complexType>
+                    <xsd:attribute name="id" type="xsd:long" use="required" />
+                    <xsd:attribute name="name" type="xsd:string" use="optional" />
+                    <xsd:attribute name="type" type="xsd:string" use="optional" />
+                    <xsd:attribute name="disabled" type="xsd:boolean" use="optional" />
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="BM">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="0" maxOccurs="unbounded" name="device_id" type="xsd:long" />
+                    </xsd:sequence>
+                    <xsd:attribute name="id" type="xsd:long" use="required" />
+                    <xsd:attribute name="class" type="xsd:string" use="optional" />
+                    <xsd:attribute name="name" type="xsd:string" use="optional" />
+                    <xsd:attribute name="description" type="xsd:string" use="optional" />
+                    <xsd:attribute name="disabled" type="xsd:boolean" use="optional" />
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Probe">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="0" maxOccurs="unbounded" name="bm_id" type="xsd:long" />
+                    </xsd:sequence>
+                    <xsd:attribute name="id" type="xsd:long" use="required" />
+                    <xsd:attribute name="name" type="xsd:string" use="optional" />
+                    <xsd:attribute name="disabled" type="xsd:boolean" use="optional" />
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getAvailability">
+                <xsd:complexType>
+                    <xsd:attribute name="sac_id" type="xsd:long" use="required" />
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Availability">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="0" maxOccurs="unbounded" ref="bb:Device" />
+                        <xsd:element minOccurs="0" maxOccurs="unbounded" ref="bb:BM" />
+                        <xsd:element minOccurs="0" maxOccurs="unbounded" ref="bb:Probe" />
+                    </xsd:sequence>
+                    <xsd:attribute name="mfw_id" type="xsd:long" use="required" />
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="BMResultRequest">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="0" maxOccurs="unbounded" name="device_id" type="xsd:long" />
+                    </xsd:sequence>
+                    <xsd:attribute name="id" type="xsd:long" use="required" />
+                    <xsd:attribute name="frequency" type="xsd:long" use="required" />
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="BMResultsRequest">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="unbounded" ref="bb:BMResultRequest" />
+                    </xsd:sequence>
+                    <xsd:attribute name="sac_id" type="xsd:long" use="required" />
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="ProbeParametersRequest">
+                <xsd:complexType>
+                    <xsd:attribute name="probe_id" type="xsd:long" use="required" />
+                    <xsd:attribute name="sac_id" type="xsd:long" use="required" />
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="ProbeParameter">
+                <xsd:complexType>
+                    <xsd:attribute name="name" type="xsd:string" use="required" />
+                    <xsd:attribute name="description" type="xsd:string" use="required" />
+                    <xsd:attribute name="mandatory" type="xsd:boolean" use="required" />
+                    <xsd:attribute name="value" type="xsd:string" use="required" />
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="ProbeParameters">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="0" maxOccurs="unbounded" ref="bb:ProbeParameter" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="ProbeParameterValue">
+                <xsd:complexType>
+                    <xsd:attribute name="name" type="xsd:string" use="required" />
+                    <xsd:attribute name="value" type="xsd:string" use="required" />
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="ProbeParameterValues">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="unbounded" ref="bb:ProbeParameterValue" />
+                    </xsd:sequence>
+                    <xsd:attribute name="probe_id" type="xsd:long" use="required" />
+                    <xsd:attribute name="sac_id" type="xsd:long" use="required" />
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="OperationResult">
+                <xsd:complexType>
+                    <xsd:attribute name="error" type="xsd:boolean" use="required" />
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:schema>
+    </wsdl:types>
+    <!-- global messages -->
+    <wsdl:message name="getMFWRequest">
+        <wsdl:part name="parameters" element="bb:getMFW" />
+    </wsdl:message>
+    <wsdl:message name="getMFWResponse">
+        <wsdl:part name="parameters" element="bb:MFW" />
+    </wsdl:message>
+    <!-- monitoring-related messages -->
+    <wsdl:message name="getBMResultsRequest">
+        <wsdl:part name="parameters" element="bb:BMResultsRequest" />
+    </wsdl:message>
+    <wsdl:message name="getBMResultsResponse">
+        <wsdl:part name="parameters" element="bb:OperationResult" />
+    </wsdl:message>
+    <wsdl:message name="getAvailabilityRequest">
+        <wsdl:part name="parameters" element="bb:getAvailability" />
+    </wsdl:message>
+    <wsdl:message name="getAvailabilityResponse">
+        <wsdl:part name="parameters" element="bb:Availability" />
+    </wsdl:message>
+    <wsdl:message name="getProbeParametersRequest">
+        <wsdl:part name="parameters" element="bb:ProbeParametersRequest" />
+    </wsdl:message>
+    <wsdl:message name="getProbeParametersResponse">
+        <wsdl:part name="parameters" element="bb:ProbeParameters" />
+    </wsdl:message>
+    <wsdl:message name="setProbeParametersRequest">
+        <wsdl:part name="parameters" element="bb:ProbeParameterValues" />
+    </wsdl:message>
+    <wsdl:message name="setProbeParametersResponse">
+        <wsdl:part name="parameters" element="bb:OperationResult" />
+    </wsdl:message>
+    <wsdl:portType name="SAC_MFW">
+        <!-- global operations -->
+        <wsdl:operation name="getMFW">
+            <wsdl:input message="bb:getMFWRequest" />
+            <wsdl:output message="bb:getMFWResponse" />
+        </wsdl:operation>
+        <!-- monitoring-related operations -->
+        <wsdl:operation name="getBMResults">
+            <wsdl:input message="bb:getBMResultsRequest" />
+            <wsdl:output message="bb:getBMResultsResponse" />
+        </wsdl:operation>
+        <wsdl:operation name="getAvailability">
+            <wsdl:documentation>asks for new available BM.</wsdl:documentation>
+            <wsdl:input message="bb:getAvailabilityRequest" />
+            <wsdl:output message="bb:getAvailabilityResponse" />
+        </wsdl:operation>
+        <wsdl:operation name="getProbeParameters">
+            <wsdl:input message="bb:getProbeParametersRequest" />
+            <wsdl:output message="bb:getProbeParametersResponse" />
+        </wsdl:operation>
+        <wsdl:operation name="setProbeParameters">
+            <wsdl:input message="bb:setProbeParametersRequest" />
+            <wsdl:output message="bb:setProbeParametersResponse" />
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="SAC_MFW_SoapBinding" type="bb:SAC_MFW">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+        <!-- global services -->
+        <wsdl:operation name="getMFW">
+            <soap:operation soapAction="http://www.bugyobeyond.org/SAC_MFW/getMFW" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <!-- monitoring-related services -->
+        <wsdl:operation name="getBMResults">
+            <soap:operation soapAction="http://www.bugyobeyond.org/SAC_MFW/getBMResults" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <!-- modelling-related services -->
+        <wsdl:operation name="getAvailability">
+            <soap:operation soapAction="http://www.bugyobeyond.org/SAC_MFW/getAvailability" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getProbeParameters">
+            <soap:operation soapAction="http://www.bugyobeyond.org/SAC_MFW/getProbeParameters" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="setProbeParameters">
+            <soap:operation soapAction="http://www.bugyobeyond.org/SAC_MFW/setProbeParameters" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="SAC_MFW_service">
+        <wsdl:port name="SAC_MFW" binding="bb:SAC_MFW_SoapBinding">
+            <soap:address location="http://www.bugyobeyond.org/SAC_MFW/" />
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

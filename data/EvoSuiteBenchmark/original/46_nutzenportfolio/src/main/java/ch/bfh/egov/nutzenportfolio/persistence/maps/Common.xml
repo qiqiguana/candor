@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="Common">
+
+  <typeAlias alias="ProjektattraktivitaetObject" type="ch.bfh.egov.nutzenportfolio.tos.Projektattraktivitaet"/>
+  <typeAlias alias="NaOpNuObject" type="ch.bfh.egov.nutzenportfolio.tos.NaOpNu"/>
+
+  <cacheModel id="commonCache" type="MEMORY" readOnly="false" serialize="true">
+	  <flushInterval hours="24"/>
+	  <flushOnExecute statement="Common.getProjektattraktivitaetIdByCustomizingId"/>
+	  <flushOnExecute statement="Common.insertProjektattraktivitaet"/>
+	  <flushOnExecute statement="Common.insertNutzenattraktivitaetOperativerNutzen"/>
+  </cacheModel>
+  
+  <select
+  		id="getProjektattraktivitaetIdByCustomizingId"
+  		resultClass="java.lang.Integer"
+  		parameterClass="java.lang.Integer">
+    SELECT projektattraktivitaetId
+    FROM Projektattraktivitaet
+    WHERE customizingId = #value#
+  </select>
+  
+  <select
+  		id="getNutzenattraktivitaetIdByCustomizingId"
+  		resultClass="java.lang.Integer"
+  		parameterClass="java.lang.Integer">
+    SELECT nutzenattraktivitaetOperativerNutzenId
+    FROM NutzenattraktivitaetOperativerNutzen
+    WHERE
+    	customizingId = #value# AND
+    	nutzenattraktivitaet = 1
+  </select>
+  
+  <select
+  		id="getOperativerNutzenIdByCustomizingId"
+  		resultClass="java.lang.Integer"
+  		parameterClass="java.lang.Integer">
+    SELECT nutzenattraktivitaetOperativerNutzenId
+    FROM NutzenattraktivitaetOperativerNutzen
+    WHERE
+    	customizingId = #value# AND
+    	operativerNutzen = 1
+  </select>
+
+  <insert
+  		id="insertProjektattraktivitaet"
+		  parameterClass="ProjektattraktivitaetObject">
+		INSERT INTO Projektattraktivitaet (customizingId, paUID)
+    VALUES (#customizingId#, #paUID#)
+    <selectKey resultClass="java.lang.Integer" keyProperty="projektattraktivitaetId">
+    	SELECT LAST_INSERT_ID() AS projektattraktivitaetId
+		</selectKey>
+  </insert>
+  
+  <insert
+  		id="insertNutzenattraktivitaetOperativerNutzen"
+  		parameterClass="NaOpNuObject">
+		INSERT INTO NutzenattraktivitaetOperativerNutzen
+			(customizingId, nutzenattraktivitaet, operativerNutzen, naOpNuUID)
+    VALUES (#customizingId#, #nutzenattraktivitaet#, #operativerNutzen#, #naOpNuUID#)
+    <selectKey resultClass="java.lang.Integer" keyProperty="nutzenattraktivitaetOperativerNutzenId">
+    	SELECT LAST_INSERT_ID() AS nutzenattraktivitaetOperativerNutzenId
+		</selectKey>
+  </insert>
+  
+  <delete id="deleteProjektattraktivitaet" parameterClass="java.lang.Integer">
+    DELETE
+    FROM Projektattraktivitaet
+    WHERE projektattraktivitaetId = #value#
+  </delete>
+  
+  <delete id="deleteNutzenattraktivitaetOperativerNutzen" parameterClass="java.lang.Integer">
+    DELETE
+    FROM NutzenattraktivitaetOperativerNutzen
+    WHERE nutzenattraktivitaetOperativerNutzenId = #value#
+  </delete>
+</sqlMap>

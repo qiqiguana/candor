@@ -1,0 +1,59 @@
+<body>
+
+<p>Years, Samples, and supporting classes.</p>
+
+<p>Note: this package, and each sub-package, has a class "UnitTests"
+which does unit testing of that package, using <a
+href="http://www.junit.org">JUnit</a>.  If you need to write new unit
+tests, or add a new package, use this convention.  They don't show up
+here, because they're not public classes.)</p>
+
+
+
+<h2>Event model</h2>
+
+<p>The event model consists of 3 classes: SampleEvent, SampleListener,
+and SampleAdapter.  Currently, it only deals with
+<code>Sample</code>s, as those are the basic data type of Corina, but
+if necessary it can easily be extended to other types (for example,
+Grids).</p>
+
+<p>Using the event model is simple:</p>
+
+<ol>
+
+    <li>If you're displaying a view of a Sample, implement
+        <code>SampleListener</code> so you'll know when it changes.</li>
+
+    <li>If you change a Sample, call one of its <code>fire</code>
+        methods so all the listeners will know to update their views.</li>
+
+</ol>
+
+<p>That's it.</p>
+
+<p>One last detail: <code>SampleListener</code> is the interface
+to implement.  If you're not extending another class, though, you
+can extend <code>SampleAdapter</code>, which is just a listener
+with all empty methods.</p>
+
+<p>Currently, the events are:</p>
+
+<ul>
+
+    <li><code>sampleRedated</code>, which means the starting/ending
+        dates have changed</li>
+
+    <li><code>sampleDataChanged</code>, which means that one or more
+        of the numbers of the dataset have changed</li>
+
+    <li><code>sampleMetadataChanged</code>, which means that one or
+        more of the metadata fields has been changed (the element
+        changed, or a key was added or removed)</li>
+
+</ul>
+
+
+
+
+</body>

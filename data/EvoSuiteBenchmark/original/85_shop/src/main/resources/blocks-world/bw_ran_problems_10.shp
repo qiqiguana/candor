@@ -1,0 +1,88 @@
+;; name: bw_ran_problems.10.lisp
+;; #blocks: 10
+;; seed:948169917
+;;---------------------------------------------
+;;problem_name: bw_ran_10_1 towers: 4
+
+(defproblem bw-ran-10-1 blocks-normal
+ ((arm-empty)
+ (on-table b1) (on b9 b1) (clear b9)
+ (on-table b2) (on b4 b2) (on b7 b4) (clear b7)
+ (on-table b3) (on b5 b3) (on b6 b5) (on b8 b6) (clear b8)
+ (on-table b10) (clear b10)
+ )
+ ((achieve-goals (list (on-table b1) (on b2 b1) (on b3 b2) (on b7 b3) (on b9 b7) (clear b9)
+ (on-table b4) (clear b4)
+ (on-table b5) (on b6 b5) (clear b6)
+ (on-table b8) (on b10 b8) (clear b10)
+ ))))
+
+
+(defproblem bw-ran-10-2 blocks-normal
+ ((arm-empty)
+ (on-table b1) (on b2 b1) (on b6 b2) (on b8 b6) (clear b8)
+ (on-table b3) (on b9 b3) (clear b9)
+ (on-table b4) (on b5 b4) (on b7 b5) (on b10 b7) (clear b10)
+ )
+ ((achieve-goals ( list 
+ (on-table b1) (on b2 b1) (on b3 b2) (on b6 b3) (on b10 b6) (clear b10)
+ (on-table b4) (on b8 b4) (clear b8)
+ (on-table b5) (on b7 b5) (clear b7)
+ (on-table b9) (clear b9)
+ ))))
+
+
+
+;;---------------------------------------------
+;;problem_name: bw_ran_10_3 towers: 3
+
+(defproblem bw-ran-10-3 blocks-normal
+ ((arm-empty)
+ (on-table b1) (on b2 b1) (on b3 b2) (on b4 b3) (on b5 b4) (clear b5)
+ (on-table b6) (on b9 b6) (clear b9)
+ (on-table b7) (on b8 b7) (on b10 b8) (clear b10)
+ )
+ ((achieve-goals ( list 
+ (on-table b1) (on b3 b1) (on b5 b3) (clear b5)
+ (on-table b2) (on b4 b2) (on b6 b4) (on b10 b6) (clear b10)
+ (on-table b7) (clear b7)
+ (on-table b8) (on b9 b8) (clear b9)
+ ))))
+
+
+
+;;---------------------------------------------
+;;problem_name: bw_ran_10_4 towers: 2
+
+(defproblem bw-ran-10-4 blocks-normal
+ ((arm-empty)
+ (on-table b1) (on b2 b1) (on b3 b2) (on b4 b3) (on b5 b4) (on b6 b5) (on b8 b6) (clear b8)
+ (on-table b7) (on b9 b7) (on b10 b9) (clear b10)
+ )
+ ((achieve-goals ( list 
+ (on-table b1) (on b6 b1) (on b7 b6) (clear b7)
+ (on-table b2) (on b9 b2) (clear b9)
+ (on-table b3) (clear b3)
+ (on-table b4) (clear b4)
+ (on-table b5) (on b10 b5) (clear b10)
+ (on-table b8) (clear b8)
+ ))))
+
+
+
+;;---------------------------------------------
+;;problem_name: bw_ran_10_5 towers: 3
+
+(defproblem bw-ran-10-5 blocks-normal
+ ((arm-empty)
+ (on-table b1) (on b7 b1) (on b8 b7) (clear b8)
+ (on-table b2) (on b3 b2) (on b5 b3) (on b6 b5) (on b9 b6) (on b10 b9) (clear b10)
+ (on-table b4) (clear b4)
+ )
+ ((achieve-goals ( list 
+ (on-table b1) (on b4 b1) (on b6 b4) (on b7 b6) (clear b7)
+ (on-table b2) (on b3 b2) (on b5 b3) (clear b5)
+ (on-table b8) (on b10 b8) (clear b10)
+ (on-table b9) (clear b9)
+ ))))
+

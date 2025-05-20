@@ -1,0 +1,485 @@
+body {
+	font-family:Arial,sans-serif;
+	font-weight:normal;
+	font-size:0.75em;
+	margin:0;
+}
+
+h1 {
+	font-size:1.2em;
+	margin:0.5em 0;
+}
+
+h2 {
+	font-size:1.1em;
+	margin:0.8em 0 0.5em 0;
+}
+
+h3, h4, h5, h6 {
+	font-size:1em;
+	margin:1em 0 0 0;
+}
+
+img {
+	vertical-align:middle;
+	border:none;
+}
+
+a {
+	background-color:inherit;
+	color:#000;
+}
+
+table {
+	width:100%;
+	border-collapse:collapse;
+}
+
+td, th {
+	border:1px solid black;
+	margin:0;
+	padding:0.2em;
+	vertical-align:middle;
+}
+
+th {
+	text-align:left;
+}
+
+table .remove {
+	width:6em;
+}
+
+label {
+	display:block;
+	width:10em;
+	float:left;
+}
+
+input, select, textarea {
+	background-color:#FFFFFF;
+	border:1px solid #B6B6B6;
+}
+
+hr {
+	width:62em;
+	text-align:left;
+	border:0;
+	color:#B6B6B6;
+	background-color:#B6B6B6;
+	height:0.1em;
+}
+
+
+#header .logo, #header .bfh, #header .fb,
+#content, #narrowContent, #navigation, #footer {
+	position:absolute;
+}
+
+#header {
+	height:4.1em;
+}
+
+#header a {
+	text-decoration:none;
+}
+
+#header .logo {
+	left:0;
+	top:0;
+	width:17.9em;
+	text-align:right;
+	padding-top:0.25em;
+}
+
+#header .logo img {
+	width:12.75em;
+}
+
+#header .bfh, #header .fb {
+	left:14.7em;
+	padding-left:0.8em;
+	font-size:1.2em;
+}
+
+#header .bfh {
+	top:0.4em;
+}
+
+#header .fb {
+	top:2.1em;
+}
+
+#titlebox {
+	position:absolute;
+	top:4.2em;
+	width:100%;
+}
+
+#titlebox .title {
+	position:relative;
+	font-weight:bold;
+	color:black;
+	background-color:#a8d4bd;
+	height:3.325em;
+}
+
+#titlebox span {
+	position:absolute;
+	left:0.8em;
+	bottom:1.9em;
+}
+
+#titlebox .color, #footer {
+	height:0.8em;
+	line-height:0.8em;
+	background-color:#50a97a;
+}
+
+#titlebox .navigation {
+	position:absolute;
+	left:0.8em;
+	bottom:0.2em;
+}
+
+#titlebox .active {
+	text-decoration:none;
+}
+
+#content {
+	top:8.35em;
+	width:83em;
+	height:41.5em;
+	padding-left:2em;
+}
+
+#narrowContent {
+	top:8.35em;
+	left:23.5em;
+	width:61em;
+	height:41.5em;
+	padding-left:2em;
+}
+
+#navigation {
+	top:9.35em;
+	left:2em;
+}
+
+#navigation ul {
+	margin:0;
+	padding:0;
+}
+
+#navigation li {
+	list-style-type:none;
+	width:21em;
+	padding:0;
+}
+
+#navigation .red, #navigation .green,
+#navigation .yellow {
+	width:1.2em;
+	float:left;
+	padding-left:0.3em;
+	margin-right:0.2em;
+}
+
+#navigation .red {
+	background-color:#e31616;
+}
+
+#navigation .green {
+	background-color:#50a97a;
+}
+
+#navigation .yellow {
+	background-color:yellow;
+}
+
+#navigation a, #navigation .heading {
+	display:block;
+	background-color:#d3e9de;
+	text-decoration:none;
+	border-bottom:1px solid #fff;
+}
+
+#navigation a:hover {
+	border-bottom:1px solid #50a97a;
+}
+
+#navigation .heading {
+	background-color:#a8d4bd;
+}
+
+#navigation .arrow {
+	margin-bottom:0.2em;
+}
+
+#footer {
+	width:100%;
+	top:50em;
+}
+
+.mainBox {
+	float:left;
+}
+
+.mainBoxHeader,
+.loginBoxHeader,
+.largeBoxHeader {
+	margin:0 1em 0 0;
+	padding:1px;
+	background-color:#d3e9de;
+	color:#fff;
+	border:1px solid #50a97a;
+	clear:left;
+}
+
+.mainBoxHeader {
+	width:20em;
+}
+
+.loginBoxHeader {
+	width:40em;
+	margin-top:1em;
+}
+
+.largeBoxHeader {
+	margin-top:1em;
+}
+
+.mainBoxHeader .title,
+.loginBoxHeader .title,
+.largeBoxHeader .title {
+	font-size:2em;
+	padding:0.2em;
+	background: transparent url(../images/balken.png) left top repeat;
+}
+
+.mainBoxHeader .title a,
+.largeBoxHeader .title a {
+	text-decoration:none;
+	color:#fff;
+}
+
+.mainBoxHeader .title a:hover,
+.largeBoxHeader .title a:hover {
+	text-decoration:underline;
+}
+
+.mainBoxContent,
+.loginBoxContent,
+.largeBoxContent {
+	background-color:#E1E1E1;
+	border-bottom:1px solid #50a97a;
+	padding:0.6em;
+}
+
+.mainBoxContent {
+	width:19.1em;
+	height:5em;
+	margin-bottom:1em;
+}
+
+.loginBoxContent {
+	width:39.1em;
+}
+
+.largeBoxContent {
+	margin-bottom:1em;
+	width:80.8em;
+}
+
+#narrowContent .largeBoxContent {
+	width:58.8em;
+}
+
+.descBox {
+	float:right;
+	padding:0;
+	margin:0;
+	margin-right:10em;
+	width:25em;
+}
+
+* html .descBox, *:first-child+html .descBox {
+	width:26em;
+}
+
+.descBox h2 {
+	color:#50a97a;
+}
+
+.descBox ol {
+	padding-left:1.6em;
+}
+
+* html .descBox ol, *:first-child+html .descBox ol {
+	padding-left:0;
+}
+
+.descBox ol li {
+	padding-bottom:0.7em;
+}
+
+.button, .largeButton {
+	border-style: outset;
+	width:7em;
+}
+
+.largeButton {
+	width:10em;
+}
+
+.buttons {
+	margin-top:1em;
+}
+
+.gewichtenButton {
+	float:right;
+	position:relative;
+	right:0.5em;
+	bottom:1.9em;
+	border-style:outset;
+}
+
+.checkbox {
+	background-color:transparent;
+	width:1.5em;
+	border:0;
+	vertical-align:middle;
+}
+
+.choiceBox {
+	float:left;
+	margin-right:1em;
+	margin-bottom:1em;
+}
+
+.choiceSelect {
+	margin:0.5em 0;
+}
+
+.floatLeft {
+	float:left;
+}
+
+.clearLeft {
+	clear:left;
+}
+
+.smallText {
+	width:8em;
+}
+
+.percentmargin {
+	margin-left:6em;
+}
+
+.largeLabel {
+	width:12em;
+}
+
+.veryLargeLabel {
+	width:20em;
+}
+
+.mediumInputText {
+	width:25em;
+}
+
+.largeInputText {
+	width:31.6em;
+}
+
+.maxInputText {
+	width:33em;
+}
+
+.error {
+	color:red;
+	font-weight:bold;
+}
+
+.centered {
+	text-align:center;
+}
+
+.dropdownTh {
+		width:12em;
+}
+
+.fragebogenBox {
+	border:1px solid #50a97a;
+	padding:0.2em;
+	margin-bottom:1em;
+}
+
+.fragebogenBox h2 {
+	padding-top:0.5em;
+}
+
+.fragebogenRadioBox {
+	background-color:#a8d4bd;
+	margin-right:1px;
+	float:left;
+	width:15em;
+}
+
+.popup {
+	text-decoration:none;
+	position: relative;
+	z-index: 0;
+}
+
+.popup .top {
+	vertical-align:top;
+	font-size:0.75em;
+	color:#50a97a;
+}
+
+.popup:hover {
+	background-color: transparent;
+	z-index: 50;
+}
+
+.popup .description { /*CSS for enlarged text*/
+	position: absolute;
+	width:300px;
+	background-color:#d3e9de;
+	padding: 5px;
+	left: -1000px;
+	border: 1px solid #B6B6B6;
+	visibility: hidden;
+	color: black;
+	text-decoration: none;
+}
+
+.popup .description img { /*CSS for enlarged text*/
+	border-width: 0;
+	padding: 2px;
+}
+
+.popup:hover .description { /*CSS for enlarged text on hover*/
+	visibility: visible;
+	top: 0;
+	left: 20px; /*position where enlarged text should offset horizontally */
+}
+
+.smallTable {
+	width:300px;
+}
+
+.smallBox {
+	float:left;
+	width:180px;
+}
+
+.gewichtungsTable td, .gewichtungsTable th {
+	border:0;
+}
+
+.bottomBorder th {
+	border-bottom:1px solid black;
+}

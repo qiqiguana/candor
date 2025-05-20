@@ -1,0 +1,26 @@
+# Test Plan Generation for {{ source_file_name }}
+## Source File
+Below is the source file for which you will write tests. Line numbers are added for reference only.
+```Java
+{{ source_file_numbered }}
+```
+
+{% if lines_to_cover %}
+## Uncovered Lines
+Generate tests to cover these line numbers:
+{{ lines_to_cover }}
+{% endif %}
+
+
+Analyze this file to understand existing tests, structure, and conventions:
+```Java
+{{ test_file }}
+```
+## Response Guidelines
+1. Focus on covering uncovered lines
+2. Analyze and follow existing test suite conventions
+3. Provide only the formatted test plan, no additional explanations
+4. Generate the input and expecteed result should be using Java data structures
+
+## Output Format
+{{format_instructions}}

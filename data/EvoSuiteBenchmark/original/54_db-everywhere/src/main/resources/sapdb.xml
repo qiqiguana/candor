@@ -1,0 +1,108 @@
+<?xml version="1.0" ?>
+<properties>
+    <dbType>sapdb</dbType>
+    <connectionStartURL>//</connectionStartURL>
+    <createSequence>true</createSequence>
+    <jdbcDriver>com.sap.dbtech.jdbc.DriverSapDB</jdbcDriver>
+    <apostropheWrapper>''</apostropheWrapper>
+    <dataTypes>
+        <helpURL>http://www.sapdb.org/7.4/htmhelp/d0/763898d21c11d2a97400a0c9449261/content.htm</helpURL>
+        <dataType>
+            <name>CHAR</name>
+            <len>true</len>
+            <dec>false</dec>
+            <valueWrapper>'</valueWrapper>
+            <maxlength>8000</maxlength>
+            <codeTypes>
+                <codeType>ASCII</codeType>
+                <codeType>BYTE</codeType>
+                <codeType>EBCDIC</codeType>
+                <codeType>UNICODE</codeType>
+            </codeTypes>
+        </dataType>
+        <dataType>
+            <name>VARCHAR</name>
+            <len>true</len>
+            <dec>false</dec>
+            <valueWrapper>'</valueWrapper>
+            <maxlength>8000</maxlength>
+            <codeTypes>
+                <codeType>ASCII</codeType>
+                <codeType>BYTE</codeType>
+                <codeType>EBCDIC</codeType>
+                <codeType>UNICODE</codeType>
+            </codeTypes>
+        </dataType>
+        <dataType>
+            <name>LONG</name>
+            <len>false</len>
+            <dec>false</dec>
+            <valueWrapper>'</valueWrapper>
+            <formInput>textArea</formInput>
+        </dataType>
+        <dataType>
+            <name>BOOLEAN</name>
+            <len>false</len>
+            <dec>false</dec>
+            <valueWrapper></valueWrapper>
+            <formSize>5</formSize>
+            <maxlength>5</maxlength>
+    		<forceLength>true</forceLength>
+        </dataType>
+        <dataType>
+            <name>FIXED</name>
+            <len>true</len>
+            <dec>true</dec>
+            <maxlength>65</maxlength>
+        </dataType>
+        <dataType>
+            <name>FLOAT</name>
+            <len>true</len>
+            <dec>false</dec>
+            <maxlength>38</maxlength>
+        </dataType>
+        <dataType>
+            <name>INTEGER</name>
+            <len>false</len>
+            <dec>false</dec>
+            <maxlength>10</maxlength>
+        </dataType>
+        <dataType>
+            <name>SMALLINT</name>
+            <len>false</len>
+            <dec>false</dec>
+            <maxlength>5</maxlength>
+        </dataType>
+        <dataType>
+            <name>DATE</name>
+            <len>false</len>
+            <dec>false</dec>
+            <valueWrapper>'</valueWrapper>
+            <format>YYYY-MM-DD</format>
+        </dataType>
+        <dataType>
+            <name>TIME</name>
+            <len>false</len>
+            <dec>false</dec>
+            <valueWrapper>'</valueWrapper>
+            <format>HH:MM:SS</format>
+        </dataType>
+        <dataType>
+            <name>TIMESTAMP</name>
+            <len>false</len>
+            <dec>false</dec>
+            <valueWrapper>'</valueWrapper>
+            <format>YYYY-MM-DD HH:MM:SS.MMMMMM</format>
+        </dataType>
+    </dataTypes>
+    <!--
+    CHAR[ACTER] [(<unsigned_integer>)] [ASCII | BYTE | EBCDIC | UNICODE]
+| VARCHAR [(<unsigned_integer>)] [ASCII | BYTE | EBCDIC | UNICODE]
+| LONG [VARCHAR] [ASCII | BYTE | EBCDIC | UNICODE]
+| BOOLEAN
+| FIXED (<unsigned_integer> [,<unsigned_integer>])
+| FLOAT (<unsigned_integer>)
+| INT[EGER] | SMALLINT
+| DATE | TIME | TIMESTAMP
+-->
+</properties>

@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="Kategorie">
+
+  <typeAlias alias="KategorieObject" type="ch.bfh.egov.nutzenportfolio.tos.Kategorie"/>
+  <typeAlias alias="NaOpNuObject" type="ch.bfh.egov.nutzenportfolio.tos.NaOpNu"/>
+  <typeAlias alias="CustomizingObject" type="ch.bfh.egov.nutzenportfolio.tos.Customizing"/>
+  <typeAlias alias="NutzenkriteriumObject" type="ch.bfh.egov.nutzenportfolio.tos.Nutzenkriterium"/>
+
+  <resultMap id="kategorieResult" class="KategorieObject">
+    <result property="kategorieId"						column="kategorieId"/>
+    <result property="mandantId"							column="mandantId"/>
+    <result property="name"										column="name"/>
+    <result property="beschreibung"						column="beschreibung"/>
+    <result property="system"									column="system"/>
+  </resultMap>
+  
+  <resultMap id="kategorieAssignmentResult" class="KategorieObject">
+    <result property="kategorieId"						column="kategorieId"/>
+    <result
+    		property="nutzenattraktivitaetOperativerNutzenId"
+    		column="nutzenattraktivitaetOperativerNutzenId"/>
+    <result property="mandantId"							column="mandantId"/>
+    <result property="name"										column="name"/>
+    <result property="beschreibung"						column="beschreibung"/>
+    <result property="system"									column="system"/>
+  </resultMap>
+  
+  <resultMap id="customizingResult" class="CustomizingObject">
+    <result property="customizingId"			column="customizingId"/>
+    <result property="name"								column="name"/>
+    <result property="status"							column="status"/>
+  </resultMap>
+  
+  <resultMap id="nutzenkriteriumResult" class="NutzenkriteriumObject">
+	  <result property="nutzenkriteriumId"							column="nutzenkriteriumId"/>
+	  <result property="name"														column="name"/>
+	  <result property="beschreibung"										column="beschreibung"/>
+	  <result property="frageManagementDefault"					column="frageManagementDefault"/>
+	  <result property="frageProjektbetroffeneDefault"	column="frageProjektbetroffeneDefault"/>
+	  <result property="kategorieId"										column="kategorieId"/>
+	  <result property="mandantId"											column="mandantId"/>
+  </resultMap>
+  
+  <select
+  		id="getAll"
+  		parameterClass="java.lang.Integer"
+  		resultMap="kategorieResult">
+    SELECT
+      kategorieId, mandantId, name, beschreibung, system
+    FROM Kategorie
+    WHERE
+    	mandantId = #value#
+  </select>
+  
+  <select
+  		id="getById"
+  		parameterClass="KategorieObject"
+  		resultMap="kategorieResult">
+    SELECT
+      kategorieId, mandantId, name, beschreibung, system
+    FROM Kategorie
+    WHERE
+    	kategorieId = #kategorieId# AND
+    	mandantId = #mandantId#
+  </select>
+  
+  <select
+  		id="getByName"
+  		parameterClass="KategorieObject"
+  		resultMap="kategorieResult">
+    SELECT
+      kategorieId, mandantId, name, beschreibung, system
+    FROM Kategorie
+    WHERE
+    	name = #name#
+    	AND mandantId = #mandantId#
+  </select>
+  
+  <select
+  		id="getByProjektId"
+  		parameterClass="NaOpNuObject"
+  		resultMap="kategorieResult">
+    SELECT k.kategorieId, k.mandantId, k.name, k.beschreibung, k.system
+    FROM
+    	Kategorie AS k,
+    	Kategorie_has_NutzenattraktivitaetOperativerNutzen AS kn,
+    	NutzenattraktivitaetOperativerNutzen AS n,
+    	Customizing AS c,
+    	Projektgruppe AS pg,
+    	Projekt AS p
+    WHERE
+    	k.kategorieId = kn.kategorieId AND
+    	kn.nutzenattraktivitaetOperativerNutzenId = n.nutzenattraktivitaetOperativerNutzenId AND
+    	n.nutzenattraktivitaet = #nutzenattraktivitaet# AND
+    	n.operativerNutzen = #operativerNutzen# AND
+    	n.customizingId = c.customizingId AND
+    	pg.customizingId = c.customizingId AND
+    	p.projektgruppeId = pg.projektgruppeId AND
+			p.projektId = #projektId#
+  </select>
+  
+  <select
+  		id="getAssignments"
+  		parameterClass="KategorieObject"
+  		resultMap="kategorieAssignmentResult">
+    SELECT
+    	k.kategorieId, n.nutzenattraktivitaetOperativerNutzenId,
+    	k.name, k.beschreibung, k.mandantId, k.system
+    FROM
+    	Kategorie AS k,
+    	Kategorie_has_NutzenattraktivitaetOperativerNutzen AS pn,
+	    NutzenattraktivitaetOperativerNutzen AS n
+    WHERE
+    	k.kategorieId = pn.kategorieId AND
+    	pn.nutzenattraktivitaetOperativerNutzenId = n.nutzenattraktivitaetOperativerNutzenId AND
+    	n.nutzenattraktivitaetOperativerNutzenId = #nutzenattraktivitaetOperativerNutzenId# AND
+    	mandantId = #mandantId#
+  </select>
+  
+  <select
+  		id="getLinkedCustomizings"
+  		parameterClass="KategorieObject"
+  		resultMap="customizingResult">
+    SELECT c.customizingId, name, status
+    FROM
+    	Customizing AS c, NutzenattraktivitaetOperativerNutzen AS n,
+    	Kategorie_has_NutzenattraktivitaetOperativerNutzen AS pn
+    WHERE
+    	c.customizingId = n.customizingId
+    	AND pn.nutzenattraktivitaetOperativerNutzenId = n.nutzenattraktivitaetOperativerNutzenId
+    	AND kategorieId = #kategorieId#
+    	AND mandantId = #mandantId#
+   	GROUP BY c.customizingId
+  </select>
+  
+  <select
+  		id="getLinkedNutzenkriterien"
+  		parameterClass="KategorieObject"
+  		resultMap="nutzenkriteriumResult">
+    SELECT
+    	n.nutzenkriteriumId, n.name, n.beschreibung, n.mandantId, n.kategorieId,
+    	n.frageManagementDefault, n.frageProjektbetroffeneDefault
+    FROM Nutzenkriterium AS n, Kategorie AS k
+    WHERE
+      n.kategorieId = k.kategorieId
+    	AND k.kategorieId = #kategorieId#
+    	AND k.mandantId = #mandantId#
+  </select>
+  
+  <insert id="insert" parameterClass="KategorieObject">
+    INSERT INTO Kategorie
+    	(mandantId, name, beschreibung)
+    VALUES (#mandantId#, #name#, #beschreibung#)
+  </insert>
+  
+  <update id="update" parameterClass="KategorieObject">
+    UPDATE Kategorie
+    SET
+	    name = #name#,
+	    beschreibung = #beschreibung#
+    WHERE
+    	kategorieId = #kategorieId# AND
+    	mandantId = #mandantId#
+  </update>
+  
+  <delete id="delete" parameterClass="KategorieObject">
+    DELETE FROM Kategorie
+    WHERE
+    	kategorieId = #kategorieId# AND
+    	mandantId = #mandantId#
+  </delete>
+  
+  <insert id="insertAssignment" parameterClass="KategorieObject">
+    INSERT INTO Kategorie_has_NutzenattraktivitaetOperativerNutzen
+    	(kategorieId, nutzenattraktivitaetOperativerNutzenId)
+    VALUES (#kategorieId#, #nutzenattraktivitaetOperativerNutzenId#)
+  </insert>
+  
+  <update id="updateAssignment" parameterClass="KategorieObject">
+    UPDATE Kategorie_has_NutzenattraktivitaetOperativerNutzen
+   	SET gewichtung=#gewichtung#
+   	WHERE 
+   		kategorieId=#kategorieId# AND
+   		nutzenattraktivitaetOperativerNutzenId = #nutzenattraktivitaetOperativerNutzenId#
+  </update>
+  
+  <delete id="deleteAssignments" parameterClass="java.lang.Integer">
+    DELETE
+    FROM Kategorie_has_NutzenattraktivitaetOperativerNutzen
+    WHERE
+    	nutzenattraktivitaetOperativerNutzenId = #nutzenattraktivitaetOperativerNutzenId#
+  </delete>
+</sqlMap>

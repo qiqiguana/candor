@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="NutzenattraktivitaetOperativerNutzen">
+
+  <typeAlias
+  		alias="NaOpNuObject"
+		  type="ch.bfh.egov.nutzenportfolio.tos.NaOpNu"/>
+  <typeAlias
+  		alias="NaOpNuLineObject"
+  		type="ch.bfh.egov.nutzenportfolio.common.NaOpNuLine"/>
+
+  <resultMap id="naOpNuResult" class="NaOpNuObject">
+	  <result property="resultat"			column="resultat"/>
+	  <result property="name"					column="name"/>
+	  <result property="anzahl"				column="anzahl"/>
+  </resultMap>
+  
+  <resultMap id="naOpNuEmailResult" class="NaOpNuObject">
+	  <result property="nutzenattraktivitaetOperativerNutzenResultatId"
+	  		column="nutzenattraktivitaetOperativerNutzenResultatId"/>
+  </resultMap>
+  
+  <resultMap id="naOpNuUIDResult" class="NaOpNuObject">
+	  <result property="nutzenattraktivitaetOperativerNutzenId"
+	  		column="nutzenattraktivitaetOperativerNutzenId"/>
+	  <result property="customizingId"					column="customizingId"/>
+	  <result property="nutzenattraktivitaet"		column="nutzenattraktivitaet"/>
+	  <result property="operativerNutzen"				column="operativerNutzen"/>
+	  <result property="naOpNuUID"							column="naOpNuUID"/>
+	  <result property="mandantId"							column="mandantId"/>
+  </resultMap>
+  
+  <select
+  		id="getByEmail"
+  		resultMap="naOpNuEmailResult"
+  		parameterClass="NaOpNuObject">
+	  SELECT
+	  	nutzenattraktivitaetOperativerNutzenResultatId
+	  FROM
+	  	NutzenattraktivitaetOperativerNutzenResultat AS r,
+	  	NutzenattraktivitaetOperativerNutzen AS n
+	  WHERE
+	  	n.nutzenattraktivitaetOperativerNutzenId = r.nutzenattraktivitaetOperativerNutzenId AND
+	  	nutzenattraktivitaet = #nutzenattraktivitaet# AND
+	  	operativerNutzen = #operativerNutzen# AND
+	  	projektID = #projektId# AND
+	  	email LIKE #email#
+  </select>
+  
+  <select
+  		id="getByUID"
+  		resultMap="naOpNuUIDResult"
+  		parameterClass="java.lang.Long">
+	  SELECT
+	  	nutzenattraktivitaetOperativerNutzenId, c.customizingId,
+	  	nutzenattraktivitaet, operativerNutzen, naOpNuUID, mandantId
+	  FROM NutzenattraktivitaetOperativerNutzen AS n, Customizing AS c
+	  WHERE
+	  	c.customizingId = n.customizingId AND
+	  	naOpNuUID = #value#
+  </select>
+
+  <select
+  		id="getNaOpNuResultat"
+  		parameterClass="NaOpNuObject"
+  		resultMap="naOpNuResult">
+		SELECT
+			name, IFNULL((sum(resultat) / count(resultat)) , 0) AS resultat,
+			count(resultat) AS anzahl
+		FROM
+			NutzenattraktivitaetOperativerNutzenResultat AS naOpNuRes,
+			NutzenattraktivitaetOperativerNutzen AS naOpNu,
+			Projekt AS p
+		WHERE
+			naOpNuRes.nutzenattraktivitaetOperativerNutzenId = naOpNu.nutzenattraktivitaetOperativerNutzenId
+			AND operativerNutzen = #operativerNutzen#
+			AND nutzenattraktivitaet = #nutzenattraktivitaet#
+			AND p.projektId = naOpNuRes.projektId
+			AND naOpNuRes.projektId = #projektId#
+		GROUP BY name
+  </select>
+  
+  <select
+  		id="getPaResultat"
+  		parameterClass="NaOpNuObject"
+  		resultMap="naOpNuResult">
+		SELECT
+			name, IFNULL((sum(resultat) / count(resultat)) , 0) AS resultat,
+			count(resultat) AS anzahl
+		FROM ProjektattraktivitaetResultat AS naOpNuRes, Projekt AS p
+		WHERE
+			p.projektId = naOpNuRes.projektId
+			AND naOpNuRes.projektId = #projektId#
+		GROUP BY name
+  </select>
+
+  <insert
+  		id="insertNaOpNuResultat"
+  		parameterClass="NaOpNuObject">
+    INSERT INTO NutzenattraktivitaetOperativerNutzenResultat
+    	(nutzenattraktivitaetOperativerNutzenId, customizingId,
+    	projektId, email, resultat)
+    VALUES
+    	(#nutzenattraktivitaetOperativerNutzenId#, #customizingId#,
+    	#projektId#, #email#, #resultat#)
+    <selectKey resultClass="java.lang.Integer" keyProperty="nutzenattraktivitaetOperativerNutzenResultatId">
+			SELECT LAST_INSERT_ID() AS nutzenattraktivitaetOperativerNutzenResultatId
+		</selectKey>
+  </insert>
+  
+  <delete id="deleteAssignments" parameterClass="java.lang.Integer">
+    DELETE
+    FROM NutzenattraktivitaetOperativerNutzenResultat
+    WHERE customizingId = #value#
+  </delete>
+
+</sqlMap>

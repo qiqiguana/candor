@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head></head>
+<body>
+This package contains all the code required to run versions of Macaw's curation and retrieval
+services which store data in a MySQL database.  The implementations of 
+{@link macaw.businessLayer.MacawCurationAPI} 
+and {@link macaw.businessLayer.MacawRetrievalAPI}.  
+
+<p>
+Note that wherever possible, the design of this package is analagous to the design of 
+<code>macaw.persistenceLayer.production</code>.
+
+<h2>Identifying the Major Classes</h2>
+<h3>Main service classes</h3>
+The service classes that implement Macaw's APIs are {@link macaw.persistenceLayer.production.ProductionCurationService} 
+and {@link macaw.persistenceLayer.production.ProductionRetrievalService}.  The main role of these 
+classes is to delegate implementations of their API methods to a set of manager classes 
+created to support major concepts defined in package <code>macaw.businessLayer</code>.  For example, 
+{@link macaw.persistenceLayer.production.SQLValueLabelManager} handles editing operations for 
+{@link macaw.businessLayer.ValueLabel} objects.  All manager classes are prefixed with "SQL", 
+end in "Manager".
+
+<p>
+The service classes generally follow a format for implementing their API methods.  For an API
+call, it first validates the user.  If no exceptions are thrown it then calls a corresponding
+method in one of the manager classes.  {@link macaw.persistenceLayer.production.ProductionCurationService}
+will throw any exceptions its manager classes encounter.
+{@link macaw.persistenceLayer.production.ProductionCurationService} catches all the exceptions from 
+manager classes as a measure to prevent sensitive information from being viewed by people using
+tools that interact with Macaw.
+
+<h3>Manager classes</h3>
+<p>
+Manager classes tend to support the following operations:
+<ul>
+<li>get all items</li>
+<li>add an item</li>
+<li>update an item</li>
+<li>delete an item</li>
+<li>check that an item does exist</li>
+<li>check that an item is not a duplicate</li>
+</ul>
+
+<p>
+All of the manager classes are sub-classes of 
+{@link macaw.persistenceLayer.production.SQLCurationConceptManager}, which provides convenience
+methods that log changes made to records.
+
+<p>
+The manager classes manage collections of objects that come from classes defined in package
+<code>macaw.model</code>.  Most of the model classes (eg: {@link macaw.businessLayer.Variable},
+{@link macaw.businessLayer.SupportingDocument},{@link macaw.businessLayer.ValueLabel}) are responsible for
+these tasks:
+<ul>
+<li>set and get properties</li>
+<li>validate an instance of the class.  Validation includes type checking each field and
+detecting erroneous combinations of values.</li>
+<li>detecting differences between any two instances</li>
+<li>support for cloning objects</li>
+</ul>
+
+<h3>Support for Persistence</h3>
+The in-memory implementations of Macaw services rely on the cloning feature found in 
+<code>macaw.businessLayer</code> classes to simulate persistent storage. Each manager class adopts
+the following policy in its operations:
+<ul>
+<li>When an item is added, the manager class assigns it an auto-generated identifier and 
+regards it as a stored item (an original).  
+<li>When an item is retrieved, the manager clones the original and returns an object that is
+treated as a working copy</li>
+<li>During updates, the manager uses the identifier value in the working copy to find the 
+original item.  It then invokes a static method in the model classes to detect any differences
+between the working copy and the original.  If an update is allowed to happen, then the 
+working copy becomes the new original</li>
+<li>Changes between working copy and original are logged via calls to the 
+{@link macaw.persistenceLayer.production.SQLChangeEventManager}.</li>
+</ul>
+
+<h2>Supporting Future Changes</h2>
+This section is included for the benefit of developers who want to alter the code base.
+
+<h3>Adding a new field XXX to model concept YYY</h3>
+<h4>Change the code in model class YYY</h4>
+<ol>
+<li>Add a field XXX, getXXX(...), setXXX(...) to model class YYY.</li>
+<li>Modify the methods <code>validateFields(...)</code> and 
+<code>detectFieldChanges(...)</code>.  These methods will require new messages you need to
+define in MacawMessages.properties.  Search the list of message properties by looking for
+"YYY.".  Now add new ones. Be sure that if your messages take parameters, that you pass them
+values in calls to <code>MacawMessages.getMessage(...)</code>.</li>
+<li>Modify <code>public Object clone()</code>.</li>
+<li>Determine whether the field you added should affect how the item is shown in a list of items.
+If you feel the property needs to become part of the class's display name, modify
+<code>getDisplayName()</code>.
+</ol>
+
+<h4>Change code in the InMemoryYYYManager</h4>
+Modify the following methods:
+<li>createTable(...)</li>
+<li>add(...)</li>
+<li>edit(...)</li>
+<li>update(...)</li>
+<li>get(...)<li>
+<li>checkDuplicates(...)</li>
+</ul>
+
+<h4>Change code in the test cases</h4>
+Add new test cases to appropriate classes in package <code>macaw.test.curation</code> or 
+<code>macaw.test.retrieval</code>.
+<h4>Change the UI forms</h4>
+Please see the "Supporting Future Changes" section of package <code> macaw.presentationLayer</code>.
+
+
+</body>
+</html>

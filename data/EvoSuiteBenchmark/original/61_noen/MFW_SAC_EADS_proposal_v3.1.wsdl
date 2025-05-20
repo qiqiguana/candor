@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:bb="http://www.bugyobeyond.org/MFW_SAC/" name="MFW_SAC_service" targetNamespace="http://www.bugyobeyond.org/MFW_SAC/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <!-- This file describes the web services provided by the SAC and available to the MFW -->
+    <wsdl:types>
+        <xsd:schema xmlns:ns0="http://schemas.xmlsoap.org/soap/encoding/" targetNamespace="http://www.bugyobeyond.org/MFW_SAC/">
+            <xsd:element name="SAC">
+                <xsd:complexType>
+                    <xsd:attribute name="id" type="xsd:long" use="required" />
+                    <xsd:attribute name="version" type="xsd:string" use="optional" />
+                    <xsd:attribute name="IFs" type="xsd:string" use="optional" />
+                    <xsd:attribute name="company" type="xsd:string" use="optional" />
+                    <xsd:attribute name="time" type="xsd:dateTime" use="optional" />
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getSAC">
+                <xsd:complexType>
+                    <xsd:attribute name="mfw_id" type="xsd:long" use="required" />
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="BMResult">
+                <xsd:complexType>
+                    <xsd:attribute name="id" type="xsd:long" use="required" />
+                    <xsd:attribute name="error" type="xsd:boolean" use="optional" />
+                    <xsd:attribute name="value" type="xsd:string" use="optional" />
+                    <xsd:attribute name="timeStamp" type="xsd:dateTime" use="optional" />
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="BMResults">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element maxOccurs="unbounded" name="PerDevice">
+                            <xsd:complexType>
+                                <xsd:sequence>
+                                    <xsd:element maxOccurs="unbounded" name="results" ref="bb:BMResult" />
+                                </xsd:sequence>
+                                <xsd:attribute name="device_id" type="xsd:long" use="required" />
+                            </xsd:complexType>
+                        </xsd:element>
+                    </xsd:sequence>
+                    <xsd:attribute name="mfw_id" type="xsd:long" use="required" />
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="OperationResult">
+                <xsd:complexType>
+                    <xsd:attribute name="error" type="xsd:boolean" use="required" />
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Device">
+                <xsd:complexType>
+                    <xsd:attribute name="id" type="xsd:long" use="required" />
+                    <xsd:attribute name="name" type="xsd:string" use="optional" />
+                    <xsd:attribute name="type" type="xsd:string" use="optional" />
+                    <xsd:attribute name="disabled" type="xsd:boolean" use="optional" />
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="BM">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="0" maxOccurs="unbounded" name="device_id" type="xsd:long" />
+                    </xsd:sequence>
+                    <xsd:attribute name="id" type="xsd:long" use="required" />
+                    <xsd:attribute name="class" type="xsd:string" use="optional" />
+                    <xsd:attribute name="name" type="xsd:string" use="optional" />
+                    <xsd:attribute name="description" type="xsd:string" use="optional" />
+                    <xsd:attribute name="disabled" type="xsd:boolean" use="optional" />
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Probe">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="0" maxOccurs="unbounded" name="bm_id" type="xsd:long" />
+                    </xsd:sequence>
+                    <xsd:attribute name="id" type="xsd:long" use="required" />
+                    <xsd:attribute name="name" type="xsd:string" use="optional" />
+                    <xsd:attribute name="disabled" type="xsd:boolean" use="optional" />
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Availability">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="0" maxOccurs="unbounded" name="device" ref="bb:Device" />
+                        <xsd:element minOccurs="0" maxOccurs="unbounded" name="bm" ref="bb:BM" />
+                        <xsd:element minOccurs="0" maxOccurs="unbounded" name="probe" ref="bb:Probe" />
+                    </xsd:sequence>
+                    <xsd:attribute name="mfw_id" type="xsd:long" use="required" />
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:schema>
+    </wsdl:types>
+    <!-- global messages -->
+    <wsdl:message name="getSACRequest">
+        <wsdl:part name="parameters" element="bb:getSAC" />
+    </wsdl:message>
+    <wsdl:message name="getSACResponse">
+        <wsdl:part name="parameters" element="bb:SAC" />
+    </wsdl:message>
+    <!-- monitoring-related messages -->
+    <wsdl:message name="setBMResultsRequest">
+        <wsdl:part name="parameters" element="bb:BMResults" />
+    </wsdl:message>
+    <wsdl:message name="setBMResultsResponse">
+        <wsdl:part name="parameters" element="bb:OperationResult" />
+    </wsdl:message>
+    <wsdl:message name="setAvailabilityRequest">
+        <wsdl:part name="parameters" element="bb:Availability" />
+    </wsdl:message>
+    <wsdl:message name="setAvailabilityResponse">
+        <wsdl:part name="parameters" element="bb:OperationResult" />
+    </wsdl:message>
+    <wsdl:portType name="MFW_SAC">
+        <!-- global operations -->
+        <wsdl:operation name="getSAC">
+            <wsdl:input message="bb:getSACRequest" />
+            <wsdl:output message="bb:getSACResponse" />
+        </wsdl:operation>
+        <!-- monitoring-related operations -->
+        <wsdl:operation name="setBMResults">
+            <wsdl:input message="bb:setBMResultsRequest" />
+            <wsdl:output message="bb:setBMResultsResponse" />
+        </wsdl:operation>
+        <wsdl:operation name="setAvailability">
+            <wsdl:documentation>receives new available BM.</wsdl:documentation>
+            <wsdl:input message="bb:setAvailabilityRequest" />
+            <wsdl:output message="bb:setAvailabilityResponse" />
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="MFW_SAC_SoapBinding" type="bb:MFW_SAC">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+        <!-- global services -->
+        <wsdl:operation name="getSAC">
+            <soap:operation soapAction="" />
+            <wsdl:input name="getSACRequest">
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="getSACResponse">
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <!-- monitoring-related services -->
+        <wsdl:operation name="setBMResults">
+            <soap:operation soapAction="" />
+            <wsdl:input name="setBMResultsRequest">
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="setBMResultsResponse">
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <!-- modelling-related services -->
+        <wsdl:operation name="setAvailability">
+            <soap:operation soapAction="" />
+            <wsdl:input name="setAvailabilityRequest">
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="setAvailabilityResponse">
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+
+    </wsdl:binding>
+    <wsdl:service name="MFW_SAC_service">
+        <wsdl:port name="MFW_SAC" binding="bb:MFW_SAC_SoapBinding">
+            <soap:address location="http://www.bugyobeyond.org/MFW_SAC/" />
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

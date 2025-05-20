@@ -1,0 +1,26 @@
+## This is the test case under check.
+{{test_code}}
+## The input of the test case
+{{test_prefix}}
+## The old test oracle of the test case
+{{old_test_oracle}}
+
+Your team members (5 senior testers) have provided their analysis of the test case.
+{% for oracle_analysis_report in oracle_analysis_reports %}
+# Senior Tester {{ loop.index}} 
+## judgement: 
+{{oracle_analysis_report.judgement}}
+#### old oracle:
+{{oracle_analysis_report.old_oracle}}
+#### new oracle:
+{{oracle_analysis_report.new_oracle}}
+#### explanation:
+{{oracle_analysis_report.explanation}}
+{% endfor %}
+
+You should provide a final judgement on the test case based on the discussion of your team members. Use the oracle most of your members agrees on. Your response should include:
+- judgement of the oracle. Whether the test oracle is correct or not.
+- new test case. The full code of the test case with the correct oracle. If the old oracle is correct, just use the old test case. Replace only the oracle, don't change the rest of the test case. Follow the format and convention of the old test case -- Java code, JUnit 5 test framework.
+
+## output format
+{{format_instructions}}

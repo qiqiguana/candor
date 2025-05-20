@@ -1,0 +1,36 @@
+package fi.vtt.package;
+
+import java.util.Map;
+import java.util.HashMap;
+
+public class TestInterfaceImpl {
+  private Map<String, Integer> messages = new HashMap<String, Integer>();
+
+  public void reset() {
+    messages.clear();
+  }
+
+  private void msgReceived(String msg) {
+    Integer count = messages.get(msg);
+    if (count == null) {
+      count = 0;
+    }
+    count++;
+    messages.put(msg, count);
+  }
+
+  public int countFor(String msg) {
+    return messages.get(msg);
+  }
+  public void TestMethod1() {
+    msgReceived("TestMethod1");
+  }
+  public java.lang.String TestMethod2(java.util.Collection p1, java.util.Map p2, int p3) {
+    msgReceived("TestMethod2");
+    return null;
+  }
+  public int[] TestMethod3(double p1) throws java.io.IOException {
+    msgReceived("TestMethod3");
+    return null;
+  }
+}

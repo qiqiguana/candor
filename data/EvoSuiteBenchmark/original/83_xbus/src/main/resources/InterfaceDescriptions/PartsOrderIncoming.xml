@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE InterfaceSpec SYSTEM "InterfaceSpec.dtd">
+
+<InterfaceSpec Name="PartsOrderIncoming">
+
+	<Lines RecordIdentification="TypeIdentifier" IdentifierPos="0" IdentifierLength="2" RecordOrder="Structured">
+		<RecordGroup>
+			<RecordType Identifier="OH" Occurrences="1">OrderHeader</RecordType>
+			<RecordType Identifier="OL" Occurrences="1..*">OrderLine</RecordType>
+		</RecordGroup>
+		<RecordGroup>
+			<RecordType Identifier="UH" Occurrences="1">UrgentOrderHeader</RecordType>
+			<RecordType Identifier="UL" Occurrences="1..*">UrgentOrderLine</RecordType>
+		</RecordGroup>
+	</Lines>
+		
+	<RecordTypes>
+	
+		<RecordTypeSpec Name="OrderHeader">
+			<Field Name="RecordType" Length="2" Format="const" Value="OH"/>
+			<Field Name="CustomerNumber" Length="5" Format="alpha" />
+			<Field Name="CustomerOrderNumber" Length="10" Format="alpha" />
+			<Field Name="DispatchMode" Length="2" Format="num" />
+			<Field Name="PaymentConditions" Length="2" Format="alpha" />
+			<Field Name="CombinedPacking" Length="1" Format="alpha" />
+		</RecordTypeSpec>
+
+		<RecordTypeSpec Name="OrderLine">
+			<Field Name="RecordType" Length="2" Format="const" Value="OL" />
+			<Field Name="CustomerNumber" Length="5" Format="alpha" />
+			<Field Name="CustomerOrderNumber" Length="10" Format="alpha" />
+			<Field Name="PartNumber" Length="7" Format="alpha" />
+			<Field Name="Quantity" Length="6" Format="num" />
+			<Field Name="Remark" Length="20" Format="alpha" />
+		</RecordTypeSpec>	
+
+		<RecordTypeSpec Name="UrgentOrderHeader">
+			<Field Name="RecordType" Length="2" Format="const" Value="UH"/>
+			<Field Name="CustomerNumber" Length="5" Format="alpha" />
+			<Field Name="CustomerOrderNumber" Length="10" Format="alpha" />
+			<Field Name="DispatchMode" Length="2" Format="num" />
+			<Field Name="PaymentConditions" Length="2" Format="alpha" />
+			<Field Name="CombinedPacking" Length="1" Format="alpha" />
+		</RecordTypeSpec>
+
+		<RecordTypeSpec Name="UrgentOrderLine">
+			<Field Name="RecordType" Length="2" Format="const" Value="UL" />
+			<Field Name="CustomerNumber" Length="5" Format="alpha" />
+			<Field Name="CustomerOrderNumber" Length="10" Format="alpha" />
+			<Field Name="PartNumber" Length="7" Format="alpha" />
+			<Field Name="Quantity" Length="6" Format="num" />
+			<Field Name="Remark" Length="80" Format="alpha" />
+		</RecordTypeSpec>	
+
+	</RecordTypes>
+
+</InterfaceSpec>

@@ -1,0 +1,98 @@
+<?xml encoding="UTF-8"?>
+
+<!ELEMENT map (name,version,author,date,difficulty,maxplayers,area,imageset,
+               autowall,startpoints,powerups,fields)>
+<!ATTLIST map
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT name (#PCDATA)>
+<!ATTLIST name
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT version (#PCDATA)>
+<!ATTLIST version
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT author (#PCDATA)>
+<!ATTLIST author
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT date (#PCDATA)>
+<!ATTLIST date
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT difficulty (#PCDATA)>
+<!ATTLIST difficulty
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT maxplayers (#PCDATA)>
+<!ATTLIST maxplayers
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT area (x,y)>
+<!ATTLIST area
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT imageset (#PCDATA)>
+<!ATTLIST imageset
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT autowall (#PCDATA)>
+<!ATTLIST autowall
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT startpoints (start)+>
+<!ATTLIST startpoints
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT fields (field)+>
+<!ATTLIST fields
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT powerups (powerup)+>
+<!ATTLIST powerups
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT powerup (x,y,type)>
+<!ATTLIST powerup
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT start (player,x,y)>
+<!ATTLIST start
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT field (x,y,type,accessible,bombable,directions,speedfactor)>
+<!ATTLIST field
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT player (#PCDATA)>
+<!ATTLIST player
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT type (#PCDATA)>
+<!ATTLIST type
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT accessible (#PCDATA)>
+<!ATTLIST accessible
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT bombable (#PCDATA)>
+<!ATTLIST bombable
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT directions (#PCDATA)>
+<!ATTLIST directions
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT speedfactor (#PCDATA)>
+<!ATTLIST speedfactor
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT x (#PCDATA)>
+<!ATTLIST x
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT y (#PCDATA)>
+<!ATTLIST y
+  xmlns CDATA #FIXED ''>

@@ -1,0 +1,101 @@
+package fr.pingtimeout.jtail.configuration;
+
+import fr.pingtimeout.jtail.gui.action.*;
+import fr.pingtimeout.jtail.gui.controller.SelectIndexTypeListener;
+import fr.pingtimeout.jtail.gui.model.JTailMainModel;
+import fr.pingtimeout.jtail.gui.model.OpenFileModel;
+import fr.pingtimeout.jtail.gui.view.JTailMainFrame;
+import fr.pingtimeout.jtail.gui.view.OpenFileDialog;
+import org.springframework.beans.factory.config.BeanDefinition;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.ScopedProxyMode;
+import java.util.ResourceBundle;
+
+@Configuration
+public class ApplicationConfiguration {
+
+    /**
+     * Create the main frame of the application
+     *
+     * @return the main frame of the application
+     */
+    @Bean
+    @Scope(value = BeanDefinition.SCOPE_SINGLETON, proxyMode = ScopedProxyMode.NO)
+    public JTailMainFrame jTailMainFrame() {
+        return new JTailMainFrame(jTailMainModel(), fileMenuAction(), openAction(), closeAction(), closeAllAction(), quitAction(), toolsMenuAction(), highlightAction());
+    }
+
+    /**
+     * Create an application model.
+     *
+     * @return a new application model
+     */
+    @Bean
+    @Scope(value = BeanDefinition.SCOPE_SINGLETON, proxyMode = ScopedProxyMode.NO)
+    public JTailMainModel jTailMainModel();
+
+    /**
+     * Create the "file" menu action that will be used by menus and buttons.
+     *
+     * @return a new "file" menu action
+     */
+    @Bean
+    @Scope(value = BeanDefinition.SCOPE_SINGLETON, proxyMode = ScopedProxyMode.NO)
+    public MenuAction fileMenuAction();
+
+    /**
+     * Create the "open" action that will be used by menus and buttons.
+     *
+     * @return a new "open" action
+     */
+    @Bean
+    @Scope(value = BeanDefinition.SCOPE_SINGLETON, proxyMode = ScopedProxyMode.NO)
+    public OpenFileAction openAction();
+
+    /**
+     * Create the "close" action that will be used by menus and buttons.
+     *
+     * @return a new "close" action
+     */
+    @Bean
+    @Scope(value = BeanDefinition.SCOPE_SINGLETON, proxyMode = ScopedProxyMode.NO)
+    public CloseAction closeAction();
+
+    /**
+     * Create the "close all" action that will be used by menus and buttons.
+     *
+     * @return a new "close all" action
+     */
+    @Bean
+    @Scope(value = BeanDefinition.SCOPE_SINGLETON, proxyMode = ScopedProxyMode.NO)
+    public CloseAllAction closeAllAction();
+
+    /**
+     * Create the "quit" action that will be used by menus and buttons.
+     *
+     * @return a new "quit" action
+     */
+    @Bean
+    @Scope(value = BeanDefinition.SCOPE_SINGLETON, proxyMode = ScopedProxyMode.NO)
+    public QuitAction quitAction();
+
+    /**
+     * Create the "tools" menu action that will be used by menus and buttons.
+     *
+     * @return a new "tools" menu action
+     */
+    @Bean
+    @Scope(value = BeanDefinition.SCOPE_SINGLETON, proxyMode = ScopedProxyMode.NO)
+    public MenuAction toolsMenuAction();
+
+    /**
+     * Create the "Highlight" action that will be used by menus and buttons.
+     *
+     * @return a new "Highlight" action
+     */
+    @Bean
+    @Scope(value = BeanDefinition.SCOPE_SINGLETON, proxyMode = ScopedProxyMode.NO)
+    public HighlightAction highlightAction();
+}

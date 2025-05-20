@@ -1,0 +1,68 @@
+serverin testimalli:
+
+ulkoiset rajapinnat SAC:lle:
+
+SAC->SA:
+--getavailablebm+
+--requestbm+
+--requestbmsampling
+--requestprobeconfiguration+
+--setprobeconfiguration+
+--getprobes+
+--getdevices+
+
+SA->SAC:
+--publishbm+
+--notifyfailure
+
+ulkoiset rajapinnat PA:lle:
+PA->SA
+--register
+--publishbm
+
+SA->PA
+--requestbm
+--requestbmsampling
+--readconfiguration
+--setconfiguration
+
+SA:n tilamuuttujat:
+--probes
+--base measures
+--devices
+
+SA:n tilaesitys:
+--probeja 0,1,2+
+--probeilla base measureita 0,1,2+
+--probeilla deviceita 0,1,2+
+--base measureita 0,1-5,6+
+--deviceja 0,1-5,6+
+--onko timeouttia tullut vai ei
+
+[ABC][ABC][ABC][ABC][ABC][ABC][AB]
+
+Nama attribuutit pitaa traceen lisata
+Tracelle tyyppi: internal/external, server-agent,probe-agent
+
+mock objects luonnit:
+-clientti joka palauttaa bm arvoja kun pyydetty
+-sac joka ottaa vastaan bm arvoja kun pyydetty
+-read configuration antaa jonkin arvon
+-setconfiguration asettaa arvon, read configuration pitaisi palauttaa sama
+-helpompi lienee generoida stubin pohja talle
+
+rajoitus:
+--timeoutteja ja bm samplauksia ei voi perussetilla arpoa esiin.. eli nama yhteydet ei nay
+
+trace generointi:
+--eventille pitaa antaa attribuutti joka maarittaa onko se input vai output eventti
+--mitenkas jos samaa tracea kayttaa probe-agentin ja server-agentin nakokulmasta? itse asiassa tuo pitaisi sitten olla jotenkin konfiguroitavissa, mutta tama lienee nyt rajoite
+
+mallinnus luokat:
+inputin generointi:
+-eri objekti tyypit: null ja validi
+-
+
+yleisesti:
+-oraakkelit pitaa yhdistaa generointiin, niin etta boundaryt yms on suoraan inputista liitettavissa oraakkaleihin
+

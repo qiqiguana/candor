@@ -1,0 +1,124 @@
+<project name="jsecurity" default="rebuild" basedir="." xmlns:jacoco="antlib:org.jacoco.ant">
+
+  <!-- Javac -->
+  <property name="compile.debug" value="true" />
+  <property name="compile.deprecation" value="true" />
+  <property name="compile.optimize" value="false" />
+  <property name="compile.source" value="1.8" />
+  <property name="compile.target" value="1.8" />
+  <property name="compile.encoding" value="iso-8859-1" />
+
+  <property name="src.dir" location="./src/main/java" />
+  <property name="test.dir" location="./src/test/java" />
+
+  <property name="lib.dir" value="../lib/" />
+
+  <property name="result.dir" location="./target" />
+  <property name="result.classes.dir" location="${result.dir}/classes" />
+  <property name="result.tests.dir" location="${result.dir}/tests" />
+  <property name="result.report.dir" location="${result.dir}/site/" />
+  <property name="result.exec.file" location="${result.dir}/jacoco.exec" />
+
+
+  <!-- The dependency libraries -->
+  <path id="source.lib">
+    <fileset dir="lib">
+      <include name="**/*.jar" />
+    </fileset>
+  </path>
+
+  <!-- The dependency libraries for running/compiling tests -->
+  <path id="test.lib">
+    <fileset dir="test-lib">
+      <include name="**/*.jar" />
+    </fileset>
+    <pathelement location="${lib.dir}/junit-4.11.jar" />
+  </path>
+
+
+  <!--  Step 1: Import JaCoCo Ant tasks  -->
+  <taskdef uri="antlib:org.jacoco.ant" resource="org/jacoco/ant/antlib.xml">
+    <classpath path="${lib.dir}/jacocoant.jar" />
+  </taskdef>
+
+  <target name="clean">
+    <delete dir="${result.dir}" />
+  </target>
+
+  <target name="compile">
+    <mkdir dir="${result.classes.dir}" />
+    <javac srcdir="${src.dir}" destdir="${result.classes.dir}" source="${compile.source}"
+      target="${compile.target}"
+      debug="${compile.debug}"
+      deprecation="${compile.deprecation}"
+      optimize="${compile.optimize}"
+      encoding="${compile.encoding}"
+      includeantruntime="false"
+    >
+      <classpath refid="source.lib" />
+    </javac>
+  </target>
+
+  <target name="compile-tests" depends="compile">
+    <mkdir dir="${result.tests.dir}" />
+    <javac srcdir="${test.dir}" destdir="${result.tests.dir}" source="${compile.source}"
+      target="${compile.target}"
+      debug="${compile.debug}"
+      deprecation="${compile.deprecation}"
+      optimize="${compile.optimize}"
+      encoding="${compile.encoding}"
+      includeantruntime="false"
+    >
+      <classpath>
+        <path refid="source.lib" />
+        <path refid="test.lib" />
+        <pathelement path="${result.classes.dir}" />
+      </classpath>
+    </javac>
+  </target>
+
+  <target name="test" depends="compile-tests">
+    <!--  Step 2: Wrap test execution with the JaCoCo coverage task  -->
+    <jacoco:coverage destfile="${result.exec.file}">
+      <junit printsummary="yes" haltonfailure="no" fork="yes"
+        showoutput="yes">
+        <formatter type="plain" usefile="false" />
+        <classpath>
+          <pathelement path="${result.classes.dir}" />
+          <pathelement path="${result.tests.dir}" />
+          <path refid="source.lib" />
+          <path refid="test.lib" />
+        </classpath>
+        <batchtest fork="yes">
+          <fileset dir="${test.dir}">
+            <include name="**/*.java" />
+          </fileset>
+        </batchtest>
+      </junit>
+    </jacoco:coverage>
+  </target>
+  <target name="report" depends="test">
+    <!--  Step 3: Create coverage report  -->
+    <jacoco:report>
+      <!--  This task needs the collected execution data and ...  -->
+      <executiondata>
+        <file file="${result.exec.file}" />
+      </executiondata>
+      <!--  the class files and optional source files ...  -->
+      <structure name="JaCoCo Ant Example">
+        <classfiles>
+          <fileset dir="${result.classes.dir}" />
+        </classfiles>
+        <sourcefiles encoding="UTF-8">
+          <fileset dir="${src.dir}" />
+        </sourcefiles>
+      </structure>
+      <!--  to produce reports in different formats.  -->
+      <html destdir="${result.report.dir}" />
+      <csv destfile="${result.report.dir}/jacoco-18_jsecurity.csv" />
+      <xml destfile="${result.report.dir}/jacoco-18_jsecurity.xml" />
+    </jacoco:report>
+  </target>
+  <target name="rebuild" depends="clean,compile,compile-tests,test,report" />
+
+</project>

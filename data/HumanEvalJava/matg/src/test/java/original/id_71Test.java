@@ -1,0 +1,59 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of TriangleArea1.
+*/
+class TriangleArea1Test {
+    @Test
+    void testTriangleArea_3_4_5_Returns6Point00() {
+        // Arrange
+        int a = 3;
+        int b = 4;
+        int c = 5;
+        double expected = 6.0;
+
+        // Act
+        Number result = TriangleArea1.triangleArea(a, b, c);
+
+        // Assert
+        assertEquals(expected, result.doubleValue(), 0.01);
+    }
+    
+    @Test
+     void testNothing(){
+         TriangleArea1 s = new TriangleArea1();
+         }
+    @Test
+    public void testTriangleArea_ValidTriangle() {
+    	Number result = TriangleArea1.triangleArea(3, 4, 5);
+    	assertEquals(6.0, result.doubleValue(), 0.01);
+    }
+    @Test
+    public void testTriangleArea_InvalidTriangle() {
+    	Number result = TriangleArea1.triangleArea(1, 2, 10);
+    	assertEquals(-1, result.intValue(), 0.01);
+    }
+    @Test
+    public void testTriangleArea_EdgeCaseTriangle() {
+    	Number result = TriangleArea1.triangleArea(2, 2, 2);
+    	assertEquals(1.73, result.doubleValue(), 0.01);
+    }
+    @Test
+    public void testTriangleArea_ZeroAreaTriangle() {
+    	Number result = TriangleArea1.triangleArea(0, 0, 0);
+    	assertEquals(-1, result.intValue(), 0.01);
+    }
+    @Test
+    public void testTriangleArea_NegativeNumber() {
+    	Number result = TriangleArea1.triangleArea(-1, 2, 3);
+    	assertEquals(-1, result.intValue(), 0.01);
+    }
+    @Test
+    public void testTriangleArea_VeryLargeNumbers_LongDataType() {
+        Number result = TriangleArea1.triangleArea(10000, 20000, 30000);
+        assertEquals(-1.0, result.doubleValue(), 0.01);
+    }
+                                  
+}

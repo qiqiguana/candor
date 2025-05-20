@@ -1,0 +1,868 @@
+nohup: ignoring input
+[[1;34mINFO[m] Scanning for projects...
+[[1;33mWARNING[m] 
+[[1;33mWARNING[m] Some problems were encountered while building the effective model for mbxp:HumanEvalJava:jar:1.0
+[[1;33mWARNING[m] 'build.plugins.plugin.(groupId:artifactId)' must be unique but found duplicate declaration of plugin org.apache.maven.plugins:maven-surefire-plugin @ line 178, column 21
+[[1;33mWARNING[m] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-site-plugin is missing. @ line 74, column 21
+[[1;33mWARNING[m] 
+[[1;33mWARNING[m] It is highly recommended to fix these problems because they threaten the stability of your build.
+[[1;33mWARNING[m] 
+[[1;33mWARNING[m] For this reason, future Maven versions might no longer support building such malformed projects.
+[[1;33mWARNING[m] 
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m-------------------------< [0;36mmbxp:HumanEvalJava[0;1m >-------------------------[m
+[[1;34mINFO[m] [1mBuilding HumanEvalJava 1.0[m
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m>>> [0;32mevosuite-maven-plugin:1.2.0:generate[m [1m(default-cli)[0;1m > [0;1mcompile[m @ [36mHumanEvalJava[0;1m >>>[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco-maven-plugin:0.8.8:prepare-agent[m [1m(default-prepare-agent)[m @ [36mHumanEvalJava[0;1m ---[m
+[[1;34mINFO[m] argLine set to -javaagent:/home/qinghua/.m2/repository/org/jacoco/org.jacoco.agent/0.8.8/org.jacoco.agent-0.8.8-runtime.jar=destfile=/home/qinghua/projects/matg/data/HumanEvalJava/evosuite_2/target/jacoco.exec
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:2.6:resources[m [1m(default-resources)[m @ [36mHumanEvalJava[0;1m ---[m
+[[1;34mINFO[m] Using 'UTF-8' encoding to copy filtered resources.
+[[1;34mINFO[m] skip non existing resourceDirectory /home/qinghua/projects/matg/data/HumanEvalJava/evosuite_2/src/main/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.11.0:compile[m [1m(default-compile)[m @ [36mHumanEvalJava[0;1m ---[m
+[[1;34mINFO[m] Changes detected - recompiling the module! :source
+[[1;34mINFO[m] Compiling 160 source files with javac [debug target 11] to target/classes
+[[1;33mWARNING[m] /home/qinghua/projects/matg/data/HumanEvalJava/evosuite_2/src/main/java/original/id_101.java:[35,30] non-varargs call of varargs method with inexact argument type for last parameter;
+  cast to java.lang.Object for a varargs call
+  cast to java.lang.Object[] for a non-varargs call and to suppress this warning
+[[1;34mINFO[m] /home/qinghua/projects/matg/data/HumanEvalJava/evosuite_2/src/main/java/original/id_87.java: /home/qinghua/projects/matg/data/HumanEvalJava/evosuite_2/src/main/java/original/id_87.java uses unchecked or unsafe operations.
+[[1;34mINFO[m] /home/qinghua/projects/matg/data/HumanEvalJava/evosuite_2/src/main/java/original/id_87.java: Recompile with -Xlint:unchecked for details.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m<<< [0;32mevosuite-maven-plugin:1.2.0:generate[m [1m(default-cli)[0;1m < [0;1mcompile[m @ [36mHumanEvalJava[0;1m <<<[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mevosuite-maven-plugin:1.2.0:generate[m [1m(default-cli)[m @ [36mHumanEvalJava[0;1m ---[m
+[[1;34mINFO[m] Going to generate tests with EvoSuite
+[[1;34mINFO[m] Total memory: 800mb
+[[1;34mINFO[m] Time per class: 2 minutes
+[[1;34mINFO[m] Number of used cores: 1
+[[1;34mINFO[m] Target: /home/qinghua/projects/matg/data/HumanEvalJava/evosuite_2/target/classes
+[[1;34mINFO[m] Basedir: /home/qinghua/projects/matg/data/HumanEvalJava/evosuite_2
+[[1;34mINFO[m] Started spawn process manager on port 43191
+[[1;34mINFO[m] * EvoSuite 1.2.0
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:56658
+[[1;34mINFO[m] Going to execute 160 jobs
+[[1;34mINFO[m] Estimated completion time: 320 minutes, by 2025-05-15T01:38:10.345177
+[[1;34mINFO[m] Going to start job for: original.SortNumbers. Expected to end in 391 seconds, by 2025-05-14T20:24:41.363077
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:56674
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:56678
+[[1;34mINFO[m] Completed job. Left: 159
+[[1;34mINFO[m] Going to start job for: original.Encode. Expected to end in 285 seconds, by 2025-05-14T20:26:20.061335
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:60020
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:60024
+[[1;34mINFO[m] Completed job. Left: 158
+[[1;34mINFO[m] Going to start job for: original.ValidDate. Expected to end in 285 seconds, by 2025-05-14T20:28:52.428423
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:52766
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:52776
+[[1;34mINFO[m] Completed job. Left: 157
+[[1;34mINFO[m] Going to start job for: original.ByLength. Expected to end in 285 seconds, by 2025-05-14T20:31:24.466093
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:37230
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:37240
+[[1;34mINFO[m] Completed job. Left: 156
+[[1;34mINFO[m] Going to start job for: original.VowelsCount. Expected to end in 270 seconds, by 2025-05-14T20:33:42.947884
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:49440
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:49456
+[[1;34mINFO[m] Completed job. Left: 155
+[[1;34mINFO[m] Going to start job for: original.SelectWords. Expected to end in 255 seconds, by 2025-05-14T20:35:52.431565
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:59886
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:59896
+[[1;34mINFO[m] Completed job. Left: 154
+[[1;34mINFO[m] Going to start job for: original.NumericalLetterGrade. Expected to end in 255 seconds, by 2025-05-14T20:38:08.119234
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:45520
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:45530
+[[1;34mINFO[m] Completed job. Left: 153
+[[1;34mINFO[m] Going to start job for: original.RemoveVowels. Expected to end in 225 seconds, by 2025-05-14T20:39:54.077737
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:52954
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:52970
+[[1;34mINFO[m] Completed job. Left: 152
+[[1;34mINFO[m] Going to start job for: original.RightAngleTriangle. Expected to end in 210 seconds, by 2025-05-14T20:41:41.931090
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:54424
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:54438
+[[1;34mINFO[m] Completed job. Left: 151
+[[1;34mINFO[m] Going to start job for: original.Minpath. Expected to end in 195 seconds, by 2025-05-14T20:43:21.337298
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:38680
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:38690
+[[1;34mINFO[m] Completed job. Left: 150
+[[1;34mINFO[m] Going to start job for: original.MatchParens. Expected to end in 195 seconds, by 2025-05-14T20:45:09.678680
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:51946
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:51962
+[[1;34mINFO[m] Completed job. Left: 149
+[[1;34mINFO[m] Going to start job for: original.CheckDictCase. Expected to end in 180 seconds, by 2025-05-14T20:46:39.695242
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:55754
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:55768
+[[1;34mINFO[m] Completed job. Left: 148
+[[1;34mINFO[m] Going to start job for: original.FileNameCheck. Expected to end in 180 seconds, by 2025-05-14T20:48:14.228105
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:59300
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:59306
+[[1;34mINFO[m] Completed job. Left: 147
+[[1;34mINFO[m] Going to start job for: original.Histogram. Expected to end in 180 seconds, by 2025-05-14T20:49:50.064949
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:46890
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:46892
+[[1;34mINFO[m] Completed job. Left: 146
+[[1;34mINFO[m] Going to start job for: original.CountNums. Expected to end in 165 seconds, by 2025-05-14T20:51:09.996754
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:56554
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:56558
+[[1;34mINFO[m] Completed job. Left: 145
+[[1;34mINFO[m] Going to start job for: original.Maximum1. Expected to end in 165 seconds, by 2025-05-14T20:52:43.263399
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:46916
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:46920
+[[1;34mINFO[m] Completed job. Left: 144
+[[1;34mINFO[m] Going to start job for: original.HexKey. Expected to end in 165 seconds, by 2025-05-14T20:54:16.929169
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:50492
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:50500
+[[1;34mINFO[m] Completed job. Left: 143
+[[1;34mINFO[m] Going to start job for: original.Skjkasdkd. Expected to end in 165 seconds, by 2025-05-14T20:55:49.216029
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:45398
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:45412
+[[1;34mINFO[m] Completed job. Left: 142
+[[1;34mINFO[m] Going to start job for: original.LargestSmallestIntegers. Expected to end in 165 seconds, by 2025-05-14T20:57:22.134792
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:40268
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:40280
+[[1;34mINFO[m] Completed job. Left: 141
+[[1;34mINFO[m] Going to start job for: original.Bf. Expected to end in 165 seconds, by 2025-05-14T20:58:55.069271
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:38016
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:38020
+[[1;34mINFO[m] Completed job. Left: 140
+[[1;34mINFO[m] Going to start job for: original.Common. Expected to end in 165 seconds, by 2025-05-14T21:00:27.378604
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:57732
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:57744
+[[1;34mINFO[m] Completed job. Left: 139
+[[1;34mINFO[m] Going to start job for: original.FindMax. Expected to end in 165 seconds, by 2025-05-14T21:01:59.491240
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:33380
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:33382
+[[1;34mINFO[m] Completed job. Left: 138
+[[1;34mINFO[m] Going to start job for: original.IsNested. Expected to end in 150 seconds, by 2025-05-14T21:03:17.045560
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:43728
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:43744
+[[1;34mINFO[m] Completed job. Left: 137
+[[1;34mINFO[m] Going to start job for: original.Specialfilter. Expected to end in 150 seconds, by 2025-05-14T21:04:40.446594
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:58056
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:58064
+[[1;34mINFO[m] Completed job. Left: 136
+[[1;34mINFO[m] Going to start job for: original.NextSmallest. Expected to end in 150 seconds, by 2025-05-14T21:06:04.069142
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:44530
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:44534
+[[1;34mINFO[m] Completed job. Left: 135
+[[1;34mINFO[m] Going to start job for: original.SplitWords. Expected to end in 150 seconds, by 2025-05-14T21:07:28.192589
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:44682
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:44684
+[[1;34mINFO[m] Completed job. Left: 134
+[[1;34mINFO[m] Going to start job for: original.ProdSigns. Expected to end in 150 seconds, by 2025-05-14T21:08:51.831734
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:51086
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:51092
+[[1;34mINFO[m] Completed job. Left: 133
+[[1;34mINFO[m] Going to start job for: original.FixSpaces. Expected to end in 150 seconds, by 2025-05-14T21:10:15.198044
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:34180
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:41902
+[[1;34mINFO[m] Completed job. Left: 132
+[[1;34mINFO[m] Going to start job for: original.AnyInt. Expected to end in 150 seconds, by 2025-05-14T21:11:39.675366
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:48752
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:48766
+[[1;34mINFO[m] Completed job. Left: 131
+[[1;34mINFO[m] Going to start job for: original.Monotonic. Expected to end in 150 seconds, by 2025-05-14T21:13:03.874775
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:42904
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:42920
+[[1;34mINFO[m] Completed job. Left: 130
+[[1;34mINFO[m] Going to start job for: original.ParseMusic. Expected to end in 135 seconds, by 2025-05-14T21:14:13.899600
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:47372
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:47386
+[[1;34mINFO[m] Completed job. Left: 129
+[[1;34mINFO[m] Going to start job for: original.IsSorted. Expected to end in 135 seconds, by 2025-05-14T21:15:28.749225
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:49090
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:49104
+[[1;34mINFO[m] Completed job. Left: 128
+[[1;34mINFO[m] Going to start job for: original.WordsInSentence. Expected to end in 135 seconds, by 2025-05-14T21:16:43.592494
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:51682
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:51684
+[[1;34mINFO[m] Completed job. Left: 127
+[[1;34mINFO[m] Going to start job for: original.IsHappy. Expected to end in 135 seconds, by 2025-05-14T21:17:57.494702
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:37874
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:37880
+[[1;34mINFO[m] Completed job. Left: 126
+[[1;34mINFO[m] Going to start job for: original.IsBored. Expected to end in 135 seconds, by 2025-05-14T21:19:12.359003
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:57520
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:57526
+[[1;34mINFO[m] Completed job. Left: 125
+[[1;34mINFO[m] Going to start job for: original.PrimeFib. Expected to end in 135 seconds, by 2025-05-14T21:20:26.356880
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:35066
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:35080
+[[1;34mINFO[m] Completed job. Left: 124
+[[1;34mINFO[m] Going to start job for: original.EvenOddPalindrome. Expected to end in 135 seconds, by 2025-05-14T21:21:49.459749
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:49218
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:49232
+[[1;34mINFO[m] Completed job. Left: 123
+[[1;34mINFO[m] Going to start job for: original.Exchange. Expected to end in 135 seconds, by 2025-05-14T21:23:13.461610
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:41430
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:41436
+[[1;34mINFO[m] Completed job. Left: 122
+[[1;34mINFO[m] Going to start job for: original.FizzBuzz. Expected to end in 135 seconds, by 2025-05-14T21:24:28.324154
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:38900
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:38904
+[[1;34mINFO[m] Completed job. Left: 121
+[[1;34mINFO[m] Going to start job for: original.SumSquares1. Expected to end in 135 seconds, by 2025-05-14T21:26:03.611650
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:57740
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:57754
+[[1;34mINFO[m] Completed job. Left: 120
+[[1;34mINFO[m] Going to start job for: original.StrongestExtension. Expected to end in 135 seconds, by 2025-05-14T21:27:18.854047
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:59980
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:59988
+[[1;34mINFO[m] Completed job. Left: 119
+[[1;34mINFO[m] Going to start job for: original.TotalMatch. Expected to end in 135 seconds, by 2025-05-14T21:28:33.957840
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:52102
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:52118
+[[1;34mINFO[m] Completed job. Left: 118
+[[1;34mINFO[m] Going to start job for: original.Pluck. Expected to end in 135 seconds, by 2025-05-14T21:29:48.078044
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:42542
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:42558
+[[1;34mINFO[m] Completed job. Left: 117
+[[1;34mINFO[m] Going to start job for: original.Intersection. Expected to end in 135 seconds, by 2025-05-14T21:31:02.594670
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:34772
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:34786
+[[1;34mINFO[m] Completed job. Left: 116
+[[1;34mINFO[m] Going to start job for: original.StartsOneEnds. Expected to end in 120 seconds, by 2025-05-14T21:32:04.717749
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:51722
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:51724
+[[1;34mINFO[m] Completed job. Left: 115
+[[1;34mINFO[m] Going to start job for: original.CircularShift. Expected to end in 120 seconds, by 2025-05-14T21:33:20.577876
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:35202
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:35206
+[[1;34mINFO[m] Completed job. Left: 114
+[[1;34mINFO[m] Going to start job for: original.SameChars. Expected to end in 120 seconds, by 2025-05-14T21:34:26.299315
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:37682
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:37686
+[[1;34mINFO[m] Completed job. Left: 113
+[[1;34mINFO[m] Going to start job for: original.WillItFly. Expected to end in 120 seconds, by 2025-05-14T21:35:31.614768
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:47622
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:47626
+[[1;34mINFO[m] Completed job. Left: 112
+[[1;34mINFO[m] Going to start job for: original.CheckIfLastCharIsALetter. Expected to end in 120 seconds, by 2025-05-14T21:36:37.244925
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:59902
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:59916
+[[1;34mINFO[m] Completed job. Left: 111
+[[1;34mINFO[m] Going to start job for: original.ParseNestedParens. Expected to end in 120 seconds, by 2025-05-14T21:37:42.470361
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:47252
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:47258
+[[1;34mINFO[m] Completed job. Left: 110
+[[1;34mINFO[m] Going to start job for: original.SortThird. Expected to end in 120 seconds, by 2025-05-14T21:38:47.706942
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:39024
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:39032
+[[1;34mINFO[m] Completed job. Left: 109
+[[1;34mINFO[m] Going to start job for: original.GetClosestVowel. Expected to end in 120 seconds, by 2025-05-14T21:39:53.080216
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:45660
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:45670
+[[1;34mINFO[m] Completed job. Left: 108
+[[1;34mINFO[m] Going to start job for: original.CompareOne. Expected to end in 120 seconds, by 2025-05-14T21:40:58.377237
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:37866
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:37868
+[[1;34mINFO[m] Completed job. Left: 107
+[[1;34mINFO[m] Going to start job for: original.TriplesSumToZero. Expected to end in 120 seconds, by 2025-05-14T21:42:03.223819
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:55260
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:55272
+[[1;34mINFO[m] Completed job. Left: 106
+[[1;34mINFO[m] Going to start job for: original.DoubleTheDifference. Expected to end in 120 seconds, by 2025-05-14T21:43:09.080614
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:43884
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:43890
+[[1;34mINFO[m] Completed job. Left: 105
+[[1;34mINFO[m] Going to start job for: original.StrangeSortList. Expected to end in 120 seconds, by 2025-05-14T21:44:14.725468
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:60412
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:60420
+[[1;34mINFO[m] Completed job. Left: 104
+[[1;34mINFO[m] Going to start job for: original.CountUpTo. Expected to end in 120 seconds, by 2025-05-14T21:45:19.898387
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:41594
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:41604
+[[1;34mINFO[m] Completed job. Left: 103
+[[1;34mINFO[m] Going to start job for: original.Solve. Expected to end in 120 seconds, by 2025-05-14T21:46:29.535789
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:46532
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:46536
+[[1;34mINFO[m] Completed job. Left: 102
+[[1;34mINFO[m] Going to start job for: original.GetMaxTriples. Expected to end in 120 seconds, by 2025-05-14T21:47:34.614477
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:43252
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:43262
+[[1;34mINFO[m] Completed job. Left: 101
+[[1;34mINFO[m] Going to start job for: original.Encrypt. Expected to end in 120 seconds, by 2025-05-14T21:49:06.328403
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:33396
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:33408
+[[1;34mINFO[m] Completed job. Left: 100
+[[1;34mINFO[m] Going to start job for: original.BelowZero. Expected to end in 120 seconds, by 2025-05-14T21:50:11.684158
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:41810
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:41816
+[[1;34mINFO[m] Completed job. Left: 99
+[[1;34mINFO[m] Going to start job for: original.PrimeLength. Expected to end in 120 seconds, by 2025-05-14T21:51:17.059993
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:51212
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:51216
+[[1;34mINFO[m] Completed job. Left: 98
+[[1;34mINFO[m] Going to start job for: original.ReverseDelete. Expected to end in 120 seconds, by 2025-05-14T21:52:22.081835
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:38810
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:38826
+[[1;34mINFO[m] Completed job. Left: 97
+[[1;34mINFO[m] Going to start job for: original.CountUpper. Expected to end in 120 seconds, by 2025-05-14T21:53:27.003138
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:44072
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:44084
+[[1;34mINFO[m] Completed job. Left: 96
+[[1;34mINFO[m] Going to start job for: original.CanArrange. Expected to end in 120 seconds, by 2025-05-14T21:54:31.947947
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:58092
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:58108
+[[1;34mINFO[m] Completed job. Left: 95
+[[1;34mINFO[m] Going to start job for: original.MoveOneBall. Expected to end in 120 seconds, by 2025-05-14T21:55:37.579992
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:57102
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:57112
+[[1;34mINFO[m] Completed job. Left: 94
+[[1;34mINFO[m] Going to start job for: original.CorrectBracketing1. Expected to end in 120 seconds, by 2025-05-14T21:56:43.112406
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:37264
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:37278
+[[1;34mINFO[m] Completed job. Left: 93
+[[1;34mINFO[m] Going to start job for: original.SortEven. Expected to end in 120 seconds, by 2025-05-14T21:57:48.253260
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:33228
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:33242
+[[1;34mINFO[m] Completed job. Left: 92
+[[1;34mINFO[m] Going to start job for: original.UniqueDigits. Expected to end in 120 seconds, by 2025-05-14T21:58:53.790728
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:52088
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:52104
+[[1;34mINFO[m] Completed job. Left: 91
+[[1;34mINFO[m] Going to start job for: original.SeparateParenGroups. Expected to end in 120 seconds, by 2025-05-14T21:59:59.521451
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:52686
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:52690
+[[1;34mINFO[m] Completed job. Left: 90
+[[1;34mINFO[m] Going to start job for: original.RollingMax. Expected to end in 120 seconds, by 2025-05-14T22:01:04.792699
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:42482
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:42486
+[[1;34mINFO[m] Completed job. Left: 89
+[[1;34mINFO[m] Going to start job for: original.Minsubarraysum. Expected to end in 120 seconds, by 2025-05-14T22:02:09.875226
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:46730
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:46746
+[[1;34mINFO[m] Completed job. Left: 88
+[[1;34mINFO[m] Going to start job for: original.IsSimplePower. Expected to end in 120 seconds, by 2025-05-14T22:03:15.579598
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:54450
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:40764
+[[1;34mINFO[m] Completed job. Left: 87
+[[1;34mINFO[m] Going to start job for: original.F. Expected to end in 120 seconds, by 2025-05-14T22:04:25.336316
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:48978
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:36734
+[[1;34mINFO[m] Completed job. Left: 86
+[[1;34mINFO[m] Going to start job for: original.CorrectBracketing. Expected to end in 120 seconds, by 2025-05-14T22:05:43.751555
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:39194
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:39206
+[[1;34mINFO[m] Completed job. Left: 85
+[[1;34mINFO[m] Going to start job for: original.RescaleToUnit. Expected to end in 120 seconds, by 2025-05-14T22:06:48.879842
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:60618
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:60628
+[[1;34mINFO[m] Completed job. Left: 84
+[[1;34mINFO[m] Going to start job for: original.Digits. Expected to end in 105 seconds, by 2025-05-14T22:07:39.343157
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:46024
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:46026
+[[1;34mINFO[m] Completed job. Left: 83
+[[1;34mINFO[m] Going to start job for: original.SortArray. Expected to end in 105 seconds, by 2025-05-14T22:08:41.788762
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:58924
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:58940
+[[1;34mINFO[m] Completed job. Left: 82
+[[1;34mINFO[m] Going to start job for: original.HasCloseElements. Expected to end in 105 seconds, by 2025-05-14T22:09:44.642420
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:57766
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:57768
+[[1;34mINFO[m] Completed job. Left: 81
+[[1;34mINFO[m] Going to start job for: original.XOrY. Expected to end in 105 seconds, by 2025-05-14T22:10:46.634784
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:52334
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:52348
+[[1;34mINFO[m] Completed job. Left: 80
+[[1;34mINFO[m] Going to start job for: original.TriangleArea1. Expected to end in 105 seconds, by 2025-05-14T22:11:52.076782
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:60616
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:60622
+[[1;34mINFO[m] Completed job. Left: 79
+[[1;34mINFO[m] Going to start job for: original.CycpatternCheck. Expected to end in 105 seconds, by 2025-05-14T22:12:54.924994
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:42340
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:42356
+[[1;34mINFO[m] Completed job. Left: 78
+[[1;34mINFO[m] Going to start job for: original.GetRow. Expected to end in 105 seconds, by 2025-05-14T22:13:57.192477
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:51118
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:51122
+[[1;34mINFO[m] Completed job. Left: 77
+[[1;34mINFO[m] Going to start job for: original.IsMultiplyPrime. Expected to end in 105 seconds, by 2025-05-14T22:14:59.569490
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:47944
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:47950
+[[1;34mINFO[m] Completed job. Left: 76
+[[1;34mINFO[m] Going to start job for: original.MakePalindrome. Expected to end in 105 seconds, by 2025-05-14T22:16:05.727904
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:56012
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:56014
+[[1;34mINFO[m] Completed job. Left: 75
+[[1;34mINFO[m] Going to start job for: original.Digitsum. Expected to end in 105 seconds, by 2025-05-14T22:17:07.825272
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:40746
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:40750
+[[1;34mINFO[m] Completed job. Left: 74
+[[1;34mINFO[m] Going to start job for: original.EvenOddCount. Expected to end in 105 seconds, by 2025-05-14T22:18:09.995024
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:54790
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:54794
+[[1;34mINFO[m] Completed job. Left: 73
+[[1;34mINFO[m] Going to start job for: original.GetOddCollatz. Expected to end in 105 seconds, by 2025-05-14T22:19:12.734960
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:50454
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:50468
+[[1;34mINFO[m] Completed job. Left: 72
+[[1;34mINFO[m] Going to start job for: original.Fibfib. Expected to end in 105 seconds, by 2025-05-14T22:20:25.272900
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:53728
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:53742
+[[1;34mINFO[m] Completed job. Left: 71
+[[1;34mINFO[m] Going to start job for: original.IsPrime. Expected to end in 105 seconds, by 2025-05-14T22:21:37.944917
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:56662
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:56666
+[[1;34mINFO[m] Completed job. Left: 70
+[[1;34mINFO[m] Going to start job for: original.FruitDistribution. Expected to end in 105 seconds, by 2025-05-14T22:22:41.352070
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:33308
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:33324
+[[1;34mINFO[m] Completed job. Left: 69
+[[1;34mINFO[m] Going to start job for: original.OddCount. Expected to end in 105 seconds, by 2025-05-14T22:23:44.038194
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:33180
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:33186
+[[1;34mINFO[m] Completed job. Left: 68
+[[1;34mINFO[m] Going to start job for: original.Fib4. Expected to end in 105 seconds, by 2025-05-14T22:24:46.452791
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:45452
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:45454
+[[1;34mINFO[m] Completed job. Left: 67
+[[1;34mINFO[m] Going to start job for: original.Add1. Expected to end in 105 seconds, by 2025-05-14T22:26:02.971596
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:57944
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:57958
+[[1;34mINFO[m] Completed job. Left: 66
+[[1;34mINFO[m] Going to start job for: original.MakeAPile. Expected to end in 105 seconds, by 2025-05-14T22:27:05.421973
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:49182
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:49192
+[[1;34mINFO[m] Completed job. Left: 65
+[[1;34mINFO[m] Going to start job for: original.ChooseNum. Expected to end in 105 seconds, by 2025-05-14T22:28:16.993002
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:45552
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:45564
+[[1;34mINFO[m] Completed job. Left: 64
+[[1;34mINFO[m] Going to start job for: original.Search. Expected to end in 105 seconds, by 2025-05-14T22:29:26.531370
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:45994
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:46004
+[[1;34mINFO[m] Completed job. Left: 63
+[[1;34mINFO[m] Going to start job for: original.FindClosestElements. Expected to end in 105 seconds, by 2025-05-14T22:30:29.189033
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:59884
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:59888
+[[1;34mINFO[m] Completed job. Left: 62
+[[1;34mINFO[m] Going to start job for: original.Tri. Expected to end in 105 seconds, by 2025-05-14T22:31:31.606914
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:39168
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:39184
+[[1;34mINFO[m] Completed job. Left: 61
+[[1;34mINFO[m] Going to start job for: original.Solution. Expected to end in 105 seconds, by 2025-05-14T22:32:44.544771
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:49222
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:49230
+[[1;34mINFO[m] Completed job. Left: 60
+[[1;34mINFO[m] Going to start job for: original.Longest. Expected to end in 105 seconds, by 2025-05-14T22:33:46.866394
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:40544
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:40548
+[[1;34mINFO[m] Completed job. Left: 59
+[[1;34mINFO[m] Going to start job for: original.PairsSumToZero. Expected to end in 105 seconds, by 2025-05-14T22:34:49.032239
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:54968
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:54978
+[[1;34mINFO[m] Completed job. Left: 58
+[[1;34mINFO[m] Going to start job for: original.GetPositive. Expected to end in 105 seconds, by 2025-05-14T22:35:51.068938
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:39134
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:39142
+[[1;34mINFO[m] Completed job. Left: 57
+[[1;34mINFO[m] Going to start job for: original.Iscube. Expected to end in 105 seconds, by 2025-05-14T22:36:53.148848
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:45962
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:45974
+[[1;34mINFO[m] Completed job. Left: 56
+[[1;34mINFO[m] Going to start job for: original.DecimalToBinary. Expected to end in 90 seconds, by 2025-05-14T22:37:40.953192
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:56296
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:56300
+[[1;34mINFO[m] Completed job. Left: 55
+[[1;34mINFO[m] Going to start job for: original.FilterBySubstring. Expected to end in 90 seconds, by 2025-05-14T22:38:33.999970
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:39838
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:39840
+[[1;34mINFO[m] Completed job. Left: 54
+[[1;34mINFO[m] Going to start job for: original.HowManyTimes. Expected to end in 90 seconds, by 2025-05-14T22:39:26.767244
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:58440
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:58442
+[[1;34mINFO[m] Completed job. Left: 53
+[[1;34mINFO[m] Going to start job for: original.BelowThreshold. Expected to end in 90 seconds, by 2025-05-14T22:40:20.580235
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:33810
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:33820
+[[1;34mINFO[m] Completed job. Left: 52
+[[1;34mINFO[m] Going to start job for: original.Factorize. Expected to end in 90 seconds, by 2025-05-14T22:41:13.780755
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:35096
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:35108
+[[1;34mINFO[m] Completed job. Left: 51
+[[1;34mINFO[m] Going to start job for: original.FilterByPrefix. Expected to end in 90 seconds, by 2025-05-14T22:42:09.800235
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:40420
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:40426
+[[1;34mINFO[m] Completed job. Left: 50
+[[1;34mINFO[m] Going to start job for: original.SortArray1. Expected to end in 90 seconds, by 2025-05-14T22:43:02.788769
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:34546
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:34554
+[[1;34mINFO[m] Completed job. Left: 49
+[[1;34mINFO[m] Going to start job for: original.LargestPrimeFactor. Expected to end in 90 seconds, by 2025-05-14T22:43:56.198147
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:60982
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:60984
+[[1;34mINFO[m] Completed job. Left: 48
+[[1;34mINFO[m] Going to start job for: original.IsPalindrome. Expected to end in 90 seconds, by 2025-05-14T22:44:52.498555
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:37556
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:37572
+[[1;34mINFO[m] Completed job. Left: 47
+[[1;34mINFO[m] Going to start job for: original.IsEqualToSumEven. Expected to end in 90 seconds, by 2025-05-14T22:45:45.708717
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:54598
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:54610
+[[1;34mINFO[m] Completed job. Left: 46
+[[1;34mINFO[m] Going to start job for: original.FilterIntegers. Expected to end in 90 seconds, by 2025-05-14T22:46:38.507149
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:50052
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:50058
+[[1;34mINFO[m] Completed job. Left: 45
+[[1;34mINFO[m] Going to start job for: original.IntToMiniRoman. Expected to end in 90 seconds, by 2025-05-14T22:47:31.554271
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:42762
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:42778
+[[1;34mINFO[m] Completed job. Left: 44
+[[1;34mINFO[m] Going to start job for: original.Multiply. Expected to end in 90 seconds, by 2025-05-14T22:48:27.086768
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:57388
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:57404
+[[1;34mINFO[m] Completed job. Left: 43
+[[1;34mINFO[m] Going to start job for: original.SumProduct. Expected to end in 90 seconds, by 2025-05-14T22:49:20.062362
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:51076
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:51082
+[[1;34mINFO[m] Completed job. Left: 42
+[[1;34mINFO[m] Going to start job for: original.SmallestChange. Expected to end in 90 seconds, by 2025-05-14T22:50:12.810671
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:57746
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:57760
+[[1;34mINFO[m] Completed job. Left: 41
+[[1;34mINFO[m] Going to start job for: original.SpecialFactorial. Expected to end in 90 seconds, by 2025-05-14T22:51:06.201761
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:44458
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:44460
+[[1;34mINFO[m] Completed job. Left: 40
+[[1;34mINFO[m] Going to start job for: original.MaxElement. Expected to end in 90 seconds, by 2025-05-14T22:52:03.401007
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:33336
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:33342
+[[1;34mINFO[m] Completed job. Left: 39
+[[1;34mINFO[m] Going to start job for: original.AddElements. Expected to end in 90 seconds, by 2025-05-14T22:52:08.314522
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:34368
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:34384
+[[1;34mINFO[m] Completed job. Left: 38
+[[1;34mINFO[m] Going to start job for: original.RemoveDuplicates. Expected to end in 90 seconds, by 2025-05-14T22:52:14.313896
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:34392
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:34394
+[[1;34mINFO[m] Completed job. Left: 37
+[[1;34mINFO[m] Going to start job for: original.GenerateIntegers. Expected to end in 90 seconds, by 2025-05-14T22:53:07.442645
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:41172
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:41180
+[[1;34mINFO[m] Completed job. Left: 36
+[[1;34mINFO[m] Going to start job for: original.MaxFill. Expected to end in 90 seconds, by 2025-05-14T22:54:01.385613
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:58230
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:58240
+[[1;34mINFO[m] Completed job. Left: 35
+[[1;34mINFO[m] Going to start job for: original.LargestDivisor. Expected to end in 90 seconds, by 2025-05-14T22:54:06.422818
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:40378
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:40386
+[[1;34mINFO[m] Completed job. Left: 34
+[[1;34mINFO[m] Going to start job for: original.FlipCase. Expected to end in 90 seconds, by 2025-05-14T22:55:01.330990
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:41250
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:41266
+[[1;34mINFO[m] Completed job. Left: 33
+[[1;34mINFO[m] Going to start job for: original.RoundedAvg. Expected to end in 90 seconds, by 2025-05-14T22:55:54.104540
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:38652
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:38668
+[[1;34mINFO[m] Completed job. Left: 32
+[[1;34mINFO[m] Going to start job for: original.StringXor. Expected to end in 90 seconds, by 2025-05-14T22:56:52.686380
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:35804
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:35816
+[[1;34mINFO[m] Completed job. Left: 31
+[[1;34mINFO[m] Going to start job for: original.SortedListSum. Expected to end in 90 seconds, by 2025-05-14T22:57:45.777223
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:47294
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:47296
+[[1;34mINFO[m] Completed job. Left: 30
+[[1;34mINFO[m] Going to start job for: original.StringToMd5. Expected to end in 90 seconds, by 2025-05-14T22:58:38.849657
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:60272
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:60284
+[[1;34mINFO[m] Completed job. Left: 29
+[[1;34mINFO[m] Going to start job for: original.CarRaceCollision. Expected to end in 90 seconds, by 2025-05-14T22:59:31.783356
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:42466
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:42472
+[[1;34mINFO[m] Completed job. Left: 28
+[[1;34mINFO[m] Going to start job for: original.MeanAbsoluteDeviation. Expected to end in 90 seconds, by 2025-05-14T23:00:28.202104
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:55038
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:55042
+[[1;34mINFO[m] Completed job. Left: 27
+[[1;34mINFO[m] Going to start job for: original.Intersperse. Expected to end in 90 seconds, by 2025-05-14T23:01:21.447107
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:52428
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:52438
+[[1;34mINFO[m] Completed job. Left: 26
+[[1;34mINFO[m] Going to start job for: original.IncrList. Expected to end in 90 seconds, by 2025-05-14T23:02:14.546539
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:43310
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:43318
+[[1;34mINFO[m] Completed job. Left: 25
+[[1;34mINFO[m] Going to start job for: original.Simplify. Expected to end in 75 seconds, by 2025-05-14T23:02:52.524252
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:33726
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:33738
+[[1;34mINFO[m] Completed job. Left: 24
+[[1;34mINFO[m] Going to start job for: original.Median. Expected to end in 75 seconds, by 2025-05-14T23:03:36.229429
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:47528
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:47536
+[[1;34mINFO[m] Completed job. Left: 23
+[[1;34mINFO[m] Going to start job for: original.ClosestInteger. Expected to end in 75 seconds, by 2025-05-14T23:04:20.861280
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:60940
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:60946
+[[1;34mINFO[m] Completed job. Left: 22
+[[1;34mINFO[m] Going to start job for: original.Solve1. Expected to end in 75 seconds, by 2025-05-14T23:04:32.390886
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:55758
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:55760
+[[1;34mINFO[m] Completed job. Left: 21
+[[1;34mINFO[m] Going to start job for: original.ChangeBase. Expected to end in 75 seconds, by 2025-05-14T23:05:16.342328
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:34082
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:34086
+[[1;34mINFO[m] Completed job. Left: 20
+[[1;34mINFO[m] Going to start job for: original.Fib. Expected to end in 75 seconds, by 2025-05-14T23:06:03.804544
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:36600
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:36614
+[[1;34mINFO[m] Completed job. Left: 19
+[[1;34mINFO[m] Going to start job for: original.AntiShuffle. Expected to end in 75 seconds, by 2025-05-14T23:07:01.217661
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:49192
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:49198
+[[1;34mINFO[m] Completed job. Left: 18
+[[1;34mINFO[m] Going to start job for: original.Concatenate. Expected to end in 75 seconds, by 2025-05-14T23:07:45.027516
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:33992
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:34008
+[[1;34mINFO[m] Completed job. Left: 17
+[[1;34mINFO[m] Going to start job for: original.AllPrefixes. Expected to end in 75 seconds, by 2025-05-14T23:08:29.062195
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:40358
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:40360
+[[1;34mINFO[m] Completed job. Left: 16
+[[1;34mINFO[m] Going to start job for: original.Compare. Expected to end in 75 seconds, by 2025-05-14T23:09:12.939644
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:44964
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:44968
+[[1;34mINFO[m] Completed job. Left: 15
+[[1;34mINFO[m] Going to start job for: original.WordsString. Expected to end in 75 seconds, by 2025-05-14T23:09:57.473331
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:43616
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:43624
+[[1;34mINFO[m] Completed job. Left: 14
+[[1;34mINFO[m] Going to start job for: original.GreatestCommonDivisor. Expected to end in 75 seconds, by 2025-05-14T23:10:41.303202
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:42188
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:42192
+[[1;34mINFO[m] Completed job. Left: 13
+[[1;34mINFO[m] Going to start job for: original.CountDistinctCharacters. Expected to end in 75 seconds, by 2025-05-14T23:10:48.092926
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:42196
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:42198
+[[1;34mINFO[m] Completed job. Left: 12
+[[1;34mINFO[m] Going to start job for: original.Modp. Expected to end in 75 seconds, by 2025-05-14T23:11:31.886321
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:60246
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:60258
+[[1;34mINFO[m] Completed job. Left: 11
+[[1;34mINFO[m] Going to start job for: original.StringSequence. Expected to end in 75 seconds, by 2025-05-14T23:12:19.446505
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:60288
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:60294
+[[1;34mINFO[m] Completed job. Left: 10
+[[1;34mINFO[m] Going to start job for: original.Derivative. Expected to end in 75 seconds, by 2025-05-14T23:13:04.428095
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:55526
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:55542
+[[1;34mINFO[m] Completed job. Left: 9
+[[1;34mINFO[m] Going to start job for: original.SumSquares. Expected to end in 75 seconds, by 2025-05-14T23:13:48.459915
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:36048
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:36064
+[[1;34mINFO[m] Completed job. Left: 8
+[[1;34mINFO[m] Going to start job for: original.Unique. Expected to end in 75 seconds, by 2025-05-14T23:14:32.623774
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:44298
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:44306
+[[1;34mINFO[m] Completed job. Left: 7
+[[1;34mINFO[m] Going to start job for: original.Eat. Expected to end in 75 seconds, by 2025-05-14T23:15:16.645492
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:48838
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:48846
+[[1;34mINFO[m] Completed job. Left: 6
+[[1;34mINFO[m] Going to start job for: original.SumToN. Expected to end in 75 seconds, by 2025-05-14T23:16:00.486524
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:55074
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:32904
+[[1;34mINFO[m] Completed job. Left: 5
+[[1;34mINFO[m] Going to start job for: original.TruncateNumber. Expected to end in 60 seconds, by 2025-05-14T23:16:31.046218
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:55104
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:55118
+[[1;34mINFO[m] Completed job. Left: 4
+[[1;34mINFO[m] Going to start job for: original.OrderByPoints. Expected to end in 60 seconds, by 2025-05-14T23:17:05.866490
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:51272
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:51280
+[[1;34mINFO[m] Completed job. Left: 3
+[[1;34mINFO[m] Going to start job for: original.Add. Expected to end in 60 seconds, by 2025-05-14T23:17:41.951244
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:37420
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:37434
+[[1;34mINFO[m] Completed job. Left: 2
+[[1;34mINFO[m] Going to start job for: original.TriangleArea. Expected to end in 60 seconds, by 2025-05-14T23:17:45.843967
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:47834
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:47842
+[[1;34mINFO[m] Completed job. Left: 1
+[[1;34mINFO[m] Going to start job for: original.Strlen. Expected to end in 60 seconds, by 2025-05-14T23:18:20.624265
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:38058
+[[1;34mINFO[m] Registered remote process from /127.0.0.1:38064
+[[1;34mINFO[m] Completed job. Left: 0
+[[1;34mINFO[m] WARNING: An illegal reflective access operation has occurred
+[[1;34mINFO[m] WARNING: Illegal reflective access by com.sun.xml.bind.v2.runtime.reflect.opt.Injector (file:/home/qinghua/.m2/repository/org/evosuite/evosuite-master/1.2.0/evosuite-master-1.2.0.jar) to method java.lang.ClassLoader.defineClass(java.lang.String,byte[],int,int)
+[[1;34mINFO[m] WARNING: Please consider reporting this to the maintainers of com.sun.xml.bind.v2.runtime.reflect.opt.Injector
+[[1;34mINFO[m] WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+[[1;34mINFO[m] WARNING: All illegal access operations will be denied in a future release
+[[1;34mINFO[m] * Updating database to original.ParseMusic
+[[1;34mINFO[m] * Updating database to original.Simplify
+[[1;34mINFO[m] * Updating database to original.SortNumbers
+[[1;34mINFO[m] * Updating database to original.IsNested
+[[1;34mINFO[m] * Updating database to original.Digits
+[[1;34mINFO[m] * Updating database to original.SortArray
+[[1;34mINFO[m] * Updating database to original.HasCloseElements
+[[1;34mINFO[m] * Updating database to original.DecimalToBinary
+[[1;34mINFO[m] * Updating database to original.XOrY
+[[1;34mINFO[m] * Updating database to original.StartsOneEnds
+[[1;34mINFO[m] * Updating database to original.Median
+[[1;34mINFO[m] * Updating database to original.SelectWords
+[[1;34mINFO[m] * Updating database to original.FilterBySubstring
+[[1;34mINFO[m] * Updating database to original.ClosestInteger
+[[1;34mINFO[m] * Updating database to original.TriangleArea1
+[[1;34mINFO[m] * Updating database to original.Specialfilter
+[[1;34mINFO[m] * Updating database to original.Solve1
+[[1;34mINFO[m] * Updating database to original.CountNums
+[[1;34mINFO[m] * Updating database to original.CircularShift
+[[1;34mINFO[m] * Updating database to original.ChangeBase
+[[1;34mINFO[m] * Updating database to original.SameChars
+[[1;34mINFO[m] * Updating database to original.WillItFly
+[[1;34mINFO[m] * Updating database to original.Fib
+[[1;34mINFO[m] * Updating database to original.HowManyTimes
+[[1;34mINFO[m] * Updating database to original.CycpatternCheck
+[[1;34mINFO[m] * Updating database to original.BelowThreshold
+[[1;34mINFO[m] * Updating database to original.CheckIfLastCharIsALetter
+[[1;34mINFO[m] * Updating database to original.Factorize
+[[1;34mINFO[m] * Updating database to original.ParseNestedParens
+[[1;34mINFO[m] * Updating database to original.FilterByPrefix
+[[1;34mINFO[m] * Updating database to original.Encode
+[[1;34mINFO[m] * Updating database to original.GetRow
+[[1;34mINFO[m] * Updating database to original.SortThird
+[[1;34mINFO[m] * Updating database to original.IsMultiplyPrime
+[[1;34mINFO[m] * Updating database to original.AntiShuffle
+[[1;34mINFO[m] * Updating database to original.GetClosestVowel
+[[1;34mINFO[m] * Updating database to original.CompareOne
+[[1;34mINFO[m] * Updating database to original.MakePalindrome
+[[1;34mINFO[m] * Updating database to original.SortArray1
+[[1;34mINFO[m] * Updating database to original.LargestPrimeFactor
+[[1;34mINFO[m] * Updating database to original.Maximum1
+[[1;34mINFO[m] * Updating database to original.NextSmallest
+[[1;34mINFO[m] * Updating database to original.Digitsum
+[[1;34mINFO[m] * Updating database to original.TriplesSumToZero
+[[1;34mINFO[m] * Updating database to original.EvenOddCount
+[[1;34mINFO[m] * Updating database to original.GetOddCollatz
+[[1;34mINFO[m] * Updating database to original.SplitWords
+[[1;34mINFO[m] * Updating database to original.HexKey
+[[1;34mINFO[m] * Updating database to original.Concatenate
+[[1;34mINFO[m] * Updating database to original.IsSorted
+[[1;34mINFO[m] * Updating database to original.AllPrefixes
+[[1;34mINFO[m] * Updating database to original.ValidDate
+[[1;34mINFO[m] * Updating database to original.IsPalindrome
+[[1;34mINFO[m] * Updating database to original.DoubleTheDifference
+[[1;34mINFO[m] * Updating database to original.Fibfib
+[[1;34mINFO[m] * Updating database to original.IsEqualToSumEven
+[[1;34mINFO[m] * Updating database to original.IsPrime
+[[1;34mINFO[m] * Updating database to original.FruitDistribution
+[[1;34mINFO[m] * Updating database to original.Skjkasdkd
+[[1;34mINFO[m] * Updating database to original.CheckDictCase
+[[1;34mINFO[m] * Updating database to original.StrangeSortList
+[[1;34mINFO[m] * Updating database to original.CountUpTo
+[[1;34mINFO[m] * Updating database to original.Solve
+[[1;34mINFO[m] * Updating database to original.FilterIntegers
+[[1;34mINFO[m] * Updating database to original.IntToMiniRoman
+[[1;34mINFO[m] * Updating database to original.ProdSigns
+[[1;34mINFO[m] * Updating database to original.WordsInSentence
+[[1;34mINFO[m] * Updating database to original.Compare
+[[1;34mINFO[m] * Updating database to original.Multiply
+[[1;34mINFO[m] * Updating database to original.WordsString
+[[1;34mINFO[m] * Updating database to original.SumProduct
+[[1;34mINFO[m] * Updating database to original.GreatestCommonDivisor
+[[1;34mINFO[m] * Updating database to original.IsHappy
+[[1;34mINFO[m] * Updating database to original.OddCount
+[[1;34mINFO[m] * Updating database to original.SmallestChange
+[[1;34mINFO[m] * Updating database to original.GetMaxTriples
+[[1;34mINFO[m] * Updating database to original.Encrypt
+[[1;34mINFO[m] * Updating database to original.LargestSmallestIntegers
+[[1;34mINFO[m] * Updating database to original.SpecialFactorial
+[[1;34mINFO[m] * Updating database to original.IsBored
+[[1;34mINFO[m] * Updating database to original.CountDistinctCharacters
+[[1;34mINFO[m] * Updating database to original.Fib4
+[[1;34mINFO[m] * Updating database to original.BelowZero
+[[1;34mINFO[m] * Updating database to original.TruncateNumber
+[[1;34mINFO[m] * Updating database to original.PrimeLength
+[[1;34mINFO[m] * Updating database to original.PrimeFib
+[[1;34mINFO[m] * Updating database to original.OrderByPoints
+[[1;34mINFO[m] * Updating database to original.Modp
+[[1;34mINFO[m] * Updating database to original.EvenOddPalindrome
+[[1;34mINFO[m] * Updating database to original.Add1
+[[1;34mINFO[m] * Updating database to original.Exchange
+[[1;34mINFO[m] * Updating database to original.FizzBuzz
+[[1;34mINFO[m] * Updating database to original.ReverseDelete
+[[1;34mINFO[m] * Updating database to original.CountUpper
+[[1;34mINFO[m] * Updating database to original.MaxElement
+[[1;34mINFO[m] * Updating database to original.StringSequence
+[[1;34mINFO[m] * Updating database to original.MakeAPile
+[[1;34mINFO[m] * Updating database to original.ByLength
+[[1;34mINFO[m] * Updating database to original.AddElements
+[[1;34mINFO[m] * Updating database to original.Bf
+[[1;34mINFO[m] * Updating database to original.SumSquares1
+[[1;34mINFO[m] * Updating database to original.RemoveVowels
+[[1;34mINFO[m] * Updating database to original.RemoveDuplicates
+[[1;34mINFO[m] * Updating database to original.ChooseNum
+[[1;34mINFO[m] * Updating database to original.FixSpaces
+[[1;34mINFO[m] * Updating database to original.CanArrange
+[[1;34mINFO[m] * Updating database to original.Common
+[[1;34mINFO[m] * Updating database to original.Search
+[[1;34mINFO[m] * Updating database to original.StrongestExtension
+[[1;34mINFO[m] * Updating database to original.FindClosestElements
+[[1;34mINFO[m] * Updating database to original.Minpath
+[[1;34mINFO[m] * Updating database to original.Derivative
+[[1;34mINFO[m] * Updating database to original.SumSquares
+[[1;34mINFO[m] * Updating database to original.MoveOneBall
+[[1;34mINFO[m] * Updating database to original.Tri
+[[1;34mINFO[m] * Updating database to original.GenerateIntegers
+[[1;34mINFO[m] * Updating database to original.AnyInt
+[[1;34mINFO[m] * Updating database to original.Solution
+[[1;34mINFO[m] * Updating database to original.Add
+[[1;34mINFO[m] * Updating database to original.FileNameCheck
+[[1;34mINFO[m] * Updating database to original.MaxFill
+[[1;34mINFO[m] * Updating database to original.Longest
+[[1;34mINFO[m] * Updating database to original.Unique
+[[1;34mINFO[m] * Updating database to original.PairsSumToZero
+[[1;34mINFO[m] * Updating database to original.VowelsCount
+[[1;34mINFO[m] * Updating database to original.Monotonic
+[[1;34mINFO[m] * Updating database to original.Eat
+[[1;34mINFO[m] * Updating database to original.NumericalLetterGrade
+[[1;34mINFO[m] * Updating database to original.MatchParens
+[[1;34mINFO[m] * Updating database to original.CorrectBracketing1
+[[1;34mINFO[m] * Updating database to original.SumToN
+[[1;34mINFO[m] * Updating database to original.TriangleArea
+[[1;34mINFO[m] * Updating database to original.SortEven
+[[1;34mINFO[m] * Updating database to original.LargestDivisor
+[[1;34mINFO[m] * Updating database to original.TotalMatch
+[[1;34mINFO[m] * Updating database to original.UniqueDigits
+[[1;34mINFO[m] * Updating database to original.Pluck
+[[1;34mINFO[m] * Updating database to original.GetPositive
+[[1;34mINFO[m] * Updating database to original.SeparateParenGroups
+[[1;34mINFO[m] * Updating database to original.RollingMax
+[[1;34mINFO[m] * Updating database to original.Minsubarraysum
+[[1;34mINFO[m] * Updating database to original.FlipCase
+[[1;34mINFO[m] * Updating database to original.RoundedAvg
+[[1;34mINFO[m] * Updating database to original.IsSimplePower
+[[1;34mINFO[m] * Updating database to original.Intersection
+[[1;34mINFO[m] * Updating database to original.Strlen
+[[1;34mINFO[m] * Updating database to original.F
+[[1;34mINFO[m] * Updating database to original.StringXor
+[[1;34mINFO[m] * Updating database to original.CorrectBracketing
+[[1;34mINFO[m] * Updating database to original.SortedListSum
+[[1;34mINFO[m] * Updating database to original.StringToMd5
+[[1;34mINFO[m] * Updating database to original.FindMax
+[[1;34mINFO[m] * Updating database to original.RescaleToUnit
+[[1;34mINFO[m] * Updating database to original.CarRaceCollision
+[[1;34mINFO[m] * Updating database to original.Iscube
+[[1;34mINFO[m] * Updating database to original.RightAngleTriangle
+[[1;34mINFO[m] * Updating database to original.Histogram
+[[1;34mINFO[m] * Updating database to original.MeanAbsoluteDeviation
+[[1;34mINFO[m] * Updating database to original.Intersperse
+[[1;34mINFO[m] * Updating database to original.IncrList
+[[1;34mINFO[m] === CTG run results ===
+[[1;34mINFO[m] Removed test suites: 0
+[[1;34mINFO[m] New test suites: 160
+[[1;34mINFO[m] Stopping spawn process manager
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mevosuite-maven-plugin:1.2.0:export[m [1m(default-cli)[m @ [36mHumanEvalJava[0;1m ---[m
+[[1;34mINFO[m] Exporting tests
+[[1;34mINFO[m] Exported tests to /home/qinghua/projects/matg/data/HumanEvalJava/evosuite_2/src/test/java
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] [1;32mBUILD SUCCESS[m
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] Total time:  02:59 h
+[[1;34mINFO[m] Finished at: 2025-05-14T23:17:55+01:00
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m

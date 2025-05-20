@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+
+<!-- ====================================================================== -->
+<!-- OpenJMS RDBMS schema for OpenJMS versions 0.7.6 and greater            -->
+<!-- Author: Tim Anderson (tma@netspace.net.au)                             -->
+<!--                                                                        -->
+<!-- NOTE: InterBase 6.0.1 doesn't allow varchar indexes greater than 252   -->
+<!-- characters                                                             -->
+<!-- ====================================================================== -->
+
+
+<database>
+
+  <table name="system_data">
+    <attribute name="id" type="integer" not-null="true" />
+    <attribute name="version" type="varchar(20)" not-null="true" />
+    <attribute name="creationDate" type="date" not-null="true" />
+    <index name="system_data_pk" unique="true">
+      <column name="id" />
+    </index>
+  </table>
+
+
+  <table name="seeds">
+    <attribute name="name" type="varchar(20)" not-null="true" />
+    <attribute name="seed" type="bigint" not-null="true" />
+    <index name="seeds_pk" unique="true">
+      <column name="name" />
+    </index>
+  </table>  
+
+
+  <table name="destinations">
+    <attribute name="name" type="varchar(252)" not-null="true" />
+    <attribute name="isQueue" type="bit" not-null="true" />
+    <attribute name="destinationId" type="bigint" not-null="true" />
+    <index name="destinations_pk" unique="true">
+      <column name="name" />
+    </index>
+  </table>
+
+
+  <table name="messages">
+    <attribute name="messageId" type="varchar(64)" not-null="true" />
+    <attribute name="destinationId" type="bigint" not-null="true" />
+    <attribute name="priority" type="integer" not-null="true" />
+    <attribute name="createTime" type="bigint" not-null="true" />
+    <attribute name="expiryTime" type="bigint" not-null="true" />
+    <attribute name="processed" type="integer" not-null="true" />
+    <attribute name="messageBlob" type="longvarbinary" not-null="true" />
+    <index name="messages_pk" unique="true">
+      <column name="messageId" />
+    </index>
+  </table>
+
+
+  <table name="message_handles">
+    <attribute name="messageId" type="varchar(64)" not-null="true" />
+    <attribute name="destinationId" type="bigint" not-null="true" />
+    <attribute name="consumerId" type="bigint" not-null="true" />
+    <attribute name="priority" type="integer" not-null="true" />
+    <attribute name="acceptedTime" type="bigint" not-null="true" />
+    <attribute name="sequenceNumber" type="bigint" not-null="true" />
+    <attribute name="expiryTime" type="bigint" not-null="true" />
+    <attribute name="delivered" type="integer" not-null="true" />
+    <index name="message_handles_pk" unique="true">
+      <column name="messageId" />
+      <column name="destinationId" />
+      <column name="consumerId" />
+    </index>
+  </table>
+
+
+  <table name="consumers">
+    <attribute name="name" type="varchar(252)" not-null="true" />
+    <attribute name="destinationId" type="bigint" not-null="true" />
+    <attribute name="consumerId" type="bigint" not-null="true" />
+    <attribute name="created" type="bigint" not-null="true" />
+    <index name="consumers_pk" unique="true">
+      <column name="name" />
+      <column name="destinationId" />
+    </index>
+  </table>
+
+
+  <table name="users">
+    <attribute name="username" type="varchar(50)" not-null="true" />
+    <attribute name="password" type="varchar(50)" not-null="true" />
+    <index name="users_pk">
+      <column name="username"/>
+    </index>
+  </table>
+
+  <deprecated name="message_id" />
+  <deprecated name="jndi_context" />
+
+</database>

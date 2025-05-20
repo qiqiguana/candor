@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jstate xmlns="http://jockmacmad.me.uk/jstate" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://jockmacmad.me.uk/jstate file:/C:/Users/Administrator/workspace/JState/schemas/Xml2JavaState.xsd">
+	<statemachine xmlns="" package="uk.me.jockmacmad.jstate.state.test.TrafficLightTest"
+		class="TrafficLight">
+		<constructor>
+			<body>
+					// We need to transition from the start state to our powered on state
+					setChanged();
+					java.util.Vector params = new java.util.Vector();
+					params.add(Integer.valueOf( 0 ) );
+					notifyObservers(new Event(&quot;PowerOnEvent&quot;, params, this));
+			</body>
+		</constructor>
+		<state name="Red">
+			<comment>Represents a Traffic Light at Red</comment>
+		</state>
+		<state name="RedAndAmber">
+			<comment>Represents a Traffic Light at Red &amp; Amber</comment>
+		</state>
+		<state name="Amber">
+			<comment>Represents a Traffic Light at Amber</comment>
+		</state>
+		<state name="Green">
+			<comment>Represents a Traffic Light at Green</comment>
+		</state>
+		<event name="ChangeColourEvent">
+			<comment>An event that results in the colour of the traffic lights changing</comment>
+		</event>
+		<event name="PowerOnEvent">
+			<comment>An event that results in the traffic lights powering on</comment>
+			
+		</event>
+		<event name="PowerOffEvent">
+			<comment>An event that results in the traffic lights powering off</comment>
+		</event>
+		<transition name="PowerOn" toState="Red" fromState="StartState" trigger="PowerOnEvent"/>
+		<transition name="PrepareToGo" toState="RedAndAmber" fromState="Red"
+			trigger="ChangeColourEvent">
+			<predicate class="uk.me.jockmacmad.jstate.state.IntegerGreaterThanGuardCondition" value="15"
+				type="int"/>
+		</transition>
+		<transition name="Go" toState="Green" fromState="RedAndAmber" trigger="ChangeColourEvent">
+			<predicate class="uk.me.jockmacmad.jstate.state.IntegerGreaterThanGuardCondition" value="20"
+				type="int"/>
+		</transition>
+		<transition name="PrepareToStop" toState="Amber" fromState="Green"
+			trigger="ChangeColourEvent">
+			<predicate class="uk.me.jockmacmad.jstate.state.IntegerGreaterThanGuardCondition" value="180"
+				type="int"/>
+		</transition>
+		<transition name="Stop" toState="Red" fromState="Amber" trigger="ChangeColourEvent">
+			<predicate class="uk.me.jockmacmad.jstate.state.IntegerGreaterThanGuardCondition" value="190"
+				type="int"/>
+		</transition>
+		<interface package="uk.me.jockmacmad.jstate.state.test.TrafficLightTest" name="ITrafficLight">
+			<property id="TimeSignal" set="true" get="false" type="int" max="3000"
+				defaultValue="3000">
+				<comment>Delay in seconds to trigger state change</comment>
+				<trigger event="ChangeColourEvent" on="set"/>
+				<trigger event="PowerOnEvent" on="set"/>
+			</property>
+			<method name="PowerOff" scope="public" return="void">
+				<comment>Power Off the light</comment>
+			</method>
+			<method name="PowerOn" scope="public" return="void">
+				<comment>Power On the light</comment>
+			</method>
+		</interface>
+	</statemachine>
+</jstate>

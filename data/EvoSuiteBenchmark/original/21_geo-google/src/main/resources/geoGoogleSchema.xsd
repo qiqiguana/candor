@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Modified by Ram Kumar (MSI) on 24 July 2002-->
+<xs:schema targetNamespace="http://earth.google.com/kml/2.0" 
+xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+xmlns:xal="urn:oasis:names:tc:ciq:xsdschema:xAL:2.0" 	
+xmlns="http://earth.google.com/kml/2.0" elementFormDefault="qualified">
+	<!-- for xAL -->
+	<xs:import namespace="urn:oasis:names:tc:ciq:xsdschema:xAL:2.0"
+		schemaLocation="xAL.xsd" />
+	<xs:annotation>
+		<xs:documentation xml:lang="en">
+			<![CDATA[
+      Google has published a schema file for kml2.1 at http://code.google.com/apis/kml/schema/kml21.xsd,
+      but the geocoding service is still using kml2.0. Further more, while the geocode service returns a kml
+      doc, but the element <Response> is not in the kml schema. So I created this schema to validate the <Response>
+      tag. You can find the reference about this tag at 
+      KML 2.1 Reference:
+      http://code.google.com/apis/kml/documentation/kml_tags_21.html
+
+      ]]>
+		</xs:documentation>
+	</xs:annotation>		
+	<xs:element name="kml" type="kmlType" />
+	<xs:complexType name="kmlType">
+		<xs:all>
+			<xs:element name="Response" type="ResponseType" />
+		</xs:all>
+	</xs:complexType>
+	<xs:element name="Response" type="ResponseType" />
+	<xs:complexType name="ResponseType">
+		<xs:sequence>
+			<xs:element name="name"  type="xs:string" minOccurs="1" maxOccurs="1" />
+			<xs:element name="Status" type="StatusType" minOccurs="1" maxOccurs="1" />			
+			<xs:element name="Placemark" type="PlacemarkType" minOccurs="1" maxOccurs="unbounded" />				
+		</xs:sequence>
+	</xs:complexType>	
+	<xs:complexType name="PlacemarkType">
+		<xs:all>
+			<xs:element name="address" type="xs:string" />
+			<xs:element ref="xal:AddressDetails" />
+			<xs:element ref="Point"  />					
+		</xs:all>
+		<xs:attribute name="id" type="xs:string" />
+	</xs:complexType>	
+	<xs:complexType name="StatusType">
+		<xs:all>
+			<xs:element name="code" type="xs:int" minOccurs="1"
+				maxOccurs="1" />
+			<xs:element name="request" type="xs:string" minOccurs="1"
+				maxOccurs="1" />
+		</xs:all>
+	</xs:complexType>	
+	<xs:element name="Point" type="PointType" />
+	<xs:complexType name="PointType">
+		<xs:all>
+			<xs:element name="extrude" type="xs:boolean" minOccurs="0"
+				maxOccurs="1" />
+			<xs:element name="tessellate" type="xs:boolean"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element name="altitudeMode" type="altitudeModeType"
+				minOccurs="0" maxOccurs="1"  />
+			<xs:element name="coordinates" type="xs:string"
+				minOccurs="1" maxOccurs="1">
+			</xs:element>
+		</xs:all>
+	</xs:complexType>
+	
+	<xs:simpleType name="altitudeModeType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="clampToGround" />
+			<xs:enumeration value="relativeToGround" />
+			<xs:enumeration value="absolute" />
+		</xs:restriction>
+	</xs:simpleType>	
+</xs:schema>

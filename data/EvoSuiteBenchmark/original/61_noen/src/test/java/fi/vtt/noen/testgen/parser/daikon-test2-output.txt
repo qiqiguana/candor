@@ -1,0 +1,233 @@
+
+D:\koodi\twins-delft\poseidon>java daikon.Daikon --nohierarchy atlas-log.dtrace 
+Daikon version 4.5.0, released September 3, 2008; http://pag.csail.mit.edu/daikon.
+Reading declaration files [10:45:47]:                                                                                                                                                                                                                                  Processing trace data; reading 1 dtrace file:
+
+No return from procedure observed 45 times.
+  Cconnect,Cconnect : 1 invocation
+  Cconnect,Cdisconnect : 1 invocation
+  Cconnect,Cnew : 2 invocations
+  Cconnect,Crequest : 1 invocation
+  Cconnect,Csubscribe : 1 invocation
+  Cconnect,Cunsubscribe : 1 invocation
+  Cconnect,Error:_Already_Connected : 1 invocation
+  Cdisconnect,Client_Removed : 1 invocation
+  Cdisconnect,Error:_Not_Connected : 2 invocations
+  Client_Removed,Cdisconnect : 1 invocation
+  Cnew,Crequest : 1 invocation
+  Creply,Message_received : 1 invocation
+  Crequest,Error:_Not_Connected : 1 invocation
+  Crequest,Error:_Ship_Not_Found : 1 invocation
+  Crequest,Request_OK : 3 invocations
+  Csubscribe,Error:_Not_Connected : 1 invocation
+  Csubscribe,Subscription_OK : 1 invocation
+  Cunsubscribe,Error:_Not_Connected : 1 invocation
+  Cunsubscribe,Unsubscribe_OK : 1 invocation
+  Error:_Not_Connected,Cconnect : 4 invocations
+  Error:_Ship_Not_Found,Message_received : 1 invocation
+  Init,Cconnect : 1 invocation
+  Init,Cdisconnect : 1 invocation
+  Init,Crequest : 1 invocation
+  Init,Csubscribe : 1 invocation
+  Init,Cunsubscribe : 1 invocation
+  Init,Message_received : 2 invocations
+  Message_received,Cconnect : 1 invocation
+  Message_received,Cnew : 1 invocation
+  Message_received,Crequest : 1 invocation
+  Request_OK,Creply : 3 invocations
+End of report for procedures not returned from.
+[10:45:47]: Finished reading atlas-log.dtrace                                  
+                                                                               ===========================================================================
+Cconnect,Cconnect:::ENTER
+Messages == size(Clients[])
+ClientName == "myclient"
+Connected == false
+Clients[] == []
+Messages == 0
+===========================================================================
+Cconnect,Cdisconnect:::ENTER
+Messages == size(Clients[])
+ClientName == "myclient"
+Connected == false
+Clients[] == []
+Messages == 0
+===========================================================================
+Cconnect,Cnew:::ENTER
+ClientName == "myclient"
+Connected == false
+Clients[] == []
+Messages == 1
+===========================================================================
+Cconnect,Crequest:::ENTER
+Messages == size(Clients[])
+ClientName == "myclient"
+Connected == false
+Clients[] == []
+Messages == 0
+===========================================================================
+Cconnect,Csubscribe:::ENTER
+Messages == size(Clients[])
+ClientName == "myclient"
+Connected == false
+Clients[] == []
+Messages == 0
+===========================================================================
+Cconnect,Cunsubscribe:::ENTER
+Messages == size(Clients[])
+ClientName == "myclient"
+Connected == false
+Clients[] == []
+Messages == 0
+===========================================================================
+Cconnect,Error:_Already_Connected:::ENTER
+Messages == size(Clients[])-1
+ClientName == "myclient"
+Connected == true
+Clients[] == [myclient]
+Clients[] elements == "myclient"
+Messages == 0
+size(Clients[]) == 1
+ClientName in Clients[]
+===========================================================================
+Cdisconnect,Client_Removed:::ENTER
+ClientName == "myclient"
+Connected == true
+Clients == 1
+Messages == 0
+===========================================================================
+Cdisconnect,Error:_Not_Connected:::ENTER
+ClientName == "myclient"
+Connected == false
+Clients == 1
+Messages == 0
+===========================================================================
+Client_Removed,Cdisconnect:::ENTER
+Client == "myclient"
+Connected == true
+===========================================================================
+Cnew,Crequest:::ENTER
+MessageID == UserId
+MessageID == 1
+Timestamp == 1.227259023987E12
+RepeatIndicator == 0
+Client one of { "myclient", "null" }
+===========================================================================
+Creply,Message_received:::ENTER
+MessageID == UserId
+Client == "myclient"
+MessageID == 1
+Timestamp == 1.227259024471E12
+RepeatIndicator == 0
+Connected == true
+===========================================================================
+Crequest,Error:_Not_Connected:::ENTER
+ShipId == AISType
+ShipId == Clients
+Client == "myclient"
+ShipId == 1
+Connected == false
+Messages one of { 0, 1 }
+===========================================================================
+Crequest,Error:_Ship_Not_Found:::ENTER
+ShipId == AISType
+ShipId == Clients
+Client == "myclient"
+ShipId == 1
+Connected == true
+Messages == 0
+===========================================================================
+Crequest,Request_OK:::ENTER
+ShipId == AISType
+ShipId == Clients
+ShipId == Messages
+Client == "myclient"
+ShipId == 1
+Connected == true
+===========================================================================
+Csubscribe,Error:_Not_Connected:::ENTER
+ShipId == AISType
+Messages == size(Clients[])
+Client == "myclient"
+ShipId == 1
+Connected == false
+Clients[] == []
+Messages == 0
+===========================================================================
+Csubscribe,Subscription_OK:::ENTER
+ShipId == AISType
+ShipId == size(Clients[])
+Messages == size(Clients[])-1
+Client == "myclient"
+ShipId == 1
+Connected == true
+Clients[] == [myclient]
+Clients[] elements == "myclient"
+Messages == 0
+size(Clients[]) == 1
+Client in Clients[]
+===========================================================================
+Cunsubscribe,Error:_Not_Connected:::ENTER
+ShipId == AISType
+Messages == size(Clients[])
+Client == "myclient"
+ShipId == 1
+Connected == false
+Clients[] == []
+Messages == 0
+===========================================================================
+Cunsubscribe,Unsubscribe_OK:::ENTER
+ShipId == AISType
+ShipId == size(Clients[])
+Messages == size(Clients[])-1
+Client == "myclient"
+ShipId == 1
+Connected == true
+Clients[] == [myclient]
+Clients[] elements == "myclient"
+Messages == 0
+size(Clients[]) == 1
+Client in Clients[]
+===========================================================================
+Error:_Not_Connected,Cconnect:::ENTER
+Client == "myclient"
+Connected == false
+Clients[] == []
+Messages one of { 0, 1 }
+===========================================================================
+Error:_Ship_Not_Found,Message_received:::ENTER
+ShipId == AISType
+ShipId == Clients
+Client == "myclient"
+ShipId == 1
+Connected == true
+Messages == 0
+===========================================================================
+Message_received,Cconnect:::ENTER
+MessageID == UserId
+RepeatIndicator == Clients
+MessageID == 1
+Timestamp == 1.227259024456E12
+RepeatIndicator == 0
+===========================================================================
+Message_received,Cnew:::ENTER
+MessageID == UserId
+MessageID == Clients
+MessageID == 1
+Timestamp == 1.227259023987E12
+RepeatIndicator == 0
+===========================================================================
+Message_received,Crequest:::ENTER
+MessageID == UserId
+MessageID == 1
+Timestamp == 1.227259024471E12
+RepeatIndicator == 0
+Clients one of { 0, 1 }
+===========================================================================
+Request_OK,Creply:::ENTER
+ShipId == AISType
+ShipId == Clients
+ShipId == Messages
+Client == "myclient"
+ShipId == 1
+Connected == true
+Exiting Daikon.

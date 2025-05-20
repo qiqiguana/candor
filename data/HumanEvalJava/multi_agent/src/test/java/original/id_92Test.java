@@ -1,0 +1,76 @@
+package original;
+
+import org.junit.jupiter.api.Test; import static org.junit.jupiter.api.Assertions.assertFalse;
+import org.junit.jupiter.api.Test; import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse; import static org.junit.jupiter.api.Assertions.assertTrue;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of AnyInt.
+*/
+class AnyIntTest {
+    @Test
+    void testAnyInt() {
+        //TODO: Implement this method
+    }
+    @Test
+    public void testAnyIntEqualInputs() {
+        assertFalse(AnyInt.anyInt(2, 2, 2));
+    }
+    @Test
+    public void testAnyIntNonIntegerInputs() {
+        assertFalse(AnyInt.anyInt(3.6, -2.2, 2));
+    }
+    @Test
+    public void testAnyIntDuplicateNumbers() {
+        assertTrue(AnyInt.anyInt(2, 2, 4));
+    }
+    @Test
+    public void testAnyIntValidInput() {
+        assertTrue(AnyInt.anyInt(1, 2, 3));
+    }
+    @Test
+    public void testAnyInt_XEqualsYPlusZ() {
+        Number x = 10;
+        Number y = 3;
+        Number z = 7;
+        assertTrue(AnyInt.anyInt(x, y, z));
+    }
+    @Test
+    public void testAnyInt_YEqualsXPlusZ() {
+        Number x = 5;
+        Number y = 8;
+        Number z = 3;
+        assertTrue(AnyInt.anyInt(x, y, z));
+    }
+    @Test
+    public void testAnyInt_NegativeNumbers() {
+        Number x = -10;
+        Number y = -5;
+        Number z = -15;
+        assertTrue(AnyInt.anyInt(x, y, z));
+    }
+    @Test
+    public void testAnyInt_XEqualsYPlusZ_2() {
+        Number x = 10;
+        Number y = 3;
+        Number z = 7;
+        assertTrue(AnyInt.anyInt(x, y, z));
+    }
+    @Test public void anyInt_test_1() { assertTrue(original.AnyInt.anyInt(5, 2, 7)); }
+    @Test public void anyInt_test_2() { assertFalse(original.AnyInt.anyInt(3.6, -2.2, 2)); }
+    @Test public void anyInt_test_3() { assertFalse(original.AnyInt.anyInt(2, 6, 2)); }
+    @Test public void anyInt_test_4() { assertTrue(original.AnyInt.anyInt(2, 3, 1)); }
+    @Test public void anyInt_test_8() { assertFalse(original.AnyInt.anyInt(3.5, 4.2, 7)); }
+    @Test public void anyInt_test_9() { assertTrue(original.AnyInt.anyInt(Integer.MAX_VALUE, 2, Integer.MAX_VALUE - 2)); }
+    public void anyInt_test10() {assertTrue(AnyInt.anyInt(-1, -2, 3));}
+    public void anyInt_test9() {assertTrue(AnyInt.anyInt(-3, 2, 1));}
+    public void anyInt_test8() {assertFalse(AnyInt.anyInt(2.2, 2.2, 2.2));}
+    public void anyInt_test7() {assertTrue(AnyInt.anyInt(4, 2, 2));}
+    public void anyInt_test6() {assertFalse(AnyInt.anyInt(2, 6, 2));}
+    public void anyInt_test5() {assertFalse(AnyInt.anyInt(3.6, -2.2, 1));}
+    public void anyInt_test4() {assertFalse(AnyInt.anyInt(3.6, -2.2, 2));}
+    public void anyInt_test3() {assertTrue(AnyInt.anyInt(3, -2, 1));}
+    public void anyInt_test2() {assertFalse(AnyInt.anyInt(3, 2, 2));}
+    public void anyInt_test1() {assertTrue(AnyInt.anyInt(5, 2, 7));}
+}

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="Projekt">
+
+  <typeAlias alias="ProjektObject" type="ch.bfh.egov.nutzenportfolio.tos.Projekt"/>
+  <typeAlias alias="ProjektgruppeObject" type="ch.bfh.egov.nutzenportfolio.tos.Projektgruppe"/>
+
+  <resultMap id="projektResult" class="ProjektObject">
+    <result property="projektId"				column="projektId"/>
+    <result property="mandantId"				column="mandantId"/>
+    <result property="projektgruppeId"	column="projektgruppeId"/>
+    <result property="name"							column="name"/>
+    <result property="beschreibung"			column="beschreibung"/>
+    <result property="projektUID"				column="projektUID"/>
+    <result property="paStatus"					column="paStatus"/>
+    <result property="naStatus"					column="naStatus"/>
+    <result property="opNuStatus"				column="opNuStatus"/>
+  </resultMap>
+
+  <resultMap id="projektListResult" class="ProjektObject">
+    <result property="projektId"				column="projektId"/>
+    <result property="mandantId"				column="mandantId"/>
+    <result property="projektgruppeId"	column="projektgruppeId"/>
+    <result property="name"							column="name"/>
+    <result property="beschreibung"			column="beschreibung"/>
+    <result property="projektUID"				column="projektUID"/>
+    <result property="paUID"						column="paUID"/>
+    <result property="naOpNuUID"				column="naOpNuUID"/>
+    <result property="operativerNutzen"	column="operativerNutzen"/>
+    <result property="paStatus"					column="paStatus"/>
+    <result property="naStatus"					column="naStatus"/>
+    <result property="opNuStatus"				column="opNuStatus"/>
+  </resultMap>
+
+  <select
+			id="getAll"
+			parameterClass="java.lang.Integer"
+			resultMap="projektListResult">
+		SELECT
+			p.projektId, p.mandantId, p.projektgruppeId, p.name,
+			p.beschreibung, projektUID, paUID, operativerNutzen,
+			naOpNuUID, paStatus, naStatus, opNuStatus
+		FROM Projekt AS p
+		LEFT JOIN Projektgruppe AS pg
+		ON pg.projektgruppeId = p.projektgruppeId
+		LEFT JOIN Customizing AS c
+		ON c.customizingId = pg.customizingId
+		LEFT JOIN Projektattraktivitaet AS pa
+		ON pa.customizingId = c.customizingId
+		LEFT JOIN NutzenattraktivitaetOperativerNutzen AS naOpNu
+		ON naOpNu.customizingId = c.customizingId
+		WHERE p.mandantId = #value#
+		ORDER BY p.name
+  </select>
+
+  <select
+			id="getGroup"
+			parameterClass="ProjektgruppeObject"
+			resultMap="projektListResult">
+		SELECT
+			p.projektId, p.mandantId, p.projektgruppeId, p.name,
+			p.beschreibung, projektUID, paUID, operativerNutzen,
+			naOpNuUID, paStatus, naStatus, opNuStatus
+		FROM Projekt AS p
+		LEFT JOIN Projektgruppe AS pg
+		ON pg.projektgruppeId = p.projektgruppeId
+		LEFT JOIN Customizing AS c
+		ON c.customizingId = pg.customizingId
+		LEFT JOIN Projektattraktivitaet AS pa
+		ON pa.customizingId = c.customizingId
+		LEFT JOIN NutzenattraktivitaetOperativerNutzen AS naOpNu
+		ON naOpNu.customizingId = c.customizingId
+		WHERE p.projektgruppeId = #projektgruppeId# AND
+          p.mandantId = #mandantId#
+		ORDER BY p.name
+  </select>
+
+  <select
+  		id="getById"
+  		parameterClass="ProjektObject"
+  		resultMap="projektResult">
+    SELECT
+    	projektId, mandantId, projektgruppeId, name, beschreibung,
+	    projektUID, paStatus, naStatus, opNuStatus
+    FROM Projekt
+    WHERE
+			projektId = #projektId# AND
+			mandantId = #mandantId#
+  </select>
+  
+  <select
+  		id="getByName"
+  		parameterClass="ProjektObject"
+  		resultMap="projektResult">
+    SELECT
+    	projektId, mandantId, projektgruppeId, name, beschreibung,
+    	projektUID, paStatus, naStatus, opNuStatus
+    FROM Projekt
+    WHERE
+			name = #name# AND
+			mandantId = #mandantId#
+  </select>
+  
+  <select
+  		id="getByUID"
+  		parameterClass="java.lang.Long"
+  		resultMap="projektResult">
+    SELECT
+    	projektId, mandantId, projektgruppeId, name, beschreibung,
+    	projektUID, paStatus, naStatus, opNuStatus
+    FROM Projekt
+    WHERE
+			projektUID = #projektUID#
+  </select>
+
+  <update id="update" parameterClass="ProjektObject">
+    UPDATE Projekt
+    SET
+      projektgruppeId = #projektgruppeId#,
+      name = #name#,
+      beschreibung = #beschreibung#
+    WHERE
+    	projektId = #projektId# AND
+    	mandantId = #mandantId#
+  </update>
+  
+  <update id="updateStatus" parameterClass="ProjektObject">
+    UPDATE Projekt
+    SET
+      paStatus = #paStatus#,
+      naStatus = #naStatus#,
+      opNuStatus = #opNuStatus#
+    WHERE
+    	projektId = #projektId# AND
+    	mandantId = #mandantId#
+  </update>
+
+  <insert id="insert" parameterClass="ProjektObject">
+	  INSERT INTO Projekt (mandantId, projektgruppeId, name, beschreibung, projektUID, paStatus, naStatus, opNuStatus)
+	  VALUES (#mandantId#, #projektgruppeId#, #name#, #beschreibung#, #projektUID#, 1, 1, 1)
+	  <selectKey resultClass="java.lang.Integer" keyProperty="projektId">
+	 		SELECT LAST_INSERT_ID() AS projektId
+		</selectKey>
+  </insert>
+
+  <delete id="delete" parameterClass="ProjektObject">
+      DELETE
+      FROM Projekt
+      WHERE
+      	projektId = #projektId# AND
+      	mandantId = #mandantId#
+  </delete>
+</sqlMap>

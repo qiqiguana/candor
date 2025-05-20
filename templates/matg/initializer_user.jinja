@@ -1,0 +1,60 @@
+# Unit Test Generator for Java using JUnit5
+
+## Task
+Generate only one unit test for the given source code. 
+ 
+## Source File
+```Java
+{{ source_code }}
+```
+
+{% if failed_tests | length> 0 %}
+## You have generated the test files several times, but all failed. Here are the tests and error messages:
+{% for fail_test in failed_tests %}
+#### Failed test file version {{loop.index}}:
+{{ failed_test.code }}
+#### Error message:
+{{ failed_test.error }}
+{% endfor %}
+
+**Avoid these errors in the new test file.**
+
+{% endif%}
+
+
+## Requirements
+1. Write a test file including only one test case for the source code
+2. Test code must assert one concept per test case.
+3. Test code must be full complete function in Java using JUnit5.
+4. Focus on testing a single behavior or outcome per test case.
+5. Include only the test function, not boilerplate code
+6. Add import statements if needed. 
+7. Use appropriate test tags
+8. Double check the test code for correctness
+9. Double check all the necessary imports are included
+10. Avoid duplicate test method definition. Append an increasing id number to the method name to avoid duplicate if necessary.
+11. keep all the import statements from the source code and keep the package declaration statement.
+12. Remember to import data type packages such as List and ArrayList
+13. One test case method should only contain one assertion!
+14. Add the package declaration statement from the source code to the beginning of the test file.
+{% if existing_tests%}
+15. Modify or remove some of the existing tests to address the errors.
+{% endif%}
+
+## output
+Generate test file 
+package {{package_name}};
+{% for i in imports%}
+import {{i}};
+{% endfor%}
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of {{class_name}}.
+*/
+class {{class_name}}Test {
+
+# Provide only the java test output. Do not include any additional explanations or comments.
+# Here is the format instruction
+{{format_instructions}}

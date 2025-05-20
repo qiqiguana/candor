@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd">
+
+<hibernate-mapping>
+    <class
+        name="org.petsoar.categories.Category"
+        table="CATEGORIES"
+        proxy="org.petsoar.categories.Category"
+        dynamic-update="false"
+        dynamic-insert="false"
+    >
+
+        <id
+            name="id"
+            column="CATID"
+            type="long"
+            unsaved-value="0"
+        >
+            <generator class="increment">
+            </generator>
+        </id>
+
+        <many-to-one
+            name="parent"
+            class="org.petsoar.categories.Category"
+            cascade="none"
+            outer-join="auto"
+            update="true"
+            insert="true"
+            column="PARENTID"
+        />
+
+        <property
+            name="name"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="NAME"
+        />
+
+        <property
+            name="image"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="IMAGE"
+        />
+
+        <bag
+            name="categories"
+            table="CATEGORY"
+            lazy="true"
+            inverse="true"
+            cascade="delete"
+        >
+
+              <key
+                  column="PARENTID"
+              />
+
+              <one-to-many
+                  class="org.petsoar.categories.Category"
+              />
+        </bag>
+
+        <bag
+            name="pets"
+            table="PET"
+            lazy="true"
+            inverse="true"
+            cascade="delete"
+        >
+
+              <key
+                  column="CATEGORY"
+              />
+
+              <one-to-many
+                  class="org.petsoar.pets.Pet"
+              />
+        </bag>
+
+        <!--
+            To add non XDoclet property mappings, create a file named
+                hibernate-properties-Category.xml
+            containing the additional properties and place it in your merge dir.
+        -->
+
+    </class>
+
+</hibernate-mapping>

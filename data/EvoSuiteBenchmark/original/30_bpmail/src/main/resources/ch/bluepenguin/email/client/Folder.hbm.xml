@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+                            "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+                            "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+
+<!-- DO NOT EDIT: This is a generated file that is synchronized -->
+<!-- by MyEclipse Hibernate tool integration.                   -->
+<!-- Created Wed Oct 06 07:36:19 GMT+01:00 2004                         -->
+<hibernate-mapping package="ch.bluepenguin.email.client">
+
+    <class name="Folder" table="folder">
+        <id name="folderId" column="folder_id" type="java.lang.Integer">
+            <generator class="native"/>
+        </id>
+ 
+        <property name="parentFolderId" column="parent_folder_id" type="java.lang.Integer" />
+        <property name="name" column="name" type="java.lang.String" />
+    </class>
+    
+</hibernate-mapping>

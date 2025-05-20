@@ -1,0 +1,153 @@
+<?xml version="1.0"?>
+
+<project name="portal-test-ldap" basedir="." default="test" xmlns:antelope="antlib:ise.antelope.tasks">
+	<import file="build-test.xml" />
+
+	<target name="prepare-ldap-apache">
+		<if>
+			<or>
+				<not>
+					<isset property="apache.directory.win32.dir" />
+				</not>
+				<not>
+					<isset property="apache.directory.win32.zip" />
+				</not>
+			</or>
+			<then>
+				<fail>
+.
+
+Please set "apache.directory.win32.dir" and "apache.directory.win32.zip" in
+test.properties to point to an ApacheDS installation file.
+				</fail>
+			</then>
+		</if>
+
+		<antcall target="install-vm-java" />
+
+		<echo>Restarting ${vm.host}.</echo>
+
+		<exec dir="${vm.drive}/${vm.host}" executable="${vmware-cmd.executable}">
+			<arg line="${vm.drive}\${vm.host}\${vm.host}.vmx reset" />
+		</exec>
+
+		<sleep seconds="60" />
+
+		<exec executable="${pscp.executable}">
+			<arg line="-pw ${vm.password} ${apache.directory.win32.dir}${apache.directory.win32.zip} ${vm.username}@${vm.host}:/" />
+		</exec>
+
+		<exec executable="${plink.executable}">
+			<arg line="-pw ${vm.password} ${vm.username}@${vm.host} ${unzip.executable} -oq C:\${apache.directory.win32.zip} -d C:\" />
+		</exec>
+	</target>
+
+	<target name="run-ldap-tomcat">
+		<antcall target="prepare-vm-server">
+			<param name="build.war" value="false" />
+			<param name="vm.vmdk.suffix" value="alpha-2010-02-02" />
+		 </antcall>
+
+		<antcall target="prepare-ldap-apache" />
+
+		<parallel>
+			<daemons>
+				<echo file="execute-remote-command.bat">
+					cd C:\apacheds_1.5.7
+					apacheds.bat
+				</echo>
+
+				<antcall target="execute-remote-command" />
+			</daemons>
+
+			<sequential>
+				<waitfor>
+					<socket port="10389" server="${vm.host}" />
+				</waitfor>
+
+				<tstamp>
+					<format property="tstamp.value" pattern="yyyyMMddkkmmssSSS" />
+				</tstamp>
+
+				<echo file="${tstamp.value}">version: 1
+dn: dc=example,dc=com
+objectClass: domain
+objectClass: extensibleObject
+objectClass: top
+dc: example
+
+dn: ou=users,dc=example,dc=com
+objectClass: organizationalUnit
+objectClass: top
+ou: users
+
+dn: ou=groups,dc=example,dc=com
+objectClass: organizationalUnit
+objectClass: top
+ou: groups
+
+dn: cn=janesmith,ou=users,dc=example,dc=com
+objectClass: organizationalPerson
+objectClass: person
+objectClass: inetOrgPerson
+objectClass: top
+cn: janesmith
+givenname: Jane
+mail: janesmith@liferay.com
+sn: Smith
+userpassword:: e1NIQX1xVXFQNWN5eG02WWNUQWh6MDVIcGg1Z3Z1OU09
+businessCategory: cn=usergroup,ou=groups,dc=example,dc=com
+
+dn: cn=lukeskywalker,ou=users,dc=example,dc=com
+objectClass: organizationalPerson
+objectClass: person
+objectClass: inetOrgPerson
+objectClass: top
+cn: lukeskywalker
+givenname: Luke
+mail: lukeskywalker@liferay.com
+sn: Skywalker
+userpassword:: e1NIQX1xVXFQNWN5eG02WWNUQWh6MDVIcGg1Z3Z1OU09
+
+dn: cn=martinluther,ou=users,dc=example,dc=com
+objectClass: organizationalPerson
+objectClass: person
+objectClass: inetOrgPerson
+objectClass: top
+cn: martinluther
+givenname: Martin
+mail: martinluther@liferay.com
+sn: Luther
+userpassword:: e1NIQX1xVXFQNWN5eG02WWNUQWh6MDVIcGg1Z3Z1OU09
+
+dn: cn=usergroup,ou=groups,dc=example,dc=com
+objectClass: groupOfUniqueNames
+objectClass: top
+cn: usergroup
+uniqueMember: cn=janesmith,ou=users,dc=example,dc=com
+businessCategory: cn=janesmith,ou=users,dc=example,dc=com</echo>
+
+				<exec executable="${pscp.executable}">
+					<arg line="-pw ${vm.password} ${tstamp.value} ${vm.username}@${vm.host}:/" />
+				</exec>
+
+				<delete file="${tstamp.value}" />
+
+				<echo file="execute-remote-command.bat">
+					cd C:\apacheds_1.5.7\bin
+					java -jar apacheds-tools.jar import -e -f C:/${tstamp.value}
+				</echo>
+
+				<antcall target="execute-remote-command" />
+
+				<ant antfile="build-test-tomcat.xml" target="run-selenium-tomcat">
+					<property name="test.class" value="${test.name}" />
+				</ant>
+			</sequential>
+		</parallel>
+
+		<exec dir="${vm.drive}/${vm.host}" executable="${vmware-cmd.executable}">
+			<arg line="${vm.drive}\${vm.host}\${vm.host}.vmx stop hard" />
+		</exec>
+	</target>
+</project>

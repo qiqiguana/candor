@@ -1,0 +1,25 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: MFW Server XMLRPC Plugin
+Bundle-SymbolicName: fi.vtt.noen.server.xmlrpc.plugin
+Bundle-Version: 1.0.0
+Bundle-Activator: fi.vtt.noen.mfw.bundle.server.plugins.xmlrpc.SAXmlRpcPluginActivator
+Bundle-Classpath: .
+Import-Package: org.osgi.framework;version="1.3.0",
+  org.slf4j,
+  fi.vtt.noen.mfw.bundle.blackboard,
+  fi.vtt.noen.mfw.bundle.common,
+  fi.vtt.noen.mfw.bundle.probe.shared,
+  fi.vtt.noen.mfw.bundle.server.shared,
+  fi.vtt.noen.mfw.bundle.server.shared.datamodel,
+  fi.vtt.noen.mfw.bundle.server.plugins.registry,
+  javax.xml.parsers,
+  org.apache.xmlrpc.server,
+  org.apache.xmlrpc.webserver,
+  org.apache.xmlrpc.client.util,
+  org.apache.ws.commons.util,
+  sf.net.sinve.trace,
+  sf.net.sinve.trace.data,
+  javax.servlet,
+  javax.servlet.http
+Export-Package: fi.vtt.noen.mfw.bundle.server.plugins.xmlrpc

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Test0005Database>
+<Result rowcount="2" statement="DELETE FROM example5"/>
+<Result rowcount="1" statement="INSERT INTO example5 (ex5_id, ex5_text) VALUES (1, 'Line One')"/>
+<Result rowcount="1" statement="INSERT INTO example5 (ex5_id, ex5_text) VALUES (2, 'Line Two')"/>
+<Result statement="SELECT * FROM example5 ORDER BY ex5_id ASC">
+<Record>
+<EXAMPLE5.EX5_ID>1</EXAMPLE5.EX5_ID>
+<EXAMPLE5.EX5_TEXT>Line One</EXAMPLE5.EX5_TEXT>
+</Record>
+<Record>
+<EXAMPLE5.EX5_ID>2</EXAMPLE5.EX5_ID>
+<EXAMPLE5.EX5_TEXT>Line Two</EXAMPLE5.EX5_TEXT>
+</Record>
+</Result>
+<Result statement="SELECT * FROM example5 ORDER BY ex5_id DESC">
+<Record>
+<EXAMPLE5.EX5_ID>2</EXAMPLE5.EX5_ID>
+<EXAMPLE5.EX5_TEXT>Line Two</EXAMPLE5.EX5_TEXT>
+</Record>
+<Record>
+<EXAMPLE5.EX5_ID>1</EXAMPLE5.EX5_ID>
+<EXAMPLE5.EX5_TEXT>Line One</EXAMPLE5.EX5_TEXT>
+</Record>
+</Result>
+</Test0005Database>

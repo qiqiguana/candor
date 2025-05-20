@@ -1,0 +1,113 @@
+## Ensure the package name is all in lowercase as
+##   per the Java spec
+package ${StateMachine.Jstate.Statemachine.Package.toLowerCase()};
+import uk.me.jockmacmad.jstate.state.EndState;
+import uk.me.jockmacmad.jstate.state.Event;
+import uk.me.jockmacmad.jstate.state.StartState;
+import uk.me.jockmacmad.jstate.state.StateMachine;
+import uk.me.jockmacmad.jstate.state.Transition;
+/**
+ * A JAVA Class which is the Factory used to
+ * construct StateMachines.
+ * The class creates the <code>Events</code>,
+ * <code>Transitions</code>, <code>IGuardConditions</code>
+ * and then adds these to a newly created StateMachine object.
+ *
+ * <p>
+ * This class should be invoked using <code>
+ * the ${StateMachine.Jstate.Statemachine.Class1}Factory.create${StateMachine.Jstate.Statemachine.Class1}() 
+ * </code> operation.
+ * @author StateMachine2Java
+ */
+public final class ${StateMachine.Jstate.Statemachine.Class1}Factory {
+    /**
+     * Hide the default constructor.
+     * This class should be invoked using the <code>
+     * ${StateMachine.Jstate.Statemachine.Class1}Factory.create${StateMachine.Jstate.Statemachine.Class1}() 
+     * </code> operation.
+     */
+	private ${StateMachine.Jstate.Statemachine.Class1}Factory () { }
+    /**
+     * This operation is responsible for
+     * constructing StateMachines.
+     * It creates the <code>Events</code>,
+     * <code>Transitions</code>, <code>IGuardConditions</code>
+     * and then adds these to a newly created StateMachine object.
+     * @return the new StateMachine
+     */	
+	public static I${StateMachine.Jstate.Statemachine.Class1} 
+		create${StateMachine.Jstate.Statemachine.Class1}() {
+		// Set up the new value that we are to return.
+		${StateMachine.Jstate.Statemachine.Class1} lTempStateMachine = null;
+		
+		// Create states
+	#foreach( $state in $StateMachine.Jstate.Statemachine.StateArray )
+	$state.Name l$state.Name = new ${state.Name}();
+	#end
+		
+		// Create the trigger events.
+		// The Last parameter is a hack as it is passed to
+		// event's superclass.
+		// java.util.EventObject. However, this does not allow
+		// a null to be passed so we create a
+		// dummy object to get round this.
+		
+	#foreach( $event in	$StateMachine.Jstate.Statemachine.EventArray )
+	// $event.Comment
+		Event l$event.Name = 
+			new Event("$event.Name", null, new String(""));
+	#end
+		
+		// Create the List of transitions
+		java.util.List<Transition> lTransitions = 
+			new java.util.ArrayList<Transition>();
+			
+		// Create valid transitions.
+		// Pass in the transition name,
+		// trigger events and starting and
+		// ending states.
+	#foreach( $transition in $StateMachine.Jstate.Statemachine.TransitionArray )
+	// $transition.Comment
+		Transition l$transition.Name
+			= new Transition(
+					"l${transition.Name}", 
+					l${transition.Trigger},
+					#if( $transition.FromState == "StartState" )
+					StartState.getSingleton(), 
+					#else
+					l${transition.FromState},					
+					#end 
+					#if( $transition.ToState == "EndState" )
+					EndState.getSingleton() 
+					#else
+					l${transition.ToState}					
+					#end 	
+					);
+		#if( $transition.Predicate )
+		// Create associated guard condition
+		${transition.Predicate.Class1} l${transition.Name}Guard =
+			new ${transition.Predicate.Class1}($transition.Predicate.Value);
+		// Add the guard to the Transition
+		l${transition.Name}.addGuardCondition(l${transition.Name}Guard);
+		#end
+		// Add our new transition to the List of Transitions
+		lTransitions.add(l$transition.Name);
+	#end
+		
+		// Create the StateMachine
+		try {
+			// Lets try to create the state machine now.
+			// Pass in the starting state and the vector of all
+			// states valid for the state machine to initialise it.
+			StateMachine lStateMachine = new StateMachine(lTransitions);
+			// Create the ${StateMachine.Jstate.Statemachine.Class1}
+			// object and pass in is configured state machine
+			lTempStateMachine = new ${StateMachine.Jstate.Statemachine.Class1}(lStateMachine);
+		} catch ( java.lang.Exception exception ) {
+			// Whoops, did the state machine construction fail ??
+			exception.printStackTrace();
+		}
+		// Completed the creation of the TrafficLight - return it to the caller
+		return (I${StateMachine.Jstate.Statemachine.Class1})lTempStateMachine;
+	}
+}

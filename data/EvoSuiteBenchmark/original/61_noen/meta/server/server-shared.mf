@@ -1,0 +1,22 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: MFW Server Common classes
+Bundle-SymbolicName: fi.vtt.noen.mfw.ServerSharedClasses
+Bundle-Version: 1.0.0
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-Classpath: .,lib/hibernate-jpa-2.0-api-1.0.0.Final.jar
+Import-Package: org.osgi.framework,
+  org.slf4j,
+  javax.persistence,
+  org.hibernate.proxy;resolution:=optional,
+  javassist.util.proxy;resolution:=optional,
+  fi.vtt.noen.mfw.bundle.blackboard,
+  fi.vtt.noen.mfw.bundle.common,
+  sf.net.sinve.trace,
+  sf.net.sinve.trace.data
+Export-Package: fi.vtt.noen.mfw.bundle.server.shared,
+  fi.vtt.noen.mfw.bundle.server.shared.datamodel,
+  javax.persistence.metamodel,
+  javax.persistence.criteria,
+  javax.persistence.spi,
+  javax.persistence,

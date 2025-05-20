@@ -1,0 +1,65 @@
+package original;
+
+import java.util.*;
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+/**
+* Test class of Common.
+*/
+class CommonTest {
+    @Test
+    void test_common_with_common_elements() {
+        // Arrange
+        List<Integer> l1 = Arrays.asList(1, 4, 3, 34, 653, 2, 5);
+        List<Object> l2 = Arrays.asList(5, 7, 1, 5, 9, 653, 121);
+        List<Object> expected = Arrays.asList(1, 5, 653);
+
+        // Act
+        List<Object> result = Common.common(l1, l2);
+
+        // Assert
+        assertEquals(expected, result);
+    }
+    
+    @Test
+        public void testNothing(){
+            Common s = new Common();
+            }
+    @Test
+    public void testCommonElementsInBothLists() {
+        List<Integer> l1 = Arrays.asList(1, 4, 3, 34, 653, 2, 5);
+        List<Object> l2 = Arrays.asList(5, 7, 1, 5, 9, 653, 121);
+        List<Object> expected = Arrays.asList(1, 5, 653);
+        assertEquals(expected, Common.common(l1, l2));
+    }
+    @Test
+    public void testNoCommonElementsInBothLists() {
+        List<Integer> l1 = Arrays.asList(4, 3, 2, 8);
+        List<Object> l2 = Arrays.asList(1, 7, 9);
+        List<Object> expected = Collections.emptyList();
+        assertEquals(expected, Common.common(l1, l2));
+    }
+    @Test
+    public void testEmptyListAsInput() {
+        List<Integer> l1 = Arrays.asList(4, 3, 2, 8);
+        List<Object> l2 = Collections.emptyList();
+        List<Object> expected = Collections.emptyList();
+        assertEquals(expected, Common.common(l1, l2));
+    }
+    @Test
+    public void testDuplicateCommonElementsInBothLists() {
+        List<Integer> l1 = Arrays.asList(1, 4, 3, 34, 653, 2, 5);
+        List<Object> l2 = Arrays.asList(5, 7, 1, 5, 9, 653, 121);
+        List<Object> expected = Arrays.asList(1, 5, 653);
+        assertEquals(expected, Common.common(l1, l2));
+    }
+    @Test
+    public void testDuplicateCommonElementsInBothLists1() {
+        List<Integer> l1 = Arrays.asList(1, 4, 3, 34, 653, 2, 5);
+        List<Object> l2 = Arrays.asList(5, 7, 1, 5, 9, 653, 121);
+        List<Object> expected = Arrays.asList(1, 5, 653);
+        assertEquals(expected, Common.common(l1, l2));
+    }
+                                    
+}

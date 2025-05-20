@@ -1,0 +1,1026 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
+<html>
+<head>
+<title>
+wheel.json.JSONTokener
+</title>
+<link href="files/prettify.css" type="text/css" rel="stylesheet" />
+<link href="files/style.css" rel="stylesheet" type="text/css" media="screen"/>
+<script type="text/javascript" src="files/prettify.js"></script>
+<script type="text/javascript" src="files/jquery.js"></script>
+<script type="text/javascript" src="files/foldButton.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('H2#tests').foldButton();
+    $('H2#source').foldButton();
+    $('H2#parameters').foldButton();
+  });</script>
+<link href="files/foldButton.css" rel="stylesheet" type="text/css">
+</head>
+<body onload="prettyPrint()">
+<div id="wrapper">
+<img src="files/evosuite.png" height="40"/>
+<br><br><h2 class=title>Summary</h2>
+<ul><li>Target class: wheel.json.JSONTokener: 78.69%</ul><ul>
+<li>41600 fitness evaluations, 833 generations, 230131 statements, 26284 tests.
+<li>Time: 0:05:04(Search: 0:05:01, minimization: 0:00:03)
+<li>Coverage: 141/180 branches, 16/16 methods, 144/183 total goals
+<li>Mutation score: 53%
+</ul>
+<div id="page"><div id="page-bgtop"><div id="page-bgbtm"><div id="content"><div id="post"><h2 class=title id=tests>Test suite</h2>
+<div class=tests>
+<h3>Test case 1</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>JSONTokener jSONTokener0 = new JSONTokener(&quot;' and instead saw '&quot;);
+<span class="nocode"><a name="2">  2: </a></span>jSONTokener0.nextValue();
+<span class="nocode"><a name="3">  3: </a></span>char char0 = jSONTokener0.next('\u0000');
+<span class="nocode"><a name="4">  4: </a></span>assertEquals(&quot; at character 19 of ' and instead saw '&quot;, jSONTokener0.toString());
+<span class="nocode"><a name="5">  5: </a></span>assertEquals('\u0000', char0);
+</pre>
+<h3>Test case 2</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>JSONTokener jSONTokener0 = new JSONTokener(&quot;-[0_WIq,X&quot;);
+<span class="nocode"><a name="2">  2: </a></span>jSONTokener0.next();
+<span class="nocode"><a name="3">  3: </a></span>// Undeclared exception!
+<span class="nocode"><a name="4">  4: </a></span>String string0 = &quot;&quot;;
+<span class="nocode"><a name="5">  5: </a></span>try {
+<span class="nocode"><a name="6">  6: </a></span>  string0 = (String)jSONTokener0.nextValue();
+<span class="nocode"><a name="7">  7: </a></span>  fail(&quot;Expecting exception: JSONException&quot;);
+<span class="nocode"><a name="8">  8: </a></span>} catch(JSONException e) {
+<span class="nocode"><a name="9">  9: </a></span>  /*
+<span class="nocode"><a name="10"> 10: </a></span>   * Expected a ',' or ']' at character 9 of -[0_WIq,X
+<span class="nocode"><a name="11"> 11: </a></span>   */
+<span class="nocode"><a name="12"> 12: </a></span>}
+<span class="nocode"><a name="13"> 13: </a></span>assertEquals(&quot; at character 7 of -[0_WIq,X&quot;, jSONTokener0.toString());
+</pre>
+<h3>Test case 3</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>JSONTokener jSONTokener0 = new JSONTokener(&quot;\&quot;rR@JYo!BhJ24Q=&quot;);
+<span class="nocode"><a name="2">  2: </a></span>jSONTokener0.back();
+<span class="nocode"><a name="3">  3: </a></span>assertEquals('r', jSONTokener0.next());
+<span class="nocode"><a name="4">  4: </a></span>assertEquals(&quot; at character 1 of \&quot;rR@JYo!BhJ24Q=&quot;, jSONTokener0.toString());
+</pre>
+<h3>Test case 4</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>int int0 = JSONTokener.dehexchar('\u0000');
+<span class="nocode"><a name="2">  2: </a></span>assertEquals((-1), int0);
+</pre>
+<h3>Test case 5</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>int int0 = JSONTokener.dehexchar('N');
+<span class="nocode"><a name="2">  2: </a></span>assertEquals((-1), int0);
+</pre>
+<h3>Test case 6</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>int int0 = JSONTokener.dehexchar('0');
+<span class="nocode"><a name="2">  2: </a></span>assertEquals(0, int0);
+</pre>
+<h3>Test case 7</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>int int0 = JSONTokener.dehexchar('B');
+<span class="nocode"><a name="2">  2: </a></span>assertEquals(11, int0);
+</pre>
+<h3>Test case 8</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>int int0 = JSONTokener.dehexchar('e');
+<span class="nocode"><a name="2">  2: </a></span>assertEquals(14, int0);
+</pre>
+<h3>Test case 9</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>int int0 = JSONTokener.dehexchar('v');
+<span class="nocode"><a name="2">  2: </a></span>assertEquals((-1), int0);
+</pre>
+<h3>Test case 10</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>JSONTokener jSONTokener0 = new JSONTokener(&quot;o&quot;);
+<span class="nocode"><a name="2">  2: </a></span>assertEquals('o', jSONTokener0.next());
+<span class="nocode"><a name="3">  3: </a></span>
+<span class="nocode"><a name="4">  4: </a></span>// Undeclared exception!
+<span class="nocode"><a name="5">  5: </a></span>try {
+<span class="nocode"><a name="6">  6: </a></span>  jSONTokener0.next('#');
+<span class="nocode"><a name="7">  7: </a></span>  fail(&quot;Expecting exception: JSONException&quot;);
+<span class="nocode"><a name="8">  8: </a></span>} catch(JSONException e) {
+<span class="nocode"><a name="9">  9: </a></span>  /*
+<span class="nocode"><a name="10"> 10: </a></span>   * Expected '#' and instead saw 'o' at character 1 of o
+<span class="nocode"><a name="11"> 11: </a></span>   */
+<span class="nocode"><a name="12"> 12: </a></span>}
+</pre>
+<h3>Test case 11</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>JSONTokener jSONTokener0 = new JSONTokener(&quot;[yj3hoAO]WMXf1Bt&quot;);
+<span class="nocode"><a name="2">  2: </a></span>String string0 = jSONTokener0.next(1);
+<span class="nocode"><a name="3">  3: </a></span>assertEquals(&quot; at character 3 of [yj3hoAO]WMXf1Bt&quot;, jSONTokener0.toString());
+<span class="nocode"><a name="4">  4: </a></span>assertEquals(&quot;j&quot;, string0);
+</pre>
+<h3>Test case 12</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>String string0 = &quot;\\u&quot;;
+<span class="nocode"><a name="2">  2: </a></span>JSONTokener jSONTokener0 = new JSONTokener(string0);
+<span class="nocode"><a name="3">  3: </a></span>char char0 = 'O';
+<span class="nocode"><a name="4">  4: </a></span>// Undeclared exception!
+<span class="nocode"><a name="5">  5: </a></span>try {
+<span class="nocode"><a name="6">  6: </a></span>  jSONTokener0.nextString(char0);
+<span class="nocode"><a name="7">  7: </a></span>  fail(&quot;Expecting exception: JSONException&quot;);
+<span class="nocode"><a name="8">  8: </a></span>} catch(JSONException e) {
+<span class="nocode"><a name="9">  9: </a></span>  /*
+<span class="nocode"><a name="10"> 10: </a></span>   * Substring bounds error at character 2 of \\u
+<span class="nocode"><a name="11"> 11: </a></span>   */
+<span class="nocode"><a name="12"> 12: </a></span>}
+</pre>
+<h3>Test case 13</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>JSONTokener jSONTokener0 = new JSONTokener(&quot;1-^D|n!hw/(?-syFK`&quot;);
+<span class="nocode"><a name="2">  2: </a></span>jSONTokener0.nextValue();
+<span class="nocode"><a name="3">  3: </a></span>char char0 = jSONTokener0.nextClean();
+<span class="nocode"><a name="4">  4: </a></span>assertEquals(&quot; at character 12 of 1-^D|n!hw/(?-syFK`&quot;, jSONTokener0.toString());
+<span class="nocode"><a name="5">  5: </a></span>assertEquals('?', char0);
+</pre>
+<h3>Test case 14</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>JSONTokener jSONTokener0 = new JSONTokener(&quot;i5k~|3SBn//jT@&lt;(&quot;);
+<span class="nocode"><a name="2">  2: </a></span>jSONTokener0.nextValue();
+<span class="nocode"><a name="3">  3: </a></span>// Undeclared exception!
+<span class="nocode"><a name="4">  4: </a></span>String string0 = &quot;&quot;;
+<span class="nocode"><a name="5">  5: </a></span>try {
+<span class="nocode"><a name="6">  6: </a></span>  string0 = (String)jSONTokener0.nextValue();
+<span class="nocode"><a name="7">  7: </a></span>  fail(&quot;Expecting exception: JSONException&quot;);
+<span class="nocode"><a name="8">  8: </a></span>} catch(JSONException e) {
+<span class="nocode"><a name="9">  9: </a></span>  /*
+<span class="nocode"><a name="10"> 10: </a></span>   * Missing value at character 15 of i5k~|3SBn//jT@&lt;(
+<span class="nocode"><a name="11"> 11: </a></span>   */
+<span class="nocode"><a name="12"> 12: </a></span>}
+<span class="nocode"><a name="13"> 13: </a></span>assertEquals(&quot; at character 15 of i5k~|3SBn//jT@&lt;(&quot;, jSONTokener0.toString());
+</pre>
+<h3>Test case 15</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>JSONTokener jSONTokener0 = new JSONTokener(&quot;R#oG&lt;m&quot;);
+<span class="nocode"><a name="2">  2: </a></span>jSONTokener0.nextClean();
+<span class="nocode"><a name="3">  3: </a></span>jSONTokener0.nextClean();
+<span class="nocode"><a name="4">  4: </a></span>jSONTokener0.nextTo(&quot;R#oG&lt;m&quot;);
+<span class="nocode"><a name="5">  5: </a></span>assertEquals(&quot; at character 6 of R#oG&lt;m&quot;, jSONTokener0.toString());
+</pre>
+<h3>Test case 16</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>JSONTokener jSONTokener0 = new JSONTokener(&quot;' and istead_aw '&quot;);
+<span class="nocode"><a name="2">  2: </a></span>jSONTokener0.nextClean();
+<span class="nocode"><a name="3">  3: </a></span>String string0 = (String)jSONTokener0.nextValue();
+<span class="nocode"><a name="4">  4: </a></span>assertEquals(&quot; at character 16 of ' and istead_aw '&quot;, jSONTokener0.toString());
+<span class="nocode"><a name="5">  5: </a></span>assertEquals(&quot;stead_aw '&quot;, string0);
+</pre>
+<h3>Test case 17</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>JSONTokener jSONTokener0 = new JSONTokener(&quot;?\n&quot;);
+<span class="nocode"><a name="2">  2: </a></span>// Undeclared exception!
+<span class="nocode"><a name="3">  3: </a></span>try {
+<span class="nocode"><a name="4">  4: </a></span>  jSONTokener0.nextString('[');
+<span class="nocode"><a name="5">  5: </a></span>  fail(&quot;Expecting exception: JSONException&quot;);
+<span class="nocode"><a name="6">  6: </a></span>} catch(JSONException e) {
+<span class="nocode"><a name="7">  7: </a></span>  /*
+<span class="nocode"><a name="8">  8: </a></span>   * Unterminated string at character 2 of ?
+<span class="nocode"><a name="9">  9: </a></span>   */
+<span class="nocode"><a name="10"> 10: </a></span>}
+</pre>
+<h3>Test case 18</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>JSONTokener jSONTokener0 = new JSONTokener(&quot;\r&quot;);
+<span class="nocode"><a name="2">  2: </a></span>assertEquals('\r', jSONTokener0.next());
+<span class="nocode"><a name="3">  3: </a></span>
+<span class="nocode"><a name="4">  4: </a></span>// Undeclared exception!
+<span class="nocode"><a name="5">  5: </a></span>try {
+<span class="nocode"><a name="6">  6: </a></span>  jSONTokener0.nextString('e');
+<span class="nocode"><a name="7">  7: </a></span>  fail(&quot;Expecting exception: JSONException&quot;);
+<span class="nocode"><a name="8">  8: </a></span>} catch(JSONException e) {
+<span class="nocode"><a name="9">  9: </a></span>  /*
+<span class="nocode"><a name="10"> 10: </a></span>   * Unterminated string at character 1 of \r
+<span class="nocode"><a name="11"> 11: </a></span>   */
+<span class="nocode"><a name="12"> 12: </a></span>}
+</pre>
+<h3>Test case 19</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>JSONTokener jSONTokener0 = new JSONTokener(&quot;0i9HhQ|C{z{ugvq:O&quot;);
+<span class="nocode"><a name="2">  2: </a></span>String string0 = jSONTokener0.nextTo('h');
+<span class="nocode"><a name="3">  3: </a></span>assertEquals(&quot; at character 4 of 0i9HhQ|C{z{ugvq:O&quot;, jSONTokener0.toString());
+<span class="nocode"><a name="4">  4: </a></span>assertEquals(&quot;9H&quot;, string0);
+</pre>
+<h3>Test case 20</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>JSONTokener jSONTokener0 = new JSONTokener(&quot;Missing value&quot;);
+<span class="nocode"><a name="2">  2: </a></span>jSONTokener0.nextTo('J');
+<span class="nocode"><a name="3">  3: </a></span>boolean boolean0 = jSONTokener0.skipPast(&quot;Missing value&quot;);
+<span class="nocode"><a name="4">  4: </a></span>assertEquals(&quot; at character 13 of Missing value&quot;, jSONTokener0.toString());
+<span class="nocode"><a name="5">  5: </a></span>assertEquals(false, boolean0);
+</pre>
+<h3>Test case 21</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>JSONTokener jSONTokener0 = new JSONTokener(&quot;,\n&quot;);
+<span class="nocode"><a name="2">  2: </a></span>jSONTokener0.nextTo('\&quot;');
+<span class="nocode"><a name="3">  3: </a></span>assertEquals(&quot; at character 2 of ,\n&quot;, jSONTokener0.toString());
+</pre>
+<h3>Test case 22</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>JSONTokener jSONTokener0 = new JSONTokener(&quot;FmIOsI&lt;K '50+zE?&quot;);
+<span class="nocode"><a name="2">  2: </a></span>String string0 = jSONTokener0.nextTo(&quot;FmIOsI&lt;K '50+zE?&quot;);
+<span class="nocode"><a name="3">  3: </a></span>assertEquals(&quot; at character 2 of FmIOsI&lt;K '50+zE?&quot;, jSONTokener0.toString());
+<span class="nocode"><a name="4">  4: </a></span>assertEquals(&quot;&quot;, string0);
+</pre>
+<h3>Test case 23</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>JSONTokener jSONTokener0 = new JSONTokener(&quot;?\n&quot;);
+<span class="nocode"><a name="2">  2: </a></span>jSONTokener0.nextTo(&quot;%5vNY~r:72p&quot;);
+<span class="nocode"><a name="3">  3: </a></span>assertEquals(&quot; at character 2 of ?\n&quot;, jSONTokener0.toString());
+<span class="nocode"><a name="4">  4: </a></span>assertEquals('\u0000', jSONTokener0.next());
+</pre>
+<h3>Test case 24</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>JSONTokener jSONTokener0 = new JSONTokener(&quot;\&quot;rR@JYo!BhJ24Q=&quot;);
+<span class="nocode"><a name="2">  2: </a></span>// Undeclared exception!
+<span class="nocode"><a name="3">  3: </a></span>String string0 = &quot;&quot;;
+<span class="nocode"><a name="4">  4: </a></span>try {
+<span class="nocode"><a name="5">  5: </a></span>  string0 = (String)jSONTokener0.nextValue();
+<span class="nocode"><a name="6">  6: </a></span>  fail(&quot;Expecting exception: JSONException&quot;);
+<span class="nocode"><a name="7">  7: </a></span>} catch(JSONException e) {
+<span class="nocode"><a name="8">  8: </a></span>  /*
+<span class="nocode"><a name="9">  9: </a></span>   * Unterminated string at character 15 of \&quot;rR@JYo!BhJ24Q=
+<span class="nocode"><a name="10"> 10: </a></span>   */
+<span class="nocode"><a name="11"> 11: </a></span>}
+<span class="nocode"><a name="12"> 12: </a></span>assertEquals(&quot; at character 14 of \&quot;rR@JYo!BhJ24Q=&quot;, jSONTokener0.toString());
+</pre>
+<h3>Test case 25</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>JSONTokener jSONTokener0 = new JSONTokener(&quot;0i9HhQ|C{z{ugvq:O&quot;);
+<span class="nocode"><a name="2">  2: </a></span>jSONTokener0.nextValue();
+<span class="nocode"><a name="3">  3: </a></span>jSONTokener0.nextClean();
+<span class="nocode"><a name="4">  4: </a></span>jSONTokener0.nextClean();
+<span class="nocode"><a name="5">  5: </a></span>// Undeclared exception!
+<span class="nocode"><a name="6">  6: </a></span>try {
+<span class="nocode"><a name="7">  7: </a></span>  jSONTokener0.nextValue();
+<span class="nocode"><a name="8">  8: </a></span>  fail(&quot;Expecting exception: JSONException&quot;);
+<span class="nocode"><a name="9">  9: </a></span>} catch(JSONException e) {
+<span class="nocode"><a name="10"> 10: </a></span>  /*
+<span class="nocode"><a name="11"> 11: </a></span>   * Expected a ',' or '}' at character 18 of 0i9HhQ|C{z{ugvq:O
+<span class="nocode"><a name="12"> 12: </a></span>   */
+<span class="nocode"><a name="13"> 13: </a></span>}
+</pre>
+<h3>Test case 26</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>JSONTokener jSONTokener0 = new JSONTokener(&quot;true&quot;);
+<span class="nocode"><a name="2">  2: </a></span>Boolean boolean0 = (Boolean)jSONTokener0.nextValue();
+<span class="nocode"><a name="3">  3: </a></span>assertEquals(&quot; at character 3 of true&quot;, jSONTokener0.toString());
+<span class="nocode"><a name="4">  4: </a></span>assertEquals(&quot;ue&quot;, (String)boolean0);
+</pre>
+<h3>Test case 27</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>JSONTokener jSONTokener0 = new JSONTokener(&quot;false&quot;);
+<span class="nocode"><a name="2">  2: </a></span>Boolean boolean0 = (Boolean)jSONTokener0.nextValue();
+<span class="nocode"><a name="3">  3: </a></span>assertEquals(&quot; at character 4 of false&quot;, jSONTokener0.toString());
+<span class="nocode"><a name="4">  4: </a></span>assertEquals(&quot;lse&quot;, (String)boolean0);
+</pre>
+<h3>Test case 28</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>JSONTokener jSONTokener0 = new JSONTokener(&quot;null&quot;);
+<span class="nocode"><a name="2">  2: </a></span>String string0 = (String)jSONTokener0.nextValue();
+<span class="nocode"><a name="3">  3: </a></span>assertEquals(&quot; at character 3 of null&quot;, jSONTokener0.toString());
+<span class="nocode"><a name="4">  4: </a></span>assertEquals(&quot;ll&quot;, string0);
+</pre>
+<h3>Test case 29</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>JSONTokener jSONTokener0 = new JSONTokener(&quot;+ly i?y9tjtsioj&quot;);
+<span class="nocode"><a name="2">  2: </a></span>String string0 = (String)jSONTokener0.nextValue();
+<span class="nocode"><a name="3">  3: </a></span>assertEquals(&quot; at character 14 of +ly i?y9tjtsioj&quot;, jSONTokener0.toString());
+<span class="nocode"><a name="4">  4: </a></span>assertEquals(&quot;y i?y9tjtsioj&quot;, string0);
+</pre>
+<h3>Test case 30</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>JSONTokener jSONTokener0 = new JSONTokener(&quot;.&quot;);
+<span class="nocode"><a name="2">  2: </a></span>jSONTokener0.nextValue();
+</pre>
+<h3>Test case 31</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>JSONTokener jSONTokener0 = new JSONTokener(&quot;1-^D|n!hw/(?-syFK`&quot;);
+<span class="nocode"><a name="2">  2: </a></span>jSONTokener0.next();
+<span class="nocode"><a name="3">  3: </a></span>String string0 = (String)jSONTokener0.nextValue();
+<span class="nocode"><a name="4">  4: </a></span>assertEquals(&quot; at character 9 of 1-^D|n!hw/(?-syFK`&quot;, jSONTokener0.toString());
+<span class="nocode"><a name="5">  5: </a></span>assertEquals(&quot;n!hw&quot;, string0);
+</pre>
+<h3>Test case 32</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>JSONTokener jSONTokener0 = new JSONTokener(&quot;0&quot;);
+<span class="nocode"><a name="2">  2: </a></span>jSONTokener0.nextValue();
+</pre>
+<h3>Test case 33</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>JSONTokener jSONTokener0 = new JSONTokener(&quot;?uvjYE%j}&quot;);
+<span class="nocode"><a name="2">  2: </a></span>char char0 = jSONTokener0.skipTo('%');
+<span class="nocode"><a name="3">  3: </a></span>assertEquals(&quot; at character 6 of ?uvjYE%j}&quot;, jSONTokener0.toString());
+<span class="nocode"><a name="4">  4: </a></span>assertEquals('%', char0);
+</pre>
+<h3>Test case 34</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>JSONTokener jSONTokener0 = new JSONTokener(&quot;o&quot;);
+<span class="nocode"><a name="2">  2: </a></span>assertEquals(&quot; at character 0 of o&quot;, jSONTokener0.toString());
+<span class="nocode"><a name="3">  3: </a></span>
+<span class="nocode"><a name="4">  4: </a></span>char char0 = jSONTokener0.skipTo('M');
+<span class="nocode"><a name="5">  5: </a></span>assertEquals(&quot; at character 1 of o&quot;, jSONTokener0.toString());
+<span class="nocode"><a name="6">  6: </a></span>assertEquals('\u0000', char0);
+</pre>
+<h3>Test case 35</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>JSONTokener jSONTokener0 = new JSONTokener(&quot;o&quot;);
+<span class="nocode"><a name="2">  2: </a></span>assertEquals(&quot; at character 0 of o&quot;, jSONTokener0.toString());
+<span class="nocode"><a name="3">  3: </a></span>
+<span class="nocode"><a name="4">  4: </a></span>boolean boolean0 = jSONTokener0.skipPast(&quot;o&quot;);
+<span class="nocode"><a name="5">  5: </a></span>assertEquals(&quot; at character 1 of o&quot;, jSONTokener0.toString());
+<span class="nocode"><a name="6">  6: </a></span>assertEquals(false, boolean0);
+</pre>
+</div></div><div id="post"></div><div id="post"><h2 class=title id=source>Source Code</h2>
+<div class=source><p><pre class="prettyprint" style="border: 1px solid #888;padding: 2px"><span class="nocode"><a name="1">  1: </a></span>package wheel.json;
+<span class="nocode"><a name="2">  2: </a></span>
+<span class="nocode"><a name="3">  3: </a></span>/*
+<span class="nocode"><a name="4">  4: </a></span>Copyright (c) 2002 JSON.org
+<span class="nocode"><a name="5">  5: </a></span>
+<span class="nocode"><a name="6">  6: </a></span>Permission is hereby granted, free of charge, to any person obtaining a copy
+<span class="nocode"><a name="7">  7: </a></span>of this software and associated documentation files (the &quot;Software&quot;), to deal
+<span class="nocode"><a name="8">  8: </a></span>in the Software without restriction, including without limitation the rights
+<span class="nocode"><a name="9">  9: </a></span>to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+<span class="nocode"><a name="10"> 10: </a></span>copies of the Software, and to permit persons to whom the Software is
+<span class="nocode"><a name="11"> 11: </a></span>furnished to do so, subject to the following conditions:
+<span class="nocode"><a name="12"> 12: </a></span>
+<span class="nocode"><a name="13"> 13: </a></span>The above copyright notice and this permission notice shall be included in all
+<span class="nocode"><a name="14"> 14: </a></span>copies or substantial portions of the Software.
+<span class="nocode"><a name="15"> 15: </a></span>
+<span class="nocode"><a name="16"> 16: </a></span>The Software shall be used for Good, not Evil.
+<span class="nocode"><a name="17"> 17: </a></span>
+<span class="nocode"><a name="18"> 18: </a></span>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+<span class="nocode"><a name="19"> 19: </a></span>IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+<span class="nocode"><a name="20"> 20: </a></span>FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+<span class="nocode"><a name="21"> 21: </a></span>AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+<span class="nocode"><a name="22"> 22: </a></span>LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+<span class="nocode"><a name="23"> 23: </a></span>OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+<span class="nocode"><a name="24"> 24: </a></span>SOFTWARE.
+<span class="nocode"><a name="25"> 25: </a></span>*/
+<span class="nocode"><a name="26"> 26: </a></span>
+<span class="nocode"><a name="27"> 27: </a></span>/**
+<span class="nocode"><a name="28"> 28: </a></span> * A JSONTokener takes a source string and extracts characters and tokens from
+<span class="nocode"><a name="29"> 29: </a></span> * it. It is used by the JSONObject and JSONArray constructors to parse
+<span class="nocode"><a name="30"> 30: </a></span> * JSON source strings.
+<span class="nocode"><a name="31"> 31: </a></span> * @author JSON.org
+<span class="nocode"><a name="32"> 32: </a></span> * @version 2
+<span class="nocode"><a name="33"> 33: </a></span> */
+<span class="nocode"><a name="34"> 34: </a></span>public class JSONTokener {
+<span class="nocode"><a name="35"> 35: </a></span>
+<span class="nocode"><a name="36"> 36: </a></span>    /**
+<span class="nocode"><a name="37"> 37: </a></span>     * The index of the next character.
+<span class="nocode"><a name="38"> 38: </a></span>     */
+<span class="nocode"><a name="39"> 39: </a></span>    private int myIndex;
+<span class="nocode"><a name="40"> 40: </a></span>
+<span class="nocode"><a name="41"> 41: </a></span>
+<span class="nocode"><a name="42"> 42: </a></span>    /**
+<span class="nocode"><a name="43"> 43: </a></span>     * The source string being tokenized.
+<span class="nocode"><a name="44"> 44: </a></span>     */
+<span class="nocode"><a name="45"> 45: </a></span>    private String mySource;
+<span class="nocode"><a name="46"> 46: </a></span>
+<span class="nocode"><a name="47"> 47: </a></span>
+<span class="nocode"><a name="48"> 48: </a></span>    /**
+<span class="nocode"><a name="49"> 49: </a></span>     * Construct a JSONTokener from a string.
+<span class="nocode"><a name="50"> 50: </a></span>     *
+<span class="nocode"><a name="51"> 51: </a></span>     * @param s     A source string.
+<span class="nocode"><a name="52"> 52: </a></span>     */
+<span class="nocode"><a name="53"> 53: </a></span>    public JSONTokener(String s) {
+<span class="nocode"><a name="54"> 54: </a></span><span style="background-color: #ffffcc">        this.myIndex = 0;</span>
+<span class="nocode"><a name="55"> 55: </a></span><span style="background-color: #ffffcc">        this.mySource = s;</span>
+<span class="nocode"><a name="56"> 56: </a></span><span style="background-color: #ffffcc">    }</span>
+<span class="nocode"><a name="57"> 57: </a></span>
+<span class="nocode"><a name="58"> 58: </a></span>
+<span class="nocode"><a name="59"> 59: </a></span>    /**
+<span class="nocode"><a name="60"> 60: </a></span>     * Back up one character. This provides a sort of lookahead capability,
+<span class="nocode"><a name="61"> 61: </a></span>     * so that you can test for a digit or letter before attempting to parse
+<span class="nocode"><a name="62"> 62: </a></span>     * the next number or identifier.
+<span class="nocode"><a name="63"> 63: </a></span>     */
+<span class="nocode"><a name="64"> 64: </a></span>    public void back() {
+<span class="nocode"><a name="65"> 65: </a></span><span style="background-color: #ffffcc">        if (this.myIndex &gt; 0) {</span>
+<span class="nocode"><a name="66"> 66: </a></span><span style="background-color: #ffffcc">            this.myIndex -= 1;</span>
+<span class="nocode"><a name="67"> 67: </a></span>        }
+<span class="nocode"><a name="68"> 68: </a></span><span style="background-color: #ffffcc">    }</span>
+<span class="nocode"><a name="69"> 69: </a></span>
+<span class="nocode"><a name="70"> 70: </a></span>
+<span class="nocode"><a name="71"> 71: </a></span>
+<span class="nocode"><a name="72"> 72: </a></span>    /**
+<span class="nocode"><a name="73"> 73: </a></span>     * Get the hex value of a character (base16).
+<span class="nocode"><a name="74"> 74: </a></span>     * @param c A character between '0' and '9' or between 'A' and 'F' or
+<span class="nocode"><a name="75"> 75: </a></span>     * between 'a' and 'f'.
+<span class="nocode"><a name="76"> 76: </a></span>     * @return  An int between 0 and 15, or -1 if c was not a hex digit.
+<span class="nocode"><a name="77"> 77: </a></span>     */
+<span class="nocode"><a name="78"> 78: </a></span>    public static int dehexchar(char c) {
+<span class="nocode"><a name="79"> 79: </a></span><span style="background-color: #ffffcc">        if (c &gt;= '0' &amp;&amp; c &lt;= '9') {</span>
+<span class="nocode"><a name="80"> 80: </a></span><span style="background-color: #ffffcc">            return c - '0';</span>
+<span class="nocode"><a name="81"> 81: </a></span>        }
+<span class="nocode"><a name="82"> 82: </a></span><span style="background-color: #ffffcc">        if (c &gt;= 'A' &amp;&amp; c &lt;= 'F') {</span>
+<span class="nocode"><a name="83"> 83: </a></span><span style="background-color: #ffffcc">            return c - ('A' - 10);</span>
+<span class="nocode"><a name="84"> 84: </a></span>        }
+<span class="nocode"><a name="85"> 85: </a></span><span style="background-color: #ffffcc">        if (c &gt;= 'a' &amp;&amp; c &lt;= 'f') {</span>
+<span class="nocode"><a name="86"> 86: </a></span><span style="background-color: #ffffcc">            return c - ('a' - 10);</span>
+<span class="nocode"><a name="87"> 87: </a></span>        }
+<span class="nocode"><a name="88"> 88: </a></span><span style="background-color: #ffffcc">        return -1;</span>
+<span class="nocode"><a name="89"> 89: </a></span>    }
+<span class="nocode"><a name="90"> 90: </a></span>
+<span class="nocode"><a name="91"> 91: </a></span>
+<span class="nocode"><a name="92"> 92: </a></span>    /**
+<span class="nocode"><a name="93"> 93: </a></span>     * Determine if the source string still contains characters that next()
+<span class="nocode"><a name="94"> 94: </a></span>     * can consume.
+<span class="nocode"><a name="95"> 95: </a></span>     * @return true if not yet at the end of the source.
+<span class="nocode"><a name="96"> 96: </a></span>     */
+<span class="nocode"><a name="97"> 97: </a></span>    public boolean more() {
+<span class="nocode"><a name="98"> 98: </a></span><span style="background-color: #ffffcc">        return this.myIndex &lt; this.mySource.length();</span>
+<span class="nocode"><a name="99"> 99: </a></span>    }
+<span class="nocode"><a name="100">100: </a></span>
+<span class="nocode"><a name="101">101: </a></span>
+<span class="nocode"><a name="102">102: </a></span>    /**
+<span class="nocode"><a name="103">103: </a></span>     * Get the next character in the source string.
+<span class="nocode"><a name="104">104: </a></span>     *
+<span class="nocode"><a name="105">105: </a></span>     * @return The next character, or 0 if past the end of the source string.
+<span class="nocode"><a name="106">106: </a></span>     */
+<span class="nocode"><a name="107">107: </a></span>    public char next() {
+<span class="nocode"><a name="108">108: </a></span><span style="background-color: #ffffcc">        if (more()) {</span>
+<span class="nocode"><a name="109">109: </a></span><span style="background-color: #ffffcc">            char c = this.mySource.charAt(this.myIndex);</span>
+<span class="nocode"><a name="110">110: </a></span><span style="background-color: #ffffcc">            this.myIndex += 1;</span>
+<span class="nocode"><a name="111">111: </a></span><span style="background-color: #ffffcc">            return c;</span>
+<span class="nocode"><a name="112">112: </a></span>        }
+<span class="nocode"><a name="113">113: </a></span><span style="background-color: #ffffcc">        return 0;</span>
+<span class="nocode"><a name="114">114: </a></span>    }
+<span class="nocode"><a name="115">115: </a></span>
+<span class="nocode"><a name="116">116: </a></span>
+<span class="nocode"><a name="117">117: </a></span>    /**
+<span class="nocode"><a name="118">118: </a></span>     * Consume the next character, and check that it matches a specified
+<span class="nocode"><a name="119">119: </a></span>     * character.
+<span class="nocode"><a name="120">120: </a></span>     * @param c The character to match.
+<span class="nocode"><a name="121">121: </a></span>     * @return The character.
+<span class="nocode"><a name="122">122: </a></span>     * @throws JSONException if the character does not match.
+<span class="nocode"><a name="123">123: </a></span>     */
+<span class="nocode"><a name="124">124: </a></span>    public char next(char c) throws JSONException {
+<span class="nocode"><a name="125">125: </a></span><span style="background-color: #ffffcc">        char n = next();</span>
+<span class="nocode"><a name="126">126: </a></span><span style="background-color: #ffffcc">        if (n != c) {</span>
+<span class="nocode"><a name="127">127: </a></span><span style="background-color: #ffffcc">            throw syntaxError(&quot;Expected '&quot; + c + &quot;' and instead saw '&quot; +</span>
+<span class="nocode"><a name="128">128: </a></span>                    n + &quot;'&quot;);
+<span class="nocode"><a name="129">129: </a></span>        }
+<span class="nocode"><a name="130">130: </a></span><span style="background-color: #ffffcc">        return n;</span>
+<span class="nocode"><a name="131">131: </a></span>    }
+<span class="nocode"><a name="132">132: </a></span>
+<span class="nocode"><a name="133">133: </a></span>
+<span class="nocode"><a name="134">134: </a></span>    /**
+<span class="nocode"><a name="135">135: </a></span>     * Get the next n characters.
+<span class="nocode"><a name="136">136: </a></span>     *
+<span class="nocode"><a name="137">137: </a></span>     * @param n     The number of characters to take.
+<span class="nocode"><a name="138">138: </a></span>     * @return      A string of n characters.
+<span class="nocode"><a name="139">139: </a></span>     * @throws JSONException
+<span class="nocode"><a name="140">140: </a></span>     *   Substring bounds error if there are not
+<span class="nocode"><a name="141">141: </a></span>     *   n characters remaining in the source string.
+<span class="nocode"><a name="142">142: </a></span>     */
+<span class="nocode"><a name="143">143: </a></span>     public String next(int n) throws JSONException {
+<span class="nocode"><a name="144">144: </a></span><span style="background-color: #ffffcc">         int i = this.myIndex;</span>
+<span class="nocode"><a name="145">145: </a></span><span style="background-color: #ffffcc">         int j = i + n;</span>
+<span class="nocode"><a name="146">146: </a></span><span style="background-color: #ffffcc">         if (j &gt;= this.mySource.length()) {</span>
+<span class="nocode"><a name="147">147: </a></span><span style="background-color: #ffffcc">            throw syntaxError(&quot;Substring bounds error&quot;);</span>
+<span class="nocode"><a name="148">148: </a></span>         }
+<span class="nocode"><a name="149">149: </a></span><span style="background-color: #ffffcc">         this.myIndex += n;</span>
+<span class="nocode"><a name="150">150: </a></span><span style="background-color: #ffffcc">         return this.mySource.substring(i, j);</span>
+<span class="nocode"><a name="151">151: </a></span>     }
+<span class="nocode"><a name="152">152: </a></span>
+<span class="nocode"><a name="153">153: </a></span>
+<span class="nocode"><a name="154">154: </a></span>    /**
+<span class="nocode"><a name="155">155: </a></span>     * Get the next char in the string, skipping whitespace
+<span class="nocode"><a name="156">156: </a></span>     * and comments (slashslash, slashstar, and hash).
+<span class="nocode"><a name="157">157: </a></span>     * @throws JSONException
+<span class="nocode"><a name="158">158: </a></span>     * @return  A character, or 0 if there are no more characters.
+<span class="nocode"><a name="159">159: </a></span>     */
+<span class="nocode"><a name="160">160: </a></span>    public char nextClean() throws JSONException {
+<span class="nocode"><a name="161">161: </a></span>        for (;;) {
+<span class="nocode"><a name="162">162: </a></span><span style="background-color: #ffffcc">            char c = next();</span>
+<span class="nocode"><a name="163">163: </a></span><span style="background-color: #ffffcc">            if (c == '/') {</span>
+<span class="nocode"><a name="164">164: </a></span><span style="background-color: #ffffcc">                switch (next()) {</span>
+<span class="nocode"><a name="165">165: </a></span>                case '/':
+<span class="nocode"><a name="166">166: </a></span>                    do {
+<span class="nocode"><a name="167">167: </a></span><span style="background-color: #ffffcc">                        c = next();</span>
+<span class="nocode"><a name="168">168: </a></span><span style="background-color: #ffffcc">                    } while (c != '\n' &amp;&amp; c != '\r' &amp;&amp; c != 0);</span>
+<span class="nocode"><a name="169">169: </a></span><span style="background-color: #ffffcc">                    break;</span>
+<span class="nocode"><a name="170">170: </a></span>                case '*':
+<span class="nocode"><a name="171">171: </a></span>                    for (;;) {
+<span class="nocode"><a name="172">172: </a></span>                        c = next();
+<span class="nocode"><a name="173">173: </a></span>                        if (c == 0) {
+<span class="nocode"><a name="174">174: </a></span>                            throw syntaxError(&quot;Unclosed comment&quot;);
+<span class="nocode"><a name="175">175: </a></span>                        }
+<span class="nocode"><a name="176">176: </a></span>                        if (c == '*') {
+<span class="nocode"><a name="177">177: </a></span>                            if (next() == '/') {
+<span class="nocode"><a name="178">178: </a></span>                                break;
+<span class="nocode"><a name="179">179: </a></span>                            }
+<span class="nocode"><a name="180">180: </a></span>                            back();
+<span class="nocode"><a name="181">181: </a></span>                        }
+<span class="nocode"><a name="182">182: </a></span>                    }
+<span class="nocode"><a name="183">183: </a></span>                    break;
+<span class="nocode"><a name="184">184: </a></span>                default:
+<span class="nocode"><a name="185">185: </a></span><span style="background-color: #ffffcc">                    back();</span>
+<span class="nocode"><a name="186">186: </a></span><span style="background-color: #ffffcc">                    return '/';</span>
+<span class="nocode"><a name="187">187: </a></span>                }
+<span class="nocode"><a name="188">188: </a></span><span style="background-color: #ffffcc">            } else if (c == '#') {</span>
+<span class="nocode"><a name="189">189: </a></span>                do {
+<span class="nocode"><a name="190">190: </a></span><span style="background-color: #ffffcc">                    c = next();</span>
+<span class="nocode"><a name="191">191: </a></span><span style="background-color: #ffffcc">                } while (c != '\n' &amp;&amp; c != '\r' &amp;&amp; c != 0);</span>
+<span class="nocode"><a name="192">192: </a></span><span style="background-color: #ffffcc">            } else if (c == 0 || c &gt; ' ') {</span>
+<span class="nocode"><a name="193">193: </a></span><span style="background-color: #ffffcc">                return c;</span>
+<span class="nocode"><a name="194">194: </a></span>            }
+<span class="nocode"><a name="195">195: </a></span><span style="background-color: #ffffcc">        }</span>
+<span class="nocode"><a name="196">196: </a></span>    }
+<span class="nocode"><a name="197">197: </a></span>
+<span class="nocode"><a name="198">198: </a></span>
+<span class="nocode"><a name="199">199: </a></span>    /**
+<span class="nocode"><a name="200">200: </a></span>     * Return the characters up to the next close quote character.
+<span class="nocode"><a name="201">201: </a></span>     * Backslash processing is done. The formal JSON format does not
+<span class="nocode"><a name="202">202: </a></span>     * allow strings in single quotes, but an implementation is allowed to
+<span class="nocode"><a name="203">203: </a></span>     * accept them.
+<span class="nocode"><a name="204">204: </a></span>     * @param quote The quoting character, either
+<span class="nocode"><a name="205">205: </a></span>     *      &lt;code&gt;&quot;&lt;/code&gt;&amp;nbsp;&lt;small&gt;(double quote)&lt;/small&gt; or
+<span class="nocode"><a name="206">206: </a></span>     *      &lt;code&gt;'&lt;/code&gt;&amp;nbsp;&lt;small&gt;(single quote)&lt;/small&gt;.
+<span class="nocode"><a name="207">207: </a></span>     * @return      A String.
+<span class="nocode"><a name="208">208: </a></span>     * @throws JSONException Unterminated string.
+<span class="nocode"><a name="209">209: </a></span>     */
+<span class="nocode"><a name="210">210: </a></span>    public String nextString(char quote) throws JSONException {
+<span class="nocode"><a name="211">211: </a></span>        char c;
+<span class="nocode"><a name="212">212: </a></span><span style="background-color: #ffffcc">        StringBuffer sb = new StringBuffer();</span>
+<span class="nocode"><a name="213">213: </a></span>        for (;;) {
+<span class="nocode"><a name="214">214: </a></span><span style="background-color: #ffffcc">            c = next();</span>
+<span class="nocode"><a name="215">215: </a></span><span style="background-color: #ffffcc">            switch (c) {</span>
+<span class="nocode"><a name="216">216: </a></span>            case 0:
+<span class="nocode"><a name="217">217: </a></span>            case '\n':
+<span class="nocode"><a name="218">218: </a></span>            case '\r':
+<span class="nocode"><a name="219">219: </a></span><span style="background-color: #ffffcc">                throw syntaxError(&quot;Unterminated string&quot;);</span>
+<span class="nocode"><a name="220">220: </a></span>            case '\\':
+<span class="nocode"><a name="221">221: </a></span><span style="background-color: #ffffcc">                c = next();</span>
+<span class="nocode"><a name="222">222: </a></span><span style="background-color: #ffffcc">                switch (c) {</span>
+<span class="nocode"><a name="223">223: </a></span>                case 'b':
+<span class="nocode"><a name="224">224: </a></span>                    sb.append('\b');
+<span class="nocode"><a name="225">225: </a></span>                    break;
+<span class="nocode"><a name="226">226: </a></span>                case 't':
+<span class="nocode"><a name="227">227: </a></span>                    sb.append('\t');
+<span class="nocode"><a name="228">228: </a></span>                    break;
+<span class="nocode"><a name="229">229: </a></span>                case 'n':
+<span class="nocode"><a name="230">230: </a></span>                    sb.append('\n');
+<span class="nocode"><a name="231">231: </a></span>                    break;
+<span class="nocode"><a name="232">232: </a></span>                case 'f':
+<span class="nocode"><a name="233">233: </a></span>                    sb.append('\f');
+<span class="nocode"><a name="234">234: </a></span>                    break;
+<span class="nocode"><a name="235">235: </a></span>                case 'r':
+<span class="nocode"><a name="236">236: </a></span>                    sb.append('\r');
+<span class="nocode"><a name="237">237: </a></span>                    break;
+<span class="nocode"><a name="238">238: </a></span>                case 'u':
+<span class="nocode"><a name="239">239: </a></span><span style="background-color: #ffffcc">                    sb.append((char)Integer.parseInt(next(4), 16));</span>
+<span class="nocode"><a name="240">240: </a></span>                    break;
+<span class="nocode"><a name="241">241: </a></span>                case 'x' :
+<span class="nocode"><a name="242">242: </a></span>                    sb.append((char) Integer.parseInt(next(2), 16));
+<span class="nocode"><a name="243">243: </a></span>                    break;
+<span class="nocode"><a name="244">244: </a></span>                default:
+<span class="nocode"><a name="245">245: </a></span>                    sb.append(c);
+<span class="nocode"><a name="246">246: </a></span>                }
+<span class="nocode"><a name="247">247: </a></span>                break;
+<span class="nocode"><a name="248">248: </a></span>            default:
+<span class="nocode"><a name="249">249: </a></span><span style="background-color: #ffffcc">                if (c == quote) {</span>
+<span class="nocode"><a name="250">250: </a></span><span style="background-color: #ffffcc">                    return sb.toString();</span>
+<span class="nocode"><a name="251">251: </a></span>                }
+<span class="nocode"><a name="252">252: </a></span><span style="background-color: #ffffcc">                sb.append(c);</span>
+<span class="nocode"><a name="253">253: </a></span>            }
+<span class="nocode"><a name="254">254: </a></span>        }
+<span class="nocode"><a name="255">255: </a></span>    }
+<span class="nocode"><a name="256">256: </a></span>
+<span class="nocode"><a name="257">257: </a></span>
+<span class="nocode"><a name="258">258: </a></span>    /**
+<span class="nocode"><a name="259">259: </a></span>     * Get the text up but not including the specified character or the
+<span class="nocode"><a name="260">260: </a></span>     * end of line, whichever comes first.
+<span class="nocode"><a name="261">261: </a></span>     * @param  d A delimiter character.
+<span class="nocode"><a name="262">262: </a></span>     * @return   A string.
+<span class="nocode"><a name="263">263: </a></span>     */
+<span class="nocode"><a name="264">264: </a></span>    public String nextTo(char d) {
+<span class="nocode"><a name="265">265: </a></span><span style="background-color: #ffffcc">        StringBuffer sb = new StringBuffer();</span>
+<span class="nocode"><a name="266">266: </a></span>        for (;;) {
+<span class="nocode"><a name="267">267: </a></span><span style="background-color: #ffffcc">            char c = next();</span>
+<span class="nocode"><a name="268">268: </a></span><span style="background-color: #ffffcc">            if (c == d || c == 0 || c == '\n' || c == '\r') {</span>
+<span class="nocode"><a name="269">269: </a></span><span style="background-color: #ffffcc">                if (c != 0) {</span>
+<span class="nocode"><a name="270">270: </a></span><span style="background-color: #ffffcc">                    back();</span>
+<span class="nocode"><a name="271">271: </a></span>                }
+<span class="nocode"><a name="272">272: </a></span><span style="background-color: #ffffcc">                return sb.toString().trim();</span>
+<span class="nocode"><a name="273">273: </a></span>            }
+<span class="nocode"><a name="274">274: </a></span><span style="background-color: #ffffcc">            sb.append(c);</span>
+<span class="nocode"><a name="275">275: </a></span><span style="background-color: #ffffcc">        }</span>
+<span class="nocode"><a name="276">276: </a></span>    }
+<span class="nocode"><a name="277">277: </a></span>
+<span class="nocode"><a name="278">278: </a></span>
+<span class="nocode"><a name="279">279: </a></span>    /**
+<span class="nocode"><a name="280">280: </a></span>     * Get the text up but not including one of the specified delimeter
+<span class="nocode"><a name="281">281: </a></span>     * characters or the end of line, whichever comes first.
+<span class="nocode"><a name="282">282: </a></span>     * @param delimiters A set of delimiter characters.
+<span class="nocode"><a name="283">283: </a></span>     * @return A string, trimmed.
+<span class="nocode"><a name="284">284: </a></span>     */
+<span class="nocode"><a name="285">285: </a></span>    public String nextTo(String delimiters) {
+<span class="nocode"><a name="286">286: </a></span>        char c;
+<span class="nocode"><a name="287">287: </a></span><span style="background-color: #ffffcc">        StringBuffer sb = new StringBuffer();</span>
+<span class="nocode"><a name="288">288: </a></span>        for (;;) {
+<span class="nocode"><a name="289">289: </a></span><span style="background-color: #ffffcc">            c = next();</span>
+<span class="nocode"><a name="290">290: </a></span><span style="background-color: #ffffcc">            if (delimiters.indexOf(c) &gt;= 0 || c == 0 ||</span>
+<span class="nocode"><a name="291">291: </a></span>                    c == '\n' || c == '\r') {
+<span class="nocode"><a name="292">292: </a></span><span style="background-color: #ffffcc">                if (c != 0) {</span>
+<span class="nocode"><a name="293">293: </a></span><span style="background-color: #ffffcc">                    back();</span>
+<span class="nocode"><a name="294">294: </a></span>                }
+<span class="nocode"><a name="295">295: </a></span><span style="background-color: #ffffcc">                return sb.toString().trim();</span>
+<span class="nocode"><a name="296">296: </a></span>            }
+<span class="nocode"><a name="297">297: </a></span><span style="background-color: #ffffcc">            sb.append(c);</span>
+<span class="nocode"><a name="298">298: </a></span>        }
+<span class="nocode"><a name="299">299: </a></span>    }
+<span class="nocode"><a name="300">300: </a></span>
+<span class="nocode"><a name="301">301: </a></span>
+<span class="nocode"><a name="302">302: </a></span>    /**
+<span class="nocode"><a name="303">303: </a></span>     * Get the next value. The value can be a Boolean, Double, Integer,
+<span class="nocode"><a name="304">304: </a></span>     * JSONArray, JSONObject, Long, or String, or the JSONObject.NULL object.
+<span class="nocode"><a name="305">305: </a></span>     * @throws JSONException If syntax error.
+<span class="nocode"><a name="306">306: </a></span>     *
+<span class="nocode"><a name="307">307: </a></span>     * @return An object.
+<span class="nocode"><a name="308">308: </a></span>     */
+<span class="nocode"><a name="309">309: </a></span>    public Object nextValue() throws JSONException {
+<span class="nocode"><a name="310">310: </a></span><span style="background-color: #ffffcc">        char c = nextClean();</span>
+<span class="nocode"><a name="311">311: </a></span>        String s;
+<span class="nocode"><a name="312">312: </a></span>
+<span class="nocode"><a name="313">313: </a></span><span style="background-color: #ffffcc">        switch (c) {</span>
+<span class="nocode"><a name="314">314: </a></span>            case '&quot;':
+<span class="nocode"><a name="315">315: </a></span>            case '\'':
+<span class="nocode"><a name="316">316: </a></span><span style="background-color: #ffffcc">                return nextString(c);</span>
+<span class="nocode"><a name="317">317: </a></span>            case '{':
+<span class="nocode"><a name="318">318: </a></span><span style="background-color: #ffffcc">                back();</span>
+<span class="nocode"><a name="319">319: </a></span><span style="background-color: #ffffcc">                return new JSONObject(this);</span>
+<span class="nocode"><a name="320">320: </a></span>            case '[':
+<span class="nocode"><a name="321">321: </a></span><span style="background-color: #ffffcc">                back();</span>
+<span class="nocode"><a name="322">322: </a></span><span style="background-color: #ffffcc">                return new JSONArray(this);</span>
+<span class="nocode"><a name="323">323: </a></span>        }
+<span class="nocode"><a name="324">324: </a></span>
+<span class="nocode"><a name="325">325: </a></span>        /*
+<span class="nocode"><a name="326">326: </a></span>         * Handle unquoted text. This could be the values true, false, or
+<span class="nocode"><a name="327">327: </a></span>         * null, or it can be a number. An implementation (such as this one)
+<span class="nocode"><a name="328">328: </a></span>         * is allowed to also accept non-standard forms.
+<span class="nocode"><a name="329">329: </a></span>         *
+<span class="nocode"><a name="330">330: </a></span>         * Accumulate characters until we reach the end of the text or a
+<span class="nocode"><a name="331">331: </a></span>         * formatting character.
+<span class="nocode"><a name="332">332: </a></span>         */
+<span class="nocode"><a name="333">333: </a></span>
+<span class="nocode"><a name="334">334: </a></span><span style="background-color: #ffffcc">        StringBuffer sb = new StringBuffer();</span>
+<span class="nocode"><a name="335">335: </a></span><span style="background-color: #ffffcc">        char b = c;</span>
+<span class="nocode"><a name="336">336: </a></span><span style="background-color: #ffffcc">        while (c &gt;= ' ' &amp;&amp; &quot;,:]}/\\\&quot;[{;=#&quot;.indexOf(c) &lt; 0) {</span>
+<span class="nocode"><a name="337">337: </a></span><span style="background-color: #ffffcc">            sb.append(c);</span>
+<span class="nocode"><a name="338">338: </a></span><span style="background-color: #ffffcc">            c = next();</span>
+<span class="nocode"><a name="339">339: </a></span>        }
+<span class="nocode"><a name="340">340: </a></span><span style="background-color: #ffffcc">        back();</span>
+<span class="nocode"><a name="341">341: </a></span>
+<span class="nocode"><a name="342">342: </a></span>        /*
+<span class="nocode"><a name="343">343: </a></span>         * If it is true, false, or null, return the proper value.
+<span class="nocode"><a name="344">344: </a></span>         */
+<span class="nocode"><a name="345">345: </a></span>
+<span class="nocode"><a name="346">346: </a></span><span style="background-color: #ffffcc">        s = sb.toString().trim();</span>
+<span class="nocode"><a name="347">347: </a></span><span style="background-color: #ffffcc">        if (s.equals(&quot;&quot;)) {</span>
+<span class="nocode"><a name="348">348: </a></span><span style="background-color: #ffffcc">            throw syntaxError(&quot;Missing value&quot;);</span>
+<span class="nocode"><a name="349">349: </a></span>        }
+<span class="nocode"><a name="350">350: </a></span><span style="background-color: #ffffcc">        if (s.equalsIgnoreCase(&quot;true&quot;)) {</span>
+<span class="nocode"><a name="351">351: </a></span><span style="background-color: #ffffcc">            return Boolean.TRUE;</span>
+<span class="nocode"><a name="352">352: </a></span>        }
+<span class="nocode"><a name="353">353: </a></span><span style="background-color: #ffffcc">        if (s.equalsIgnoreCase(&quot;false&quot;)) {</span>
+<span class="nocode"><a name="354">354: </a></span><span style="background-color: #ffffcc">            return Boolean.FALSE;</span>
+<span class="nocode"><a name="355">355: </a></span>        }
+<span class="nocode"><a name="356">356: </a></span><span style="background-color: #ffffcc">        if (s.equalsIgnoreCase(&quot;null&quot;)) {</span>
+<span class="nocode"><a name="357">357: </a></span><span style="background-color: #ffffcc">            return JSONObject.NULL;</span>
+<span class="nocode"><a name="358">358: </a></span>        }
+<span class="nocode"><a name="359">359: </a></span>
+<span class="nocode"><a name="360">360: </a></span>        /*
+<span class="nocode"><a name="361">361: </a></span>         * If it might be a number, try converting it. We support the 0- and 0x-
+<span class="nocode"><a name="362">362: </a></span>         * conventions. If a number cannot be produced, then the value will just
+<span class="nocode"><a name="363">363: </a></span>         * be a string. Note that the 0-, 0x-, plus, and implied string
+<span class="nocode"><a name="364">364: </a></span>         * conventions are non-standard. A JSON parser is free to accept
+<span class="nocode"><a name="365">365: </a></span>         * non-JSON forms as long as it accepts all correct JSON forms.
+<span class="nocode"><a name="366">366: </a></span>         */
+<span class="nocode"><a name="367">367: </a></span>
+<span class="nocode"><a name="368">368: </a></span><span style="background-color: #ffffcc">        if ((b &gt;= '0' &amp;&amp; b &lt;= '9') || b == '.' || b == '-' || b == '+') {</span>
+<span class="nocode"><a name="369">369: </a></span><span style="background-color: #ffffcc">            if (b == '0') {</span>
+<span class="nocode"><a name="370">370: </a></span><span style="background-color: #ffffcc">                if (s.length() &gt; 2 &amp;&amp;</span>
+<span class="nocode"><a name="371">371: </a></span>                        (s.charAt(1) == 'x' || s.charAt(1) == 'X')) {
+<span class="nocode"><a name="372">372: </a></span>                    try {
+<span class="nocode"><a name="373">373: </a></span>                        return new Integer(Integer.parseInt(s.substring(2),
+<span class="nocode"><a name="374">374: </a></span>                                16));
+<span class="nocode"><a name="375">375: </a></span>                    } catch (Exception e) {
+<span class="nocode"><a name="376">376: </a></span>                        /* Ignore the error */
+<span class="nocode"><a name="377">377: </a></span>                    }
+<span class="nocode"><a name="378">378: </a></span>                } else {
+<span class="nocode"><a name="379">379: </a></span>                    try {
+<span class="nocode"><a name="380">380: </a></span><span style="background-color: #ffffcc">                        return new Integer(Integer.parseInt(s, 8));</span>
+<span class="nocode"><a name="381">381: </a></span><span style="background-color: #ffffcc">                    } catch (Exception e) {</span>
+<span class="nocode"><a name="382">382: </a></span>                        /* Ignore the error */
+<span class="nocode"><a name="383">383: </a></span>                    }
+<span class="nocode"><a name="384">384: </a></span>                }
+<span class="nocode"><a name="385">385: </a></span>            }
+<span class="nocode"><a name="386">386: </a></span>            try {
+<span class="nocode"><a name="387">387: </a></span><span style="background-color: #ffffcc">                return new Integer(s);</span>
+<span class="nocode"><a name="388">388: </a></span><span style="background-color: #ffffcc">            } catch (Exception e) {</span>
+<span class="nocode"><a name="389">389: </a></span>                try {
+<span class="nocode"><a name="390">390: </a></span><span style="background-color: #ffffcc">                    return new Long(s);</span>
+<span class="nocode"><a name="391">391: </a></span><span style="background-color: #ffffcc">                } catch (Exception f) {</span>
+<span class="nocode"><a name="392">392: </a></span>                    try {
+<span class="nocode"><a name="393">393: </a></span><span style="background-color: #ffffcc">                        return new Double(s);</span>
+<span class="nocode"><a name="394">394: </a></span><span style="background-color: #ffffcc">                    }  catch (Exception g) {</span>
+<span class="nocode"><a name="395">395: </a></span><span style="background-color: #ffffcc">                        return s;</span>
+<span class="nocode"><a name="396">396: </a></span>                    }
+<span class="nocode"><a name="397">397: </a></span>                }
+<span class="nocode"><a name="398">398: </a></span>            }
+<span class="nocode"><a name="399">399: </a></span>        }
+<span class="nocode"><a name="400">400: </a></span><span style="background-color: #ffffcc">        return s;</span>
+<span class="nocode"><a name="401">401: </a></span>    }
+<span class="nocode"><a name="402">402: </a></span>
+<span class="nocode"><a name="403">403: </a></span>
+<span class="nocode"><a name="404">404: </a></span>    /**
+<span class="nocode"><a name="405">405: </a></span>     * Skip characters until the next character is the requested character.
+<span class="nocode"><a name="406">406: </a></span>     * If the requested character is not found, no characters are skipped.
+<span class="nocode"><a name="407">407: </a></span>     * @param to A character to skip to.
+<span class="nocode"><a name="408">408: </a></span>     * @return The requested character, or zero if the requested character
+<span class="nocode"><a name="409">409: </a></span>     * is not found.
+<span class="nocode"><a name="410">410: </a></span>     */
+<span class="nocode"><a name="411">411: </a></span>    public char skipTo(char to) {
+<span class="nocode"><a name="412">412: </a></span>        char c;
+<span class="nocode"><a name="413">413: </a></span><span style="background-color: #ffffcc">        int index = this.myIndex;</span>
+<span class="nocode"><a name="414">414: </a></span>        do {
+<span class="nocode"><a name="415">415: </a></span><span style="background-color: #ffffcc">            c = next();</span>
+<span class="nocode"><a name="416">416: </a></span><span style="background-color: #ffffcc">            if (c == 0) {</span>
+<span class="nocode"><a name="417">417: </a></span><span style="background-color: #ffffcc">                this.myIndex = index;</span>
+<span class="nocode"><a name="418">418: </a></span><span style="background-color: #ffffcc">                return c;</span>
+<span class="nocode"><a name="419">419: </a></span>            }
+<span class="nocode"><a name="420">420: </a></span><span style="background-color: #ffffcc">        } while (c != to);</span>
+<span class="nocode"><a name="421">421: </a></span><span style="background-color: #ffffcc">        back();</span>
+<span class="nocode"><a name="422">422: </a></span><span style="background-color: #ffffcc">        return c;</span>
+<span class="nocode"><a name="423">423: </a></span>    }
+<span class="nocode"><a name="424">424: </a></span>
+<span class="nocode"><a name="425">425: </a></span>
+<span class="nocode"><a name="426">426: </a></span>    /**
+<span class="nocode"><a name="427">427: </a></span>     * Skip characters until past the requested string.
+<span class="nocode"><a name="428">428: </a></span>     * If it is not found, we are left at the end of the source.
+<span class="nocode"><a name="429">429: </a></span>     * @param to A string to skip past.
+<span class="nocode"><a name="430">430: </a></span>     */
+<span class="nocode"><a name="431">431: </a></span>    public boolean skipPast(String to) {
+<span class="nocode"><a name="432">432: </a></span><span style="background-color: #ffffcc">        this.myIndex = this.mySource.indexOf(to, this.myIndex);</span>
+<span class="nocode"><a name="433">433: </a></span><span style="background-color: #ffffcc">        if (this.myIndex &lt; 0) {</span>
+<span class="nocode"><a name="434">434: </a></span><span style="background-color: #ffffcc">            this.myIndex = this.mySource.length();</span>
+<span class="nocode"><a name="435">435: </a></span><span style="background-color: #ffffcc">            return false;</span>
+<span class="nocode"><a name="436">436: </a></span>        } 
+<span class="nocode"><a name="437">437: </a></span><span style="background-color: #ffffcc">        this.myIndex += to.length();</span>
+<span class="nocode"><a name="438">438: </a></span><span style="background-color: #ffffcc">        return true;</span>
+<span class="nocode"><a name="439">439: </a></span>
+<span class="nocode"><a name="440">440: </a></span>    }
+<span class="nocode"><a name="441">441: </a></span>
+<span class="nocode"><a name="442">442: </a></span>
+<span class="nocode"><a name="443">443: </a></span>    /**
+<span class="nocode"><a name="444">444: </a></span>     * Make a JSONException to signal a syntax error.
+<span class="nocode"><a name="445">445: </a></span>     *
+<span class="nocode"><a name="446">446: </a></span>     * @param message The error message.
+<span class="nocode"><a name="447">447: </a></span>     * @return  A JSONException object, suitable for throwing
+<span class="nocode"><a name="448">448: </a></span>     */
+<span class="nocode"><a name="449">449: </a></span>    public JSONException syntaxError(String message) {
+<span class="nocode"><a name="450">450: </a></span><span style="background-color: #ffffcc">        return new JSONException(message + toString());</span>
+<span class="nocode"><a name="451">451: </a></span>    }
+<span class="nocode"><a name="452">452: </a></span>
+<span class="nocode"><a name="453">453: </a></span>
+<span class="nocode"><a name="454">454: </a></span>    /**
+<span class="nocode"><a name="455">455: </a></span>     * Make a printable string of this JSONTokener.
+<span class="nocode"><a name="456">456: </a></span>     *
+<span class="nocode"><a name="457">457: </a></span>     * @return &quot; at character [this.myIndex] of [this.mySource]&quot;
+<span class="nocode"><a name="458">458: </a></span>     */
+<span class="nocode"><a name="459">459: </a></span>    public String toString() {
+<span class="nocode"><a name="460">460: </a></span><span style="background-color: #ffffcc">        return &quot; at character &quot; + this.myIndex + &quot; of &quot; + this.mySource;</span>
+<span class="nocode"><a name="461">461: </a></span>    }
+<span class="nocode"><a name="462">462: </a></span>}
+</pre>
+</p></div>
+</div><div id="post"><h2 id=parameters>EvoSuite Parameters</h2>
+<div class=statistics><ul>
+<li>inheritance_file: evosuite-files/inheritance.xml.gz
+<li>client_on_thread: false
+<li>alternative_fitness_range: 100.0
+<li>starve_by_fitness: true
+<li>dynamic_pool_size: 50
+<li>old_statistics: true
+<li>test_includes: test.includes
+<li>TT_stack: 10
+<li>dynamic_pool: 0.5
+<li>minimization_timeout: 600
+<li>kincompensation: 1.0
+<li>max_generic_depth: 1
+<li>local_search_rate: -1
+<li>target_method: 
+<li>selection_function: RANK
+<li>ctg_schedule: SIMPLE
+<li>assertion_strategy: MUTATION
+<li>tt_scope: ALL
+<li>process_communication_port: 9538
+<li>TT: false
+<li>chromosome_length: 40
+<li>adaptive_local_search_dse: false
+<li>UI_BACKGROUND_COVERAGE_DELAY: -1
+<li>random_perturbation: 0.2
+<li>test_factory: RANDOM
+<li>enable_alternative_fitness_calculation: false
+<li>debug: false
+<li>plot: false
+<li>log_goals: false
+<li>alternative_fitness_calculation_mode: SUM
+<li>inline: true
+<li>crossover_function: SINGLEPOINTRELATIVE
+<li>local_search_budget: 100
+<li>static_hack: false
+<li>OUTPUT_DIR: evosuite-files
+<li>dse_keep_all_tests: false
+<li>junit_extend: 
+<li>junit_prefix: 
+<li>hierarchy_data: hierarchy.xml
+<li>num_tests: 2
+<li>max_size: 100
+<li>statistics_backend: CSV
+<li>max_length: 0
+<li>mutation_generations: 10
+<li>rank_bias: 1.7
+<li>primitive_reuse_probability: 0.5
+<li>num_random_tests: 20
+<li>filter_assertions: true
+<li>global_timeout: 600
+<li>log.level: null
+<li>new_statistics: false
+<li>assertions: true
+<li>object_pool: 0.0
+<li>timeline_interval: 60000
+<li>concolic_timeout: 15000
+<li>crossover_rate: 0.75
+<li>recycle_chromosomes: false
+<li>assertion_timeout: 600
+<li>serialize_result: false
+<li>string_length: 20
+<li>testability_transformation: false
+<li>p_special_type_call: 0.05
+<li>filter_sandbox_tests: false
+<li>connection_data: connection.xml
+<li>dse_budget: 1
+<li>show_progress: true
+<li>ctg_cores: 1
+<li>p_test_delete: 0.3333333333333333
+<li>local_search_references: true
+<li>dse_rate: -1
+<li>primitive_pool: 0.5
+<li>object_reuse_probability: 0.9
+<li>shuffle_goals: true
+<li>use_deprecated: false
+<li>max_coverage_depth: -1
+<li>penalize_overwriting_definitions_flat: false
+<li>max_attempts: 1000
+<li>print_current_goals: false
+<li>PROJECT_PREFIX: wheel
+<li>TARGET_CLASS: wheel.json.JSONTokener
+<li>p_test_insertion: 0.1
+<li>make_accessible: false
+<li>population: 50
+<li>check_best_length: true
+<li>seed_types: true
+<li>PROJECT_DIR: null
+<li>skip_covered: true
+<li>check_contracts: false
+<li>write_cfg: false
+<li>minimize: true
+<li>seed_clone: 0.2
+<li>target_method_prefix: 
+<li>mutation_timeouts: 3
+<li>instrument_parent: false
+<li>junit_tests: true
+<li>coverage: true
+<li>sandbox: true
+<li>randomize_difficulty: true
+<li>break_on_exception: true
+<li>html: true
+<li>CP: lib/commons-fileupload-1.2.jar:lib/commons-io-1.3.2.jar:lib/logback-classic-0.9.27.jar:lib/mvel-1.3.2-java1.5.jar:lib/servlet-api-2.4.jar:lib/slf4j-api-1.5.8.jar:lib/slf4j-simple-1.4.3.jar:lib/xpp3-1.1.4c.jar:wheelwebtool.jar
+<li>search_budget: 300
+<li>max_replace_mutants: 100
+<li>check_contracts_end: false
+<li>log.target: null
+<li>array_limit: 1000000
+<li>minimize_values: false
+<li>secondary_objectives: totallength
+<li>log_timeout: false
+<li>p_test_change: 0.3333333333333333
+<li>restricted_read: false
+<li>null_probability: 0.1
+<li>configuration_id: null
+<li>save_all_data: true
+<li>branch_eval: false
+<li>remote_testing: false
+<li>dse_adaptive_rate: 2.0
+<li>local_search_budget_type: STATEMENTS
+<li>branch_statement: false
+<li>check_parents_length: false
+<li>dse_constraint_solver_timeout_millis: 0
+<li>elite: 1
+<li>local_search_probes: 10
+<li>enable_asserts_for_sut: true
+<li>output_granularity: MERGED
+<li>criterion: BRANCH
+<li>restrict_pool: false
+<li>shutdown_timeout: 1000
+<li>output_variables: null
+<li>structured_tests: false
+<li>random_tests: 0
+<li>initially_enforced_randomness: 0.4
+<li>selected_junit: null
+<li>p_change_parameter: 0.1
+<li>port: 1044
+<li>defuse_aliases: true
+<li>dse_constraint_length: 100000
+<li>reuse_budget: true
+<li>test_dir: evosuite-tests
+<li>replace_calls: false
+<li>max_initial_tests: 10
+<li>TARGET_CLASS_PREFIX: 
+<li>dse_adaptive_probability: 0.0
+<li>algorithm: STEADYSTATEGA
+<li>report_dir: evosuite-report
+<li>target_method_list: 
+<li>local_search_arrays: true
+<li>dse_constant_probability: 0.5
+<li>max_int: 2048
+<li>error_branches: false
+<li>stopping_condition: MAXTIME
+<li>local_search_primitives: true
+<li>minimize_old: false
+<li>max_mutants_per_method: 700
+<li>adaptive_local_search: OFF
+<li>replacement_function: DEFAULT
+<li>number_of_mutations: 1
+<li>test_comments: true
+<li>defuse_debug_mode: false
+<li>shutdown_hook: true
+<li>bloat_factor: 2
+<li>dse_variable_resets: 2
+<li>test_format: JUNIT4
+<li>penalize_overwriting_definitions_linearly: false
+<li>max_stalled_threads: 10
+<li>insertion_score_object: 1
+<li>instrumentation_skip_debug: false
+<li>sandbox_mode: RECOMMENDED
+<li>call_probability: 0.0
+<li>check_max_length: true
+<li>max_recursion: 10
+<li>usage_rate: 0.5
+<li>max_mutants: 100
+<li>p_statement_insertion: 0.5
+<li>usage_models: 
+<li>test_carving: false
+<li>evosuite_use_uispec: false
+<li>instrument_context: false
+<li>ctg_time: 2
+<li>ctg_memory: 1000
+<li>classpath: 
+<li>max_array: 10
+<li>dse_negate_all_conditions: false
+<li>seed_mutations: 2
+<li>tournament_size: 10
+<li>dse_budget_type: INDIVIDUALS
+<li>dse_rank_branch_conditions: false
+<li>concolic_mutation: 0.0
+<li>stop_zero: true
+<li>parent_check: true
+<li>insertion_score_parameter: 1
+<li>junit_suffix: EvoSuiteTest
+<li>min_initial_tests: 1
+<li>max_delta: 20
+<li>cpu_timeout: false
+<li>dynamic_limit: false
+<li>min_free_mem: 50000000
+<li>test_excludes: test.excludes
+<li>write_pool: false
+<li>epsilon: 0.0010
+<li>enable_asserts_for_evosuite: false
+<li>analysis_criteria: 
+<li>junit_strict: false
+<li>print_to_system: false
+<li>virtual_fs: false
+<li>sandbox_folder: evosuite-sandbox
+<li>strategy: EVOSUITE
+<li>enable_alternative_suite_fitness: false
+<li>max_mutants_per_test: 100
+<li>stopping_port: -1
+<li>insertion_score_uut: 1
+<li>sourcepath: 
+<li>print_covered_goals: false
+<li>extra_timeout: 120
+<li>string_replacement: true
+<li>cluster_recursion: 10
+<li>population_limit: INDIVIDUALS
+<li>p_test_insert: 0.3333333333333333
+<li>constraint_solution_attempts: 3
+<li>timeout: 5000
+</ul></div>
+</div><p><br><a href="../report-generation.html">Back to Overview</a></p>
+</div>
+</body>
+</html>

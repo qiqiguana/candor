@@ -1,0 +1,125 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 2.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd">
+
+<hibernate-mapping>
+    <class
+        name="org.petsoar.security.User"
+        table="USERS_TABLE"
+        dynamic-update="false"
+        dynamic-insert="false"
+    >
+
+        <id
+            name="username"
+            column="USERNAME_COL"
+            type="java.lang.String"
+            unsaved-value="any"
+        >
+            <generator class="assigned">
+            </generator>
+        </id>
+
+        <property
+            name="password"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="PASSWORD_COL"
+        />
+
+        <component
+            name="name"
+            class="org.petsoar.security.Name"
+        >
+        <property
+            name="prefix"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="prefix"
+        />
+
+        <property
+            name="first"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="first"
+        />
+
+        <property
+            name="middle"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="middle"
+        />
+
+        <property
+            name="last"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="last"
+        />
+
+        </component>
+
+        <component
+            name="address"
+            class="org.petsoar.security.Address"
+        >
+        <property
+            name="street1"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="street1"
+        />
+
+        <property
+            name="street2"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="street2"
+        />
+
+        <property
+            name="city"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="city"
+        />
+
+        <property
+            name="state"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="state"
+        />
+
+        <property
+            name="zip"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="zip"
+        />
+
+        </component>
+
+        <!--
+            To add non XDoclet property mappings, create a file named
+                hibernate-properties-User.xml
+            containing the additional properties and place it in your merge dir.
+        -->
+
+    </class>
+
+</hibernate-mapping>

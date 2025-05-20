@@ -1,0 +1,181 @@
+package original;
+
+import org.junit.jupiter.api.Test; import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of XOrY.
+*/
+class XOrYTest {
+    @Test
+    void test_xOrY_n_is_prime() {
+        // Arrange and Act
+        int result = XOrY.xOrY(7, 34, 12);
+        // Assert
+        assertEquals(34, result);
+    }
+    @Test
+    void test_xOrY_n_is_one() {
+        assertEquals(3, XOrY.xOrY(1, 2, 3));
+    }
+    @Test
+    void test_xOrY_n_is_non_prime_even_number() {
+        assertEquals(6, XOrY.xOrY(4, 5, 6));
+    }
+    @Test
+    public void test_xOrY_n_is_two() {
+        int result = XOrY.xOrY(2, 5, 10);
+        assertEquals(5, result);
+    }
+    @Test
+    public void test_xOrY_n_is_even_composite_large_1() {
+        int result = XOrY.xOrY(4, 10, 20);
+        assertEquals(20, result);
+    }
+    
+    @Test
+    public void testXOrYIsPrime() {
+        assertEquals(34, XOrY.xOrY(7, 34, 12));
+    }
+    
+    @Test
+    public void testXOrYIsNotPrime() {
+        assertEquals(5, XOrY.xOrY(15, 8, 5));
+    }
+    
+    @Test
+    public void testXOrYIsOne() {
+        assertEquals(0, XOrY.xOrY(1, 2, 0));
+    }
+    
+    @Test
+    public void testXOrYIsTwo() {
+        assertEquals(2, XOrY.xOrY(2, 2, 0));
+    }
+    @Test
+    public void testPrimeNumber_3() {
+        int n = 3;
+        int x = 7;
+        int y = 9;
+        assertEquals(x, XOrY.xOrY(n, x, y));
+    }
+    @Test
+    public void testCompositeNumber_4() {
+        int n = 4;
+        int x = 7;
+        int y = 9;
+        assertEquals(y, XOrY.xOrY(n, x, y));
+    }
+    @Test
+    public void testPrimeNumber_5() {
+        int n = 5;
+        int x = 11;
+        int y = 9;
+        assertEquals(x, XOrY.xOrY(n, x, y));
+    }
+    @Test
+    public void testCompositeNumber_9() {
+        int n = 9;
+        int x = 7;
+        int y = 9;
+        assertEquals(y, XOrY.xOrY(n, x, y));
+    }
+    @Test
+    public void testPrimeNumber_Edge_2() {
+        int n = 2;
+        int x = 7;
+        int y = 9;
+        assertEquals(x, XOrY.xOrY(n, x, y));
+    }
+    @Test
+    public void testNegativeNumber_Edge() {
+        int n = -1;
+        int x = 7;
+        int y = 9;
+        assertNotEquals(y, XOrY.xOrY(n, x, y));
+    }
+    @Test
+    public void testLargerPrimeNumber() {
+    	int result = XOrY.xOrY(101, 100, 200);
+    	assertEquals(100, result);
+    }
+    @Test
+    public void testLargerCompositeNumber() {
+    	int result = XOrY.xOrY(999, 500, 1500);
+    	assertEquals(1500, result);
+    }
+    @Test
+    public void testXOrYIsCompositeEven() {
+        int result = XOrY.xOrY(4, 10, 20);
+        assertEquals(20, result);
+    }
+    @Test
+    public void testXOrYIsCompositeOdd() {
+        int result = XOrY.xOrY(9, 3, 7);
+        assertEquals(7, result);
+    }
+    @Test
+    public void testNegativeXAndY() {
+        int n = 2;
+        int x = -5;
+        int y = -10;
+        assertEquals(x, XOrY.xOrY(n, x, y));
+    }
+    @Test
+    public void testNZero() {
+    	int result = XOrY.xOrY(0, 5, 3);
+    	assertNotEquals(result, 7);
+    }
+    @Test
+    public void testNegativeNumberEdge() {
+    	int result = XOrY.xOrY(-1, 7, 9);
+    	assertNotEquals(result, 15);
+    }
+    @Test
+    void testClassInitialization() {
+        XOrY xOrY = new XOrY();
+        assertNotNull(xOrY);
+    }
+    @Test
+    void testPrimeNumberInput() {
+        int result = XOrY.xOrY(5, 11, 9);
+        assertEquals(11, result);
+    }
+    @Test
+    void testCompositeNumberInput() {
+        int result = XOrY.xOrY(4, 7, 9);
+        assertEquals(9, result);
+    }
+    @Test
+    void testNegativeInput() {
+        int result = XOrY.xOrY(-1, -5, -10);
+        assertEquals(-5, result);
+    }
+    public class TestXOrY { @Test void test_xOrY_NonPrime() { assertEquals(34, XOrY.xOrY(15, 8, 5)); } }
+                            @Test
+                            void testXOrYPrime() {
+                                int result = XOrY.xOrY(7, 34, 12);
+                                assertEquals(34, result);
+                            }
+                            @Test
+                            void testXOrYNPrime() {
+                                int result = XOrY.xOrY(15, 8, 5);
+                                assertEquals(5, result);
+                            }
+                            @Test
+                            void testXOrYN1() {
+                                int result = XOrY.xOrY(1, 2, 0);
+                                assertEquals(0, result);
+                            }
+                            @Test
+                            void testXOrYN2() {
+                                int result = XOrY.xOrY(2, 2, 0);
+                                assertEquals(2, result);
+                            }
+    public void testXOrYEdgeCaseTwo() { assertEquals(2, XOrY.xOrY(2, 2, 0)); }
+    public void testXOrYEdgeCaseOne() { assertEquals(0, XOrY.xOrY(1, 2, 0)); }
+    public void testXOrYNegativeInput() { assertEquals(-1, XOrY.xOrY(-7919, -1, 12)); }
+    public void testXOrYNonPrimeNumber() { assertEquals(5, XOrY.xOrY(15, 8, 5)); }
+    public void testXOrYPimeNumber() { assertEquals(34, XOrY.xOrY(7, 34, 12)); }
+}

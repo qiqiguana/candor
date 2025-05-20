@@ -1,0 +1,284 @@
+/**
+ * Copyright (c) 2000-2012 Liferay, Inc. All rights reserved.
+ *
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ *
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ */
+
+package com.liferay.portlet.documentlibrary.asset;
+
+import com.liferay.portal.kernel.exception.PortalException;
+import com.liferay.portal.kernel.exception.SystemException;
+import com.liferay.portal.kernel.portlet.LiferayPortletRequest;
+import com.liferay.portal.kernel.portlet.LiferayPortletResponse;
+import com.liferay.portal.kernel.repository.model.FileEntry;
+import com.liferay.portal.kernel.repository.model.FileVersion;
+import com.liferay.portal.kernel.trash.TrashRenderer;
+import com.liferay.portal.kernel.util.HtmlUtil;
+import com.liferay.portal.kernel.util.ParamUtil;
+import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portal.kernel.util.Validator;
+import com.liferay.portal.security.permission.ActionKeys;
+import com.liferay.portal.security.permission.PermissionChecker;
+import com.liferay.portal.theme.ThemeDisplay;
+import com.liferay.portal.util.PortletKeys;
+import com.liferay.portal.util.PropsValues;
+import com.liferay.portal.util.WebKeys;
+import com.liferay.portlet.asset.model.AssetRendererFactory;
+import com.liferay.portlet.asset.model.BaseAssetRenderer;
+import com.liferay.portlet.documentlibrary.model.DLFileEntry;
+import com.liferay.portlet.documentlibrary.model.DLFileEntryConstants;
+import com.liferay.portlet.documentlibrary.service.permission.DLFileEntryPermission;
+import com.liferay.portlet.documentlibrary.util.DLUtil;
+
+import java.util.Locale;
+
+import javax.portlet.PortletRequest;
+import javax.portlet.PortletURL;
+import javax.portlet.RenderRequest;
+import javax.portlet.RenderResponse;
+
+/**
+ * @author Julio Camarero
+ * @author Juan Fernández
+ * @author Sergio González
+ * @author Zsolt Berentey
+ */
+public class DLFileEntryAssetRenderer
+	extends BaseAssetRenderer implements TrashRenderer {
+
+	public DLFileEntryAssetRenderer(
+		FileEntry fileEntry, FileVersion fileVersion, int type) {
+
+		_fileEntry = fileEntry;
+		_fileVersion = fileVersion;
+		_type = type;
+	}
+
+	public String getAssetRendererFactoryClassName() {
+		return DLFileEntryAssetRendererFactory.CLASS_NAME;
+	}
+
+	public long getClassPK() {
+		if (!_fileVersion.isApproved() && _fileVersion.isDraft() &&
+			!_fileVersion.isPending() &&
+			!_fileVersion.getVersion().equals(
+				DLFileEntryConstants.VERSION_DEFAULT)) {
+
+			return _fileVersion.getFileVersionId();
+		}
+		else {
+			return _fileEntry.getFileEntryId();
+		}
+	}
+
+	@Override
+	public String getDiscussionPath() {
+		if (PropsValues.DL_FILE_ENTRY_COMMENTS_ENABLED) {
+			return "edit_file_entry_discussion";
+		}
+		else {
+			return null;
+		}
+	}
+
+	public long getGroupId() {
+		return _fileEntry.getGroupId();
+	}
+
+	@Override
+	public String getIconPath(ThemeDisplay themeDisplay) {
+		return themeDisplay.getPathThemeImages() + "/file_system/small/" +
+			_fileEntry.getIcon() + ".png";
+	}
+
+	public String getPortletId() {
+		AssetRendererFactory assetRendererFactory = getAssetRendererFactory();
+
+		return assetRendererFactory.getPortletId();
+	}
+
+	@Override
+	public String getRestorePath(RenderRequest renderRequest) {
+		DLFileEntry dlFileEntry = (DLFileEntry)_fileEntry.getModel();
+
+		if ((dlFileEntry != null) && dlFileEntry.isInTrashFolder()) {
+			renderRequest.setAttribute(
+				WebKeys.DOCUMENT_LIBRARY_FILE_ENTRY, _fileEntry);
+			renderRequest.setAttribute(
+				WebKeys.DOCUMENT_LIBRARY_FILE_VERSION, _fileVersion);
+
+			return
+				"/html/portlet/document_library/trash/file_entry_restore.jsp";
+		}
+
+		return null;
+	}
+
+	public String getSummary(Locale locale) {
+		return HtmlUtil.stripHtml(_fileEntry.getDescription());
+	}
+
+	public String getTitle(Locale locale) {
+		if (_type == AssetRendererFactory.TYPE_LATEST) {
+			return _fileVersion.getTitle();
+		}
+		else {
+			return _fileEntry.getTitle();
+		}
+	}
+
+	public String getType() {
+		return DLFileEntryAssetRendererFactory.TYPE;
+	}
+
+	@Override
+	public String getURLDownload(ThemeDisplay themeDisplay) {
+		return DLUtil.getPreviewURL(
+			_fileEntry, _fileVersion, themeDisplay, StringPool.BLANK);
+	}
+
+	@Override
+	public PortletURL getURLEdit(
+			LiferayPortletRequest liferayPortletRequest,
+			LiferayPortletResponse liferayPortletResponse)
+		throws Exception {
+
+		PortletURL portletURL = liferayPortletResponse.createLiferayPortletURL(
+			getControlPanelPlid(liferayPortletRequest),
+			PortletKeys.DOCUMENT_LIBRARY, PortletRequest.RENDER_PHASE);
+
+		portletURL.setParameter(
+			"struts_action", "/document_library/edit_file_entry");
+		portletURL.setParameter(
+			"fileEntryId", String.valueOf(_fileEntry.getFileEntryId()));
+
+		return portletURL;
+	}
+
+	@Override
+	public PortletURL getURLExport(
+		LiferayPortletRequest liferayPortletRequest,
+		LiferayPortletResponse liferayPortletResponse) {
+
+		PortletURL portletURL = liferayPortletResponse.createActionURL();
+
+		portletURL.setParameter("struts_action", "/asset_publisher/get_file");
+		portletURL.setParameter(
+			"groupId", String.valueOf(_fileEntry.getRepositoryId()));
+		portletURL.setParameter(
+			"folderId", String.valueOf(_fileEntry.getFolderId()));
+		portletURL.setParameter("title", String.valueOf(_fileEntry.getTitle()));
+
+		return portletURL;
+	}
+
+	@Override
+	public String getURLViewInContext(
+		LiferayPortletRequest liferayPortletRequest,
+		LiferayPortletResponse liferayPortletResponse,
+		String noSuchEntryRedirect) {
+
+		return getURLViewInContext(
+			liferayPortletRequest, noSuchEntryRedirect,
+			"/document_library/find_file_entry", "fileEntryId",
+			_fileEntry.getFileEntryId());
+	}
+
+	public long getUserId() {
+		return _fileEntry.getUserId();
+	}
+
+	public String getUserName() {
+		return _fileEntry.getUserName();
+	}
+
+	public String getUuid() {
+		return _fileEntry.getUuid();
+	}
+
+	public boolean hasDeletePermission(PermissionChecker permissionChecker)
+		throws PortalException, SystemException {
+
+		return DLFileEntryPermission.contains(
+			permissionChecker, _fileEntry.getFileEntryId(), ActionKeys.DELETE);
+	}
+
+	@Override
+	public boolean hasEditPermission(PermissionChecker permissionChecker)
+		throws PortalException, SystemException {
+
+		return DLFileEntryPermission.contains(
+			permissionChecker, _fileEntry.getFileEntryId(), ActionKeys.UPDATE);
+	}
+
+	@Override
+	public boolean hasViewPermission(PermissionChecker permissionChecker)
+		throws PortalException, SystemException {
+
+		return DLFileEntryPermission.contains(
+			permissionChecker, _fileEntry.getFileEntryId(), ActionKeys.VIEW);
+	}
+
+	@Override
+	public boolean isConvertible() {
+		return true;
+	}
+
+	@Override
+	public boolean isPrintable() {
+		return false;
+	}
+
+	public String render(
+			RenderRequest renderRequest, RenderResponse renderResponse,
+			String template)
+		throws Exception {
+
+		if (template.equals(TEMPLATE_ABSTRACT) ||
+			template.equals(TEMPLATE_FULL_CONTENT)) {
+
+			renderRequest.setAttribute(
+				WebKeys.DOCUMENT_LIBRARY_FILE_ENTRY, _fileEntry);
+
+			String version = ParamUtil.getString(renderRequest, "version");
+
+			if ((_type == AssetRendererFactory.TYPE_LATEST) ||
+				Validator.isNotNull(version)) {
+
+				if ((_fileEntry != null) && Validator.isNotNull(version)) {
+					_fileVersion = _fileEntry.getFileVersion(version);
+				}
+
+				renderRequest.setAttribute(
+					WebKeys.DOCUMENT_LIBRARY_FILE_VERSION, _fileVersion);
+			}
+
+			return "/html/portlet/document_library/asset/" + template + ".jsp";
+		}
+		else {
+			return null;
+		}
+	}
+
+	@Override
+	public String renderActions(
+		RenderRequest renderRequest, RenderResponse renderResponse) {
+
+		renderRequest.setAttribute("view_entries.jsp-fileEntry", _fileEntry);
+
+		return "/html/portlet/document_library/file_entry_action.jsp";
+	}
+
+	private FileEntry _fileEntry;
+	private FileVersion _fileVersion;
+	private int _type;
+
+}

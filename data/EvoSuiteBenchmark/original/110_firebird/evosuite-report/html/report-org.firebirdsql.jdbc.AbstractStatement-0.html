@@ -1,0 +1,1793 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
+<html>
+<head>
+<title>
+org.firebirdsql.jdbc.AbstractStatement
+</title>
+<link href="files/prettify.css" type="text/css" rel="stylesheet" />
+<link href="files/style.css" rel="stylesheet" type="text/css" media="screen"/>
+<script type="text/javascript" src="files/prettify.js"></script>
+<script type="text/javascript" src="files/jquery.js"></script>
+<script type="text/javascript" src="files/foldButton.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('H2#tests').foldButton();
+    $('H2#source').foldButton();
+    $('H2#parameters').foldButton();
+  });</script>
+<link href="files/foldButton.css" rel="stylesheet" type="text/css">
+</head>
+<body onload="prettyPrint()">
+<div id="wrapper">
+<img src="files/evosuite.png" height="40"/>
+<br><br><h2 class=title>Summary</h2>
+<ul><li>Target class: org.firebirdsql.jdbc.AbstractStatement: 5.35%</ul><ul>
+<li>190 fitness evaluations, 5 generations, 1231 statements, 343 tests.
+<li>Time: 0:01:02(Search: 0:01:01, minimization: 0:00:00)
+<li>Coverage: 7/146 branches, 10/80 methods, 10/187 total goals
+<li>Mutation score: 4%
+</ul>
+<div id="page"><div id="page-bgtop"><div id="page-bgbtm"><div id="content"><div id="post"><h2 class=title id=tests>Test suite</h2>
+<div class=tests>
+<h3>Test case 1</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>FBStatement fBStatement0 = new FBStatement((GDSHelper) null, 427, (-316), 427, (FBObjectListener.StatementListener) null);
+<span class="nocode"><a name="2">  2: </a></span>assertNotNull(fBStatement0);
+<span class="nocode"><a name="3">  3: </a></span>
+<span class="nocode"><a name="4">  4: </a></span>// Undeclared exception!
+<span class="nocode"><a name="5">  5: </a></span>try {
+<span class="nocode"><a name="6">  6: </a></span>  fBStatement0.executeQuery(&quot;&quot;);
+<span class="nocode"><a name="7">  7: </a></span>  fail(&quot;Expecting exception: NullPointerException&quot;);
+<span class="nocode"><a name="8">  8: </a></span>} catch(NullPointerException e) {
+<span class="nocode"><a name="9">  9: </a></span>}
+</pre>
+<h3>Test case 2</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>InternalTransactionCoordinator.MetaDataTransactionCoordinator internalTransactionCoordinator_MetaDataTransactionCoordinator0 = new InternalTransactionCoordinator.MetaDataTransactionCoordinator();
+<span class="nocode"><a name="2">  2: </a></span>FBPreparedStatement fBPreparedStatement0 = new FBPreparedStatement((GDSHelper) null, (-520), (-865), 0, (FBObjectListener.StatementListener) internalTransactionCoordinator_MetaDataTransactionCoordinator0, (FBObjectListener.BlobListener) internalTransactionCoordinator_MetaDataTransactionCoordinator0);
+<span class="nocode"><a name="3">  3: </a></span>fBPreparedStatement0.getConnection();
+<span class="nocode"><a name="4">  4: </a></span>assertEquals(false, fBPreparedStatement0.isCloseOnCompletion());
+<span class="nocode"><a name="5">  5: </a></span>assertEquals(0, fBPreparedStatement0.getResultSetHoldability());
+<span class="nocode"><a name="6">  6: </a></span>assertEquals(-520, fBPreparedStatement0.getResultSetType());
+<span class="nocode"><a name="7">  7: </a></span>assertEquals(-865, fBPreparedStatement0.getResultSetConcurrency());
+<span class="nocode"><a name="8">  8: </a></span>assertEquals(true, fBPreparedStatement0.isValid());
+</pre>
+</div></div><div id="post"></div><div id="post"><h2 class=title id=source>Source Code</h2>
+<div class=source><p><pre class="prettyprint" style="border: 1px solid #888;padding: 2px"><span class="nocode"><a name="1">  1: </a></span> /*
+<span class="nocode"><a name="2">  2: </a></span> * Firebird Open Source J2ee connector - jdbc driver
+<span class="nocode"><a name="3">  3: </a></span> *
+<span class="nocode"><a name="4">  4: </a></span> * Distributable under LGPL license.
+<span class="nocode"><a name="5">  5: </a></span> * You may obtain a copy of the License at http://www.gnu.org/copyleft/lgpl.html
+<span class="nocode"><a name="6">  6: </a></span> *
+<span class="nocode"><a name="7">  7: </a></span> * This program is distributed in the hope that it will be useful,
+<span class="nocode"><a name="8">  8: </a></span> * but WITHOUT ANY WARRANTY; without even the implied warranty of
+<span class="nocode"><a name="9">  9: </a></span> * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+<span class="nocode"><a name="10"> 10: </a></span> * LGPL License for more details.
+<span class="nocode"><a name="11"> 11: </a></span> *
+<span class="nocode"><a name="12"> 12: </a></span> * This file was created by members of the firebird development team.
+<span class="nocode"><a name="13"> 13: </a></span> * All individual contributions remain the Copyright (C) of those
+<span class="nocode"><a name="14"> 14: </a></span> * individuals.  Contributors to this file are either listed here or
+<span class="nocode"><a name="15"> 15: </a></span> * can be obtained from a CVS history command.
+<span class="nocode"><a name="16"> 16: </a></span> *
+<span class="nocode"><a name="17"> 17: </a></span> * All rights reserved.
+<span class="nocode"><a name="18"> 18: </a></span> */
+<span class="nocode"><a name="19"> 19: </a></span>
+<span class="nocode"><a name="20"> 20: </a></span>package org.firebirdsql.jdbc;
+<span class="nocode"><a name="21"> 21: </a></span>
+<span class="nocode"><a name="22"> 22: </a></span>
+<span class="nocode"><a name="23"> 23: </a></span>import java.sql.*;
+<span class="nocode"><a name="24"> 24: </a></span>import java.util.*;
+<span class="nocode"><a name="25"> 25: </a></span>
+<span class="nocode"><a name="26"> 26: </a></span>import org.firebirdsql.gds.*;
+<span class="nocode"><a name="27"> 27: </a></span>import org.firebirdsql.gds.impl.*;
+<span class="nocode"><a name="28"> 28: </a></span>
+<span class="nocode"><a name="29"> 29: </a></span>/**
+<span class="nocode"><a name="30"> 30: </a></span> * &lt;P&gt;The object used for executing a static SQL statement
+<span class="nocode"><a name="31"> 31: </a></span> * and obtaining the results produced by it.
+<span class="nocode"><a name="32"> 32: </a></span> *
+<span class="nocode"><a name="33"> 33: </a></span> * &lt;P&gt;Only one &lt;code&gt;ResultSet&lt;/code&gt; object  per &lt;code&gt;Statement&lt;/code&gt; object
+<span class="nocode"><a name="34"> 34: </a></span> * can be open at any point in
+<span class="nocode"><a name="35"> 35: </a></span> * time. Therefore, if the reading of one &lt;code&gt;ResultSet&lt;/code&gt; object is interleaved
+<span class="nocode"><a name="36"> 36: </a></span> * with the reading of another, each must have been generated by
+<span class="nocode"><a name="37"> 37: </a></span> * different &lt;code&gt;Statement&lt;/code&gt; objects. All statement &lt;code&gt;execute&lt;/code&gt;
+<span class="nocode"><a name="38"> 38: </a></span> * methods implicitly close a statment's current &lt;code&gt;ResultSet&lt;/code&gt; object
+<span class="nocode"><a name="39"> 39: </a></span> * if an open one exists.
+<span class="nocode"><a name="40"> 40: </a></span> *
+<span class="nocode"><a name="41"> 41: </a></span> * @see Connection#createStatement
+<span class="nocode"><a name="42"> 42: </a></span> * @see ResultSet
+<span class="nocode"><a name="43"> 43: </a></span> * 
+<span class="nocode"><a name="44"> 44: </a></span> * @author &lt;a href=&quot;mailto:d_jencks@users.sourceforge.net&quot;&gt;David Jencks&lt;/a&gt;
+<span class="nocode"><a name="45"> 45: </a></span> */
+<span class="nocode"><a name="46"> 46: </a></span>public abstract class AbstractStatement implements FirebirdStatement, Synchronizable {
+<span class="nocode"><a name="47"> 47: </a></span>    
+<span class="nocode"><a name="48"> 48: </a></span>    protected GDSHelper gdsHelper;
+<span class="nocode"><a name="49"> 49: </a></span>    protected FBObjectListener.StatementListener statementListener;
+<span class="nocode"><a name="50"> 50: </a></span>
+<span class="nocode"><a name="51"> 51: </a></span>    protected AbstractIscStmtHandle fixedStmt;
+<span class="nocode"><a name="52"> 52: </a></span>    
+<span class="nocode"><a name="53"> 53: </a></span>    //The normally retrieved resultset. (no autocommit, not a cached rs).
+<span class="nocode"><a name="54"> 54: </a></span>    private FBResultSet currentRs;
+<span class="nocode"><a name="55"> 55: </a></span>
+<span class="nocode"><a name="56"> 56: </a></span><span style="background-color: #ffffcc">    private boolean closed = false;</span>
+<span class="nocode"><a name="57"> 57: </a></span><span style="background-color: #ffffcc">    protected boolean completed = true;</span>
+<span class="nocode"><a name="58"> 58: </a></span><span style="background-color: #ffffcc">    private boolean escapedProcessing = true;</span>
+<span class="nocode"><a name="59"> 59: </a></span><span style="background-color: #ffffcc">    private volatile boolean closeOnCompletion = false;</span>
+<span class="nocode"><a name="60"> 60: </a></span>
+<span class="nocode"><a name="61"> 61: </a></span>	protected SQLWarning firstWarning;
+<span class="nocode"><a name="62"> 62: </a></span>
+<span class="nocode"><a name="63"> 63: </a></span>	 // If the last executedStatement returns ResultSet or UpdateCount
+<span class="nocode"><a name="64"> 64: </a></span>	protected boolean isResultSet;
+<span class="nocode"><a name="65"> 65: </a></span>    protected boolean hasMoreResults;
+<span class="nocode"><a name="66"> 66: </a></span>
+<span class="nocode"><a name="67"> 67: </a></span>    protected int maxRows;	 
+<span class="nocode"><a name="68"> 68: </a></span>    protected int fetchSize;
+<span class="nocode"><a name="69"> 69: </a></span>    private int maxFieldSize;
+<span class="nocode"><a name="70"> 70: </a></span>    private int queryTimeout;
+<span class="nocode"><a name="71"> 71: </a></span>    private String cursorName;
+<span class="nocode"><a name="72"> 72: </a></span>
+<span class="nocode"><a name="73"> 73: </a></span>    private int rsConcurrency;
+<span class="nocode"><a name="74"> 74: </a></span>    private int rsType;
+<span class="nocode"><a name="75"> 75: </a></span><span style="background-color: #ffffcc">    private int rsHoldability = ResultSet.CLOSE_CURSORS_AT_COMMIT;</span>
+<span class="nocode"><a name="76"> 76: </a></span>    
+<span class="nocode"><a name="77"> 77: </a></span><span style="background-color: #ffffcc">    private FBObjectListener.ResultSetListener resultSetListener = new RSListener();</span>
+<span class="nocode"><a name="78"> 78: </a></span>
+<span class="nocode"><a name="79"> 79: </a></span>    private AbstractConnection connection;
+<span class="nocode"><a name="80"> 80: </a></span>
+<span class="nocode"><a name="81"> 81: </a></span>    /**
+<span class="nocode"><a name="82"> 82: </a></span>     * Listener for the result sets.
+<span class="nocode"><a name="83"> 83: </a></span>     */
+<span class="nocode"><a name="84"> 84: </a></span>    private class RSListener implements FBObjectListener.ResultSetListener {
+<span class="nocode"><a name="85"> 85: </a></span>        
+<span class="nocode"><a name="86"> 86: </a></span>        /**
+<span class="nocode"><a name="87"> 87: </a></span>         * Notify that result set was closed. This method cleans the result
+<span class="nocode"><a name="88"> 88: </a></span>         * set reference, so that call to {@link #close()} method will not cause
+<span class="nocode"><a name="89"> 89: </a></span>         * exception.
+<span class="nocode"><a name="90"> 90: </a></span>         * 
+<span class="nocode"><a name="91"> 91: </a></span>         * @param rs result set that was closed.
+<span class="nocode"><a name="92"> 92: </a></span>         */
+<span class="nocode"><a name="93"> 93: </a></span>        public void resultSetClosed(ResultSet rs) throws SQLException {
+<span class="nocode"><a name="94"> 94: </a></span>            currentRs = null;
+<span class="nocode"><a name="95"> 95: </a></span>            
+<span class="nocode"><a name="96"> 96: </a></span>            // notify listener that statement is completed.
+<span class="nocode"><a name="97"> 97: </a></span>            notifyStatementCompleted();
+<span class="nocode"><a name="98"> 98: </a></span>            if (closeOnCompletion) {
+<span class="nocode"><a name="99"> 99: </a></span>                close();
+<span class="nocode"><a name="100">100: </a></span>            }
+<span class="nocode"><a name="101">101: </a></span>        }
+<span class="nocode"><a name="102">102: </a></span>        
+<span class="nocode"><a name="103">103: </a></span>        
+<span class="nocode"><a name="104">104: </a></span>        /* (non-Javadoc)
+<span class="nocode"><a name="105">105: </a></span>         * @see org.firebirdsql.jdbc.FBObjectListener.ResultSetListener#allRowsFetched(java.sql.ResultSet)
+<span class="nocode"><a name="106">106: </a></span>         */
+<span class="nocode"><a name="107">107: </a></span>        public void allRowsFetched(ResultSet rs) throws SQLException {
+<span class="nocode"><a name="108">108: </a></span>            
+<span class="nocode"><a name="109">109: </a></span>            /* 
+<span class="nocode"><a name="110">110: </a></span>             * According to the JDBC 3.0 specification (p.62) the result set
+<span class="nocode"><a name="111">111: </a></span>             * is closed in the autocommit mode if one of the following occurs: 
+<span class="nocode"><a name="112">112: </a></span>             * 
+<span class="nocode"><a name="113">113: </a></span>             * - all of the rows have been retrieved
+<span class="nocode"><a name="114">114: </a></span>             * - the associated Statement object is re-executed
+<span class="nocode"><a name="115">115: </a></span>             * - another Statement object is executed on the same connection
+<span class="nocode"><a name="116">116: </a></span>             */
+<span class="nocode"><a name="117">117: </a></span>            
+<span class="nocode"><a name="118">118: </a></span>            // according to the specification we close the result set and 
+<span class="nocode"><a name="119">119: </a></span>            // generate the &quot;resultSetClosed&quot; event, that in turn generates
+<span class="nocode"><a name="120">120: </a></span>            // the &quot;statementCompleted&quot; event
+<span class="nocode"><a name="121">121: </a></span>            
+<span class="nocode"><a name="122">122: </a></span>            if (statementListener.getConnection().getAutoCommit())
+<span class="nocode"><a name="123">123: </a></span>                rs.close();
+<span class="nocode"><a name="124">124: </a></span>        }
+<span class="nocode"><a name="125">125: </a></span>
+<span class="nocode"><a name="126">126: </a></span>
+<span class="nocode"><a name="127">127: </a></span>        /* (non-Javadoc)
+<span class="nocode"><a name="128">128: </a></span>         * @see org.firebirdsql.jdbc.FBObjectListener.ResultSetListener#executionCompleted(org.firebirdsql.jdbc.FirebirdRowUpdater, boolean)
+<span class="nocode"><a name="129">129: </a></span>         */
+<span class="nocode"><a name="130">130: </a></span>        public void executionCompleted(FirebirdRowUpdater updater, boolean success) throws SQLException {
+<span class="nocode"><a name="131">131: </a></span>            notifyStatementCompleted(success);
+<span class="nocode"><a name="132">132: </a></span>        }
+<span class="nocode"><a name="133">133: </a></span>
+<span class="nocode"><a name="134">134: </a></span>
+<span class="nocode"><a name="135">135: </a></span>        /* (non-Javadoc)
+<span class="nocode"><a name="136">136: </a></span>         * @see org.firebirdsql.jdbc.FBObjectListener.ResultSetListener#executionStarted(org.firebirdsql.jdbc.FirebirdRowUpdater)
+<span class="nocode"><a name="137">137: </a></span>         */
+<span class="nocode"><a name="138">138: </a></span>        public void executionStarted(FirebirdRowUpdater updater) throws SQLException {
+<span class="nocode"><a name="139">139: </a></span>            notifyStatementStarted(false);
+<span class="nocode"><a name="140">140: </a></span>        }
+<span class="nocode"><a name="141">141: </a></span>        
+<span class="nocode"><a name="142">142: </a></span>        
+<span class="nocode"><a name="143">143: </a></span>    }
+<span class="nocode"><a name="144">144: </a></span>
+<span class="nocode"><a name="145">145: </a></span>    protected AbstractStatement(GDSHelper c, int rsType, int rsConcurrency, int rsHoldability, FBObjectListener.StatementListener statementListener) throws SQLException {
+<span class="nocode"><a name="146">146: </a></span><span style="background-color: #ffffcc">        this.gdsHelper = c;</span>
+<span class="nocode"><a name="147">147: </a></span>        
+<span class="nocode"><a name="148">148: </a></span><span style="background-color: #ffffcc">        this.rsConcurrency = rsConcurrency;</span>
+<span class="nocode"><a name="149">149: </a></span><span style="background-color: #ffffcc">        this.rsType = rsType;</span>
+<span class="nocode"><a name="150">150: </a></span><span style="background-color: #ffffcc">        this.rsHoldability = rsHoldability;</span>
+<span class="nocode"><a name="151">151: </a></span>        
+<span class="nocode"><a name="152">152: </a></span><span style="background-color: #ffffcc">        this.statementListener = statementListener;</span>
+<span class="nocode"><a name="153">153: </a></span>        
+<span class="nocode"><a name="154">154: </a></span><span style="background-color: #ffffcc">        this.connection = statementListener != null ? </span>
+<span class="nocode"><a name="155">155: </a></span>                statementListener.getConnection() : null;
+<span class="nocode"><a name="156">156: </a></span>        
+<span class="nocode"><a name="157">157: </a></span><span style="background-color: #ffffcc">        closed = false;</span>
+<span class="nocode"><a name="158">158: </a></span><span style="background-color: #ffffcc">    }</span>
+<span class="nocode"><a name="159">159: </a></span>    
+<span class="nocode"><a name="160">160: </a></span>    String getCursorName() {
+<span class="nocode"><a name="161">161: </a></span>        return cursorName;
+<span class="nocode"><a name="162">162: </a></span>    }
+<span class="nocode"><a name="163">163: </a></span>    
+<span class="nocode"><a name="164">164: </a></span>    public boolean isValid() {
+<span class="nocode"><a name="165">165: </a></span>        return !closed &amp;&amp; (fixedStmt == null || fixedStmt.isValid());
+<span class="nocode"><a name="166">166: </a></span>    }
+<span class="nocode"><a name="167">167: </a></span>    
+<span class="nocode"><a name="168">168: </a></span>    /**
+<span class="nocode"><a name="169">169: </a></span>     * Get synchronization object for this statement object.
+<span class="nocode"><a name="170">170: </a></span>     * 
+<span class="nocode"><a name="171">171: </a></span>     * @return object that will be used for synchronization.
+<span class="nocode"><a name="172">172: </a></span>     * 
+<span class="nocode"><a name="173">173: </a></span>     * @throws SQLException if something went wrong.
+<span class="nocode"><a name="174">174: </a></span>     */
+<span class="nocode"><a name="175">175: </a></span>    public Object getSynchronizationObject() throws SQLException {
+<span class="nocode"><a name="176">176: </a></span>        // TODO: Has potential race condition
+<span class="nocode"><a name="177">177: </a></span>        
+<span class="nocode"><a name="178">178: </a></span><span style="background-color: #ffffcc">        if (connection == null)</span>
+<span class="nocode"><a name="179">179: </a></span><span style="background-color: #ffffcc">            return this;</span>
+<span class="nocode"><a name="180">180: </a></span>        
+<span class="nocode"><a name="181">181: </a></span>        if (connection.getAutoCommit()) 
+<span class="nocode"><a name="182">182: </a></span>            return connection;
+<span class="nocode"><a name="183">183: </a></span>        else
+<span class="nocode"><a name="184">184: </a></span>            return this;
+<span class="nocode"><a name="185">185: </a></span>    }
+<span class="nocode"><a name="186">186: </a></span>    
+<span class="nocode"><a name="187">187: </a></span>    protected void finalize() throws Throwable {
+<span class="nocode"><a name="188">188: </a></span>        if (!closed)
+<span class="nocode"><a name="189">189: </a></span>            close(true);
+<span class="nocode"><a name="190">190: </a></span>    }
+<span class="nocode"><a name="191">191: </a></span>    
+<span class="nocode"><a name="192">192: </a></span>    public void completeStatement() throws SQLException {
+<span class="nocode"><a name="193">193: </a></span>        closeResultSet(false);
+<span class="nocode"><a name="194">194: </a></span>        
+<span class="nocode"><a name="195">195: </a></span>        if (!completed)
+<span class="nocode"><a name="196">196: </a></span>            notifyStatementCompleted();
+<span class="nocode"><a name="197">197: </a></span>    }
+<span class="nocode"><a name="198">198: </a></span>    
+<span class="nocode"><a name="199">199: </a></span>    /**
+<span class="nocode"><a name="200">200: </a></span>     * Executes an SQL statement that returns a single &lt;code&gt;ResultSet&lt;/code&gt; object.
+<span class="nocode"><a name="201">201: </a></span>     *
+<span class="nocode"><a name="202">202: </a></span>     * @param sql typically this is a static SQL &lt;code&gt;SELECT&lt;/code&gt; statement
+<span class="nocode"><a name="203">203: </a></span>     * @return a &lt;code&gt;ResultSet&lt;/code&gt; object that contains the data produced by the
+<span class="nocode"><a name="204">204: </a></span>     * given query; never &lt;code&gt;null&lt;/code&gt;
+<span class="nocode"><a name="205">205: </a></span>     * @exception SQLException if a database access error occurs
+<span class="nocode"><a name="206">206: </a></span>     */
+<span class="nocode"><a name="207">207: </a></span>    public ResultSet executeQuery(String sql) throws  SQLException {
+<span class="nocode"><a name="208">208: </a></span><span style="background-color: #ffffcc">        checkValidity();</span>
+<span class="nocode"><a name="209">209: </a></span>
+<span class="nocode"><a name="210">210: </a></span><span style="background-color: #ffffcc">        Object syncObject = getSynchronizationObject();</span>
+<span class="nocode"><a name="211">211: </a></span><span style="background-color: #ffffcc">        synchronized(syncObject) {</span>
+<span class="nocode"><a name="212">212: </a></span><span style="background-color: #ffffcc">            notifyStatementStarted();</span>
+<span class="nocode"><a name="213">213: </a></span>
+<span class="nocode"><a name="214">214: </a></span>            try {
+<span class="nocode"><a name="215">215: </a></span>                if (!internalExecute(sql)) {
+<span class="nocode"><a name="216">216: </a></span>                    throw new FBSQLException(
+<span class="nocode"><a name="217">217: </a></span>                        &quot;Query did not return a result set.&quot;,
+<span class="nocode"><a name="218">218: </a></span>                        FBSQLException.SQL_STATE_NO_RESULT_SET);
+<span class="nocode"><a name="219">219: </a></span>                }
+<span class="nocode"><a name="220">220: </a></span>
+<span class="nocode"><a name="221">221: </a></span>                return getResultSet();
+<span class="nocode"><a name="222">222: </a></span>                
+<span class="nocode"><a name="223">223: </a></span>            } catch (GDSException ge) {
+<span class="nocode"><a name="224">224: </a></span>                throw new FBSQLException(ge);
+<span class="nocode"><a name="225">225: </a></span>            }
+<span class="nocode"><a name="226">226: </a></span><span style="background-color: #ffffcc">        }</span>
+<span class="nocode"><a name="227">227: </a></span>    }
+<span class="nocode"><a name="228">228: </a></span>
+<span class="nocode"><a name="229">229: </a></span>    protected void notifyStatementStarted() throws SQLException {
+<span class="nocode"><a name="230">230: </a></span><span style="background-color: #ffffcc">        notifyStatementStarted(true);</span>
+<span class="nocode"><a name="231">231: </a></span>    }
+<span class="nocode"><a name="232">232: </a></span>    
+<span class="nocode"><a name="233">233: </a></span>    protected void notifyStatementStarted(boolean closeResultSet) throws SQLException {
+<span class="nocode"><a name="234">234: </a></span>        
+<span class="nocode"><a name="235">235: </a></span><span style="background-color: #ffffcc">        if (closeResultSet)</span>
+<span class="nocode"><a name="236">236: </a></span><span style="background-color: #ffffcc">            closeResultSet(false);</span>
+<span class="nocode"><a name="237">237: </a></span>        
+<span class="nocode"><a name="238">238: </a></span>        // notify listener that statement execution is about to start
+<span class="nocode"><a name="239">239: </a></span><span style="background-color: #ffffcc">        statementListener.executionStarted(this);</span>
+<span class="nocode"><a name="240">240: </a></span>        
+<span class="nocode"><a name="241">241: </a></span>        this.completed = false;
+<span class="nocode"><a name="242">242: </a></span>    }
+<span class="nocode"><a name="243">243: </a></span>
+<span class="nocode"><a name="244">244: </a></span>    protected void notifyStatementCompleted() throws SQLException {
+<span class="nocode"><a name="245">245: </a></span>        notifyStatementCompleted(true);
+<span class="nocode"><a name="246">246: </a></span>    }
+<span class="nocode"><a name="247">247: </a></span>    
+<span class="nocode"><a name="248">248: </a></span>    protected void notifyStatementCompleted(boolean success) throws SQLException {
+<span class="nocode"><a name="249">249: </a></span>        this.completed = true;
+<span class="nocode"><a name="250">250: </a></span>        statementListener.statementCompleted(this, success);
+<span class="nocode"><a name="251">251: </a></span>    }
+<span class="nocode"><a name="252">252: </a></span>    
+<span class="nocode"><a name="253">253: </a></span>    /**
+<span class="nocode"><a name="254">254: </a></span>     * Executes an SQL &lt;code&gt;INSERT&lt;/code&gt;, &lt;code&gt;UPDATE&lt;/code&gt; or
+<span class="nocode"><a name="255">255: </a></span>     * &lt;code&gt;DELETE&lt;/code&gt; statement. In addition,
+<span class="nocode"><a name="256">256: </a></span>     * SQL statements that return nothing, such as SQL DDL statements,
+<span class="nocode"><a name="257">257: </a></span>     * can be executed.
+<span class="nocode"><a name="258">258: </a></span>     *
+<span class="nocode"><a name="259">259: </a></span>     * @param sql an SQL &lt;code&gt;INSERT&lt;/code&gt;, &lt;code&gt;UPDATE&lt;/code&gt; or
+<span class="nocode"><a name="260">260: </a></span>     * &lt;code&gt;DELETE&lt;/code&gt; statement or an SQL statement that returns nothing
+<span class="nocode"><a name="261">261: </a></span>     * @return either the row count for &lt;code&gt;INSERT&lt;/code&gt;, &lt;code&gt;UPDATE&lt;/code&gt;
+<span class="nocode"><a name="262">262: </a></span>     * or &lt;code&gt;DELETE&lt;/code&gt; statements, or 0 for SQL statements that return nothing
+<span class="nocode"><a name="263">263: </a></span>     * @exception SQLException if a database access error occurs
+<span class="nocode"><a name="264">264: </a></span>     */
+<span class="nocode"><a name="265">265: </a></span>    public int executeUpdate(String sql) throws SQLException {
+<span class="nocode"><a name="266">266: </a></span>        checkValidity();
+<span class="nocode"><a name="267">267: </a></span>        Object syncObject = getSynchronizationObject();
+<span class="nocode"><a name="268">268: </a></span>        synchronized (syncObject) {
+<span class="nocode"><a name="269">269: </a></span>
+<span class="nocode"><a name="270">270: </a></span>            notifyStatementStarted();
+<span class="nocode"><a name="271">271: </a></span>            try {
+<span class="nocode"><a name="272">272: </a></span>                try {
+<span class="nocode"><a name="273">273: </a></span>                    if (internalExecute(sql)) { throw new FBSQLException(
+<span class="nocode"><a name="274">274: </a></span>                            &quot;Update statement returned results.&quot;); }
+<span class="nocode"><a name="275">275: </a></span>                    return getUpdateCount();
+<span class="nocode"><a name="276">276: </a></span>                } catch (GDSException ge) {
+<span class="nocode"><a name="277">277: </a></span>                    throw new FBSQLException(ge);
+<span class="nocode"><a name="278">278: </a></span>                }
+<span class="nocode"><a name="279">279: </a></span>            } finally {
+<span class="nocode"><a name="280">280: </a></span>                notifyStatementCompleted();
+<span class="nocode"><a name="281">281: </a></span>            }
+<span class="nocode"><a name="282">282: </a></span>        }
+<span class="nocode"><a name="283">283: </a></span>    }
+<span class="nocode"><a name="284">284: </a></span>    
+<span class="nocode"><a name="285">285: </a></span>    /**
+<span class="nocode"><a name="286">286: </a></span>     * Executes the given SQL statement and signals the driver with the
+<span class="nocode"><a name="287">287: </a></span>     * given flag about whether the
+<span class="nocode"><a name="288">288: </a></span>     * auto-generated keys produced by this &lt;code&gt;Statement&lt;/code&gt; object
+<span class="nocode"><a name="289">289: </a></span>     * should be made available for retrieval.  The driver will ignore the 
+<span class="nocode"><a name="290">290: </a></span>     * flag if the SQL statement
+<span class="nocode"><a name="291">291: </a></span>     * is not an &lt;code&gt;INSERT&lt;/code&gt; statement, or an SQL statement able to return
+<span class="nocode"><a name="292">292: </a></span>     * auto-generated keys (the list of such statements is vendor-specific).
+<span class="nocode"><a name="293">293: </a></span>     *
+<span class="nocode"><a name="294">294: </a></span>     * @param sql an SQL Data Manipulation Language (DML) statement, such as &lt;code&gt;INSERT&lt;/code&gt;, &lt;code&gt;UPDATE&lt;/code&gt; or
+<span class="nocode"><a name="295">295: </a></span>     * &lt;code&gt;DELETE&lt;/code&gt;; or an SQL statement that returns nothing, 
+<span class="nocode"><a name="296">296: </a></span>     * such as a DDL statement.
+<span class="nocode"><a name="297">297: </a></span>     *
+<span class="nocode"><a name="298">298: </a></span>     * @param autoGeneratedKeys a flag indicating whether auto-generated keys
+<span class="nocode"><a name="299">299: </a></span>     *        should be made available for retrieval;
+<span class="nocode"><a name="300">300: </a></span>     *         one of the following constants:
+<span class="nocode"><a name="301">301: </a></span>     *         &lt;code&gt;Statement.RETURN_GENERATED_KEYS&lt;/code&gt;
+<span class="nocode"><a name="302">302: </a></span>     *         &lt;code&gt;Statement.NO_GENERATED_KEYS&lt;/code&gt;
+<span class="nocode"><a name="303">303: </a></span>     * @return either (1) the row count for SQL Data Manipulation Language (DML) statements
+<span class="nocode"><a name="304">304: </a></span>     *         or (2) 0 for SQL statements that return nothing
+<span class="nocode"><a name="305">305: </a></span>     *
+<span class="nocode"><a name="306">306: </a></span>     * @exception SQLException if a database access error occurs,
+<span class="nocode"><a name="307">307: </a></span>     *  this method is called on a closed &lt;code&gt;Statement&lt;/code&gt;, the given
+<span class="nocode"><a name="308">308: </a></span>     *            SQL statement returns a &lt;code&gt;ResultSet&lt;/code&gt; object, or
+<span class="nocode"><a name="309">309: </a></span>     *            the given constant is not one of those allowed
+<span class="nocode"><a name="310">310: </a></span>     * @exception SQLFeatureNotSupportedException if the JDBC driver does not support
+<span class="nocode"><a name="311">311: </a></span>     * this method with a constant of Statement.RETURN_GENERATED_KEYS
+<span class="nocode"><a name="312">312: </a></span>     * @since 1.4
+<span class="nocode"><a name="313">313: </a></span>     */
+<span class="nocode"><a name="314">314: </a></span>    public int executeUpdate(String sql, int autoGeneratedKeys)
+<span class="nocode"><a name="315">315: </a></span>            throws SQLException {
+<span class="nocode"><a name="316">316: </a></span>        
+<span class="nocode"><a name="317">317: </a></span>        execute(sql, autoGeneratedKeys);
+<span class="nocode"><a name="318">318: </a></span>        return getUpdateCount();
+<span class="nocode"><a name="319">319: </a></span>    }
+<span class="nocode"><a name="320">320: </a></span>
+<span class="nocode"><a name="321">321: </a></span>    /**
+<span class="nocode"><a name="322">322: </a></span>     * Executes the given SQL statement and signals the driver that the
+<span class="nocode"><a name="323">323: </a></span>     * auto-generated keys indicated in the given array should be made available
+<span class="nocode"><a name="324">324: </a></span>     * for retrieval.   This array contains the indexes of the columns in the 
+<span class="nocode"><a name="325">325: </a></span>     * target table that contain the auto-generated keys that should be made
+<span class="nocode"><a name="326">326: </a></span>     * available. The driver will ignore the array if the SQL statement
+<span class="nocode"><a name="327">327: </a></span>     * is not an &lt;code&gt;INSERT&lt;/code&gt; statement, or an SQL statement able to return
+<span class="nocode"><a name="328">328: </a></span>     * auto-generated keys (the list of such statements is vendor-specific).
+<span class="nocode"><a name="329">329: </a></span>     *
+<span class="nocode"><a name="330">330: </a></span>     * @param sql an SQL Data Manipulation Language (DML) statement, such as &lt;code&gt;INSERT&lt;/code&gt;, &lt;code&gt;UPDATE&lt;/code&gt; or
+<span class="nocode"><a name="331">331: </a></span>     * &lt;code&gt;DELETE&lt;/code&gt;; or an SQL statement that returns nothing, 
+<span class="nocode"><a name="332">332: </a></span>     * such as a DDL statement.
+<span class="nocode"><a name="333">333: </a></span>     *
+<span class="nocode"><a name="334">334: </a></span>     * @param columnIndexes an array of column indexes indicating the columns
+<span class="nocode"><a name="335">335: </a></span>     *        that should be returned from the inserted row
+<span class="nocode"><a name="336">336: </a></span>     * @return either (1) the row count for SQL Data Manipulation Language (DML) statements
+<span class="nocode"><a name="337">337: </a></span>     *         or (2) 0 for SQL statements that return nothing
+<span class="nocode"><a name="338">338: </a></span>     *
+<span class="nocode"><a name="339">339: </a></span>     * @exception SQLException if a database access error occurs, 
+<span class="nocode"><a name="340">340: </a></span>     * this method is called on a closed &lt;code&gt;Statement&lt;/code&gt;, the SQL
+<span class="nocode"><a name="341">341: </a></span>     *            statement returns a &lt;code&gt;ResultSet&lt;/code&gt; object, or the
+<span class="nocode"><a name="342">342: </a></span>     *            second argument supplied to this method is not an &lt;code&gt;int&lt;/code&gt; array
+<span class="nocode"><a name="343">343: </a></span>     *            whose elements are valid column indexes 
+<span class="nocode"><a name="344">344: </a></span>     * @throws SQLFeatureNotSupportedException  if the JDBC driver does not support this method
+<span class="nocode"><a name="345">345: </a></span>     * @since 1.4
+<span class="nocode"><a name="346">346: </a></span>     */
+<span class="nocode"><a name="347">347: </a></span>    public int executeUpdate(String sql, int[] columnIndexes)
+<span class="nocode"><a name="348">348: </a></span>            throws SQLException {
+<span class="nocode"><a name="349">349: </a></span>        
+<span class="nocode"><a name="350">350: </a></span>        execute(sql, columnIndexes);
+<span class="nocode"><a name="351">351: </a></span>        return getUpdateCount();
+<span class="nocode"><a name="352">352: </a></span>    }
+<span class="nocode"><a name="353">353: </a></span>    
+<span class="nocode"><a name="354">354: </a></span>    /**
+<span class="nocode"><a name="355">355: </a></span>     * Executes the given SQL statement and signals the driver that the
+<span class="nocode"><a name="356">356: </a></span>     * auto-generated keys indicated in the given array should be made available
+<span class="nocode"><a name="357">357: </a></span>     * for retrieval.   This array contains the names of the columns in the 
+<span class="nocode"><a name="358">358: </a></span>     * target table that contain the auto-generated keys that should be made
+<span class="nocode"><a name="359">359: </a></span>     * available. The driver will ignore the array if the SQL statement
+<span class="nocode"><a name="360">360: </a></span>     * is not an &lt;code&gt;INSERT&lt;/code&gt; statement, or an SQL statement able to return
+<span class="nocode"><a name="361">361: </a></span>     * auto-generated keys (the list of such statements is vendor-specific).
+<span class="nocode"><a name="362">362: </a></span>     *
+<span class="nocode"><a name="363">363: </a></span>     * @param sql an SQL Data Manipulation Language (DML) statement, such as &lt;code&gt;INSERT&lt;/code&gt;, &lt;code&gt;UPDATE&lt;/code&gt; or
+<span class="nocode"><a name="364">364: </a></span>     * &lt;code&gt;DELETE&lt;/code&gt;; or an SQL statement that returns nothing, 
+<span class="nocode"><a name="365">365: </a></span>     * such as a DDL statement.
+<span class="nocode"><a name="366">366: </a></span>     * @param columnNames an array of the names of the columns that should be 
+<span class="nocode"><a name="367">367: </a></span>     *        returned from the inserted row
+<span class="nocode"><a name="368">368: </a></span>     * @return either the row count for &lt;code&gt;INSERT&lt;/code&gt;, &lt;code&gt;UPDATE&lt;/code&gt;,
+<span class="nocode"><a name="369">369: </a></span>     *         or &lt;code&gt;DELETE&lt;/code&gt; statements, or 0 for SQL statements 
+<span class="nocode"><a name="370">370: </a></span>     *         that return nothing
+<span class="nocode"><a name="371">371: </a></span>     * @exception SQLException if a database access error occurs, 
+<span class="nocode"><a name="372">372: </a></span>     *  this method is called on a closed &lt;code&gt;Statement&lt;/code&gt;, the SQL
+<span class="nocode"><a name="373">373: </a></span>     *            statement returns a &lt;code&gt;ResultSet&lt;/code&gt; object, or the
+<span class="nocode"><a name="374">374: </a></span>     *            second argument supplied to this method is not a &lt;code&gt;String&lt;/code&gt; array
+<span class="nocode"><a name="375">375: </a></span>     *            whose elements are valid column names
+<span class="nocode"><a name="376">376: </a></span>     *
+<span class="nocode"><a name="377">377: </a></span>     * @throws SQLFeatureNotSupportedException  if the JDBC driver does not support this method
+<span class="nocode"><a name="378">378: </a></span>     * @since 1.4
+<span class="nocode"><a name="379">379: </a></span>     */
+<span class="nocode"><a name="380">380: </a></span>    public int executeUpdate(String sql, String[] columnNames)
+<span class="nocode"><a name="381">381: </a></span>            throws SQLException {
+<span class="nocode"><a name="382">382: </a></span>        execute(sql, columnNames);
+<span class="nocode"><a name="383">383: </a></span>        return getUpdateCount();
+<span class="nocode"><a name="384">384: </a></span>    }
+<span class="nocode"><a name="385">385: </a></span>    
+<span class="nocode"><a name="386">386: </a></span>    /**
+<span class="nocode"><a name="387">387: </a></span>     * Executes the given SQL statement, which may return multiple results,
+<span class="nocode"><a name="388">388: </a></span>     * and signals the driver that any
+<span class="nocode"><a name="389">389: </a></span>     * auto-generated keys should be made available
+<span class="nocode"><a name="390">390: </a></span>     * for retrieval.  The driver will ignore this signal if the SQL statement
+<span class="nocode"><a name="391">391: </a></span>     * is not an &lt;code&gt;INSERT&lt;/code&gt; statement, or an SQL statement able to return
+<span class="nocode"><a name="392">392: </a></span>     * auto-generated keys (the list of such statements is vendor-specific).
+<span class="nocode"><a name="393">393: </a></span>     * &lt;P&gt;
+<span class="nocode"><a name="394">394: </a></span>     * In some (uncommon) situations, a single SQL statement may return
+<span class="nocode"><a name="395">395: </a></span>     * multiple result sets and/or update counts.  Normally you can ignore
+<span class="nocode"><a name="396">396: </a></span>     * this unless you are (1) executing a stored procedure that you know may
+<span class="nocode"><a name="397">397: </a></span>     * return multiple results or (2) you are dynamically executing an
+<span class="nocode"><a name="398">398: </a></span>     * unknown SQL string.  
+<span class="nocode"><a name="399">399: </a></span>     * &lt;P&gt;
+<span class="nocode"><a name="400">400: </a></span>     * The &lt;code&gt;execute&lt;/code&gt; method executes an SQL statement and indicates the
+<span class="nocode"><a name="401">401: </a></span>     * form of the first result.  You must then use the methods 
+<span class="nocode"><a name="402">402: </a></span>     * &lt;code&gt;getResultSet&lt;/code&gt; or &lt;code&gt;getUpdateCount&lt;/code&gt;
+<span class="nocode"><a name="403">403: </a></span>     * to retrieve the result, and &lt;code&gt;getMoreResults&lt;/code&gt; to
+<span class="nocode"><a name="404">404: </a></span>     * move to any subsequent result(s).
+<span class="nocode"><a name="405">405: </a></span>     *
+<span class="nocode"><a name="406">406: </a></span>     * @param sql any SQL statement
+<span class="nocode"><a name="407">407: </a></span>     * @param autoGeneratedKeys a constant indicating whether auto-generated 
+<span class="nocode"><a name="408">408: </a></span>     *        keys should be made available for retrieval using the method
+<span class="nocode"><a name="409">409: </a></span>     *        &lt;code&gt;getGeneratedKeys&lt;/code&gt;; one of the following constants:
+<span class="nocode"><a name="410">410: </a></span>     *        &lt;code&gt;Statement.RETURN_GENERATED_KEYS&lt;/code&gt; or
+<span class="nocode"><a name="411">411: </a></span>     *        &lt;code&gt;Statement.NO_GENERATED_KEYS&lt;/code&gt;
+<span class="nocode"><a name="412">412: </a></span>     * @return &lt;code&gt;true&lt;/code&gt; if the first result is a &lt;code&gt;ResultSet&lt;/code&gt;
+<span class="nocode"><a name="413">413: </a></span>     *         object; &lt;code&gt;false&lt;/code&gt; if it is an update count or there are
+<span class="nocode"><a name="414">414: </a></span>     *         no results
+<span class="nocode"><a name="415">415: </a></span>     * @exception SQLException if a database access error occurs, 
+<span class="nocode"><a name="416">416: </a></span>     * this method is called on a closed &lt;code&gt;Statement&lt;/code&gt; or the second 
+<span class="nocode"><a name="417">417: </a></span>     *         parameter supplied to this method is not 
+<span class="nocode"><a name="418">418: </a></span>     *         &lt;code&gt;Statement.RETURN_GENERATED_KEYS&lt;/code&gt; or
+<span class="nocode"><a name="419">419: </a></span>     *         &lt;code&gt;Statement.NO_GENERATED_KEYS&lt;/code&gt;.
+<span class="nocode"><a name="420">420: </a></span>     * @exception SQLFeatureNotSupportedException if the JDBC driver does not support
+<span class="nocode"><a name="421">421: </a></span>     * this method with a constant of Statement.RETURN_GENERATED_KEYS
+<span class="nocode"><a name="422">422: </a></span>     * @see #getResultSet
+<span class="nocode"><a name="423">423: </a></span>     * @see #getUpdateCount
+<span class="nocode"><a name="424">424: </a></span>     * @see #getMoreResults
+<span class="nocode"><a name="425">425: </a></span>     * @see #getGeneratedKeys
+<span class="nocode"><a name="426">426: </a></span>     *
+<span class="nocode"><a name="427">427: </a></span>     * @since 1.4 
+<span class="nocode"><a name="428">428: </a></span>     */
+<span class="nocode"><a name="429">429: </a></span>    public boolean execute(String sql, int autoGeneratedKeys)
+<span class="nocode"><a name="430">430: </a></span>            throws SQLException {
+<span class="nocode"><a name="431">431: </a></span>        
+<span class="nocode"><a name="432">432: </a></span>        checkValidity();
+<span class="nocode"><a name="433">433: </a></span>        if (autoGeneratedKeys == Statement.RETURN_GENERATED_KEYS) {
+<span class="nocode"><a name="434">434: </a></span>            connection.checkAutoGeneratedKeysSupport();
+<span class="nocode"><a name="435">435: </a></span>        }
+<span class="nocode"><a name="436">436: </a></span>
+<span class="nocode"><a name="437">437: </a></span>        AbstractGeneratedKeysQuery query = connection.new GeneratedKeysQuery(sql, autoGeneratedKeys); 
+<span class="nocode"><a name="438">438: </a></span>        return execute(query.getQueryString());
+<span class="nocode"><a name="439">439: </a></span>    }
+<span class="nocode"><a name="440">440: </a></span>
+<span class="nocode"><a name="441">441: </a></span>    /**
+<span class="nocode"><a name="442">442: </a></span>     * Executes the given SQL statement, which may return multiple results,
+<span class="nocode"><a name="443">443: </a></span>     * and signals the driver that the
+<span class="nocode"><a name="444">444: </a></span>     * auto-generated keys indicated in the given array should be made available
+<span class="nocode"><a name="445">445: </a></span>     * for retrieval.  This array contains the indexes of the columns in the 
+<span class="nocode"><a name="446">446: </a></span>     * target table that contain the auto-generated keys that should be made
+<span class="nocode"><a name="447">447: </a></span>     * available.  The driver will ignore the array if the SQL statement
+<span class="nocode"><a name="448">448: </a></span>     * is not an &lt;code&gt;INSERT&lt;/code&gt; statement, or an SQL statement able to return
+<span class="nocode"><a name="449">449: </a></span>     * auto-generated keys (the list of such statements is vendor-specific).
+<span class="nocode"><a name="450">450: </a></span>     * &lt;P&gt;
+<span class="nocode"><a name="451">451: </a></span>     * Under some (uncommon) situations, a single SQL statement may return
+<span class="nocode"><a name="452">452: </a></span>     * multiple result sets and/or update counts.  Normally you can ignore
+<span class="nocode"><a name="453">453: </a></span>     * this unless you are (1) executing a stored procedure that you know may
+<span class="nocode"><a name="454">454: </a></span>     * return multiple results or (2) you are dynamically executing an
+<span class="nocode"><a name="455">455: </a></span>     * unknown SQL string.  
+<span class="nocode"><a name="456">456: </a></span>     * &lt;P&gt;
+<span class="nocode"><a name="457">457: </a></span>     * The &lt;code&gt;execute&lt;/code&gt; method executes an SQL statement and indicates the
+<span class="nocode"><a name="458">458: </a></span>     * form of the first result.  You must then use the methods 
+<span class="nocode"><a name="459">459: </a></span>     * &lt;code&gt;getResultSet&lt;/code&gt; or &lt;code&gt;getUpdateCount&lt;/code&gt;
+<span class="nocode"><a name="460">460: </a></span>     * to retrieve the result, and &lt;code&gt;getMoreResults&lt;/code&gt; to
+<span class="nocode"><a name="461">461: </a></span>     * move to any subsequent result(s).
+<span class="nocode"><a name="462">462: </a></span>     *
+<span class="nocode"><a name="463">463: </a></span>     * @param sql any SQL statement
+<span class="nocode"><a name="464">464: </a></span>     * @param columnIndexes an array of the indexes of the columns in the 
+<span class="nocode"><a name="465">465: </a></span>     *        inserted row that should be  made available for retrieval by a
+<span class="nocode"><a name="466">466: </a></span>     *        call to the method &lt;code&gt;getGeneratedKeys&lt;/code&gt;
+<span class="nocode"><a name="467">467: </a></span>     * @return &lt;code&gt;true&lt;/code&gt; if the first result is a &lt;code&gt;ResultSet&lt;/code&gt; 
+<span class="nocode"><a name="468">468: </a></span>     *         object; &lt;code&gt;false&lt;/code&gt; if it is an update count or there 
+<span class="nocode"><a name="469">469: </a></span>     *         are no results
+<span class="nocode"><a name="470">470: </a></span>     * @exception SQLException if a database access error occurs, 
+<span class="nocode"><a name="471">471: </a></span>     * this method is called on a closed &lt;code&gt;Statement&lt;/code&gt; or the 
+<span class="nocode"><a name="472">472: </a></span>     *            elements in the &lt;code&gt;int&lt;/code&gt; array passed to this method
+<span class="nocode"><a name="473">473: </a></span>     *            are not valid column indexes
+<span class="nocode"><a name="474">474: </a></span>     * @throws SQLFeatureNotSupportedException  if the JDBC driver does not support this method
+<span class="nocode"><a name="475">475: </a></span>     * @see #getResultSet
+<span class="nocode"><a name="476">476: </a></span>     * @see #getUpdateCount
+<span class="nocode"><a name="477">477: </a></span>     * @see #getMoreResults
+<span class="nocode"><a name="478">478: </a></span>     *
+<span class="nocode"><a name="479">479: </a></span>     * @since 1.4
+<span class="nocode"><a name="480">480: </a></span>     */
+<span class="nocode"><a name="481">481: </a></span>    public boolean execute(String sql, int[] columnIndexes) throws SQLException {
+<span class="nocode"><a name="482">482: </a></span>        checkValidity();
+<span class="nocode"><a name="483">483: </a></span>        connection.checkAutoGeneratedKeysSupport();
+<span class="nocode"><a name="484">484: </a></span>        
+<span class="nocode"><a name="485">485: </a></span>        AbstractGeneratedKeysQuery query = connection.new GeneratedKeysQuery(sql, columnIndexes); 
+<span class="nocode"><a name="486">486: </a></span>        return execute(query.getQueryString());
+<span class="nocode"><a name="487">487: </a></span>    }
+<span class="nocode"><a name="488">488: </a></span>
+<span class="nocode"><a name="489">489: </a></span>    /**
+<span class="nocode"><a name="490">490: </a></span>     * Executes the given SQL statement, which may return multiple results,
+<span class="nocode"><a name="491">491: </a></span>     * and signals the driver that the
+<span class="nocode"><a name="492">492: </a></span>     * auto-generated keys indicated in the given array should be made available
+<span class="nocode"><a name="493">493: </a></span>     * for retrieval. This array contains the names of the columns in the 
+<span class="nocode"><a name="494">494: </a></span>     * target table that contain the auto-generated keys that should be made
+<span class="nocode"><a name="495">495: </a></span>     * available.  The driver will ignore the array if the SQL statement
+<span class="nocode"><a name="496">496: </a></span>     * is not an &lt;code&gt;INSERT&lt;/code&gt; statement, or an SQL statement able to return
+<span class="nocode"><a name="497">497: </a></span>     * auto-generated keys (the list of such statements is vendor-specific).
+<span class="nocode"><a name="498">498: </a></span>     * &lt;P&gt;
+<span class="nocode"><a name="499">499: </a></span>     * In some (uncommon) situations, a single SQL statement may return
+<span class="nocode"><a name="500">500: </a></span>     * multiple result sets and/or update counts.  Normally you can ignore
+<span class="nocode"><a name="501">501: </a></span>     * this unless you are (1) executing a stored procedure that you know may
+<span class="nocode"><a name="502">502: </a></span>     * return multiple results or (2) you are dynamically executing an
+<span class="nocode"><a name="503">503: </a></span>     * unknown SQL string.  
+<span class="nocode"><a name="504">504: </a></span>     * &lt;P&gt;
+<span class="nocode"><a name="505">505: </a></span>     * The &lt;code&gt;execute&lt;/code&gt; method executes an SQL statement and indicates the
+<span class="nocode"><a name="506">506: </a></span>     * form of the first result.  You must then use the methods 
+<span class="nocode"><a name="507">507: </a></span>     * &lt;code&gt;getResultSet&lt;/code&gt; or &lt;code&gt;getUpdateCount&lt;/code&gt;
+<span class="nocode"><a name="508">508: </a></span>     * to retrieve the result, and &lt;code&gt;getMoreResults&lt;/code&gt; to
+<span class="nocode"><a name="509">509: </a></span>     * move to any subsequent result(s).
+<span class="nocode"><a name="510">510: </a></span>     *
+<span class="nocode"><a name="511">511: </a></span>     * @param sql any SQL statement
+<span class="nocode"><a name="512">512: </a></span>     * @param columnNames an array of the names of the columns in the inserted
+<span class="nocode"><a name="513">513: </a></span>     *        row that should be made available for retrieval by a call to the
+<span class="nocode"><a name="514">514: </a></span>     *        method &lt;code&gt;getGeneratedKeys&lt;/code&gt;
+<span class="nocode"><a name="515">515: </a></span>     * @return &lt;code&gt;true&lt;/code&gt; if the next result is a &lt;code&gt;ResultSet&lt;/code&gt; 
+<span class="nocode"><a name="516">516: </a></span>     *         object; &lt;code&gt;false&lt;/code&gt; if it is an update count or there 
+<span class="nocode"><a name="517">517: </a></span>     *         are no more results
+<span class="nocode"><a name="518">518: </a></span>     * @exception SQLException if a database access error occurs, 
+<span class="nocode"><a name="519">519: </a></span>     * this method is called on a closed &lt;code&gt;Statement&lt;/code&gt; or the 
+<span class="nocode"><a name="520">520: </a></span>     *          elements of the &lt;code&gt;String&lt;/code&gt; array passed to this
+<span class="nocode"><a name="521">521: </a></span>     *          method are not valid column names
+<span class="nocode"><a name="522">522: </a></span>     * @throws SQLFeatureNotSupportedException  if the JDBC driver does not support this method
+<span class="nocode"><a name="523">523: </a></span>     * @see #getResultSet
+<span class="nocode"><a name="524">524: </a></span>     * @see #getUpdateCount
+<span class="nocode"><a name="525">525: </a></span>     * @see #getMoreResults
+<span class="nocode"><a name="526">526: </a></span>     * @see #getGeneratedKeys
+<span class="nocode"><a name="527">527: </a></span>     *
+<span class="nocode"><a name="528">528: </a></span>     * @since 1.4 
+<span class="nocode"><a name="529">529: </a></span>     */
+<span class="nocode"><a name="530">530: </a></span>    public boolean execute(String sql, String[] columnNames)
+<span class="nocode"><a name="531">531: </a></span>            throws SQLException {
+<span class="nocode"><a name="532">532: </a></span>        checkValidity();
+<span class="nocode"><a name="533">533: </a></span>        connection.checkAutoGeneratedKeysSupport();
+<span class="nocode"><a name="534">534: </a></span>        
+<span class="nocode"><a name="535">535: </a></span>        AbstractGeneratedKeysQuery query = connection.new GeneratedKeysQuery(sql, columnNames); 
+<span class="nocode"><a name="536">536: </a></span>        return execute(query.getQueryString());
+<span class="nocode"><a name="537">537: </a></span>    }
+<span class="nocode"><a name="538">538: </a></span>
+<span class="nocode"><a name="539">539: </a></span>    /**
+<span class="nocode"><a name="540">540: </a></span>     * Retrieves any auto-generated keys created as a result of executing this
+<span class="nocode"><a name="541">541: </a></span>     * &lt;code&gt;Statement&lt;/code&gt; object. If this &lt;code&gt;Statement&lt;/code&gt; object did 
+<span class="nocode"><a name="542">542: </a></span>     * not generate any keys, an empty &lt;code&gt;ResultSet&lt;/code&gt;
+<span class="nocode"><a name="543">543: </a></span>     * object is returned.
+<span class="nocode"><a name="544">544: </a></span>     *
+<span class="nocode"><a name="545">545: </a></span>     *&lt;p&gt;&lt;B&gt;Note:&lt;/B&gt;If the columns which represent the auto-generated keys were not specified,
+<span class="nocode"><a name="546">546: </a></span>     * the JDBC driver implementation will determine the columns which best represent the auto-generated keys.
+<span class="nocode"><a name="547">547: </a></span>     *
+<span class="nocode"><a name="548">548: </a></span>     * @return a &lt;code&gt;ResultSet&lt;/code&gt; object containing the auto-generated key(s) 
+<span class="nocode"><a name="549">549: </a></span>     *         generated by the execution of this &lt;code&gt;Statement&lt;/code&gt; object
+<span class="nocode"><a name="550">550: </a></span>     * @exception SQLException if a database access error occurs or 
+<span class="nocode"><a name="551">551: </a></span>     * this method is called on a closed &lt;code&gt;Statement&lt;/code&gt;
+<span class="nocode"><a name="552">552: </a></span>     * @throws SQLFeatureNotSupportedException  if the JDBC driver does not support this method
+<span class="nocode"><a name="553">553: </a></span>     * @since 1.4
+<span class="nocode"><a name="554">554: </a></span>     */
+<span class="nocode"><a name="555">555: </a></span>    public ResultSet getGeneratedKeys() throws SQLException {
+<span class="nocode"><a name="556">556: </a></span>        checkValidity();
+<span class="nocode"><a name="557">557: </a></span>        ResultSet rs = getResultSet();
+<span class="nocode"><a name="558">558: </a></span>        if (rs == null) {
+<span class="nocode"><a name="559">559: </a></span>            rs = new FBResultSet(new XSQLVAR[0], Collections.&lt;byte[][]&gt;emptyList());
+<span class="nocode"><a name="560">560: </a></span>        }
+<span class="nocode"><a name="561">561: </a></span>        return rs;
+<span class="nocode"><a name="562">562: </a></span>    }
+<span class="nocode"><a name="563">563: </a></span>
+<span class="nocode"><a name="564">564: </a></span>    /**
+<span class="nocode"><a name="565">565: </a></span>     * Releases this &lt;code&gt;Statement&lt;/code&gt; object's database 
+<span class="nocode"><a name="566">566: </a></span>     * and JDBC resources immediately instead of waiting for
+<span class="nocode"><a name="567">567: </a></span>     * this to happen when it is automatically closed.
+<span class="nocode"><a name="568">568: </a></span>     * It is generally good practice to release resources as soon as
+<span class="nocode"><a name="569">569: </a></span>     * you are finished with them to avoid tying up database
+<span class="nocode"><a name="570">570: </a></span>     * resources.
+<span class="nocode"><a name="571">571: </a></span>     * &lt;P&gt;
+<span class="nocode"><a name="572">572: </a></span>     * Calling the method &lt;code&gt;close&lt;/code&gt; on a &lt;code&gt;Statement&lt;/code&gt;
+<span class="nocode"><a name="573">573: </a></span>     * object that is already closed has no effect.
+<span class="nocode"><a name="574">574: </a></span>     * &lt;P&gt;&lt;B&gt;Note:&lt;/B&gt; A &lt;code&gt;Statement&lt;/code&gt; object is automatically closed when it is
+<span class="nocode"><a name="575">575: </a></span>     * garbage collected. When a &lt;code&gt;Statement&lt;/code&gt; object is closed, its current
+<span class="nocode"><a name="576">576: </a></span>     * &lt;code&gt;ResultSet&lt;/code&gt; object, if one exists, is also closed.
+<span class="nocode"><a name="577">577: </a></span>     *
+<span class="nocode"><a name="578">578: </a></span>     * @exception SQLException if a database access error occurs
+<span class="nocode"><a name="579">579: </a></span>     */
+<span class="nocode"><a name="580">580: </a></span>    public void close() throws  SQLException {
+<span class="nocode"><a name="581">581: </a></span>        close(true);
+<span class="nocode"><a name="582">582: </a></span>    }
+<span class="nocode"><a name="583">583: </a></span>    
+<span class="nocode"><a name="584">584: </a></span>    void close(boolean ignoreAlreadyClosed) throws SQLException {
+<span class="nocode"><a name="585">585: </a></span>        
+<span class="nocode"><a name="586">586: </a></span>        if (closed) { 
+<span class="nocode"><a name="587">587: </a></span>            if (ignoreAlreadyClosed)
+<span class="nocode"><a name="588">588: </a></span>                return;
+<span class="nocode"><a name="589">589: </a></span>            
+<span class="nocode"><a name="590">590: </a></span>            throw new FBSQLException(&quot;This statement is already closed.&quot;);
+<span class="nocode"><a name="591">591: </a></span>        }
+<span class="nocode"><a name="592">592: </a></span>            
+<span class="nocode"><a name="593">593: </a></span>        Object syncObject = getSynchronizationObject();
+<span class="nocode"><a name="594">594: </a></span>        
+<span class="nocode"><a name="595">595: </a></span>        synchronized(syncObject) {
+<span class="nocode"><a name="596">596: </a></span>            if (fixedStmt != null) {
+<span class="nocode"><a name="597">597: </a></span>                try {
+<span class="nocode"><a name="598">598: </a></span>                    try {
+<span class="nocode"><a name="599">599: </a></span>                        closeResultSet(false);
+<span class="nocode"><a name="600">600: </a></span>
+<span class="nocode"><a name="601">601: </a></span>                    } finally {
+<span class="nocode"><a name="602">602: </a></span>                        //may need ensureTransaction?
+<span class="nocode"><a name="603">603: </a></span>                        if (fixedStmt.isValid())
+<span class="nocode"><a name="604">604: </a></span>                            gdsHelper.closeStatement(fixedStmt, true);
+<span class="nocode"><a name="605">605: </a></span>                    }
+<span class="nocode"><a name="606">606: </a></span>                } catch (GDSException ge) {
+<span class="nocode"><a name="607">607: </a></span>                    throw new FBSQLException(ge);
+<span class="nocode"><a name="608">608: </a></span>                } finally {
+<span class="nocode"><a name="609">609: </a></span>                    fixedStmt = null;
+<span class="nocode"><a name="610">610: </a></span>                }
+<span class="nocode"><a name="611">611: </a></span>            } 
+<span class="nocode"><a name="612">612: </a></span>        }
+<span class="nocode"><a name="613">613: </a></span>
+<span class="nocode"><a name="614">614: </a></span>        closed = true;
+<span class="nocode"><a name="615">615: </a></span>        statementListener.statementClosed(this);
+<span class="nocode"><a name="616">616: </a></span>    }
+<span class="nocode"><a name="617">617: </a></span>    
+<span class="nocode"><a name="618">618: </a></span>    /**
+<span class="nocode"><a name="619">619: </a></span>     * Check if this statement was closed. This is quick workaround to avoid
+<span class="nocode"><a name="620">620: </a></span>     * additional {@link #close()} in our cleanup code.
+<span class="nocode"><a name="621">621: </a></span>     * 
+<span class="nocode"><a name="622">622: </a></span>     * @return &lt;code&gt;true&lt;/code&gt; if this statement was already closed.
+<span class="nocode"><a name="623">623: </a></span>     */
+<span class="nocode"><a name="624">624: </a></span>    public boolean isClosed() {
+<span class="nocode"><a name="625">625: </a></span><span style="background-color: #ffffcc">        return closed;</span>
+<span class="nocode"><a name="626">626: </a></span>    }
+<span class="nocode"><a name="627">627: </a></span>
+<span class="nocode"><a name="628">628: </a></span>
+<span class="nocode"><a name="629">629: </a></span>    //----------------------------------------------------------------------
+<span class="nocode"><a name="630">630: </a></span>
+<span class="nocode"><a name="631">631: </a></span>    /**
+<span class="nocode"><a name="632">632: </a></span>     * Returns the maximum number of bytes allowed
+<span class="nocode"><a name="633">633: </a></span>     * for any column value.
+<span class="nocode"><a name="634">634: </a></span>     * This limit is the maximum number of bytes that can be
+<span class="nocode"><a name="635">635: </a></span>     * returned for any column value.
+<span class="nocode"><a name="636">636: </a></span>     * The limit applies only to &lt;code&gt;BINARY&lt;/code&gt;,
+<span class="nocode"><a name="637">637: </a></span>     * &lt;code&gt;VARBINARY&lt;/code&gt;, &lt;code&gt;LONGVARBINARY&lt;/code&gt;, &lt;code&gt;CHAR&lt;/code&gt;, &lt;code&gt;VARCHAR&lt;/code&gt;, and &lt;code&gt;LONGVARCHAR&lt;/code&gt;
+<span class="nocode"><a name="638">638: </a></span>     * columns.  If the limit is exceeded, the excess data is silently
+<span class="nocode"><a name="639">639: </a></span>     * discarded.
+<span class="nocode"><a name="640">640: </a></span>     *
+<span class="nocode"><a name="641">641: </a></span>     * @return the current max column size limit; zero means unlimited
+<span class="nocode"><a name="642">642: </a></span>     * @exception SQLException if a database access error occurs
+<span class="nocode"><a name="643">643: </a></span>     */
+<span class="nocode"><a name="644">644: </a></span>    public int getMaxFieldSize() throws  SQLException {
+<span class="nocode"><a name="645">645: </a></span>        return maxFieldSize;
+<span class="nocode"><a name="646">646: </a></span>    }
+<span class="nocode"><a name="647">647: </a></span>
+<span class="nocode"><a name="648">648: </a></span>
+<span class="nocode"><a name="649">649: </a></span>    /**
+<span class="nocode"><a name="650">650: </a></span>     * Sets the limit for the maximum number of bytes in a column to
+<span class="nocode"><a name="651">651: </a></span>     * the given number of bytes.  This is the maximum number of bytes
+<span class="nocode"><a name="652">652: </a></span>     * that can be returned for any column value.  This limit applies
+<span class="nocode"><a name="653">653: </a></span>     * only to &lt;code&gt;BINARY&lt;/code&gt;, &lt;code&gt;VARBINARY&lt;/code&gt;,
+<span class="nocode"><a name="654">654: </a></span>     * &lt;code&gt;LONGVARBINARY&lt;/code&gt;, &lt;code&gt;CHAR&lt;/code&gt;, &lt;code&gt;VARCHAR&lt;/code&gt;, and
+<span class="nocode"><a name="655">655: </a></span>     * &lt;code&gt;LONGVARCHAR&lt;/code&gt; fields.  If the limit is exceeded, the excess data
+<span class="nocode"><a name="656">656: </a></span>     * is silently discarded. For maximum portability, use values
+<span class="nocode"><a name="657">657: </a></span>     * greater than 256.
+<span class="nocode"><a name="658">658: </a></span>     *
+<span class="nocode"><a name="659">659: </a></span>     * @param max the new max column size limit; zero means unlimited
+<span class="nocode"><a name="660">660: </a></span>     * @exception SQLException if a database access error occurs
+<span class="nocode"><a name="661">661: </a></span>     */
+<span class="nocode"><a name="662">662: </a></span>    public void setMaxFieldSize(int max) throws  SQLException {
+<span class="nocode"><a name="663">663: </a></span>        if (max&lt;0)
+<span class="nocode"><a name="664">664: </a></span>            throw new FBSQLException(&quot;Can't set max field size negative&quot;,
+<span class="nocode"><a name="665">665: </a></span>                    FBSQLException.SQL_STATE_INVALID_ARG_VALUE);
+<span class="nocode"><a name="666">666: </a></span>        else
+<span class="nocode"><a name="667">667: </a></span>            maxFieldSize = max;
+<span class="nocode"><a name="668">668: </a></span>    }
+<span class="nocode"><a name="669">669: </a></span>
+<span class="nocode"><a name="670">670: </a></span>
+<span class="nocode"><a name="671">671: </a></span>    /**
+<span class="nocode"><a name="672">672: </a></span>     * Retrieves the maximum number of rows that a
+<span class="nocode"><a name="673">673: </a></span>     * &lt;code&gt;ResultSet&lt;/code&gt; object can contain.  If the limit is exceeded, the excess
+<span class="nocode"><a name="674">674: </a></span>     * rows are silently dropped.
+<span class="nocode"><a name="675">675: </a></span>     *
+<span class="nocode"><a name="676">676: </a></span>     * @return the current max row limit; zero means unlimited
+<span class="nocode"><a name="677">677: </a></span>     * @exception SQLException if a database access error occurs
+<span class="nocode"><a name="678">678: </a></span>     */
+<span class="nocode"><a name="679">679: </a></span>    public int getMaxRows() throws  SQLException {
+<span class="nocode"><a name="680">680: </a></span>        return maxRows;
+<span class="nocode"><a name="681">681: </a></span>    }
+<span class="nocode"><a name="682">682: </a></span>
+<span class="nocode"><a name="683">683: </a></span>
+<span class="nocode"><a name="684">684: </a></span>    /**
+<span class="nocode"><a name="685">685: </a></span>     * Sets the limit for the maximum number of rows that any
+<span class="nocode"><a name="686">686: </a></span>     * &lt;code&gt;ResultSet&lt;/code&gt; object can contain to the given number.
+<span class="nocode"><a name="687">687: </a></span>     * If the limit is exceeded, the excess
+<span class="nocode"><a name="688">688: </a></span>     * rows are silently dropped.
+<span class="nocode"><a name="689">689: </a></span>     *
+<span class="nocode"><a name="690">690: </a></span>     * @param max the new max rows limit; zero means unlimited
+<span class="nocode"><a name="691">691: </a></span>     * @exception SQLException if a database access error occurs
+<span class="nocode"><a name="692">692: </a></span>     */
+<span class="nocode"><a name="693">693: </a></span>    public void setMaxRows(int max) throws  SQLException {
+<span class="nocode"><a name="694">694: </a></span>        if (max&lt;0)
+<span class="nocode"><a name="695">695: </a></span>            throw new FBSQLException(&quot;Max rows can't be less than 0&quot;,
+<span class="nocode"><a name="696">696: </a></span>                    FBSQLException.SQL_STATE_INVALID_ARG_VALUE);
+<span class="nocode"><a name="697">697: </a></span>        else
+<span class="nocode"><a name="698">698: </a></span>            maxRows = max;
+<span class="nocode"><a name="699">699: </a></span>    }
+<span class="nocode"><a name="700">700: </a></span>
+<span class="nocode"><a name="701">701: </a></span>
+<span class="nocode"><a name="702">702: </a></span>    /**
+<span class="nocode"><a name="703">703: </a></span>     * Sets escape processing on or off.
+<span class="nocode"><a name="704">704: </a></span>     * If escape scanning is on (the default), the driver will do
+<span class="nocode"><a name="705">705: </a></span>     * escape substitution before sending the SQL to the database.
+<span class="nocode"><a name="706">706: </a></span>     *
+<span class="nocode"><a name="707">707: </a></span>     * Note: Since prepared statements have usually been parsed prior
+<span class="nocode"><a name="708">708: </a></span>     * to making this call, disabling escape processing for prepared
+<span class="nocode"><a name="709">709: </a></span>     * statements will have no effect.
+<span class="nocode"><a name="710">710: </a></span>     *
+<span class="nocode"><a name="711">711: </a></span>     * @param enable &lt;code&gt;true&lt;/code&gt; to enable; &lt;code&gt;false&lt;/code&gt; to disable
+<span class="nocode"><a name="712">712: </a></span>     * @exception SQLException if a database access error occurs
+<span class="nocode"><a name="713">713: </a></span>     */
+<span class="nocode"><a name="714">714: </a></span>    public void setEscapeProcessing(boolean enable) throws  SQLException {
+<span class="nocode"><a name="715">715: </a></span>        escapedProcessing = enable;
+<span class="nocode"><a name="716">716: </a></span>    }
+<span class="nocode"><a name="717">717: </a></span>
+<span class="nocode"><a name="718">718: </a></span>
+<span class="nocode"><a name="719">719: </a></span>    /**
+<span class="nocode"><a name="720">720: </a></span>     * Retrieves the number of seconds the driver will
+<span class="nocode"><a name="721">721: </a></span>     * wait for a &lt;code&gt;Statement&lt;/code&gt; object to execute. If the limit is exceeded, a
+<span class="nocode"><a name="722">722: </a></span>     * &lt;code&gt;SQLException&lt;/code&gt; is thrown.
+<span class="nocode"><a name="723">723: </a></span>     *
+<span class="nocode"><a name="724">724: </a></span>     * @return the current query timeout limit in seconds; zero means unlimited
+<span class="nocode"><a name="725">725: </a></span>     * @exception SQLException if a database access error occurs
+<span class="nocode"><a name="726">726: </a></span>     */
+<span class="nocode"><a name="727">727: </a></span>    public int getQueryTimeout() throws  SQLException {
+<span class="nocode"><a name="728">728: </a></span>        return queryTimeout;
+<span class="nocode"><a name="729">729: </a></span>    }
+<span class="nocode"><a name="730">730: </a></span>
+<span class="nocode"><a name="731">731: </a></span>
+<span class="nocode"><a name="732">732: </a></span>    /**
+<span class="nocode"><a name="733">733: </a></span>     * Sets the number of seconds the driver will
+<span class="nocode"><a name="734">734: </a></span>     * wait for a &lt;code&gt;Statement&lt;/code&gt; object to execute to the given number of seconds.
+<span class="nocode"><a name="735">735: </a></span>     * If the limit is exceeded, an &lt;code&gt;SQLException&lt;/code&gt; is thrown.
+<span class="nocode"><a name="736">736: </a></span>     *
+<span class="nocode"><a name="737">737: </a></span>     * @param seconds the new query timeout limit in seconds; zero means
+<span class="nocode"><a name="738">738: </a></span>     * unlimited
+<span class="nocode"><a name="739">739: </a></span>     * @exception SQLException if a database access error occurs
+<span class="nocode"><a name="740">740: </a></span>     */
+<span class="nocode"><a name="741">741: </a></span>    public void setQueryTimeout(int seconds) throws  SQLException {
+<span class="nocode"><a name="742">742: </a></span>        if (seconds&lt;0)
+<span class="nocode"><a name="743">743: </a></span>            throw new FBSQLException(&quot;Can't set query timeout negative&quot;,
+<span class="nocode"><a name="744">744: </a></span>                    FBSQLException.SQL_STATE_INVALID_ARG_VALUE);
+<span class="nocode"><a name="745">745: </a></span>        else
+<span class="nocode"><a name="746">746: </a></span>            queryTimeout = seconds;
+<span class="nocode"><a name="747">747: </a></span>    }
+<span class="nocode"><a name="748">748: </a></span>
+<span class="nocode"><a name="749">749: </a></span>
+<span class="nocode"><a name="750">750: </a></span>    /**
+<span class="nocode"><a name="751">751: </a></span>     * Cancels this &lt;code&gt;Statement&lt;/code&gt; object if both the DBMS and
+<span class="nocode"><a name="752">752: </a></span>     * driver support aborting an SQL statement.
+<span class="nocode"><a name="753">753: </a></span>     * This method can be used by one thread to cancel a statement that
+<span class="nocode"><a name="754">754: </a></span>     * is being executed by another thread.
+<span class="nocode"><a name="755">755: </a></span>     *
+<span class="nocode"><a name="756">756: </a></span>     * @exception SQLException if a database access error occurs
+<span class="nocode"><a name="757">757: </a></span>     */
+<span class="nocode"><a name="758">758: </a></span>    public void cancel() throws  SQLException {
+<span class="nocode"><a name="759">759: </a></span>        try {
+<span class="nocode"><a name="760">760: </a></span>            gdsHelper.cancelOperation();
+<span class="nocode"><a name="761">761: </a></span>        } catch(GDSException ex) {
+<span class="nocode"><a name="762">762: </a></span>            throw new FBSQLException(ex);
+<span class="nocode"><a name="763">763: </a></span>        }
+<span class="nocode"><a name="764">764: </a></span>    }
+<span class="nocode"><a name="765">765: </a></span>
+<span class="nocode"><a name="766">766: </a></span>
+<span class="nocode"><a name="767">767: </a></span>    /**
+<span class="nocode"><a name="768">768: </a></span>     * Retrieves the first warning reported by calls on this &lt;code&gt;Statement&lt;/code&gt; object.
+<span class="nocode"><a name="769">769: </a></span>     * Subsequent &lt;code&gt;Statement&lt;/code&gt; object warnings will be chained to this
+<span class="nocode"><a name="770">770: </a></span>     * &lt;code&gt;SQLWarning&lt;/code&gt; object.
+<span class="nocode"><a name="771">771: </a></span>     *
+<span class="nocode"><a name="772">772: </a></span>     * &lt;p&gt;The warning chain is automatically cleared each time
+<span class="nocode"><a name="773">773: </a></span>     * a statement is (re)executed.
+<span class="nocode"><a name="774">774: </a></span>     *
+<span class="nocode"><a name="775">775: </a></span>     * &lt;P&gt;&lt;B&gt;Note:&lt;/B&gt; If you are processing a &lt;code&gt;ResultSet&lt;/code&gt; object, any
+<span class="nocode"><a name="776">776: </a></span>     * warnings associated with reads on that &lt;code&gt;ResultSet&lt;/code&gt; object
+<span class="nocode"><a name="777">777: </a></span>     * will be chained on it.
+<span class="nocode"><a name="778">778: </a></span>     *
+<span class="nocode"><a name="779">779: </a></span>     * @return the first &lt;code&gt;SQLWarning&lt;/code&gt; object or &lt;code&gt;null&lt;/code&gt;
+<span class="nocode"><a name="780">780: </a></span>     * @exception SQLException if a database access error occurs
+<span class="nocode"><a name="781">781: </a></span>     */
+<span class="nocode"><a name="782">782: </a></span>    public SQLWarning getWarnings() throws  SQLException {
+<span class="nocode"><a name="783">783: </a></span>        return firstWarning;
+<span class="nocode"><a name="784">784: </a></span>    }
+<span class="nocode"><a name="785">785: </a></span>
+<span class="nocode"><a name="786">786: </a></span>
+<span class="nocode"><a name="787">787: </a></span>    /**
+<span class="nocode"><a name="788">788: </a></span>     * Clears all the warnings reported on this &lt;code&gt;Statement&lt;/code&gt;
+<span class="nocode"><a name="789">789: </a></span>     * object. After a call to this method,
+<span class="nocode"><a name="790">790: </a></span>     * the method &lt;code&gt;getWarnings&lt;/code&gt; will return
+<span class="nocode"><a name="791">791: </a></span>     * &lt;code&gt;null&lt;/code&gt; until a new warning is reported for this
+<span class="nocode"><a name="792">792: </a></span>     * &lt;code&gt;Statement&lt;/code&gt; object.
+<span class="nocode"><a name="793">793: </a></span>     *
+<span class="nocode"><a name="794">794: </a></span>     * @exception SQLException if a database access error occurs
+<span class="nocode"><a name="795">795: </a></span>     */
+<span class="nocode"><a name="796">796: </a></span>    public void clearWarnings() throws  SQLException {
+<span class="nocode"><a name="797">797: </a></span>        firstWarning = null;
+<span class="nocode"><a name="798">798: </a></span>    }
+<span class="nocode"><a name="799">799: </a></span>
+<span class="nocode"><a name="800">800: </a></span>
+<span class="nocode"><a name="801">801: </a></span>    /**
+<span class="nocode"><a name="802">802: </a></span>     * Defines the SQL cursor name that will be used by
+<span class="nocode"><a name="803">803: </a></span>     * subsequent &lt;code&gt;Statement&lt;/code&gt; object &lt;code&gt;execute&lt;/code&gt; methods.
+<span class="nocode"><a name="804">804: </a></span>     * This name can then be
+<span class="nocode"><a name="805">805: </a></span>     * used in SQL positioned update/delete statements to identify the
+<span class="nocode"><a name="806">806: </a></span>     * current row in the &lt;code&gt;ResultSet&lt;/code&gt; object generated by this statement.  If
+<span class="nocode"><a name="807">807: </a></span>     * the database doesn't support positioned update/delete, this
+<span class="nocode"><a name="808">808: </a></span>     * method is a noop.  To insure that a cursor has the proper isolation
+<span class="nocode"><a name="809">809: </a></span>     * level to support updates, the cursor's &lt;code&gt;SELECT&lt;/code&gt; statement should be
+<span class="nocode"><a name="810">810: </a></span>     * of the form 'select for update ...'. If the 'for update' phrase is
+<span class="nocode"><a name="811">811: </a></span>     * omitted, positioned updates may fail.
+<span class="nocode"><a name="812">812: </a></span>     *
+<span class="nocode"><a name="813">813: </a></span>     * &lt;P&gt;&lt;B&gt;Note:&lt;/B&gt; By definition, positioned update/delete
+<span class="nocode"><a name="814">814: </a></span>     * execution must be done by a different &lt;code&gt;Statement&lt;/code&gt; object than the one
+<span class="nocode"><a name="815">815: </a></span>     * which generated the &lt;code&gt;ResultSet&lt;/code&gt; object being used for positioning. Also,
+<span class="nocode"><a name="816">816: </a></span>     * cursor names must be unique within a connection.
+<span class="nocode"><a name="817">817: </a></span>     *
+<span class="nocode"><a name="818">818: </a></span>     * @param name the new cursor name, which must be unique within
+<span class="nocode"><a name="819">819: </a></span>     *             a connection
+<span class="nocode"><a name="820">820: </a></span>     * @exception SQLException if a database access error occurs
+<span class="nocode"><a name="821">821: </a></span>     */
+<span class="nocode"><a name="822">822: </a></span>    public void setCursorName(String name) throws  SQLException {
+<span class="nocode"><a name="823">823: </a></span>        this.cursorName = name;
+<span class="nocode"><a name="824">824: </a></span>    }
+<span class="nocode"><a name="825">825: </a></span>
+<span class="nocode"><a name="826">826: </a></span>    boolean isUpdatableCursor() {
+<span class="nocode"><a name="827">827: </a></span>        return cursorName != null;
+<span class="nocode"><a name="828">828: </a></span>    }
+<span class="nocode"><a name="829">829: </a></span>
+<span class="nocode"><a name="830">830: </a></span>    //----------------------- Multiple Results --------------------------
+<span class="nocode"><a name="831">831: </a></span>
+<span class="nocode"><a name="832">832: </a></span>    /**
+<span class="nocode"><a name="833">833: </a></span>     * Executes an SQL statement that may return multiple results.
+<span class="nocode"><a name="834">834: </a></span>     * Under some (uncommon) situations a single SQL statement may return
+<span class="nocode"><a name="835">835: </a></span>     * multiple result sets and/or update counts.  Normally you can ignore
+<span class="nocode"><a name="836">836: </a></span>     * this unless you are (1) executing a stored procedure that you know may
+<span class="nocode"><a name="837">837: </a></span>     * return multiple results or (2) you are dynamically executing an
+<span class="nocode"><a name="838">838: </a></span>     * unknown SQL string.  The  methods &lt;code&gt;execute&lt;/code&gt;,
+<span class="nocode"><a name="839">839: </a></span>     * &lt;code&gt;getMoreResults&lt;/code&gt;, &lt;code&gt;getResultSet&lt;/code&gt;,
+<span class="nocode"><a name="840">840: </a></span>     * and &lt;code&gt;getUpdateCount&lt;/code&gt; let you navigate through multiple results.
+<span class="nocode"><a name="841">841: </a></span>     *
+<span class="nocode"><a name="842">842: </a></span>     * The &lt;code&gt;execute&lt;/code&gt; method executes an SQL statement and indicates the
+<span class="nocode"><a name="843">843: </a></span>     * form of the first result.  You can then use the methods
+<span class="nocode"><a name="844">844: </a></span>     * &lt;code&gt;getResultSet&lt;/code&gt; or &lt;code&gt;getUpdateCount&lt;/code&gt;
+<span class="nocode"><a name="845">845: </a></span>     * to retrieve the result, and &lt;code&gt;getMoreResults&lt;/code&gt; to
+<span class="nocode"><a name="846">846: </a></span>     * move to any subsequent result(s).
+<span class="nocode"><a name="847">847: </a></span>     *
+<span class="nocode"><a name="848">848: </a></span>     * @param sql any SQL statement
+<span class="nocode"><a name="849">849: </a></span>     * @return &lt;code&gt;true&lt;/code&gt; if the next result is a &lt;code&gt;ResultSet&lt;/code&gt; object;
+<span class="nocode"><a name="850">850: </a></span>     * &lt;code&gt;false&lt;/code&gt; if it is an update count or there are no more results
+<span class="nocode"><a name="851">851: </a></span>     * @exception SQLException if a database access error occurs
+<span class="nocode"><a name="852">852: </a></span>     * @see #getResultSet
+<span class="nocode"><a name="853">853: </a></span>     * @see #getUpdateCount
+<span class="nocode"><a name="854">854: </a></span>     * @see #getMoreResults
+<span class="nocode"><a name="855">855: </a></span>     */
+<span class="nocode"><a name="856">856: </a></span>    public boolean execute(String sql) throws SQLException {
+<span class="nocode"><a name="857">857: </a></span>        checkValidity();
+<span class="nocode"><a name="858">858: </a></span>
+<span class="nocode"><a name="859">859: </a></span>        Object syncObject = getSynchronizationObject();
+<span class="nocode"><a name="860">860: </a></span>        synchronized (syncObject) {
+<span class="nocode"><a name="861">861: </a></span>            notifyStatementStarted();
+<span class="nocode"><a name="862">862: </a></span>
+<span class="nocode"><a name="863">863: </a></span>            boolean hasResultSet = false;
+<span class="nocode"><a name="864">864: </a></span>            try {
+<span class="nocode"><a name="865">865: </a></span>                try {
+<span class="nocode"><a name="866">866: </a></span>                    hasResultSet = internalExecute(sql);
+<span class="nocode"><a name="867">867: </a></span>                } catch (GDSException ge) {
+<span class="nocode"><a name="868">868: </a></span>                    throw new FBSQLException(ge);
+<span class="nocode"><a name="869">869: </a></span>                }
+<span class="nocode"><a name="870">870: </a></span>            } finally {
+<span class="nocode"><a name="871">871: </a></span>                if (!hasResultSet) {
+<span class="nocode"><a name="872">872: </a></span>                    notifyStatementCompleted();
+<span class="nocode"><a name="873">873: </a></span>                }
+<span class="nocode"><a name="874">874: </a></span>
+<span class="nocode"><a name="875">875: </a></span>            }
+<span class="nocode"><a name="876">876: </a></span>            return hasResultSet;
+<span class="nocode"><a name="877">877: </a></span>
+<span class="nocode"><a name="878">878: </a></span>        }
+<span class="nocode"><a name="879">879: </a></span>    }
+<span class="nocode"><a name="880">880: </a></span>
+<span class="nocode"><a name="881">881: </a></span>    /**
+<span class="nocode"><a name="882">882: </a></span>     *  Returns the current result as a &lt;code&gt;ResultSet&lt;/code&gt; object.
+<span class="nocode"><a name="883">883: </a></span>     *  This method should be called only once per result.
+<span class="nocode"><a name="884">884: </a></span>     * Calling this method twice with autocommit on and used will probably
+<span class="nocode"><a name="885">885: </a></span>     * throw an inappropriate or uninformative exception.
+<span class="nocode"><a name="886">886: </a></span>     *
+<span class="nocode"><a name="887">887: </a></span>     * @return the current result as a &lt;code&gt;ResultSet&lt;/code&gt; object;
+<span class="nocode"><a name="888">888: </a></span>     * &lt;code&gt;null&lt;/code&gt; if the result is an update count or there are no more results
+<span class="nocode"><a name="889">889: </a></span>     * @exception SQLException if a database access error occurs
+<span class="nocode"><a name="890">890: </a></span>     * @see #execute
+<span class="nocode"><a name="891">891: </a></span>     */
+<span class="nocode"><a name="892">892: </a></span>    public ResultSet getResultSet() throws SQLException {
+<span class="nocode"><a name="893">893: </a></span>        return getResultSet(false);
+<span class="nocode"><a name="894">894: </a></span>    }
+<span class="nocode"><a name="895">895: </a></span>    public ResultSet getResultSet(boolean metaDataQuery) throws  SQLException {
+<span class="nocode"><a name="896">896: </a></span>        try {
+<span class="nocode"><a name="897">897: </a></span>            if (cursorName != null)
+<span class="nocode"><a name="898">898: </a></span>                gdsHelper.setCursorName(fixedStmt, cursorName);
+<span class="nocode"><a name="899">899: </a></span>        } catch(GDSException ex) {
+<span class="nocode"><a name="900">900: </a></span>            throw new FBSQLException(ex);
+<span class="nocode"><a name="901">901: </a></span>        }
+<span class="nocode"><a name="902">902: </a></span>        
+<span class="nocode"><a name="903">903: </a></span>        
+<span class="nocode"><a name="904">904: </a></span>        if (currentRs != null) {
+<span class="nocode"><a name="905">905: </a></span>            throw new FBSQLException(&quot;Only one resultset at a time/statement.&quot;);
+<span class="nocode"><a name="906">906: </a></span>        }
+<span class="nocode"><a name="907">907: </a></span>        if (fixedStmt == null) {
+<span class="nocode"><a name="908">908: </a></span>            throw new FBSQLException(&quot;No statement was executed.&quot;);
+<span class="nocode"><a name="909">909: </a></span>        }
+<span class="nocode"><a name="910">910: </a></span>        else {
+<span class="nocode"><a name="911">911: </a></span>            if (isResultSet) {
+<span class="nocode"><a name="912">912: </a></span>                currentRs = new FBResultSet(gdsHelper, this, fixedStmt,
+<span class="nocode"><a name="913">913: </a></span>                        resultSetListener, metaDataQuery, rsType, rsConcurrency, 
+<span class="nocode"><a name="914">914: </a></span>                        rsHoldability, false);
+<span class="nocode"><a name="915">915: </a></span>                
+<span class="nocode"><a name="916">916: </a></span>                return currentRs;
+<span class="nocode"><a name="917">917: </a></span>            } else
+<span class="nocode"><a name="918">918: </a></span>                return null;
+<span class="nocode"><a name="919">919: </a></span>        } // end of else
+<span class="nocode"><a name="920">920: </a></span>    }
+<span class="nocode"><a name="921">921: </a></span>
+<span class="nocode"><a name="922">922: </a></span>	public boolean hasOpenResultSet() {
+<span class="nocode"><a name="923">923: </a></span>		return currentRs != null;
+<span class="nocode"><a name="924">924: </a></span>	}
+<span class="nocode"><a name="925">925: </a></span>
+<span class="nocode"><a name="926">926: </a></span>    /**
+<span class="nocode"><a name="927">927: </a></span>     *  Returns the current result as an update count;
+<span class="nocode"><a name="928">928: </a></span>     *  if the result is a &lt;code&gt;ResultSet&lt;/code&gt; object or there are no more results, -1
+<span class="nocode"><a name="929">929: </a></span>     *  is returned. This method should be called only once per result.
+<span class="nocode"><a name="930">930: </a></span>     *
+<span class="nocode"><a name="931">931: </a></span>     * @return the current result as an update count; -1 if the current result is a
+<span class="nocode"><a name="932">932: </a></span>     * &lt;code&gt;ResultSet&lt;/code&gt; object or there are no more results
+<span class="nocode"><a name="933">933: </a></span>     * @exception SQLException if a database access error occurs
+<span class="nocode"><a name="934">934: </a></span>     * @see #execute
+<span class="nocode"><a name="935">935: </a></span>     */
+<span class="nocode"><a name="936">936: </a></span>    public int getUpdateCount() throws  SQLException {
+<span class="nocode"><a name="937">937: </a></span>        if (isResultSet || !hasMoreResults)
+<span class="nocode"><a name="938">938: </a></span>            return -1;
+<span class="nocode"><a name="939">939: </a></span>        else {
+<span class="nocode"><a name="940">940: </a></span>            try {
+<span class="nocode"><a name="941">941: </a></span>                gdsHelper.getSqlCounts(fixedStmt);
+<span class="nocode"><a name="942">942: </a></span>                int insCount = fixedStmt.getInsertCount();
+<span class="nocode"><a name="943">943: </a></span>                int updCount = fixedStmt.getUpdateCount();
+<span class="nocode"><a name="944">944: </a></span>                int delCount = fixedStmt.getDeleteCount();
+<span class="nocode"><a name="945">945: </a></span>                int resCount = ((updCount&gt;delCount) ? updCount:delCount);
+<span class="nocode"><a name="946">946: </a></span>                resCount = ((resCount&gt;insCount) ? resCount:insCount);
+<span class="nocode"><a name="947">947: </a></span>                return resCount;
+<span class="nocode"><a name="948">948: </a></span>            }
+<span class="nocode"><a name="949">949: </a></span>            catch (GDSException ge) {
+<span class="nocode"><a name="950">950: </a></span>                throw new FBSQLException(ge);
+<span class="nocode"><a name="951">951: </a></span>            } finally {
+<span class="nocode"><a name="952">952: </a></span>                hasMoreResults = false;
+<span class="nocode"><a name="953">953: </a></span>            }
+<span class="nocode"><a name="954">954: </a></span>        }
+<span class="nocode"><a name="955">955: </a></span>    }
+<span class="nocode"><a name="956">956: </a></span>
+<span class="nocode"><a name="957">957: </a></span>    private static final int INSERTED_ROWS_COUNT = 1;
+<span class="nocode"><a name="958">958: </a></span>    private static final int UPDATED_ROWS_COUNT = 2;
+<span class="nocode"><a name="959">959: </a></span>    private static final int DELETED_ROWS_COUNT = 3;
+<span class="nocode"><a name="960">960: </a></span>    
+<span class="nocode"><a name="961">961: </a></span>	private int getChangedRowsCount(int type) throws SQLException {
+<span class="nocode"><a name="962">962: </a></span>        if (isResultSet || !hasMoreResults)
+<span class="nocode"><a name="963">963: </a></span>            return -1;
+<span class="nocode"><a name="964">964: </a></span>        else {
+<span class="nocode"><a name="965">965: </a></span>        	try {
+<span class="nocode"><a name="966">966: </a></span>        		gdsHelper.getSqlCounts(fixedStmt);
+<span class="nocode"><a name="967">967: </a></span>                switch(type) {
+<span class="nocode"><a name="968">968: </a></span>                    case INSERTED_ROWS_COUNT :
+<span class="nocode"><a name="969">969: </a></span>                    	return fixedStmt.getInsertCount();
+<span class="nocode"><a name="970">970: </a></span>                    case UPDATED_ROWS_COUNT :
+<span class="nocode"><a name="971">971: </a></span>                        return fixedStmt.getUpdateCount();
+<span class="nocode"><a name="972">972: </a></span>                    case DELETED_ROWS_COUNT :
+<span class="nocode"><a name="973">973: </a></span>                        return fixedStmt.getDeleteCount();
+<span class="nocode"><a name="974">974: </a></span>                    default :
+<span class="nocode"><a name="975">975: </a></span>                        throw new IllegalArgumentException(
+<span class="nocode"><a name="976">976: </a></span>                            &quot;Specified type is unknown.&quot;);
+<span class="nocode"><a name="977">977: </a></span>                }
+<span class="nocode"><a name="978">978: </a></span>            } catch(GDSException ex) {
+<span class="nocode"><a name="979">979: </a></span>            	throw new FBSQLException(ex);
+<span class="nocode"><a name="980">980: </a></span>            }
+<span class="nocode"><a name="981">981: </a></span>        }
+<span class="nocode"><a name="982">982: </a></span>	}
+<span class="nocode"><a name="983">983: </a></span>    
+<span class="nocode"><a name="984">984: </a></span>    public int getDeletedRowsCount() throws SQLException {
+<span class="nocode"><a name="985">985: </a></span>    	return getChangedRowsCount(DELETED_ROWS_COUNT);
+<span class="nocode"><a name="986">986: </a></span>    }
+<span class="nocode"><a name="987">987: </a></span>
+<span class="nocode"><a name="988">988: </a></span>	public int getInsertedRowsCount() throws SQLException {
+<span class="nocode"><a name="989">989: </a></span>		return getChangedRowsCount(INSERTED_ROWS_COUNT);
+<span class="nocode"><a name="990">990: </a></span>	}
+<span class="nocode"><a name="991">991: </a></span>
+<span class="nocode"><a name="992">992: </a></span>	public int getUpdatedRowsCount() throws SQLException {
+<span class="nocode"><a name="993">993: </a></span>		return getChangedRowsCount(UPDATED_ROWS_COUNT);
+<span class="nocode"><a name="994">994: </a></span>	}
+<span class="nocode"><a name="995">995: </a></span>
+<span class="nocode"><a name="996">996: </a></span>    /**
+<span class="nocode"><a name="997">997: </a></span>     * Moves to a &lt;code&gt;Statement&lt;/code&gt; object's next result.  It returns
+<span class="nocode"><a name="998">998: </a></span>     * &lt;code&gt;true&lt;/code&gt; if this result is a &lt;code&gt;ResultSet&lt;/code&gt; object.
+<span class="nocode"><a name="999">999: </a></span>     * This method also implicitly closes any current &lt;code&gt;ResultSet&lt;/code&gt;
+<span class="nocode"><a name="1000">1000: </a></span>     * object obtained with the method &lt;code&gt;getResultSet&lt;/code&gt;.
+<span class="nocode"><a name="1001">1001: </a></span>     *
+<span class="nocode"><a name="1002">1002: </a></span>     * &lt;P&gt;There are no more results when the following is true:
+<span class="nocode"><a name="1003">1003: </a></span>     * &lt;PRE&gt;
+<span class="nocode"><a name="1004">1004: </a></span>     *      &lt;code&gt;(!getMoreResults() &amp;&amp; (getUpdateCount() == -1)&lt;/code&gt;
+<span class="nocode"><a name="1005">1005: </a></span>     * &lt;/PRE&gt;
+<span class="nocode"><a name="1006">1006: </a></span>     *
+<span class="nocode"><a name="1007">1007: </a></span>     * @return &lt;code&gt;true&lt;/code&gt; if the next result is a &lt;code&gt;ResultSet&lt;/code&gt; object;
+<span class="nocode"><a name="1008">1008: </a></span>     * &lt;code&gt;false&lt;/code&gt; if it is an update count or there are no more results
+<span class="nocode"><a name="1009">1009: </a></span>     * @exception SQLException if a database access error occurs
+<span class="nocode"><a name="1010">1010: </a></span>     * @see #execute
+<span class="nocode"><a name="1011">1011: </a></span>     */
+<span class="nocode"><a name="1012">1012: </a></span>    public boolean getMoreResults() throws  SQLException {
+<span class="nocode"><a name="1013">1013: </a></span>        return getMoreResults(Statement.CLOSE_ALL_RESULTS);
+<span class="nocode"><a name="1014">1014: </a></span>    }
+<span class="nocode"><a name="1015">1015: </a></span>        
+<span class="nocode"><a name="1016">1016: </a></span>    public boolean getMoreResults(int mode) throws SQLException {
+<span class="nocode"><a name="1017">1017: </a></span>        
+<span class="nocode"><a name="1018">1018: </a></span>        hasMoreResults = false;
+<span class="nocode"><a name="1019">1019: </a></span>
+<span class="nocode"><a name="1020">1020: </a></span>        boolean closeResultSet = mode == Statement.CLOSE_ALL_RESULTS
+<span class="nocode"><a name="1021">1021: </a></span>                || mode == Statement.CLOSE_CURRENT_RESULT;
+<span class="nocode"><a name="1022">1022: </a></span>        
+<span class="nocode"><a name="1023">1023: </a></span>        if (closeResultSet &amp;&amp; currentRs != null) {
+<span class="nocode"><a name="1024">1024: </a></span>            try {
+<span class="nocode"><a name="1025">1025: </a></span>                currentRs.close();
+<span class="nocode"><a name="1026">1026: </a></span>            } finally {
+<span class="nocode"><a name="1027">1027: </a></span>                currentRs = null;
+<span class="nocode"><a name="1028">1028: </a></span>            }
+<span class="nocode"><a name="1029">1029: </a></span>        }
+<span class="nocode"><a name="1030">1030: </a></span>        
+<span class="nocode"><a name="1031">1031: </a></span>        return hasMoreResults;
+<span class="nocode"><a name="1032">1032: </a></span>    }
+<span class="nocode"><a name="1033">1033: </a></span>
+<span class="nocode"><a name="1034">1034: </a></span>
+<span class="nocode"><a name="1035">1035: </a></span>    //--------------------------JDBC 2.0-----------------------------
+<span class="nocode"><a name="1036">1036: </a></span>
+<span class="nocode"><a name="1037">1037: </a></span>
+<span class="nocode"><a name="1038">1038: </a></span>    /**
+<span class="nocode"><a name="1039">1039: </a></span>     * Gives the driver a hint as to the direction in which
+<span class="nocode"><a name="1040">1040: </a></span>     * the rows in a result set
+<span class="nocode"><a name="1041">1041: </a></span>     * will be processed. The hint applies only to result sets created
+<span class="nocode"><a name="1042">1042: </a></span>     * using this &lt;code&gt;Statement&lt;/code&gt; object.  The default value is
+<span class="nocode"><a name="1043">1043: </a></span>     * &lt;code&gt;ResultSet.FETCH_FORWARD&lt;/code&gt;.
+<span class="nocode"><a name="1044">1044: </a></span>     * &lt;p&gt;Note that this method sets the default fetch direction for
+<span class="nocode"><a name="1045">1045: </a></span>     * result sets generated by this &lt;code&gt;Statement&lt;/code&gt; object.
+<span class="nocode"><a name="1046">1046: </a></span>     * Each result set has its own methods for getting and setting
+<span class="nocode"><a name="1047">1047: </a></span>     * its own fetch direction.
+<span class="nocode"><a name="1048">1048: </a></span>     * @param direction the initial direction for processing rows
+<span class="nocode"><a name="1049">1049: </a></span>     * @exception SQLException if a database access error occurs
+<span class="nocode"><a name="1050">1050: </a></span>     * or the given direction
+<span class="nocode"><a name="1051">1051: </a></span>     * is not one of &lt;code&gt;ResultSet.FETCH_FORWARD&lt;/code&gt;,
+<span class="nocode"><a name="1052">1052: </a></span>     * &lt;code&gt;ResultSet.FETCH_REVERSE&lt;/code&gt;, or &lt;code&gt;ResultSet.FETCH_UNKNOWN&lt;/code&gt;
+<span class="nocode"><a name="1053">1053: </a></span>     * @since 1.2
+<span class="nocode"><a name="1054">1054: </a></span>     * @see &lt;a href=&quot;package-summary.html#2.0 API&quot;&gt;What Is in the JDBC
+<span class="nocode"><a name="1055">1055: </a></span>     *      2.0 API&lt;/a&gt;
+<span class="nocode"><a name="1056">1056: </a></span>     */
+<span class="nocode"><a name="1057">1057: </a></span>    public void setFetchDirection(int direction) throws  SQLException {
+<span class="nocode"><a name="1058">1058: </a></span>        if (direction != ResultSet.FETCH_FORWARD)
+<span class="nocode"><a name="1059">1059: </a></span>            throw new FBDriverNotCapableException();
+<span class="nocode"><a name="1060">1060: </a></span>    }
+<span class="nocode"><a name="1061">1061: </a></span>
+<span class="nocode"><a name="1062">1062: </a></span>
+<span class="nocode"><a name="1063">1063: </a></span>    /**
+<span class="nocode"><a name="1064">1064: </a></span>     * Retrieves the direction for fetching rows from
+<span class="nocode"><a name="1065">1065: </a></span>     * database tables that is the default for result sets
+<span class="nocode"><a name="1066">1066: </a></span>     * generated from this &lt;code&gt;Statement&lt;/code&gt; object.
+<span class="nocode"><a name="1067">1067: </a></span>     * If this &lt;code&gt;Statement&lt;/code&gt; object has not set
+<span class="nocode"><a name="1068">1068: </a></span>     * a fetch direction by calling the method &lt;code&gt;setFetchDirection&lt;/code&gt;,
+<span class="nocode"><a name="1069">1069: </a></span>     * the return value is implementation-specific.
+<span class="nocode"><a name="1070">1070: </a></span>     *
+<span class="nocode"><a name="1071">1071: </a></span>     * @return the default fetch direction for result sets generated
+<span class="nocode"><a name="1072">1072: </a></span>     *          from this &lt;code&gt;Statement&lt;/code&gt; object
+<span class="nocode"><a name="1073">1073: </a></span>     * @exception SQLException if a database access error occurs
+<span class="nocode"><a name="1074">1074: </a></span>     * @since 1.2
+<span class="nocode"><a name="1075">1075: </a></span>     * @see &lt;a href=&quot;package-summary.html#2.0 API&quot;&gt;What Is in the JDBC
+<span class="nocode"><a name="1076">1076: </a></span>     *      2.0 API&lt;/a&gt;
+<span class="nocode"><a name="1077">1077: </a></span>     */
+<span class="nocode"><a name="1078">1078: </a></span>    public int getFetchDirection() throws  SQLException {
+<span class="nocode"><a name="1079">1079: </a></span>       return ResultSet.FETCH_FORWARD;
+<span class="nocode"><a name="1080">1080: </a></span>    }
+<span class="nocode"><a name="1081">1081: </a></span>
+<span class="nocode"><a name="1082">1082: </a></span>
+<span class="nocode"><a name="1083">1083: </a></span>    /**
+<span class="nocode"><a name="1084">1084: </a></span>     * Gives the JDBC driver a hint as to the number of rows that should
+<span class="nocode"><a name="1085">1085: </a></span>     * be fetched from the database when more rows are needed.  The number
+<span class="nocode"><a name="1086">1086: </a></span>     * of rows specified affects only result sets created using this
+<span class="nocode"><a name="1087">1087: </a></span>     * statement. If the value specified is zero, then the hint is ignored.
+<span class="nocode"><a name="1088">1088: </a></span>     * The default value is zero.
+<span class="nocode"><a name="1089">1089: </a></span>     *
+<span class="nocode"><a name="1090">1090: </a></span>     * @param rows the number of rows to fetch
+<span class="nocode"><a name="1091">1091: </a></span>     * @exception SQLException if a database access error occurs, or the
+<span class="nocode"><a name="1092">1092: </a></span>     * condition 0 &lt;= rows &lt;= this.getMaxRows() is not satisfied.
+<span class="nocode"><a name="1093">1093: </a></span>     * @since 1.2
+<span class="nocode"><a name="1094">1094: </a></span>     * @see &lt;a href=&quot;package-summary.html#2.0 API&quot;&gt;What Is in the JDBC
+<span class="nocode"><a name="1095">1095: </a></span>     *      2.0 API&lt;/a&gt;
+<span class="nocode"><a name="1096">1096: </a></span>     */
+<span class="nocode"><a name="1097">1097: </a></span>    public void setFetchSize(int rows) throws  SQLException {
+<span class="nocode"><a name="1098">1098: </a></span>        if (rows &lt; 0)
+<span class="nocode"><a name="1099">1099: </a></span>            throw new FBSQLException(&quot;Can't set negative fetch size&quot;,
+<span class="nocode"><a name="1100">1100: </a></span>                    FBSQLException.SQL_STATE_INVALID_ARG_VALUE);
+<span class="nocode"><a name="1101">1101: </a></span>        else if (maxRows &gt; 0 &amp;&amp; rows &gt; maxRows)
+<span class="nocode"><a name="1102">1102: </a></span>            throw new FBSQLException(&quot;Can't set fetch size &gt; maxRows&quot;,
+<span class="nocode"><a name="1103">1103: </a></span>                    FBSQLException.SQL_STATE_INVALID_ARG_VALUE);
+<span class="nocode"><a name="1104">1104: </a></span>        else
+<span class="nocode"><a name="1105">1105: </a></span>            fetchSize = rows;
+<span class="nocode"><a name="1106">1106: </a></span>    }
+<span class="nocode"><a name="1107">1107: </a></span>
+<span class="nocode"><a name="1108">1108: </a></span>
+<span class="nocode"><a name="1109">1109: </a></span>    /**
+<span class="nocode"><a name="1110">1110: </a></span>     * Retrieves the number of result set rows that is the default
+<span class="nocode"><a name="1111">1111: </a></span>     * fetch size for result sets
+<span class="nocode"><a name="1112">1112: </a></span>     * generated from this &lt;code&gt;Statement&lt;/code&gt; object.
+<span class="nocode"><a name="1113">1113: </a></span>     * If this &lt;code&gt;Statement&lt;/code&gt; object has not set
+<span class="nocode"><a name="1114">1114: </a></span>     * a fetch size by calling the method &lt;code&gt;setFetchSize&lt;/code&gt;,
+<span class="nocode"><a name="1115">1115: </a></span>     * the return value is implementation-specific.
+<span class="nocode"><a name="1116">1116: </a></span>     * @return the default fetch size for result sets generated
+<span class="nocode"><a name="1117">1117: </a></span>     *          from this &lt;code&gt;Statement&lt;/code&gt; object
+<span class="nocode"><a name="1118">1118: </a></span>     * @exception SQLException if a database access error occurs
+<span class="nocode"><a name="1119">1119: </a></span>     * @since 1.2
+<span class="nocode"><a name="1120">1120: </a></span>     * @see &lt;a href=&quot;package-summary.html#2.0 API&quot;&gt;What Is in the JDBC
+<span class="nocode"><a name="1121">1121: </a></span>     *      2.0 API&lt;/a&gt;
+<span class="nocode"><a name="1122">1122: </a></span>     */
+<span class="nocode"><a name="1123">1123: </a></span>    public int getFetchSize() throws  SQLException {
+<span class="nocode"><a name="1124">1124: </a></span>        return fetchSize;
+<span class="nocode"><a name="1125">1125: </a></span>    }
+<span class="nocode"><a name="1126">1126: </a></span>
+<span class="nocode"><a name="1127">1127: </a></span>
+<span class="nocode"><a name="1128">1128: </a></span>    /**
+<span class="nocode"><a name="1129">1129: </a></span>     * Retrieves the result set concurrency for &lt;code&gt;ResultSet&lt;/code&gt; objects
+<span class="nocode"><a name="1130">1130: </a></span>     * generated by this &lt;code&gt;Statement&lt;/code&gt; object.
+<span class="nocode"><a name="1131">1131: </a></span>     *
+<span class="nocode"><a name="1132">1132: </a></span>     * @return either &lt;code&gt;ResultSet.CONCUR_READ_ONLY&lt;/code&gt; or
+<span class="nocode"><a name="1133">1133: </a></span>     * &lt;code&gt;ResultSet.CONCUR_UPDATABLE&lt;/code&gt;
+<span class="nocode"><a name="1134">1134: </a></span>     * @since 1.2
+<span class="nocode"><a name="1135">1135: </a></span>     * @see &lt;a href=&quot;package-summary.html#2.0 API&quot;&gt;What Is in the JDBC
+<span class="nocode"><a name="1136">1136: </a></span>     *      2.0 API&lt;/a&gt;
+<span class="nocode"><a name="1137">1137: </a></span>     */
+<span class="nocode"><a name="1138">1138: </a></span>    public int getResultSetConcurrency() throws  SQLException {
+<span class="nocode"><a name="1139">1139: </a></span>        return rsConcurrency;
+<span class="nocode"><a name="1140">1140: </a></span>    }
+<span class="nocode"><a name="1141">1141: </a></span>
+<span class="nocode"><a name="1142">1142: </a></span>
+<span class="nocode"><a name="1143">1143: </a></span>    /**
+<span class="nocode"><a name="1144">1144: </a></span>     * Retrieves the result set type for &lt;code&gt;ResultSet&lt;/code&gt; objects
+<span class="nocode"><a name="1145">1145: </a></span>     * generated by this &lt;code&gt;Statement&lt;/code&gt; object.
+<span class="nocode"><a name="1146">1146: </a></span>     *
+<span class="nocode"><a name="1147">1147: </a></span>     * @return one of &lt;code&gt;ResultSet.TYPE_FORWARD_ONLY&lt;/code&gt;,
+<span class="nocode"><a name="1148">1148: </a></span>     * &lt;code&gt;ResultSet.TYPE_SCROLL_INSENSITIVE&lt;/code&gt;, or
+<span class="nocode"><a name="1149">1149: </a></span>     * &lt;code&gt;ResultSet.TYPE_SCROLL_SENSITIVE&lt;/code&gt;
+<span class="nocode"><a name="1150">1150: </a></span>     * @since 1.2
+<span class="nocode"><a name="1151">1151: </a></span>     * @see &lt;a href=&quot;package-summary.html#2.0 API&quot;&gt;What Is in the JDBC
+<span class="nocode"><a name="1152">1152: </a></span>     *      2.0 API&lt;/a&gt;
+<span class="nocode"><a name="1153">1153: </a></span>     */
+<span class="nocode"><a name="1154">1154: </a></span>    public int getResultSetType()  throws  SQLException {
+<span class="nocode"><a name="1155">1155: </a></span>        return rsType;
+<span class="nocode"><a name="1156">1156: </a></span>    }
+<span class="nocode"><a name="1157">1157: </a></span>    
+<span class="nocode"><a name="1158">1158: </a></span>    public int getResultSetHoldability() throws SQLException {
+<span class="nocode"><a name="1159">1159: </a></span>        return rsHoldability;
+<span class="nocode"><a name="1160">1160: </a></span>    }
+<span class="nocode"><a name="1161">1161: </a></span>
+<span class="nocode"><a name="1162">1162: </a></span><span style="background-color: #ffffcc">    private List&lt;String&gt; batchList = new LinkedList&lt;String&gt;();</span>
+<span class="nocode"><a name="1163">1163: </a></span>
+<span class="nocode"><a name="1164">1164: </a></span>    /**
+<span class="nocode"><a name="1165">1165: </a></span>     * Adds an SQL command to the current batch of commmands for this
+<span class="nocode"><a name="1166">1166: </a></span>     * &lt;code&gt;Statement&lt;/code&gt; object. This method is optional.
+<span class="nocode"><a name="1167">1167: </a></span>     *
+<span class="nocode"><a name="1168">1168: </a></span>     * @param sql typically this is a static SQL &lt;code&gt;INSERT&lt;/code&gt; or
+<span class="nocode"><a name="1169">1169: </a></span>     * &lt;code&gt;UPDATE&lt;/code&gt; statement
+<span class="nocode"><a name="1170">1170: </a></span>     * @exception SQLException if a database access error occurs, or the
+<span class="nocode"><a name="1171">1171: </a></span>     * driver does not support batch statements
+<span class="nocode"><a name="1172">1172: </a></span>     * @since 1.2
+<span class="nocode"><a name="1173">1173: </a></span>     * @see &lt;a href=&quot;package-summary.html#2.0 API&quot;&gt;What Is in the JDBC
+<span class="nocode"><a name="1174">1174: </a></span>     *      2.0 API&lt;/a&gt;
+<span class="nocode"><a name="1175">1175: </a></span>     */
+<span class="nocode"><a name="1176">1176: </a></span>    public void addBatch( String sql ) throws  SQLException {
+<span class="nocode"><a name="1177">1177: </a></span>        batchList.add(sql);
+<span class="nocode"><a name="1178">1178: </a></span>    }
+<span class="nocode"><a name="1179">1179: </a></span>
+<span class="nocode"><a name="1180">1180: </a></span>    /**
+<span class="nocode"><a name="1181">1181: </a></span>     * Makes the set of commands in the current batch empty.
+<span class="nocode"><a name="1182">1182: </a></span>     * This method is optional.
+<span class="nocode"><a name="1183">1183: </a></span>     *
+<span class="nocode"><a name="1184">1184: </a></span>     * @exception SQLException if a database access error occurs or the
+<span class="nocode"><a name="1185">1185: </a></span>     * driver does not support batch statements
+<span class="nocode"><a name="1186">1186: </a></span>     * @since 1.2
+<span class="nocode"><a name="1187">1187: </a></span>     * @see &lt;a href=&quot;package-summary.html#2.0 API&quot;&gt;What Is in the JDBC
+<span class="nocode"><a name="1188">1188: </a></span>     *      2.0 API&lt;/a&gt;
+<span class="nocode"><a name="1189">1189: </a></span>     */
+<span class="nocode"><a name="1190">1190: </a></span>    public void clearBatch() throws  SQLException {
+<span class="nocode"><a name="1191">1191: </a></span>        batchList.clear();
+<span class="nocode"><a name="1192">1192: </a></span>    }
+<span class="nocode"><a name="1193">1193: </a></span>
+<span class="nocode"><a name="1194">1194: </a></span>
+<span class="nocode"><a name="1195">1195: </a></span>    /**
+<span class="nocode"><a name="1196">1196: </a></span>     * Submits a batch of commands to the database for execution and
+<span class="nocode"><a name="1197">1197: </a></span>     * if all commands execute successfully, returns an array of update counts.
+<span class="nocode"><a name="1198">1198: </a></span>     * The &lt;code&gt;int&lt;/code&gt; elements of the array that is returned are ordered
+<span class="nocode"><a name="1199">1199: </a></span>     * to correspond to the commands in the batch, which are ordered
+<span class="nocode"><a name="1200">1200: </a></span>     * according to the order in which they were added to the batch.
+<span class="nocode"><a name="1201">1201: </a></span>     * The elements in the array returned by the method &lt;code&gt;executeBatch&lt;/code&gt;
+<span class="nocode"><a name="1202">1202: </a></span>     * may be one of the following:
+<span class="nocode"><a name="1203">1203: </a></span>     * &lt;OL&gt;
+<span class="nocode"><a name="1204">1204: </a></span>     * &lt;LI&gt;A number greater than or equal to zero -- indicates that the
+<span class="nocode"><a name="1205">1205: </a></span>     * command was processed successfully and is an update count giving the
+<span class="nocode"><a name="1206">1206: </a></span>     * number of rows in the database that were affected by the command's
+<span class="nocode"><a name="1207">1207: </a></span>     * execution
+<span class="nocode"><a name="1208">1208: </a></span>     * &lt;LI&gt;A value of &lt;code&gt;-2&lt;/code&gt; -- indicates that the command was
+<span class="nocode"><a name="1209">1209: </a></span>     * processed successfully but that the number of rows affected is
+<span class="nocode"><a name="1210">1210: </a></span>     * unknown
+<span class="nocode"><a name="1211">1211: </a></span>     * &lt;P&gt;
+<span class="nocode"><a name="1212">1212: </a></span>     * If one of the commands in a batch update fails to execute properly,
+<span class="nocode"><a name="1213">1213: </a></span>     * this method throws a &lt;code&gt;BatchUpdateException&lt;/code&gt;, and a JDBC
+<span class="nocode"><a name="1214">1214: </a></span>     * driver may or may not continue to process the remaining commands in
+<span class="nocode"><a name="1215">1215: </a></span>     * the batch.  However, the driver's behavior must be consistent with a
+<span class="nocode"><a name="1216">1216: </a></span>     * particular DBMS, either always continuing to process commands or never
+<span class="nocode"><a name="1217">1217: </a></span>     * continuing to process commands.  If the driver continues processing
+<span class="nocode"><a name="1218">1218: </a></span>     * after a failure, the array returned by the method
+<span class="nocode"><a name="1219">1219: </a></span>     * &lt;code&gt;BatchUpdateException.getUpdateCounts&lt;/code&gt;
+<span class="nocode"><a name="1220">1220: </a></span>     * will contain as many elements as there are commands in the batch, and
+<span class="nocode"><a name="1221">1221: </a></span>     * at least one of the elements will be the following:
+<span class="nocode"><a name="1222">1222: </a></span>     * &lt;P&gt;
+<span class="nocode"><a name="1223">1223: </a></span>     * &lt;LI&gt;A value of &lt;code&gt;-3&lt;/code&gt; -- indicates that the command failed
+<span class="nocode"><a name="1224">1224: </a></span>     * to execute successfully and occurs only if a driver continues to
+<span class="nocode"><a name="1225">1225: </a></span>     * process commands after a command fails
+<span class="nocode"><a name="1226">1226: </a></span>     * &lt;/OL&gt;
+<span class="nocode"><a name="1227">1227: </a></span>     * &lt;P&gt;
+<span class="nocode"><a name="1228">1228: </a></span>     * A driver is not required to implement this method.
+<span class="nocode"><a name="1229">1229: </a></span>     * The possible implementations and return values have been modified in
+<span class="nocode"><a name="1230">1230: </a></span>     * the Java 2 SDK, Standard Edition, version 1.3 to
+<span class="nocode"><a name="1231">1231: </a></span>     * accommodate the option of continuing to proccess commands in a batch
+<span class="nocode"><a name="1232">1232: </a></span>     * update after a &lt;code&gt;BatchUpdateException&lt;/code&gt; obejct has been thrown.
+<span class="nocode"><a name="1233">1233: </a></span>     *
+<span class="nocode"><a name="1234">1234: </a></span>     * @return an array of update counts containing one element for each
+<span class="nocode"><a name="1235">1235: </a></span>     * command in the batch.  The elements of the array are ordered according
+<span class="nocode"><a name="1236">1236: </a></span>     * to the order in which commands were added to the batch.
+<span class="nocode"><a name="1237">1237: </a></span>     * @exception SQLException if a database access error occurs or the
+<span class="nocode"><a name="1238">1238: </a></span>     * driver does not support batch statements. Throws {@link java.sql.BatchUpdateException}
+<span class="nocode"><a name="1239">1239: </a></span>     * (a subclass of &lt;code&gt;SQLException&lt;/code&gt;) if one of the commands sent to the
+<span class="nocode"><a name="1240">1240: </a></span>     * database fails to execute properly or attempts to return a result set.
+<span class="nocode"><a name="1241">1241: </a></span>     * @since 1.3
+<span class="nocode"><a name="1242">1242: </a></span>     * @see &lt;a href=&quot;package-summary.html#2.0 API&quot;&gt;What Is in the JDBC
+<span class="nocode"><a name="1243">1243: </a></span>     *      2.0 API&lt;/a&gt;
+<span class="nocode"><a name="1244">1244: </a></span>     */
+<span class="nocode"><a name="1245">1245: </a></span>    public int[] executeBatch() throws SQLException {
+<span class="nocode"><a name="1246">1246: </a></span>        checkValidity();
+<span class="nocode"><a name="1247">1247: </a></span>
+<span class="nocode"><a name="1248">1248: </a></span>        if (statementListener.getConnection().getAutoCommit())
+<span class="nocode"><a name="1249">1249: </a></span>            addWarning(new SQLWarning(&quot;Batch updates should be run &quot;
+<span class="nocode"><a name="1250">1250: </a></span>                    + &quot;with auto-commit disabled.&quot;, &quot;1000&quot;));
+<span class="nocode"><a name="1251">1251: </a></span>
+<span class="nocode"><a name="1252">1252: </a></span>        Object syncObject = getSynchronizationObject();
+<span class="nocode"><a name="1253">1253: </a></span>
+<span class="nocode"><a name="1254">1254: </a></span>        notifyStatementStarted();
+<span class="nocode"><a name="1255">1255: </a></span>        synchronized (syncObject) {
+<span class="nocode"><a name="1256">1256: </a></span>
+<span class="nocode"><a name="1257">1257: </a></span>            boolean success = false;
+<span class="nocode"><a name="1258">1258: </a></span>            try {
+<span class="nocode"><a name="1259">1259: </a></span>            	List&lt;Integer&gt; responses = new LinkedList&lt;Integer&gt;();
+<span class="nocode"><a name="1260">1260: </a></span>
+<span class="nocode"><a name="1261">1261: </a></span>                try {
+<span class="nocode"><a name="1262">1262: </a></span>                    for (String sql : batchList) {
+<span class="nocode"><a name="1263">1263: </a></span>                        try {
+<span class="nocode"><a name="1264">1264: </a></span>                            boolean hasResultSet = internalExecute(sql);
+<span class="nocode"><a name="1265">1265: </a></span>
+<span class="nocode"><a name="1266">1266: </a></span>                            if (hasResultSet)
+<span class="nocode"><a name="1267">1267: </a></span>                                throw new BatchUpdateException(
+<span class="nocode"><a name="1268">1268: </a></span>                                        toArray(responses));
+<span class="nocode"><a name="1269">1269: </a></span>                            else
+<span class="nocode"><a name="1270">1270: </a></span>                                responses.add(Integer.valueOf(getUpdateCount()));
+<span class="nocode"><a name="1271">1271: </a></span>                        } catch (GDSException ge) {
+<span class="nocode"><a name="1272">1272: </a></span>
+<span class="nocode"><a name="1273">1273: </a></span>                            throw new BatchUpdateException(ge.getMessage(),
+<span class="nocode"><a name="1274">1274: </a></span>                                    FBSQLException.SQL_STATE_GENERAL_ERROR, ge
+<span class="nocode"><a name="1275">1275: </a></span>                                            .getFbErrorCode(),
+<span class="nocode"><a name="1276">1276: </a></span>                                    toArray(responses));
+<span class="nocode"><a name="1277">1277: </a></span>                        }
+<span class="nocode"><a name="1278">1278: </a></span>                    }
+<span class="nocode"><a name="1279">1279: </a></span>
+<span class="nocode"><a name="1280">1280: </a></span>                    success = true;
+<span class="nocode"><a name="1281">1281: </a></span>
+<span class="nocode"><a name="1282">1282: </a></span>                    return toArray(responses);
+<span class="nocode"><a name="1283">1283: </a></span>
+<span class="nocode"><a name="1284">1284: </a></span>                } finally {
+<span class="nocode"><a name="1285">1285: </a></span>                    clearBatch();
+<span class="nocode"><a name="1286">1286: </a></span>                }
+<span class="nocode"><a name="1287">1287: </a></span>            } finally {
+<span class="nocode"><a name="1288">1288: </a></span>                notifyStatementCompleted(success);
+<span class="nocode"><a name="1289">1289: </a></span>            }
+<span class="nocode"><a name="1290">1290: </a></span>        }
+<span class="nocode"><a name="1291">1291: </a></span>    }
+<span class="nocode"><a name="1292">1292: </a></span>    
+<span class="nocode"><a name="1293">1293: </a></span>    /**
+<span class="nocode"><a name="1294">1294: </a></span>     * Convert collection of {@link Integer} elements into array of int.
+<span class="nocode"><a name="1295">1295: </a></span>     * 
+<span class="nocode"><a name="1296">1296: </a></span>     * @param list
+<span class="nocode"><a name="1297">1297: </a></span>     *            collection of integer elements.
+<span class="nocode"><a name="1298">1298: </a></span>     * 
+<span class="nocode"><a name="1299">1299: </a></span>     * @return array of int.
+<span class="nocode"><a name="1300">1300: </a></span>     */
+<span class="nocode"><a name="1301">1301: </a></span>    protected int[] toArray(Collection&lt;Integer&gt; list) {
+<span class="nocode"><a name="1302">1302: </a></span>        int[] result = new int[list.size()];
+<span class="nocode"><a name="1303">1303: </a></span>        int counter = 0;
+<span class="nocode"><a name="1304">1304: </a></span>        for (Integer value : list) {
+<span class="nocode"><a name="1305">1305: </a></span>        	result[counter++] = value.intValue();
+<span class="nocode"><a name="1306">1306: </a></span>        }
+<span class="nocode"><a name="1307">1307: </a></span>        return result;
+<span class="nocode"><a name="1308">1308: </a></span>    }
+<span class="nocode"><a name="1309">1309: </a></span>
+<span class="nocode"><a name="1310">1310: </a></span>    /**
+<span class="nocode"><a name="1311">1311: </a></span>     * Returns the &lt;code&gt;Connection&lt;/code&gt; object that produced this 
+<span class="nocode"><a name="1312">1312: </a></span>     * &lt;code&gt;Statement&lt;/code&gt; object.
+<span class="nocode"><a name="1313">1313: </a></span>     * 
+<span class="nocode"><a name="1314">1314: </a></span>     * @return the connection that produced this statement
+<span class="nocode"><a name="1315">1315: </a></span>     */
+<span class="nocode"><a name="1316">1316: </a></span>    public Connection getConnection() throws SQLException {
+<span class="nocode"><a name="1317">1317: </a></span><span style="background-color: #ffffcc">        checkValidity();</span>
+<span class="nocode"><a name="1318">1318: </a></span><span style="background-color: #ffffcc">        return statementListener.getConnection();</span>
+<span class="nocode"><a name="1319">1319: </a></span>    }
+<span class="nocode"><a name="1320">1320: </a></span>
+<span class="nocode"><a name="1321">1321: </a></span>    //package level
+<span class="nocode"><a name="1322">1322: </a></span>
+<span class="nocode"><a name="1323">1323: </a></span>    void closeResultSet(boolean notifyListener) throws SQLException {
+<span class="nocode"><a name="1324">1324: </a></span><span style="background-color: #ffffcc">        boolean wasCompleted = completed;</span>
+<span class="nocode"><a name="1325">1325: </a></span>        
+<span class="nocode"><a name="1326">1326: </a></span><span style="background-color: #ffffcc">        if (currentRs != null) {</span>
+<span class="nocode"><a name="1327">1327: </a></span>            currentRs.close(notifyListener);
+<span class="nocode"><a name="1328">1328: </a></span>            currentRs = null;
+<span class="nocode"><a name="1329">1329: </a></span>        }
+<span class="nocode"><a name="1330">1330: </a></span>        
+<span class="nocode"><a name="1331">1331: </a></span><span style="background-color: #ffffcc">        if (notifyListener &amp;&amp; !wasCompleted)</span>
+<span class="nocode"><a name="1332">1332: </a></span>            statementListener.statementCompleted(this);
+<span class="nocode"><a name="1333">1333: </a></span><span style="background-color: #ffffcc">    }</span>
+<span class="nocode"><a name="1334">1334: </a></span>    
+<span class="nocode"><a name="1335">1335: </a></span>    public void forgetResultSet() { //yuck should be package
+<span class="nocode"><a name="1336">1336: </a></span>        currentRs = null;
+<span class="nocode"><a name="1337">1337: </a></span>        if (fixedStmt != null) {
+<span class="nocode"><a name="1338">1338: </a></span>            fixedStmt.clearRows();
+<span class="nocode"><a name="1339">1339: </a></span>        }
+<span class="nocode"><a name="1340">1340: </a></span>    }
+<span class="nocode"><a name="1341">1341: </a></span>    
+<span class="nocode"><a name="1342">1342: </a></span>    public ResultSet getCurrentResultSet() throws SQLException {
+<span class="nocode"><a name="1343">1343: </a></span>        return currentRs;
+<span class="nocode"><a name="1344">1344: </a></span>    }
+<span class="nocode"><a name="1345">1345: </a></span>    
+<span class="nocode"><a name="1346">1346: </a></span>    public boolean isPoolable() throws SQLException {
+<span class="nocode"><a name="1347">1347: </a></span>        checkValidity();
+<span class="nocode"><a name="1348">1348: </a></span>        return false;
+<span class="nocode"><a name="1349">1349: </a></span>    }
+<span class="nocode"><a name="1350">1350: </a></span>
+<span class="nocode"><a name="1351">1351: </a></span>    public void setPoolable(boolean poolable) throws SQLException {
+<span class="nocode"><a name="1352">1352: </a></span>        checkValidity();
+<span class="nocode"><a name="1353">1353: </a></span>        // ignore the hint
+<span class="nocode"><a name="1354">1354: </a></span>    }
+<span class="nocode"><a name="1355">1355: </a></span>    
+<span class="nocode"><a name="1356">1356: </a></span>    public boolean isWrapperFor(Class&lt;?&gt; iface) throws SQLException {
+<span class="nocode"><a name="1357">1357: </a></span>        return iface != null &amp;&amp; iface.isAssignableFrom(getClass());
+<span class="nocode"><a name="1358">1358: </a></span>    }
+<span class="nocode"><a name="1359">1359: </a></span>
+<span class="nocode"><a name="1360">1360: </a></span>    public &lt;T&gt; T unwrap(Class&lt;T&gt; iface) throws SQLException {
+<span class="nocode"><a name="1361">1361: </a></span>        if (!isWrapperFor(iface))
+<span class="nocode"><a name="1362">1362: </a></span>            throw new FBDriverNotCapableException();
+<span class="nocode"><a name="1363">1363: </a></span>        
+<span class="nocode"><a name="1364">1364: </a></span>        return iface.cast(this);
+<span class="nocode"><a name="1365">1365: </a></span>    }
+<span class="nocode"><a name="1366">1366: </a></span>    
+<span class="nocode"><a name="1367">1367: </a></span>    // JDBC 4.1
+<span class="nocode"><a name="1368">1368: </a></span>    
+<span class="nocode"><a name="1369">1369: </a></span>    public void closeOnCompletion() {
+<span class="nocode"><a name="1370">1370: </a></span>        closeOnCompletion = true;
+<span class="nocode"><a name="1371">1371: </a></span>    }
+<span class="nocode"><a name="1372">1372: </a></span>    
+<span class="nocode"><a name="1373">1373: </a></span>    public boolean isCloseOnCompletion() {
+<span class="nocode"><a name="1374">1374: </a></span>        return closeOnCompletion;
+<span class="nocode"><a name="1375">1375: </a></span>    }
+<span class="nocode"><a name="1376">1376: </a></span>     
+<span class="nocode"><a name="1377">1377: </a></span>    /**
+<span class="nocode"><a name="1378">1378: </a></span>     * This method checks if supplied statement is executing procedure or
+<span class="nocode"><a name="1379">1379: </a></span>     * it is generic statement. This check is needed to handle correctly 
+<span class="nocode"><a name="1380">1380: </a></span>     * parameters that are returned from non-selectable procedures.
+<span class="nocode"><a name="1381">1381: </a></span>     * 
+<span class="nocode"><a name="1382">1382: </a></span>     * @param sql SQL statement to check
+<span class="nocode"><a name="1383">1383: </a></span>     * 
+<span class="nocode"><a name="1384">1384: </a></span>     * @return &lt;code&gt;true&lt;/code&gt; if supplied statement is EXECUTE PROCEDURE
+<span class="nocode"><a name="1385">1385: </a></span>     * type of statement.
+<span class="nocode"><a name="1386">1386: </a></span>     * 
+<span class="nocode"><a name="1387">1387: </a></span>     * @throws SQLException if translating statement into native code failed.
+<span class="nocode"><a name="1388">1388: </a></span>     */
+<span class="nocode"><a name="1389">1389: </a></span>    protected boolean isExecuteProcedureStatement(String sql) throws SQLException {
+<span class="nocode"><a name="1390">1390: </a></span>        
+<span class="nocode"><a name="1391">1391: </a></span>        String trimmedSql = nativeSQL(sql).trim();
+<span class="nocode"><a name="1392">1392: </a></span>        
+<span class="nocode"><a name="1393">1393: </a></span>        if (trimmedSql.startsWith(&quot;EXECUTE&quot;))
+<span class="nocode"><a name="1394">1394: </a></span>            return true;
+<span class="nocode"><a name="1395">1395: </a></span>        else
+<span class="nocode"><a name="1396">1396: </a></span>            return false;
+<span class="nocode"><a name="1397">1397: </a></span>        
+<span class="nocode"><a name="1398">1398: </a></span>    }
+<span class="nocode"><a name="1399">1399: </a></span>
+<span class="nocode"><a name="1400">1400: </a></span>    protected boolean internalExecute(String sql)
+<span class="nocode"><a name="1401">1401: </a></span>        throws GDSException, SQLException
+<span class="nocode"><a name="1402">1402: </a></span>    {
+<span class="nocode"><a name="1403">1403: </a></span>        if (closed)
+<span class="nocode"><a name="1404">1404: </a></span>            throw new FBSQLException(&quot;Statement is already closed.&quot;);
+<span class="nocode"><a name="1405">1405: </a></span>
+<span class="nocode"><a name="1406">1406: </a></span>        // closeResultSet(false);
+<span class="nocode"><a name="1407">1407: </a></span>        prepareFixedStatement(sql, false);
+<span class="nocode"><a name="1408">1408: </a></span>        gdsHelper.executeStatement(fixedStmt, fixedStmt.getStatementType() == ISCConstants.isc_info_sql_stmt_exec_procedure);
+<span class="nocode"><a name="1409">1409: </a></span>        hasMoreResults = true;
+<span class="nocode"><a name="1410">1410: </a></span>        isResultSet = fixedStmt.getOutSqlda().sqld &gt; 0;
+<span class="nocode"><a name="1411">1411: </a></span>        return isResultSet;
+<span class="nocode"><a name="1412">1412: </a></span>    }
+<span class="nocode"><a name="1413">1413: </a></span>
+<span class="nocode"><a name="1414">1414: </a></span>    protected void prepareFixedStatement(String sql, boolean describeBind)
+<span class="nocode"><a name="1415">1415: </a></span>        throws GDSException, SQLException
+<span class="nocode"><a name="1416">1416: </a></span>    {
+<span class="nocode"><a name="1417">1417: </a></span>        if (fixedStmt == null) {
+<span class="nocode"><a name="1418">1418: </a></span>            fixedStmt = gdsHelper.allocateStatement();
+<span class="nocode"><a name="1419">1419: </a></span>        }
+<span class="nocode"><a name="1420">1420: </a></span>        
+<span class="nocode"><a name="1421">1421: </a></span>        if (!fixedStmt.isValid())
+<span class="nocode"><a name="1422">1422: </a></span>            throw new FBSQLException(&quot;Corresponding connection is not valid.&quot;,
+<span class="nocode"><a name="1423">1423: </a></span>                FBSQLException.SQL_STATE_CONNECTION_FAILURE_IN_TX);
+<span class="nocode"><a name="1424">1424: </a></span>        
+<span class="nocode"><a name="1425">1425: </a></span>        gdsHelper.prepareStatement(
+<span class="nocode"><a name="1426">1426: </a></span>            fixedStmt, 
+<span class="nocode"><a name="1427">1427: </a></span>            escapedProcessing ? nativeSQL(sql) : sql, 
+<span class="nocode"><a name="1428">1428: </a></span>            describeBind);
+<span class="nocode"><a name="1429">1429: </a></span>    }
+<span class="nocode"><a name="1430">1430: </a></span>
+<span class="nocode"><a name="1431">1431: </a></span>    protected void addWarning(SQLWarning warning){
+<span class="nocode"><a name="1432">1432: </a></span>        if (firstWarning == null)
+<span class="nocode"><a name="1433">1433: </a></span>            firstWarning = warning;
+<span class="nocode"><a name="1434">1434: </a></span>        else{
+<span class="nocode"><a name="1435">1435: </a></span>            SQLWarning lastWarning = firstWarning;
+<span class="nocode"><a name="1436">1436: </a></span>            while (lastWarning.getNextWarning() != null){
+<span class="nocode"><a name="1437">1437: </a></span>                lastWarning = lastWarning.getNextWarning();
+<span class="nocode"><a name="1438">1438: </a></span>            }
+<span class="nocode"><a name="1439">1439: </a></span>            lastWarning.setNextWarning(warning);
+<span class="nocode"><a name="1440">1440: </a></span>        }
+<span class="nocode"><a name="1441">1441: </a></span>    }
+<span class="nocode"><a name="1442">1442: </a></span>
+<span class="nocode"><a name="1443">1443: </a></span>    protected String nativeSQL(String sql) throws SQLException {
+<span class="nocode"><a name="1444">1444: </a></span>        DatabaseParameterBuffer dpb = gdsHelper.getDatabaseParameterBuffer();
+<span class="nocode"><a name="1445">1445: </a></span>        
+<span class="nocode"><a name="1446">1446: </a></span>        int mode = FBEscapedParser.USE_BUILT_IN;
+<span class="nocode"><a name="1447">1447: </a></span>        
+<span class="nocode"><a name="1448">1448: </a></span>        if (dpb.hasArgument(DatabaseParameterBufferExtension.USE_STANDARD_UDF))
+<span class="nocode"><a name="1449">1449: </a></span>            mode = FBEscapedParser.USE_STANDARD_UDF;
+<span class="nocode"><a name="1450">1450: </a></span>        
+<span class="nocode"><a name="1451">1451: </a></span>        return new FBEscapedParser(mode).parse(sql);
+<span class="nocode"><a name="1452">1452: </a></span>
+<span class="nocode"><a name="1453">1453: </a></span>    }
+<span class="nocode"><a name="1454">1454: </a></span>
+<span class="nocode"><a name="1455">1455: </a></span>
+<span class="nocode"><a name="1456">1456: </a></span>    /**
+<span class="nocode"><a name="1457">1457: </a></span>     * Get the execution plan of this PreparedStatement
+<span class="nocode"><a name="1458">1458: </a></span>     *
+<span class="nocode"><a name="1459">1459: </a></span>     * @return The execution plan of the statement
+<span class="nocode"><a name="1460">1460: </a></span>     */
+<span class="nocode"><a name="1461">1461: </a></span>    String getExecutionPlan() throws FBSQLException {
+<span class="nocode"><a name="1462">1462: </a></span>        populateStatementInfo();
+<span class="nocode"><a name="1463">1463: </a></span>        return fixedStmt.getExecutionPlan();
+<span class="nocode"><a name="1464">1464: </a></span>    }
+<span class="nocode"><a name="1465">1465: </a></span>    
+<span class="nocode"><a name="1466">1466: </a></span>    public String getLastExecutionPlan() throws SQLException {
+<span class="nocode"><a name="1467">1467: </a></span>        checkValidity();
+<span class="nocode"><a name="1468">1468: </a></span>        
+<span class="nocode"><a name="1469">1469: </a></span>        if (fixedStmt == null)
+<span class="nocode"><a name="1470">1470: </a></span>            throw new FBSQLException(&quot;No statement was executed, plan cannot be obtained.&quot;);
+<span class="nocode"><a name="1471">1471: </a></span>        
+<span class="nocode"><a name="1472">1472: </a></span>        return getExecutionPlan();
+<span class="nocode"><a name="1473">1473: </a></span>    }
+<span class="nocode"><a name="1474">1474: </a></span>
+<span class="nocode"><a name="1475">1475: </a></span>    /**
+<span class="nocode"><a name="1476">1476: </a></span>     * Get the statement type of this PreparedStatement.
+<span class="nocode"><a name="1477">1477: </a></span>     * The returned value will be one of the &lt;code&gt;TYPE_*&lt;/code&gt; constant
+<span class="nocode"><a name="1478">1478: </a></span>     * values.
+<span class="nocode"><a name="1479">1479: </a></span>     *
+<span class="nocode"><a name="1480">1480: </a></span>     * @return The identifier for the given statement's type
+<span class="nocode"><a name="1481">1481: </a></span>     */
+<span class="nocode"><a name="1482">1482: </a></span>    int getStatementType() throws FBSQLException {
+<span class="nocode"><a name="1483">1483: </a></span>        populateStatementInfo();
+<span class="nocode"><a name="1484">1484: </a></span>        return fixedStmt.getStatementType();
+<span class="nocode"><a name="1485">1485: </a></span>    }
+<span class="nocode"><a name="1486">1486: </a></span>
+<span class="nocode"><a name="1487">1487: </a></span>
+<span class="nocode"><a name="1488">1488: </a></span>    private void populateStatementInfo() throws FBSQLException {
+<span class="nocode"><a name="1489">1489: </a></span>        if (fixedStmt.getExecutionPlan() == null){
+<span class="nocode"><a name="1490">1490: </a></span>            try {
+<span class="nocode"><a name="1491">1491: </a></span>                gdsHelper.populateStatementInfo(fixedStmt);
+<span class="nocode"><a name="1492">1492: </a></span>            } catch(GDSException ex) {
+<span class="nocode"><a name="1493">1493: </a></span>                throw new FBSQLException(ex);
+<span class="nocode"><a name="1494">1494: </a></span>            }
+<span class="nocode"><a name="1495">1495: </a></span>        }
+<span class="nocode"><a name="1496">1496: </a></span>    }
+<span class="nocode"><a name="1497">1497: </a></span>    
+<span class="nocode"><a name="1498">1498: </a></span>    /**
+<span class="nocode"><a name="1499">1499: </a></span>     * Check if this statement is valid. This method should be invoked before
+<span class="nocode"><a name="1500">1500: </a></span>     * executing any action which requires a valid connection.
+<span class="nocode"><a name="1501">1501: </a></span>     * 
+<span class="nocode"><a name="1502">1502: </a></span>     * @throws SQLException if this Statement has been closed and cannot be 
+<span class="nocode"><a name="1503">1503: </a></span>     * used anymore.
+<span class="nocode"><a name="1504">1504: </a></span>     */
+<span class="nocode"><a name="1505">1505: </a></span>    protected void checkValidity() throws SQLException {
+<span class="nocode"><a name="1506">1506: </a></span><span style="background-color: #ffffcc">        if (isClosed())</span>
+<span class="nocode"><a name="1507">1507: </a></span>            throw new FBSQLException(&quot;Statement is already closed.&quot;, FBSQLException.SQL_STATE_INVALID_STATEMENT_ID);
+<span class="nocode"><a name="1508">1508: </a></span><span style="background-color: #ffffcc">    }</span>
+<span class="nocode"><a name="1509">1509: </a></span>}
+</pre>
+</p></div>
+</div><div id="post"><h2 id=parameters>EvoSuite Parameters</h2>
+<div class=statistics><ul>
+<li>inheritance_file: evosuite-files/inheritance.xml.gz
+<li>client_on_thread: false
+<li>alternative_fitness_range: 100.0
+<li>starve_by_fitness: true
+<li>dynamic_pool_size: 50
+<li>old_statistics: true
+<li>test_includes: test.includes
+<li>TT_stack: 10
+<li>dynamic_pool: 0.5
+<li>minimization_timeout: 600
+<li>kincompensation: 1.0
+<li>max_generic_depth: 1
+<li>local_search_rate: -1
+<li>target_method: 
+<li>selection_function: RANK
+<li>ctg_schedule: SIMPLE
+<li>assertion_strategy: MUTATION
+<li>tt_scope: ALL
+<li>process_communication_port: 20771
+<li>TT: false
+<li>chromosome_length: 40
+<li>adaptive_local_search_dse: false
+<li>UI_BACKGROUND_COVERAGE_DELAY: -1
+<li>random_perturbation: 0.2
+<li>test_factory: RANDOM
+<li>enable_alternative_fitness_calculation: false
+<li>debug: false
+<li>plot: false
+<li>log_goals: false
+<li>alternative_fitness_calculation_mode: SUM
+<li>inline: true
+<li>crossover_function: SINGLEPOINTRELATIVE
+<li>local_search_budget: 100
+<li>static_hack: false
+<li>OUTPUT_DIR: evosuite-files
+<li>dse_keep_all_tests: false
+<li>junit_extend: 
+<li>junit_prefix: 
+<li>hierarchy_data: hierarchy.xml
+<li>num_tests: 2
+<li>max_size: 100
+<li>statistics_backend: CSV
+<li>max_length: 0
+<li>mutation_generations: 10
+<li>rank_bias: 1.7
+<li>primitive_reuse_probability: 0.5
+<li>num_random_tests: 20
+<li>filter_assertions: true
+<li>global_timeout: 600
+<li>log.level: null
+<li>new_statistics: false
+<li>assertions: true
+<li>object_pool: 0.0
+<li>timeline_interval: 60000
+<li>concolic_timeout: 15000
+<li>crossover_rate: 0.75
+<li>recycle_chromosomes: false
+<li>assertion_timeout: 600
+<li>serialize_result: false
+<li>string_length: 20
+<li>testability_transformation: false
+<li>p_special_type_call: 0.05
+<li>filter_sandbox_tests: false
+<li>connection_data: connection.xml
+<li>dse_budget: 1
+<li>show_progress: true
+<li>ctg_cores: 1
+<li>p_test_delete: 0.3333333333333333
+<li>local_search_references: true
+<li>dse_rate: -1
+<li>primitive_pool: 0.5
+<li>object_reuse_probability: 0.9
+<li>shuffle_goals: true
+<li>use_deprecated: false
+<li>max_coverage_depth: -1
+<li>penalize_overwriting_definitions_flat: false
+<li>max_attempts: 1000
+<li>print_current_goals: false
+<li>PROJECT_PREFIX: org
+<li>TARGET_CLASS: org.firebirdsql.jdbc.AbstractStatement
+<li>p_test_insertion: 0.1
+<li>make_accessible: false
+<li>population: 50
+<li>check_best_length: true
+<li>seed_types: true
+<li>PROJECT_DIR: null
+<li>skip_covered: true
+<li>check_contracts: false
+<li>write_cfg: false
+<li>minimize: true
+<li>seed_clone: 0.2
+<li>target_method_prefix: 
+<li>mutation_timeouts: 3
+<li>instrument_parent: false
+<li>junit_tests: true
+<li>coverage: true
+<li>sandbox: true
+<li>randomize_difficulty: true
+<li>break_on_exception: true
+<li>html: true
+<li>CP: lib/ant.jar:lib/ant-junit.jar:lib/ant-launcher.jar:lib/antlr-runtime-3.4.jar:lib/connector-api-1.5.jar:lib/cpptasks.jar:lib/firebird_resources.jar:lib/fscontext.jar:lib/j2ee.jar:lib/jaybird-2.3.0.jar:lib/junit.jar:lib/log4j-core.jar:lib/providerutil.jar:lib/serializer-2.7.1.jar:lib/xalan-2.7.1.jar:firebird.jar
+<li>search_budget: 60
+<li>max_replace_mutants: 100
+<li>check_contracts_end: false
+<li>log.target: null
+<li>array_limit: 1000000
+<li>minimize_values: false
+<li>secondary_objectives: totallength
+<li>log_timeout: false
+<li>p_test_change: 0.3333333333333333
+<li>restricted_read: false
+<li>null_probability: 0.1
+<li>configuration_id: null
+<li>save_all_data: true
+<li>branch_eval: false
+<li>remote_testing: false
+<li>dse_adaptive_rate: 2.0
+<li>local_search_budget_type: STATEMENTS
+<li>branch_statement: false
+<li>check_parents_length: false
+<li>dse_constraint_solver_timeout_millis: 0
+<li>elite: 1
+<li>local_search_probes: 10
+<li>enable_asserts_for_sut: true
+<li>output_granularity: MERGED
+<li>criterion: BRANCH
+<li>restrict_pool: false
+<li>shutdown_timeout: 1000
+<li>output_variables: null
+<li>structured_tests: false
+<li>random_tests: 0
+<li>initially_enforced_randomness: 0.4
+<li>selected_junit: null
+<li>p_change_parameter: 0.1
+<li>port: 1044
+<li>defuse_aliases: true
+<li>dse_constraint_length: 100000
+<li>reuse_budget: true
+<li>test_dir: evosuite-tests
+<li>replace_calls: false
+<li>max_initial_tests: 10
+<li>TARGET_CLASS_PREFIX: 
+<li>dse_adaptive_probability: 0.0
+<li>algorithm: STEADYSTATEGA
+<li>report_dir: evosuite-report
+<li>target_method_list: 
+<li>local_search_arrays: true
+<li>dse_constant_probability: 0.5
+<li>max_int: 2048
+<li>error_branches: false
+<li>stopping_condition: MAXTIME
+<li>local_search_primitives: true
+<li>minimize_old: false
+<li>max_mutants_per_method: 700
+<li>adaptive_local_search: OFF
+<li>replacement_function: DEFAULT
+<li>number_of_mutations: 1
+<li>test_comments: true
+<li>defuse_debug_mode: false
+<li>shutdown_hook: true
+<li>bloat_factor: 2
+<li>dse_variable_resets: 2
+<li>test_format: JUNIT4
+<li>penalize_overwriting_definitions_linearly: false
+<li>max_stalled_threads: 10
+<li>insertion_score_object: 1
+<li>instrumentation_skip_debug: false
+<li>sandbox_mode: RECOMMENDED
+<li>call_probability: 0.0
+<li>check_max_length: true
+<li>max_recursion: 10
+<li>usage_rate: 0.5
+<li>max_mutants: 100
+<li>p_statement_insertion: 0.5
+<li>usage_models: 
+<li>test_carving: false
+<li>evosuite_use_uispec: false
+<li>instrument_context: false
+<li>ctg_time: 2
+<li>ctg_memory: 1000
+<li>classpath: 
+<li>max_array: 10
+<li>dse_negate_all_conditions: false
+<li>seed_mutations: 2
+<li>tournament_size: 10
+<li>dse_budget_type: INDIVIDUALS
+<li>dse_rank_branch_conditions: false
+<li>concolic_mutation: 0.0
+<li>stop_zero: true
+<li>parent_check: true
+<li>insertion_score_parameter: 1
+<li>junit_suffix: EvoSuiteTest
+<li>min_initial_tests: 1
+<li>max_delta: 20
+<li>cpu_timeout: false
+<li>dynamic_limit: false
+<li>min_free_mem: 50000000
+<li>test_excludes: test.excludes
+<li>write_pool: false
+<li>epsilon: 0.0010
+<li>enable_asserts_for_evosuite: false
+<li>analysis_criteria: 
+<li>junit_strict: false
+<li>print_to_system: false
+<li>virtual_fs: false
+<li>sandbox_folder: evosuite-sandbox
+<li>strategy: EVOSUITE
+<li>enable_alternative_suite_fitness: false
+<li>max_mutants_per_test: 100
+<li>stopping_port: -1
+<li>insertion_score_uut: 1
+<li>sourcepath: 
+<li>print_covered_goals: false
+<li>extra_timeout: 120
+<li>string_replacement: true
+<li>cluster_recursion: 10
+<li>population_limit: INDIVIDUALS
+<li>p_test_insert: 0.3333333333333333
+<li>constraint_solution_attempts: 3
+<li>timeout: 5000
+</ul></div>
+</div><p><br><a href="../report-generation.html">Back to Overview</a></p>
+</div>
+</body>
+</html>

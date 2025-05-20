@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!ELEMENT InterfaceSpec (Lines,RecordTypes)>
+<!ATTLIST InterfaceSpec Name NMTOKEN #REQUIRED>
+
+<!ELEMENT Lines (RecordType+)>
+<!ATTLIST Lines
+	IdentifierLength NMTOKEN #REQUIRED
+	IdentifierPos NMTOKEN #REQUIRED
+>
+
+<!ELEMENT RecordType (#PCDATA)>
+<!ATTLIST RecordType Identifier CDATA #REQUIRED>
+
+<!ELEMENT RecordTypes (RecordTypeSpec+)>
+
+<!ELEMENT RecordTypeSpec (Field+)>
+<!ATTLIST RecordTypeSpec Name NMTOKEN #REQUIRED>
+
+<!ELEMENT Field EMPTY>
+<!ATTLIST Field
+	Length NMTOKEN #REQUIRED
+	Name NMTOKEN #REQUIRED
+>

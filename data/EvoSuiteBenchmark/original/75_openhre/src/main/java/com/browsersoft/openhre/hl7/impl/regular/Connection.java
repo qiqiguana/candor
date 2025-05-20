@@ -1,0 +1,54 @@
+/*
+*   ====================================================================
+*                 Open Source Health Records Exchange
+*   ====================================================================
+*
+*   Copyright (C) 2006 Browsersoft Inc.
+*
+*   This program is free software; you can redistribute it and/or modify
+*   it under the terms of the GNU General Public License, version 2,
+*   as published by the Free Software Foundation.
+*
+*   This program is distributed in the hope that it will be useful,
+*   but WITHOUT ANY WARRANTY; without even the implied warranty of
+*   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+*   GNU General Public License for more details.
+*
+*   The GNU General Public License is available at
+*   http://www.fsf.org/licensing/licenses/gpl.html
+*
+*   Email: info@openhre.org
+*   Web:   http://www.openhre.org
+*/
+package com.browsersoft.openhre.hl7.impl.regular;
+
+public class Connection {
+
+    private int from;
+    private int to;
+    private int elementID;
+
+    public int getElementID() {
+        return elementID;
+    }
+
+    public void setElementID( int elementID ) {
+        this.elementID = elementID;
+    }
+
+    public int getFrom() {
+        return from;
+    }
+
+    public void setFrom( int from ) {
+        this.from = from;
+    }
+
+    public int getTo() {
+        return to;
+    }
+
+    public void setTo( int to ) {
+        this.to = to;
+    }
+}

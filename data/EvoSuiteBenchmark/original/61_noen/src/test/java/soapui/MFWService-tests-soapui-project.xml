@@ -1,0 +1,813 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project name="MFWService_tests" resourceRoot="" soapui-version="3.6.1" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="SAC_MFW_SoapBinding" type="wsdl" bindingName="{http://www.bugyobeyond.org/SAC_MFW/}SAC_MFW_SoapBinding" soapVersion="1_1" anonymous="optional" definition="file:/D:/Bugyobeyond/SAC_MFW_proposal_v2.4.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:9876/SAC_MFW?wsdl"><con:part><con:url>http://localhost:9876/SAC_MFW?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="SAC_MFW_service" targetNamespace="http://www.bugyobeyond.org/SAC_MFW/" xmlns:bb="http://www.bugyobeyond.org/SAC_MFW/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.bugyobeyond.org/SAC_MFW/" xmlns:ns0="http://schemas.xmlsoap.org/soap/encoding/">
+      <xsd:element name="getMFW">
+        <xsd:complexType>
+          <xsd:attribute name="sac_id" type="xsd:long" use="required"/>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="MFW">
+        <xsd:complexType>
+          <xsd:attribute name="id" type="xsd:long" use="required"/>
+          <xsd:attribute name="version" type="xsd:string" use="optional"/>
+          <xsd:attribute name="ifs" type="xsd:string" use="optional"/>
+          <xsd:attribute name="company" type="xsd:string" use="optional"/>
+          <xsd:attribute name="time" type="xsd:dateTime" use="optional"/>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="Device">
+        <xsd:complexType>
+          <xsd:attribute name="id" type="xsd:long" use="required"/>
+          <xsd:attribute name="name" type="xsd:string" use="optional"/>
+          <xsd:attribute name="type" type="xsd:string" use="optional"/>
+          <xsd:attribute name="disabled" type="xsd:boolean" use="optional"/>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="BM">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element maxOccurs="unbounded" minOccurs="0" name="device_id" type="xsd:long"/>
+          </xsd:sequence>
+          <xsd:attribute name="id" type="xsd:long" use="required"/>
+          <xsd:attribute name="class" type="xsd:string" use="optional"/>
+          <xsd:attribute name="name" type="xsd:string" use="optional"/>
+          <xsd:attribute name="description" type="xsd:string" use="optional"/>
+          <xsd:attribute name="disabled" type="xsd:boolean" use="optional"/>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="Probe">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element maxOccurs="unbounded" minOccurs="0" name="bm_id" type="xsd:long"/>
+          </xsd:sequence>
+          <xsd:attribute name="id" type="xsd:long" use="required"/>
+          <xsd:attribute name="name" type="xsd:string" use="optional"/>
+          <xsd:attribute name="disabled" type="xsd:boolean" use="optional"/>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getAvailability">
+        <xsd:complexType>
+          <xsd:attribute name="sac_id" type="xsd:long" use="required"/>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="Availability">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element maxOccurs="unbounded" minOccurs="0" ref="bb:Device"/>
+            <xsd:element maxOccurs="unbounded" minOccurs="0" ref="bb:BM"/>
+            <xsd:element maxOccurs="unbounded" minOccurs="0" ref="bb:Probe"/>
+          </xsd:sequence>
+          <xsd:attribute name="mfw_id" type="xsd:long" use="required"/>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="BMResultRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element maxOccurs="unbounded" minOccurs="0" name="device_id" type="xsd:long"/>
+          </xsd:sequence>
+          <xsd:attribute name="id" type="xsd:long" use="required"/>
+          <xsd:attribute name="frequency" type="xsd:long" use="required"/>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="BMResultsRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element maxOccurs="unbounded" ref="bb:BMResultRequest"/>
+          </xsd:sequence>
+          <xsd:attribute name="sac_id" type="xsd:long" use="required"/>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ProbeParametersRequest">
+        <xsd:complexType>
+          <xsd:attribute name="probe_id" type="xsd:long" use="required"/>
+          <xsd:attribute name="sac_id" type="xsd:long" use="required"/>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ProbeParameter">
+        <xsd:complexType>
+          <xsd:attribute name="name" type="xsd:string" use="required"/>
+          <xsd:attribute name="description" type="xsd:string" use="required"/>
+          <xsd:attribute name="mandatory" type="xsd:boolean" use="required"/>
+          <xsd:attribute name="value" type="xsd:string" use="required"/>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ProbeParameters">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element maxOccurs="unbounded" minOccurs="0" ref="bb:ProbeParameter"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ProbeParameterValue">
+        <xsd:complexType>
+          <xsd:attribute name="name" type="xsd:string" use="required"/>
+          <xsd:attribute name="value" type="xsd:string" use="required"/>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ProbeParameterValues">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element maxOccurs="unbounded" ref="bb:ProbeParameterValue"/>
+          </xsd:sequence>
+          <xsd:attribute name="probe_id" type="xsd:long" use="required"/>
+          <xsd:attribute name="sac_id" type="xsd:long" use="required"/>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="OperationResult">
+        <xsd:complexType>
+          <xsd:attribute name="error" type="xsd:boolean" use="required"/>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="setProbeParametersResponse">
+    <wsdl:part element="bb:OperationResult" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getMFWRequest">
+    <wsdl:part element="bb:getMFW" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAvailabilityResponse">
+    <wsdl:part element="bb:Availability" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getBMResultsResponse">
+    <wsdl:part element="bb:OperationResult" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="setProbeParametersRequest">
+    <wsdl:part element="bb:ProbeParameterValues" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAvailabilityRequest">
+    <wsdl:part element="bb:getAvailability" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getMFWResponse">
+    <wsdl:part element="bb:MFW" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getProbeParametersRequest">
+    <wsdl:part element="bb:ProbeParametersRequest" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getBMResultsRequest">
+    <wsdl:part element="bb:BMResultsRequest" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getProbeParametersResponse">
+    <wsdl:part element="bb:ProbeParameters" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="SAC_MFW">
+    <wsdl:operation name="getMFW">
+      <wsdl:input message="bb:getMFWRequest"></wsdl:input>
+      <wsdl:output message="bb:getMFWResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBMResults">
+      <wsdl:input message="bb:getBMResultsRequest"></wsdl:input>
+      <wsdl:output message="bb:getBMResultsResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAvailability">
+      <wsdl:documentation>asks for new available BM.</wsdl:documentation>
+      <wsdl:input message="bb:getAvailabilityRequest"></wsdl:input>
+      <wsdl:output message="bb:getAvailabilityResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getProbeParameters">
+      <wsdl:input message="bb:getProbeParametersRequest"></wsdl:input>
+      <wsdl:output message="bb:getProbeParametersResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setProbeParameters">
+      <wsdl:input message="bb:setProbeParametersRequest"></wsdl:input>
+      <wsdl:output message="bb:setProbeParametersResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SAC_MFW_SoapBinding" type="bb:SAC_MFW">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getMFW">
+      <soap:operation soapAction="http://www.bugyobeyond.org/SAC_MFW/getMFW"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBMResults">
+      <soap:operation soapAction="http://www.bugyobeyond.org/SAC_MFW/getBMResults"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAvailability">
+      <soap:operation soapAction="http://www.bugyobeyond.org/SAC_MFW/getAvailability"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getProbeParameters">
+      <soap:operation soapAction="http://www.bugyobeyond.org/SAC_MFW/getProbeParameters"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setProbeParameters">
+      <soap:operation soapAction="http://www.bugyobeyond.org/SAC_MFW/setProbeParameters"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SAC_MFW_service">
+    <wsdl:port binding="bb:SAC_MFW_SoapBinding" name="SAC_MFW">
+      <soap:address location="http://localhost:9876/SAC_MFW"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://www.bugyobeyond.org/SAC_MFW/</con:endpoint><con:endpoint>${#TestSuite#mfwEndpoint}</con:endpoint></con:endpoints><con:operation isOneWay="false" action="http://www.bugyobeyond.org/SAC_MFW/getAvailability" name="getAvailability" bindingOperationName="getAvailability" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.bugyobeyond.org/SAC_MFW/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sac="http://www.bugyobeyond.org/SAC_MFW/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sac:getAvailability sac_id="?"/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.bugyobeyond.org/SAC_MFW/getAvailability"/></con:call></con:operation><con:operation isOneWay="false" action="http://www.bugyobeyond.org/SAC_MFW/getBMResults" name="getBMResults" bindingOperationName="getBMResults" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.bugyobeyond.org/SAC_MFW/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sac="http://www.bugyobeyond.org/SAC_MFW/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sac:BMResultsRequest sac_id="?">
+         <!--1 or more repetitions:-->
+         <sac:BMResultRequest id="?" frequency="?">
+            <!--Zero or more repetitions:-->
+            <device_id>?</device_id>
+         </sac:BMResultRequest>
+      </sac:BMResultsRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.bugyobeyond.org/SAC_MFW/getBMResults"/></con:call></con:operation><con:operation isOneWay="false" action="http://www.bugyobeyond.org/SAC_MFW/getMFW" name="getMFW" bindingOperationName="getMFW" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.bugyobeyond.org/SAC_MFW/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sac="http://www.bugyobeyond.org/SAC_MFW/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sac:getMFW sac_id="?"/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.bugyobeyond.org/SAC_MFW/getMFW"/></con:call></con:operation><con:operation isOneWay="false" action="http://www.bugyobeyond.org/SAC_MFW/getProbeParameters" name="getProbeParameters" bindingOperationName="getProbeParameters" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.bugyobeyond.org/SAC_MFW/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sac="http://www.bugyobeyond.org/SAC_MFW/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sac:ProbeParametersRequest probe_id="?" sac_id="?"/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.bugyobeyond.org/SAC_MFW/getProbeParameters"/></con:call></con:operation><con:operation isOneWay="false" action="http://www.bugyobeyond.org/SAC_MFW/setProbeParameters" name="setProbeParameters" bindingOperationName="setProbeParameters" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.bugyobeyond.org/SAC_MFW/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sac="http://www.bugyobeyond.org/SAC_MFW/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sac:ProbeParameterValues probe_id="?" sac_id="?">
+         <!--1 or more repetitions:-->
+         <sac:ProbeParameterValue name="?" value="?"/>
+      </sac:ProbeParameterValues>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.bugyobeyond.org/SAC_MFW/setProbeParameters"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="MFW_SAC_SoapBinding" type="wsdl" bindingName="{http://www.bugyobeyond.org/MFW_SAC/}MFW_SAC_SoapBinding" soapVersion="1_1" anonymous="optional" definition="file:/D:/Bugyobeyond/MFW_SAC_EADS_proposal_v3.1.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:/D:/Bugyobeyond/MFW_SAC_EADS_proposal_v3.1.wsdl"><con:part><con:url>file:/D:/Bugyobeyond/MFW_SAC_EADS_proposal_v3.1.wsdl</con:url><con:content><![CDATA[<!--Created with Liquid XML Studio Developer Edition (Trial) 8.1.7.2743 (http://www.liquid-technologies.com)-->
+<wsdl:definitions name="MFW_SAC_service" targetNamespace="http://www.bugyobeyond.org/MFW_SAC/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:bb="http://www.bugyobeyond.org/MFW_SAC/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <!--This file describes the web services provided by the SAC and available to the MFW-->
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.bugyobeyond.org/MFW_SAC/" xmlns:ns0="http://schemas.xmlsoap.org/soap/encoding/">
+      <xsd:element name="SAC">
+        <xsd:complexType>
+          <xsd:attribute name="id" type="xsd:long" use="required"/>
+          <xsd:attribute name="version" type="xsd:string" use="optional"/>
+          <xsd:attribute name="IFs" type="xsd:string" use="optional"/>
+          <xsd:attribute name="company" type="xsd:string" use="optional"/>
+          <xsd:attribute name="time" type="xsd:dateTime" use="optional"/>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getSAC">
+        <xsd:complexType>
+          <xsd:attribute name="mfw_id" type="xsd:long" use="required"/>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="BMResult">
+        <xsd:complexType>
+          <xsd:attribute name="id" type="xsd:long" use="required"/>
+          <xsd:attribute name="error" type="xsd:boolean" use="optional"/>
+          <xsd:attribute name="value" type="xsd:string" use="optional"/>
+          <xsd:attribute name="timeStamp" type="xsd:dateTime" use="optional"/>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="BMResults">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element maxOccurs="unbounded" name="PerDevice">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element maxOccurs="unbounded" ref="bb:BMResult"/>
+                </xsd:sequence>
+                <xsd:attribute name="device_id" type="xsd:long" use="required"/>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+          <xsd:attribute name="mfw_id" type="xsd:long" use="required"/>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="OperationResult">
+        <xsd:complexType>
+          <xsd:attribute name="error" type="xsd:boolean" use="required"/>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="Device">
+        <xsd:complexType>
+          <xsd:attribute name="id" type="xsd:long" use="required"/>
+          <xsd:attribute name="name" type="xsd:string" use="optional"/>
+          <xsd:attribute name="type" type="xsd:string" use="optional"/>
+          <xsd:attribute name="disabled" type="xsd:boolean" use="optional"/>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="BM">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="device_id" type="xsd:long"/>
+          </xsd:sequence>
+          <xsd:attribute name="id" type="xsd:long" use="required"/>
+          <xsd:attribute name="class" type="xsd:string" use="optional"/>
+          <xsd:attribute name="name" type="xsd:string" use="optional"/>
+          <xsd:attribute name="description" type="xsd:string" use="optional"/>
+          <xsd:attribute name="disabled" type="xsd:boolean" use="optional"/>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="Probe">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="bm_id" type="xsd:long"/>
+          </xsd:sequence>
+          <xsd:attribute name="id" type="xsd:long" use="required"/>
+          <xsd:attribute name="name" type="xsd:string" use="optional"/>
+          <xsd:attribute name="disabled" type="xsd:boolean" use="optional"/>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="Availability">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="bb:Device"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="bb:BM"/>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" ref="bb:Probe"/>
+          </xsd:sequence>
+          <xsd:attribute name="mfw_id" type="xsd:long" use="required"/>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <!--global messages-->
+  <wsdl:message name="getSACRequest">
+    <wsdl:part name="parameters" element="bb:getSAC"/>
+  </wsdl:message>
+  <wsdl:message name="getSACResponse">
+    <wsdl:part name="parameters" element="bb:SAC"/>
+  </wsdl:message>
+  <!--monitoring-related messages-->
+  <wsdl:message name="setBMResultsRequest">
+    <wsdl:part name="parameters" element="bb:BMResults"/>
+  </wsdl:message>
+  <wsdl:message name="setBMResultsResponse">
+    <wsdl:part name="parameters" element="bb:OperationResult"/>
+  </wsdl:message>
+  <wsdl:message name="setAvailabilityRequest">
+    <wsdl:part name="parameters" element="bb:Availability"/>
+  </wsdl:message>
+  <wsdl:message name="setAvailabilityResponse">
+    <wsdl:part name="parameters" element="bb:OperationResult"/>
+  </wsdl:message>
+  <wsdl:portType name="MFW_SAC">
+    <!--global operations-->
+    <wsdl:operation name="getSAC">
+      <wsdl:input message="bb:getSACRequest"/>
+      <wsdl:output message="bb:getSACResponse"/>
+    </wsdl:operation>
+    <!--monitoring-related operations-->
+    <wsdl:operation name="setBMResults">
+      <wsdl:input message="bb:setBMResultsRequest"/>
+      <wsdl:output message="bb:setBMResultsResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="setAvailability">
+      <wsdl:documentation>receives new available BM.</wsdl:documentation>
+      <wsdl:input message="bb:setAvailabilityRequest"/>
+      <wsdl:output message="bb:setAvailabilityResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MFW_SAC_SoapBinding" type="bb:MFW_SAC">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <!--global services-->
+    <wsdl:operation name="getSAC">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getSACRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getSACResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <!--monitoring-related services-->
+    <wsdl:operation name="setBMResults">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="setBMResultsRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="setBMResultsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <!--modelling-related services-->
+    <wsdl:operation name="setAvailability">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="setAvailabilityRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="setAvailabilityResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MFW_SAC_service">
+    <wsdl:port name="MFW_SAC" binding="bb:MFW_SAC_SoapBinding">
+      <soap:address location="http://www.bugyobeyond.org/MFW_SAC/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://www.bugyobeyond.org/MFW_SAC/</con:endpoint></con:endpoints><con:operation isOneWay="false" action="" name="getSAC" bindingOperationName="getSAC" type="Request-Response" outputName="getSACResponse" inputName="getSACRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.bugyobeyond.org/MFW_SAC/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mfw="http://www.bugyobeyond.org/MFW_SAC/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <mfw:getSAC mfw_id="?"/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.bugyobeyond.org/MFW_SAC/MFW_SAC/getSACRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation isOneWay="false" action="" name="setAvailability" bindingOperationName="setAvailability" type="Request-Response" outputName="setAvailabilityResponse" inputName="setAvailabilityRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.bugyobeyond.org/MFW_SAC/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mfw="http://www.bugyobeyond.org/MFW_SAC/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <mfw:Availability mfw_id="?">
+         <!--Zero or more repetitions:-->
+         <mfw:Device id="?" name="?" type="?" disabled="?"/>
+         <!--Zero or more repetitions:-->
+         <mfw:BM id="?" class="?" name="?" description="?" disabled="?">
+            <!--Zero or more repetitions:-->
+            <device_id>?</device_id>
+         </mfw:BM>
+         <!--Zero or more repetitions:-->
+         <mfw:Probe id="?" name="?" disabled="?">
+            <!--Zero or more repetitions:-->
+            <bm_id>?</bm_id>
+         </mfw:Probe>
+      </mfw:Availability>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.bugyobeyond.org/MFW_SAC/MFW_SAC/setAvailabilityRequest"/></con:call></con:operation><con:operation isOneWay="false" action="" name="setBMResults" bindingOperationName="setBMResults" type="Request-Response" outputName="setBMResultsResponse" inputName="setBMResultsRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.bugyobeyond.org/MFW_SAC/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mfw="http://www.bugyobeyond.org/MFW_SAC/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <mfw:BMResults mfw_id="?">
+         <!--1 or more repetitions:-->
+         <PerDevice device_id="?">
+            <!--1 or more repetitions:-->
+            <mfw:BMResult id="?" error="?" value="?" timeStamp="?"/>
+         </PerDevice>
+      </mfw:BMResults>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.bugyobeyond.org/MFW_SAC/MFW_SAC/setBMResultsRequest"/></con:call></con:operation></con:interface><con:testSuite name="SAC_MFW_SoapBinding TestSuite - no probes started"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="getAvailability TestCase" searchProperties="true" id="36e0d4c8-1149-47da-bbe2-4aeb2eaedce0"><con:settings/><con:testStep type="request" name="Test Request 1: getAvailability with non-numeric sacId"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SAC_MFW_SoapBinding</con:interface><con:operation>getAvailability</con:operation><con:request name="Test Request 1: getAvailability with non-numeric sacId"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#mfwEndpoint}</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sac="http://www.bugyobeyond.org/SAC_MFW/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sac:getAvailability sac_id="invalid"/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" name="SOAP Response"/><con:assertion type="Schema Compliance" name="Schema Compliance"><con:configuration><definition>http://localhost:9876/SAC_MFW?wsdl</definition></con:configuration></con:assertion><con:assertion type="Not SOAP Fault Assertion" name="SOAP Fault"/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://www.bugyobeyond.org/SAC_MFW/getAvailability" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="Test Request 2: getAvailability with unknown sacId"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SAC_MFW_SoapBinding</con:interface><con:operation>getAvailability</con:operation><con:request name="Test Request 2: getAvailability with unknown sacId"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#mfwEndpoint}</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sac="http://www.bugyobeyond.org/SAC_MFW/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sac:getAvailability sac_id="${#TestSuite#unknownId}"/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response"/><con:assertion type="Schema Compliance"><con:configuration><definition>http://localhost:9876/SAC_MFW?wsdl</definition></con:configuration></con:assertion><con:assertion type="SOAP Fault Assertion" disabled="true"/><con:assertion type="XPath Match" name="XPath Match" disabled="true"><con:configuration><path>declare namespace sac="http://www.bugyobeyond.org/SAC_MFW/";
+count(//sac:Availability/sac:Device)</path><content>0</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences></con:configuration></con:assertion><con:assertion type="XPath Match" name="XPath Match 2" disabled="true"><con:configuration><path>declare namespace sac="http://www.bugyobeyond.org/SAC_MFW/";
+count(//sac:Availability/sac:BM)</path><content>0</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences></con:configuration></con:assertion><con:assertion type="XPath Match" name="XPath Match 3" disabled="true"><con:configuration><path>declare namespace sac="http://www.bugyobeyond.org/SAC_MFW/";
+count(//sac:Availability/sac:Probe)</path><content>0</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences></con:configuration></con:assertion><con:assertion type="Not SOAP Fault Assertion" name="SOAP Fault"/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="Test Request 3: getAvailability with valid sacId"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SAC_MFW_SoapBinding</con:interface><con:operation>getAvailability</con:operation><con:request name="Test Request 3: getAvailability with valid sacId"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#mfwEndpoint}</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sac="http://www.bugyobeyond.org/SAC_MFW/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sac:getAvailability sac_id="${#TestSuite#sacId}"/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response"/><con:assertion type="Schema Compliance"><con:configuration><definition>http://localhost:9876/SAC_MFW?wsdl</definition></con:configuration></con:assertion><con:assertion type="SOAP Fault Assertion"/><con:assertion type="XPath Match" name="XPath Match"><con:configuration><path>declare namespace sac="http://www.bugyobeyond.org/SAC_MFW/";
+count(//sac:Availability/sac:Device)</path><content>0</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences></con:configuration></con:assertion><con:assertion type="XPath Match" name="XPath Match 2"><con:configuration><path>declare namespace sac="http://www.bugyobeyond.org/SAC_MFW/";
+count(//sac:Availability/sac:BM)</path><content>0</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences></con:configuration></con:assertion><con:assertion type="XPath Match" name="XPath Match 3"><con:configuration><path>declare namespace sac="http://www.bugyobeyond.org/SAC_MFW/";
+count(//sac:Availability/sac:Probe)</path><content>0</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences></con:configuration></con:assertion><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="getBMResults TestCase" searchProperties="true" id="c8e554cd-6fd9-40ec-90ed-6d512433ecd5"><con:settings/><con:testStep type="properties" name="Properties"><con:settings/><con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:properties><con:property><con:name>bmId</con:name><con:value>2</con:value></con:property><con:property><con:name>deviceId</con:name><con:value>1</con:value></con:property><con:property><con:name>frequency</con:name><con:value>0</con:value></con:property></con:properties></con:config></con:testStep><con:testStep type="request" name="Test Request 1: getBMResults with non-numeric sacId"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SAC_MFW_SoapBinding</con:interface><con:operation>getBMResults</con:operation><con:request name="Test Request 1: getBMResults with non-numeric sacId"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#mfwEndpoint}</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sac="http://www.bugyobeyond.org/SAC_MFW/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sac:BMResultsRequest sac_id="invalid">
+         <!--1 or more repetitions:-->
+         <sac:BMResultRequest id="${Properties#bmId}" frequency="${Properties#frequency}">
+            <!--Zero or more repetitions:-->
+            <device_id>${Properties#deviceId}</device_id>
+         </sac:BMResultRequest>
+      </sac:BMResultsRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" name="SOAP Response"/><con:assertion type="Schema Compliance" name="Schema Compliance"><con:configuration><definition>http://localhost:9876/SAC_MFW?wsdl</definition></con:configuration></con:assertion><con:assertion type="Not SOAP Fault Assertion" name="SOAP Fault"/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://www.bugyobeyond.org/SAC_MFW/getBMResults" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="Test Request 2: getBMResults with unknown sacId"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SAC_MFW_SoapBinding</con:interface><con:operation>getBMResults</con:operation><con:request name="Test Request 2: getBMResults with unknown sacId"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#mfwEndpoint}</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sac="http://www.bugyobeyond.org/SAC_MFW/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sac:BMResultsRequest sac_id="${#TestSuite#unknownId}">
+         <!--1 or more repetitions:-->
+         <sac:BMResultRequest id="${Properties#bmId}" frequency="${Properties#frequency}">
+            <!--Zero or more repetitions:-->
+            <device_id>${Properties#deviceId}</device_id>
+         </sac:BMResultRequest>
+      </sac:BMResultsRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" name="SOAP Response"/><con:assertion type="Schema Compliance" name="Schema Compliance"><con:configuration><definition>http://localhost:9876/SAC_MFW?wsdl</definition></con:configuration></con:assertion><con:assertion type="SOAP Fault Assertion" name="Not SOAP Fault"/><con:assertion type="XPath Match" name="XPath Match"><con:configuration><path>declare namespace sac="http://www.bugyobeyond.org/SAC_MFW/";
+//sac:OperationResult/@error</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences></con:configuration></con:assertion><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://www.bugyobeyond.org/SAC_MFW/getBMResults" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="Test Request 3: getBMResults with valid sacId"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SAC_MFW_SoapBinding</con:interface><con:operation>getBMResults</con:operation><con:request name="Test Request 3: getBMResults with valid sacId"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#mfwEndpoint}</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sac="http://www.bugyobeyond.org/SAC_MFW/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sac:BMResultsRequest sac_id="${#TestSuite#sacId}">
+         <!--1 or more repetitions:-->
+         <sac:BMResultRequest id="${Properties#bmId}" frequency="${Properties#frequency}">
+            <!--Zero or more repetitions:-->
+            <device_id>${Properties#deviceId}</device_id>
+         </sac:BMResultRequest>
+      </sac:BMResultsRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response"/><con:assertion type="Schema Compliance"><con:configuration><definition>http://localhost:9876/SAC_MFW?wsdl</definition></con:configuration></con:assertion><con:assertion type="SOAP Fault Assertion"/><con:assertion type="XPath Match" name="XPath Match"><con:configuration><path>declare namespace sac="http://www.bugyobeyond.org/SAC_MFW/";
+//sac:OperationResult/@error</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences></con:configuration></con:assertion><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="getMFW TestCase" searchProperties="true" id="a812a23a-b51b-4963-8ffc-74b311597824"><con:settings/><con:testStep type="request" name="Test Request 1: getMFW with non-numeric sacId"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SAC_MFW_SoapBinding</con:interface><con:operation>getMFW</con:operation><con:request name="Test Request 1: getMFW with non-numeric sacId"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#mfwEndpoint}</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sac="http://www.bugyobeyond.org/SAC_MFW/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sac:getMFW sac_id="invalid"/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response"/><con:assertion type="Schema Compliance"><con:configuration><definition>http://localhost:9876/SAC_MFW?wsdl</definition></con:configuration></con:assertion><con:assertion type="Not SOAP Fault Assertion" name="SOAP Fault"/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="Test Request 2: getMFW with unknown sacId"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SAC_MFW_SoapBinding</con:interface><con:operation>getMFW</con:operation><con:request name="Test Request 2: getMFW with unknown sacId"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#mfwEndpoint}</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sac="http://www.bugyobeyond.org/SAC_MFW/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sac:getMFW sac_id="${#TestSuite#unknownId}"/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response"/><con:assertion type="Schema Compliance"><con:configuration><definition>http://localhost:9876/SAC_MFW?wsdl</definition></con:configuration></con:assertion><con:assertion type="SOAP Fault Assertion" name="Not SOAP Fault"/><con:assertion type="XPath Match" name="XPath Match"><con:configuration><path>declare namespace sac="http://www.bugyobeyond.org/SAC_MFW/";
+count(//sac:MFW)</path><content>1</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences></con:configuration></con:assertion><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="Test Request 3: getMFW with valid sacId"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SAC_MFW_SoapBinding</con:interface><con:operation>getMFW</con:operation><con:request name="Test Request 3: getMFW with valid sacId"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#mfwEndpoint}</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sac="http://www.bugyobeyond.org/SAC_MFW/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sac:getMFW sac_id="${#TestSuite#sacId}"/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" name="SOAP Response"/><con:assertion type="Schema Compliance" name="Schema Compliance"><con:configuration><definition>http://localhost:9876/SAC_MFW?wsdl</definition></con:configuration></con:assertion><con:assertion type="SOAP Fault Assertion" name="Not SOAP Fault"/><con:assertion type="XPath Match" name="XPath Match"><con:configuration><path>declare namespace sac="http://www.bugyobeyond.org/SAC_MFW/";
+count(//sac:MFW)</path><content>1</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences></con:configuration></con:assertion><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://www.bugyobeyond.org/SAC_MFW/getMFW" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="getProbeParameters TestCase" searchProperties="true" id="71c70a95-4fd3-4266-93eb-c4472303739c"><con:settings/><con:testStep type="properties" name="Properties"><con:settings/><con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:properties><con:property><con:name>probeId</con:name><con:value>3</con:value></con:property></con:properties></con:config></con:testStep><con:testStep type="request" name="Test Request 1: getProbeParameters with invalid sacId"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SAC_MFW_SoapBinding</con:interface><con:operation>getProbeParameters</con:operation><con:request name="Test Request 1: getProbeParameters with invalid sacId"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#mfwEndpoint}</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sac="http://www.bugyobeyond.org/SAC_MFW/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sac:ProbeParametersRequest probe_id="${Properties#probeId}" sac_id="invalid"/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" name="SOAP Response"/><con:assertion type="Schema Compliance" name="Schema Compliance"><con:configuration><definition>http://localhost:9876/SAC_MFW?wsdl</definition></con:configuration></con:assertion><con:assertion type="Not SOAP Fault Assertion" name="SOAP Fault"/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://www.bugyobeyond.org/SAC_MFW/getProbeParameters" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="Test Request 2: getProbeParameters with invalid probeId"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SAC_MFW_SoapBinding</con:interface><con:operation>getProbeParameters</con:operation><con:request name="Test Request 2: getProbeParameters with invalid probeId"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#mfwEndpoint}</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sac="http://www.bugyobeyond.org/SAC_MFW/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sac:ProbeParametersRequest probe_id="invalid" sac_id="${#TestSuite#sacId}"/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response"/><con:assertion type="Schema Compliance"><con:configuration><definition>http://localhost:9876/SAC_MFW?wsdl</definition></con:configuration></con:assertion><con:assertion type="Not SOAP Fault Assertion" name="SOAP Fault"/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="Test Request 3: getProbeParameters with unknown sacId"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SAC_MFW_SoapBinding</con:interface><con:operation>getProbeParameters</con:operation><con:request name="Test Request 3: getProbeParameters with unknown sacId"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#mfwEndpoint}</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sac="http://www.bugyobeyond.org/SAC_MFW/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sac:ProbeParametersRequest probe_id="${Properties#probeId}" sac_id="${#TestSuite#unknownId}"/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response"/><con:assertion type="Schema Compliance"><con:configuration><definition>http://localhost:9876/SAC_MFW?wsdl</definition></con:configuration></con:assertion><con:assertion type="XPath Match" name="XPath Match" disabled="true"><con:configuration><path>declare namespace sac="http://www.bugyobeyond.org/SAC_MFW/";
+count(//sac:ProbeParameters/sac:ProbeParamater)</path><content>0</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences></con:configuration></con:assertion><con:assertion type="Not SOAP Fault Assertion" name="SOAP Fault"/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="Test Request 4: getProbeParameters with valid IDs"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SAC_MFW_SoapBinding</con:interface><con:operation>getProbeParameters</con:operation><con:request name="Test Request 4: getProbeParameters with valid IDs"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#mfwEndpoint}</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sac="http://www.bugyobeyond.org/SAC_MFW/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sac:ProbeParametersRequest probe_id="${Properties#probeId}" sac_id="${#TestSuite#sacId}"/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response"/><con:assertion type="Schema Compliance"><con:configuration><definition>http://localhost:9876/SAC_MFW?wsdl</definition></con:configuration></con:assertion><con:assertion type="XPath Match" name="XPath Match" disabled="true"><con:configuration><path>declare namespace sac="http://www.bugyobeyond.org/SAC_MFW/";
+count(//sac:ProbeParameters/sac:ProbeParamater)</path><content>0</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences></con:configuration></con:assertion><con:assertion type="Not SOAP Fault Assertion" name="SOAP Fault"/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="setProbeParameters TestCase" searchProperties="true" id="e420d080-7a20-48a9-a1bc-29062894c36c"><con:settings/><con:testStep type="properties" name="Properties"><con:settings/><con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:properties><con:property><con:name>probeId</con:name><con:value>3</con:value></con:property></con:properties></con:config></con:testStep><con:testStep type="request" name="Test Request 1: setProbeParameters with invalid sacId"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SAC_MFW_SoapBinding</con:interface><con:operation>setProbeParameters</con:operation><con:request name="Test Request 1: setProbeParameters with invalid sacId"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#mfwEndpoint}</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sac="http://www.bugyobeyond.org/SAC_MFW/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sac:ProbeParameterValues probe_id="${Properties#probeId}" sac_id="invalid">
+         <!--1 or more repetitions:-->
+         <sac:ProbeParameterValue name="height" value="test"/>
+      </sac:ProbeParameterValues>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response"/><con:assertion type="Schema Compliance"><con:configuration><definition>http://localhost:9876/SAC_MFW?wsdl</definition></con:configuration></con:assertion><con:assertion type="Not SOAP Fault Assertion" name="SOAP Fault"/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="Test Request 2: setProbeParameters with invalid probeId"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SAC_MFW_SoapBinding</con:interface><con:operation>setProbeParameters</con:operation><con:request name="Test Request 2: setProbeParameters with invalid probeId"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#mfwEndpoint}</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sac="http://www.bugyobeyond.org/SAC_MFW/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sac:ProbeParameterValues probe_id="invalid" sac_id="${#TestSuite#sacId}">
+         <!--1 or more repetitions:-->
+         <sac:ProbeParameterValue name="height" value="test"/>
+      </sac:ProbeParameterValues>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response"/><con:assertion type="Schema Compliance"><con:configuration><definition>http://localhost:9876/SAC_MFW?wsdl</definition></con:configuration></con:assertion><con:assertion type="Not SOAP Fault Assertion" name="SOAP Fault"/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="Test Request 3: setProbeParameters with valid IDs"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SAC_MFW_SoapBinding</con:interface><con:operation>setProbeParameters</con:operation><con:request name="Test Request 3: setProbeParameters with valid IDs"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#mfwEndpoint}</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sac="http://www.bugyobeyond.org/SAC_MFW/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sac:ProbeParameterValues probe_id="${Properties#probeId}" sac_id="${#TestSuite#sacId}">
+         <!--1 or more repetitions:-->
+         <sac:ProbeParameterValue name="height" value="test"/>
+      </sac:ProbeParameterValues>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response"/><con:assertion type="Schema Compliance"><con:configuration><definition>http://localhost:9876/SAC_MFW?wsdl</definition></con:configuration></con:assertion><con:assertion type="SOAP Fault Assertion" name="Not SOAP Fault"/><con:assertion type="XPath Match" name="XPath Match"><con:configuration><path>declare namespace sac="http://www.bugyobeyond.org/SAC_MFW/";
+//sac:OperationResult/@error</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences></con:configuration></con:assertion><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties><con:property><con:name>sacId</con:name><con:value>555</con:value></con:property><con:property><con:name>unknownId</con:name><con:value>312</con:value></con:property><con:property><con:name>mfwEndpoint</con:name><con:value>http://localhost:9876/SAC_MFW</con:value></con:property></con:properties></con:testSuite><con:testSuite name="SAC_MFW_SoapBinding TestSuite - test probes started"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="getMFW TestCase" searchProperties="true" id="066c82cc-8b12-49d4-a90f-bfff2c999dc2"><con:settings/><con:testStep type="request" name="Test Request 1: getMFW with non-numeric sacId"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SAC_MFW_SoapBinding</con:interface><con:operation>getMFW</con:operation><con:request name="Test Request 1: getMFW with non-numeric sacId"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#mfwEndpoint}</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sac="http://www.bugyobeyond.org/SAC_MFW/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sac:getMFW sac_id="invalid"/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response"/><con:assertion type="Schema Compliance"><con:configuration><definition>http://localhost:9876/SAC_MFW?wsdl</definition></con:configuration></con:assertion><con:assertion type="Not SOAP Fault Assertion" name="SOAP Fault"/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="Test Request 2: getMFW with unknown sacId"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SAC_MFW_SoapBinding</con:interface><con:operation>getMFW</con:operation><con:request name="Test Request 2: getMFW with unknown sacId"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#mfwEndpoint}</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sac="http://www.bugyobeyond.org/SAC_MFW/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sac:getMFW sac_id="${#TestSuite#unknownId}"/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response"/><con:assertion type="Schema Compliance"><con:configuration><definition>http://localhost:9876/SAC_MFW?wsdl</definition></con:configuration></con:assertion><con:assertion type="SOAP Fault Assertion" name="Not SOAP Fault"/><con:assertion type="XPath Match" name="XPath Match"><con:configuration><path>declare namespace sac="http://www.bugyobeyond.org/SAC_MFW/";
+count(//sac:MFW)</path><content>1</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences></con:configuration></con:assertion><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="Test Request 3: getMFW with valid sacId"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SAC_MFW_SoapBinding</con:interface><con:operation>getMFW</con:operation><con:request name="Test Request 3: getMFW with valid sacId"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#mfwEndpoint}</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sac="http://www.bugyobeyond.org/SAC_MFW/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sac:getMFW sac_id="${#TestSuite#sacId}"/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" name="SOAP Response"/><con:assertion type="Schema Compliance" name="Schema Compliance"><con:configuration><definition>http://localhost:9876/SAC_MFW?wsdl</definition></con:configuration></con:assertion><con:assertion type="SOAP Fault Assertion" name="Not SOAP Fault"/><con:assertion type="XPath Match" name="XPath Match"><con:configuration><path>declare namespace sac="http://www.bugyobeyond.org/SAC_MFW/";
+count(//sac:MFW)</path><content>1</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences></con:configuration></con:assertion><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://www.bugyobeyond.org/SAC_MFW/getMFW" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="getAvailability TestCase" searchProperties="true" id="b6f40fd6-8260-4e7f-bc06-856d073a2145"><con:settings/><con:testStep type="request" name="Test Request 1: getAvailability with non-numeric sacId"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SAC_MFW_SoapBinding</con:interface><con:operation>getAvailability</con:operation><con:request name="Test Request 1: getAvailability with non-numeric sacId"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#mfwEndpoint}</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sac="http://www.bugyobeyond.org/SAC_MFW/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sac:getAvailability sac_id="invalid"/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" name="SOAP Response"/><con:assertion type="Schema Compliance" name="Schema Compliance"><con:configuration><definition>http://localhost:9876/SAC_MFW?wsdl</definition></con:configuration></con:assertion><con:assertion type="Not SOAP Fault Assertion" name="SOAP Fault"/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://www.bugyobeyond.org/SAC_MFW/getAvailability" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="Test Request 2: getAvailability with unknown sacId"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SAC_MFW_SoapBinding</con:interface><con:operation>getAvailability</con:operation><con:request name="Test Request 2: getAvailability with unknown sacId"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#mfwEndpoint}</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sac="http://www.bugyobeyond.org/SAC_MFW/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sac:getAvailability sac_id="${#TestSuite#unknownId}"/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response"/><con:assertion type="Schema Compliance"><con:configuration><definition>http://localhost:9876/SAC_MFW?wsdl</definition></con:configuration></con:assertion><con:assertion type="SOAP Fault Assertion" disabled="true"/><con:assertion type="XPath Match" name="XPath Match" disabled="true"><con:configuration><path>declare namespace sac="http://www.bugyobeyond.org/SAC_MFW/";
+count(//sac:Availability/sac:Device)</path><content>0</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences></con:configuration></con:assertion><con:assertion type="XPath Match" name="XPath Match 2" disabled="true"><con:configuration><path>declare namespace sac="http://www.bugyobeyond.org/SAC_MFW/";
+count(//sac:Availability/sac:BM)</path><content>0</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences></con:configuration></con:assertion><con:assertion type="XPath Match" name="XPath Match 3" disabled="true"><con:configuration><path>declare namespace sac="http://www.bugyobeyond.org/SAC_MFW/";
+count(//sac:Availability/sac:Probe)</path><content>0</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences></con:configuration></con:assertion><con:assertion type="Not SOAP Fault Assertion" name="SOAP Fault"/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="Test Request 3: getAvailability with valid sacId"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SAC_MFW_SoapBinding</con:interface><con:operation>getAvailability</con:operation><con:request name="Test Request 3: getAvailability with valid sacId"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#mfwEndpoint}</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sac="http://www.bugyobeyond.org/SAC_MFW/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sac:getAvailability sac_id="${#TestSuite#sacId}"/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response"/><con:assertion type="Schema Compliance"><con:configuration><definition>http://localhost:9876/SAC_MFW?wsdl</definition></con:configuration></con:assertion><con:assertion type="SOAP Fault Assertion"/><con:assertion type="XPath Match" name="XPath Match"><con:configuration><path>declare namespace sac="http://www.bugyobeyond.org/SAC_MFW/";
+count(//sac:Availability/sac:Device)</path><content>5</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences></con:configuration></con:assertion><con:assertion type="XPath Match" name="XPath Match 2"><con:configuration><path>declare namespace sac="http://www.bugyobeyond.org/SAC_MFW/";
+count(//sac:Availability/sac:BM)</path><content>5</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences></con:configuration></con:assertion><con:assertion type="XPath Match" name="XPath Match 3"><con:configuration><path>declare namespace sac="http://www.bugyobeyond.org/SAC_MFW/";
+count(//sac:Availability/sac:Probe)</path><content>6</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences></con:configuration></con:assertion><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="getBMResults TestCase" searchProperties="true" id="c220679d-a2a2-40d8-958f-ebad17344ee9"><con:settings/><con:testStep type="properties" name="Properties"><con:settings/><con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:properties><con:property><con:name>bmId</con:name><con:value>2</con:value></con:property><con:property><con:name>deviceId</con:name><con:value>1</con:value></con:property><con:property><con:name>frequency</con:name><con:value>0</con:value></con:property></con:properties></con:config></con:testStep><con:testStep type="request" name="getAvailability"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SAC_MFW_SoapBinding</con:interface><con:operation>getAvailability</con:operation><con:request name="getAvailability"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#mfwEndpoint}</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sac="http://www.bugyobeyond.org/SAC_MFW/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sac:getAvailability sac_id="${#TestSuite#sacId}"/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response"/><con:assertion type="Schema Compliance"><con:configuration/></con:assertion><con:assertion type="SOAP Fault Assertion" name="Not SOAP Fault"/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="transfer" name="bmId, deviceId to properties"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" useXQuery="false" entitize="false" transferChildNodes="false"><con:name>bmId</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>getAvailability</con:sourceStep><con:sourcePath>declare namespace sac="http://www.bugyobeyond.org/SAC_MFW/";
+//sac:Availability/sac:Probe/bm_id[1][../@name='Test Probe 1']</con:sourcePath><con:targetType>bmId</con:targetType><con:targetStep>Properties</con:targetStep></con:transfers><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" entitize="false" transferToAll="false" transferChildNodes="false" useXQuery="false" ignoreEmpty="false"><con:name>deviceId</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>getAvailability</con:sourceStep><con:sourcePath>declare namespace sac="http://www.bugyobeyond.org/SAC_MFW/";
+//sac:Availability/sac:BM/device_id[1][../@id=//sac:Availability/sac:Probe/bm_id[1][../@name='Test Probe 1']]</con:sourcePath><con:targetType>deviceId</con:targetType><con:targetStep>Properties</con:targetStep></con:transfers></con:config></con:testStep><con:testStep type="request" name="Test Request 1: getBMResults with non-numeric sacId"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SAC_MFW_SoapBinding</con:interface><con:operation>getBMResults</con:operation><con:request name="Test Request 1: getBMResults with non-numeric sacId"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#mfwEndpoint}</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sac="http://www.bugyobeyond.org/SAC_MFW/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sac:BMResultsRequest sac_id="invalid">
+         <!--1 or more repetitions:-->
+         <sac:BMResultRequest id="${Properties#bmId}" frequency="${Properties#frequency}">
+            <!--Zero or more repetitions:-->
+            <device_id>${Properties#deviceId}</device_id>
+         </sac:BMResultRequest>
+      </sac:BMResultsRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" name="SOAP Response"/><con:assertion type="Schema Compliance" name="Schema Compliance"><con:configuration><definition>http://localhost:9876/SAC_MFW?wsdl</definition></con:configuration></con:assertion><con:assertion type="Not SOAP Fault Assertion" name="SOAP Fault"/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://www.bugyobeyond.org/SAC_MFW/getBMResults" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="Test Request 2: getBMResults with unknown sacId"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SAC_MFW_SoapBinding</con:interface><con:operation>getBMResults</con:operation><con:request name="Test Request 2: getBMResults with unknown sacId"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#mfwEndpoint}</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sac="http://www.bugyobeyond.org/SAC_MFW/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sac:BMResultsRequest sac_id="${#TestSuite#unknownId}">
+         <!--1 or more repetitions:-->
+         <sac:BMResultRequest id="${Properties#bmId}" frequency="${Properties#frequency}">
+            <!--Zero or more repetitions:-->
+            <device_id>${Properties#deviceId}</device_id>
+         </sac:BMResultRequest>
+      </sac:BMResultsRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" name="SOAP Response"/><con:assertion type="Schema Compliance" name="Schema Compliance"><con:configuration><definition>http://localhost:9876/SAC_MFW?wsdl</definition></con:configuration></con:assertion><con:assertion type="SOAP Fault Assertion" name="Not SOAP Fault"/><con:assertion type="XPath Match" name="XPath Match"><con:configuration><path>declare namespace sac="http://www.bugyobeyond.org/SAC_MFW/";
+//sac:OperationResult/@error</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences></con:configuration></con:assertion><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://www.bugyobeyond.org/SAC_MFW/getBMResults" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="Test Request 3: getBMResults with valid IDs"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SAC_MFW_SoapBinding</con:interface><con:operation>getBMResults</con:operation><con:request name="Test Request 3: getBMResults with valid IDs"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#mfwEndpoint}</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sac="http://www.bugyobeyond.org/SAC_MFW/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sac:BMResultsRequest sac_id="${#TestSuite#sacId}">
+         <!--1 or more repetitions:-->
+         <sac:BMResultRequest id="${Properties#bmId}" frequency="${Properties#frequency}">
+            <!--Zero or more repetitions:-->
+            <device_id>${Properties#deviceId}</device_id>
+         </sac:BMResultRequest>
+      </sac:BMResultsRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response"/><con:assertion type="Schema Compliance"><con:configuration><definition>http://localhost:9876/SAC_MFW?wsdl</definition></con:configuration></con:assertion><con:assertion type="SOAP Fault Assertion"/><con:assertion type="XPath Match" name="XPath Match"><con:configuration><path>declare namespace sac="http://www.bugyobeyond.org/SAC_MFW/";
+//sac:OperationResult/@error</path><content>false</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences></con:configuration></con:assertion><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="mockresponse" name="Mock Response"><con:settings/><con:config xsi:type="con:MockResponseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>MFW_SAC_SoapBinding</con:interface><con:operation>setBMResults</con:operation><con:path>/axis2/services/MFW_SAC_service</con:path><con:port>8081</con:port><con:response><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mfw="http://www.bugyobeyond.org/MFW_SAC/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <mfw:OperationResult error="false"/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508"/></con:response><con:assertion type="SOAP Request"/><con:assertion type="Schema Compliance"><con:configuration><definition>http://localhost:8090/MFW_SAC?wsdl</definition></con:configuration></con:assertion><con:assertion type="Simple Contains"><con:configuration><token>BMResult</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="XPath Match"><con:configuration><path>declare namespace sac="http://www.bugyobeyond.org/MFW_SAC/";
+count(//sac:BMResults/PerDevice)</path><content>1</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences></con:configuration></con:assertion><con:assertion type="XPath Match"><con:configuration><path>declare namespace sac="http://www.bugyobeyond.org/MFW_SAC/";
+count(//sac:BMResults/PerDevice[1]/sac:BMResult)</path><content>1</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>true</ignoreNamspaceDifferences></con:configuration></con:assertion><con:assertion type="XPath Match"><con:configuration><path>declare namespace sac="http://www.bugyobeyond.org/MFW_SAC/";
+//sac:BMResults/PerDevice[1]/sac:BMResult[1]/@id</path><content>${Properties#bmId}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences></con:configuration></con:assertion></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="getProbeParameters TestCase" searchProperties="true" id="f76408ed-9e00-4a44-acf8-9117b1ab1239"><con:settings/><con:testStep type="properties" name="Properties"><con:settings/><con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:properties><con:property><con:name>probeId1</con:name><con:value>3</con:value></con:property><con:property><con:name>probeId2</con:name><con:value>8</con:value></con:property></con:properties></con:config></con:testStep><con:testStep type="request" name="getAvailability"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SAC_MFW_SoapBinding</con:interface><con:operation>getAvailability</con:operation><con:request name="getAvailability"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#mfwEndpoint}</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sac="http://www.bugyobeyond.org/SAC_MFW/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sac:getAvailability sac_id="${#TestSuite#sacId}"/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response"/><con:assertion type="Schema Compliance"><con:configuration/></con:assertion><con:assertion type="SOAP Fault Assertion" name="Not SOAP Fault"/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="transfer" name="probeId to properties"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" useXQuery="false" entitize="false" transferChildNodes="false"><con:name>probeId1ToProperties</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>getAvailability</con:sourceStep><con:sourcePath>declare namespace sac="http://www.bugyobeyond.org/SAC_MFW/";
+//sac:Availability/sac:Probe/@id[../@name='Test Probe 1']</con:sourcePath><con:targetType>probeId1</con:targetType><con:targetStep>Properties</con:targetStep><con:targetPath/></con:transfers><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" transferToAll="false"><con:name>probeId2ToProperties</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>getAvailability</con:sourceStep><con:sourcePath>declare namespace sac="http://www.bugyobeyond.org/SAC_MFW/";
+//sac:Availability/sac:Probe/@id[../@name='Test Probe 2']</con:sourcePath><con:targetType>probeId2</con:targetType><con:targetStep>Properties</con:targetStep></con:transfers></con:config></con:testStep><con:testStep type="request" name="Test Request 1: getProbeParameters with invalid sacId"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SAC_MFW_SoapBinding</con:interface><con:operation>getProbeParameters</con:operation><con:request name="Test Request 1: getProbeParameters with invalid sacId"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#mfwEndpoint}</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sac="http://www.bugyobeyond.org/SAC_MFW/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sac:ProbeParametersRequest probe_id="${Properties#probeId1}" sac_id="invalid"/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" name="SOAP Response"/><con:assertion type="Schema Compliance" name="Schema Compliance"><con:configuration><definition>http://localhost:9876/SAC_MFW?wsdl</definition></con:configuration></con:assertion><con:assertion type="Not SOAP Fault Assertion" name="SOAP Fault"/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://www.bugyobeyond.org/SAC_MFW/getProbeParameters" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="Test Request 2: getProbeParameters with invalid probeId"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SAC_MFW_SoapBinding</con:interface><con:operation>getProbeParameters</con:operation><con:request name="Test Request 2: getProbeParameters with invalid probeId"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#mfwEndpoint}</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sac="http://www.bugyobeyond.org/SAC_MFW/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sac:ProbeParametersRequest probe_id="invalid" sac_id="${#TestSuite#sacId}"/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response"/><con:assertion type="Schema Compliance"><con:configuration><definition>http://localhost:9876/SAC_MFW?wsdl</definition></con:configuration></con:assertion><con:assertion type="Not SOAP Fault Assertion" name="SOAP Fault"/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="Test Request 3: getProbeParameters with unknown sacId"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SAC_MFW_SoapBinding</con:interface><con:operation>getProbeParameters</con:operation><con:request name="Test Request 3: getProbeParameters with unknown sacId"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#mfwEndpoint}</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sac="http://www.bugyobeyond.org/SAC_MFW/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sac:ProbeParametersRequest probe_id="${Properties#probeId1}" sac_id="${#TestSuite#unknownId}"/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response"/><con:assertion type="Schema Compliance"><con:configuration><definition>http://localhost:9876/SAC_MFW?wsdl</definition></con:configuration></con:assertion><con:assertion type="XPath Match" name="XPath Match" disabled="true"><con:configuration><path>declare namespace sac="http://www.bugyobeyond.org/SAC_MFW/";
+count(//sac:ProbeParameters/sac:ProbeParamater)</path><content>0</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences></con:configuration></con:assertion><con:assertion type="Not SOAP Fault Assertion" name="SOAP Fault"/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="Test Request 4: getProbeParameters with valid IDs, Test Probe 1 (2 params)"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SAC_MFW_SoapBinding</con:interface><con:operation>getProbeParameters</con:operation><con:request name="Test Request 4: getProbeParameters with valid IDs, Test Probe 1 (2 params)"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#mfwEndpoint}</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sac="http://www.bugyobeyond.org/SAC_MFW/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sac:ProbeParametersRequest probe_id="${Properties#probeId1}" sac_id="${#TestSuite#sacId}"/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response"/><con:assertion type="Schema Compliance"><con:configuration><definition>http://localhost:9876/SAC_MFW?wsdl</definition></con:configuration></con:assertion><con:assertion type="SOAP Fault Assertion"/><con:assertion type="Simple Contains" name="Contains"><con:configuration><token>ProbeParameter</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="XPath Match" name="XPath Match"><con:configuration><path>declare namespace sac="http://www.bugyobeyond.org/SAC_MFW/";
+count(//sac:ProbeParameters/sac:ProbeParameter)</path><content>2</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences></con:configuration></con:assertion><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="Test Request 5: getProbeParameters with valid IDs, Test Probe 2 (no params)"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SAC_MFW_SoapBinding</con:interface><con:operation>getProbeParameters</con:operation><con:request name="Test Request 5: getProbeParameters with valid IDs, Test Probe 2 (no params)"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#mfwEndpoint}</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sac="http://www.bugyobeyond.org/SAC_MFW/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sac:ProbeParametersRequest probe_id="${Properties#probeId2}" sac_id="${#TestSuite#sacId}"/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response"/><con:assertion type="Schema Compliance"><con:configuration><definition>http://localhost:9876/SAC_MFW?wsdl</definition></con:configuration></con:assertion><con:assertion type="SOAP Fault Assertion"/><con:assertion type="XPath Match" name="XPath Match"><con:configuration><path>declare namespace sac="http://www.bugyobeyond.org/SAC_MFW/";
+count(//sac:ProbeParameters/sac:ProbeParameter)</path><content>0</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences></con:configuration></con:assertion><con:assertion type="Simple Contains" name="Contains"><con:configuration><token>ProbeParameters</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="setProbeParameters TestCase" searchProperties="true" id="ea239dc9-60d3-4f56-83b3-43300dada6db"><con:settings/><con:testStep type="properties" name="Properties"><con:settings/><con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:properties><con:property><con:name>probeId</con:name><con:value>3</con:value></con:property><con:property><con:name>name</con:name><con:value>height</con:value></con:property><con:property><con:name>value1</con:name><con:value>test_value_1</con:value></con:property><con:property><con:name>value2</con:name><con:value>test_value_2</con:value></con:property><con:property><con:name>value3</con:name><con:value>test_value_3</con:value></con:property><con:property><con:name>erroneousName</con:name><con:value>erroneous</con:value></con:property></con:properties></con:config></con:testStep><con:testStep type="request" name="getAvailability"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SAC_MFW_SoapBinding</con:interface><con:operation>getAvailability</con:operation><con:request name="getAvailability"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#mfwEndpoint}</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sac="http://www.bugyobeyond.org/SAC_MFW/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sac:getAvailability sac_id="${#TestSuite#sacId}"/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response"/><con:assertion type="Schema Compliance"><con:configuration/></con:assertion><con:assertion type="SOAP Fault Assertion" name="Not SOAP Fault"/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="transfer" name="probeId to properties"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" useXQuery="false" entitize="false" transferChildNodes="false"><con:name>probeId2Properties</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>getAvailability</con:sourceStep><con:sourcePath>declare namespace sac="http://www.bugyobeyond.org/SAC_MFW/";
+//sac:Availability/sac:Probe/@id[../@name='Test Probe 1']</con:sourcePath><con:targetType>probeId</con:targetType><con:targetStep>Properties</con:targetStep><con:targetPath/></con:transfers></con:config></con:testStep><con:testStep type="request" name="getProbeParameters"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SAC_MFW_SoapBinding</con:interface><con:operation>getProbeParameters</con:operation><con:request name="getProbeParameters"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#mfwEndpoint}</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sac="http://www.bugyobeyond.org/SAC_MFW/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sac:ProbeParametersRequest probe_id="${Properties#probeId}" sac_id="${#TestSuite#sacId}"/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response"/><con:assertion type="Schema Compliance"><con:configuration/></con:assertion><con:assertion type="SOAP Fault Assertion" name="Not SOAP Fault"/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="transfer" name="name to properties"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" useXQuery="false" entitize="false" transferChildNodes="false"><con:name>name2Properties</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>getProbeParameters</con:sourceStep><con:sourcePath>declare namespace sac="http://www.bugyobeyond.org/SAC_MFW/";
+//sac:ProbeParameters/sac:ProbeParameter[1]/@name</con:sourcePath><con:targetType>name</con:targetType><con:targetStep>Properties</con:targetStep><con:targetPath/></con:transfers></con:config></con:testStep><con:testStep type="request" name="setProbeParameters: test_value_1"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SAC_MFW_SoapBinding</con:interface><con:operation>setProbeParameters</con:operation><con:request name="setProbeParameters: test_value_1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#mfwEndpoint}</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sac="http://www.bugyobeyond.org/SAC_MFW/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sac:ProbeParameterValues probe_id="${Properties#probeId}" sac_id="${#TestSuite#sacId}">
+         <!--1 or more repetitions:-->
+         <sac:ProbeParameterValue name="${Properties#name}" value="${Properties#value1}"/>
+      </sac:ProbeParameterValues>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" name="SOAP Response"/><con:assertion type="Schema Compliance" name="Schema Compliance"><con:configuration><definition>http://localhost:9876/SAC_MFW?wsdl</definition></con:configuration></con:assertion><con:assertion type="XPath Match" name="XPath Match"><con:configuration><path>declare namespace sac="http://www.bugyobeyond.org/SAC_MFW/";
+//sac:OperationResult/@error</path><content>false</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences></con:configuration></con:assertion><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://www.bugyobeyond.org/SAC_MFW/setProbeParameters" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="getProbeParameters: check value"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SAC_MFW_SoapBinding</con:interface><con:operation>getProbeParameters</con:operation><con:request name="getProbeParameters: check value"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#mfwEndpoint}</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sac="http://www.bugyobeyond.org/SAC_MFW/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sac:ProbeParametersRequest probe_id="${Properties#probeId}" sac_id="${#TestSuite#sacId}"/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response"/><con:assertion type="Schema Compliance"><con:configuration><definition>http://localhost:9876/SAC_MFW?wsdl</definition></con:configuration></con:assertion><con:assertion type="XPath Match" name="XPath Match"><con:configuration><path>declare namespace sac="http://www.bugyobeyond.org/SAC_MFW/";
+//sac:ProbeParameters/sac:ProbeParameter[1]/@name</path><content>${Properties#name}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences></con:configuration></con:assertion><con:assertion type="XPath Match" name="XPath Match 1"><con:configuration><path>declare namespace sac="http://www.bugyobeyond.org/SAC_MFW/";
+//sac:ProbeParameters/sac:ProbeParameter[1]/@value</path><content>${Properties#value1}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences></con:configuration></con:assertion><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="setProbeParameters: test_value_2"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SAC_MFW_SoapBinding</con:interface><con:operation>setProbeParameters</con:operation><con:request name="setProbeParameters: test_value_2"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#mfwEndpoint}</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sac="http://www.bugyobeyond.org/SAC_MFW/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sac:ProbeParameterValues probe_id="${Properties#probeId}" sac_id="${#TestSuite#sacId}">
+         <!--1 or more repetitions:-->
+         <sac:ProbeParameterValue name="${Properties#name}" value="${Properties#value2}"/>
+      </sac:ProbeParameterValues>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" name="SOAP Response"/><con:assertion type="Schema Compliance" name="Schema Compliance"><con:configuration><definition>http://localhost:9876/SAC_MFW?wsdl</definition></con:configuration></con:assertion><con:assertion type="XPath Match" name="XPath Match"><con:configuration><path>declare namespace sac="http://www.bugyobeyond.org/SAC_MFW/";
+//sac:OperationResult/@error</path><content>false</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences></con:configuration></con:assertion><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://www.bugyobeyond.org/SAC_MFW/setProbeParameters" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="getProbeParameters: check value2 change"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SAC_MFW_SoapBinding</con:interface><con:operation>getProbeParameters</con:operation><con:request name="getProbeParameters: check value2 change"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#mfwEndpoint}</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sac="http://www.bugyobeyond.org/SAC_MFW/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sac:ProbeParametersRequest probe_id="${Properties#probeId}" sac_id="${#TestSuite#sacId}"/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response"/><con:assertion type="Schema Compliance"><con:configuration><definition>http://localhost:9876/SAC_MFW?wsdl</definition></con:configuration></con:assertion><con:assertion type="XPath Match" name="XPath Match"><con:configuration><path>declare namespace sac="http://www.bugyobeyond.org/SAC_MFW/";
+//sac:ProbeParameters/sac:ProbeParameter[1]/@name</path><content>${Properties#name}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences></con:configuration></con:assertion><con:assertion type="XPath Match" name="XPath Match 1"><con:configuration><path>declare namespace sac="http://www.bugyobeyond.org/SAC_MFW/";
+//sac:ProbeParameters/sac:ProbeParameter[1]/@value</path><content>${Properties#value2}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences></con:configuration></con:assertion><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="setProbeParameters: test_value_3 with erroneous name, check for error=true"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SAC_MFW_SoapBinding</con:interface><con:operation>setProbeParameters</con:operation><con:request name="setProbeParameters: test_value_3 with erroneous name, check for error=true"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#mfwEndpoint}</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sac="http://www.bugyobeyond.org/SAC_MFW/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sac:ProbeParameterValues probe_id="${Properties#probeId}" sac_id="${#TestSuite#sacId}">
+         <!--1 or more repetitions:-->
+         <sac:ProbeParameterValue name="${Properties#erroneousName}" value="${Properties#value3}"/>
+      </sac:ProbeParameterValues>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" name="SOAP Response"/><con:assertion type="Schema Compliance" name="Schema Compliance"><con:configuration><definition>http://localhost:9876/SAC_MFW?wsdl</definition></con:configuration></con:assertion><con:assertion type="XPath Match" name="XPath Match"><con:configuration><path>declare namespace sac="http://www.bugyobeyond.org/SAC_MFW/";
+//sac:OperationResult/@error</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences></con:configuration></con:assertion><con:assertion type="SOAP Fault Assertion" name="Not SOAP Fault"/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://www.bugyobeyond.org/SAC_MFW/setProbeParameters" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="getProbeParameters: check value2 not changed"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SAC_MFW_SoapBinding</con:interface><con:operation>getProbeParameters</con:operation><con:request name="getProbeParameters: check value2 not changed"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#mfwEndpoint}</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sac="http://www.bugyobeyond.org/SAC_MFW/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sac:ProbeParametersRequest probe_id="${Properties#probeId}" sac_id="${#TestSuite#sacId}"/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response"/><con:assertion type="Schema Compliance"><con:configuration><definition>http://localhost:9876/SAC_MFW?wsdl</definition></con:configuration></con:assertion><con:assertion type="XPath Match" name="XPath Match"><con:configuration><path>declare namespace sac="http://www.bugyobeyond.org/SAC_MFW/";
+//sac:ProbeParameters/sac:ProbeParameter[1]/@name</path><content>${Properties#name}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences></con:configuration></con:assertion><con:assertion type="XPath Match" name="XPath Match 1"><con:configuration><path>declare namespace sac="http://www.bugyobeyond.org/SAC_MFW/";
+//sac:ProbeParameters/sac:ProbeParameter[1]/@value</path><content>${Properties#value2}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences></con:configuration></con:assertion><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Change in Availability TestCase" searchProperties="true" id="4229a4b7-a020-4cb8-9537-31c9ba5c8e4b"><con:settings/><con:testStep type="manualTestStep" name="Manual TestStep: stop test probes"><con:description>stop test probes</con:description><con:settings/><con:config xsi:type="con:ManualTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:testStep><con:testStep type="mockresponse" name="Mock Response: setAvailability with test probes disabled  (fails sometimes depending on timing, all availability is not in the same message)"><con:settings/><con:config xsi:type="con:MockResponseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>MFW_SAC_SoapBinding</con:interface><con:operation>setAvailability</con:operation><con:path>/axis2/services/MFW_SAC_service</con:path><con:port>8081</con:port><con:response><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mfw="http://www.bugyobeyond.org/MFW_SAC/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <mfw:OperationResult error="false"/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508"/></con:response><con:assertion type="SOAP Request"/><con:assertion type="Schema Compliance"><con:configuration><definition>http://localhost:8090/MFW_SAC?wsdl</definition></con:configuration></con:assertion><con:assertion type="XPath Match"><con:configuration><path>declare namespace sac="http://www.bugyobeyond.org/MFW_SAC/";
+count(//sac:Availability/sac:Device)</path><content>5</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences></con:configuration></con:assertion><con:assertion type="XPath Match"><con:configuration><path>declare namespace sac="http://www.bugyobeyond.org/MFW_SAC/";
+count(//sac:Availability/sac:BM)</path><content>5</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences></con:configuration></con:assertion><con:assertion type="XPath Match"><con:configuration><path>declare namespace sac="http://www.bugyobeyond.org/MFW_SAC/";
+count(//sac:Availability/sac:Probe)</path><content>6</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences></con:configuration></con:assertion><con:assertion type="XPath Match"><con:configuration><path>declare namespace sac="http://www.bugyobeyond.org/MFW_SAC/";
+//sac:Availability/sac:Device[1]/@disabled</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences></con:configuration></con:assertion><con:assertion type="XPath Match"><con:configuration><path>declare namespace sac="http://www.bugyobeyond.org/MFW_SAC/";
+//sac:Availability/sac:BM[1]/@disabled</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences></con:configuration></con:assertion><con:assertion type="XPath Match"><con:configuration><path>declare namespace sac="http://www.bugyobeyond.org/MFW_SAC/";
+//sac:Availability/sac:Probe[1]/@disabled</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences></con:configuration></con:assertion><con:assertion type="XPath Match"><con:configuration><path>declare namespace sac="http://www.bugyobeyond.org/MFW_SAC/";
+//sac:Availability/sac:Device[2]/@disabled</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences></con:configuration></con:assertion><con:assertion type="XPath Match"><con:configuration><path>declare namespace sac="http://www.bugyobeyond.org/MFW_SAC/";
+//sac:Availability/sac:BM[2]/@disabled</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences></con:configuration></con:assertion><con:assertion type="XPath Match"><con:configuration><path>declare namespace sac="http://www.bugyobeyond.org/MFW_SAC/";
+//sac:Availability/sac:Probe[2]/@disabled</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences></con:configuration></con:assertion><con:assertion type="XPath Match"><con:configuration><path>declare namespace sac="http://www.bugyobeyond.org/MFW_SAC/";
+//sac:Availability/sac:Device[3]/@disabled</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences></con:configuration></con:assertion><con:assertion type="XPath Match"><con:configuration><path>declare namespace sac="http://www.bugyobeyond.org/MFW_SAC/";
+//sac:Availability/sac:BM[3]/@disabled</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences></con:configuration></con:assertion><con:assertion type="XPath Match"><con:configuration><path>declare namespace sac="http://www.bugyobeyond.org/MFW_SAC/";
+//sac:Availability/sac:Probe[3]/@disabled</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences></con:configuration></con:assertion><con:assertion type="XPath Match"><con:configuration><path>declare namespace sac="http://www.bugyobeyond.org/MFW_SAC/";
+//sac:Availability/sac:Device[4]/@disabled</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences></con:configuration></con:assertion><con:assertion type="XPath Match"><con:configuration><path>declare namespace sac="http://www.bugyobeyond.org/MFW_SAC/";
+//sac:Availability/sac:BM[4]/@disabled</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences></con:configuration></con:assertion><con:assertion type="XPath Match"><con:configuration><path>declare namespace sac="http://www.bugyobeyond.org/MFW_SAC/";
+//sac:Availability/sac:Probe[4]/@disabled</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences></con:configuration></con:assertion><con:assertion type="XPath Match"><con:configuration><path>declare namespace sac="http://www.bugyobeyond.org/MFW_SAC/";
+//sac:Availability/sac:Device[5]/@disabled</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences></con:configuration></con:assertion><con:assertion type="XPath Match"><con:configuration><path>declare namespace sac="http://www.bugyobeyond.org/MFW_SAC/";
+//sac:Availability/sac:BM[5]/@disabled</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences></con:configuration></con:assertion><con:assertion type="XPath Match"><con:configuration><path>declare namespace sac="http://www.bugyobeyond.org/MFW_SAC/";
+//sac:Availability/sac:Probe[5]/@disabled</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences></con:configuration></con:assertion><con:assertion type="XPath Match"><con:configuration><path>declare namespace sac="http://www.bugyobeyond.org/MFW_SAC/";
+//sac:Availability/sac:Probe[6]/@disabled</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences></con:configuration></con:assertion></con:config></con:testStep><con:testStep type="manualTestStep" name="Manual TestStep: start test probes"><con:description>Start test probes</con:description><con:settings/><con:config xsi:type="con:ManualTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:testStep><con:testStep type="mockresponse" name="Mock Response: setAvailability with test probes enabled (fails sometimes depending on timing, all availability is not in the same message)"><con:settings/><con:config xsi:type="con:MockResponseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>MFW_SAC_SoapBinding</con:interface><con:operation>setAvailability</con:operation><con:path>/axis2/services/MFW_SAC_service</con:path><con:port>8081</con:port><con:response><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mfw="http://www.bugyobeyond.org/MFW_SAC/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <mfw:OperationResult error="false"/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508"/></con:response><con:assertion type="SOAP Request"/><con:assertion type="Schema Compliance"><con:configuration><definition>http://localhost:8090/MFW_SAC?wsdl</definition></con:configuration></con:assertion><con:assertion type="XPath Match"><con:configuration><path>declare namespace sac="http://www.bugyobeyond.org/MFW_SAC/";
+count(//sac:Availability/sac:Device)</path><content>5</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences></con:configuration></con:assertion><con:assertion type="XPath Match"><con:configuration><path>declare namespace sac="http://www.bugyobeyond.org/MFW_SAC/";
+count(//sac:Availability/sac:BM)</path><content>5</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences></con:configuration></con:assertion><con:assertion type="XPath Match"><con:configuration><path>declare namespace sac="http://www.bugyobeyond.org/MFW_SAC/";
+count(//sac:Availability/sac:Probe)</path><content>6</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences></con:configuration></con:assertion><con:assertion type="XPath Match"><con:configuration><path>declare namespace sac="http://www.bugyobeyond.org/MFW_SAC/";
+//sac:Availability/sac:Device[1]/@disabled</path><content>false</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences></con:configuration></con:assertion><con:assertion type="XPath Match"><con:configuration><path>declare namespace sac="http://www.bugyobeyond.org/MFW_SAC/";
+//sac:Availability/sac:BM[1]/@disabled</path><content>false</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences></con:configuration></con:assertion><con:assertion type="XPath Match"><con:configuration><path>declare namespace sac="http://www.bugyobeyond.org/MFW_SAC/";
+//sac:Availability/sac:Probe[1]/@disabled</path><content>false</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences></con:configuration></con:assertion><con:assertion type="XPath Match"><con:configuration><path>declare namespace sac="http://www.bugyobeyond.org/MFW_SAC/";
+//sac:Availability/sac:Device[2]/@disabled</path><content>false</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences></con:configuration></con:assertion><con:assertion type="XPath Match"><con:configuration><path>declare namespace sac="http://www.bugyobeyond.org/MFW_SAC/";
+//sac:Availability/sac:BM[2]/@disabled</path><content>false</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences></con:configuration></con:assertion><con:assertion type="XPath Match"><con:configuration><path>declare namespace sac="http://www.bugyobeyond.org/MFW_SAC/";
+//sac:Availability/sac:Probe[2]/@disabled</path><content>false</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences></con:configuration></con:assertion><con:assertion type="XPath Match"><con:configuration><path>declare namespace sac="http://www.bugyobeyond.org/MFW_SAC/";
+//sac:Availability/sac:Device[3]/@disabled</path><content>false</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences></con:configuration></con:assertion><con:assertion type="XPath Match"><con:configuration><path>declare namespace sac="http://www.bugyobeyond.org/MFW_SAC/";
+//sac:Availability/sac:BM[3]/@disabled</path><content>false</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences></con:configuration></con:assertion><con:assertion type="XPath Match"><con:configuration><path>declare namespace sac="http://www.bugyobeyond.org/MFW_SAC/";
+//sac:Availability/sac:Probe[3]/@disabled</path><content>false</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences></con:configuration></con:assertion><con:assertion type="XPath Match"><con:configuration><path>declare namespace sac="http://www.bugyobeyond.org/MFW_SAC/";
+//sac:Availability/sac:Device[4]/@disabled</path><content>false</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences></con:configuration></con:assertion><con:assertion type="XPath Match"><con:configuration><path>declare namespace sac="http://www.bugyobeyond.org/MFW_SAC/";
+//sac:Availability/sac:BM[4]/@disabled</path><content>false</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences></con:configuration></con:assertion><con:assertion type="XPath Match"><con:configuration><path>declare namespace sac="http://www.bugyobeyond.org/MFW_SAC/";
+//sac:Availability/sac:Probe[4]/@disabled</path><content>false</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences></con:configuration></con:assertion><con:assertion type="XPath Match"><con:configuration><path>declare namespace sac="http://www.bugyobeyond.org/MFW_SAC/";
+//sac:Availability/sac:Device[5]/@disabled</path><content>false</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences></con:configuration></con:assertion><con:assertion type="XPath Match"><con:configuration><path>declare namespace sac="http://www.bugyobeyond.org/MFW_SAC/";
+//sac:Availability/sac:BM[5]/@disabled</path><content>false</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences></con:configuration></con:assertion><con:assertion type="XPath Match"><con:configuration><path>declare namespace sac="http://www.bugyobeyond.org/MFW_SAC/";
+//sac:Availability/sac:Probe[5]/@disabled</path><content>false</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences></con:configuration></con:assertion><con:assertion type="XPath Match"><con:configuration><path>declare namespace sac="http://www.bugyobeyond.org/MFW_SAC/";
+//sac:Availability/sac:Probe[6]/@disabled</path><content>false</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences></con:configuration></con:assertion></con:config></con:testStep><con:properties/></con:testCase><con:properties><con:property><con:name>sacId</con:name><con:value>555</con:value></con:property><con:property><con:name>unknownId</con:name><con:value>312</con:value></con:property><con:property><con:name>mfwEndpoint</con:name><con:value>http://localhost:9876/SAC_MFW</con:value></con:property></con:properties></con:testSuite><con:properties/><con:wssContainer/></con:soapui-project>

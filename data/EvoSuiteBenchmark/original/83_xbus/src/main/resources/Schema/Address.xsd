@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs='http://www.w3.org/2001/XMLSchema'>
+
+ <xs:element name="Address">
+  <xs:complexType>
+   <xs:sequence>
+     <xs:element ref="Company" minOccurs='1' maxOccurs='unbounded'/>
+   </xs:sequence>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name="Company">
+  <xs:complexType>
+   <xs:sequence>
+     <xs:element ref="Name"  minOccurs='1' maxOccurs='1' />
+     <xs:element ref="Employee" minOccurs='1' maxOccurs='unbounded'/>
+   </xs:sequence>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name="Employee">
+  <xs:complexType>
+   <xs:sequence>
+     <xs:element ref="Name"  minOccurs='1' maxOccurs='1'/>
+     <xs:element ref="Rank" minOccurs='1' maxOccurs='1'/>
+   </xs:sequence>
+  </xs:complexType>
+ </xs:element>
+
+ <xs:element name="Name" type='xs:string'/>
+
+<xs:element name="Rank" type='xs:string'/>
+
+</xs:schema>

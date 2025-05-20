@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="Auswahlfeld">
+
+  <typeAlias alias="AuswahlfeldObject" type="ch.bfh.egov.nutzenportfolio.tos.Auswahlfeld"/>
+  <typeAlias alias="CustomizingObject" type="ch.bfh.egov.nutzenportfolio.tos.Customizing"/>
+
+  <resultMap id="auswahlfeldResult" class="AuswahlfeldObject">
+	  <result property="auswahlfeldId"								column="auswahlfeldId"/>
+	  <result property="mandantId"										column="mandantId"/>
+	  <result property="name"													column="name"/>
+	  <result property="level"												column="level"/>
+	  <result property="eintrittswahrscheinlichkeit"	column="eintrittswahrscheinlichkeit"/>
+	  <result property="eintrittszeitpunkt"						column="eintrittszeitpunkt"/>
+	  <result property="abstufung"										column="abstufung"/>
+	  <result property="gewichtung"										column="gewichtung"/>
+  </resultMap>
+  
+  <resultMap id="auswahlfeldNutzenkriteriumResult" class="AuswahlfeldObject">
+	  <result property="auswahlfeldId"								column="auswahlfeldId"/>
+	  <result property="mandantId"										column="mandantId"/>
+	  <result property="name"													column="name"/>
+	  <result property="level"												column="level"/>
+	  <result property="eintrittswahrscheinlichkeit"	column="eintrittswahrscheinlichkeit"/>
+	  <result property="eintrittszeitpunkt"						column="eintrittszeitpunkt"/>
+	  <result property="abstufung"										column="abstufung"/>
+	  <result property="gewichtung"										column="gewichtung"/>
+	  <result property="nutzenkriteriumId"						column="nutzenkriteriumId"/>
+  </resultMap>
+  
+  <resultMap id="auswahlfeldAssignmentResult" class="AuswahlfeldObject">
+	  <result property="auswahlfeldId"							column="auswahlfeldId"/>
+	  <result property="projektattraktivitaetId"		column="projektattraktivitaetId"/>
+	  <result property="name"												column="name"/>
+  </resultMap>
+  
+  <resultMap id="customizingResult" class="CustomizingObject">
+    <result property="customizingId"			column="customizingId"/>
+    <result property="name"								column="name"/>
+    <result property="status"							column="status"/>
+  </resultMap>  
+  
+  <select
+  		id="getById"
+  		parameterClass="AuswahlfeldObject"
+  		resultClass="AuswahlfeldObject">
+    SELECT
+    	auswahlfeldId, mandantId, name, level,
+    	eintrittswahrscheinlichkeit, eintrittszeitpunkt, abstufung,
+    	gewichtung
+    FROM Auswahlfeld
+    WHERE auswahlfeldId = #auswahlfeldId#
+  </select>
+  
+  <select
+  		id="getByName"
+  		parameterClass="AuswahlfeldObject"
+  		resultClass="AuswahlfeldObject">
+    SELECT
+    	auswahlfeldId, mandantId, name, level,
+    	eintrittswahrscheinlichkeit, eintrittszeitpunkt, abstufung,
+    	gewichtung
+    FROM Auswahlfeld
+    WHERE
+			name LIKE #name#
+    	AND mandantId = #mandantId#
+  </select>
+  
+  <select
+  		id="getAuswahlfelder"
+  		parameterClass="AuswahlfeldObject"
+  		resultMap="auswahlfeldResult">
+    SELECT
+    	auswahlfeldId, mandantId, name, level,
+    	eintrittswahrscheinlichkeit, eintrittszeitpunkt, abstufung,
+    	gewichtung
+    FROM
+    	Auswahlfeld
+    WHERE
+    	eintrittswahrscheinlichkeit = #eintrittswahrscheinlichkeit# AND
+    	eintrittszeitpunkt = #eintrittszeitpunkt# AND
+    	abstufung = #abstufung# AND
+    	gewichtung = #gewichtung# AND
+    	level = #level# AND
+    	mandantId = #mandantId#
+  </select>
+  
+  <select
+  		id="getByProjektId"
+  		parameterClass="AuswahlfeldObject"
+  		resultMap="auswahlfeldResult">
+    SELECT
+    	af.auswahlfeldId, af.mandantId, af.name, level,
+    	eintrittswahrscheinlichkeit, eintrittszeitpunkt, abstufung,
+    	gewichtung
+    FROM
+    	Auswahlfeld AS af,
+    	Projektattraktivitaet_has_Auswahlfeld AS paf,
+    	Projektattraktivitaet AS pa,
+    	Customizing AS c,
+    	Projekt AS p,
+    	Projektgruppe AS pg
+    WHERE
+    	af.auswahlfeldId = paf.auswahlfeldId AND
+    	paf.projektattraktivitaetId = pa.projektattraktivitaetId AND
+    	pa.customizingId = c.customizingId AND
+    	pg.customizingId = c.customizingId AND
+    	p.projektgruppeId = pg.projektgruppeId AND
+    	eintrittswahrscheinlichkeit = #eintrittswahrscheinlichkeit# AND
+    	eintrittszeitpunkt = #eintrittszeitpunkt# AND
+    	abstufung = #abstufung# AND
+    	gewichtung = #gewichtung# AND
+			p.projektId = #projektId#
+  </select>
+  
+  <select
+  		id="getRealisierbarkeitStatus"
+  		parameterClass="java.lang.Integer"
+  		resultMap="auswahlfeldResult">
+  	SELECT
+    	af.auswahlfeldId, af.mandantId, af.name, level,
+    	eintrittswahrscheinlichkeit, eintrittszeitpunkt, abstufung,
+    	gewichtung
+		FROM Auswahlfeld AS af, Projektattraktivitaet_has_Auswahlfeld AS paf
+		WHERE
+			af.auswahlfeldId = paf.auswahlfeldId
+			AND (
+			eintrittswahrscheinlichkeit = 1
+			OR eintrittszeitpunkt = 1
+			)
+			AND paf.projektattraktivitaetId = #value#
+		GROUP BY level
+  </select>
+  
+  <select
+  		id="getAbstufungStatus"
+  		parameterClass="java.lang.Integer"
+  		resultMap="auswahlfeldNutzenkriteriumResult">
+  	SELECT
+    	af.auswahlfeldId, af.mandantId, af.name, level,
+    	eintrittswahrscheinlichkeit, eintrittszeitpunkt, abstufung,
+    	gewichtung, nutzenkriteriumId
+		FROM Auswahlfeld AS af, Nutzenkriterium_has_Auswahlfeld AS na
+		WHERE af.auswahlfeldId = na.auswahlfeldId
+			AND abstufung = 1
+			AND na.nutzenattraktivitaetOperativerNutzenId = #value#
+		GROUP BY nutzenkriteriumId
+  </select>
+  
+  <select
+  		id="getGewichtungStatus"
+  		parameterClass="java.lang.Integer"
+  		resultMap="auswahlfeldNutzenkriteriumResult">
+  	SELECT
+    	af.auswahlfeldId, af.mandantId, af.name, level,
+    	eintrittswahrscheinlichkeit, eintrittszeitpunkt, abstufung,
+    	gewichtung, nutzenkriteriumId
+		FROM Auswahlfeld AS af, Nutzenkriterium_has_Auswahlfeld AS na
+		WHERE af.auswahlfeldId = na.auswahlfeldId
+			AND gewichtung = 1
+			AND na.nutzenattraktivitaetOperativerNutzenId = #value#
+		GROUP BY nutzenkriteriumId
+  </select>
+  
+  <select
+  		id="getAnzahlAbstufungen"
+  		parameterClass="java.lang.Integer"
+  		resultMap="auswahlfeldNutzenkriteriumResult">
+  	SELECT
+    	af.auswahlfeldId, af.mandantId, af.name, level,
+    	eintrittswahrscheinlichkeit, eintrittszeitpunkt, abstufung,
+    	gewichtung, nutzenkriteriumId
+		FROM Auswahlfeld AS af, Nutzenkriterium_has_Auswahlfeld AS na
+		WHERE af.auswahlfeldId = na.auswahlfeldId
+			AND abstufung = 1
+			AND na.nutzenattraktivitaetOperativerNutzenId = #value#
+		GROUP BY level
+  </select>
+  
+  <select
+  		id="getAnzahlGewichtungen"
+  		parameterClass="java.lang.Integer"
+  		resultMap="auswahlfeldNutzenkriteriumResult">
+  	SELECT
+    	af.auswahlfeldId, af.mandantId, af.name, level,
+    	eintrittswahrscheinlichkeit, eintrittszeitpunkt, abstufung,
+    	gewichtung, nutzenkriteriumId
+		FROM Auswahlfeld AS af, Nutzenkriterium_has_Auswahlfeld AS na
+		WHERE af.auswahlfeldId = na.auswahlfeldId
+			AND gewichtung = 1
+			AND na.nutzenattraktivitaetOperativerNutzenId = #value#
+		GROUP BY level
+  </select>
+  
+  <select
+  		id="getSelectedByPaId"
+  		parameterClass="AuswahlfeldObject"
+  		resultMap="auswahlfeldResult">
+  	SELECT
+    	af.auswahlfeldId, af.mandantId, af.name, level,
+    	eintrittswahrscheinlichkeit, eintrittszeitpunkt, abstufung,
+    	gewichtung
+		FROM Auswahlfeld AS af, Projektattraktivitaet_has_Auswahlfeld AS paf
+		WHERE
+			af.auswahlfeldId = paf.auswahlfeldId
+			AND eintrittswahrscheinlichkeit = #eintrittswahrscheinlichkeit#
+			AND eintrittszeitpunkt = #eintrittszeitpunkt#
+			AND paf.projektattraktivitaetId = #projektattraktivitaetId#
+  </select>
+  
+  <select
+  		id="getSelectedByNaOpNuId"
+  		parameterClass="AuswahlfeldObject"
+  		resultMap="auswahlfeldNutzenkriteriumResult">
+  	SELECT
+    	af.auswahlfeldId, af.mandantId, af.name, level,
+    	eintrittswahrscheinlichkeit, eintrittszeitpunkt, abstufung,
+    	gewichtung, nutzenkriteriumId
+		FROM Auswahlfeld AS af, Nutzenkriterium_has_Auswahlfeld AS na
+		WHERE af.auswahlfeldId = na.auswahlfeldId
+			AND abstufung = #abstufung#
+			AND gewichtung = #gewichtung#
+			AND na.nutzenattraktivitaetOperativerNutzenId = #nutzenattraktivitaetOperativerNutzenId#
+  </select>
+  
+  <select
+  		id="getByNaOpNu"
+  		parameterClass="AuswahlfeldObject"
+  		resultMap="auswahlfeldResult">
+    SELECT
+    	af.auswahlfeldId, af.mandantId, af.name, level,
+    	eintrittswahrscheinlichkeit, eintrittszeitpunkt, abstufung,
+    	gewichtung
+    FROM
+    	Auswahlfeld AS af,
+    	Nutzenkriterium_has_Auswahlfeld AS naf,
+    	NutzenattraktivitaetOperativerNutzen AS non,
+    	Customizing AS c,
+    	Projekt AS p,
+    	Projektgruppe AS pg
+    WHERE
+    	af.auswahlfeldId = naf.auswahlfeldId AND
+    	naf.nutzenattraktivitaetOperativerNutzenId = non.nutzenattraktivitaetOperativerNutzenId AND
+    	non.customizingId = c.customizingId AND
+    	pg.customizingId = c.customizingId AND
+    	p.projektgruppeId = pg.projektgruppeId AND
+    	non.nutzenattraktivitaet = #nutzenattraktivitaet# AND
+    	non.operativerNutzen = #operativerNutzen# AND
+    	abstufung = #abstufung# AND
+    	gewichtung = #gewichtung# AND
+			p.projektId = #projektId# AND
+			naf.nutzenkriteriumId = #nutzenkriteriumId#
+		ORDER BY level
+  </select>
+  
+  <insert id="insert" parameterClass="AuswahlfeldObject">
+    INSERT INTO Auswahlfeld
+    	(mandantId, name, level, eintrittswahrscheinlichkeit,
+    	eintrittszeitpunkt, abstufung, gewichtung)
+    VALUES
+    	(#mandantId#, #name#, #level#, #eintrittswahrscheinlichkeit#,
+    	#eintrittszeitpunkt#, #abstufung#, #gewichtung#)
+  </insert>
+  
+  <update id="update" parameterClass="AuswahlfeldObject">
+    UPDATE Auswahlfeld
+    SET name = #name#
+    WHERE
+    	auswahlfeldId = #auswahlfeldId# AND
+    	mandantId = #mandantId#
+  </update>
+  
+  <delete
+  		id="delete"
+  		parameterClass="AuswahlfeldObject">
+    DELETE FROM Auswahlfeld
+    WHERE
+    	auswahlfeldId = #auswahlfeldId# AND
+    	mandantId = #mandantId#
+  </delete>
+  
+  <select
+  		id="getLinkedPaCustomizings"
+  		parameterClass="AuswahlfeldObject"
+  		resultMap="customizingResult">
+    SELECT c.customizingId, name, status
+    FROM
+    	Customizing AS c, Projektattraktivitaet AS p,
+    	Projektattraktivitaet_has_Auswahlfeld AS pa
+    WHERE
+    	c.customizingId = p.customizingId
+    	AND pa.projektattraktivitaetId = p.projektattraktivitaetId
+    	AND auswahlfeldId = #auswahlfeldId#
+    	AND mandantId = #mandantId#
+  </select>
+  
+  <select
+  		id="getLinkedNaOpNuCustomizings"
+  		parameterClass="AuswahlfeldObject"
+  		resultMap="customizingResult">
+    SELECT c.customizingId, name, status
+    FROM
+    	Customizing AS c, NutzenattraktivitaetOperativerNutzen AS naOpNu,
+    	Nutzenkriterium_has_Auswahlfeld AS na
+    WHERE
+    	c.customizingId = naOpNu.customizingId
+    	AND na.nutzenattraktivitaetOperativerNutzenId = naOpNu.nutzenattraktivitaetOperativerNutzenId
+    	AND auswahlfeldId = #auswahlfeldId#
+    	AND mandantId = #mandantId#
+   	GROUP BY c.customizingId
+  </select>  
+  
+  <insert id="insertAssignment" parameterClass="AuswahlfeldObject">
+    INSERT INTO Projektattraktivitaet_has_Auswahlfeld
+    	(projektattraktivitaetId, auswahlfeldId)
+    VALUES (#projektattraktivitaetId#, #auswahlfeldId#)
+  </insert>
+  
+  <insert id="insertNaOpNuAssignment" parameterClass="AuswahlfeldObject">
+    INSERT INTO Nutzenkriterium_has_Auswahlfeld
+    	(nutzenkriteriumId, nutzenattraktivitaetOperativerNutzenId, auswahlfeldId)
+    VALUES (#nutzenkriteriumId#, #nutzenattraktivitaetOperativerNutzenId#, #auswahlfeldId#)
+  </insert>
+  
+  <delete
+  		id="deleteAssignments"
+  		parameterClass="AuswahlfeldObject">
+    DELETE Projektattraktivitaet_has_Auswahlfeld
+    FROM Auswahlfeld, Projektattraktivitaet_has_Auswahlfeld
+    WHERE
+     	Auswahlfeld.auswahlfeldId = Projektattraktivitaet_has_Auswahlfeld.auswahlfeldId AND
+    	Auswahlfeld.eintrittswahrscheinlichkeit = #eintrittswahrscheinlichkeit# AND
+    	Auswahlfeld.eintrittszeitpunkt = #eintrittszeitpunkt# AND
+    	Auswahlfeld.abstufung = #abstufung# AND
+    	Auswahlfeld.gewichtung = #gewichtung# AND
+    	Projektattraktivitaet_has_Auswahlfeld.projektattraktivitaetId = #projektattraktivitaetId#
+  </delete>
+  
+  <delete
+  		id="deleteNaOpNuAssignments"
+  		parameterClass="AuswahlfeldObject">
+    DELETE Nutzenkriterium_has_Auswahlfeld
+    FROM Auswahlfeld, Nutzenkriterium_has_Auswahlfeld
+    WHERE
+     	Auswahlfeld.auswahlfeldId = Nutzenkriterium_has_Auswahlfeld.auswahlfeldId AND
+    	Auswahlfeld.eintrittswahrscheinlichkeit = #eintrittswahrscheinlichkeit# AND
+    	Auswahlfeld.eintrittszeitpunkt = #eintrittszeitpunkt# AND
+    	Auswahlfeld.abstufung = #abstufung# AND
+    	Auswahlfeld.gewichtung = #gewichtung# AND
+    	Nutzenkriterium_has_Auswahlfeld.nutzenattraktivitaetOperativerNutzenId = #nutzenattraktivitaetOperativerNutzenId#
+  </delete>
+  
+  <delete
+  		id="deleteNaOpNuAssignmentsByNutzenkriterium"
+  		parameterClass="AuswahlfeldObject">
+    DELETE Nutzenkriterium_has_Auswahlfeld
+    FROM Auswahlfeld, Nutzenkriterium_has_Auswahlfeld
+    WHERE
+     	Auswahlfeld.auswahlfeldId = Nutzenkriterium_has_Auswahlfeld.auswahlfeldId AND
+    	Auswahlfeld.eintrittswahrscheinlichkeit = #eintrittswahrscheinlichkeit# AND
+    	Auswahlfeld.eintrittszeitpunkt = #eintrittszeitpunkt# AND
+    	Auswahlfeld.abstufung = #abstufung# AND
+    	Auswahlfeld.gewichtung = #gewichtung# AND
+    	Nutzenkriterium_has_Auswahlfeld.nutzenattraktivitaetOperativerNutzenId = #nutzenattraktivitaetOperativerNutzenId# AND
+    	Nutzenkriterium_has_Auswahlfeld.nutzenkriteriumId = #nutzenkriteriumId#
+  </delete>
+  
+  <delete
+  		id="deleteGewichtungen"
+  		parameterClass="AuswahlfeldObject">
+    DELETE Nutzenkriterium_has_Auswahlfeld
+    FROM Auswahlfeld, Nutzenkriterium_has_Auswahlfeld
+    WHERE
+     	Auswahlfeld.auswahlfeldId = Nutzenkriterium_has_Auswahlfeld.auswahlfeldId AND
+    	Auswahlfeld.gewichtung = 1 AND
+    	Nutzenkriterium_has_Auswahlfeld.nutzenattraktivitaetOperativerNutzenId = #nutzenattraktivitaetOperativerNutzenId#
+  </delete>
+
+</sqlMap>

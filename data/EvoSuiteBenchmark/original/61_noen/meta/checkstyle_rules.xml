@@ -1,0 +1,323 @@
+<?xml version="1.0"?>
+<!-- up to miscellamous -->
+<!DOCTYPE module PUBLIC
+        "-//Puppy Crawl//DTD Check Configuration 1.3//EN"
+        "http://www.puppycrawl.com/dtds/configuration_1_3.dtd">
+<module name="Checker">
+  <!--
+      If you set the basedir property below, then all reported file
+      names will be relative to the specified directory. See
+      http://checkstyle.sourceforge.net/5.x/config.html#Checker
+
+      <property name="basedir" value="${basedir}"/>
+  -->
+  <property name="localeCountry" value="GB"/>
+  <property name="localeLanguage" value="en"/>
+
+  <!-- Checks whether files end with a new line. -->
+  <module name="NewlineAtEndOfFile"/>
+
+  <!-- Checks that property files contain the same keys.         -->
+  <!-- See http://checkstyle.sf.net/config_misc.html#Translation -->
+  <module name="Translation"/>
+
+  <!-- Check for duplicate code, ignoring whitespace, imports, etc. By default 12 lines are enough to consider duplicate. -->
+  <!-- This reports every header comment as well, so disabling for now. -->
+  <!--module name="StrictDuplicateCode"/-->
+
+  <!-- This needs to be changed to check the license text in the header -->
+  <!--module name="Header">
+    <property name="headerFile" value="java.header"/>
+    <property name="ignoreLines" value="2, 3, 4"/>
+    <property name="fileExtensions" value="java"/>
+  </module-->
+
+  <!-- Checks for Size Violations.                    -->
+  <!-- See http://checkstyle.sf.net/config_sizes.html -->
+  <!-- Check the size of the file, defaults to 2000 lines -->
+  <module name="FileLength"/>
+
+  <!-- Checks for whitespace                               -->
+  <!-- See http://checkstyle.sf.net/config_whitespace.html -->
+  <module name="FileTabCharacter"/>
+
+  <!-- Miscellaneous other checks.                   -->
+  <!-- See http://checkstyle.sf.net/config_misc.html -->
+  <module name="RegexpSingleline">
+    <property name="format" value="\s+$"/>
+    <property name="minimum" value="0"/>
+    <property name="maximum" value="0"/>
+    <property name="message" value="Line has trailing spaces."/>
+  </module>
+
+  <!-- No tab characters allowed in source files. -->
+  <module name="FileTabCharacter"/>
+
+  <!-- Checks that a package-info.java file exists for each package. TODO: these need to be added. -->
+  <module name="JavadocPackage"/>
+
+  <module name="TreeWalker">
+
+    <!-- Checks for Javadoc comments.                     -->
+    <!-- See http://checkstyle.sf.net/config_javadoc.html -->
+    <!-- check that each class and interface is documented. -->
+    <module name="JavadocType"/>
+    <!-- Check for properly formed javadocs, including no empty docs. -->
+    <module name="JavadocStyle"/>
+
+
+    <!-- Checks for Naming Conventions.                  -->
+    <!-- See http://checkstyle.sf.net/config_naming.html -->
+    <!-- Check starting with upper or lower case as needed, etc. -->
+    <module name="ConstantName"/>
+    <module name="LocalFinalVariableName"/>
+    <module name="LocalVariableName"/>
+    <module name="MemberName"/>
+    <module name="MethodName"/>
+    <module name="PackageName"/>
+    <module name="ParameterName"/>
+    <module name="StaticVariableName"/>
+    <module name="TypeName"/>
+
+
+    <!-- Checks for Headers                                -->
+    <!-- See http://checkstyle.sf.net/config_header.html   -->
+    <!-- <module name="Header">                            -->
+    <!-- The follow property value demonstrates the ability     -->
+    <!-- to have access to ANT properties. In this case it uses -->
+    <!-- the ${basedir} property to allow Checkstyle to be run  -->
+    <!-- from any directory within a project. See property      -->
+    <!-- expansion,                                             -->
+    <!-- http://checkstyle.sf.net/config.html#properties        -->
+    <!-- <property                                              -->
+    <!--     name="headerFile"                                  -->
+    <!--     value="${basedir}/java.header"/>                   -->
+    <!-- </module> -->
+
+    <!-- Following interprets the header file as regular expressions. -->
+    <!-- <module name="RegexpHeader"/>                                -->
+
+
+    <!-- Checks for imports                              -->
+    <!-- See http://checkstyle.sf.net/config_import.html -->
+    <module name="AvoidStarImport"/>
+    <module name="IllegalImport"/>
+    <!-- defaults to sun.* packages -->
+    <module name="RedundantImport"/>
+    <module name="UnusedImports"/>
+
+
+    <!-- Checks for Size Violations.                    -->
+    <!-- See http://checkstyle.sf.net/config_sizes.html -->
+    <!-- Check that lines are at the most 120 characters wide. -->
+    <module name="LineLength">
+      <property name="max" value="120"/>
+    </module>
+    <!-- Check that methods and constructors are at the most of given size. Default is 150 lines. -->
+    <module name="MethodLength"/>
+    <!-- Max size of anonymous inner class. Default 20 lines. -->
+    <module name="AnonInnerLength"/>
+    <!-- Check how many parameters a method or constructor has. Defaults to size 7 threshold. -->
+    <module name="ParameterNumber"/>
+
+
+    <!-- Checks for whitespace                               -->
+    <!-- See http://checkstyle.sf.net/config_whitespace.html -->
+    <!-- Iterator initializers should not be padded when empty: "for(; i < 0 ; i++) vs for (  ; i < 0 ; i++)-->
+    <module name="EmptyForInitializerPad"/>
+    <!-- Same as above but the iterator part (i++) -->
+    <module name="EmptyForIteratorPad"/>
+    <!-- Generics should be List<Integer> not List < Integer > -->
+    <module name="GenericWhitespace"/>
+    <!-- Method parameter lists are not allowed to have whitespace after left brace. -->
+    <module name="MethodParamPad"/>
+    <!-- No white space allowed after tokens, e.g. i++. -->
+    <module name="NoWhitespaceAfter"/>
+    <!-- No white space allowed before tokens, e.g. i++. -->
+    <module name="NoWhitespaceBefore"/>
+    <!-- Somethign about wrapping lines after operators. -->
+    <!--module name="OperatorWrap"/-->
+    <!-- No whitespace after left brace or before right brace. -->
+    <module name="ParenPad"/>
+    <!-- No space after left brace for type casts, or before right brace. -->
+    <module name="TypecastParenPad"/>
+    <!-- Commas, semicolons and typecasts should be followed by whitespace. -->
+    <module name="WhitespaceAfter"/>
+    <!-- Check every token is surrounded by whitespace, such as "=", "&&", etc. -->
+    <module name="WhitespaceAround"/>
+
+
+    <!-- Modifier Checks                                    -->
+    <!-- See http://checkstyle.sf.net/config_modifiers.html -->
+    <!-- Check that modifier (public, abstract, ...) are in the order suggested in the Java spec. -->
+    <module name="ModifierOrder"/>
+    <!-- This one would complain if a method in an interface is declared with public visibility (it is so by default and cannot be changed) -->
+    <!--module name="RedundantModifier"/-->
+
+
+    <!-- Checks for blocks. You know, those {}'s         -->
+    <!-- See http://checkstyle.sf.net/config_blocks.html -->
+    <!-- check that there are no leftover "{}" -->
+    <module name="AvoidNestedBlocks"/>
+    <!-- checks for no empty blocks -->
+    <module name="EmptyBlock"/>
+    <!-- check that all blocks have braces, event single line ones -->
+    <module name="NeedBraces"/>
+    <!-- check that try/catch has the ending } for try on the same line with catch -->
+    <module name="RightCurly"/>
+    <!-- Check that left curly is always at the end of line-->
+    <module name="LeftCurly">
+      <property name="option" value="eol"/>
+    </module>
+
+    <!-- If some version of equals() is overridder, the basic one should be as well. -->
+    <module name="CovariantEquals"/>
+
+    <!-- nullStr.equals("expected") vs "expected".equals(nullStr) -->
+    <module name="EqualsAvoidNull"/>
+
+    <!-- Checks for common coding problems               -->
+    <!-- See http://checkstyle.sf.net/config_coding.html -->
+    <!-- Avoid the ? : style of building inline checks that are hard to read. -->
+    <module name="AvoidInlineConditionals"/>
+    <!-- Checks for the problem of double checked locking that does not work in Java. -->
+    <module name="DoubleCheckedLocking"/>
+    <!-- Check that there are no empty statements (just ";") in the code. -->
+    <module name="EmptyStatement"/>
+    <!-- If you overrider equals, you have to also override hashcode, and vice versa. -->
+    <module name="EqualsHashCode"/>
+    <!-- This would check that no parameter or local variable hides class variables (fields) -->
+    <!--module name="HiddenField"/-->
+    <!-- Checks that factory methods are used for given objects. when none given, what does it do? -->
+    <module name="IllegalInstantiation"/>
+    <!-- Checks that no values are assigned to variables inside other statements: Integer.toString(i = 2)-->
+    <module name="InnerAssignment"/>
+    <!-- Used number values must be defined as constants to be understood better (to have a name). -->
+    <module name="MagicNumber"/>
+    <!-- Check that a switch statement has a default case defined. -->
+    <module name="MissingSwitchDefault"/>
+    <!-- Check that control variables are not modified inside for loops (i++ in the body) -->
+    <module name="ModifiedControlVariable"/>
+    <!-- Check for throws on exceptions that are already implicitly included. -->
+    <module name="RedundantThrows"/>
+    <!-- Looks for complex boolean expressions that could be simplified. -->
+    <module name="SimplifyBooleanExpression"/>
+    <!-- Checks for boolean return values that could be simplified. -->
+    <module name="SimplifyBooleanReturn"/>
+    <!-- Checks for string comparisons like x == "foo" -->
+    <module name="StringLiteralEquality"/>
+    <!-- Check that no for statements are nested deeper than given level (1 by default) -->
+    <module name="NestedForDepth"/>
+    <!-- Check that no if statements are nested deeper than given level (1 by default) -->
+    <module name="NestedIfDepth"/>
+    <!-- Check that no try statements are nested deeper than given level (1 by default) -->
+    <module name="NestedTryDepth"/>
+    <!-- Check that the Object.clone() method is not overridden. -->
+    <module name="NoClone"/>
+    <!-- Check that there is no finalize() method in the class. -->
+    <module name="NoFinalizer"/>
+    <!-- Check that no illegal exception class is declared to be thrown. -->
+    <module name="IllegalThrows"/>
+    <!-- Check that classes have a package declaration. -->
+    <module name="PackageDeclaration"/>
+    <!-- Check that a single piece of code is no attempting to do too many things. -->
+    <module name="ReturnCount">
+      <property name="max" value="3"/>
+    </module>
+    <!-- Check that certain concrete classes are not used to define variable types when abstraction works (e.g. ArrayList vs List) -->
+    <module name="IllegalType"/>
+    <!-- First static variables, then variables, then constructors. -->
+    <module name="DeclarationOrder"/>
+    <!-- Check that parameters are not used as substitute variables. -->
+    <module name="ParameterAssignment"/>
+    <!-- In a switch statement, the default statement should come last. -->
+    <module name="DefaultComesLast"/>
+    <!-- Check for switch/case where the case does not end in "return". -->
+    <module name="FallThrough"/>
+    <!-- Check if a single string literal is repeated multiple times. -->
+    <module name="MultipleStringLiterals"/>
+    <!-- Check that variable declarations are one per line. -->
+    <module name="MultipleVariableDeclarations"/>
+    <!-- Check that no unnecessary parentheses are present. -->
+    <module name="UnnecessaryParentheses"/>
+    <!-- Check that there is only on statement per line. Error: x=1;y=2;-->
+    <module name="OneStatementPerLine"/>
+
+    <!-- Check that there are no more than X boolen expressions in one statement. Default is 3. -->
+    <module name="BooleanExpressionComplexity"/>
+    <!-- Check how many other classes are used as class variables in this class. Default threshold is 7. -->
+    <module name="ClassDataAbstractionCoupling"/>
+    <!-- Check how many classes this class refers to. Default threshold is 20. -->
+    <module name="ClassFanOutComplexity"/>
+    <!-- Check for the minumum number of paths to exercise the code. Default threshold is 10. -->
+    <module name="CyclomaticComplexity"/>
+    <!-- Check the size of class/methods. Default thresholds 50 line methods, 1500 line classes. -->
+    <module name="JavaNCSS"/>
+
+    <!-- Checks for class design                         -->
+    <!-- See http://checkstyle.sf.net/config_design.html -->
+    <!-- this would define a check that all public methods of a class must be abstract, empty or declared final -->
+    <!--module name="DesignForExtension"/-->
+    <!-- check that a class that only has a private constructor is declared as final -->
+    <module name="FinalClass"/>
+    <!-- check that a utility class that only has static members has no visible constructor -->
+    <module name="HideUtilityClassConstructor"/>
+    <!-- check that no interface is defined that only has constant values and no methods -->
+    <module name="InterfaceIsType"/>
+    <!-- only allow for static final variables to be made public -->
+    <module name="VisibilityModifier"/>
+
+    <!-- Checks that exception classes only have final attributes and cannot be modified. -->
+    <module name="MutableException"/>
+    <!-- Expect only one type of exception to be declared as thrown from a method. -->
+    <module name="ThrowsCount"/>
+    <!-- Check that inner classes are defined last -->
+    <module name="InnerTypeLast"/>
+    <!-- Checks that an array definition with values has a comma in the end to allow for easier re-ordering. -->
+    <module name="ArrayTrailingComma"/>
+
+    <!-- Check that imports like fi.vtt.hello.* are used but imports are rather by full name. Allows static imports with *. -->
+    <module name="AvoidStarImport">
+      <!--property name="excludes" value="java.io,java.net,java.lang.Math"/-->
+      <property name="allowClassImports" value="false"/>
+      <property name="allowStaticMemberImports" value="true"/>
+    </module>
+    <!-- Check that there are no imports to com.sun.* packages -->
+    <module name="IllegalImport"/>
+    <!-- Check for imports from the same package, from java.lang or some other package that is implicitly imported already.
+         Also checks for imports that are otherwise valid but not referenced in the code. -->
+    <module name="UnusedImports"/>
+    <!-- Check that imports are in a given order. java+javax, first, org. next, static imports at the bottom. -->
+    <module name="ImportOrder">
+      <property name="groups" value="/^javax?\./,org"/>
+      <property name="ordered" value="true"/>
+      <property name="separated" value="false"/>
+      <property name="option" value="bottom"/>
+    </module>
+
+    <module name="Indentation">
+      <property name="caseIndent" value="2"/>
+      <property name="basicOffset" value="2"/>
+    </module>
+
+    <!-- Only allow comments on their own lines, not after a code statement. -->
+    <module name="TrailingComment"/>
+
+    <!-- Check that the file name matches the class name defined within. -->
+    <module name="OuterTypeFilename"/>
+    <!-- Check that only one type is declared in a file. -->
+    <module name="OuterTypeNumber"/>
+    <!-- Check the number of methods defined in a class. Defaults to 100 threshold. -->
+    <module name="MethodCount"/>
+
+    <!-- Check that arrays are in Java style of String[] args, not String args[]-->
+    <module name="ArrayTypeStyle"/>
+    <module name="FinalParameters"/>
+    <!-- Check for strings of type "TODO:" and list them-->
+    <module name="TodoComment"/>
+    <!-- Check that constants of data type long are defined as "L" not "l" -->
+    <module name="UpperEll"/>
+
+  </module>
+
+</module>

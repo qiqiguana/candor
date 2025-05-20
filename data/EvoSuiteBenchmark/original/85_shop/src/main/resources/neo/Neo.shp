@@ -1,0 +1,292 @@
+;;; This file defines the NEO-TRANS-PHASES-2 domain, which is an
+;;; enhanced version of the domain used in the following paper:
+;;;   H. Mu–oz-Avila, D.W. Aha, D.S. Nau, R. Weber, L. Breslow, and F. Yaman.
+;;;   "SiN: Integrating Case-based Reasoning with Task Decomposition".
+;;;   In IJCAI-2001. Seattle, August, 2001.
+
+(defdomain neo-trans
+  (  
+
+ (:operator (!assert-planSegment-large ?x ?y ?means ?which)
+   ((large ?which) (tm ?x ?y ?means) (permissionGranted ?x ?y ?means flarge) (noContingencies ?x ?y ?means))
+   ((at ?x) (large ?which))
+   ((at ?y)  (planSegment ?x ?y ?means flarge)))
+ 
+ (:operator (!assert-planSegment-short ?x ?y ?means ?which)
+   ((short ?which) (tm ?x ?y ?means) (permissionGranted ?x ?y ?means fshort) (noContingencies ?x ?y ?means))
+   ((at ?x) (short ?which))
+   ((at ?y)  (planSegment ?x ?y ?means fshort)))
+
+ (:operator (!assert-planSegment-medium ?x ?y ?means ?which)
+   ((medium ?which) (tm ?x ?y ?means) (permissionGranted ?x ?y ?means fmedium) (noContingencies ?x ?y ?means))
+   ((at ?x) (medium ?which))
+   ((at ?y)  (planSegment ?x ?y ?means fmedium)))
+
+(:operator (!assert-planSegment-Duration ?x ?y ?OldTotalTime ?NewTotalTime)
+   ()
+   ((totalTimeLeft ?OldTotalTime))
+   ((totalTimeLeft ?NewTotalTime) (passedSuccess ?y)))
+
+(:operator (!planSegment ?x ?y ?means ?length)
+    ()
+    ()
+    ()
+     0)
+
+(:operator (!alreadyDone ?y)
+    ()
+    ()
+    ()
+     0)
+
+(:operator (!noSolution ?x ?y)
+    ()
+    ()
+    ()
+     0)
+
+(:method (planDuration ?x ?y FIXEDW)
+	   ((planSegment ?x ?y FIXEDW ?length) (averageFIXEDWTransport ?length ?duration) (totalTimeLeft ?time)) 
+         ((!assert-planSegment-Duration  ?x ?y  ?time (call - ?time ?duration))))
+
+(:method (planDuration ?x ?y HELOS)
+	   ((planSegment ?x ?y HELOS ?length) (averageHELOSTransport ?length ?duration) (totalTimeLeft ?time)) 
+         ((!assert-planSegment-Duration  ?x ?y ?time (call - ?time ?duration))))
+
+(:method (planDuration ?x ?y SHIP)
+	   ((planSegment ?x ?y SHIP ?length) (averageSHIPTransport ?length ?duration) (totalTimeLeft ?time)) 
+         ((!assert-planSegment-Duration  ?x ?y  ?time (call - ?time ?duration))))
+
+(:method (planDuration ?x ?y ARMOREDV)
+	   ((planSegment ?x ?y ARMOREDV ?length) (averageARMOREDVTransport ?length ?duration) (totalTimeLeft ?time)) 
+         ((!assert-planSegment-Duration  ?x ?y ?time (call - ?time ?duration))))
+
+(:method (planDuration ?x ?y CAR)
+	   ((planSegment ?x ?y CAR ?length) (averageCARTransport ?length ?duration) (totalTimeLeft ?time)) 
+         ((!assert-planSegment-Duration  ?x ?y  ?time (call - ?time ?duration))))
+
+(:method (planDuration ?x ?y ONFOOT)
+	   ((planSegment ?x ?y ONFOOT ?length) (averageONFOOTTransport ?length ?duration) (totalTimeLeft ?time)) 
+         ((!assert-planSegment-Duration ?x ?y ?time (call - ?time ?duration))))
+
+    
+(:method (planDistance ?x ?y FIXEDW)
+         ((large ?z1))
+         ((!assert-planSegment-large ?x ?y FIXEDW ?z1)
+          (!planSegment ?x ?y FIXEDW flarge)))
+
+(:method (planDistance ?x ?y FIXEDW)
+         ((medium ?z2))
+         ((!assert-planSegment-medium ?x ?y FIXEDW ?z2)
+          (!planSegment ?x ?y FIXEDW fmedium)))
+
+(:method (planDistance ?x ?y FIXEDW)
+         ((short ?z3))
+         ((!assert-planSegment-short ?x ?y FIXEDW ?z3)
+          (!planSegment ?x ?y FIXEDW fshort)))
+
+(:method (planDistance ?x ?y HELOS)
+         ((medium ?z2))
+         ((!assert-planSegment-medium ?x ?y HELOS ?z2)
+          (!planSegment ?x ?y HELOS fmedium)))
+
+(:method (planDistance ?x ?y HELOS)
+         ((large ?z1))
+         ((!assert-planSegment-large ?x ?y HELOS ?z1)
+          (!planSegment ?x ?y HELOS flarge)))
+
+(:method (planDistance ?x ?y HELOS)
+         ((short ?z3))
+         ((!assert-planSegment-short ?x ?y HELOS ?z3)
+           (!planSegment ?x ?y HELOS fshort )))
+
+(:method (planDistance ?x ?y SHIP)
+         ((large ?z1))
+         ((!assert-planSegment-large ?x ?y SHIP ?z1)
+          (!planSegment ?x ?y SHIP flarge)))
+
+(:method (planDistance ?x ?y SHIP)
+         ((medium ?z2))
+         ((!assert-planSegment-medium ?x ?y SHIP ?z2)
+          (!planSegment ?x ?y SHIP fmedium)))
+
+(:method (planDistance ?x ?y SHIP)
+         ((short ?z3))
+         ((!assert-planSegment-short ?x ?y SHIP ?z3)
+          (!planSegment ?x ?y SHIP fshort)))
+
+(:method (planDistance ?x ?y ARMOREDV)
+         ((short ?z3))
+         ((!assert-planSegment-short ?x ?y ARMOREDV ?z3)
+          (!planSegment ?x ?y ARMOREDV fshort)))
+
+(:method (planDistance ?x ?y ARMOREDV)
+         ((medium ?z2))
+         ((!assert-planSegment-medium ?x ?y ARMOREDV ?z2)
+          (!planSegment ?x ?y ARMOREDV fmedium)))
+
+(:method (planDistance ?x ?y ARMOREDV)
+         ((large ?z1))
+         ((!assert-planSegment-large ?x ?y ARMOREDV ?z1)
+          (!planSegment ?x ?y ARMOREDV flarge)))
+
+(:method (planDistance ?x ?y CAR)
+         ((short ?z3))
+         ((!assert-planSegment-short ?x ?y CAR ?z3)
+          (!planSegment ?x ?y CAR fshort)))
+
+(:method (planDistance ?x ?y CAR)
+         ((medium ?z2))
+         ((!assert-planSegment-medium ?x ?y CAR ?z2)
+          (!planSegment ?x ?y CAR fmedium)))
+
+(:method (planDistance ?x ?y CAR)
+         ((large ?z1))
+         ((!assert-planSegment-large ?x ?y CAR ?z1)
+          (!planSegment ?x ?y CAR flarge)))
+
+(:method (planDistance ?x ?y ONFOOT)
+         ((short ?z3))
+         ((!assert-planSegment-short ?x ?y ONFOOT ?z3)
+          (!planSegment ?x ?y ONFOOT fshort)))
+
+(:method (planDistance ?x ?y ONFOOT)
+         ((medium ?z2))
+         ((!assert-planSegment-medium ?x ?y ONFOOT ?z2)
+          (!planSegment ?x ?y ONFOOT fmedium)))
+
+(:method (planDistance ?x ?y ONFOOT)
+         ((large ?z1))
+         ((!assert-planSegment-large ?x ?y ONFOOT ?z1)
+          (!planSegment ?x ?y ONFOOT flarge)))
+
+(:method (planTransport-to ?y)
+	 ((passedSuccess ?y))
+	 ((!alreadyDone ?y)))
+
+(:method (planTransport-to ?y)
+         ((at ?x) (airport ?x) (airport ?y) (tm ?x ?y FIXEDW) (weather TFH) 
+          (windStrengthOK ?x ?y FIXEDW))
+         ((planDistance ?x ?y FIXEDW) (planDuration ?x ?y FIXEDW)))
+
+(:method (planTransport-to ?y)
+         ((at ?x) (airport ?x) (airport ?y) (tm ?x ?y FIXEDW) (weather TFP)
+	      (windStrengthOK ?x ?y FIXEDW))
+         ((planDistance ?x ?y FIXEDW) (planDuration ?x ?y FIXEDW)))
+
+(:method (planTransport-to ?y)
+         ((at ?x) (airport ?x) (airport ?y) (tm ?x ?y FIXEDW) (weather FINE))
+         ((planDistance ?x ?y FIXEDW) (planDuration ?x ?y FIXEDW)))
+
+(:method (planTransport-to ?y)
+         ((at ?x) (helosAvailability YES) (tm ?x ?y HELOS) (weather TFP)
+          (windStrengthOK ?x ?y HELOS))
+         ((planDistance ?x ?y HELOS) (planDuration ?x ?y HELOS)))
+
+(:method (planTransport-to ?y)
+         ((at ?x) (helosAvailability YES) (tm ?x ?y HELOS) (weather FINE)
+          (windStrengthOK ?x ?y HELOS))
+         ((planDistance ?x ?y HELOS) (planDuration ?x ?y HELOS)))
+
+(:method (planTransport-to ?y)
+ 	 ((at ?x) (accessible-by-sea ?y) (harbour ?y) (tm ?x ?y SHIP) (weather TFP)
+	  (windStrengthOK ?x ?y SHIP))
+       ((planDistance ?x ?y SHIP) (planDuration ?x ?y SHIP)))
+
+(:method (planTransport-to ?y)
+ 	 ((at ?x) (accessible-by-sea ?y) (harbour ?y) (tm ?x ?y SHIP) (weather FINE))
+       ((planDistance ?x ?y SHIP) (planDuration ?x ?y SHIP)))
+
+(:method (planTransport-to ?y)
+         ((at ?x) (tm ?x ?y ARMOREDV) (terrainConditions NO))
+         ((planDistance ?x ?y ARMOREDV) (planDuration ?x ?y ARMOREDV)))
+
+(:method (planTransport-to ?y)
+         ((at ?x) (tm ?x ?y ARMOREDV) (terrainStatusARMOREDV))
+         ((planDistance ?x ?y ARMOREDV) (planDuration ?x ?y ARMOREDV)))
+
+(:method (planTransport-to ?y)
+         ((at ?x) (tm ?x ?y CAR) (terrainStatusCAR))
+         ((planDistance ?x ?y CAR) (planDuration ?x ?y CAR)))
+
+(:method (planTransport-to ?y)
+	   ((at ?x) (tm ?x ?y ONFOOT))
+	   ((planDistance ?x ?y ONFOOT) (planDuration ?x ?y ONFOOT)))
+
+(:method (performNEO)
+         ((true))
+         ((planTransport-to HQ)
+          (planTransport-to ISB)
+          (planTransport-to NEO)
+          (planTransport-to SH)
+          ))
+
+(:- (terrainStatusARMOREDV) 
+       ((terrainConditions UNKNOWN) (hostilityLevel PERMISSIVE)))
+
+(:- (terrainStatusARMOREDV) 
+       ((terrainConditions UNKNOWN) (hostilityLevel NEUTRAL)))
+
+(:- (terrainStatusCAR) 
+       ((terrainConditions NO) (hostilityLevel PERMISSIVE)))
+
+(:- (terrainStatusCAR) 
+       ((terrainConditions NO) (hostilityLevel NEUTRAL)))
+
+(:- (windStrengthOK ?x ?y ?tm)
+       ((windSpeed ?x ?y ?s) (call < ?s 10)))
+
+(:- (windStrengthOK ?x ?y ?tm)
+        ((windSpeed ?x ?y ?s) (vehicle ?tm ?wl) 
+        (call > ?s 10) (call < ?s (call - ?wl 5))))
+
+(:- (noContingencies ?x ?y FIXEDW)
+ 	  ((airport ?x) (airport ?y) (weather TFH)
+         (windStrengthOK ?x ?y FIXEDW)))
+
+(:- (noContingencies ?x ?y FIXEDW)
+ 	  ((airport ?x) (airport ?y) (weather TFP)
+         (windStrengthOK ?x ?y FIXEDW)))
+
+(:- (noContingencies ?x ?y FIXEDW)
+ 	  ((airport ?x) (airport ?y) (weather FINE)
+         (windStrengthOK ?x ?y FIXEDW)))
+
+         
+(:- (noContingencies ?x ?y HELOS)
+        ((helosAvailability YES) (weather TFP)
+         (windStrengthOK ?x ?y HELOS)))
+
+(:- (noContingencies ?x ?y HELOS)
+        ((helosAvailability YES) (weather FINE)
+         (windStrengthOK ?x ?y HELOS)))
+
+(:- (noContingencies ?x ?y SHIP)
+       ((harbour ?y) (weather TFP)
+         (windStrengthOK ?x ?y SHIP)))
+
+(:- (noContingencies ?x ?y SHIP)
+       ((harbour ?y) (weather FINE)
+         (windStrengthOK ?x ?y SHIP)))
+
+(:- (noContingencies ?x ?y ARMOREDV)
+       ((terrainConditions NO)))
+
+(:- (noContingencies ?x ?y ARMOREDV)
+       ((terrainStatusARMOREDV)))
+
+(:- (noContingencies ?x ?y CAR)
+	 ((terrainStatusCAR)))
+
+(:- (noContingencies ?x ?y ONFOOT) ())
+
+
+))
+
+
+
+
+
+
+
+

@@ -1,0 +1,43 @@
+package original;
+
+import org.junit.jupiter.api.Test; import static org.junit.jupiter.api.Assertions.assertTrue;
+import org.junit.jupiter.api.Test; import static org.junit.jupiter.api.Assertions.assertFalse;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of CycpatternCheck.
+*/
+class CycpatternCheckTest {
+    @Test
+    void test_cycpatternCheck_RotateAndMatch() {
+        String a = "hello";
+        String b = "ell";
+        boolean result = CycpatternCheck.cycpatternCheck(a, b);
+        assertTrue(result);
+    }
+    @Test
+    public void testCycpatternCheckInitialization() {
+        new CycpatternCheck();
+    }
+    @Test
+    public void testCycpatternCheckRotateAndMatch() {
+        assertTrue(CycpatternCheck.cycpatternCheck("hello", "ell"));
+    }
+    @Test
+    public void testCycpatternCheckFalseReturn() {
+        assertFalse(CycpatternCheck.cycpatternCheck("abcde", "z"));
+    }
+    @Test
+    public void testCycpatternCheckFalseReturn_1() {
+        assertFalse(CycpatternCheck.cycpatternCheck("abcde", "fg"));
+    }
+    @Test
+    public void testCycpatternCheckFalseReturn_2() {
+        assertFalse(CycpatternCheck.cycpatternCheck("abcde", "gh"));
+    }
+    public void test_cycpatternCheck_EmptyFirstWord() { assertFalse(CycpatternCheck.cycpatternCheck("", "abd")); }
+    public void test_cycpatternCheck_RotationTrue() { assertTrue(CycpatternCheck.cycpatternCheck("yello", "ell")); }
+    public void test_cycpatternCheck_RotationFalse() { assertFalse(CycpatternCheck.cycpatternCheck("xyzw", "xyw")); }
+    public void test_cycpatternCheck_True() { assertTrue(CycpatternCheck.cycpatternCheck("hello", "ell")); }
+    public void test_cycpatternCheck_False() { assertFalse(CycpatternCheck.cycpatternCheck("abcd", "abd")); }
+}

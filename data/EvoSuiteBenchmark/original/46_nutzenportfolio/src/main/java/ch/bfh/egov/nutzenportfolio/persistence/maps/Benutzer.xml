@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="Benutzer">
+
+    <typeAlias alias="BenutzerObject" type="ch.bfh.egov.nutzenportfolio.tos.Benutzer"/>
+
+    <resultMap id="benutzerResult" class="BenutzerObject">
+        <result property="benutzerId" column="benutzerId"/>
+        <result property="mandantId" column="mandantId"/>
+        <result property="benutzername" column="benutzername"/>
+        <result property="passwort" column="passwort"/>
+    </resultMap>
+
+    <select id="getAll" resultMap="benutzerResult" parameterClass="java.lang.Integer">
+        SELECT
+            benutzerId, mandantId, benutzername, passwort
+        FROM Benutzer
+        WHERE mandantId = #value#
+    </select>
+
+    <select id="getById" resultMap="benutzerResult" parameterClass="java.lang.Integer">
+        SELECT benutzerId, mandantId, benutzername, passwort
+        FROM Benutzer
+        WHERE benutzerId = #value#
+    </select>
+    
+    <select id="getByBenutzername" resultMap="benutzerResult" parameterClass="java.lang.String">
+        SELECT benutzerId, mandantId, benutzername, passwort
+        FROM Benutzer
+        WHERE benutzername = #value#
+    </select>
+
+    <update id="update" parameterClass="BenutzerObject">
+        UPDATE Benutzer
+        SET
+            mandantId = #mandantId#,
+            benutzername = #benutzername#,
+            passwort = #passwort#
+        WHERE benutzerId = #benutzerId#
+    </update>
+
+    <insert id="insert" parameterClass="BenutzerObject">
+    	
+        INSERT INTO Benutzer (mandantId, benutzername, passwort)
+        VALUES (#mandantId#, #benutzername#, #passwort#)
+        <selectKey resultClass="java.lang.Integer" keyProperty="benutzerId">
+			    SELECT LAST_INSERT_ID() AS benutzerId
+				</selectKey>
+    </insert>
+
+    <delete id="delete" parameterClass="java.lang.Integer">
+        DELETE FROM Benutzer WHERE benutzerId = #value#
+    </delete>
+</sqlMap>

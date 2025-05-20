@@ -1,0 +1,194 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  ~ Copyright (C) 2010-2011 VTT Technical Research Centre of Finland.
+  ~
+  ~ This library is free software; you can redistribute it and/or
+  ~ modify it under the terms of the GNU Lesser General Public
+  ~ License as published by the Free Software Foundation;
+  ~ version 2.1 of the License.
+  ~
+  ~ This library is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+  ~ Lesser General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU Lesser General Public
+  ~ License along with this library; if not, write to the Free Software
+  ~ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+  -->
+
+<xs:schema attributeFormDefault="unqualified"
+           elementFormDefault="qualified"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:annotation>
+    <xs:documentation>
+      Measurement Framework Internal Message Format Version 0.1
+    </xs:documentation>
+  </xs:annotation>
+
+
+  <!--Messages-->
+  <xs:element name="measurement" type="value.measurement"/>
+  <xs:element name="event" type="value.event"/>
+  <xs:element name="activation" type="control.activation"/>
+  <xs:element name="update" type="control.update"/>
+  <xs:element name="set" type="configuration.set"/>
+  <xs:element name="get_q" type="configuration.get.query"/>
+  <xs:element name="get_r" type="configuration.get.reply"/>
+  <xs:element name="details_q" type="configuration.details.query"/>
+  <xs:element name="details_r" type="configuration.details.reply"/>
+
+  <!--Common elements for the Values, i.e. measures and the events.
+        This form is inherited and refined by the actual messages. Time is optional-->
+  <xs:complexType name="baseType">
+    <xs:sequence>
+      <xs:element name="sourceID" type="xs:string" minOccurs="1"/>
+      <xs:element name="targetID" type="xs:string" minOccurs="1"/>
+      <xs:element name="Time" type="xs:time"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="value" mixed="true">
+    <xs:complexContent>
+      <xs:restriction base="xs:anyType">
+        <xs:attribute name="Name" type="xs:string" use="optional"/>
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <!--Measurement Value message-->
+  <xs:complexType name="value.measurement">
+    <xs:complexContent>
+      <xs:extension base="baseType">
+        <xs:choice maxOccurs="unbounded" minOccurs="1">
+          <xs:sequence>
+            <xs:element name="Value" minOccurs="1" type="value"/>
+          </xs:sequence>
+          <xs:sequence>
+            <xs:element name="Name" type="xs:string" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="Value" minOccurs="1" type="value"/>
+          </xs:sequence>
+        </xs:choice>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <!--Event Value message-->
+  <xs:complexType name="value.event">
+    <xs:complexContent>
+      <xs:extension base="baseType">
+        <xs:sequence maxOccurs="unbounded" minOccurs="1">
+          <xs:element name="Name" type="xs:string" minOccurs="1"/>
+          <xs:element name="Value" type="xs:anyType" minOccurs="1"/>
+          <xs:element name ="Description" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+
+  <xs:simpleType name="state">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="on"/>
+      <xs:enumeration value="off"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:simpleType name="not_empty">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="\s*[^\s].*"></xs:pattern>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:complexType name="not_empty_attributes">
+    <xs:simpleContent>
+      <xs:extension base="not_empty">
+  	    <xs:attribute name="state" type="state" use="required"/>
+  	    <xs:attribute name="parameters" type="xs:string" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>        
+  </xs:complexType>
+
+  <!--On/Off Control message-->
+  <xs:complexType name="control.activation">
+    <xs:complexContent>
+      <xs:extension base="baseType">
+        <xs:sequence>
+          <xs:element name="activation" minOccurs="1" maxOccurs="unbounded" type="not_empty_attributes"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <!--Update Control message-->
+  <xs:complexType name="control.update">
+    <xs:complexContent>
+      <xs:extension base="baseType">
+        <xs:sequence>
+          <xs:element name="preparameter" type="xs:string" minOccurs="0"/>
+          <xs:element name="data" type="xs:anyType" minOccurs="1" maxOccurs="1"/>
+          <xs:element name="postparameter" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <!--Set Configuration message-->
+  <xs:complexType name="configuration.set">
+    <xs:complexContent>
+      <xs:extension base="baseType">
+        <xs:sequence maxOccurs="unbounded" minOccurs="1">
+          <xs:element name="Name" type="not_empty" minOccurs="1"/>
+          <xs:element name="Value" type="xs:string" minOccurs="1"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <!--Get Query Configuration message-->
+  <xs:complexType name="configuration.get.query">
+    <xs:complexContent>
+      <xs:extension base="baseType">
+        <xs:sequence maxOccurs="unbounded" minOccurs="1">
+          <xs:element name="Name" type="xs:string" minOccurs="1"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <!--Get Reply Configuration message-->
+  <xs:complexType name="configuration.get.reply">
+    <xs:complexContent>
+      <xs:extension base="baseType">
+        <xs:sequence maxOccurs="unbounded" minOccurs="1">
+          <xs:element name="Name" type="not_empty" minOccurs="1"/>
+          <xs:element name="Value" type="xs:string" minOccurs="1"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <!--Details Query Configuration message-->
+  <xs:complexType name="configuration.details.query">
+    <xs:complexContent>
+      <xs:extension base="baseType">
+        <xs:sequence>
+          <xs:any/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <!--Details Reply Configuration message-->
+  <xs:complexType name="configuration.details.reply">
+    <xs:complexContent>
+      <xs:extension base="baseType">
+        <xs:sequence>
+          <xs:any/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+</xs:schema>

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+                            "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+                            "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+
+<!-- DO NOT EDIT: This is a generated file that is synchronized -->
+<!-- by MyEclipse Hibernate tool integration.                   -->
+<!-- Created Wed Oct 06 07:30:22 GMT+01:00 2004                         -->
+<hibernate-mapping package="ch.bluepenguin.email.client">
+
+    <class name="Person" table="person">
+        <id name="id" column="id" type="java.lang.Integer">
+            <generator class="native"/>
+        </id>
+ 
+        <property name="firstname" column="firstname" type="java.lang.String"  not-null="true" />
+        <property name="lastname" column="lastname" type="java.lang.String"  not-null="true" />
+        <property name="nickname" column="nickname" type="java.lang.String" />
+        <property name="reserve" column="reserve" type="java.lang.String" />
+    </class>
+    
+</hibernate-mapping>

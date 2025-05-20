@@ -1,0 +1,240 @@
+<applicationParameters>
+
+  <framework>  
+
+    <mandatory>
+      <application>
+        <name>JavaBB</name>
+        <version>0.9.0</version>
+        <baseDirectory>M:/javabb</baseDirectory>
+        <webPath>/web</webPath>
+        <sourcePath>/web/WEB-INF/src</sourcePath>
+        <url>http://localhost/javabb</url>
+        <runMode>development</runMode>
+      </application>
+    </mandatory>
+
+    <base>
+      <valueListHandler>
+        <defaultRowsPerPage>10</defaultRowsPerPage>
+        <defaultRetrieveRowCount>false</defaultRetrieveRowCount>
+        <defaultRowCountMethod>java</defaultRowCountMethod>
+      </valueListHandler>
+    </base>
+
+    <cache>
+      <cachemanagertest>
+        <cacheSizeLimit>3</cacheSizeLimit>
+        <timeToLive>-1</timeToLive>
+        <idleTimeout>10000</idleTimeout>
+        <timerInterval>1000</timerInterval>
+      </cachemanagertest>
+    </cache>
+
+    <system>
+      <setProperty>
+        <name>proxySet</name>
+        <value>false</value>
+      </setProperty>
+      <setProperty>
+        <name>proxyHost</name>
+        <value></value>
+      </setProperty>
+      <setProperty>
+        <name>proxyPort</name>
+        <value></value>
+      </setProperty>
+    </system>
+  
+    <util>
+      <string>
+        <keyword>
+          <path>/web/WEB-INF/config/keyword</path>
+          <fileExtension>kw</fileExtension>
+        </keyword>
+      </string>
+      <convert>
+        <defaultDatePattern>yyyy-MM-dd</defaultDatePattern>
+        <defaultTimePattern>hh:mm:ss</defaultTimePattern>
+        <defaultLocale>
+          <language></language>
+          <country></country>
+        </defaultLocale>
+      </convert>
+      <mail>
+        <activated>false</activated>
+        <smtp>
+          <server></server>
+          <user></user>
+        </smtp>
+      </mail>
+    </util>
+  
+  <!-- 
+   Pool type: oracle / dbcp (default)
+   For best performance with Oracle database, choose Oracle pool type
+   else choose DataBase Common Pool
+   Small fetch sizes improve response times but the overall execution time deteriorates. 
+   Large fetch sizes improve overall execution time but result in longer response times.
+  -->
+    <persistence>
+      <jdbc>
+  
+  <!-- DEFAULT -->
+        <pool>
+          <default>
+            <databaseType>oracle</databaseType>
+            <className>framework.persistence.jdbc.pool.OraclePoolImpl</className>
+            <url>jdbc:oracle:thin:@smdev01:1535:DEVDB02</url>
+            <driver>oracle.jdbc.driver.OracleDriver</driver>
+            <username>SCOTT</username>
+            <password>TIGER</password>
+            <tuning>
+              <doValidation>false</doValidation>
+              <isAutocommit>false</isAutocommit>
+              <debugLevel>0</debugLevel>
+              <typeMap>
+                <name>91</name>
+                <value>java.sql.Date</value>
+              </typeMap>
+              <typeMap>
+                <name>DATE</name>
+                <value>java.sql.Date</value>
+              </typeMap>
+            </tuning>
+            <query>
+              <validation>select 1 from dual</validation>
+              <username>select sys_context('userenv', 'current_schema') current_user from dual</username>
+              <timestamp>select sysdate as current_timestamp from dual</timestamp>
+            </query>
+          </default>
+
+          <javabb>
+            <databaseType>mysql</databaseType>
+            <className>framework.persistence.jdbc.pool.DBCPoolImpl</className>
+            <url>jdbc:mysql://localhost:3306/javabb</url>
+            <driver>org.gjt.mm.mysql.Driver</driver>
+            <username>javabb</username>
+            <password>javabb</password>
+            <tuning>
+              <typeMap>
+                <name>LONG</name>
+                <value>java.math.BigDecimal</value>
+              </typeMap>
+              <typeMap>
+                <name>DECIMAL</name>
+                <value>java.math.BigDecimal</value>
+              </typeMap>
+            </tuning>
+            <query>
+              <validation>select current_user() as 'current_user'</validation>
+              <username>select current_user() as 'current_user'</username>
+              <timestamp>select current_timestamp() as 'current_timestamp'</timestamp>
+            </query>
+          </javabb>
+
+    <!-- ORACLE -->
+          <NRSP_F>
+            <databaseType>oracle</databaseType>
+            <url>jdbc:oracle:thin:@smdev01:1535:DEVDB02</url>
+            <driver>oracle.jdbc.driver.OracleDriver</driver>
+            <username>NRSP_F</username>
+            <password>NRSP_F</password>
+          </NRSP_F>
+
+          <NRSP_V>
+            <databaseType>oracle</databaseType>
+            <url>jdbc:oracle:thin:@smdev01:1535:DEVDB02</url>
+            <driver>oracle.jdbc.driver.OracleDriver</driver>
+            <username>NRSP_V</username>
+            <password>NRSP_V</password>
+          </NRSP_V>
+
+          <NRSP_R>
+            <name></name>
+            <databaseType>oracle</databaseType>
+            <url>jdbc:oracle:thin:@smdev01:1535:DEVDB02</url>
+            <driver>oracle.jdbc.driver.OracleDriver</driver>
+            <username>NRSP_R</username>
+            <password>NRSP_R</password>
+          </NRSP_R>
+
+        </pool>
+  
+  
+  
+   
+  <!-- MYSQL -->
+        <!--pool>
+          <name>NRSP_F</name>
+          <databaseType>mysql</databaseType>
+          <type>dbcp</type>
+          <url>jdbc:mysql://localhost:3306/NRSP_F</url>
+          <driver>org.gjt.mm.mysql.Driver</driver>
+          <username>NRSP_F</username>
+          <password>NRSP_F</password>
+        </pool>
+  
+        <pool>
+          <name>NRSP_V</name>
+          <databaseType>mysql</databaseType>
+          <type>dbcp</type>
+          <url>jdbc:mysql://localhost:3306/NRSP_V</url>
+          <driver>org.gjt.mm.mysql.Driver</driver>
+          <username>NRSP_V</username>
+          <password>NRSP_V</password>
+        </pool>
+  
+        <pool>
+          <name>NRSP_R</name>
+          <databaseType>mysql</databaseType>
+          <type>dbcp</type>
+          <url>jdbc:mysql://localhost:3306/NRSP_R</url>
+          <driver>org.gjt.mm.mysql.Driver</driver>
+          <username>NRSP_R</username>
+          <password>NRSP_R</password>
+        </pool-->
+  
+  <!-- VIEW -->
+        <view>
+          <defaultTargetClassName>java.util.HashMap</defaultTargetClassName>
+          <fileExtension>vxml</fileExtension>
+          <rulesFilePath>/web/WEB-INF/config/digester/rules.view.xml</rulesFilePath>
+          <repository>
+            <use>true</use>
+            <path>/web/WEB-INF/test</path>
+          </repository>
+          <tuning>
+            <defaultMaxFetchSize>100</defaultMaxFetchSize>
+          </tuning>
+        </view>
+  
+  <!-- ENTITY -->
+        <entity>
+          <defaultTargetClassName>java.util.HashMap</defaultTargetClassName>
+          <fileExtension>exml</fileExtension>
+          <rulesFilePath>/web/WEB-INF/config/digester/rules.entity.xml</rulesFilePath>
+          <repository>
+            <use>true</use>
+            <path>/web/WEB-INF/test</path>
+          </repository>
+        </entity>
+  
+  <!-- TOOLS -->
+        <tools>
+          <dbcollection>
+            <valueColumnName>Value</valueColumnName>
+            <labelColumnName>Label</labelColumnName>
+            <cacheSize>10</cacheSize>
+            <rulesFilePath>/web/WEB-INF/config/digester/rules.dbCollection.xml</rulesFilePath>
+          </dbcollection>
+        </tools>
+  
+      </jdbc>
+    </persistence>
+  </framework>
+
+  <application>
+  </application>
+
+</applicationParameters>

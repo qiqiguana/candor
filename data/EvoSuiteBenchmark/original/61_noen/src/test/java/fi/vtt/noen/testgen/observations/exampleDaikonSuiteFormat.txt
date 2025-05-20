@@ -1,0 +1,42 @@
+#daikon example
+#variable declarations for program trace and invariant detection
+#declaration version, current is 2.0
+
+decl-version 2.0
+
+#variable comparability, implicit (default) or none
+
+var-comparability implicit
+
+#program point name, must be unique
+ppt cconnect
+#program point type (point, class, object, enter, exit, subexit)
+ppt-type point
+#definition of variables
+#first we tell that a variable is described and what it is named
+  variable client-name
+#definition of variable fields, describing its properties. identified by indentation
+#it is a variable, not a class or whatever..
+    var-kind variable
+#declaration type, can be anything defined by user, commonly standard language type
+    dec-type java.lang.String
+#representation type for Daikon inference engine (boolean, int, hashcode, double, java.lang.String)
+    rep-type java.lang.String
+#flags could be here to define properties like variable is a parameter, unique collection, etc.
+#tells which variables at this point are comparable, ones with same comparability value are comparable
+    comparability 22
+
+#here we repeat variable definitions as needed
+
+#after a variable is defined, we can create variable values
+#first variable name for which data element is
+cconnect
+
+#for each variable, variable name, value, and is it modified (always set to 1 here to say it is modified)
+#(we could start with special variable this_invocation_nonce,
+#but it is for exit and entry synch of concurrent programs so not used here)
+client-name
+bob the builder
+1
+#add more variables directly after this with all 3 fields
+

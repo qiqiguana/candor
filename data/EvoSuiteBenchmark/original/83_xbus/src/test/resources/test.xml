@@ -1,0 +1,130 @@
+<!-- This is an ant build file. Its purpose is to run a JUnit testsuite on the
+	 xBus. Before starting the tests, some initializations will be done.
+	 
+	 As a prerequisite, all necessary xBus services (like Tomcat, MQ server, etc.)
+	 must be started.
+-->
+<project name="xBus Test" default="test" basedir=".">
+	<!-- Property Definitions -->
+	<property environment="env"/>
+	<property name="standard_test_Basics.conf" value="../test/standard_Basics.conf"/>
+	<property name="standard_Basics.conf" value="../etc/standard_Basics.conf"/>
+	<property name="standard_test_OK.conf" value="../test/standard_OK.conf"/>
+	<property name="standard_OK.conf" value="../etc/standard_OK.conf"/>
+	<property name="standard_test_NotOK.conf" value="../test/standard_NotOK.conf"/>
+	<property name="standard_NotOK.conf" value="../etc/standard_NotOK.conf"/>
+	<property name="test.run" value="../test/run"/>
+	<property name="test.in" value="../test/input"/>
+	<property name="test.report" value="../test/report"/>
+	<property name="runtime.home" value="../lib/runtime"/>
+	<property name="xbus-bootstrap.jar" value="../lib/xbus-bootstrap.jar"/>
+	<property name="xbus-test.jar" value="../test/lib/xbus-test.jar"/>
+	<property name="xbus-core.jar" value="../lib/xbus-core.jar"/>
+	<property name="diff.jar" value="../test/lib/jlibdiff.jar"/>
+	<!-- test does some initialization, runs the JUnit tests and formats the XML output
+       to a HTML file
+  -->
+	<target name="test">
+		<!-- Initialize standard.conf -->
+		<copy file="${standard_test_Basics.conf}" tofile="${standard_Basics.conf}" overwrite="true"/>
+		<copy file="${standard_test_OK.conf}" tofile="${standard_OK.conf}" overwrite="true"/> 
+		<copy file="${standard_test_NotOK.conf}" tofile="${standard_NotOK.conf}" overwrite="true"/>
+
+		<!-- Cleaning some receivers -->
+		<java fork="yes" classname="net.sf.xbus.bootstrap.ClearServersBootstrap">
+			<jvmarg value="-Dxbus.home=${env.XBUS_HOME}"/>
+			<classpath>
+				<pathelement location="${xbus-bootstrap.jar}"/>
+			</classpath>
+		</java>
+
+		<!-- Initialize directory test.report -->
+		<mkdir dir="${test.report}"/>
+		<delete>
+			<fileset dir="${test.report}"/>
+		</delete>
+		<mkdir dir="${test.report}/diff"/>
+		<delete>
+			<fileset dir="${test.report}/diff"/>
+		</delete>
+
+		<!-- Initialize directory test.run part 1 -->
+		<mkdir dir="${test.run}"/>
+		<delete>
+			<fileset dir="${test.run}"/>
+		</delete>
+		<mkdir dir="${test.run}/DeletedMessages" />
+		<delete>
+			<fileset dir="${test.run}/DeletedMessages"/>
+		</delete>
+
+		<!-- Restart background receiver -->
+		<java fork="yes" classname="net.sf.xbus.bootstrap.SOAPAdministratorBootstrap">
+			<arg value="localhost" />
+			<arg value="8080" />
+			<jvmarg value="-Dxbus.home=${env.XBUS_HOME}"/>
+			<classpath>
+				<pathelement location="${xbus-bootstrap.jar}"/>
+			</classpath>
+		</java>
+
+		<!-- Initialize directory test.run part 2 -->
+		<copy todir="${test.run}">
+			<fileset dir="${test.in}"/>
+		</copy>
+
+		<!-- Wait some time to let xBus process the threaded interfaces -->
+		<echo message="Waiting 5 seconds ..."/>
+		<waitfor maxwait="5" maxwaitunit="second">
+			<istrue value="false"/>
+		</waitfor>
+		
+		<!-- Run JUnit for OK test cases 		-->
+		<junit printsummary="on" fork="yes" showoutput="on">
+			<jvmarg value="-Dxbus.home=${env.XBUS_HOME}"/>
+			<jvmarg value="-Xmx512m"/>
+			<classpath>
+				<pathelement location="${xbus-test.jar}"/>
+				<pathelement location="${xbus-bootstrap.jar}"/>
+				<pathelement location="${diff.jar}"/>
+			</classpath>
+			<formatter type="xml"/>
+			<test name="net.sf.xbus.test.TestxBus" todir="${test.report}"/>
+		</junit>
+		
+		<!-- Run JUnit for NotOK test cases -->
+		<junit printsummary="on" fork="yes" showoutput="on">
+			<jvmarg value="-Dxbus.home=${env.XBUS_HOME}"/>
+			<jvmarg value="-Xmx512m"/>
+			<classpath>
+				<pathelement location="${xbus-test.jar}"/>
+				<pathelement location="${xbus-core.jar}"/>
+				<pathelement location="${xbus-bootstrap.jar}"/>
+				<pathelement location="${diff.jar}"/>
+				<fileset dir="${runtime.home}">
+					<include name="**/*.jar"/>
+					<include name="**/*.zip"/>
+				</fileset>
+			</classpath>
+			<formatter type="xml"/>
+			<test name="net.sf.xbus.test.TestxBusNotOK" todir="${test.report}"/>
+		</junit>
+
+		<!-- Format JUnit output -->
+		<junitreport todir="${test.report}">
+			<fileset dir="${test.report}">
+				<include name="TEST-*.xml"/>
+			</fileset>
+			<report format="noframes" todir="${test.report}"/>
+		</junitreport>
+
+		<!-- Cleaning some receivers -->
+		<java fork="yes" classname="net.sf.xbus.bootstrap.ClearServersBootstrap">
+			<jvmarg value="-Dxbus.home=${env.XBUS_HOME}"/>
+			<classpath>
+				<pathelement location="${xbus-bootstrap.jar}"/>
+			</classpath>
+		</java>
+ 
+	</target>
+</project>
