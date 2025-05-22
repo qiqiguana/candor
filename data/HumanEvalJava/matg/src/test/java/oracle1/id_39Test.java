@@ -283,8 +283,8 @@ class PrimeFibTest {
         boolean expectedResult = true;
         PrimeFib primeFib = new PrimeFib();
         // Call the public method that uses isPrime(int)
-        int actualResult = PrimeFib.primeFib(1);
-        assertTrue(actualResult == 2);
+        int actualResult = PrimeFib.primeFib(7);
+        assertEquals(actualResult, 1597);
     }
     @Test
     public void testIsPrimeNonPrimeInput() {

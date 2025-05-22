@@ -344,7 +344,17 @@ class CoverageProcessor:
                 len(lines_executed) + len(lines_not_executed)
             )
         return line_cov
-
+    
+    def calculate_branch_coverage_rate_for_file(self, src_file):
+        src_file=str(src_file)
+        n_branch_covered = self.file_n_branch_covered.get(src_file, 0)
+        n_branch_missed = self.file_n_branch_missed.get(src_file, 0)
+        if n_branch_covered + n_branch_missed == 0:
+            branch_cov = 1.00
+        else:
+            branch_cov = n_branch_covered / (n_branch_covered + n_branch_missed)
+        return branch_cov
+    
     def calculate_line_coverage_rate(self) -> float:
         total_executed_lines = sum(
             len(lines) for lines in self.file_lines_executed.values()

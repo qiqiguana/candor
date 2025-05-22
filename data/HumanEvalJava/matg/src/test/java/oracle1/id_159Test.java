@@ -35,7 +35,7 @@ class EatTest {
     @Test
     public void testEatMethod_ZeroNeed() {
         List<Integer> result = Eat.eat(5, 0, 10);
-        assertEquals(Arrays.asList(5, 10), result);
+        assertEquals(Arrays.asList(5, 0), result);
     }
     @Test
     public void testEatMethod_ZeroRemainingCarrots() {

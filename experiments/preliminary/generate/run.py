@@ -10,7 +10,7 @@ sys.path.append("/home/qinghua/projects/matg/")
 from logger import logger
 
 package_name="original"
-data_path=Path("/home/qinghua/projects/matg/data/HumanEvalJava/matg/") # java project root
+data_path=Path("/home/qinghua/projects/matg/data/HumanEvalJava/matg_branch") # java project root
 source_file_path=data_path/"src"/"main"/"java"/package_name
 test_file_path=data_path/"src"/"test"/"java"/package_name
 test_file_path.mkdir(parents=True, exist_ok=True)
@@ -38,9 +38,9 @@ selected_names=[f"id_{id}" for id in selected]
 for f in source_file_path.iterdir():
     logger.info(f"\n\n Processing file: {f}")
     fname=f.stem
-    if fname not in selected_names:
-        logger.info(f"skip {fname}")
-        continue
+    # if fname not in selected_names:
+    #     logger.info(f"skip {fname}")
+    #     continue
     command=[
         "python","-m", "matg.main", "generate",
         "--data-path", str(data_path),

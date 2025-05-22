@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_122.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HumanEvalJava</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_122.java</span></div><h1>id_122.java</h1><pre class="source lang-java linenums">package original;
+
+
+import java.util.List;
+
+
+<span class="fc" id="L7">class AddElements {</span>
+    /**
+     * * Given a non-empty array of integers arr and an integer k, return
+     * the sum of the elements with at most two digits from the first k elements of arr.
+     *
+     * Examples:
+     *
+     * Input: arr = [111,21,3,4000,5,6,7,8,9], k = 4
+     * Output: 24 # sum of 21 + 3
+     *
+     * Constraints:
+     * 1. 1 &lt;= len(arr) &lt;= 100
+     * 2. 1 &lt;= k &lt;= len(arr)
+     *
+     * &gt; addElements([1, -2, -3, 41, 57, 76, 87, 88, 99], 3)
+     * -4
+     * &gt; addElements([111, 121, 3, 4000, 5, 6], 2)
+     * 0
+     * &gt; addElements([11, 21, 3, 90, 5, 6, 7, 8, 9], 4)
+     * 125
+     * &gt; addElements([111, 21, 3, 4000, 5, 6, 7, 8, 9], 4)
+     * 24
+     * &gt; addElements([1], 1)
+     * 1
+     */
+    public static int addElements(List&lt;Integer&gt; arr, int k) {
+<span class="fc" id="L33">        int sum = 0;</span>
+<span class="fc bfc" id="L34" title="All 2 branches covered.">        for (int i = 0; i &lt; k; i++) {</span>
+<span class="fc bfc" id="L35" title="All 2 branches covered.">            if (arr.get(i) &lt; 100) {</span>
+<span class="fc" id="L36">                sum += arr.get(i);</span>
+            }
+        }
+<span class="fc" id="L39">        return sum;</span>
+    }
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

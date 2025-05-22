@@ -27,6 +27,7 @@ def parse_args():
     test_generator_parser.add_argument("--relative-test-file-path", help="Relative path to the test file ", required=True, type=str)
     test_generator_parser.add_argument("--coverage-report-path", help="Path to the code coverage report file", required=True, type=str)
     test_generator_parser.add_argument("--target-line-coverage", help="Target line coverage", type=float, default=0.99)
+    test_generator_parser.add_argument("--target-branch-coverage", help="Target branch coverage", type=float, default=0.99)
     test_generator_parser.add_argument("--max-attempts", help="Maximum number of attempts to generate the test file", type=int, default=3)
     test_generator_parser.add_argument("--data-path", help="Path to the data directory", required=True, type=str)
     test_generator_parser.add_argument("--test-command", help="Command to run the test file", required=True, type=str)

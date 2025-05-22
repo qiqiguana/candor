@@ -1,0 +1,26 @@
+package original;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of GetPositive.
+*/
+class GetPositiveTest {
+    @Test
+    void testGetPositiveShouldReturnOnlyPositiveNumbers() {
+        List<Object> input = new ArrayList<>();
+        input.add(-1);
+        input.add(2);
+        input.add(-4);
+        input.add(5);
+        input.add(6);
+        List<Object> expected = new ArrayList<>();
+        expected.add(2);
+        expected.add(5);
+        expected.add(6);
+        assertEquals(expected, GetPositive.getPositive(input));
+    }
+}

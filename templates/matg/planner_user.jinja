@@ -5,13 +5,16 @@ Below is the source file for which you will write tests. Line numbers are added 
 {{ source_file_numbered }}
 ```
 
-{% if lines_to_cover %}
+{% if lines_to_cover | length >0 %}
 ## Uncovered Lines
 Generate tests to cover these line numbers:
 {{ lines_to_cover }}
 {% endif %}
 
-
+{% if missing_branches | length>0%}
+## The following branches in the following lines are not covered. Make sure to cover them in your plan:
+{{ missing_branches }}
+{% endif%}
 Analyze this file to understand existing tests, structure, and conventions:
 ```Java
 {{ test_file }}

@@ -46,7 +46,7 @@ class IsNestedTest {
     }
     @Test
     public void testNestedBracketsWithMultipleLevels() {
-        assertTrue(IsNested.isNested("[[[ ]]]"));
+        assertFalse(IsNested.isNested("[[[ ]]]"));
     }
                                   
 }

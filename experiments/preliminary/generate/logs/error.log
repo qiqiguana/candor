@@ -224,3 +224,90 @@ For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/er
   Input should be a valid dictionary or instance of TestCase [type=model_type, input_value=[{'test_behavior': 'Test ... org.mockito.Mockito;'}], input_type=list]
     For further information visit https://errors.pydantic.dev/2.10/v/model_type
 For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/OUTPUT_PARSING_FAILURE 
+2025-05-20 21:06:27,725   ERROR : Error generating test cases: File '/home/qinghua/projects/matg/data/HumanEvalJava/matg/target/site/jacoco/jacoco.xml' not found.
+2025-05-21 17:58:12,596   ERROR : Error generating test cases: Failed to parse TestCase from completion [{"test_behavior": "Test isPrime method with negative input", "test_name": "isPrime_NegativeInput", "new_imports_code": "", "test_code": "@Test\npublic void isPrime_NegativeInput() {\n    assertThrows(Exception.class, () -> PrimeFib.isPrime(-1));\n}"}]. Got: 1 validation error for TestCase
+  Input should be a valid dictionary or instance of TestCase [type=model_type, input_value=[{'test_behavior': 'Test ...eFib.isPrime(-1));\n}'}], input_type=list]
+    For further information visit https://errors.pydantic.dev/2.10/v/model_type
+For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/OUTPUT_PARSING_FAILURE 
+2025-05-21 18:55:39,340   ERROR : Error generating test cases: argument of type 'NoneType' is not iterable
+2025-05-21 18:58:26,759   ERROR : Error generating test cases: argument of type 'NoneType' is not iterable
+2025-05-21 19:00:24,120   ERROR : Error generating test cases: argument of type 'NoneType' is not iterable
+2025-05-21 19:06:16,912   ERROR : Error generating test cases: argument of type 'NoneType' is not iterable
+2025-05-21 19:09:35,890   ERROR : Error generating test cases: argument of type 'NoneType' is not iterable
+2025-05-21 19:11:38,215   ERROR : Error generating test cases: argument of type 'NoneType' is not iterable
+2025-05-21 19:14:58,082   ERROR : Error generating test cases: argument of type 'NoneType' is not iterable
+2025-05-21 19:16:11,914   ERROR : Error generating test cases: argument of type 'NoneType' is not iterable
+2025-05-21 19:18:09,554   ERROR : Error generating test cases: argument of type 'NoneType' is not iterable
+2025-05-21 22:47:26,392   ERROR : Error generating test cases: Failed to parse TestCase from completion [{"test_name": "testBGrade", "test_behavior": "Checks if a B grade is correctly assigned to a GPA of 2.7", "new_imports_code": "", "test_code": "@Test\npublic void testBGrade() {\n    java.util.List<java.lang.Number> input = java.util.Arrays.asList(2.7);\n    java.util.List<java.lang.String> expectedOutput = java.util.Arrays.asList(\"B\");\n    java.util.List<java.lang.String> actualOutput = NumericalLetterGrade.numericalLetterGrade(input);\n    org.junit.jupiter.api.Assertions.assertEquals(expectedOutput, actualOutput);\n}"}]. Got: 1 validation error for TestCase
+  Input should be a valid dictionary or instance of TestCase [type=model_type, input_value=[{'test_name': 'testBGrad...ut, actualOutput);\n}'}], input_type=list]
+    For further information visit https://errors.pydantic.dev/2.10/v/model_type
+For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/OUTPUT_PARSING_FAILURE 
+2025-05-22 00:48:34,925   ERROR : Error generating test cases: argument of type 'NoneType' is not iterable
+2025-05-22 00:50:44,255   ERROR : Error generating test cases: argument of type 'NoneType' is not iterable
+2025-05-22 00:52:25,875   ERROR : Error generating test cases: argument of type 'NoneType' is not iterable
+2025-05-22 00:55:06,963   ERROR : Error generating test cases: argument of type 'NoneType' is not iterable
+2025-05-22 00:57:57,865   ERROR : Error generating test cases: argument of type 'NoneType' is not iterable
+2025-05-22 01:02:00,073   ERROR : Error generating test cases: argument of type 'NoneType' is not iterable
+2025-05-22 02:51:25,962   ERROR : Error generating test cases: Failed to parse TestCase from completion {"properties": {}}. Got: 1 validation error for TestCase
+test_code
+  Field required [type=missing, input_value={'properties': {}}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.10/v/missing
+For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/OUTPUT_PARSING_FAILURE 
+2025-05-22 03:36:48,902   ERROR : Error generating test cases: Failed to parse TestCase from completion {"properties": {"test_behavior": {"default": " no behavior", "description": "The behavior of the test case", "title": "Test Behavior", "type": "string"}, "test_name": {"default": "random_test", "description": "The name of the test case", "title": "Test Name", "type": "string"}, "test_code": {"description": "The full java code of the test case. Starting with @Test ", "title": "Test Code", "type": "string"}, "new_imports_code": {"default": "", "description": "New import statements needed for the test case", "title": "New Imports Code", "type": "string"}}, "required": ["test_code"]}. Got: 1 validation error for TestCase
+test_code
+  Field required [type=missing, input_value={'properties': {'test_beh...equired': ['test_code']}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.10/v/missing
+For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/OUTPUT_PARSING_FAILURE 
+2025-05-22 03:38:19,465   ERROR : Error generating test cases: argument of type 'NoneType' is not iterable
+2025-05-22 03:40:13,682   ERROR : Error generating test cases: argument of type 'NoneType' is not iterable
+2025-05-22 03:41:24,655   ERROR : Error generating test cases: argument of type 'NoneType' is not iterable
+2025-05-22 05:32:19,690   ERROR : Error generating test cases: argument of type 'NoneType' is not iterable
+2025-05-22 05:34:55,597   ERROR : Error generating test cases: argument of type 'NoneType' is not iterable
+2025-05-22 05:36:43,757   ERROR : Error generating test cases: argument of type 'NoneType' is not iterable
+2025-05-22 05:50:25,845   ERROR : Error generating test cases: Failed to parse TestCase from completion {"properties": {"test_behavior": "Test strongestExtension method with special characters in extension name", "test_name": "testExtension_SpecialChars1", "new_imports_code": "import java.util.Arrays;", "test_code": "@Test\npublic void testExtension_SpecialChars() {\n    String className = \"SpecialCharsExt\";\n    List<String> extensions = Arrays.asList(\"EXT!@#$\");\n    String expected = \"SpecialCharsExt.EXT!@#$\";\n    assertEquals(expected, StrongestExtension.strongestExtension(className, extensions));\n}"}}. Got: 1 validation error for TestCase
+test_code
+  Field required [type=missing, input_value={'properties': {'test_beh...ame, extensions));\n}'}}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.10/v/missing
+For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/OUTPUT_PARSING_FAILURE 
+2025-05-22 06:17:55,766   ERROR : Error generating test cases: argument of type 'NoneType' is not iterable
+2025-05-22 06:19:19,076   ERROR : Error generating test cases: argument of type 'NoneType' is not iterable
+2025-05-22 06:21:08,429   ERROR : Error generating test cases: argument of type 'NoneType' is not iterable
+2025-05-22 06:35:05,070   ERROR : Error generating test cases: argument of type 'NoneType' is not iterable
+2025-05-22 06:36:17,427   ERROR : Error generating test cases: argument of type 'NoneType' is not iterable
+2025-05-22 06:37:49,701   ERROR : Error generating test cases: argument of type 'NoneType' is not iterable
+2025-05-22 06:48:39,273   ERROR : Error generating test cases: Failed to parse TestCase from completion [{"test_name": "testHasCloseElements_EmptyList", "test_behavior": "Test that an empty list returns false.", "new_imports_code": "", "test_code": "@Test\npublic void testHasCloseElements_EmptyList() {\n    List<Double> numbers = new ArrayList<>();\n    boolean result = HasCloseElements.hasCloseElements(numbers, 0.5);\n    assertFalse(result);\n}"}]. Got: 1 validation error for TestCase
+  Input should be a valid dictionary or instance of TestCase [type=model_type, input_value=[{'test_name': 'testHasCl...sertFalse(result);\n}'}], input_type=list]
+    For further information visit https://errors.pydantic.dev/2.10/v/model_type
+For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/OUTPUT_PARSING_FAILURE 
+2025-05-22 07:33:26,728   ERROR : Error generating test cases: Failed to parse TestCase from completion [{"test_behavior": "Testing null input returns null", "test_name": "testNullInputFixed", "test_code": "@Test\npublic void testNullInputFixed() {\n    assertNull(CheckDictCase.checkDictCase(null));\n}", "new_imports_code": ""}]. Got: 1 validation error for TestCase
+  Input should be a valid dictionary or instance of TestCase [type=model_type, input_value=[{'test_behavior': 'Testi...'new_imports_code': ''}], input_type=list]
+    For further information visit https://errors.pydantic.dev/2.10/v/model_type
+For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/OUTPUT_PARSING_FAILURE 
+2025-05-22 09:06:24,397   ERROR : Error generating test cases: list index out of range
+2025-05-22 09:38:30,833   ERROR : Error generating test cases: argument of type 'NoneType' is not iterable
+2025-05-22 09:40:10,137   ERROR : Error generating test cases: argument of type 'NoneType' is not iterable
+2025-05-22 09:41:26,231   ERROR : Error generating test cases: argument of type 'NoneType' is not iterable
+2025-05-22 10:45:51,104   ERROR : Error generating test cases: list index out of range
+2025-05-22 12:23:23,068   ERROR : Error generating test cases: argument of type 'NoneType' is not iterable
+2025-05-22 12:24:39,711   ERROR : Error generating test cases: argument of type 'NoneType' is not iterable
+2025-05-22 12:25:59,023   ERROR : Error generating test cases: argument of type 'NoneType' is not iterable
+2025-05-22 12:41:37,121   ERROR : Error generating test cases: argument of type 'NoneType' is not iterable
+2025-05-22 12:42:40,447   ERROR : Error generating test cases: argument of type 'NoneType' is not iterable
+2025-05-22 12:43:57,933   ERROR : Error generating test cases: argument of type 'NoneType' is not iterable
+2025-05-22 13:31:03,282   ERROR : Error generating test cases: argument of type 'NoneType' is not iterable
+2025-05-22 13:32:09,135   ERROR : Error generating test cases: argument of type 'NoneType' is not iterable
+2025-05-22 13:33:33,523   ERROR : Error generating test cases: argument of type 'NoneType' is not iterable
+2025-05-22 13:55:31,498   ERROR : Error generating test cases: list index out of range
+2025-05-22 14:38:20,962   ERROR : Error generating test cases: argument of type 'NoneType' is not iterable
+2025-05-22 14:40:02,851   ERROR : Error generating test cases: argument of type 'NoneType' is not iterable
+2025-05-22 14:41:25,962   ERROR : Error generating test cases: argument of type 'NoneType' is not iterable
+2025-05-22 14:52:40,370   ERROR : Error generating test cases: Failed to parse TestCase from completion [{"test_behavior": "Compare method throws IndexOutOfBoundsException when input lists have different lengths", "test_name": "compareWithDifferentLengthsFixed", "new_imports_code": "", "test_code": "@Test\nvoid compareWithDifferentLengthsFixed() {\n    List<Integer> game = new ArrayList<>(List.of(1, 2));\n    List<Integer> guess = new ArrayList<>(List.of(3, 4, 5));\n    assertThrows(IndexOutOfBoundsException.class, () -> Compare.compare(game, guess));\n}"}]. Got: 1 validation error for TestCase
+  Input should be a valid dictionary or instance of TestCase [type=model_type, input_value=[{'test_behavior': 'Compa...are(game, guess));\n}'}], input_type=list]
+    For further information visit https://errors.pydantic.dev/2.10/v/model_type
+For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/OUTPUT_PARSING_FAILURE 
+2025-05-22 15:13:41,405   ERROR : Error generating test cases: argument of type 'NoneType' is not iterable
+2025-05-22 15:14:43,131   ERROR : Error generating test cases: argument of type 'NoneType' is not iterable
+2025-05-22 15:15:33,111   ERROR : Error generating test cases: argument of type 'NoneType' is not iterable
+2025-05-22 16:27:09,079   ERROR : Error generating test cases: argument of type 'NoneType' is not iterable
+2025-05-22 16:28:21,141   ERROR : Error generating test cases: argument of type 'NoneType' is not iterable
+2025-05-22 16:29:25,482   ERROR : Error generating test cases: argument of type 'NoneType' is not iterable

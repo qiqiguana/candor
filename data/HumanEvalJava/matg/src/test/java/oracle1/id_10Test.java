@@ -297,7 +297,7 @@ class MakePalindromeTest {
     @Test
     public void TestMakePalindrome_LongString() {
         String input = "abcdefghijklmnopqrstuvwxyz";
-        String expectedOutput = "abcdefghijklmnopqrstuvwxyzyxwvutsrqponmlkjihgfedcba";
+        String expectedOutput = "abcdefghijklmnopqrstuvwxyzdcba";
         assertEquals(expectedOutput, MakePalindrome.makePalindrome(input));
     }
     @Test

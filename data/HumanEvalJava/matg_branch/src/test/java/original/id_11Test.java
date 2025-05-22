@@ -1,0 +1,53 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of StringXor.
+*/
+class StringXorTest {
+
+    @Test
+    void testStringXor_SameLengthStrings_ReturnsCorrectResult() {
+        // Arrange
+        String a = "010";
+        String b = "110";
+        String expectedResult = "100";
+
+        // Act
+        String actualResult = StringXor.stringXor(a, b);
+
+        // Assert
+        assertEquals(expectedResult, actualResult);
+    }
+    
+    @Test
+        public void testNothing(){
+            StringXor s = new StringXor();
+            }
+    @Test
+    public void test_stringXor_equal_strings() {
+        String a = "11";
+        String b = "11";
+        assertEquals("00", StringXor.stringXor(a, b));
+    }
+    @Test
+    public void test_stringXor_single_char() {
+        String a = "1";
+        String b = "0";
+        assertEquals("1", StringXor.stringXor(a, b));
+    }
+    @Test
+    public void test_stringXor_large_input() {
+        String a = "1110000111";
+        String b = "1010101010";
+        assertEquals("0100101101", StringXor.stringXor(a, b));
+    }
+    @Test
+    public void test_stringXor_valid_input_1() {
+        String a = "010";
+        String b = "110";
+        assertEquals("100", StringXor.stringXor(a, b));
+    }
+                                    
+}

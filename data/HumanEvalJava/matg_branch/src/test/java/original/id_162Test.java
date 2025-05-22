@@ -1,0 +1,106 @@
+package original;
+
+import java.math.BigInteger;
+
+import java.security.MessageDigest;
+
+import java.security.NoSuchAlgorithmException;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of StringToMd5.
+*/
+class StringToMd5Test {
+	@Test
+	void testStringToMd5_ReturnsNull_WhenInputIsEmpty() {
+		// Arrange and Act
+		String result = StringToMd5.stringToMd5("");
+		// Assert
+		assertNull(result);
+	}
+ 
+ @Test
+     public void testNothing(){
+         StringToMd5 s = new StringToMd5();
+         }
+ @Test
+ public void test_empty_string() {
+     assertNull(StringToMd5.stringToMd5(""));
+ }
+ @Test
+ public void test_simple_text() {
+     assertEquals("3e25960a79dbc69b674cd4ec67a72c62", StringToMd5.stringToMd5("Hello world"));
+ }
+ @Test
+ public void test_text_with_spaces() {
+     assertEquals("0ef78513b0cb8cef12743f5aeb35f888", StringToMd5.stringToMd5("A B C"));
+ }
+ @Test
+ public void test_password() {
+     assertEquals("5f4dcc3b5aa765d61d8327deb882cf99", StringToMd5.stringToMd5("password"));
+ }
+ @Test
+ public void test_null_text() {
+     assertThrows(NullPointerException.class, () -> StringToMd5.stringToMd5(null));
+ }
+ @Test
+ public void testEmptyString() {
+     assertNull(StringToMd5.stringToMd5(""));
+ }
+ @Test
+ public void testNullInput() {
+     assertThrows(NullPointerException.class, () -> StringToMd5.stringToMd5(null));
+ }
+ @Test
+ public void testMd5HashGeneration() {
+     assertEquals("3e25960a79dbc69b674cd4ec67a72c62", StringToMd5.stringToMd5("Hello world"));
+ }
+ @Test
+ public void testEmptyStringReturnsNull() {
+     // Arrange and Act
+     String result = StringToMd5.stringToMd5("");
+     // Assert
+     assertNull(result);
+ }
+ @Test
+ public void testHappyPathWithValidInput() {
+     // Arrange and Act
+     String result = StringToMd5.stringToMd5("Hello world");
+     // Assert
+     assertEquals("3e25960a79dbc69b674cd4ec67a72c62", result);
+ }
+ @Test
+ public void testInputWithSpaces() {
+     // Arrange and Act
+     String result = StringToMd5.stringToMd5("A B C");
+     // Assert
+     assertEquals("0ef78513b0cb8cef12743f5aeb35f888", result);
+ }
+ @Test
+ public void testInputWithNumbers() {
+     // Arrange and Act
+     String result = StringToMd5.stringToMd5("1234567890");
+     // Assert
+     assertEquals("e807f1fcf82d132f9bb018ca6738a19f", result);
+ }
+ @Test
+ public void testInputWithSpecialCharacters() {
+     // Arrange and Act
+     String result = StringToMd5.stringToMd5("password!@#$%^&*()");
+     // Assert
+     assertEquals("bf53bc252d18fe2dcac714844b76a9f8", result);
+ }
+ @Test
+ public void testNullInputAlternative() {
+     // Arrange and Act
+     try {
+         StringToMd5.stringToMd5(null);
+         fail("Expected NullPointerException");
+     } catch (NullPointerException e) {
+         // Assert
+         assertTrue(true);
+     }
+ }
+                                 
+}

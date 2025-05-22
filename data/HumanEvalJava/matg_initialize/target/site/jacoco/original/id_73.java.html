@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_73.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HumanEvalJava</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_73.java</span></div><h1>id_73.java</h1><pre class="source lang-java linenums">package original;
+
+
+import java.util.List;
+
+
+<span class="nc" id="L7">class SmallestChange {</span>
+    /**
+     * * Given an array arr of integers, find the minimum number of elements that
+     * need to be changed to make the array palindromic. A palindromic array is an array that
+     * is read the same backwards and forwards. In one change, you can change one element to any other element.
+     *
+     *  Examples:
+     * smallest_change([1,2,3,5,4,7,9,6]) == 4
+     * smallest_change([1, 2, 3, 4, 3, 2, 2]) == 1
+     * smallest_change([1, 2, 3, 2, 1]) == 0
+     *
+     * &gt; smallestChange([1, 2, 3, 5, 4, 7, 9, 6])
+     * 4
+     * &gt; smallestChange([1, 2, 3, 4, 3, 2, 2])
+     * 1
+     * &gt; smallestChange([1, 4, 2])
+     * 1
+     * &gt; smallestChange([1, 4, 4, 2])
+     * 1
+     * &gt; smallestChange([1, 2, 3, 2, 1])
+     * 0
+     * &gt; smallestChange([3, 1, 1, 3])
+     * 0
+     * &gt; smallestChange([1])
+     * 0
+     * &gt; smallestChange([0, 1])
+     * 1
+     */
+    public static int smallestChange(List&lt;Integer&gt; arr) {
+<span class="fc" id="L36">        int result = 0;</span>
+<span class="fc" id="L37">        int i = 0;</span>
+<span class="fc" id="L38">        int j = arr.size() - 1;</span>
+<span class="fc bfc" id="L39" title="All 2 branches covered.">        while (i &lt; j) {</span>
+<span class="pc bpc" id="L40" title="1 of 2 branches missed.">            if (arr.get(i) != arr.get(j)) {</span>
+<span class="nc" id="L41">                result++;</span>
+            }
+<span class="fc" id="L43">            i++;</span>
+<span class="fc" id="L44">            j--;</span>
+        }
+<span class="fc" id="L46">        return result;</span>
+    }
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

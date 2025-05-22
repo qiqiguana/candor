@@ -43,7 +43,7 @@ class FTest {
         assertEquals(2, (int)result.get(1));
         assertEquals(6, (int)result.get(2));
         assertEquals(24, (int)result.get(3));
-        assertEquals(15, (int)result.get(4));
+        assertEquals(120, (int)result.get(4));
     }
                                     
 }

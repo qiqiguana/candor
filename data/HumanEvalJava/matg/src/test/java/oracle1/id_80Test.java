@@ -42,7 +42,7 @@ class IsHappyTest {
     }
     @Test
     public void testFourCharacterStringWithDistinctCharacters() {
-        assertTrue(IsHappy.isHappy("abcd"));
+        assertFalse(IsHappy.isHappy("abcd"));
     }
     @Test
     public void testLongStringWithDistinctCharacters() {

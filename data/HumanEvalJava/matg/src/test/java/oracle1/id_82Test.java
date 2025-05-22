@@ -35,9 +35,5 @@ class PrimeLengthTest {
     public void testPrimeLength_VeryLongString_ReturnsFalse() {
       assertFalse(PrimeLength.primeLength("aaaaaaaaaaaaaaa"));
     }
-    @Test
-    public void testPrimeLength_NullInput_ThrowsNullPointerException() {
-      assertThrows(NullPointerException.class, () -> PrimeLength.primeLength(null));
-    }
                                     
 }

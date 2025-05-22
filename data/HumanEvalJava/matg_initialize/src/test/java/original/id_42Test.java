@@ -1,0 +1,18 @@
+package original;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of IncrList.
+*/
+class IncrListTest {
+    @Test
+    void testIncrList_emptyList() {
+        List<Object> input = new ArrayList<>();
+        List<Object> expected = new ArrayList<>();
+        assertEquals(expected, IncrList.incrList(input));
+    }
+}

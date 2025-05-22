@@ -30,7 +30,7 @@ class WillItFlyTest {
     public void TestWillItFly_UnbalancedListLessThanMaxWeight() {
         List<Integer> q = Arrays.asList(1, 2);
         int w = 5;
-        assertFalse(WillItFly.willItFly(q, w));
+        assertTrue(WillItFly.willItFly(q, w));
     }
     @Test
     public void TestWillItFly_BalancedListMoreThanMaxWeight() {

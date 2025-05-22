@@ -29,7 +29,7 @@ class ReverseDeleteTest {
     @Test
     public void testReverseDeleteSingleCharacterDeletion() {
         List<Object> result = oracle1.ReverseDelete.reverseDelete("abcdef", "b");
-        assertEquals(Arrays.asList("acdef", false), result);
+        assertEquals(Arrays.asList("acdef", true), result);
     }
     @Test
     public void testReverseDeletePalindromeString() {

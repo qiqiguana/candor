@@ -42,9 +42,7 @@ class SumToNTest {
     @Test
     public void testSumToNZeroInput() {
         int n = 0;
-        int expectedResult = 0;
-        int actualResult = SumToN.sumToN(n);
-        assertEquals(expectedResult, actualResult);
+        assertThrows(IllegalArgumentException.class, () -> SumToN.sumToN(n));
     }
     @Test
     public void testSumToNOneInput() {

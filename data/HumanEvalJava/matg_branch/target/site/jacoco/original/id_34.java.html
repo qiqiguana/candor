@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_34.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HumanEvalJava</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_34.java</span></div><h1>id_34.java</h1><pre class="source lang-java linenums">package original;
+
+
+import java.util.*;
+
+
+<span class="nc" id="L7">class Unique {</span>
+    /**
+     * Return sorted unique elements in a list
+     * Examples:
+     * &gt; unique([5, 3, 5, 2, 3, 3, 9, 0, 123])
+     * [0, 2, 3, 5, 9, 123]
+     * &gt; unique([5, 3, 5, 2, 3, 3, 9, 0, 123])
+     * [0, 2, 3, 5, 9, 123]
+     */
+    public static List&lt;Integer&gt; unique(List&lt;Integer&gt; l) {
+<span class="nc" id="L17">        Set&lt;Integer&gt; set = new HashSet&lt;Integer&gt;();</span>
+<span class="nc bnc" id="L18" title="All 2 branches missed.">        for (Integer i : l) {</span>
+<span class="nc" id="L19">            set.add(i);</span>
+<span class="nc" id="L20">        }</span>
+<span class="nc" id="L21">        List&lt;Integer&gt; result = new ArrayList&lt;Integer&gt;(set);</span>
+<span class="nc" id="L22">        Collections.sort(result);</span>
+<span class="nc" id="L23">        return result;</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

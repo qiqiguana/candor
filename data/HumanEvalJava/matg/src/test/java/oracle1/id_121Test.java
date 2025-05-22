@@ -28,7 +28,7 @@ class SolutionTest {
     @Test
     public void testSolution_AllOddElements_Fixed() {
         List<Integer> input = Arrays.asList(3, 3, 3, 3, 3);
-        int expected = 9;
+        int expected = (int) Math.pow(input.get(0), 2);
         assertEquals(expected, Solution.solution(input));
     }
                                     

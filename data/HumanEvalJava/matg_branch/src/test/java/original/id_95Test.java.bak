@@ -1,0 +1,89 @@
+package original;
+
+import java.util.HashMap;
+import java.util.Map;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of CheckDictCase.
+*/
+class CheckDictCaseTest {
+    @Test
+    void testCheckDictCaseAllLower() {
+        Map<String, String> dict = Map.of("p", "pineapple", "b", "banana");
+        assertTrue(CheckDictCase.checkDictCase(dict));
+    }
+    
+    @Test
+        public void testNothing(){
+            CheckDictCase s = new CheckDictCase();
+            }
+    @Test
+    public void testEmptyDictionary() {
+        java.util.HashMap<String, String> dict = new java.util.HashMap<>();
+        assertFalse(CheckDictCase.checkDictCase(dict));
+    }
+    @Test
+    public void testAllLowerCaseKeys() {
+        Map<String, String> dict = new HashMap<>();
+        dict.put("a", "apple");
+        dict.put("b", "banana");
+        assertTrue(CheckDictCase.checkDictCase(dict));
+    }
+    @Test
+    public void testAllUpperCaseKeys_1() {
+        Map<String, String> dict = new java.util.HashMap<>();
+        dict.put("STATE", "NC");
+        dict.put("ZIP", "12345");
+        assertTrue(CheckDictCase.checkDictCase(dict));
+    }
+    @Test
+    public void testMixedCaseKeys() {
+        Map<String, String> dict = new HashMap<>();
+        dict.put("a", "apple");
+        dict.put("A", "banana");
+        dict.put("B", "banana");
+        assertFalse(CheckDictCase.checkDictCase(dict));
+    }
+    @Test
+    public void testNonStringKey() {
+        Map<Object, String> dict = new HashMap<>();
+        dict.put("p", "pineapple");
+        dict.put(8, "banana");
+        assertFalse(CheckDictCase.checkDictCase(dict));
+    }
+    @Test
+    public void testAllLowercaseKeys() {
+        Map<String, String> dict = new HashMap<>();
+        dict.put("a", "apple");
+        dict.put("b", "banana");
+        assertTrue(CheckDictCase.checkDictCase(dict));
+    }
+    @Test
+    public void testAllUppercaseKeys() {
+        Map<String, String> dict = new HashMap<>();
+        dict.put("A", "apple");
+        dict.put("B", "banana");
+        assertTrue(CheckDictCase.checkDictCase(dict));
+    }
+    @Test
+    public void testNonStringKeys() {
+        Map<Object, String> dict = new HashMap<>();
+        dict.put(1, "one");
+        dict.put(2, "two");
+        assertFalse(CheckDictCase.checkDictCase(dict));
+    }
+    @Test
+    public void testEmptyDictionaryUnique() {
+        Map<String, String> dict = new HashMap<>();
+        assertFalse(CheckDictCase.checkDictCase(dict));
+    }
+    @Test
+    public void testMixedCaseKeys_DuplicateKeyError_1() {
+        Map<String, String> dict = new HashMap<>();
+        dict.put("a", "apple");
+        dict.put("B", "banana");
+        assertFalse(CheckDictCase.checkDictCase(dict));
+    }
+                                    
+}

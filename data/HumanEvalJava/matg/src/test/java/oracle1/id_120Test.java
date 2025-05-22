@@ -34,7 +34,7 @@ public void testEmptyArrayFixed() {
 public void testKEqualsZero() {
     List<Integer> arr = Arrays.asList(1, 2, 3);
     int k = 0;
-    assertEquals(Collections.emptyList(), Maximum1.maximum(arr, k));
+    assertThrows(IllegalArgumentException.class, () -> Maximum1.maximum(arr, k));
 }
 @Test
 public void testNLessThanOrEqualToK() {

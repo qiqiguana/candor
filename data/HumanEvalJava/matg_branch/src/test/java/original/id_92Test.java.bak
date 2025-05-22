@@ -1,0 +1,76 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of AnyInt.
+*/
+class AnyIntTest {
+    @Test
+    void anyInt_Should_Return_True_When_One_Number_Is_Sum_Of_Other_Two() {
+        // Arrange
+        Number x = 5;
+        Number y = 2;
+        Number z = 7;
+
+        // Act
+        Boolean result = AnyInt.anyInt(x, y, z);
+
+        // Assert
+        assertTrue(result);
+    }
+    
+    @Test
+        public void testNothing(){
+            AnyInt s = new AnyInt();
+            }
+    @Test
+    public void testAnyInt_Positive_True() {
+        Number x = 5;
+        Number y = 2;
+        Number z = 7;
+        assertTrue(AnyInt.anyInt(x, y, z));
+    }
+    @Test
+    public void testAnyInt_Negative_False_NotIntegers() {
+        Number x = 3.6;
+        Number y = -2.2;
+        Number z = 2;
+        assertFalse(AnyInt.anyInt(x, y, z));
+    }
+    @Test
+    public void testAnyInt_EdgeCase_True_NegativeNumbers() {
+        Number x = -4;
+        Number y = -6;
+        Number z = 2;
+        assertTrue(AnyInt.anyInt(x, y, z));
+    }
+    @Test
+    public void testAnyInt_SpecificFunctionality_False_2() {
+        Number x = 3;
+        Number y = 4;
+        Number z = -7;
+        assertFalse(AnyInt.anyInt(x, y, z));
+    }
+    @Test
+    public void testAnyInt_Positive_EqualToSum() {
+        assertTrue(AnyInt.anyInt(2, 3, 1));
+    }
+    @Test
+    public void testAnyInt_Positive_DifferentNumbers() {
+        assertTrue(AnyInt.anyInt(4, 2, 2));
+    }
+    @Test
+    public void testAnyInt_Negative_NonIntegerInputs() {
+        assertFalse(AnyInt.anyInt(3.6, 2, 1));
+    }
+    @Test
+    public void testAnyInt_Negative_AllNonIntegerInputs() {
+        assertFalse(AnyInt.anyInt(3.6, 2.5, 1));
+    }
+    @Test
+    public void testAnyInt_Edge_ZeroInputs() {
+        assertFalse(AnyInt.anyInt(0, 2, 3));
+    }
+                                    
+}

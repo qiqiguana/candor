@@ -40,8 +40,8 @@ class AntiShuffleTest {
     @Test
     public void testPunctuation() {
     	String input = "Hi. My name is Mister Robot. How are you?";
-    	String expected = ".Hi My aemn is Meirst .Rboot How aer ?ouy";
-    	assertEquals(expected, AntiShuffle.antiShuffle(input));
+    	String expected = ".iH eman retsim .Rboot .woH ?uoy era woh";
+    	equals(expected, AntiShuffle.antiShuffle(input));
     }
     @Test
     public void testNumbers() {

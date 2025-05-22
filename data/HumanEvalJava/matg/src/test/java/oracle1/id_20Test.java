@@ -36,8 +36,8 @@ class FindClosestElementsTest {
             }
     @Test
     public void TestFindClosestElements_EmptyList() {
-        List<Double> numbers = new ArrayList<>();
-        assertEquals(Collections.emptyList(), FindClosestElements.findClosestElements(numbers));
+    	List<Double> numbers = new ArrayList<>();
+    	expected = new IllegalArgumentException(); assertThrows(expected.getClass(), () -> FindClosestElements.findClosestElements(numbers));
     }
     @Test
     public void TestFindClosestElements_LargeNumbers_2() {

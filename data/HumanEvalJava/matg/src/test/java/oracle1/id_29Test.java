@@ -43,7 +43,7 @@ class FilterByPrefixTest {
     public void testNullInputList() {
         List<Object> strings = null;
         String prefix = "a";
-        assertThrows(NullPointerException.class, () -> FilterByPrefix.filterByPrefix(strings, prefix));
+        assertThrows(IllegalArgumentException.class, () -> FilterByPrefix.filterByPrefix(strings, prefix));
     }
     @Test
     public void testNoMatches() {

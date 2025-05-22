@@ -37,7 +37,7 @@ class DigitsumTest {
     }
     @Test
     public void test_MultipleUpperCaseCharacters() {
-        assertEquals(198, Digitsum.digitSum("ABC"));
+        assertEquals(0, Digitsum.digitSum("ABC"));
     }
                                     
 }

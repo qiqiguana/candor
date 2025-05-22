@@ -1,0 +1,44 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of TriangleArea1.
+*/
+class TriangleArea1Test {
+    @Test
+    void testTriangleAreaValidInput() {
+        assertEquals(6.00, TriangleArea1.triangleArea(3, 4, 5));
+    }
+    
+    @Test
+        public void testNothing(){
+            TriangleArea1 s = new TriangleArea1();
+            }
+    @Test
+    public void testValidTriangle() {
+    	Number result = TriangleArea1.triangleArea(3, 4, 5);
+    	assertEquals(6.00, result.doubleValue(), 0.01);
+    }
+    @Test
+    public void testInvalidTriangle() {
+    	Number result = TriangleArea1.triangleArea(1, 2, 10);
+    	assertEquals(-1, result.intValue(), 0.01);
+    }
+    @Test
+    public void testEdgeCaseEqualSides() {
+    	Number result = TriangleArea1.triangleArea(2, 2, 2);
+    	assertEquals(1.73, result.doubleValue(), 0.01);
+    }
+    @Test
+    public void testEdgeCaseZeroSide() {
+    	Number result = TriangleArea1.triangleArea(0, 3, 4);
+    	assertEquals(-1, result.intValue(), 0.01);
+    }
+    @Test
+    public void testNegativeInput() {
+    	Number result = TriangleArea1.triangleArea(-3, -4, -5);
+    	assertEquals(-1, result.intValue(), 0.01);
+    }
+                                    
+}

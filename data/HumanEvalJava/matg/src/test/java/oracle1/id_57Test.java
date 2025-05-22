@@ -182,7 +182,7 @@ class MonotonicTest {
     public void TestNullPointerException() {
         assertThrows(NullPointerException.class, () -> Monotonic.monotonic(null));
     }
-    @Test public void testEmptyListFixed1() { List<Integer> list = new ArrayList<>(); assertTrue(list.isEmpty()); if (!list.isEmpty()) { assertTrue(Monotonic.monotonic(list)); } else { assertTrue(true); }}
+    @Test public void testEmptyListFixed1() { List<Integer> list = new ArrayList<>(); assertTrue(Monotonic.monotonic(list)); }
     @Test public void TestMonotonicIncreasingListUnique() { List<Integer> input = List.of(1, 2, 3, 4, 5); assertTrue(Monotonic.monotonic(input)); }
     @Test
     public void testMonotonicDecreasingListUnique1() {

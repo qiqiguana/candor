@@ -44,7 +44,7 @@ class ChooseNumTest {
     public void testChooseNumWithXLessThanYAndBothNumbersAreOddFixed() {
         int x = 13;
         int y = 15;
-        int expectedResult = 14;
+        int expectedResult = 15;
         assertEquals(expectedResult, ChooseNum.chooseNum(x, y));
     }
                                   

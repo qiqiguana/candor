@@ -56,7 +56,7 @@ class HistogramTest {
     @Test
     public void test_single_space_input() {
         Object result = Histogram.histogram(" ");
-        assertEquals(new HashMap<>(), result);
+        assertEquals(Collections.singletonMap(" ", 1), result);
     }
                                   
 }

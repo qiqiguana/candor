@@ -36,7 +36,7 @@ class RescaleToUnitTest {
     @Test
     public void testRescaleToUnit_NullList() {
         List<Double> numbers = null;
-        assertThrows(NullPointerException.class, () -> RescaleToUnit.rescaleToUnit(numbers));
+        assertThrows(IllegalArgumentException.class, () -> RescaleToUnit.rescaleToUnit(numbers));
     }
     @Test
     public void testRescaleToUnit_AscendingOrder() {

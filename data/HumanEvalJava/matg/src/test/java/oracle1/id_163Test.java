@@ -24,7 +24,7 @@ class GenerateIntegersTest {
     @Test
     public void testLowerBound() {
         List<Object> result = GenerateIntegers.generateIntegers(0, 10);
-        assertEquals(Arrays.asList(2, 4, 6, 8), result);
+        assertEquals(Arrays.asList(0, 2, 4, 6, 8, 10), result);
     }
                                     
 }

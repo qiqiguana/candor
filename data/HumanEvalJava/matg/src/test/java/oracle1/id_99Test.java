@@ -17,9 +17,9 @@ class ClosestIntegerTest {
          }
     @Test
     public void testClosestInteger_Positive_Integer() {
-        String input = "10";
-        int expectedResult = 10;
-        int actualResult = ClosestInteger.closestInteger(input);
+        String input = "{"value":10}";
+        boolean expectedResult = true;
+        boolean actualResult = ClosestInteger.validateJSONSchema(input);
         assertEquals(expectedResult, actualResult);
     }
     @Test

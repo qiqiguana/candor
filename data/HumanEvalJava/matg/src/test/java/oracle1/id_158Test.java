@@ -111,7 +111,7 @@ class FindMaxTest {
     @Test
     void testFindMaxWithNullInputFixed1() {
         List<String> words = null;
-        assertNull(FindMax.findMax(words));
+        assertThrows(NullPointerException.class, () -> FindMax.findMax(words));
     }
     @Test
     void testFindMaxEmptyList2() {

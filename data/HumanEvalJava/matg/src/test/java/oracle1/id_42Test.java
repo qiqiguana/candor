@@ -29,7 +29,7 @@ class IncrListTest {
     }
     @Test
     public void testIncrListWithNullInput() {
-        assertThrows(NullPointerException.class, () -> IncrList.incrList(null));
+        assertEquals(Collections.emptyList(), IncrList.incrList(null));
     }
     @Test
     public void testIncrListWithSingleElement() {

@@ -21,7 +21,7 @@ class EncodeTest {
     @Test
     void testMultipleWords() {
         String message = "This is a message";
-        assertEquals("tHKS KS C MGSSCGG", Encode.encode(message));
+        assertEquals("tHKS  KS  C  MGSSCGG", Encode.encode(message));
     }
     @Test
     void testEmptyString() {

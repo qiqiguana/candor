@@ -1,0 +1,49 @@
+package oracle1;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of FlipCase.
+*/
+class FlipCaseTest {
+    @Test
+    void flipCase_should_flip_all_characters_in_string() {
+        // Arrange
+        String oracle1String = "Hello World!";
+        // Act
+        String flippedString = FlipCase.flipCase(oracle1String);
+        // Assert
+        assertEquals("hELLO wORLD!", flippedString);
+    }
+    
+    @Test
+        void testNothing(){
+            FlipCase s = new FlipCase();
+            }
+    @Test
+    void flipCase_EmptyString_ReturnsEmptyString() {
+        String result = FlipCase.flipCase("");
+        assertEquals("", result);
+    }
+    @Test
+    void flipCase_SingleUppercaseLetter_ReturnsSingleLowercaseLetter() {
+        String result = FlipCase.flipCase("A");
+        assertEquals("a", result);
+    }
+    @Test
+    void flipCase_SingleLowercaseLetter_ReturnsSingleUppercaseLetter() {
+        String result = FlipCase.flipCase("a");
+        assertEquals("A", result);
+    }
+    @Test
+    void flipCase_MixedCaseString_ReturnsFlippedString() {
+        String result = FlipCase.flipCase("HelloWorld");
+        assertEquals("hELLOwORLD", result);
+    }
+    @Test
+    void flipCase_NonAlphabeticalCharacters_RemainsUnchanged() {
+        String result = FlipCase.flipCase("Hello! World");
+        assertEquals("hELLO! wORLD", result);
+    }
+                                    
+}

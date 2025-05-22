@@ -1,0 +1,47 @@
+package original;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of Concatenate.
+*/
+class ConcatenateTest {
+    @Test
+    void testConcatenate_EmptyList_ReturnsEmptyString() {
+        List<Object> input = new ArrayList<>();
+        String expected = "";
+        String actual = Concatenate.concatenate(input);
+        assertEquals(expected, actual);
+    }
+    
+    @Test
+        public void testNothing(){
+            Concatenate s = new Concatenate();
+            }
+    @Test
+    public void testConcatenate_EmptyList() {
+        List<Object> input = new ArrayList<>();
+        String expected = "";
+        assertEquals(expected, Concatenate.concatenate(input));
+    }
+    @Test
+    public void testConcatenate_SingleElement() {
+        List<Object> input = new ArrayList<>();
+        input.add("a");
+        String expected = "a";
+        assertEquals(expected, Concatenate.concatenate(input));
+    }
+    @Test
+    public void testConcatenate_MultipleElements() {
+        List<Object> input = new ArrayList<>();
+        input.add("a");
+        input.add("b");
+        input.add("c");
+        String expected = "abc";
+        assertEquals(expected, Concatenate.concatenate(input));
+    }
+                                    
+}

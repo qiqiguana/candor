@@ -33,7 +33,7 @@ class MoveOneBallTest {
     @Test
     public void testAlreadySortedArrayFixed() {
         List<Object> arr = Arrays.asList(1, 2, 3, 4, 5);
-        assertTrue(MoveOneBall.moveOneBall(arr));
+        assertFalse(MoveOneBall.moveOneBall(arr));
     }
     @Test
     public void testUnsortedArrayWithOneShiftNeeded() {

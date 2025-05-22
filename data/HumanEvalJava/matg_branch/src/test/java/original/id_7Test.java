@@ -1,0 +1,44 @@
+package original;
+
+import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+/**
+* Test class of FilterBySubstring.
+*/
+class FilterBySubstringTest {
+    @Test
+    void filterBySubstring_ContainsSubString_ReturnsMatchedStrings() {
+        // Arrange
+        List<Object> strings = new ArrayList<>(List.of("abc", "bacd", "cde", "array"));
+        String substring = "a";
+
+        // Act
+        List<Object> result = FilterBySubstring.filterBySubstring(strings, substring);
+
+        // Assert
+        assertEquals(List.of("abc", "bacd", "array"), result);
+    }
+    
+    @Test
+        public void testNothing(){
+            FilterBySubstring s = new FilterBySubstring();
+            }
+    @Test
+    public void FilterBySubstring_EmptyList_ReturnsEmptyList() {
+        List<Object> input = new ArrayList<>();
+        String substring = "a";
+        assertEquals(0, FilterBySubstring.filterBySubstring(input, substring).size());
+    }
+    @Test
+    public void FilterBySubstring_NoMatchingSubstrings_ReturnsEmptyList() {
+        List<Object> input = new ArrayList<>(Arrays.asList("abc", "bacd", "cde", "array"));
+        String substring = "z";
+        assertEquals(0, FilterBySubstring.filterBySubstring(input, substring).size());
+    }
+                                    
+}

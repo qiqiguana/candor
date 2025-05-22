@@ -39,7 +39,7 @@ class RoundedAvgTest {
     @Test
     public void testRoundedAverageWithNegativeReturnValue() {
         Object result = RoundedAvg.roundedAvg(5, 1);
-        assertEquals(-1, result);
+        assertEquals(3, result);
     }
                                     
 }

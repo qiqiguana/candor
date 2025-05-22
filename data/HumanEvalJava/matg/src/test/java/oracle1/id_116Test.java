@@ -21,12 +21,12 @@ class SortArrayTest {
         input.add(3);
         input.add(4);
         input.add(1);
-
+    
         // Act
         List<Object> result = SortArray.sortArray(input);
-
+    
         // Assert
-        assertEquals(5, result.size());
+        assertEquals(Arrays.asList(1, 2, 4, 3, 5), result);
     }
     
     @Test

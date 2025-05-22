@@ -78,7 +78,7 @@ class CheckIfLastCharIsALetterTest {
     }
     @Test
     public void test_word_and_single_letter_corrected_1() {
-       assertTrue(CheckIfLastCharIsALetter.checkIfLastCharIsALetter("apple A"));
+       assertFalse(CheckIfLastCharIsALetter.checkIfLastCharIsALetter("apple A"));
     }
                                     
 }

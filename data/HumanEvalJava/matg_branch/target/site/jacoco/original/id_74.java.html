@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_74.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HumanEvalJava</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_74.java</span></div><h1>id_74.java</h1><pre class="source lang-java linenums">package original;
+
+
+import java.util.List;
+
+
+<span class="nc" id="L7">class TotalMatch {</span>
+    /**
+     * * Write a function that accepts two lists of strings and returns the list that has
+     * total number of chars in the all strings of the list less than the other list.
+     *
+     * if the two lists have the same number of chars, return the first list.
+     *
+     *  Examples:
+     * total_match([], []) ➞ []
+     * total_match(['hi', 'admin'], ['hI', 'Hi']) ➞ ['hI', 'Hi']
+     * total_match(['hi', 'admin'], ['hi', 'hi', 'admin', 'project']) ➞ ['hi', 'admin']
+     * total_match(['hi', 'admin'], ['hI', 'hi', 'hi']) ➞ ['hI', 'hi', 'hi']
+     * total_match(['4'], ['1', '2', '3', '4', '5']) ➞ ['4']
+     *
+     * &gt; totalMatch([], [])
+     * []
+     * &gt; totalMatch([&quot;hi&quot;, &quot;admin&quot;], [&quot;hi&quot;, &quot;hi&quot;])
+     * [&quot;hi&quot;, &quot;hi&quot;]
+     * &gt; totalMatch([&quot;hi&quot;, &quot;admin&quot;], [&quot;hi&quot;, &quot;hi&quot;, &quot;admin&quot;, &quot;project&quot;])
+     * [&quot;hi&quot;, &quot;admin&quot;]
+     * &gt; totalMatch([&quot;4&quot;], [&quot;1&quot;, &quot;2&quot;, &quot;3&quot;, &quot;4&quot;, &quot;5&quot;])
+     * [&quot;4&quot;]
+     * &gt; totalMatch([&quot;hi&quot;, &quot;admin&quot;], [&quot;hI&quot;, &quot;Hi&quot;])
+     * [&quot;hI&quot;, &quot;Hi&quot;]
+     * &gt; totalMatch([&quot;hi&quot;, &quot;admin&quot;], [&quot;hI&quot;, &quot;hi&quot;, &quot;hi&quot;])
+     * [&quot;hI&quot;, &quot;hi&quot;, &quot;hi&quot;]
+     * &gt; totalMatch([&quot;hi&quot;, &quot;admin&quot;], [&quot;hI&quot;, &quot;hi&quot;, &quot;hii&quot;])
+     * [&quot;hi&quot;, &quot;admin&quot;]
+     * &gt; totalMatch([], [&quot;this&quot;])
+     * []
+     * &gt; totalMatch([&quot;this&quot;], [])
+     * []
+     */
+    public static List&lt;Object&gt; totalMatch(List&lt;Object&gt; lst1, List&lt;Object&gt; lst2) {
+<span class="nc" id="L41">        int sum1 = 0;</span>
+<span class="nc" id="L42">        int sum2 = 0;</span>
+<span class="nc bnc" id="L43" title="All 2 branches missed.">        for (Object value : lst1) {</span>
+<span class="nc bnc" id="L44" title="All 2 branches missed.">            if (value instanceof String) {</span>
+<span class="nc" id="L45">                sum1 += ((String) value).length();</span>
+            }
+<span class="nc" id="L47">        }</span>
+<span class="nc bnc" id="L48" title="All 2 branches missed.">        for (Object value : lst2) {</span>
+<span class="nc bnc" id="L49" title="All 2 branches missed.">            if (value instanceof String) {</span>
+<span class="nc" id="L50">                sum2 += ((String) value).length();</span>
+            }
+<span class="nc" id="L52">        }</span>
+<span class="nc bnc" id="L53" title="All 2 branches missed.">        if (sum1 &lt;= sum2) {</span>
+<span class="nc" id="L54">            return lst1;</span>
+        } else {
+<span class="nc" id="L56">            return lst2;</span>
+        }
+    }
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

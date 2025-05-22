@@ -58,8 +58,11 @@ nohup mvn evosuite:generate evosuite:export > "evosuite_generation_$(date +%Y%m%
 
 <!-- Useful tools -->
 <!-- change package -->
-python -m pack_change --source-dir /home/qinghua/projects/matg/data/HumanEvalJava/matg/src/main/java/original --target-dir /home/qinghua/projects/matg/data/HumanEvalJava/matg/src/main/java/fixed_oracle
+python -m pack_change --source-dir /home/qinghua/projects/matg/data/HumanEvalJava/matg/src/main/java/original --target-dir /home/qinghua/projects/matg/data/HumanEvalJava/matg/src/main/java/branch
 
 python -m pack_change --source-dir /home/qinghua/projects/matg/data/HumanEvalJava/matg/src/test/java/original --target-dir /home/qinghua/projects/matg/data/HumanEvalJava/matg/src/test/java/oracle1
 
 mvn -f /home/qinghua/projects/matg/data/HumanEvalJava/matg/ test -Dtest="oracle1.*Test"
+
+
+nohup python -m matg.experiments.preliminary.generate.run > "logs/result_$(date +%Y%m%d_%H%M%S).log" 2>&1 &

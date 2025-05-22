@@ -28,7 +28,7 @@ void testBelowZero_BalanceNeverFallsBelowZero_ReturnsFalse() {
 @Test
 public void testEmptyList() {
     List<Object> operations = new ArrayList<>();
-    assertFalse(BelowZero.belowZero(operations));
+    assertTrue(BelowZero.belowZero(operations));
 }
 @Test
 public void testNullInput() {

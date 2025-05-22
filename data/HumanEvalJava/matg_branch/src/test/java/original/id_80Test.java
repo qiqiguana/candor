@@ -1,0 +1,54 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of IsHappy.
+*/
+class IsHappyTest {
+    @Test
+    void testIsHappy_LengthLessThan3_ReturnsFalse() {
+        // Arrange and Act
+        Boolean result = IsHappy.isHappy("a");
+        // Assert
+        assertFalse(result);
+    }
+    
+    @Test
+        public void testNothing(){
+            IsHappy s = new IsHappy();
+            }
+    @Test
+    public void test_Happy_String_with_Length_Less_than_3() {
+        assertFalse(IsHappy.isHappy("a"));
+    }
+    @Test
+    public void test_Happy_String_with_Repeating_Characters_at_Beginning() {
+        assertFalse(IsHappy.isHappy("aa"));
+    }
+    @Test
+    public void test_Happy_String_with_Alternating_Characters() {
+        assertTrue(IsHappy.isHappy("abcd"));
+    }
+    @Test
+    public void test_Happy_String_with_Repeating_Characters_in_Middle() {
+        assertFalse(IsHappy.isHappy("aabb"));
+    }
+    @Test
+    public void test_Happy_String_with_Non_Repeating_Characters() {
+        assertTrue(IsHappy.isHappy("adb"));
+    }
+    @Test
+    public void test_Happy_String_with_Repeating_Last_Two_Characters() {
+        assertFalse(IsHappy.isHappy("xyy"));
+    }
+    @Test
+    public void test_Happy_String_with_Long_Non_Repeating_Sequence() {
+        assertTrue(IsHappy.isHappy("ioplkjhgfcxdrtghytrewqazxswedcvbnm"));
+    }
+    @Test
+    public void test_Happy_String_with_Repeating_Characters() {
+        assertFalse(IsHappy.isHappy("aaaaaa"));
+    }
+                                    
+}

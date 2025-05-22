@@ -46,6 +46,7 @@ class SumProductTest {
         List<Object> input = Arrays.asList(1, 1, 1);
         List<Integer> result = SumProduct.sumProduct(input);
         assertEquals(3, (int)result.get(0));
+        assertEquals(1, (int)result.get(1));
     }
     @Test
     public void testSumProduct_NonIntegerElement_1() {

@@ -138,8 +138,11 @@ class SortArray1Test {
     }
     @Test
     public void testSortArray1Instance(){
+    	int[] input = {3, 1, 2};
+    	int[] expected = {1, 2, 3};
     	SortArray1 s = new SortArray1();
-    	assertNotNull(s);
+    	int[] result = s.sortArray(input);
+    	assertArrayEquals(expected, result);
     }
     @Test
     public void testSortArrayEmpty() {

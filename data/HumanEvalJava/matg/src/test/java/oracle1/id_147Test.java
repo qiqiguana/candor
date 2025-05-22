@@ -31,7 +31,7 @@ class GetMaxTriplesTest {
     @Test
     public void testLargeInput() {
         int n = 100;
-        assertEquals(53361, GetMaxTriples.getMaxTriples(n));
+        assertEquals(C(33,3)+C(67,3), GetMaxTriples.getMaxTriples(n));
     }
     @Test
     public void testEdgeCaseMinValue() {

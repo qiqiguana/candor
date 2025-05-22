@@ -22,8 +22,8 @@ class ConcatenateTest {
             }
     @Test
     public void testNullInput() {
-        List<Object> input = null;
-        assertThrows(NullPointerException.class, () -> Concatenate.concatenate(input));
+    	List<Object> input = null;
+    	assertThrows(IllegalArgumentException.class, () -> Concatenate.concatenate(input));
     }
     @Test
     public void testEmptyListFixed() {

@@ -29,7 +29,7 @@ class IntersectionTest {
         List<Integer> interval1 = Arrays.asList(-3, -1);
         List<Integer> interval2 = Arrays.asList(-5, 5);
         String result = Intersection.intersection(interval1, interval2);
-        assertEquals("YES", result);
+        assertEquals("NO", result);
     }
     @Test
     public void testIntersectingIntervals() {

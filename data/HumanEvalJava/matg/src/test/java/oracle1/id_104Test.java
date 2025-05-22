@@ -44,7 +44,7 @@ class UniqueDigitsTest {
     @Test
     public void testUniqueDigits_ListWithUniqueDigits() {
         List<Integer> input = Arrays.asList(15, 33, 1422, 1);
-        List<Object> expected = Arrays.asList(1, 15, 33);
+        List<Object> expected = Arrays.asList(15, 1);
         assertEquals(expected, UniqueDigits.uniqueDigits(input));
     }
                                     

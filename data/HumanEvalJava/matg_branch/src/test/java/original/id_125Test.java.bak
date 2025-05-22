@@ -1,0 +1,47 @@
+package original;
+
+import java.util.Arrays;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+/**
+* Test class of SplitWords.
+*/
+class SplitWordsTest {
+    @Test
+    void testSplitWords_CommaSeparator() {
+        Object result = SplitWords.splitWords("Hello,world!");
+        assertEquals(Arrays.asList("Hello", "world!"), result);
+    }
+    
+    @Test
+        public void testNothing(){
+            SplitWords s = new SplitWords();
+            }
+    @Test
+    public void testSplitOnWhitespace() {
+        Object result = SplitWords.splitWords("Hello world!");
+        assertEquals(Arrays.asList("Hello", "world!"), result);
+    }
+    @Test
+    public void testSplitOnComma() {
+        Object result = SplitWords.splitWords("Hello,world!");
+        assertEquals(Arrays.asList("Hello", "world!"), result);
+    }
+    @Test
+    public void testCountLowerCaseLettersWithOddOrder() {
+        Object result = SplitWords.splitWords("abcdef");
+        assertEquals(3, result);
+    }
+    @Test
+    public void testEmptyString() {
+        Object result = SplitWords.splitWords("");
+        assertEquals(0, result);
+    }
+    @Test
+    public void testSingleWordWithNoWhitespaceOrComma_1() {
+        Object result = SplitWords.splitWords("Hello");
+        assertEquals(2, result);
+    }
+                                    
+}

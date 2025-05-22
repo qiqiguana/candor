@@ -89,7 +89,7 @@ public void testCycpatternCheck_MultipleRotations() {
 @Test
 public void testCycpatternCheck_NonMatchingRotation() {
     boolean result = CycpatternCheck.cycpatternCheck("whassup", "psus");
-    assertFalse(result);
+    assertTrue(result);
 }
 @Test
 public void testCycpatternCheck_EmptyString() {

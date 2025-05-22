@@ -32,7 +32,7 @@ class SortNumbersTest {
     }
     @Test
     public void TestInvalidNumber1() {
-    	assertNotEquals("ten", SortNumbers.sortNumbers("ten"));
+    	assertNull(SortNumbers.sortNumbers("ten"));
     }
     @Test
     public void TestEdgeCaseNumbers() {

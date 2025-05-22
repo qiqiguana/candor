@@ -1,0 +1,58 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of HowManyTimes.
+*/
+class HowManyTimesTest {
+    @Test
+    void testHowManyTimes_EmptyString_ReturnsZero() {
+        // Arrange and Act
+        int result = HowManyTimes.howManyTimes("", "a");
+        // Assert
+        assertEquals(0, result);
+    }
+    
+    @Test
+        public void testNothing(){
+            HowManyTimes s = new HowManyTimes();
+            }
+    @Test
+    public void testEmptyString() {
+        String string = "";
+        String substring = "a";
+        assertEquals(0, HowManyTimes.howManyTimes(string, substring));
+    }
+    @Test
+    public void testSingleCharacterMatch() {
+        String string = "a";
+        String substring = "a";
+        assertEquals(1, HowManyTimes.howManyTimes(string, substring));
+    }
+    @Test
+    public void testMultipleCharacterMatch() {
+        String string = "aaa";
+        String substring = "aa";
+        assertEquals(2, HowManyTimes.howManyTimes(string, substring));
+    }
+    @Test
+    public void testNoMatch() {
+        String string = "hello";
+        String substring = "world";
+        assertEquals(0, HowManyTimes.howManyTimes(string, substring));
+    }
+    @Test
+    public void testOverlappingMatches() {
+        String string = "aaaa";
+        String substring = "aa";
+        assertEquals(3, HowManyTimes.howManyTimes(string, substring));
+    }
+    @Test
+    public void testEdgeCaseNullString() {
+        String string = null;
+        String substring = "a";
+        assertThrows(NullPointerException.class, () -> HowManyTimes.howManyTimes(string, substring));
+    }
+                                    
+}

@@ -43,7 +43,7 @@ class CountUpperTest {
     }
     @Test
     void testCountUpper_NonVowelCharacter() {
-        assertEquals(0, CountUpper.countUpper("B"));
+        assertEquals(1, CountUpper.countUpper("B"));
     }
                                     
 }

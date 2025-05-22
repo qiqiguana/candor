@@ -97,27 +97,30 @@ class TestCaseGenerator:
             self.coverage_processor.parse_coverage_report()
             self.iteration=0
             self.line_coverage = self.coverage_processor.calculate_line_coverage_rate_for_file(self.config.relative_source_file_path)
-            logger.info(f"Initial line coverage: {self.line_coverage}")
+            self.branch_coverage = self.coverage_processor.calculate_branch_coverage_rate_for_file(self.config.relative_source_file_path)
+            logger.info(f"Initial line coverage: {self.line_coverage}\nInitial branch coverage: {self.branch_coverage}")
             self._log2tensorboard()
             # improve coverage
             logger.info(f"Improving coverage for test file {self.test_file_path}")
             while self.line_coverage<self.config.target_line_coverage and self.iteration<self.config.max_attempts:
                 self.iteration+=1
-                logger.info(f"Current line coverage: {self.line_coverage}")
+                
                 try:
                     test_plan=self._generate_test_plan()
                     # test_plan=self._fix_plan(test_plan)
                     self._generate_test_with_plan(test_plan)
-                    self._check_line_coverage_increase()
+                    self._check_coverage_increase()
                     self._log2tensorboard()
                 except Exception as e:
                     logger.error(f"Error generating test cases: {e}")
                     continue
+                logger.info(f"Current line coverage: {self.line_coverage}\nCurrent branch coverage: {self.branch_coverage}")
         except Exception as e:
             logger.error(f"Error generating test cases: {e}")
         finally:
             self.writer.close()
             logger.info(f"Final line coverage: {self.line_coverage}")
+            logger.info(f"Final branch coverage: {self.branch_coverage}")
             logger.info(f"Test generation process completed. Check the test file at {self.test_file_path}")
             logger.info(f"Tensorboard logs saved at {self.writer.log_dir}")
             subprocess.run(
@@ -132,7 +135,9 @@ class TestCaseGenerator:
         """
 
 
-        lines_to_cover=self.coverage_processor.file_lines_not_executed.get(self.source_file_path,[])
+        lines_to_cover=self.coverage_processor.file_lines_not_executed.get(self.config.relative_source_file_path,[])
+        lines_with_missing_branches=self.coverage_processor.file_lines_with_missing_branch.get(self.config.relative_source_file_path,[])
+        
         test_code=FileUtils.read_file(self.test_file_path)
         
         # render prompts
@@ -143,6 +148,7 @@ class TestCaseGenerator:
              "lines_to_cover":lines_to_cover,
              "test_file_name":self.config.relative_test_file_path,
              "test_code":test_code,
+             "missing_branches":lines_with_missing_branches,
              "format_instructions":self.planner_parser.get_format_instructions(),
         })
         logger.info(f"🚨🚨🚨 🚀 🚀 🚀 ----- 🤖 AGENT PLANNER: Generating test plan ----- 🚀 🚀 🚀 🚨🚨🚨 ")
@@ -210,8 +216,8 @@ class TestCaseGenerator:
                 valid=self._validate_and_serialize_test_code(new_test)
                 if valid:
                     # break if pass
-                    new_line_coverage=self._check_line_coverage_increase()
-                    if new_line_coverage>self.config.target_line_coverage:
+                    new_line_coverage,new_branch_coverage=self._check_coverage_increase()
+                    if new_line_coverage>self.config.target_line_coverage and new_branch_coverage>self.config.target_line_coverage:
                         logger.info(f"Target line coverage reached: {new_line_coverage}")
                         self.writer.close()
                         return
@@ -278,7 +284,7 @@ class TestCaseGenerator:
         self.writer.add_scalar("line_coverage", self.line_coverage, self.iteration)
         self.writer.add_scalar("branch_coverage", self.branch_coverage, self.iteration)
     
-    def _check_line_coverage_increase(self):
+    def _check_coverage_increase(self):
         subprocess.run(
                 self.config.test_command.split(),
                 capture_output=True,
@@ -291,28 +297,33 @@ class TestCaseGenerator:
                 self.config.relative_source_file_path
             )
         )
-        if new_line_coverage > self.line_coverage:
-            logger.info(
-                f"""
-                {"#"*70}
-                🚀📈 LINE COVERAGE UPDATE 📈🚀 
-                ➡️  Line coverage increased from 🔴  {self.line_coverage*100:.2f}% to 🟢 {new_line_coverage*100:.2f}% 🎯
-                {"#"*70}
-                """ 
-            )
-            self.line_coverage = new_line_coverage
+        new_branch_coverage = (self.coverage_processor.calculate_branch_coverage_rate_for_file(self.config.relative_source_file_path))
 
+        if new_line_coverage>self.line_coverage:
+            self.line_coverage=new_line_coverage
+            line_output=f"➡️  Line coverage increased from 🔴  {self.line_coverage*100:.2f}% to 🟢 {new_line_coverage*100:.2f}% 🎯"
         else:
-            logger.info(
-                f"""
+            line_output=f"🔁 No Change: Line coverage remains at 🔵 {self.line_coverage*100:.2f}%"
+        if new_branch_coverage>self.branch_coverage:
+            self.branch_coverage=new_branch_coverage
+            branch_output=f"➡️  Branch coverage increased from 🔴  {self.branch_coverage*100:.2f}% to 🟢 {new_branch_coverage*100:.2f}% 🎯"   
+        else:
+            branch_output=f"🔁 No Change: Branch coverage remains at 🔵 {self.branch_coverage*100:.2f}%"
+        if new_line_coverage>self.line_coverage or new_branch_coverage>self.branch_coverage:
+            banner=f"🚀📈 Coverage Improved! 📈🚀 "
+        else:
+            banner=f"🙃📉Coverage Status: No Improvement📉🙃"
+        logger.info(
+            f"""
                 {"#"*70}
-                        🟡 📊 LINE COVERAGE STATUS 📊 🟡
-                        🔁 No Change: Coverage remains at 🔵 {self.line_coverage*100:.2f}% 
-                        {"#"*70}
-                        """
-
-                        )
-        return new_line_coverage
+                {banner}
+                {line_output}
+                {branch_output}
+                {"#"*70}
+            """
+        )
+         
+        return new_line_coverage,new_branch_coverage
     
     def _validate_and_serialize_test_code(self,generated_unittest):
         """

@@ -46,7 +46,7 @@ class TriplesSumToZeroTest {
     @Test
     public void Test_TriplesSumToZero_DuplicateElements() {
         List<Integer> input = List.of(0, 0, 0);
-        assertTrue(TriplesSumToZero.triplesSumToZero(input));
+        assertFalse(TriplesSumToZero.triplesSumToZero(input));
     }
     @Test
     public void Test_TriplesSumToZero_Id_1() {

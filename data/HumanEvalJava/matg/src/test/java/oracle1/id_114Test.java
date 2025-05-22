@@ -29,9 +29,9 @@ class MinsubarraysumTest {
     }
     @Test
     public void testMinSubArraySumWithPositiveNumbers1() {
-        java.util.List<java.lang.Object> nums = java.util.Arrays.asList(2, 3, 4, 1, 2, 4);
-        long result = oracle1.Minsubarraysum.minsubarraysum(nums);
-        assertEquals(1, result);
+    java.util.List<java.lang.Object> nums = java.util.Arrays.asList(2, 3, 4, 1, 2, 4);
+    long result = oracle1.Minsubarraysum.minsubarraysum(nums);
+    assertEquals(1, result);
     }
                                     
 }

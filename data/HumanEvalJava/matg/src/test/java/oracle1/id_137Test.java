@@ -24,7 +24,7 @@ class CompareOneTest {
     @Test
     public void TestCompareOneWithTwoFloats2() {
         Object result = CompareOne.compareOne(1.5f, 2.7f);
-        assertEquals(Float.valueOf("2.7"), Float.valueOf(result.toString()));
+        assertEquals(Float.valueOf(2.7f), Float.valueOf(result.toString()));
     }
     @Test
     public void TestCompareOneWithIntegerAndFloat3() {

@@ -30,7 +30,7 @@ class TotalMatchTest {
     public void testTotalMatchWithNonStringElements1() {
         List<java.lang.Object> lst1 = java.util.Arrays.asList("hi", "123");
         List<java.lang.Object> lst2 = java.util.Arrays.asList("hI", "Hi");
-        assertEquals(lst2, oracle1.TotalMatch.totalMatch(lst1, lst2));
+        assertNotEquals(lst2, oracle1.TotalMatch.totalMatch(lst1, lst2));
     }
                                     
 }

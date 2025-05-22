@@ -1,0 +1,97 @@
+package original;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of PrimeFib.
+*/
+class PrimeFibTest {
+    @Test
+    void testPrimeFib() {
+        assertEquals(2, PrimeFib.primeFib(1));
+    }
+    
+    @Test
+        public void testNothing(){
+            PrimeFib s = new PrimeFib();
+            }
+    @Test
+    public void primeFib_HappyPath_1() {
+        int result = PrimeFib.primeFib(1);
+        assertEquals(2, result);
+    }
+    @Test
+    public void primeFib_HappyPath_5() {
+        int result = PrimeFib.primeFib(5);
+        assertEquals(89, result);
+    }
+    @Test
+    public void primeFib_1() {
+        int result = PrimeFib.primeFib(1);
+        assertEquals(2, result);
+    }
+    @Test
+    public void testPrimeFib_N_1() {
+        int result = PrimeFib.primeFib(1);
+        assertEquals(2, result);
+    }
+    @Test
+    public void testPrimeFib_N_2() {
+        int result = PrimeFib.primeFib(2);
+        assertEquals(3, result);
+    }
+    @Test
+    public void testPrimeFib_N_5() {
+        int result = PrimeFib.primeFib(5);
+        assertEquals(89, result);
+    }
+    @Test
+    public void testPrimeFib_LargeN() {
+        int result = PrimeFib.primeFib(10);
+        assertEquals(433494437, result);
+    }
+    @Test
+    public void test_primeFib_SmallInputs_ReturnsCorrectResult_1() {
+        int n = 3;
+        int expectedResult = 5;
+        int result = PrimeFib.primeFib(n);
+        assertEquals(expectedResult, result);
+    }
+    @Test
+    public void PrimeFibTest1() {
+        int actual = original.PrimeFib.primeFib(1);
+        assertEquals(2, actual);
+    }
+    @Test
+    public void PrimeFibTest2() {
+        int actual = original.PrimeFib.primeFib(2);
+        assertEquals(3, actual);
+    }
+    @Test
+    public void PrimeFibTest3() {
+        int actual = original.PrimeFib.primeFib(3);
+        assertEquals(5, actual);
+    }
+    @Test
+    public void PrimeFibTest4() {
+        int actual = original.PrimeFib.primeFib(10);
+        assertEquals(433494437, actual);
+    }
+    @Test
+    public void testPrimeFib_5() {
+        int result = PrimeFib.primeFib(5);
+        assertEquals(89, result);
+    }
+    @Test public void primeFib_n_1() { assertEquals(2, PrimeFib.primeFib(1)); }
+    @Test
+    public void PrimeFibTestLargeInput1() {
+        int actual = original.PrimeFib.primeFib(10);
+        assertEquals(433494437, actual);
+    }
+    @Test
+    public void EdgeCaseTest10() {
+        assertEquals(2, original.PrimeFib.primeFib(1));
+    }
+                                    
+}

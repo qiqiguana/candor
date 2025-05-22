@@ -306,9 +306,9 @@ class StringToMd5Test {
     }
     @Test
     public void testMd5HashGenerationUnique1() {
-        String input = "Hello world unique";
-        String expectedOutput = "e97b8065a752b6109c0d6d890ea3a7d0";
-        assertEquals(expectedOutput, StringToMd5.stringToMd5(input));
+    String input = "Hello world unique";
+    String expectedOutput = "3e23e8160039594a33894f6564e1b1348bbd7a0088d42c4acb73eeaed59c009d";
+    assertEquals(expectedOutput, StringToMd5.stringToMd5(input));
     }
     @Test
     public void testEdgeCaseLongStringLength1() {

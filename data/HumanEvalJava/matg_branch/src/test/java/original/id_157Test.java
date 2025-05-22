@@ -1,0 +1,84 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of RightAngleTriangle.
+*/
+class RightAngleTriangleTest {
+    @Test
+    void testRightAngleTriangle_True() {
+        boolean result = RightAngleTriangle.rightAngleTriangle(3, 4, 5);
+        assertTrue(result);
+    }
+    
+    @Test
+        public void testNothing(){
+            RightAngleTriangle s = new RightAngleTriangle();
+            }
+    @Test
+    public void TestRightAngleTriangle_HappyPath() {
+        assertTrue(RightAngleTriangle.rightAngleTriangle(3, 4, 5));
+    }
+    @Test
+    public void TestRightAngleTriangle_SadPath_NonTriangle() {
+        assertFalse(RightAngleTriangle.rightAngleTriangle(1, 2, 3));
+    }
+    @Test
+    public void TestRightAngleTriangle_EdgeCase_EqualSides() {
+        assertTrue(RightAngleTriangle.rightAngleTriangle(5, 12, 13));
+    }
+    @Test
+    public void TestRightAngleTriangle_SpecificFunctionality_DuplicateValues() {
+        assertFalse(RightAngleTriangle.rightAngleTriangle(2, 2, 10));
+    }
+    @Test
+    public void TestRightAngleTriangle_NegativeTest_NonPositiveSideLengths() {
+        assertFalse(RightAngleTriangle.rightAngleTriangle(-1, 0, 5));
+    }
+    @Test
+    public void RightAngleTriangleTest_Positive() {
+    	Boolean result = RightAngleTriangle.rightAngleTriangle(3, 4, 5);
+    	assertTrue(result);
+    }
+    @Test
+    public void RightAngleTriangleTest_Negative() {
+    	Boolean result = RightAngleTriangle.rightAngleTriangle(1, 2, 3);
+    	assertFalse(result);
+    }
+    @Test
+    public void RightAngleTriangleTest_EqualSides() {
+    	Boolean result = RightAngleTriangle.rightAngleTriangle(2, 2, 2);
+    	assertFalse(result);
+    }
+    @Test
+    public void RightAngleTriangleTest_InvalidInput() {
+    	Boolean result = RightAngleTriangle.rightAngleTriangle(0, 4, 5);
+    	assertFalse(result);
+    }
+    @Test
+    public void RightAngleTriangle_PositiveTest_SideAIsHypotenuse() {
+        assertTrue(RightAngleTriangle.rightAngleTriangle(3, 4, 5));
+    }
+    @Test
+    public void RightAngleTriangle_NegativeTest_NoRightAngle() {
+        assertFalse(RightAngleTriangle.rightAngleTriangle(1, 2, 3));
+    }
+    @Test
+    public void RightAngleTriangle_EdgeCase_SideAIsZero() {
+        assertFalse(RightAngleTriangle.rightAngleTriangle(0, 4, 5));
+    }
+    @Test
+    public void RightAngleTriangle_EdgeCase_SidesAreEqual() {
+        assertFalse(RightAngleTriangle.rightAngleTriangle(2, 2, 2));
+    }
+    @Test
+    public void RightAngleTriangle_PositiveTest_SideAIsHypotenuse2() {
+        assertTrue(RightAngleTriangle.rightAngleTriangle(5, 3, 4));
+    }
+    @Test
+    public void RightAngleTriangle_NegativeTest_NoRightAngle3() {
+        assertFalse(RightAngleTriangle.rightAngleTriangle(5, 5, 10));
+    }
+                                    
+}

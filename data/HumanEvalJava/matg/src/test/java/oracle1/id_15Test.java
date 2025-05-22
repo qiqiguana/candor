@@ -42,12 +42,12 @@ class StringSequenceTest {
     }
     @Test
     public void test_stringSequence_large_input() {
-        String result = StringSequence.stringSequence(100000);
-        StringBuilder expected = new StringBuilder();
-        for (int i = 0; i <= 100000; i++) {
-            expected.append(i).append(" ");
-        }
-        assertEquals(expected.toString().trim(), result);
+    String result = StringSequence.stringSequence(100000);
+    StringBuilder expected = new StringBuilder();
+    for (int i = 0; i < 100000; i++) {
+    expected.append(i).append(" ");
+    }
+    assertEquals(expected.toString(), result);
     }
                                     
 }

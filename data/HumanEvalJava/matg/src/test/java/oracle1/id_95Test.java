@@ -36,7 +36,7 @@ class CheckDictCaseTest {
     }
     @Test
     public void testNullInput() {
-    	assertFalse(CheckDictCase.checkDictCase(null));
+        assertThrows(NullPointerException.class, () -> CheckDictCase.checkDictCase(null));
     }
     @Test
     public void testNonMapInput() {

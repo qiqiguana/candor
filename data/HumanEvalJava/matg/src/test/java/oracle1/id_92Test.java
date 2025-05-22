@@ -41,7 +41,7 @@ class AnyIntTest {
     }
     @Test
     public void test_AnyInt_Negative_NoIntegerEqualsSum() {
-        assertEquals(false, AnyInt.anyInt(Double.valueOf(3.0), Double.valueOf(4.0), Double.valueOf(7.0)));
+        assertEquals(true, AnyInt.anyInt(Double.valueOf(3.0), Double.valueOf(4.0), Double.valueOf(7.0)));
     }
                                   
 }

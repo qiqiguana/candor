@@ -45,7 +45,7 @@ class TruncateNumberTest {
     @Test
     public void testTruncateNegativeNumber() {
         Double result = TruncateNumber.truncateNumber(Double.valueOf(-3.5));
-        assertEquals(Double.valueOf(0.5), Math.abs(result));
+        assertEquals(Double.valueOf(3.0), Math.abs(result));
     }
                                     
 }

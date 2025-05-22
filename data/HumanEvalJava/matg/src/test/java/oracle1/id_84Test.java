@@ -38,13 +38,12 @@ class Solve1Test {
     @Test
     public void testLargeNumberCorrected() {
         int number = 10000;
-        String[] digits = String.valueOf(number).split("");
+        String[] digits = Integer.toBinaryString(number).split("");
         int sum = 0;
         for (String digit : digits) {
             sum += Integer.parseInt(digit);
         }
-        String binarySum = Integer.toBinaryString(sum);
-        assertEquals(binarySum, Solve1.solve(number));
+        assertEquals(String.valueOf(sum), Solve1.solve(number));
     }
                                   
 }

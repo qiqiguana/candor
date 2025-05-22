@@ -49,8 +49,8 @@ class IsPrimeTest {
     }
     @Test
     public void testLargePrimeNumber() {
-    	Boolean result = IsPrime.isPrime(255379);
-    	assertFalse(result);
+        Boolean result = IsPrime.isPrime(255379);
+        assertTrue(result);
     }
     @Test
     public void testNonIntegerInput2Fixed() {

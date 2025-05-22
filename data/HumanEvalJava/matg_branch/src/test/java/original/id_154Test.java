@@ -1,0 +1,58 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of CycpatternCheck.
+*/
+class CycpatternCheckTest {
+    @Test
+    void testCycpatternCheck_RotatePatternFound_ReturnsTrue() {
+        String a = "yello";
+        String b = "ell";
+        Boolean expected = true;
+        Boolean actual = CycpatternCheck.cycpatternCheck(a, b);
+        assertEquals(expected, actual);
+    }
+    
+    @Test
+        public void testNothing(){
+            CycpatternCheck s = new CycpatternCheck();
+            }
+    @Test
+    public void testCycPatternCheck_MatchingRotation() {
+        String a = "hello";
+        String b = "ell";
+        Boolean result = CycpatternCheck.cycpatternCheck(a, b);
+        assertTrue(result);
+    }
+    @Test
+    public void testCycPatternCheck_NonMatchingRotation() {
+        String a = "abcd";
+        String b = "abd";
+        Boolean result = CycpatternCheck.cycpatternCheck(a, b);
+        assertFalse(result);
+    }
+    @Test
+    public void testCycPatternCheck_LongerPattern() {
+        String a = "himenss";
+        String b = "simen";
+        Boolean result = CycpatternCheck.cycpatternCheck(a, b);
+        assertTrue(result);
+    }
+    @Test
+    public void testCycPatternCheck_EmptyStrings() {
+        String a = "";
+        String b = "abc";
+        Boolean result = CycpatternCheck.cycpatternCheck(a, b);
+        assertFalse(result);
+    }
+    @Test
+    public void testCycPatternCheck_SingleCharacter() {
+        String a = "abc";
+        String b = "a";
+        Boolean result = CycpatternCheck.cycpatternCheck(a, b);
+        assertTrue(result);
+    }
+                                    
+}

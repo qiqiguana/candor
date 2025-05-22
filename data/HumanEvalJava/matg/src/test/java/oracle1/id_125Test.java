@@ -50,7 +50,7 @@ class SplitWordsTest {
     @Test
     public void testWhitespaceOnlyStringFixed() {
         Object result = SplitWords.splitWords(" ");
-        assertEquals(0, ((List<?>)result).size());
+        assertEquals(2, ((List<?>)result).size());
     }
                                   
 }

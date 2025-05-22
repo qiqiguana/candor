@@ -61,9 +61,9 @@ class FixSpacesTest {
     }
     @Test
     public void test_fixSpaces_LeadingAndTrailingSpaces() {
-        String text = "   Exa 1 2 2 mple   ";
-        String expected = "-Exa_1_2_2_mple-";
-        assertEquals(expected, FixSpaces.fixSpaces(text));
+    	String text = "   Exa 1 2 2 mple   ";
+    	String expected = "-Exa_1_2_2_mple-";
+    	assertEquals(expected, FixSpaces.fixSpaces(text));
     }
     @Test
     public void test_fixSpaces_NullInput() {
