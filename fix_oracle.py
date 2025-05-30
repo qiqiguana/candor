@@ -15,8 +15,8 @@ import tensorflow as tf
 
 from torch.utils.tensorboard import SummaryWriter
 
-# /home/qinghua/projects/matg/data/HumanEvalJava/matg/src/main/java/original/id_147.java
-# python -m matg.main oracle-fixer --data-path /home/qinghua/projects/matg/data/HumanEvalJava/matg/ --relative-source-file-path src/main/java/original/id_147.java --relative-test-file-path src/test/java/original/id_147Test.java --test-command "mvn -f /home/qinghua/projects/matg/data/HumanEvalJava/matg/pom.xml" --generator matg
+# /home/anonymous/projects/matg/data/HumanEvalJava/matg/src/main/java/original/id_147.java
+# python -m matg.main oracle-fixer --data-path /home/anonymous/projects/matg/data/HumanEvalJava/matg/ --relative-source-file-path src/main/java/original/id_147.java --relative-test-file-path src/test/java/original/id_147Test.java --test-command "mvn -f /home/anonymous/projects/matg/data/HumanEvalJava/matg/pom.xml" --generator matg
 class OracleFixer:
     def __init__(self,config):
         self.config=config
@@ -164,4 +164,4 @@ class OracleFixer:
         except Exception as e:
             logger.error(f"Error in oracle fixer: {self.test_file_path} \n{e}")
             FileUtils.revert(self.test_file_path)
-#   python -m matg.main oracle-fixer --data-path /home/qinghua/projects/matg/data/HumanEvalJava/matg/ --relative-source-file-path src/main/java/fixed_oracle/id_147.java --relative-test-file-path src/test/java/fixed_oracle/id_147Test.java --test-command "mvn -f /home/qinghua/projects/matg/data/HumanEvalJava/matg/pom.xml test -Dtest="fixed_oracle.*Test"" --generator matg
+#   python -m matg.main oracle-fixer --data-path /home/anonymous/projects/matg/data/HumanEvalJava/matg/ --relative-source-file-path src/main/java/fixed_oracle/id_147.java --relative-test-file-path src/test/java/fixed_oracle/id_147Test.java --test-command "mvn -f /home/anonymous/projects/matg/data/HumanEvalJava/matg/pom.xml test -Dtest="fixed_oracle.*Test"" --generator matg

@@ -13,7 +13,7 @@ import tensorflow as tf
 
 from torch.utils.tensorboard import SummaryWriter
 
-# /home/qinghua/projects/matg/data/HumanEvalJava/matg/src/main/java/original/id_147.java
+# /home/anonymous/projects/matg/data/HumanEvalJava/matg/src/main/java/original/id_147.java
 class TestCaseGenerator:
     def __init__(self, config):
         self.config=config

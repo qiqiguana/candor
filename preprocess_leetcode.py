@@ -3,12 +3,12 @@ from pathlib import Path
 import pickle 
 import random
 import shutil
-target_project_path=Path("/home/qinghua/projects/matg/data/leetcode")
+target_project_path=Path("/home/anonymous/projects/matg/data/leetcode")
 target_full_src_path=target_project_path/"src/main/java/original_full"
 target_full_src_path.mkdir(parents=True, exist_ok=True)
 target_src_path=target_project_path/"src/main/java/original"
 target_src_path.mkdir(parents=True, exist_ok=True)
-leetcode_original_path=Path("/home/qinghua/projects/matg/data/leetcode_original/leetcode/solution")
+leetcode_original_path=Path("/home/anonymous/projects/matg/data/leetcode_original/leetcode/solution")
 leetcode_readmes={}
 readme_pkl_path = target_project_path / "readmes.pkl"
 broken_ids=["0679",'0305', '0315', '0421', '0527', '0716', '0720', '0928', '0952',"1274", "2728", "0470", "0339", "2782", "3387", "0690", "2203", "1514", "1377", "2386", "0857", "2936",

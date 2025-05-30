@@ -72,7 +72,7 @@ public class Solve_ESTest_scaffolding {
   public static void setSystemProperties() {
  
     java.lang.System.setProperties((java.util.Properties) defaultProperties.clone()); 
-    java.lang.System.setProperty("user.dir", "/home/qinghua/projects/matg/data/HumanEvalJava/evosuite_2"); 
+    java.lang.System.setProperty("user.dir", "/home/anonymous/projects/matg/data/HumanEvalJava/evosuite_2"); 
     java.lang.System.setProperty("java.io.tmpdir", "/tmp"); 
   }
 

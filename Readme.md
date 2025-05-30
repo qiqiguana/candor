@@ -58,12 +58,12 @@ nohup mvn evosuite:generate evosuite:export > "evosuite_generation_$(date +%Y%m%
 
 <!-- Useful tools -->
 <!-- change package -->
-python -m pack_change --source-dir /home/qinghua/projects/matg/data/HumanEvalJava/matg/src/main/java/original --target-dir /home/qinghua/projects/matg/data/HumanEvalJava/matg/src/main/java/branch
+python -m pack_change --source-dir /home/anonymous/projects/matg/data/HumanEvalJava/matg/src/main/java/original --target-dir /home/anonymous/projects/matg/data/HumanEvalJava/matg/src/main/java/branch
 
-python -m pack_change --source-dir /home/qinghua/projects/matg/data/HumanEvalJava/matg/src/test/java/original --target-dir /home/qinghua/projects/matg/data/HumanEvalJava/matg/src/test/java/oracle1
+python -m pack_change --source-dir /home/anonymous/projects/matg/data/HumanEvalJava/matg/src/test/java/original --target-dir /home/anonymous/projects/matg/data/HumanEvalJava/matg/src/test/java/oracle1
 
-mvn -f /home/qinghua/projects/matg/data/HumanEvalJava/matg/ test -Dtest="oracle1.*Test"
-mvn -f /home/qinghua/projects/matg/data/HumanEvalJava/matg_initialize/ test jacoco:report
+mvn -f /home/anonymous/projects/matg/data/HumanEvalJava/matg/ test -Dtest="oracle1.*Test"
+mvn -f /home/anonymous/projects/matg/data/HumanEvalJava/matg_initialize/ test jacoco:report
 
 nohup python -m matg.experiments.preliminary.generate.run > "logs/result_$(date +%Y%m%d_%H%M%S).log" 2>&1 &
 

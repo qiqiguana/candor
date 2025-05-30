@@ -1,6 +1,6 @@
 import pickle
 readmes=pickle.load(open('readmes.pkl', 'rb'))
-class_id_mapping_path = '/home/qinghua/projects/matg/data/leetcode_dataset/candor0/class_id_mapping.pkl'
+class_id_mapping_path = '/home/anonymous/projects/matg/data/leetcode_dataset/candor0/class_id_mapping.pkl'
 class_id_mapping= pickle.load(open(class_id_mapping_path, 'rb'))
 id_class_mapping = {v: k for k, v in class_id_mapping.items()}
 print(id_class_mapping)
