@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_87.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HumanEvalJava</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_87.java</span></div><h1>id_87.java</h1><pre class="source lang-java linenums">package original;
+
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+
+<span class="fc" id="L10">class GetRow {</span>
+    /**
+     * * You are given a 2 dimensional data, as a nested lists,
+     * which is similar to matrix, however, unlike matrices,
+     * each row may contain a different number of columns.
+     * Given lst, and integer x, find integers x in the list,
+     * and return list of tuples, [(x1, y1), (x2, y2) ...] such that
+     * each tuple is a coordinate - (row, columns), starting with 0.
+     * Sort coordinates initially by rows in ascending order.
+     * Also, sort coordinates of the row by columns in descending order.
+     *
+     * Examples:
+     * getRow([
+     * [1,2,3,4,5,6],
+     * [1,2,3,4,1,6],
+     * [1,2,3,4,5,1]
+     * ], 1) == [(0, 0), (1, 4), (1, 0), (2, 5), (2, 0)]
+     * getRow([], 1) == []
+     * getRow([[], [1], [1, 2, 3]], 3) == [(2, 2)]
+     *
+     * &gt; getRow([], 1)
+     * []
+     * &gt; getRow([[1]], 2)
+     * []
+     * &gt; getRow([[], [1], [1, 2, 3]], 3)
+     * [[2, 2]]
+     */
+    public static List&lt;Object&gt; getRow(List&lt;Object&gt; lst, int x) {
+<span class="fc" id="L38">        List&lt;Object&gt; result = new ArrayList&lt;Object&gt;();</span>
+<span class="fc bfc" id="L39" title="All 2 branches covered.">        for (int i = 0; i &lt; lst.size(); i++) {</span>
+<span class="fc" id="L40">            List&lt;Object&gt; row = (List&lt;Object&gt;) lst.get(i);</span>
+<span class="fc bfc" id="L41" title="All 2 branches covered.">            for (int j = 0; j &lt; row.size(); j++) {</span>
+<span class="pc bpc" id="L42" title="1 of 2 branches missed.">                if (row.get(j).equals(x)) {</span>
+<span class="nc" id="L43">                    List&lt;Object&gt; coordinate = new ArrayList&lt;Object&gt;();</span>
+<span class="nc" id="L44">                    coordinate.add(i);</span>
+<span class="nc" id="L45">                    coordinate.add(j);</span>
+<span class="nc" id="L46">                    result.add(coordinate);</span>
+                }
+            }
+        }
+<span class="fc" id="L50">        Collections.sort(result, new Comparator&lt;Object&gt;() {</span>
+            public int compare(Object o1, Object o2) {
+<span class="nc" id="L52">                List&lt;Object&gt; c1 = (List&lt;Object&gt;) o1;</span>
+<span class="nc" id="L53">                List&lt;Object&gt; c2 = (List&lt;Object&gt;) o2;</span>
+<span class="nc" id="L54">                int row1 = (Integer) c1.get(0);</span>
+<span class="nc" id="L55">                int row2 = (Integer) c2.get(0);</span>
+<span class="nc bnc" id="L56" title="All 2 branches missed.">                if (row1 != row2) {</span>
+<span class="nc" id="L57">                    return row1 - row2;</span>
+                }
+<span class="nc" id="L59">                int col1 = (Integer) c1.get(1);</span>
+<span class="nc" id="L60">                int col2 = (Integer) c2.get(1);</span>
+<span class="nc" id="L61">                return col2 - col1;</span>
+            }
+        });
+<span class="fc" id="L64">        return result;</span>
+    }
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

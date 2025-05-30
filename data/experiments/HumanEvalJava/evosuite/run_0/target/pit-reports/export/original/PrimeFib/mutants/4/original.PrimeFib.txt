@@ -1,0 +1,133 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/PrimeFib {
+
+  // compiled from: id_39.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 4 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/PrimeFib; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  public static primeFib(I)I
+   L0
+    LINENUMBER 40 L0
+    ICONST_1
+    ISTORE 1
+   L1
+    LINENUMBER 41 L1
+    ICONST_1
+    ISTORE 2
+   L2
+    LINENUMBER 42 L2
+    ICONST_0
+    ISTORE 3
+   L3
+    LINENUMBER 43 L3
+    ICONST_0
+    ISTORE 4
+   L4
+    LINENUMBER 44 L4
+   FRAME FULL [I I I I I] []
+    ILOAD 4
+    ILOAD 0
+    IF_ICMPGE L5
+   L6
+    LINENUMBER 45 L6
+    ILOAD 1
+    ILOAD 2
+    IADD
+    ISTORE 3
+   L7
+    LINENUMBER 46 L7
+    ILOAD 2
+    ISTORE 1
+   L8
+    LINENUMBER 47 L8
+    ILOAD 3
+    ISTORE 2
+   L9
+    LINENUMBER 48 L9
+    ILOAD 3
+    INVOKESTATIC original/PrimeFib.isPrime (I)Ljava/lang/Boolean;
+    INVOKEVIRTUAL java/lang/Boolean.booleanValue ()Z
+    IFEQ L4
+   L10
+    LINENUMBER 49 L10
+    IINC 4 1
+    GOTO L4
+   L5
+    LINENUMBER 52 L5
+   FRAME FULL [I I I I I] []
+    ILOAD 3
+    POP
+    ICONST_0
+    IRETURN
+   L11
+    LOCALVARIABLE n I L0 L11 0
+    LOCALVARIABLE a I L1 L11 1
+    LOCALVARIABLE b I L2 L11 2
+    LOCALVARIABLE c I L3 L11 3
+    LOCALVARIABLE count I L4 L11 4
+    MAXSTACK = 2
+    MAXLOCALS = 5
+
+  // access flags 0xA
+  private static isPrime(I)Ljava/lang/Boolean;
+   L0
+    LINENUMBER 56 L0
+    ILOAD 0
+    ICONST_1
+    IF_ICMPGT L1
+   L2
+    LINENUMBER 57 L2
+    ICONST_0
+    INVOKESTATIC java/lang/Boolean.valueOf (Z)Ljava/lang/Boolean;
+    ARETURN
+   L1
+    LINENUMBER 59 L1
+   FRAME FULL [I] []
+    ICONST_2
+    ISTORE 1
+   L3
+   FRAME FULL [I I] []
+    ILOAD 1
+    ILOAD 0
+    IF_ICMPGE L4
+   L5
+    LINENUMBER 60 L5
+    ILOAD 0
+    ILOAD 1
+    IREM
+    IFNE L6
+   L7
+    LINENUMBER 61 L7
+    ICONST_0
+    INVOKESTATIC java/lang/Boolean.valueOf (Z)Ljava/lang/Boolean;
+    ARETURN
+   L6
+    LINENUMBER 59 L6
+   FRAME FULL [I I] []
+    IINC 1 1
+    GOTO L3
+   L4
+    LINENUMBER 64 L4
+   FRAME FULL [I I] []
+    ICONST_1
+    INVOKESTATIC java/lang/Boolean.valueOf (Z)Ljava/lang/Boolean;
+    ARETURN
+   L8
+    LOCALVARIABLE i I L3 L4 1
+    LOCALVARIABLE n I L0 L8 0
+    MAXSTACK = 2
+    MAXLOCALS = 2
+}
+

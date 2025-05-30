@@ -1,0 +1,113 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/TriplesSumToZero {
+
+  // compiled from: id_40.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 6 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/TriplesSumToZero; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  // signature (Ljava/util/List<Ljava/lang/Integer;>;)Ljava/lang/Boolean;
+  // declaration: java.lang.Boolean triplesSumToZero(java.util.List<java.lang.Integer>)
+  public static triplesSumToZero(Ljava/util/List;)Ljava/lang/Boolean;
+   L0
+    LINENUMBER 32 L0
+    ICONST_0
+    ISTORE 1
+   L1
+   FRAME FULL [java/util/List I] []
+    ILOAD 1
+    ALOAD 0
+    INVOKEINTERFACE java/util/List.size ()I (itf)
+    IF_ICMPGE L2
+   L3
+    LINENUMBER 33 L3
+    ILOAD 1
+    ICONST_1
+    IADD
+    ISTORE 2
+   L4
+   FRAME FULL [java/util/List I I] []
+    ILOAD 2
+    ALOAD 0
+    INVOKEINTERFACE java/util/List.size ()I (itf)
+    IF_ICMPGE L5
+   L6
+    LINENUMBER 34 L6
+    ILOAD 2
+    ICONST_1
+    IADD
+    ISTORE 3
+   L7
+   FRAME FULL [java/util/List I I I] []
+    ILOAD 3
+    ALOAD 0
+    INVOKEINTERFACE java/util/List.size ()I (itf)
+    IF_ICMPGE L8
+   L9
+    LINENUMBER 35 L9
+    ALOAD 0
+    ILOAD 1
+    INVOKEINTERFACE java/util/List.get (I)Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/Integer
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    ALOAD 0
+    ILOAD 2
+    INVOKEINTERFACE java/util/List.get (I)Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/Integer
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    IADD
+    ALOAD 0
+    ILOAD 3
+    INVOKEINTERFACE java/util/List.get (I)Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/Integer
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    ISUB
+    IFNE L10
+   L11
+    LINENUMBER 36 L11
+    ICONST_1
+    INVOKESTATIC java/lang/Boolean.valueOf (Z)Ljava/lang/Boolean;
+    ARETURN
+   L10
+    LINENUMBER 34 L10
+   FRAME FULL [java/util/List I I I] []
+    IINC 3 1
+    GOTO L7
+   L8
+    LINENUMBER 33 L8
+   FRAME FULL [java/util/List I I I] []
+    IINC 2 1
+    GOTO L4
+   L5
+    LINENUMBER 32 L5
+   FRAME FULL [java/util/List I I] []
+    IINC 1 1
+    GOTO L1
+   L2
+    LINENUMBER 41 L2
+   FRAME FULL [java/util/List I] []
+    ICONST_0
+    INVOKESTATIC java/lang/Boolean.valueOf (Z)Ljava/lang/Boolean;
+    ARETURN
+   L12
+    LOCALVARIABLE k I L7 L8 3
+    LOCALVARIABLE j I L4 L5 2
+    LOCALVARIABLE i I L1 L2 1
+    LOCALVARIABLE l Ljava/util/List; L0 L12 0
+    // signature Ljava/util/List<Ljava/lang/Integer;>;
+    // declaration: l extends java.util.List<java.lang.Integer>
+    MAXSTACK = 3
+    MAXLOCALS = 4
+}
+

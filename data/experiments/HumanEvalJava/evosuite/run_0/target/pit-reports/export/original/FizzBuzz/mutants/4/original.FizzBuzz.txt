@@ -1,0 +1,94 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/FizzBuzz {
+
+  // compiled from: id_36.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 4 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/FizzBuzz; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  public static fizzBuzz(I)I
+   L0
+    LINENUMBER 32 L0
+    ICONST_0
+    ISTORE 1
+   L1
+    LINENUMBER 33 L1
+    ICONST_1
+    ISTORE 2
+   L2
+   FRAME FULL [I I I] []
+    ILOAD 2
+    ILOAD 0
+    IF_ICMPGE L3
+   L4
+    LINENUMBER 34 L4
+    ILOAD 2
+    BIPUSH 11
+    IREM
+    IFNE L5
+    ILOAD 2
+    BIPUSH 13
+    IREM
+    IFNE L6
+   L5
+    LINENUMBER 35 L5
+   FRAME FULL [I I I] []
+    ILOAD 2
+    INVOKESTATIC java/lang/Integer.toString (I)Ljava/lang/String;
+    ASTORE 3
+   L7
+    LINENUMBER 36 L7
+    ICONST_0
+    ISTORE 4
+   L8
+   FRAME FULL [I I I java/lang/String I] []
+    ILOAD 4
+    ALOAD 3
+    INVOKEVIRTUAL java/lang/String.length ()I
+    IF_ICMPGE L6
+   L9
+    LINENUMBER 37 L9
+    ALOAD 3
+    ILOAD 4
+    INVOKEVIRTUAL java/lang/String.charAt (I)C
+    BIPUSH 55
+    IF_ICMPNE L10
+   L11
+    LINENUMBER 38 L11
+    IINC 1 1
+   L10
+    LINENUMBER 36 L10
+   FRAME FULL [I I I java/lang/String I] []
+    IINC 4 1
+    GOTO L8
+   L6
+    LINENUMBER 33 L6
+   FRAME FULL [I I I] []
+    IINC 2 1
+    GOTO L2
+   L3
+    LINENUMBER 43 L3
+   FRAME FULL [I I I] []
+    ILOAD 1
+    IRETURN
+   L12
+    LOCALVARIABLE j I L8 L6 4
+    LOCALVARIABLE s Ljava/lang/String; L7 L6 3
+    LOCALVARIABLE i I L2 L3 2
+    LOCALVARIABLE n I L0 L12 0
+    LOCALVARIABLE count I L1 L12 1
+    MAXSTACK = 2
+    MAXLOCALS = 5
+}
+

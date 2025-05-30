@@ -1,0 +1,72 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/MaxElement {
+
+  // compiled from: id_35.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 7 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/MaxElement; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  // signature (Ljava/util/List<Ljava/lang/Integer;>;)I
+  // declaration: int maxElement(java.util.List<java.lang.Integer>)
+  public static maxElement(Ljava/util/List;)I
+   L0
+    LINENUMBER 21 L0
+    LDC -2147483648
+    ISTORE 1
+   L1
+    LINENUMBER 22 L1
+    ALOAD 0
+    INVOKEINTERFACE java/util/List.iterator ()Ljava/util/Iterator; (itf)
+    ASTORE 2
+   L2
+   FRAME FULL [java/util/List I java/util/Iterator] []
+    ALOAD 2
+    INVOKEINTERFACE java/util/Iterator.hasNext ()Z (itf)
+    IFEQ L3
+    ALOAD 2
+    INVOKEINTERFACE java/util/Iterator.next ()Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/Integer
+    ASTORE 3
+   L4
+    LINENUMBER 23 L4
+    ALOAD 3
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    ILOAD 1
+    IF_ICMPLE L5
+   L6
+    LINENUMBER 24 L6
+    ALOAD 3
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    ISTORE 1
+   L5
+    LINENUMBER 26 L5
+   FRAME FULL [java/util/List I java/util/Iterator java/lang/Integer] []
+    GOTO L2
+   L3
+    LINENUMBER 27 L3
+   FRAME FULL [java/util/List I java/util/Iterator] []
+    ILOAD 1
+    POP
+    ICONST_0
+    IRETURN
+   L7
+    LOCALVARIABLE i Ljava/lang/Integer; L4 L5 3
+    LOCALVARIABLE l Ljava/util/List; L0 L7 0
+    // signature Ljava/util/List<Ljava/lang/Integer;>;
+    // declaration: l extends java.util.List<java.lang.Integer>
+    LOCALVARIABLE max I L1 L7 1
+    MAXSTACK = 2
+    MAXLOCALS = 4
+}
+

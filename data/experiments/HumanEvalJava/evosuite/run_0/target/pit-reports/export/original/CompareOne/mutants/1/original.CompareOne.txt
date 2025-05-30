@@ -1,0 +1,98 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/CompareOne {
+
+  // compiled from: id_137.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 3 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/CompareOne; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  public static compareOne(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+   L0
+    LINENUMBER 33 L0
+    ALOAD 0
+    ASTORE 2
+   L1
+    LINENUMBER 34 L1
+    ALOAD 1
+    ASTORE 3
+   L2
+    LINENUMBER 35 L2
+    ALOAD 2
+    INSTANCEOF java/lang/String
+    IFEQ L3
+   L4
+    LINENUMBER 36 L4
+    ALOAD 2
+    CHECKCAST java/lang/String
+    BIPUSH 44
+    BIPUSH 46
+    INVOKEVIRTUAL java/lang/String.replace (CC)Ljava/lang/String;
+    ASTORE 2
+   L3
+    LINENUMBER 38 L3
+   FRAME FULL [java/lang/Object java/lang/Object java/lang/Object java/lang/Object] []
+    ALOAD 3
+    INSTANCEOF java/lang/String
+    IFNE L5
+   L6
+    LINENUMBER 39 L6
+    ALOAD 3
+    CHECKCAST java/lang/String
+    BIPUSH 44
+    BIPUSH 46
+    INVOKEVIRTUAL java/lang/String.replace (CC)Ljava/lang/String;
+    ASTORE 3
+   L5
+    LINENUMBER 41 L5
+   FRAME FULL [java/lang/Object java/lang/Object java/lang/Object java/lang/Object] []
+    ALOAD 2
+    INVOKEVIRTUAL java/lang/Object.toString ()Ljava/lang/String;
+    INVOKESTATIC java/lang/Float.parseFloat (Ljava/lang/String;)F
+    ALOAD 3
+    INVOKEVIRTUAL java/lang/Object.toString ()Ljava/lang/String;
+    INVOKESTATIC java/lang/Float.parseFloat (Ljava/lang/String;)F
+    FCMPL
+    IFNE L7
+   L8
+    LINENUMBER 42 L8
+    ACONST_NULL
+    ARETURN
+   L7
+    LINENUMBER 44 L7
+   FRAME FULL [java/lang/Object java/lang/Object java/lang/Object java/lang/Object] []
+    ALOAD 2
+    INVOKEVIRTUAL java/lang/Object.toString ()Ljava/lang/String;
+    INVOKESTATIC java/lang/Float.parseFloat (Ljava/lang/String;)F
+    ALOAD 3
+    INVOKEVIRTUAL java/lang/Object.toString ()Ljava/lang/String;
+    INVOKESTATIC java/lang/Float.parseFloat (Ljava/lang/String;)F
+    FCMPL
+    IFLE L9
+    ALOAD 0
+    GOTO L10
+   L9
+   FRAME FULL [java/lang/Object java/lang/Object java/lang/Object java/lang/Object] []
+    ALOAD 1
+   L10
+   FRAME FULL [java/lang/Object java/lang/Object java/lang/Object java/lang/Object] [java/lang/Object]
+    ARETURN
+   L11
+    LOCALVARIABLE a Ljava/lang/Object; L0 L11 0
+    LOCALVARIABLE b Ljava/lang/Object; L0 L11 1
+    LOCALVARIABLE temp_a Ljava/lang/Object; L1 L11 2
+    LOCALVARIABLE temp_b Ljava/lang/Object; L2 L11 3
+    MAXSTACK = 3
+    MAXLOCALS = 4
+}
+

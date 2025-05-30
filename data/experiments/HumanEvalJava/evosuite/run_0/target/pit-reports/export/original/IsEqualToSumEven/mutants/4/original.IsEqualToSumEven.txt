@@ -1,0 +1,52 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/IsEqualToSumEven {
+
+  // compiled from: id_138.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 4 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/IsEqualToSumEven; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  public static isEqualToSumEven(I)Ljava/lang/Boolean;
+   L0
+    LINENUMBER 30 L0
+    ILOAD 0
+    BIPUSH 8
+    IF_ICMPGE L1
+   L2
+    LINENUMBER 31 L2
+    ICONST_0
+    INVOKESTATIC java/lang/Boolean.valueOf (Z)Ljava/lang/Boolean;
+    ARETURN
+   L1
+    LINENUMBER 33 L1
+   FRAME FULL [I] []
+    ILOAD 0
+    ICONST_2
+    IREM
+    IFEQ L3
+    ICONST_1
+    GOTO L4
+   L3
+   FRAME FULL [I] []
+    ICONST_0
+   L4
+   FRAME FULL [I] [I]
+    INVOKESTATIC java/lang/Boolean.valueOf (Z)Ljava/lang/Boolean;
+    ARETURN
+   L5
+    LOCALVARIABLE n I L0 L5 0
+    MAXSTACK = 2
+    MAXLOCALS = 1
+}
+

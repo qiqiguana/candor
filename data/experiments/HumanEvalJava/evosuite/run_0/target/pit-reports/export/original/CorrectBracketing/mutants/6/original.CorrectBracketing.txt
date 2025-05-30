@@ -1,0 +1,86 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/CorrectBracketing {
+
+  // compiled from: id_56.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 3 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/CorrectBracketing; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  public static correctBracketing(Ljava/lang/String;)Ljava/lang/Boolean;
+   L0
+    LINENUMBER 34 L0
+    ICONST_0
+    ISTORE 1
+   L1
+    LINENUMBER 35 L1
+    ICONST_0
+    ISTORE 2
+   L2
+   FRAME FULL [java/lang/String I I] []
+    ILOAD 2
+    ALOAD 0
+    INVOKEVIRTUAL java/lang/String.length ()I
+    IF_ICMPGE L3
+   L4
+    LINENUMBER 36 L4
+    ALOAD 0
+    ILOAD 2
+    INVOKEVIRTUAL java/lang/String.charAt (I)C
+    BIPUSH 60
+    IF_ICMPNE L5
+   L6
+    LINENUMBER 37 L6
+    IINC 1 1
+    GOTO L7
+   L5
+    LINENUMBER 39 L5
+   FRAME FULL [java/lang/String I I] []
+    IINC 1 -1
+   L7
+    LINENUMBER 41 L7
+   FRAME FULL [java/lang/String I I] []
+    ILOAD 1
+    IFGT L8
+   L9
+    LINENUMBER 42 L9
+    ICONST_0
+    INVOKESTATIC java/lang/Boolean.valueOf (Z)Ljava/lang/Boolean;
+    ARETURN
+   L8
+    LINENUMBER 35 L8
+   FRAME FULL [java/lang/String I I] []
+    IINC 2 1
+    GOTO L2
+   L3
+    LINENUMBER 45 L3
+   FRAME FULL [java/lang/String I I] []
+    ILOAD 1
+    IFNE L10
+    ICONST_1
+    GOTO L11
+   L10
+   FRAME FULL [java/lang/String I I] []
+    ICONST_0
+   L11
+   FRAME FULL [java/lang/String I I] [I]
+    INVOKESTATIC java/lang/Boolean.valueOf (Z)Ljava/lang/Boolean;
+    ARETURN
+   L12
+    LOCALVARIABLE i I L2 L3 2
+    LOCALVARIABLE brackets Ljava/lang/String; L0 L12 0
+    LOCALVARIABLE count I L1 L12 1
+    MAXSTACK = 2
+    MAXLOCALS = 3
+}
+

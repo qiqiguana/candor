@@ -1,0 +1,110 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/MakeAPile {
+
+  // compiled from: id_100.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 7 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/MakeAPile; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  // signature (I)Ljava/util/List<Ljava/lang/Integer;>;
+  // declaration: java.util.List<java.lang.Integer> makeAPile(int)
+  public static makeAPile(I)Ljava/util/List;
+   L0
+    LINENUMBER 33 L0
+    NEW java/util/ArrayList
+    DUP
+    INVOKESPECIAL java/util/ArrayList.<init> ()V
+    ASTORE 1
+   L1
+    LINENUMBER 34 L1
+    ICONST_1
+    ISTORE 2
+   L2
+    LINENUMBER 35 L2
+   FRAME FULL [I java/util/ArrayList I] []
+    ILOAD 2
+    ILOAD 0
+    IF_ICMPGT L3
+   L4
+    LINENUMBER 36 L4
+    ILOAD 2
+    ICONST_1
+    IF_ICMPNE L5
+   L6
+    LINENUMBER 37 L6
+    ALOAD 1
+    ILOAD 0
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+    GOTO L7
+   L5
+    LINENUMBER 39 L5
+   FRAME FULL [I java/util/ArrayList I] []
+    ILOAD 0
+    ICONST_2
+    IREM
+    IFNE L8
+   L9
+    LINENUMBER 40 L9
+    ALOAD 1
+    ALOAD 1
+    ILOAD 2
+    ICONST_2
+    ISUB
+    INVOKEINTERFACE java/util/List.get (I)Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/Integer
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    ICONST_2
+    ISUB
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+    GOTO L7
+   L8
+    LINENUMBER 42 L8
+   FRAME FULL [I java/util/ArrayList I] []
+    ALOAD 1
+    ALOAD 1
+    ILOAD 2
+    ICONST_2
+    ISUB
+    INVOKEINTERFACE java/util/List.get (I)Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/Integer
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    ICONST_2
+    IADD
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+   L7
+    LINENUMBER 45 L7
+   FRAME FULL [I java/util/ArrayList I] []
+    IINC 2 1
+    GOTO L2
+   L3
+    LINENUMBER 47 L3
+   FRAME FULL [I java/util/ArrayList I] []
+    ALOAD 1
+    ARETURN
+   L10
+    LOCALVARIABLE n I L0 L10 0
+    LOCALVARIABLE result Ljava/util/List; L1 L10 1
+    // signature Ljava/util/List<Ljava/lang/Integer;>;
+    // declaration: result extends java.util.List<java.lang.Integer>
+    LOCALVARIABLE i I L2 L10 2
+    MAXSTACK = 4
+    MAXLOCALS = 3
+}
+

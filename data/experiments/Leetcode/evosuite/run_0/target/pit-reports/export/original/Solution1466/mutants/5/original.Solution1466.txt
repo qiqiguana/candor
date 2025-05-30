@@ -1,0 +1,218 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Solution1466 {
+
+  // compiled from: id_1466.java
+  // access flags 0x19
+  public final static INNERCLASS java/lang/invoke/MethodHandles$Lookup java/lang/invoke/MethodHandles Lookup
+
+  // access flags 0x2
+  // signature [Ljava/util/List<[I>;
+  // declaration: g extends java.util.List<int[]>
+  private [Ljava/util/List; g
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 6 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Solution1466; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public minReorder(I[[I)I
+   L0
+    LINENUMBER 10 L0
+    ALOAD 0
+    ILOAD 1
+    ANEWARRAY java/util/List
+    PUTFIELD original/Solution1466.g : [Ljava/util/List;
+   L1
+    LINENUMBER 11 L1
+    ALOAD 0
+    GETFIELD original/Solution1466.g : [Ljava/util/List;
+    INVOKEDYNAMIC apply()Ljava/util/function/IntFunction; [
+      // handle kind 0x6 : INVOKESTATIC
+      java/lang/invoke/LambdaMetafactory.metafactory(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;
+      // arguments:
+      (I)Ljava/lang/Object;, 
+      // handle kind 0x6 : INVOKESTATIC
+      original/Solution1466.lambda$minReorder$0(I)Ljava/util/List;, 
+      (I)Ljava/util/List;
+    ]
+    INVOKESTATIC java/util/Arrays.setAll ([Ljava/lang/Object;Ljava/util/function/IntFunction;)V
+   L2
+    LINENUMBER 12 L2
+    ALOAD 2
+    ASTORE 3
+    ALOAD 3
+    ARRAYLENGTH
+    ISTORE 4
+    ICONST_0
+    ISTORE 5
+   L3
+   FRAME FULL [original/Solution1466 I [[I [[I I I] []
+    ILOAD 5
+    ILOAD 4
+    IF_ICMPGE L4
+    ALOAD 3
+    ILOAD 5
+    AALOAD
+    ASTORE 6
+   L5
+    LINENUMBER 13 L5
+    ALOAD 6
+    ICONST_0
+    IALOAD
+    ISTORE 7
+   L6
+    ALOAD 6
+    ICONST_1
+    IALOAD
+    ISTORE 8
+   L7
+    LINENUMBER 14 L7
+    ALOAD 0
+    GETFIELD original/Solution1466.g : [Ljava/util/List;
+    ILOAD 7
+    AALOAD
+    ICONST_2
+    NEWARRAY T_INT
+    DUP
+    ICONST_0
+    ILOAD 8
+    IASTORE
+    DUP
+    ICONST_1
+    ICONST_1
+    IASTORE
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+   L8
+    LINENUMBER 15 L8
+    ALOAD 0
+    GETFIELD original/Solution1466.g : [Ljava/util/List;
+    ILOAD 8
+    AALOAD
+    ICONST_2
+    NEWARRAY T_INT
+    DUP
+    ICONST_0
+    ILOAD 7
+    IASTORE
+    DUP
+    ICONST_1
+    ICONST_0
+    IASTORE
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+   L9
+    LINENUMBER 12 L9
+    IINC 5 1
+    GOTO L3
+   L4
+    LINENUMBER 17 L4
+   FRAME FULL [original/Solution1466 I [[I [[I I I] []
+    ALOAD 0
+    ICONST_0
+    ICONST_M1
+    INVOKEVIRTUAL original/Solution1466.dfs (II)I
+    IRETURN
+   L10
+    LOCALVARIABLE a I L6 L9 7
+    LOCALVARIABLE b I L7 L9 8
+    LOCALVARIABLE e [I L5 L9 6
+    LOCALVARIABLE this Loriginal/Solution1466; L0 L10 0
+    LOCALVARIABLE n I L0 L10 1
+    LOCALVARIABLE connections [[I L0 L10 2
+    MAXSTACK = 5
+    MAXLOCALS = 9
+
+  // access flags 0x2
+  private dfs(II)I
+   L0
+    LINENUMBER 21 L0
+    ICONST_0
+    ISTORE 3
+   L1
+    LINENUMBER 22 L1
+    ALOAD 0
+    GETFIELD original/Solution1466.g : [Ljava/util/List;
+    ILOAD 1
+    AALOAD
+    INVOKEINTERFACE java/util/List.iterator ()Ljava/util/Iterator; (itf)
+    ASTORE 4
+   L2
+   FRAME FULL [original/Solution1466 I I I java/util/Iterator] []
+    ALOAD 4
+    INVOKEINTERFACE java/util/Iterator.hasNext ()Z (itf)
+    IFEQ L3
+    ALOAD 4
+    INVOKEINTERFACE java/util/Iterator.next ()Ljava/lang/Object; (itf)
+    CHECKCAST [I
+    ASTORE 5
+   L4
+    LINENUMBER 23 L4
+    ALOAD 5
+    ICONST_0
+    IALOAD
+    ISTORE 6
+   L5
+    ALOAD 5
+    ICONST_1
+    IALOAD
+    ISTORE 7
+   L6
+    LINENUMBER 24 L6
+    ILOAD 6
+    ILOAD 2
+    IF_ICMPEQ L7
+   L8
+    LINENUMBER 25 L8
+    ILOAD 3
+    ILOAD 7
+    ALOAD 0
+    ILOAD 6
+    ILOAD 1
+    INVOKEVIRTUAL original/Solution1466.dfs (II)I
+    IADD
+    ISUB
+    ISTORE 3
+   L7
+    LINENUMBER 27 L7
+   FRAME FULL [original/Solution1466 I I I java/util/Iterator [I I I] []
+    GOTO L2
+   L3
+    LINENUMBER 28 L3
+   FRAME FULL [original/Solution1466 I I I java/util/Iterator] []
+    ILOAD 3
+    IRETURN
+   L9
+    LOCALVARIABLE b I L5 L7 6
+    LOCALVARIABLE c I L6 L7 7
+    LOCALVARIABLE e [I L4 L7 5
+    LOCALVARIABLE this Loriginal/Solution1466; L0 L9 0
+    LOCALVARIABLE a I L0 L9 1
+    LOCALVARIABLE fa I L0 L9 2
+    LOCALVARIABLE ans I L1 L9 3
+    MAXSTACK = 5
+    MAXLOCALS = 8
+
+  // access flags 0x100A
+  private static synthetic lambda$minReorder$0(I)Ljava/util/List;
+   L0
+    LINENUMBER 11 L0
+    NEW java/util/ArrayList
+    DUP
+    INVOKESPECIAL java/util/ArrayList.<init> ()V
+    ARETURN
+   L1
+    LOCALVARIABLE k I L0 L1 0
+    MAXSTACK = 2
+    MAXLOCALS = 1
+}
+

@@ -1,0 +1,147 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/FindMax {
+
+  // compiled from: id_158.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 9 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/FindMax; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  // signature (Ljava/util/List<Ljava/lang/String;>;)Ljava/lang/String;
+  // declaration: java.lang.String findMax(java.util.List<java.lang.String>)
+  public static findMax(Ljava/util/List;)Ljava/lang/String;
+   L0
+    LINENUMBER 42 L0
+    ALOAD 0
+    IFNULL L1
+    ALOAD 0
+    INVOKEINTERFACE java/util/List.size ()I (itf)
+    IFNE L2
+   L1
+    LINENUMBER 43 L1
+   FRAME FULL [java/util/List] []
+    ACONST_NULL
+    POP
+    LDC ""
+    ARETURN
+   L2
+    LINENUMBER 46 L2
+   FRAME FULL [java/util/List] []
+    ALOAD 0
+    ICONST_0
+    INVOKEINTERFACE java/util/List.get (I)Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/String
+    ASTORE 1
+   L3
+    LINENUMBER 47 L3
+    ICONST_0
+    ISTORE 2
+   L4
+    LINENUMBER 48 L4
+    ALOAD 0
+    INVOKEINTERFACE java/util/List.iterator ()Ljava/util/Iterator; (itf)
+    ASTORE 3
+   L5
+   FRAME FULL [java/util/List java/lang/String I java/util/Iterator] []
+    ALOAD 3
+    INVOKEINTERFACE java/util/Iterator.hasNext ()Z (itf)
+    IFEQ L6
+    ALOAD 3
+    INVOKEINTERFACE java/util/Iterator.next ()Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/String
+    ASTORE 4
+   L7
+    LINENUMBER 49 L7
+    NEW java/util/HashSet
+    DUP
+    INVOKESPECIAL java/util/HashSet.<init> ()V
+    ASTORE 5
+   L8
+    LINENUMBER 50 L8
+    ICONST_0
+    ISTORE 6
+   L9
+   FRAME FULL [java/util/List java/lang/String I java/util/Iterator java/lang/String java/util/HashSet I] []
+    ILOAD 6
+    ALOAD 4
+    INVOKEVIRTUAL java/lang/String.length ()I
+    IF_ICMPGE L10
+   L11
+    LINENUMBER 51 L11
+    ALOAD 5
+    ALOAD 4
+    ILOAD 6
+    INVOKEVIRTUAL java/lang/String.charAt (I)C
+    INVOKESTATIC java/lang/Character.valueOf (C)Ljava/lang/Character;
+    INVOKEINTERFACE java/util/Set.add (Ljava/lang/Object;)Z (itf)
+    POP
+   L12
+    LINENUMBER 50 L12
+    IINC 6 1
+    GOTO L9
+   L10
+    LINENUMBER 53 L10
+   FRAME FULL [java/util/List java/lang/String I java/util/Iterator java/lang/String java/util/HashSet I] []
+    ALOAD 5
+    INVOKEINTERFACE java/util/Set.size ()I (itf)
+    ILOAD 2
+    IF_ICMPLE L13
+   L14
+    LINENUMBER 54 L14
+    ALOAD 4
+    ASTORE 1
+   L15
+    LINENUMBER 55 L15
+    ALOAD 5
+    INVOKEINTERFACE java/util/Set.size ()I (itf)
+    ISTORE 2
+    GOTO L16
+   L13
+    LINENUMBER 56 L13
+   FRAME FULL [java/util/List java/lang/String I java/util/Iterator java/lang/String java/util/HashSet I] []
+    ALOAD 5
+    INVOKEINTERFACE java/util/Set.size ()I (itf)
+    ILOAD 2
+    IF_ICMPNE L16
+    ALOAD 4
+    ALOAD 1
+    INVOKEVIRTUAL java/lang/String.compareTo (Ljava/lang/String;)I
+    IFGE L16
+   L17
+    LINENUMBER 57 L17
+    ALOAD 4
+    ASTORE 1
+   L16
+    LINENUMBER 59 L16
+   FRAME FULL [java/util/List java/lang/String I java/util/Iterator java/lang/String java/util/HashSet I] []
+    GOTO L5
+   L6
+    LINENUMBER 61 L6
+   FRAME FULL [java/util/List java/lang/String I java/util/Iterator] []
+    ALOAD 1
+    ARETURN
+   L18
+    LOCALVARIABLE i I L9 L10 6
+    LOCALVARIABLE seen Ljava/util/Set; L8 L16 5
+    // signature Ljava/util/Set<Ljava/lang/Character;>;
+    // declaration: seen extends java.util.Set<java.lang.Character>
+    LOCALVARIABLE word Ljava/lang/String; L7 L16 4
+    LOCALVARIABLE words Ljava/util/List; L0 L18 0
+    // signature Ljava/util/List<Ljava/lang/String;>;
+    // declaration: words extends java.util.List<java.lang.String>
+    LOCALVARIABLE maxWord Ljava/lang/String; L3 L18 1
+    LOCALVARIABLE maxUnique I L4 L18 2
+    MAXSTACK = 3
+    MAXLOCALS = 7
+}
+

@@ -1,0 +1,97 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/GetOddCollatz {
+
+  // compiled from: id_123.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 9 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/GetOddCollatz; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  // signature (I)Ljava/util/List<Ljava/lang/Integer;>;
+  // declaration: java.util.List<java.lang.Integer> getOddCollatz(int)
+  public static getOddCollatz(I)Ljava/util/List;
+   L0
+    LINENUMBER 36 L0
+    NEW java/util/ArrayList
+    DUP
+    INVOKESPECIAL java/util/ArrayList.<init> ()V
+    ASTORE 1
+   L1
+    LINENUMBER 37 L1
+   FRAME FULL [I java/util/List] []
+    ILOAD 0
+    ICONST_1
+    IF_ICMPEQ L2
+   L3
+    LINENUMBER 38 L3
+    ILOAD 0
+    ICONST_2
+    IREM
+    ICONST_1
+    IF_ICMPNE L4
+   L5
+    LINENUMBER 39 L5
+    ALOAD 1
+    ILOAD 0
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+   L4
+    LINENUMBER 41 L4
+   FRAME FULL [I java/util/List] []
+    ILOAD 0
+    ICONST_2
+    IREM
+    IFNE L6
+   L7
+    LINENUMBER 42 L7
+    ILOAD 0
+    ICONST_2
+    IDIV
+    ISTORE 0
+    GOTO L1
+   L6
+    LINENUMBER 44 L6
+   FRAME FULL [I java/util/List] []
+    ICONST_3
+    ILOAD 0
+    IMUL
+    ICONST_1
+    IADD
+    ISTORE 0
+    GOTO L1
+   L2
+    LINENUMBER 47 L2
+   FRAME FULL [I java/util/List] []
+    ALOAD 1
+    ICONST_1
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+   L8
+    LINENUMBER 48 L8
+    ALOAD 1
+    INVOKESTATIC java/util/Collections.sort (Ljava/util/List;)V
+   L9
+    LINENUMBER 49 L9
+    ALOAD 1
+    ARETURN
+   L10
+    LOCALVARIABLE n I L0 L10 0
+    LOCALVARIABLE result Ljava/util/List; L1 L10 1
+    // signature Ljava/util/List<Ljava/lang/Integer;>;
+    // declaration: result extends java.util.List<java.lang.Integer>
+    MAXSTACK = 2
+    MAXLOCALS = 2
+}
+

@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>id_125.java</h1>
+
+<table class="src">
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4dda7b02_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4dda7b02_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package original;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4dda7b02_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4dda7b02_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4dda7b02_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4dda7b02_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.Arrays;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4dda7b02_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4dda7b02_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4dda7b02_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4dda7b02_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4dda7b02_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4dda7b02_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>class SplitWords {</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4dda7b02_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4dda7b02_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4dda7b02_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4dda7b02_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * * Given a string of words, return a list of words split on whitespace, if no whitespaces exists in the text you</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4dda7b02_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4dda7b02_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * should split on commas &#39;,&#39; if no commas exists you should return the number of lower-case letters with odd order in the</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4dda7b02_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4dda7b02_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * alphabet, ord(&#39;a&#39;) = 0, ord(&#39;b&#39;) = 1, ... ord(&#39;z&#39;) = 25</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4dda7b02_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4dda7b02_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Examples:</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4dda7b02_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4dda7b02_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * splitWords(&#34;Hello world!&#34;) &#10142; [&#34;Hello&#34;, &#34;world!&#34;]</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4dda7b02_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4dda7b02_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * splitWords(&#34;Hello,world!&#34;) &#10142; [&#34;Hello&#34;, &#34;world!&#34;]</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4dda7b02_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4dda7b02_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * splitWords(&#34;abcdef&#34;) == 3</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4dda7b02_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4dda7b02_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     *</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4dda7b02_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4dda7b02_16'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * &#62; splitWords(&#34;Hello world!&#34;)</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4dda7b02_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4dda7b02_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * [&#34;Hello&#34;, &#34;world!&#34;]</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4dda7b02_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4dda7b02_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * &#62; splitWords(&#34;Hello,world!&#34;)</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4dda7b02_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4dda7b02_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * [&#34;Hello&#34;, &#34;world!&#34;]</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4dda7b02_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4dda7b02_20'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * &#62; splitWords(&#34;Hello world,!&#34;)</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4dda7b02_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4dda7b02_21'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * [&#34;Hello&#34;, &#34;world,!&#34;]</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4dda7b02_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4dda7b02_22'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * &#62; splitWords(&#34;Hello,Hello,world !&#34;)</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4dda7b02_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4dda7b02_23'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * [&#34;Hello,Hello,world&#34;, &#34;!&#34;]</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4dda7b02_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4dda7b02_24'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * &#62; splitWords(&#34;abcdef&#34;)</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4dda7b02_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4dda7b02_25'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * 3</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4dda7b02_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4dda7b02_26'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * &#62; splitWords(&#34;aaabb&#34;)</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4dda7b02_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4dda7b02_27'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * 2</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4dda7b02_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4dda7b02_28'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * &#62; splitWords(&#34;aaaBb&#34;)</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4dda7b02_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4dda7b02_29'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * 1</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4dda7b02_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4dda7b02_30'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * &#62; splitWords(&#34;&#34;)</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4dda7b02_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4dda7b02_31'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * 0</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4dda7b02_32'/>
+32
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4dda7b02_32'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4dda7b02_33'/>
+33
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4dda7b02_33'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public static Object splitWords(String txt) {</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4dda7b02_34'/>
+34
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4dda7b02_34'>1</a>
+<span>
+1. splitWords : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (txt.contains(&#34; &#34;)) {</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4dda7b02_35'/>
+35
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4dda7b02_35'>1</a>
+<span>
+1. splitWords : replaced return value with null for original/SplitWords::splitWords &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            return Arrays.asList(txt.split(&#34; &#34;));</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4dda7b02_36'/>
+36
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4dda7b02_36'>1</a>
+<span>
+1. splitWords : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        } else if (txt.contains(&#34;,&#34;)) {</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4dda7b02_37'/>
+37
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4dda7b02_37'>1</a>
+<span>
+1. splitWords : replaced return value with null for original/SplitWords::splitWords &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            return Arrays.asList(txt.split(&#34;,&#34;));</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4dda7b02_38'/>
+38
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4dda7b02_38'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        } else {</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4dda7b02_39'/>
+39
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4dda7b02_39'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            int count = 0;</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4dda7b02_40'/>
+40
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4dda7b02_40'>2</a>
+<span>
+1. splitWords : negated conditional &rarr; KILLED<br/>
+2. splitWords : changed conditional boundary &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            for (int i = 0; i &#60; txt.length(); i++) {</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4dda7b02_41'/>
+41
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4dda7b02_41'>7</a>
+<span>
+1. splitWords : changed conditional boundary &rarr; SURVIVED<br/>
+2. splitWords : changed conditional boundary &rarr; SURVIVED<br/>
+3. splitWords : Replaced integer subtraction with addition &rarr; SURVIVED<br/>
+4. splitWords : negated conditional &rarr; KILLED<br/>
+5. splitWords : Replaced integer modulus with multiplication &rarr; KILLED<br/>
+6. splitWords : negated conditional &rarr; KILLED<br/>
+7. splitWords : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>                if (txt.charAt(i) &#62;= &#39;a&#39; &#38;&#38; txt.charAt(i) &#60;= &#39;z&#39; &#38;&#38; (txt.charAt(i) - &#39;a&#39;) % 2 == 1) {</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4dda7b02_42'/>
+42
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4dda7b02_42'>1</a>
+<span>
+1. splitWords : Changed increment from 1 to -1 &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                    count++;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4dda7b02_43'/>
+43
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4dda7b02_43'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                }</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4dda7b02_44'/>
+44
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4dda7b02_44'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4dda7b02_45'/>
+45
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4dda7b02_45'>1</a>
+<span>
+1. splitWords : replaced return value with null for original/SplitWords::splitWords &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            return count;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4dda7b02_46'/>
+46
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4dda7b02_46'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4dda7b02_47'/>
+47
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4dda7b02_47'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4dda7b02_48'/>
+48
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4dda7b02_48'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4dda7b02_49'/>
+49
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4dda7b02_49'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4dda7b02_50'/>
+50
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4dda7b02_50'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4dda7b02_34'>34</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4dda7b02_34'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>splitWords<br/><b>Killed by : </b>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:splitWords_empty_string()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4dda7b02_35'>35</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4dda7b02_35'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>splitWords<br/><b>Killed by : </b>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:splitWords_with_spaces()]</span></span> replaced return value with null for original/SplitWords::splitWords &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4dda7b02_36'>36</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4dda7b02_36'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>splitWords<br/><b>Killed by : </b>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:splitWords_empty_string()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4dda7b02_37'>37</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4dda7b02_37'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>splitWords<br/><b>Killed by : </b>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:test_Multiple_Words_With_Commas()]</span></span> replaced return value with null for original/SplitWords::splitWords &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4dda7b02_40'>40</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4dda7b02_40'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>splitWords<br/><b>Killed by : </b>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:splitWords_empty_string()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>splitWords<br/><b>Killed by : </b>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:splitWords_empty_string()]</span></span> changed conditional boundary &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4dda7b02_41'>41</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4dda7b02_41'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>splitWords<br/><b>Killed by : </b>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:splitWords_without_spaces_or_commas_mixed_case()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>splitWords<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=original.SplitWords,-method=splitWords,-methodDesc=(Ljava/lang/String;)Ljava/lang/Object;],-indexes=[49],-mutator=org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=original.SplitWords,-method=splitWords,-methodDesc=(Ljava/lang/String;)Ljava/lang/Object;],-indexes=[49],-mutator=org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=original.SplitWords,-method=splitWords,-methodDesc=(Ljava/lang/String;)Ljava/lang/Object;],-indexes=[49],-mutator=org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:testNoLowercaseLetters()]</li> <li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:testNoLettersReturnsZero()]</li> <li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:splitWords_without_spaces_or_commas_mixed_case()]</li> <li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:testSplitWords_EdgeCase_WithNoWhitespaceOrComma()]</li> <li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:testSplitWordsWithNoWhitespaceOrComma()]</li> <li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:test_No_Whitespace_Or_Comma()]</li> <li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:SplitWords_CountLowercaseLetters_EvenOrder()]</li> <li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:splitWords_without_spaces_or_commas_lowercase_letters()]</li> <li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:SplitWords_NoWhitespaceOrComma_EvenLetters()]</li> <li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:SplitWords_MixedCaseLetters()]</li> <li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:test_Even_Lowercase_Letters()]</li> <li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:SplitWords_MixedCase()]</li> <li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:splitWords_with_lowercase_letters_only_2()]</li> <li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:testWordWithOddNumberOfLetters1()]</li> <li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:testSingleWordWithNoWhitespaceOrComma_1()]</li> <li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:test_Odd_Lowercase_Letters()]</li> <li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:test_Mixed_Case_Letters()]</li> <li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:SplitWords_NoWhitespaceOrComma_OddLetters()]</li> <li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:SplitWords_CountLowercaseLetters_OddOrder()]</li> <li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:SplitWordsWithoutWhitespaceOrComma()]</li> <li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:testSplitWordsNoWhitespaceOrCommas()]</li> <li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:testCountLowerCaseLettersWithOddOrder()]</li> <li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:testNoWhitespaceOrCommaReturnsLowerCaseCount()]</li> 
+</ul>
+</div></div> <p class='SURVIVED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>splitWords<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=original.SplitWords,-method=splitWords,-methodDesc=(Ljava/lang/String;)Ljava/lang/Object;],-indexes=[54],-mutator=org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=original.SplitWords,-method=splitWords,-methodDesc=(Ljava/lang/String;)Ljava/lang/Object;],-indexes=[54],-mutator=org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=original.SplitWords,-method=splitWords,-methodDesc=(Ljava/lang/String;)Ljava/lang/Object;],-indexes=[54],-mutator=org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:splitWords_without_spaces_or_commas_mixed_case()]</li> <li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:testSplitWords_EdgeCase_WithNoWhitespaceOrComma()]</li> <li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:testSplitWordsWithNoWhitespaceOrComma()]</li> <li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:test_No_Whitespace_Or_Comma()]</li> <li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:SplitWords_CountLowercaseLetters_EvenOrder()]</li> <li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:splitWords_without_spaces_or_commas_lowercase_letters()]</li> <li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:SplitWords_NoWhitespaceOrComma_EvenLetters()]</li> <li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:SplitWords_MixedCaseLetters()]</li> <li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:test_Even_Lowercase_Letters()]</li> <li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:SplitWords_MixedCase()]</li> <li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:splitWords_with_lowercase_letters_only_2()]</li> <li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:testWordWithOddNumberOfLetters1()]</li> <li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:testSingleWordWithNoWhitespaceOrComma_1()]</li> <li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:test_Odd_Lowercase_Letters()]</li> <li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:test_Mixed_Case_Letters()]</li> <li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:SplitWords_NoWhitespaceOrComma_OddLetters()]</li> <li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:SplitWords_CountLowercaseLetters_OddOrder()]</li> <li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:SplitWordsWithoutWhitespaceOrComma()]</li> <li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:testSplitWordsNoWhitespaceOrCommas()]</li> <li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:testCountLowerCaseLettersWithOddOrder()]</li> <li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:testNoWhitespaceOrCommaReturnsLowerCaseCount()]</li> 
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>splitWords<br/><b>Killed by : </b>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:splitWords_without_spaces_or_commas_mixed_case()]</span></span> Replaced integer modulus with multiplication &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>splitWords<br/><b>Killed by : </b>none</span></span> Replaced integer subtraction with addition &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=original.SplitWords,-method=splitWords,-methodDesc=(Ljava/lang/String;)Ljava/lang/Object;],-indexes=[59],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=original.SplitWords,-method=splitWords,-methodDesc=(Ljava/lang/String;)Ljava/lang/Object;],-indexes=[59],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=original.SplitWords,-method=splitWords,-methodDesc=(Ljava/lang/String;)Ljava/lang/Object;],-indexes=[59],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:splitWords_without_spaces_or_commas_mixed_case()]</li> <li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:testSplitWords_EdgeCase_WithNoWhitespaceOrComma()]</li> <li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:testSplitWordsWithNoWhitespaceOrComma()]</li> <li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:test_No_Whitespace_Or_Comma()]</li> <li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:SplitWords_CountLowercaseLetters_EvenOrder()]</li> <li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:splitWords_without_spaces_or_commas_lowercase_letters()]</li> <li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:SplitWords_NoWhitespaceOrComma_EvenLetters()]</li> <li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:SplitWords_MixedCaseLetters()]</li> <li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:test_Even_Lowercase_Letters()]</li> <li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:SplitWords_MixedCase()]</li> <li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:splitWords_with_lowercase_letters_only_2()]</li> <li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:testWordWithOddNumberOfLetters1()]</li> <li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:testSingleWordWithNoWhitespaceOrComma_1()]</li> <li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:test_Odd_Lowercase_Letters()]</li> <li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:test_Mixed_Case_Letters()]</li> <li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:SplitWords_NoWhitespaceOrComma_OddLetters()]</li> <li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:SplitWords_CountLowercaseLetters_OddOrder()]</li> <li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:SplitWordsWithoutWhitespaceOrComma()]</li> <li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:testSplitWordsNoWhitespaceOrCommas()]</li> <li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:testCountLowerCaseLettersWithOddOrder()]</li> <li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:testNoWhitespaceOrCommaReturnsLowerCaseCount()]</li> 
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>splitWords<br/><b>Killed by : </b>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:splitWords_without_spaces_or_commas_mixed_case()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>splitWords<br/><b>Killed by : </b>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:splitWords_without_spaces_or_commas_mixed_case()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4dda7b02_42'>42</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4dda7b02_42'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>splitWords<br/><b>Killed by : </b>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:splitWords_without_spaces_or_commas_mixed_case()]</span></span> Changed increment from 1 to -1 &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4dda7b02_45'>45</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4dda7b02_45'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>splitWords<br/><b>Killed by : </b>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:splitWords_empty_string()]</span></span> replaced return value with null for original/SplitWords::splitWords &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+<li class='mutator'>CONDITIONALS_BOUNDARY</li>
+<li class='mutator'>EMPTY_RETURNS</li>
+<li class='mutator'>FALSE_RETURNS</li>
+<li class='mutator'>INCREMENTS</li>
+<li class='mutator'>INVERT_NEGS</li>
+<li class='mutator'>MATH</li>
+<li class='mutator'>NEGATE_CONDITIONALS</li>
+<li class='mutator'>NULL_RETURNS</li>
+<li class='mutator'>PRIMITIVE_RETURNS</li>
+<li class='mutator'>TRUE_RETURNS</li>
+<li class='mutator'>VOID_METHOD_CALLS</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:testNoLowercaseLetters()] (0 ms)</li><li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:testNoLettersReturnsZero()] (0 ms)</li><li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:splitWords_without_spaces_or_commas_mixed_case()] (0 ms)</li><li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:testSplitWords_EdgeCase_WithNoWhitespaceOrComma()] (0 ms)</li><li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:testSplitWordsWithNoWhitespaceOrComma()] (0 ms)</li><li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:test_No_Whitespace_Or_Comma()] (0 ms)</li><li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:SplitWords_CountLowercaseLetters_EvenOrder()] (0 ms)</li><li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:splitWords_without_spaces_or_commas_lowercase_letters()] (0 ms)</li><li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:SplitWords_NoWhitespaceOrComma_EvenLetters()] (0 ms)</li><li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:SplitWords_MixedCaseLetters()] (0 ms)</li><li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:test_Even_Lowercase_Letters()] (0 ms)</li><li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:SplitWords_MixedCase()] (0 ms)</li><li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:splitWords_with_lowercase_letters_only_2()] (0 ms)</li><li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:testWordWithOddNumberOfLetters1()] (0 ms)</li><li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:testSingleWordWithNoWhitespaceOrComma_1()] (0 ms)</li><li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:test_Odd_Lowercase_Letters()] (0 ms)</li><li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:test_Mixed_Case_Letters()] (0 ms)</li><li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:SplitWords_NoWhitespaceOrComma_OddLetters()] (0 ms)</li><li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:SplitWords_CountLowercaseLetters_OddOrder()] (0 ms)</li><li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:SplitWordsWithoutWhitespaceOrComma()] (0 ms)</li><li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:testSplitWordsNoWhitespaceOrCommas()] (0 ms)</li><li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:testCountLowerCaseLettersWithOddOrder()] (0 ms)</li><li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:testNoWhitespaceOrCommaReturnsLowerCaseCount()] (0 ms)</li><li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:splitWords_empty_string()] (0 ms)</li><li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:testEmptyString()] (0 ms)</li><li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:testSplitWordsWithEmptyString()] (0 ms)</li><li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:test_Empty_String()] (0 ms)</li><li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:SplitWordsWithEmptyString()] (0 ms)</li><li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:SplitWords_EmptyString()] (0 ms)</li><li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:testNoWhitespaceOrCommaReturnsZeroForEmptyString()] (0 ms)</li><li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:SplitWords_EmptyString_Fixed_2()] (0 ms)</li><li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:testSplitWordsEmptyString()] (0 ms)</li><li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:SplitWordsWithWhitespace()] (0 ms)</li><li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:testSplitWords_CommaSeparator()] (0 ms)</li><li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:testSplitWordsCommaSeparated()] (0 ms)</li><li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:test_Single_Word_With_Space()] (0 ms)</li><li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:testSplitOnComma()] (0 ms)</li><li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:SplitWords_SplitOnWhitespace()] (0 ms)</li><li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:testSplitOnWhitespaceAndComma()] (0 ms)</li><li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:testSplitOnWhitespaceCorrected1()] (0 ms)</li><li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:splitWords_with_commas()] (0 ms)</li><li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:testSplitWordsMultipleSpaces2()] (0 ms)</li><li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:SplitWords_SplitOnComma()] (0 ms)</li><li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:splitWords_with_spaces()] (0 ms)</li><li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:SplitWordsWithMultipleConsecutiveWhitespaceFixed1()] (0 ms)</li><li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:SplitWords_SingleSpaceString_ReturnsEmptyList()] (0 ms)</li><li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:testSplitWordsWithSpaces2()] (0 ms)</li><li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:testSplitOnWhitespace()] (0 ms)</li><li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:SplitWords_SplitOnComma2()] (0 ms)</li><li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:test_Split_On_Comma()] (0 ms)</li><li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:testSplitWordsWithComma()] (0 ms)</li><li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:test_Multiple_Words_With_Spaces()] (0 ms)</li><li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:test_Split_On_Whitespace()] (0 ms)</li><li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:testSplitWords_HappyPath_WithWhitespace()] (0 ms)</li><li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:testSplitWords_HappyPath_WithComma()] (0 ms)</li><li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:test_Multiple_Words_With_Commas()] (0 ms)</li><li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:SplitWordsWithMultipleConsecutiveWhitespace1()] (0 ms)</li><li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:SplitWords_Comma()] (0 ms)</li><li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:SplitWords_Whitespace()] (0 ms)</li><li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:SplitWordsWithComma()] (0 ms)</li><li>original.SplitWordsTest.[engine:junit-jupiter]/[class:original.SplitWordsTest]/[method:testSplitWordsWithWhitespaceAndComma()] (0 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='https://pitest.org'>PIT</a> 1.18.0
+
+</body>
+</html>

@@ -1,0 +1,335 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Solution2152 {
+
+  // compiled from: id_2152.java
+
+  // access flags 0x2
+  private [I f
+
+  // access flags 0x2
+  private [[I points
+
+  // access flags 0x2
+  private I n
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 3 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Solution2152; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public minimumLines([[I)I
+   L0
+    LINENUMBER 9 L0
+    ALOAD 0
+    ALOAD 1
+    ARRAYLENGTH
+    PUTFIELD original/Solution2152.n : I
+   L1
+    LINENUMBER 10 L1
+    ALOAD 0
+    ALOAD 1
+    PUTFIELD original/Solution2152.points : [[I
+   L2
+    LINENUMBER 11 L2
+    ALOAD 0
+    ICONST_1
+    ALOAD 0
+    GETFIELD original/Solution2152.n : I
+    ISHL
+    NEWARRAY T_INT
+    PUTFIELD original/Solution2152.f : [I
+   L3
+    LINENUMBER 12 L3
+    ALOAD 0
+    ICONST_0
+    INVOKEVIRTUAL original/Solution2152.dfs (I)I
+    IRETURN
+   L4
+    LOCALVARIABLE this Loriginal/Solution2152; L0 L4 0
+    LOCALVARIABLE points [[I L0 L4 1
+    MAXSTACK = 3
+    MAXLOCALS = 2
+
+  // access flags 0x2
+  private dfs(I)I
+   L0
+    LINENUMBER 16 L0
+    ILOAD 1
+    ICONST_1
+    ALOAD 0
+    GETFIELD original/Solution2152.n : I
+    ISHL
+    ICONST_1
+    ISUB
+    IF_ICMPNE L1
+   L2
+    LINENUMBER 17 L2
+    ICONST_0
+    IRETURN
+   L1
+    LINENUMBER 19 L1
+   FRAME FULL [original/Solution2152 I] []
+    ALOAD 0
+    GETFIELD original/Solution2152.f : [I
+    ILOAD 1
+    IALOAD
+    IFEQ L3
+   L4
+    LINENUMBER 20 L4
+    ALOAD 0
+    GETFIELD original/Solution2152.f : [I
+    ILOAD 1
+    IALOAD
+    IRETURN
+   L3
+    LINENUMBER 22 L3
+   FRAME FULL [original/Solution2152 I] []
+    LDC 1073741824
+    ISTORE 2
+   L5
+    LINENUMBER 23 L5
+    ICONST_0
+    ISTORE 3
+   L6
+   FRAME FULL [original/Solution2152 I I I] []
+    ILOAD 3
+    ALOAD 0
+    GETFIELD original/Solution2152.n : I
+    IF_ICMPGE L7
+   L8
+    LINENUMBER 24 L8
+    ILOAD 1
+    ILOAD 3
+    ISHR
+    ICONST_1
+    IAND
+    IFNE L9
+   L10
+    LINENUMBER 25 L10
+    ILOAD 3
+    ICONST_1
+    IADD
+    ISTORE 4
+   L11
+   FRAME FULL [original/Solution2152 I I I I] []
+    ILOAD 4
+    ALOAD 0
+    GETFIELD original/Solution2152.n : I
+    IF_ICMPGE L12
+   L13
+    LINENUMBER 26 L13
+    ILOAD 1
+    ICONST_1
+    ILOAD 3
+    ISHL
+    IOR
+    ICONST_1
+    ILOAD 4
+    ISHL
+    IOR
+    ISTORE 5
+   L14
+    LINENUMBER 27 L14
+    ILOAD 4
+    ICONST_1
+    IADD
+    ISTORE 6
+   L15
+   FRAME FULL [original/Solution2152 I I I I I I] []
+    ILOAD 6
+    ALOAD 0
+    GETFIELD original/Solution2152.n : I
+    IF_ICMPGE L16
+   L17
+    LINENUMBER 28 L17
+    ILOAD 1
+    ILOAD 6
+    ISHL
+    ICONST_1
+    IAND
+    IFNE L18
+    ALOAD 0
+    ILOAD 3
+    ILOAD 4
+    ILOAD 6
+    INVOKEVIRTUAL original/Solution2152.check (III)Z
+    IFEQ L18
+   L19
+    LINENUMBER 29 L19
+    ILOAD 5
+    ICONST_1
+    ILOAD 6
+    ISHL
+    IOR
+    ISTORE 5
+   L18
+    LINENUMBER 27 L18
+   FRAME FULL [original/Solution2152 I I I I I I] []
+    IINC 6 1
+    GOTO L15
+   L16
+    LINENUMBER 32 L16
+   FRAME FULL [original/Solution2152 I I I I I I] []
+    ILOAD 2
+    ALOAD 0
+    ILOAD 5
+    INVOKEVIRTUAL original/Solution2152.dfs (I)I
+    ICONST_1
+    IADD
+    INVOKESTATIC java/lang/Math.min (II)I
+    ISTORE 2
+   L20
+    LINENUMBER 25 L20
+    IINC 4 1
+    GOTO L11
+   L12
+    LINENUMBER 34 L12
+   FRAME FULL [original/Solution2152 I I I I] []
+    ILOAD 3
+    ALOAD 0
+    GETFIELD original/Solution2152.n : I
+    ICONST_1
+    ISUB
+    IF_ICMPNE L9
+   L21
+    LINENUMBER 35 L21
+    ILOAD 2
+    ALOAD 0
+    ILOAD 1
+    ICONST_1
+    ILOAD 3
+    ISHL
+    IOR
+    INVOKEVIRTUAL original/Solution2152.dfs (I)I
+    ICONST_1
+    IADD
+    INVOKESTATIC java/lang/Math.min (II)I
+    ISTORE 2
+   L9
+    LINENUMBER 23 L9
+   FRAME FULL [original/Solution2152 I I I] []
+    IINC 3 1
+    GOTO L6
+   L7
+    LINENUMBER 39 L7
+   FRAME FULL [original/Solution2152 I I I] []
+    ALOAD 0
+    GETFIELD original/Solution2152.f : [I
+    ILOAD 1
+    ILOAD 2
+    DUP_X2
+    IASTORE
+    IRETURN
+   L22
+    LOCALVARIABLE k I L15 L16 6
+    LOCALVARIABLE nxt I L14 L20 5
+    LOCALVARIABLE j I L11 L12 4
+    LOCALVARIABLE i I L6 L7 3
+    LOCALVARIABLE this Loriginal/Solution2152; L0 L22 0
+    LOCALVARIABLE state I L0 L22 1
+    LOCALVARIABLE ans I L5 L22 2
+    MAXSTACK = 5
+    MAXLOCALS = 7
+
+  // access flags 0x2
+  private check(III)Z
+   L0
+    LINENUMBER 43 L0
+    ALOAD 0
+    GETFIELD original/Solution2152.points : [[I
+    ILOAD 1
+    AALOAD
+    ICONST_0
+    IALOAD
+    ISTORE 4
+   L1
+    ALOAD 0
+    GETFIELD original/Solution2152.points : [[I
+    ILOAD 1
+    AALOAD
+    ICONST_1
+    IALOAD
+    ISTORE 5
+   L2
+    LINENUMBER 44 L2
+    ALOAD 0
+    GETFIELD original/Solution2152.points : [[I
+    ILOAD 2
+    AALOAD
+    ICONST_0
+    IALOAD
+    ISTORE 6
+   L3
+    ALOAD 0
+    GETFIELD original/Solution2152.points : [[I
+    ILOAD 2
+    AALOAD
+    ICONST_1
+    IALOAD
+    ISTORE 7
+   L4
+    LINENUMBER 45 L4
+    ALOAD 0
+    GETFIELD original/Solution2152.points : [[I
+    ILOAD 3
+    AALOAD
+    ICONST_0
+    IALOAD
+    ISTORE 8
+   L5
+    ALOAD 0
+    GETFIELD original/Solution2152.points : [[I
+    ILOAD 3
+    AALOAD
+    ICONST_1
+    IALOAD
+    ISTORE 9
+   L6
+    LINENUMBER 46 L6
+    ILOAD 6
+    ILOAD 4
+    ISUB
+    ILOAD 9
+    ILOAD 5
+    ISUB
+    IMUL
+    ILOAD 8
+    ILOAD 4
+    ISUB
+    ILOAD 7
+    ILOAD 5
+    ISUB
+    IMUL
+    IF_ICMPNE L7
+    ICONST_1
+    GOTO L8
+   L7
+   FRAME FULL [original/Solution2152 I I I I I I I I I] []
+    ICONST_0
+   L8
+   FRAME FULL [original/Solution2152 I I I I I I I I I] [I]
+    IRETURN
+   L9
+    LOCALVARIABLE this Loriginal/Solution2152; L0 L9 0
+    LOCALVARIABLE i I L0 L9 1
+    LOCALVARIABLE j I L0 L9 2
+    LOCALVARIABLE k I L0 L9 3
+    LOCALVARIABLE x1 I L1 L9 4
+    LOCALVARIABLE y1 I L2 L9 5
+    LOCALVARIABLE x2 I L3 L9 6
+    LOCALVARIABLE y2 I L4 L9 7
+    LOCALVARIABLE x3 I L5 L9 8
+    LOCALVARIABLE y3 I L6 L9 9
+    MAXSTACK = 4
+    MAXLOCALS = 10
+}
+

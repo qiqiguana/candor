@@ -1,0 +1,312 @@
+package oracle1;
+
+import java.lang.reflect.Method;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of PrimeFib.
+*/
+class PrimeFibTest {
+    @Test
+    void testPrimeFib() {
+        assertEquals(2, PrimeFib.primeFib(1));
+    }
+    
+    @Test
+     void testNothing(){
+         PrimeFib s = new PrimeFib();
+         }
+    @Test
+    public void TestPrimeFib1() {
+        int result = PrimeFib.primeFib(1);
+        assertEquals(2, result);
+    }
+    @Test
+    public void TestPrimeFib2() {
+        int result = PrimeFib.primeFib(2);
+        assertEquals(3, result);
+    }
+    @Test
+    public void TestPrimeFib3() {
+        int result = PrimeFib.primeFib(3);
+        assertEquals(5, result);
+    }
+    @Test
+    public void TestPrimeFibLargeN() {
+        int result = PrimeFib.primeFib(10);
+        assertEquals(433494437, result);
+    }
+    @Test
+    void testPrimeFibInitialization1(){
+        assertNotEquals(null, new PrimeFib());
+    }
+    @Test
+    public void test_primeFib_small_input() {
+        assertEquals(2, PrimeFib.primeFib(1));
+    }
+    @Test
+    public void test_prime_fib_n_1() {
+        int result = PrimeFib.primeFib(1);
+        assertEquals(2, result);
+    }
+    @Test
+    public void testIsPrimeFalseViaReflection() throws Exception {
+        Method method = PrimeFib.class.getDeclaredMethod("isPrime", int.class);
+        method.setAccessible(true);
+        boolean result = (boolean) method.invoke(null, 6);
+        assertFalse(result);
+    }
+    @Test
+    public void primeFibTest_1() {
+        assertEquals(2, PrimeFib.primeFib(1));
+    }
+    @Test
+    public void testPrimeFibFunctionWithN1() {
+        int result = PrimeFib.primeFib(1);
+        assertEquals(2, result);
+    }
+    @Test
+    public void testPrimeFibFunctionWithN10() {
+        int result = PrimeFib.primeFib(10);
+        assertEquals(433494437, result);
+    }
+    @Test
+    void testPrimeFibInitialization2() {
+        assertEquals(2, PrimeFib.primeFib(1));
+    }
+    @Test
+    public void testIsPrimeFunctionWithPrimeNumber231() {
+        int result = PrimeFib.primeFib(4);
+        assertEquals(13, result);
+    }
+    @Test
+    public void testPrimeFibMethodWithValidInput() {
+        int result = PrimeFib.primeFib(1);
+        assertEquals(2, result);
+    }
+    @Test
+    public void testPrimeFibFunctionReturnsCorrectResultForInput1() {
+        int result = PrimeFib.primeFib(1);
+        assertEquals(2, result);
+    }
+    @Test
+    public void testIsPrimeFunctionWithNonPrimeNumber24_2() {
+        int nonPrimeResult = PrimeFib.primeFib(4);
+        int primeCount = 0;
+        for (int i = 2; i < nonPrimeResult; i++) {
+            if (nonPrimeResult % i == 0) {
+                break;
+            }
+        }
+        assertTrue(nonPrimeResult > 1 && !(nonPrimeResult % 2 == 0));
+    }
+    @Test
+    public void testIsPrimeFunctionWithEdgeCase1() {
+        int result = PrimeFib.primeFib(1);
+        assertEquals(result, 2);
+    }
+    @Test
+    public void PrimeFib_HappyPath_1() {
+        int result = PrimeFib.primeFib(1);
+        assertEquals(2, result);
+    }
+    @Test
+    public void PrimeFib_HappyPath_2() {
+        int result = PrimeFib.primeFib(2);
+        assertEquals(3, result);
+    }
+    @Test
+    public void PrimeFib_HappyPath_5() {
+        int result = PrimeFib.primeFib(5);
+        assertEquals(89, result);
+    }
+    @Test
+    public void PrimeFib_HappyPath_10() {
+        int result = PrimeFib.primeFib(10);
+        assertEquals(433494437, result);
+    }
+    @Test
+    public void test_primeFib_1() {
+        int result = PrimeFib.primeFib(1);
+        assertEquals(2, result);
+    }
+    @Test
+    public void test_primeFib_2() {
+        int result = PrimeFib.primeFib(2);
+        assertEquals(3, result);
+    }
+    @Test
+    public void test_primeFib_3() {
+        int result = PrimeFib.primeFib(10);
+        assertEquals(433494437, result);
+    }
+    @Test
+    void testPrimeFibInitialization() {
+        // No need to instantiate PrimeFib here
+    }
+    @Test
+    void testPrimeFib_CorrectNthPrimeFibonacciNumber() {
+        assertEquals(2, PrimeFib.primeFib(1));
+        assertEquals(3, PrimeFib.primeFib(2));
+        assertEquals(5, PrimeFib.primeFib(3));
+        assertEquals(13, PrimeFib.primeFib(4));
+        assertEquals(89, PrimeFib.primeFib(5));
+    }
+    @Test
+    public void test_primeFib_edge_1() {
+        int result = PrimeFib.primeFib(1);
+        assertEquals(2, result);
+    }
+    @Test
+    public void testPrimeFib_with_n_equals_1() {
+        assertEquals(2, oracle1.PrimeFib.primeFib(1));
+    }
+    @Test
+    public void testPrimeFib_with_n_equals_10() {
+        assertEquals(433494437, oracle1.PrimeFib.primeFib(10));
+    }
+    @Test
+    public void test_isPrime_edge_11() {
+        int result = PrimeFib.primeFib(1);
+        assertTrue(result == 2);
+    }
+    @Test
+    void testPrimeFibInitializationUnique() {
+        assertNotNull(PrimeFib.primeFib(1));
+    }
+    @Test
+    public void testIsPrime_with_prime_number_via_wrapper() {
+        assertTrue(oracle1.PrimeFib.primeFib(2) == 3);
+    }
+    @Test
+    public void testPrimeFibWithNEquals1() {
+        int result = PrimeFib.primeFib(1);
+        assertEquals(2, result);
+    }
+    @Test
+    public void testPrimeFibWithNEquals10() {
+        int result = PrimeFib.primeFib(10);
+        assertEquals(433494437, result);
+    }
+    @Test public void testPrimeFib_with_1() { int result = oracle1.PrimeFib.primeFib(1); assertEquals(2, result); }
+    @Test
+    public void testPrimeFibInitialization3() {
+        assertDoesNotThrow(() -> new PrimeFib());
+    }
+    @Test
+    public void testIsPrimeWithCompositeNumber1() {
+        PrimeFib primeFib = new PrimeFib();
+        java.lang.reflect.Method method;
+        try {
+            method = PrimeFib.class.getDeclaredMethod("isPrime", int.class);
+            method.setAccessible(true);
+            boolean result = (boolean) method.invoke(primeFib, 33);
+            assertFalse(result);
+        } catch (Exception e) {
+            fail();
+        }
+    }
+    @Test
+    public void testPrimeFibWithOne() {
+        int result = PrimeFib.primeFib(1);
+        assertEquals(2, result);
+    }
+    @Test
+    public void testPrimeFib_WithN1_Returns2() {
+        int result = PrimeFib.primeFib(1);
+        assertEquals(2, result);
+    }
+    @Test
+    public void testPrimeFib_WithN10_Returns433494437() {
+        int result = PrimeFib.primeFib(10);
+        assertEquals(433494437, result);
+    }
+    @Test
+    void testPrimeFib_1(){
+        assertEquals(2, PrimeFib.primeFib(1));
+    }
+    @Test
+    public void testPrimeFibWithSmallInput() {
+        assertEquals(2, PrimeFib.primeFib(1));
+    }
+    @Test
+    public void testPrimeFibWithMediumInput() {
+        assertEquals(89, PrimeFib.primeFib(5));
+    }
+    @Test
+    public void testPrimeFibWithLargeInput() {
+        assertEquals(433494437, PrimeFib.primeFib(10));
+    }
+    @Test
+    public void testPrimeFibWithLargeInput2() {
+        assertEquals(433494437, PrimeFib.primeFib(10));
+    }
+    @Test
+    public void testPrimeFibHappyPath() {
+    	int[] inputs = {1, 2, 3, 4, 5};
+    	int[] expectedResults = {2, 3, 5, 13, 89};
+    	for (int i = 0; i < inputs.length; i++) {
+    		assertEquals(expectedResults[i], PrimeFib.primeFib(inputs[i]));
+    	}
+    }
+    @Test
+    public void testPrimeFibLargeInput() {
+    	int input = 10;
+    	assertEquals(433494437, PrimeFib.primeFib(input));
+    }
+    @Test
+    public void testPrimeFibHappyPath1() {
+    	int[] inputs = {1, 2, 3, 4, 5};
+    	int[] expectedResults = {2, 3, 5, 13, 89};
+    	for (int i = 0; i < inputs.length; i++) {
+    		assertEquals(expectedResults[i], PrimeFib.primeFib(inputs[i]));
+    	}
+    }
+    @Test
+    public void testPrimeFibPositiveInput() {
+    	int n = 1;
+    	int expectedResult = 2;
+    	int actualResult = PrimeFib.primeFib(n);
+    	assertEquals(expectedResult, actualResult);
+    }
+    @Test
+    public void testPrimeFibLargerInput() {
+    	int n = 10;
+    	long expectedResult = 433494437;
+    	long actualResult = PrimeFib.primeFib(n);
+    	assertEquals(expectedResult, actualResult);
+    }
+    @Test
+    public void testIsPrimePositiveInput() {
+        int n = 7;
+        boolean expectedResult = true;
+        PrimeFib primeFib = new PrimeFib();
+        // Call the public method that uses isPrime(int)
+        int actualResult = PrimeFib.primeFib(7);
+        assertEquals(actualResult, 1597);
+    }
+    @Test
+    public void testIsPrimeNonPrimeInput() {
+        int n = 4;
+        boolean expectedResult = false;
+        Class<?> clazz = PrimeFib.class;
+        try {
+            Method method = clazz.getDeclaredMethod("isPrime", int.class);
+            method.setAccessible(true);
+            boolean actualResult = (boolean) method.invoke(null, n);
+            assertFalse(actualResult);
+        } catch (Exception e) {
+            fail(e.getMessage());
+        }
+    }
+    @Test
+    public void testIsPrimeEdgeCaseInputCorrected_1() {
+        int n = 1;
+        int expectedResult = 2; // since isPrime(1) returns false, it will return the first prime fib number which is 2
+        int actualResult = PrimeFib.primeFib(n);
+        assertEquals(expectedResult, actualResult);
+    }
+    
+                                  
+}

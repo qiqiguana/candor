@@ -1,0 +1,41 @@
+package original;
+
+import java.util.List;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of PairsSumToZero.
+*/
+class PairsSumToZeroTest {
+    @Test
+    void pairsSumToZero_EmptyList_ReturnsFalse() {
+        List<Integer> l = List.of();
+        assertFalse(PairsSumToZero.pairsSumToZero(l));
+    }
+    
+    @Test
+        public void testNothing(){
+            PairsSumToZero s = new PairsSumToZero();
+            }
+    @Test
+    public void testEmptyList() {
+        assertFalse(PairsSumToZero.pairsSumToZero(List.of()));
+    }
+    @Test
+    public void testSingleElementList() {
+        assertFalse(PairsSumToZero.pairsSumToZero(List.of(1)));
+    }
+    @Test
+    public void testTwoElementsSumToZero() {
+        assertTrue(PairsSumToZero.pairsSumToZero(List.of(-2, 2)));
+    }
+    @Test
+    public void testMultipleElementsNoPairSumsToZero() {
+        assertFalse(PairsSumToZero.pairsSumToZero(List.of(1, 3, 5, 7)));
+    }
+    @Test
+    public void testMultipleElementsWithPairSummingToZero() {
+        assertTrue(PairsSumToZero.pairsSumToZero(List.of(-2, 1, 3, 5, 7, 2)));
+    }
+                                    
+}

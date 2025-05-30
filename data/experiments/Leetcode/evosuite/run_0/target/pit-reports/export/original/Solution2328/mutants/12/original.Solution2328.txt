@@ -1,0 +1,270 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Solution2328 {
+
+  // compiled from: id_2328.java
+
+  // access flags 0x2
+  private [[I f
+
+  // access flags 0x2
+  private [[I grid
+
+  // access flags 0x2
+  private I m
+
+  // access flags 0x2
+  private I n
+
+  // access flags 0x12
+  private final I mod = 1000000007
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 3 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+   L1
+    LINENUMBER 8 L1
+    ALOAD 0
+    LDC 1000000007
+    PUTFIELD original/Solution2328.mod : I
+    RETURN
+   L2
+    LOCALVARIABLE this Loriginal/Solution2328; L0 L2 0
+    MAXSTACK = 2
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public countPaths([[I)I
+   L0
+    LINENUMBER 11 L0
+    ALOAD 0
+    ALOAD 1
+    ARRAYLENGTH
+    PUTFIELD original/Solution2328.m : I
+   L1
+    LINENUMBER 12 L1
+    ALOAD 0
+    ALOAD 1
+    ICONST_0
+    AALOAD
+    ARRAYLENGTH
+    PUTFIELD original/Solution2328.n : I
+   L2
+    LINENUMBER 13 L2
+    ALOAD 0
+    ALOAD 1
+    PUTFIELD original/Solution2328.grid : [[I
+   L3
+    LINENUMBER 14 L3
+    ALOAD 0
+    ALOAD 0
+    GETFIELD original/Solution2328.m : I
+    ALOAD 0
+    GETFIELD original/Solution2328.n : I
+    MULTIANEWARRAY [[I 2
+    PUTFIELD original/Solution2328.f : [[I
+   L4
+    LINENUMBER 15 L4
+    ICONST_0
+    ISTORE 2
+   L5
+    LINENUMBER 16 L5
+    ICONST_0
+    ISTORE 3
+   L6
+   FRAME FULL [original/Solution2328 [[I I I] []
+    ILOAD 3
+    ALOAD 0
+    GETFIELD original/Solution2328.m : I
+    IF_ICMPGE L7
+   L8
+    LINENUMBER 17 L8
+    ICONST_0
+    ISTORE 4
+   L9
+   FRAME FULL [original/Solution2328 [[I I I I] []
+    ILOAD 4
+    ALOAD 0
+    GETFIELD original/Solution2328.n : I
+    IF_ICMPGE L10
+   L11
+    LINENUMBER 18 L11
+    ILOAD 2
+    ALOAD 0
+    ILOAD 3
+    ILOAD 4
+    INVOKEVIRTUAL original/Solution2328.dfs (II)I
+    IADD
+    LDC 1000000007
+    IREM
+    ISTORE 2
+   L12
+    LINENUMBER 17 L12
+    IINC 4 1
+    GOTO L9
+   L10
+    LINENUMBER 16 L10
+   FRAME FULL [original/Solution2328 [[I I I I] []
+    IINC 3 1
+    GOTO L6
+   L7
+    LINENUMBER 21 L7
+   FRAME FULL [original/Solution2328 [[I I I] []
+    ILOAD 2
+    IRETURN
+   L13
+    LOCALVARIABLE j I L9 L10 4
+    LOCALVARIABLE i I L6 L7 3
+    LOCALVARIABLE this Loriginal/Solution2328; L0 L13 0
+    LOCALVARIABLE grid [[I L0 L13 1
+    LOCALVARIABLE ans I L5 L13 2
+    MAXSTACK = 4
+    MAXLOCALS = 5
+
+  // access flags 0x2
+  private dfs(II)I
+   L0
+    LINENUMBER 25 L0
+    ALOAD 0
+    GETFIELD original/Solution2328.f : [[I
+    ILOAD 1
+    AALOAD
+    ILOAD 2
+    IALOAD
+    IFEQ L1
+   L2
+    LINENUMBER 26 L2
+    ALOAD 0
+    GETFIELD original/Solution2328.f : [[I
+    ILOAD 1
+    AALOAD
+    ILOAD 2
+    IALOAD
+    IRETURN
+   L1
+    LINENUMBER 28 L1
+   FRAME FULL [original/Solution2328 I I] []
+    ICONST_1
+    ISTORE 3
+   L3
+    LINENUMBER 29 L3
+    ICONST_5
+    NEWARRAY T_INT
+    DUP
+    ICONST_0
+    ICONST_M1
+    IASTORE
+    DUP
+    ICONST_1
+    ICONST_0
+    IASTORE
+    DUP
+    ICONST_2
+    ICONST_1
+    IASTORE
+    DUP
+    ICONST_3
+    ICONST_0
+    IASTORE
+    DUP
+    ICONST_4
+    ICONST_M1
+    IASTORE
+    ASTORE 4
+   L4
+    LINENUMBER 30 L4
+    ICONST_0
+    ISTORE 5
+   L5
+   FRAME FULL [original/Solution2328 I I I [I I] []
+    ILOAD 5
+    ICONST_4
+    IF_ICMPGE L6
+   L7
+    LINENUMBER 31 L7
+    ILOAD 1
+    ALOAD 4
+    ILOAD 5
+    IALOAD
+    IADD
+    ISTORE 6
+   L8
+    ILOAD 2
+    ALOAD 4
+    ILOAD 5
+    ICONST_1
+    ISUB
+    IALOAD
+    IADD
+    ISTORE 7
+   L9
+    LINENUMBER 32 L9
+    ILOAD 6
+    IFLT L10
+    ILOAD 6
+    ALOAD 0
+    GETFIELD original/Solution2328.m : I
+    IF_ICMPGE L10
+    ILOAD 7
+    IFLT L10
+    ILOAD 7
+    ALOAD 0
+    GETFIELD original/Solution2328.n : I
+    IF_ICMPGE L10
+    ALOAD 0
+    GETFIELD original/Solution2328.grid : [[I
+    ILOAD 1
+    AALOAD
+    ILOAD 2
+    IALOAD
+    ALOAD 0
+    GETFIELD original/Solution2328.grid : [[I
+    ILOAD 6
+    AALOAD
+    ILOAD 7
+    IALOAD
+    IF_ICMPGE L10
+   L11
+    LINENUMBER 33 L11
+    ILOAD 3
+    ALOAD 0
+    ILOAD 6
+    ILOAD 7
+    INVOKEVIRTUAL original/Solution2328.dfs (II)I
+    IADD
+    LDC 1000000007
+    IREM
+    ISTORE 3
+   L10
+    LINENUMBER 30 L10
+   FRAME FULL [original/Solution2328 I I I [I I I I] []
+    IINC 5 1
+    GOTO L5
+   L6
+    LINENUMBER 36 L6
+   FRAME FULL [original/Solution2328 I I I [I I] []
+    ALOAD 0
+    GETFIELD original/Solution2328.f : [[I
+    ILOAD 1
+    AALOAD
+    ILOAD 2
+    ILOAD 3
+    DUP_X2
+    IASTORE
+    IRETURN
+   L12
+    LOCALVARIABLE x I L8 L10 6
+    LOCALVARIABLE y I L9 L10 7
+    LOCALVARIABLE k I L5 L6 5
+    LOCALVARIABLE this Loriginal/Solution2328; L0 L12 0
+    LOCALVARIABLE i I L0 L12 1
+    LOCALVARIABLE j I L0 L12 2
+    LOCALVARIABLE ans I L3 L12 3
+    LOCALVARIABLE dirs [I L4 L12 4
+    MAXSTACK = 4
+    MAXLOCALS = 8
+}
+

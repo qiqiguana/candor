@@ -1,0 +1,149 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/LargestSmallestIntegers {
+
+  // compiled from: id_136.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 7 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/LargestSmallestIntegers; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  // signature (Ljava/util/List<Ljava/lang/Object;>;)Ljava/util/List<Ljava/lang/Integer;>;
+  // declaration: java.util.List<java.lang.Integer> largestSmallestIntegers(java.util.List<java.lang.Object>)
+  public static largestSmallestIntegers(Ljava/util/List;)Ljava/util/List;
+   L0
+    LINENUMBER 43 L0
+    NEW java/util/ArrayList
+    DUP
+    INVOKESPECIAL java/util/ArrayList.<init> ()V
+    ASTORE 1
+   L1
+    LINENUMBER 44 L1
+    LDC -2147483648
+    ISTORE 2
+   L2
+    LINENUMBER 45 L2
+    LDC 2147483647
+    ISTORE 3
+   L3
+    LINENUMBER 46 L3
+    ICONST_0
+    ISTORE 4
+   L4
+   FRAME FULL [java/util/List java/util/ArrayList I I I] []
+    ILOAD 4
+    ALOAD 0
+    INVOKEINTERFACE java/util/List.size ()I (itf)
+    IF_ICMPGT L5
+   L6
+    LINENUMBER 47 L6
+    ALOAD 0
+    ILOAD 4
+    INVOKEINTERFACE java/util/List.get (I)Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/Integer
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    ISTORE 5
+   L7
+    LINENUMBER 48 L7
+    ILOAD 5
+    IFGE L8
+   L9
+    LINENUMBER 49 L9
+    ILOAD 5
+    ILOAD 2
+    IF_ICMPLE L10
+   L11
+    LINENUMBER 50 L11
+    ILOAD 5
+    ISTORE 2
+    GOTO L10
+   L8
+    LINENUMBER 52 L8
+   FRAME FULL [java/util/List java/util/ArrayList I I I I] []
+    ILOAD 5
+    IFLE L10
+   L12
+    LINENUMBER 53 L12
+    ILOAD 5
+    ILOAD 3
+    IF_ICMPGE L10
+   L13
+    LINENUMBER 54 L13
+    ILOAD 5
+    ISTORE 3
+   L10
+    LINENUMBER 46 L10
+   FRAME FULL [java/util/List java/util/ArrayList I I I I] []
+    IINC 4 1
+    GOTO L4
+   L5
+    LINENUMBER 58 L5
+   FRAME FULL [java/util/List java/util/ArrayList I I I] []
+    ILOAD 2
+    LDC -2147483648
+    IF_ICMPNE L14
+   L15
+    LINENUMBER 59 L15
+    ALOAD 1
+    ACONST_NULL
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+    GOTO L16
+   L14
+    LINENUMBER 61 L14
+   FRAME FULL [java/util/List java/util/ArrayList I I I] []
+    ALOAD 1
+    ILOAD 2
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+   L16
+    LINENUMBER 63 L16
+   FRAME FULL [java/util/List java/util/ArrayList I I I] []
+    ILOAD 3
+    LDC 2147483647
+    IF_ICMPNE L17
+   L18
+    LINENUMBER 64 L18
+    ALOAD 1
+    ACONST_NULL
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+    GOTO L19
+   L17
+    LINENUMBER 66 L17
+   FRAME FULL [java/util/List java/util/ArrayList I I I] []
+    ALOAD 1
+    ILOAD 3
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+   L19
+    LINENUMBER 68 L19
+   FRAME FULL [java/util/List java/util/ArrayList I I I] []
+    ALOAD 1
+    ARETURN
+   L20
+    LOCALVARIABLE curr I L7 L10 5
+    LOCALVARIABLE i I L4 L5 4
+    LOCALVARIABLE lst Ljava/util/List; L0 L20 0
+    // signature Ljava/util/List<Ljava/lang/Object;>;
+    // declaration: lst extends java.util.List<java.lang.Object>
+    LOCALVARIABLE result Ljava/util/List; L1 L20 1
+    // signature Ljava/util/List<Ljava/lang/Integer;>;
+    // declaration: result extends java.util.List<java.lang.Integer>
+    LOCALVARIABLE largestNegative I L2 L20 2
+    LOCALVARIABLE smallestPositive I L3 L20 3
+    MAXSTACK = 2
+    MAXLOCALS = 6
+}
+

@@ -1,0 +1,46 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of Digitsum.
+*/
+class DigitsumTest {
+    @Test
+    void testDigitSum_withOnlyUppercaseLetters_shouldReturnCorrectSum() {
+        String input = "AB";
+        int expected = 131;
+        int actual = Digitsum.digitSum(input);
+        assertEquals(expected, actual);
+    }
+    
+    @Test
+        public void testNothing(){
+            Digitsum s = new Digitsum();
+            }
+    @Test
+    public void testDigitSum_EmptyString() {
+        assertEquals(0, Digitsum.digitSum(""));
+    }
+    @Test
+    public void testDigitSum_SingleUpper() {
+        assertEquals(65, Digitsum.digitSum("A"));
+    }
+    @Test
+    public void testDigitSum_SingleLower() {
+        assertEquals(0, Digitsum.digitSum("a"));
+    }
+    @Test
+    public void testDigitSum_MultipleUpper() {
+        assertEquals(198, Digitsum.digitSum("ABC"));
+    }
+    @Test
+    public void testDigitSum_NonEnglish() {
+        assertEquals(0, Digitsum.digitSum("!@#$"));
+    }
+    @Test
+    public void testDigitSum_NullInput() {
+        assertThrows(NullPointerException.class, () -> Digitsum.digitSum(null));
+    }
+                                    
+}

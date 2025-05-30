@@ -1,0 +1,84 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/CanArrange {
+
+  // compiled from: id_135.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 7 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/CanArrange; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  // signature (Ljava/util/List<Ljava/lang/Object;>;)I
+  // declaration: int canArrange(java.util.List<java.lang.Object>)
+  public static canArrange(Ljava/util/List;)I
+   L0
+    LINENUMBER 30 L0
+    ICONST_M1
+    ISTORE 1
+   L1
+    LINENUMBER 31 L1
+    ICONST_0
+    ISTORE 2
+   L2
+   FRAME FULL [java/util/List I I] []
+    ILOAD 2
+    ALOAD 0
+    INVOKEINTERFACE java/util/List.size ()I (itf)
+    IF_ICMPGE L3
+   L4
+    LINENUMBER 32 L4
+    ALOAD 0
+    ILOAD 2
+    INVOKEINTERFACE java/util/List.get (I)Ljava/lang/Object; (itf)
+    INSTANCEOF java/lang/Integer
+    IFEQ L5
+   L6
+    LINENUMBER 33 L6
+    ILOAD 2
+    IFLT L5
+    ALOAD 0
+    ILOAD 2
+    INVOKEINTERFACE java/util/List.get (I)Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/Integer
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    ALOAD 0
+    ILOAD 2
+    ICONST_1
+    ISUB
+    INVOKEINTERFACE java/util/List.get (I)Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/Integer
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    IF_ICMPGE L5
+   L7
+    LINENUMBER 34 L7
+    ILOAD 2
+    ISTORE 1
+   L5
+    LINENUMBER 31 L5
+   FRAME FULL [java/util/List I I] []
+    IINC 2 1
+    GOTO L2
+   L3
+    LINENUMBER 38 L3
+   FRAME FULL [java/util/List I I] []
+    ILOAD 1
+    IRETURN
+   L8
+    LOCALVARIABLE i I L2 L3 2
+    LOCALVARIABLE arr Ljava/util/List; L0 L8 0
+    // signature Ljava/util/List<Ljava/lang/Object;>;
+    // declaration: arr extends java.util.List<java.lang.Object>
+    LOCALVARIABLE max I L1 L8 1
+    MAXSTACK = 4
+    MAXLOCALS = 3
+}
+

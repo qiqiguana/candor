@@ -1,0 +1,114 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Solution0739 {
+
+  // compiled from: id_0739.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 5 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Solution0739; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public dailyTemperatures([I)[I
+   L0
+    LINENUMBER 7 L0
+    ALOAD 1
+    ARRAYLENGTH
+    ISTORE 2
+   L1
+    LINENUMBER 8 L1
+    NEW java/util/ArrayDeque
+    DUP
+    INVOKESPECIAL java/util/ArrayDeque.<init> ()V
+    ASTORE 3
+   L2
+    LINENUMBER 9 L2
+    ILOAD 2
+    NEWARRAY T_INT
+    ASTORE 4
+   L3
+    LINENUMBER 10 L3
+    ILOAD 2
+    ICONST_1
+    IADD
+    ISTORE 5
+   L4
+   FRAME FULL [original/Solution0739 [I I java/util/ArrayDeque [I I] []
+    ILOAD 5
+    IFLT L5
+   L6
+    LINENUMBER 11 L6
+   FRAME FULL [original/Solution0739 [I I java/util/ArrayDeque [I I] []
+    ALOAD 3
+    INVOKEINTERFACE java/util/Deque.isEmpty ()Z (itf)
+    IFNE L7
+    ALOAD 1
+    ALOAD 3
+    INVOKEINTERFACE java/util/Deque.peek ()Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/Integer
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    IALOAD
+    ALOAD 1
+    ILOAD 5
+    IALOAD
+    IF_ICMPGT L7
+   L8
+    LINENUMBER 12 L8
+    ALOAD 3
+    INVOKEINTERFACE java/util/Deque.pop ()Ljava/lang/Object; (itf)
+    POP
+    GOTO L6
+   L7
+    LINENUMBER 14 L7
+   FRAME FULL [original/Solution0739 [I I java/util/ArrayDeque [I I] []
+    ALOAD 3
+    INVOKEINTERFACE java/util/Deque.isEmpty ()Z (itf)
+    IFNE L9
+   L10
+    LINENUMBER 15 L10
+    ALOAD 4
+    ILOAD 5
+    ALOAD 3
+    INVOKEINTERFACE java/util/Deque.peek ()Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/Integer
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    ILOAD 5
+    ISUB
+    IASTORE
+   L9
+    LINENUMBER 17 L9
+   FRAME FULL [original/Solution0739 [I I java/util/ArrayDeque [I I] []
+    ALOAD 3
+    ILOAD 5
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEINTERFACE java/util/Deque.push (Ljava/lang/Object;)V (itf)
+   L11
+    LINENUMBER 10 L11
+    IINC 5 -1
+    GOTO L4
+   L5
+    LINENUMBER 19 L5
+   FRAME FULL [original/Solution0739 [I I java/util/ArrayDeque [I I] []
+    ALOAD 4
+    ARETURN
+   L12
+    LOCALVARIABLE i I L4 L5 5
+    LOCALVARIABLE this Loriginal/Solution0739; L0 L12 0
+    LOCALVARIABLE temperatures [I L0 L12 1
+    LOCALVARIABLE n I L1 L12 2
+    LOCALVARIABLE stk Ljava/util/Deque; L2 L12 3
+    // signature Ljava/util/Deque<Ljava/lang/Integer;>;
+    // declaration: stk extends java.util.Deque<java.lang.Integer>
+    LOCALVARIABLE ans [I L3 L12 4
+    MAXSTACK = 4
+    MAXLOCALS = 6
+}
+

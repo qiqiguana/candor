@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_98.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HumanEvalJava</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_98.java</span></div><h1>id_98.java</h1><pre class="source lang-java linenums">package original;
+
+<span class="nc" id="L3">class CountUpper {</span>
+    /**
+     * * Given a string s, count the number of uppercase vowels in even indices.
+     *
+     * For example:
+     * countUpper('aBCdEf') returns 1
+     * countUpper('abcdefg') returns 0
+     * countUpper('dBBE') returns 0
+     *
+     * &gt; countUpper(&quot;abcdefg&quot;)
+     * 0
+     * &gt; countUpper(&quot;dBBE&quot;)
+     * 0
+     * &gt; countUpper(&quot;&quot;)
+     * 0
+     * &gt; countUpper(&quot;EEEE&quot;)
+     * 2
+     */
+    public static int countUpper(String s) {
+<span class="fc" id="L22">        int result = 0;</span>
+<span class="fc bfc" id="L23" title="All 2 branches covered.">        for (int i = 0; i &lt; s.length(); i++) {</span>
+<span class="fc" id="L24">            char c = s.charAt(i);</span>
+<span class="fc bfc" id="L25" title="All 6 branches covered.">            if (i % 2 == 0 &amp;&amp; Character.isUpperCase(c) &amp;&amp; &quot;AEIOU&quot;.indexOf(c) &gt;= 0) {</span>
+<span class="fc" id="L26">                result += 1;</span>
+            }
+        }
+<span class="fc" id="L29">        return result;</span>
+    }
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

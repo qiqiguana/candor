@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_51.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HumanEvalJava</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_51.java</span></div><h1>id_51.java</h1><pre class="source lang-java linenums">package original;
+
+<span class="fc" id="L3">class RemoveVowels {</span>
+    /**
+     * removeVowels is a function that takes string and returns string without vowels.
+     *
+     * &gt; removeVowels(&quot;abcdef&quot;)
+     * &quot;bcdf&quot;
+     * &gt; removeVowels(&quot;aaaaa&quot;)
+     * &quot;&quot;
+     * &gt; removeVowels(&quot;aaBAA&quot;)
+     * &quot;B&quot;
+     * &gt; removeVowels(&quot;zbcd&quot;)
+     * &quot;zbcd&quot;
+     * &gt; removeVowels(&quot;&quot;)
+     * &quot;&quot;
+     * &gt; removeVowels(&quot;abcdef\nghijklm&quot;)
+     * &quot;bcdf\nghjklm&quot;
+     * &gt; removeVowels(&quot;fedcba&quot;)
+     * &quot;fdcb&quot;
+     * &gt; removeVowels(&quot;eeeee&quot;)
+     * &quot;&quot;
+     * &gt; removeVowels(&quot;acBAA&quot;)
+     * &quot;cB&quot;
+     * &gt; removeVowels(&quot;EcBOO&quot;)
+     * &quot;cB&quot;
+     * &gt; removeVowels(&quot;ybcd&quot;)
+     * &quot;ybcd&quot;
+     */
+    public static String removeVowels(String text) {
+<span class="fc" id="L31">        String result = &quot;&quot;;</span>
+<span class="fc bfc" id="L32" title="All 2 branches covered.">        for (int i = 0; i &lt; text.length(); i++) {</span>
+<span class="fc" id="L33">            char c = text.charAt(i);</span>
+<span class="fc bfc" id="L34" title="All 20 branches covered.">            if (c != 'a' &amp;&amp; c != 'e' &amp;&amp; c != 'i' &amp;&amp; c != 'o' &amp;&amp; c != 'u' &amp;&amp; c != 'A' &amp;&amp; c != 'E' &amp;&amp; c != 'I' &amp;&amp; c != 'O' &amp;&amp; c != 'U') {</span>
+<span class="fc" id="L35">                result += c;</span>
+            }
+        }
+<span class="fc" id="L38">        return result;</span>
+    }
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

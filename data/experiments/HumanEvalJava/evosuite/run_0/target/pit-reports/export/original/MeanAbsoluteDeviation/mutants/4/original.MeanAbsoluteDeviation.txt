@@ -1,0 +1,125 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/MeanAbsoluteDeviation {
+
+  // compiled from: id_4.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 6 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/MeanAbsoluteDeviation; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  // signature (Ljava/util/List<Ljava/lang/Double;>;)Ljava/lang/Double;
+  // declaration: java.lang.Double meanAbsoluteDeviation(java.util.List<java.lang.Double>)
+  public static meanAbsoluteDeviation(Ljava/util/List;)Ljava/lang/Double;
+   L0
+    LINENUMBER 22 L0
+    DCONST_0
+    INVOKESTATIC java/lang/Double.valueOf (D)Ljava/lang/Double;
+    ASTORE 1
+   L1
+    LINENUMBER 23 L1
+    ALOAD 0
+    INVOKEINTERFACE java/util/List.iterator ()Ljava/util/Iterator; (itf)
+    ASTORE 2
+   L2
+   FRAME FULL [java/util/List java/lang/Double java/util/Iterator] []
+    ALOAD 2
+    INVOKEINTERFACE java/util/Iterator.hasNext ()Z (itf)
+    IFEQ L3
+    ALOAD 2
+    INVOKEINTERFACE java/util/Iterator.next ()Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/Double
+    ASTORE 3
+   L4
+    LINENUMBER 24 L4
+    ALOAD 1
+    INVOKEVIRTUAL java/lang/Double.doubleValue ()D
+    ALOAD 3
+    INVOKEVIRTUAL java/lang/Double.doubleValue ()D
+    DADD
+    INVOKESTATIC java/lang/Double.valueOf (D)Ljava/lang/Double;
+    ASTORE 1
+   L5
+    LINENUMBER 25 L5
+    GOTO L2
+   L3
+    LINENUMBER 26 L3
+   FRAME FULL [java/util/List java/lang/Double java/util/Iterator] []
+    ALOAD 1
+    INVOKEVIRTUAL java/lang/Double.doubleValue ()D
+    ALOAD 0
+    INVOKEINTERFACE java/util/List.size ()I (itf)
+    I2D
+    DDIV
+    INVOKESTATIC java/lang/Double.valueOf (D)Ljava/lang/Double;
+    ASTORE 1
+   L6
+    LINENUMBER 27 L6
+    DCONST_0
+    INVOKESTATIC java/lang/Double.valueOf (D)Ljava/lang/Double;
+    ASTORE 2
+   L7
+    LINENUMBER 28 L7
+    ALOAD 0
+    INVOKEINTERFACE java/util/List.iterator ()Ljava/util/Iterator; (itf)
+    ASTORE 3
+   L8
+   FRAME FULL [java/util/List java/lang/Double java/lang/Double java/util/Iterator] []
+    ALOAD 3
+    INVOKEINTERFACE java/util/Iterator.hasNext ()Z (itf)
+    IFEQ L9
+    ALOAD 3
+    INVOKEINTERFACE java/util/Iterator.next ()Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/Double
+    ASTORE 4
+   L10
+    LINENUMBER 29 L10
+    ALOAD 2
+    INVOKEVIRTUAL java/lang/Double.doubleValue ()D
+    ALOAD 4
+    INVOKEVIRTUAL java/lang/Double.doubleValue ()D
+    ALOAD 1
+    INVOKEVIRTUAL java/lang/Double.doubleValue ()D
+    DSUB
+    INVOKESTATIC java/lang/Math.abs (D)D
+    DADD
+    INVOKESTATIC java/lang/Double.valueOf (D)Ljava/lang/Double;
+    ASTORE 2
+   L11
+    LINENUMBER 30 L11
+    GOTO L8
+   L9
+    LINENUMBER 31 L9
+   FRAME FULL [java/util/List java/lang/Double java/lang/Double java/util/Iterator] []
+    ALOAD 2
+    INVOKEVIRTUAL java/lang/Double.doubleValue ()D
+    ALOAD 0
+    INVOKEINTERFACE java/util/List.size ()I (itf)
+    I2D
+    DDIV
+    INVOKESTATIC java/lang/Double.valueOf (D)Ljava/lang/Double;
+    POP
+    DCONST_0
+    INVOKESTATIC java/lang/Double.valueOf (D)Ljava/lang/Double;
+    ARETURN
+   L12
+    LOCALVARIABLE number Ljava/lang/Double; L4 L5 3
+    LOCALVARIABLE number Ljava/lang/Double; L10 L11 4
+    LOCALVARIABLE numbers Ljava/util/List; L0 L12 0
+    // signature Ljava/util/List<Ljava/lang/Double;>;
+    // declaration: numbers extends java.util.List<java.lang.Double>
+    LOCALVARIABLE mean Ljava/lang/Double; L1 L12 1
+    LOCALVARIABLE mad Ljava/lang/Double; L7 L12 2
+    MAXSTACK = 6
+    MAXLOCALS = 5
+}
+

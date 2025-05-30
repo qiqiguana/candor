@@ -1,0 +1,55 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of PrimeLength.
+*/
+class PrimeLengthTest {
+    @Test
+    void testPrimeLength_EmptyString_ReturnsFalse() {
+        // Arrange
+        String input = "";
+        boolean expectedOutput = false;
+
+        // Act
+        boolean actualOutput = PrimeLength.primeLength(input);
+
+        // Assert
+        assertEquals(expectedOutput, actualOutput);
+    }
+    
+    @Test
+        public void testNothing(){
+            PrimeLength s = new PrimeLength();
+            }
+    @Test
+    public void testPrimeLengthWithEmptyString() {
+        assertFalse(PrimeLength.primeLength(""));
+    }
+    @Test
+    public void testPrimeLengthWithSingleCharacterString() {
+        assertFalse(PrimeLength.primeLength("a"));
+    }
+    @Test
+    public void testPrimeLengthWithPrimeLengthString() {
+        assertTrue(PrimeLength.primeLength("hello"));
+    }
+    @Test
+    public void testPrimeLengthWithNonPrimeLengthString() {
+        assertFalse(PrimeLength.primeLength("orange"));
+    }
+    @Test
+    public void testPrimeLengthWithLongString() {
+        assertFalse(PrimeLength.primeLength("aaaaaaaaaaaaaaa"));
+    }
+    @Test
+    public void testPrimeLengthWithPalindromeString() {
+        assertTrue(PrimeLength.primeLength("Madam"));
+    }
+    @Test
+    public void testPrimeLengthWithNonPalindromeString1() {
+        assertTrue(PrimeLength.primeLength("world"));
+    }
+                                    
+}

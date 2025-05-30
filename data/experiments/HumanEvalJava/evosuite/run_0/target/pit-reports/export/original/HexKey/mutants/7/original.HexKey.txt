@@ -1,0 +1,89 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/HexKey {
+
+  // compiled from: id_78.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 4 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/HexKey; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  public static hexKey(Ljava/lang/Object;)I
+   L0
+    LINENUMBER 39 L0
+    ICONST_0
+    ISTORE 1
+   L1
+    LINENUMBER 40 L1
+    ALOAD 0
+    INVOKEVIRTUAL java/lang/Object.toString ()Ljava/lang/String;
+    ASTORE 2
+   L2
+    LINENUMBER 41 L2
+    ICONST_0
+    ISTORE 3
+   L3
+   FRAME FULL [java/lang/Object I java/lang/String I] []
+    ILOAD 3
+    ALOAD 2
+    INVOKEVIRTUAL java/lang/String.length ()I
+    IF_ICMPGE L4
+   L5
+    LINENUMBER 42 L5
+    ALOAD 2
+    ILOAD 3
+    INVOKEVIRTUAL java/lang/String.charAt (I)C
+    ISTORE 4
+   L6
+    LINENUMBER 43 L6
+    ILOAD 4
+    BIPUSH 50
+    IF_ICMPEQ L7
+    ILOAD 4
+    BIPUSH 51
+    IF_ICMPEQ L7
+    ILOAD 4
+    BIPUSH 53
+    IF_ICMPEQ L7
+    ILOAD 4
+    BIPUSH 55
+    IF_ICMPEQ L7
+    ILOAD 4
+    BIPUSH 66
+    IF_ICMPEQ L7
+    ILOAD 4
+    BIPUSH 68
+    IF_ICMPEQ L8
+   L7
+    LINENUMBER 44 L7
+   FRAME FULL [java/lang/Object I java/lang/String I I] []
+    IINC 1 1
+   L8
+    LINENUMBER 41 L8
+   FRAME FULL [java/lang/Object I java/lang/String I I] []
+    IINC 3 1
+    GOTO L3
+   L4
+    LINENUMBER 47 L4
+   FRAME FULL [java/lang/Object I java/lang/String I] []
+    ILOAD 1
+    IRETURN
+   L9
+    LOCALVARIABLE c C L6 L8 4
+    LOCALVARIABLE i I L3 L4 3
+    LOCALVARIABLE num Ljava/lang/Object; L0 L9 0
+    LOCALVARIABLE result I L1 L9 1
+    LOCALVARIABLE hex Ljava/lang/String; L2 L9 2
+    MAXSTACK = 2
+    MAXLOCALS = 5
+}
+

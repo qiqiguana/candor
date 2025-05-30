@@ -1,0 +1,70 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/XOrY {
+
+  // compiled from: id_150.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 3 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/XOrY; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  public static xOrY(III)I
+   L0
+    LINENUMBER 35 L0
+    ILOAD 0
+    ICONST_1
+    IF_ICMPNE L1
+   L2
+    LINENUMBER 36 L2
+    ILOAD 2
+    IRETURN
+   L1
+    LINENUMBER 38 L1
+   FRAME FULL [I I I] []
+    ICONST_2
+    ISTORE 3
+   L3
+   FRAME FULL [I I I I] []
+    ILOAD 3
+    ILOAD 0
+    IF_ICMPGE L4
+   L5
+    LINENUMBER 39 L5
+    ILOAD 0
+    ILOAD 3
+    IREM
+    IFNE L6
+   L7
+    LINENUMBER 40 L7
+    ILOAD 2
+    POP
+    ICONST_0
+    IRETURN
+   L6
+    LINENUMBER 38 L6
+   FRAME FULL [I I I I] []
+    IINC 3 1
+    GOTO L3
+   L4
+    LINENUMBER 43 L4
+   FRAME FULL [I I I I] []
+    ILOAD 1
+    IRETURN
+   L8
+    LOCALVARIABLE i I L3 L4 3
+    LOCALVARIABLE n I L0 L8 0
+    LOCALVARIABLE x I L0 L8 1
+    LOCALVARIABLE y I L0 L8 2
+    MAXSTACK = 2
+    MAXLOCALS = 4
+}
+

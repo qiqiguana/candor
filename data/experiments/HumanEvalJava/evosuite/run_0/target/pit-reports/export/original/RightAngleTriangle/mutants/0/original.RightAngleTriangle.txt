@@ -1,0 +1,130 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/RightAngleTriangle {
+
+  // compiled from: id_157.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 3 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/RightAngleTriangle; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  public static rightAngleTriangle(III)Ljava/lang/Boolean;
+   L0
+    LINENUMBER 37 L0
+    ILOAD 0
+    ILOAD 1
+    IF_ICMPNE L1
+    ILOAD 1
+    ILOAD 2
+    IF_ICMPEQ L1
+    ILOAD 0
+    ILOAD 2
+    IF_ICMPNE L2
+   L1
+    LINENUMBER 38 L1
+   FRAME FULL [I I I] []
+    ICONST_0
+    INVOKESTATIC java/lang/Boolean.valueOf (Z)Ljava/lang/Boolean;
+    ARETURN
+   L2
+    LINENUMBER 40 L2
+   FRAME FULL [I I I] []
+    ILOAD 0
+    ILOAD 1
+    IF_ICMPLE L3
+    ILOAD 0
+    ILOAD 2
+    IF_ICMPLE L3
+   L4
+    LINENUMBER 41 L4
+    ILOAD 0
+    ILOAD 0
+    IMUL
+    ILOAD 1
+    ILOAD 1
+    IMUL
+    ILOAD 2
+    ILOAD 2
+    IMUL
+    IADD
+    IF_ICMPNE L5
+    ICONST_1
+    GOTO L6
+   L5
+   FRAME FULL [I I I] []
+    ICONST_0
+   L6
+   FRAME FULL [I I I] [I]
+    INVOKESTATIC java/lang/Boolean.valueOf (Z)Ljava/lang/Boolean;
+    ARETURN
+   L3
+    LINENUMBER 43 L3
+   FRAME FULL [I I I] []
+    ILOAD 1
+    ILOAD 0
+    IF_ICMPLE L7
+    ILOAD 1
+    ILOAD 2
+    IF_ICMPLE L7
+   L8
+    LINENUMBER 44 L8
+    ILOAD 1
+    ILOAD 1
+    IMUL
+    ILOAD 0
+    ILOAD 0
+    IMUL
+    ILOAD 2
+    ILOAD 2
+    IMUL
+    IADD
+    IF_ICMPNE L9
+    ICONST_1
+    GOTO L10
+   L9
+   FRAME FULL [I I I] []
+    ICONST_0
+   L10
+   FRAME FULL [I I I] [I]
+    INVOKESTATIC java/lang/Boolean.valueOf (Z)Ljava/lang/Boolean;
+    ARETURN
+   L7
+    LINENUMBER 46 L7
+   FRAME FULL [I I I] []
+    ILOAD 2
+    ILOAD 2
+    IMUL
+    ILOAD 0
+    ILOAD 0
+    IMUL
+    ILOAD 1
+    ILOAD 1
+    IMUL
+    IADD
+    IF_ICMPNE L11
+    ICONST_1
+    GOTO L12
+   L11
+   FRAME FULL [I I I] []
+    ICONST_0
+   L12
+   FRAME FULL [I I I] [I]
+    INVOKESTATIC java/lang/Boolean.valueOf (Z)Ljava/lang/Boolean;
+    ARETURN
+   L13
+    LOCALVARIABLE a I L0 L13 0
+    LOCALVARIABLE b I L0 L13 1
+    LOCALVARIABLE c I L0 L13 2
+    MAXSTACK = 4
+    MAXLOCALS = 3
+}
+

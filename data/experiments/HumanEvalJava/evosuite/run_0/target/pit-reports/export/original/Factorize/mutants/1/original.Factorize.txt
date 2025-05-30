@@ -1,0 +1,78 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Factorize {
+
+  // compiled from: id_25.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 7 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Factorize; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  // signature (I)Ljava/util/List<Ljava/lang/Integer;>;
+  // declaration: java.util.List<java.lang.Integer> factorize(int)
+  public static factorize(I)Ljava/util/List;
+   L0
+    LINENUMBER 37 L0
+    NEW java/util/ArrayList
+    DUP
+    INVOKESPECIAL java/util/ArrayList.<init> ()V
+    ASTORE 1
+   L1
+    LINENUMBER 38 L1
+    ICONST_2
+    ISTORE 2
+   L2
+   FRAME FULL [I java/util/ArrayList I] []
+    ILOAD 2
+    ILOAD 0
+    IF_ICMPGE L3
+   L4
+    LINENUMBER 39 L4
+   FRAME FULL [I java/util/ArrayList I] []
+    ILOAD 0
+    ILOAD 2
+    IREM
+    IFNE L5
+   L6
+    LINENUMBER 40 L6
+    ALOAD 1
+    ILOAD 2
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+   L7
+    LINENUMBER 41 L7
+    ILOAD 0
+    ILOAD 2
+    IDIV
+    ISTORE 0
+    GOTO L4
+   L5
+    LINENUMBER 38 L5
+   FRAME FULL [I java/util/ArrayList I] []
+    IINC 2 1
+    GOTO L2
+   L3
+    LINENUMBER 44 L3
+   FRAME FULL [I java/util/ArrayList I] []
+    ALOAD 1
+    ARETURN
+   L8
+    LOCALVARIABLE i I L2 L3 2
+    LOCALVARIABLE n I L0 L8 0
+    LOCALVARIABLE result Ljava/util/List; L1 L8 1
+    // signature Ljava/util/List<Ljava/lang/Integer;>;
+    // declaration: result extends java.util.List<java.lang.Integer>
+    MAXSTACK = 2
+    MAXLOCALS = 3
+}
+

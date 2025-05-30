@@ -1,0 +1,79 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/SmallestChange {
+
+  // compiled from: id_73.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 7 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/SmallestChange; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  // signature (Ljava/util/List<Ljava/lang/Integer;>;)I
+  // declaration: int smallestChange(java.util.List<java.lang.Integer>)
+  public static smallestChange(Ljava/util/List;)I
+   L0
+    LINENUMBER 36 L0
+    ICONST_0
+    ISTORE 1
+   L1
+    LINENUMBER 37 L1
+    ICONST_0
+    ISTORE 2
+   L2
+    LINENUMBER 38 L2
+    ALOAD 0
+    INVOKEINTERFACE java/util/List.size ()I (itf)
+    ICONST_1
+    ISUB
+    ISTORE 3
+   L3
+    LINENUMBER 39 L3
+   FRAME FULL [java/util/List I I I] []
+    ILOAD 2
+    ILOAD 3
+    IF_ICMPGE L4
+   L5
+    LINENUMBER 40 L5
+    ALOAD 0
+    ILOAD 2
+    INVOKEINTERFACE java/util/List.get (I)Ljava/lang/Object; (itf)
+    ALOAD 0
+    ILOAD 3
+    INVOKEINTERFACE java/util/List.get (I)Ljava/lang/Object; (itf)
+    IF_ACMPEQ L6
+   L7
+    LINENUMBER 41 L7
+    IINC 1 1
+   L6
+    LINENUMBER 43 L6
+   FRAME FULL [java/util/List I I I] []
+    IINC 2 1
+   L8
+    LINENUMBER 44 L8
+    IINC 3 1
+    GOTO L3
+   L4
+    LINENUMBER 46 L4
+   FRAME FULL [java/util/List I I I] []
+    ILOAD 1
+    IRETURN
+   L9
+    LOCALVARIABLE arr Ljava/util/List; L0 L9 0
+    // signature Ljava/util/List<Ljava/lang/Integer;>;
+    // declaration: arr extends java.util.List<java.lang.Integer>
+    LOCALVARIABLE result I L1 L9 1
+    LOCALVARIABLE i I L2 L9 2
+    LOCALVARIABLE j I L3 L9 3
+    MAXSTACK = 3
+    MAXLOCALS = 4
+}
+

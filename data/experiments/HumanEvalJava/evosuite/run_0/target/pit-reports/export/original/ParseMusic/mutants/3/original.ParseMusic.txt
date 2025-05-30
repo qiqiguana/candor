@@ -1,0 +1,118 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/ParseMusic {
+
+  // compiled from: id_17.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 7 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/ParseMusic; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  // signature (Ljava/lang/String;)Ljava/util/List<Ljava/lang/Object;>;
+  // declaration: java.util.List<java.lang.Object> parseMusic(java.lang.String)
+  public static parseMusic(Ljava/lang/String;)Ljava/util/List;
+   L0
+    LINENUMBER 30 L0
+    NEW java/util/ArrayList
+    DUP
+    INVOKESPECIAL java/util/ArrayList.<init> ()V
+    ASTORE 1
+   L1
+    LINENUMBER 31 L1
+    ICONST_0
+    ISTORE 2
+   L2
+   FRAME FULL [java/lang/String java/util/ArrayList I] []
+    ILOAD 2
+    ALOAD 0
+    INVOKEVIRTUAL java/lang/String.length ()I
+    IF_ICMPGE L3
+   L4
+    LINENUMBER 32 L4
+    ALOAD 0
+    ILOAD 2
+    INVOKEVIRTUAL java/lang/String.charAt (I)C
+    BIPUSH 111
+    IF_ICMPNE L5
+   L6
+    LINENUMBER 33 L6
+    ILOAD 2
+    ALOAD 0
+    INVOKEVIRTUAL java/lang/String.length ()I
+    ICONST_1
+    ISUB
+    IF_ICMPGE L7
+    ALOAD 0
+    ILOAD 2
+    ICONST_1
+    ISUB
+    INVOKEVIRTUAL java/lang/String.charAt (I)C
+    BIPUSH 124
+    IF_ICMPNE L7
+   L8
+    LINENUMBER 34 L8
+    ALOAD 1
+    ICONST_2
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+   L9
+    LINENUMBER 35 L9
+    IINC 2 1
+    GOTO L10
+   L7
+    LINENUMBER 37 L7
+   FRAME FULL [java/lang/String java/util/ArrayList I] []
+    ALOAD 1
+    ICONST_4
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+    GOTO L10
+   L5
+    LINENUMBER 39 L5
+   FRAME FULL [java/lang/String java/util/ArrayList I] []
+    ALOAD 0
+    ILOAD 2
+    INVOKEVIRTUAL java/lang/String.charAt (I)C
+    BIPUSH 46
+    IF_ICMPNE L10
+   L11
+    LINENUMBER 40 L11
+    ALOAD 1
+    ICONST_1
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+   L12
+    LINENUMBER 41 L12
+    IINC 2 1
+   L10
+    LINENUMBER 31 L10
+   FRAME FULL [java/lang/String java/util/ArrayList I] []
+    IINC 2 1
+    GOTO L2
+   L3
+    LINENUMBER 44 L3
+   FRAME FULL [java/lang/String java/util/ArrayList I] []
+    ALOAD 1
+    ARETURN
+   L13
+    LOCALVARIABLE i I L2 L3 2
+    LOCALVARIABLE musicString Ljava/lang/String; L0 L13 0
+    LOCALVARIABLE result Ljava/util/List; L1 L13 1
+    // signature Ljava/util/List<Ljava/lang/Object;>;
+    // declaration: result extends java.util.List<java.lang.Object>
+    MAXSTACK = 3
+    MAXLOCALS = 3
+}
+

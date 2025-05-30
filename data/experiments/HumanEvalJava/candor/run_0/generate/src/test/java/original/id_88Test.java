@@ -1,0 +1,123 @@
+package original;
+
+import java.util.ArrayList;
+
+import java.util.Collections;
+
+import java.util.Comparator;
+
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of SortArray1.
+*/
+class SortArray1Test {
+    @Test
+void testSortArray_SumIsOdd_ReturnsSortedInAscendingOrder() {
+        List<Object> array = new ArrayList<>();
+        array.add(2);
+        array.add(4);
+        array.add(3);
+        array.add(0);
+        array.add(1);
+        array.add(5);
+
+        List<Object> expectedArray = new ArrayList<>();
+        expectedArray.add(0);
+        expectedArray.add(1);
+        expectedArray.add(2);
+        expectedArray.add(3);
+        expectedArray.add(4);
+        expectedArray.add(5);
+
+        assertEquals(expectedArray, SortArray1.sortArray(array));
+    }
+    
+    @Test
+        public void testNothing(){
+            SortArray1 s = new SortArray1();
+            }
+    @Test
+    public void testEmptyArray() {
+    	List<Object> input = new ArrayList<>();
+    	List<Object> expected = new ArrayList<>();
+    	assertEquals(expected, SortArray1.sortArray(input));
+    }
+    @Test
+    public void testSingleElementArray() {
+    	List<Object> input = new ArrayList<>();
+    	input.add(1);
+    	List<Object> expected = new ArrayList<>();
+    	expected.add(1);
+    	assertEquals(expected, SortArray1.sortArray(input));
+    }
+    @Test
+    public void testLargeNumbers() {
+    	List<Object> input = new ArrayList<>();
+    	input.add(15);
+    	input.add(42);
+    	input.add(87);
+    	input.add(32);
+    	input.add(11);
+    	input.add(0);
+    	List<Object> expected = new ArrayList<>();
+    	expected.add(0);
+    	expected.add(11);
+    	expected.add(15);
+    	expected.add(32);
+    	expected.add(42);
+    	expected.add(87);
+    	assertEquals(expected, SortArray1.sortArray(input));
+    }
+    @Test
+    public void testTwoElements() {
+    	List<Object> input = new ArrayList<>();
+    	input.add(2);
+    	input.add(1);
+    	List<Object> expected = new ArrayList<>();
+    	expected.add(1);
+    	expected.add(2);
+    	assertEquals(expected, SortArray1.sortArray(input));
+    }
+    @Test
+    public void testNegativeNumbers2() {
+        List<Object> input = new ArrayList<>();
+        input.add(-2);
+        input.add(-1);
+        input.add(0);
+        input.add(1);
+        input.add(2);
+        List<Object> expected = new ArrayList<>();
+        expected.add(2);
+        expected.add(1);
+        expected.add(0);
+        expected.add(-1);
+        expected.add(-2);
+        assertEquals(expected, SortArray1.sortArray(input));
+    }
+    @Test
+    public void testDuplicateNumbersAscending() {
+        List<Object> input = new ArrayList<>();
+        input.add(2);
+        input.add(2);
+        input.add(3);
+        input.add(3);
+        input.add(4);
+        input.add(4);
+        List<Object> expected = new ArrayList<>();
+        expected.add(2);
+        expected.add(2);
+        expected.add(3);
+        expected.add(3);
+        expected.add(4);
+        expected.add(4);
+        int sum = (Integer) input.get(0) + (Integer) input.get(input.size() - 1);
+        if(sum % 2 == 0) {
+            Collections.reverse(expected);
+        }
+        assertEquals(expected, SortArray1.sortArray(input));
+    }
+                                    
+}

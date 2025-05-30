@@ -1,0 +1,123 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Pluck {
+
+  // compiled from: id_68.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 8 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Pluck; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  // signature (Ljava/util/List<Ljava/lang/Object;>;)Ljava/util/List<Ljava/lang/Object;>;
+  // declaration: java.util.List<java.lang.Object> pluck(java.util.List<java.lang.Object>)
+  public static pluck(Ljava/util/List;)Ljava/util/List;
+   L0
+    LINENUMBER 56 L0
+    NEW java/util/ArrayList
+    DUP
+    INVOKESPECIAL java/util/ArrayList.<init> ()V
+    ASTORE 1
+   L1
+    LINENUMBER 57 L1
+    LDC 2147483647
+    ISTORE 2
+   L2
+    LINENUMBER 58 L2
+    ICONST_M1
+    ISTORE 3
+   L3
+    LINENUMBER 59 L3
+    ICONST_0
+    ISTORE 4
+   L4
+   FRAME FULL [java/util/List java/util/ArrayList I I I] []
+    ILOAD 4
+    ALOAD 0
+    INVOKEINTERFACE java/util/List.size ()I (itf)
+    IF_ICMPGE L5
+   L6
+    LINENUMBER 60 L6
+    ALOAD 0
+    ILOAD 4
+    INVOKEINTERFACE java/util/List.get (I)Ljava/lang/Object; (itf)
+    INSTANCEOF java/lang/Integer
+    IFEQ L7
+   L8
+    LINENUMBER 61 L8
+    ALOAD 0
+    ILOAD 4
+    INVOKEINTERFACE java/util/List.get (I)Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/Integer
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    ISTORE 5
+   L9
+    LINENUMBER 62 L9
+    ILOAD 5
+    ICONST_2
+    IREM
+    IFEQ L7
+    ILOAD 5
+    ILOAD 2
+    IF_ICMPGE L7
+   L10
+    LINENUMBER 63 L10
+    ILOAD 5
+    ISTORE 2
+   L11
+    LINENUMBER 64 L11
+    ILOAD 4
+    ISTORE 3
+   L7
+    LINENUMBER 59 L7
+   FRAME FULL [java/util/List java/util/ArrayList I I I] []
+    IINC 4 1
+    GOTO L4
+   L5
+    LINENUMBER 68 L5
+   FRAME FULL [java/util/List java/util/ArrayList I I I] []
+    ILOAD 3
+    ICONST_M1
+    IF_ICMPEQ L12
+   L13
+    LINENUMBER 69 L13
+    ALOAD 1
+    ILOAD 2
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+   L14
+    LINENUMBER 70 L14
+    ALOAD 1
+    ILOAD 3
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+   L12
+    LINENUMBER 72 L12
+   FRAME FULL [java/util/List java/util/ArrayList I I I] []
+    ALOAD 1
+    ARETURN
+   L15
+    LOCALVARIABLE value I L9 L7 5
+    LOCALVARIABLE i I L4 L5 4
+    LOCALVARIABLE arr Ljava/util/List; L0 L15 0
+    // signature Ljava/util/List<Ljava/lang/Object;>;
+    // declaration: arr extends java.util.List<java.lang.Object>
+    LOCALVARIABLE result Ljava/util/List; L1 L15 1
+    // signature Ljava/util/List<Ljava/lang/Object;>;
+    // declaration: result extends java.util.List<java.lang.Object>
+    LOCALVARIABLE min I L2 L15 2
+    LOCALVARIABLE index I L3 L15 3
+    MAXSTACK = 2
+    MAXLOCALS = 6
+}
+

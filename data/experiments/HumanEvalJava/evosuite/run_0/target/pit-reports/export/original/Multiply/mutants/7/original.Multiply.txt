@@ -1,0 +1,53 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Multiply {
+
+  // compiled from: id_97.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 4 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Multiply; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  public static multiply(II)I
+   L0
+    LINENUMBER 33 L0
+    ILOAD 0
+    IFGE L1
+    ILOAD 0
+    INEG
+    ISTORE 0
+   L1
+    LINENUMBER 34 L1
+   FRAME FULL [I I] []
+    ILOAD 1
+    IFGE L2
+    ILOAD 1
+    INEG
+    ISTORE 1
+   L2
+    LINENUMBER 35 L2
+   FRAME FULL [I I] []
+    ILOAD 0
+    BIPUSH 10
+    IREM
+    ILOAD 1
+    BIPUSH 10
+    IREM
+    IDIV
+    IRETURN
+   L3
+    LOCALVARIABLE a I L0 L3 0
+    LOCALVARIABLE b I L0 L3 1
+    MAXSTACK = 3
+    MAXLOCALS = 2
+}
+

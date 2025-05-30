@@ -1,0 +1,78 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/PrimeLength {
+
+  // compiled from: id_82.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 3 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/PrimeLength; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  public static primeLength(Ljava/lang/String;)Ljava/lang/Boolean;
+   L0
+    LINENUMBER 47 L0
+    ALOAD 0
+    INVOKEVIRTUAL java/lang/String.length ()I
+    ISTORE 1
+   L1
+    LINENUMBER 48 L1
+    ILOAD 1
+    IFEQ L2
+    ILOAD 1
+    ICONST_1
+    IF_ICMPNE L3
+   L2
+    LINENUMBER 49 L2
+   FRAME FULL [java/lang/String I] []
+    ICONST_0
+    INVOKESTATIC java/lang/Boolean.valueOf (Z)Ljava/lang/Boolean;
+    ARETURN
+   L3
+    LINENUMBER 51 L3
+   FRAME FULL [java/lang/String I] []
+    ICONST_2
+    ISTORE 2
+   L4
+   FRAME FULL [java/lang/String I I] []
+    ILOAD 2
+    ILOAD 1
+    IF_ICMPGE L5
+   L6
+    LINENUMBER 52 L6
+    ILOAD 1
+    ILOAD 2
+    IMUL
+    IFNE L7
+   L8
+    LINENUMBER 53 L8
+    ICONST_0
+    INVOKESTATIC java/lang/Boolean.valueOf (Z)Ljava/lang/Boolean;
+    ARETURN
+   L7
+    LINENUMBER 51 L7
+   FRAME FULL [java/lang/String I I] []
+    IINC 2 1
+    GOTO L4
+   L5
+    LINENUMBER 56 L5
+   FRAME FULL [java/lang/String I I] []
+    ICONST_1
+    INVOKESTATIC java/lang/Boolean.valueOf (Z)Ljava/lang/Boolean;
+    ARETURN
+   L9
+    LOCALVARIABLE i I L4 L5 2
+    LOCALVARIABLE string Ljava/lang/String; L0 L9 0
+    LOCALVARIABLE length I L1 L9 1
+    MAXSTACK = 2
+    MAXLOCALS = 3
+}
+

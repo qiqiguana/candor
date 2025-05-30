@@ -1,0 +1,249 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/NumericalLetterGrade {
+
+  // compiled from: id_81.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 8 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/NumericalLetterGrade; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  // signature (Ljava/util/List<Ljava/lang/Number;>;)Ljava/util/List<Ljava/lang/String;>;
+  // declaration: java.util.List<java.lang.String> numericalLetterGrade(java.util.List<java.lang.Number>)
+  public static numericalLetterGrade(Ljava/util/List;)Ljava/util/List;
+   L0
+    LINENUMBER 48 L0
+    NEW java/util/ArrayList
+    DUP
+    INVOKESPECIAL java/util/ArrayList.<init> ()V
+    ASTORE 1
+   L1
+    LINENUMBER 49 L1
+    ALOAD 0
+    INVOKEINTERFACE java/util/List.iterator ()Ljava/util/Iterator; (itf)
+    ASTORE 2
+   L2
+   FRAME FULL [java/util/List java/util/ArrayList java/util/Iterator] []
+    ALOAD 2
+    INVOKEINTERFACE java/util/Iterator.hasNext ()Z (itf)
+    IFEQ L3
+    ALOAD 2
+    INVOKEINTERFACE java/util/Iterator.next ()Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/Number
+    ASTORE 3
+   L4
+    LINENUMBER 50 L4
+    ALOAD 3
+    INVOKEVIRTUAL java/lang/Number.doubleValue ()D
+    LDC 4.0D
+    DCMPL
+    IFLT L5
+   L6
+    LINENUMBER 51 L6
+    ALOAD 1
+    LDC "A+"
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+    GOTO L7
+   L5
+    LINENUMBER 52 L5
+   FRAME FULL [java/util/List java/util/ArrayList java/util/Iterator java/lang/Number] []
+    ALOAD 3
+    INVOKEVIRTUAL java/lang/Number.doubleValue ()D
+    LDC 3.7D
+    DCMPL
+    IFLE L8
+   L9
+    LINENUMBER 53 L9
+    ALOAD 1
+    LDC "A"
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+    GOTO L7
+   L8
+    LINENUMBER 54 L8
+   FRAME FULL [java/util/List java/util/ArrayList java/util/Iterator java/lang/Number] []
+    ALOAD 3
+    INVOKEVIRTUAL java/lang/Number.doubleValue ()D
+    LDC 3.3D
+    DCMPL
+    IFLE L10
+   L11
+    LINENUMBER 55 L11
+    ALOAD 1
+    LDC "A-"
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+    GOTO L7
+   L10
+    LINENUMBER 56 L10
+   FRAME FULL [java/util/List java/util/ArrayList java/util/Iterator java/lang/Number] []
+    ALOAD 3
+    INVOKEVIRTUAL java/lang/Number.doubleValue ()D
+    LDC 3.0D
+    DCMPL
+    IFLE L12
+   L13
+    LINENUMBER 57 L13
+    ALOAD 1
+    LDC "B+"
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+    GOTO L7
+   L12
+    LINENUMBER 58 L12
+   FRAME FULL [java/util/List java/util/ArrayList java/util/Iterator java/lang/Number] []
+    ALOAD 3
+    INVOKEVIRTUAL java/lang/Number.doubleValue ()D
+    LDC 2.7D
+    DCMPL
+    IFLT L14
+   L15
+    LINENUMBER 59 L15
+    ALOAD 1
+    LDC "B"
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+    GOTO L7
+   L14
+    LINENUMBER 60 L14
+   FRAME FULL [java/util/List java/util/ArrayList java/util/Iterator java/lang/Number] []
+    ALOAD 3
+    INVOKEVIRTUAL java/lang/Number.doubleValue ()D
+    LDC 2.3D
+    DCMPL
+    IFLE L16
+   L17
+    LINENUMBER 61 L17
+    ALOAD 1
+    LDC "B-"
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+    GOTO L7
+   L16
+    LINENUMBER 62 L16
+   FRAME FULL [java/util/List java/util/ArrayList java/util/Iterator java/lang/Number] []
+    ALOAD 3
+    INVOKEVIRTUAL java/lang/Number.doubleValue ()D
+    LDC 2.0D
+    DCMPL
+    IFLE L18
+   L19
+    LINENUMBER 63 L19
+    ALOAD 1
+    LDC "C+"
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+    GOTO L7
+   L18
+    LINENUMBER 64 L18
+   FRAME FULL [java/util/List java/util/ArrayList java/util/Iterator java/lang/Number] []
+    ALOAD 3
+    INVOKEVIRTUAL java/lang/Number.doubleValue ()D
+    LDC 1.7D
+    DCMPL
+    IFLE L20
+   L21
+    LINENUMBER 65 L21
+    ALOAD 1
+    LDC "C"
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+    GOTO L7
+   L20
+    LINENUMBER 66 L20
+   FRAME FULL [java/util/List java/util/ArrayList java/util/Iterator java/lang/Number] []
+    ALOAD 3
+    INVOKEVIRTUAL java/lang/Number.doubleValue ()D
+    LDC 1.3D
+    DCMPL
+    IFLE L22
+   L23
+    LINENUMBER 67 L23
+    ALOAD 1
+    LDC "C-"
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+    GOTO L7
+   L22
+    LINENUMBER 68 L22
+   FRAME FULL [java/util/List java/util/ArrayList java/util/Iterator java/lang/Number] []
+    ALOAD 3
+    INVOKEVIRTUAL java/lang/Number.doubleValue ()D
+    DCONST_1
+    DCMPL
+    IFLE L24
+   L25
+    LINENUMBER 69 L25
+    ALOAD 1
+    LDC "D+"
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+    GOTO L7
+   L24
+    LINENUMBER 70 L24
+   FRAME FULL [java/util/List java/util/ArrayList java/util/Iterator java/lang/Number] []
+    ALOAD 3
+    INVOKEVIRTUAL java/lang/Number.doubleValue ()D
+    LDC 0.7D
+    DCMPL
+    IFLE L26
+   L27
+    LINENUMBER 71 L27
+    ALOAD 1
+    LDC "D"
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+    GOTO L7
+   L26
+    LINENUMBER 72 L26
+   FRAME FULL [java/util/List java/util/ArrayList java/util/Iterator java/lang/Number] []
+    ALOAD 3
+    INVOKEVIRTUAL java/lang/Number.doubleValue ()D
+    DCONST_0
+    DCMPL
+    IFLE L28
+   L29
+    LINENUMBER 73 L29
+    ALOAD 1
+    LDC "D-"
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+    GOTO L7
+   L28
+    LINENUMBER 75 L28
+   FRAME FULL [java/util/List java/util/ArrayList java/util/Iterator java/lang/Number] []
+    ALOAD 1
+    LDC "E"
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+   L7
+    LINENUMBER 77 L7
+   FRAME FULL [java/util/List java/util/ArrayList java/util/Iterator java/lang/Number] []
+    GOTO L2
+   L3
+    LINENUMBER 78 L3
+   FRAME FULL [java/util/List java/util/ArrayList java/util/Iterator] []
+    ALOAD 1
+    ARETURN
+   L30
+    LOCALVARIABLE grade Ljava/lang/Number; L4 L7 3
+    LOCALVARIABLE grades Ljava/util/List; L0 L30 0
+    // signature Ljava/util/List<Ljava/lang/Number;>;
+    // declaration: grades extends java.util.List<java.lang.Number>
+    LOCALVARIABLE result Ljava/util/List; L1 L30 1
+    // signature Ljava/util/List<Ljava/lang/String;>;
+    // declaration: result extends java.util.List<java.lang.String>
+    MAXSTACK = 4
+    MAXLOCALS = 4
+}
+

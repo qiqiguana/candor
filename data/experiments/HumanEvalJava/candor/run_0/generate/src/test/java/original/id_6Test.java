@@ -1,0 +1,69 @@
+package original;
+
+import java.util.Arrays;
+import java.util.ArrayList;
+
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of ParseNestedParens.
+*/
+class ParseNestedParensTest {
+    @Test
+    void testParseNestedParens_SingleGroup_ReturnsCorrectDepth() {
+        // Arrange
+        String input = "(()())";
+        int expected = 2;
+
+        // Act
+        List<Integer> result = ParseNestedParens.parseNestedParens(input);
+
+        // Assert
+        assertEquals(expected, result.get(0));
+    }
+    
+    @Test
+        public void testNothing(){
+            ParseNestedParens s = new ParseNestedParens();
+            }
+    @Test
+    public void EmptyInputTest() {
+        String input = "";
+        List<Integer> expected = new ArrayList<>();
+        assertEquals(expected, ParseNestedParens.parseNestedParens(input));
+    }
+    @Test
+    public void SingleOpenParenthesisTest() {
+        String input = "(";
+        List<Integer> expected = new ArrayList<>();
+        assertEquals(expected, ParseNestedParens.parseNestedParens(input));
+    }
+    @Test
+    public void SingleCloseParenthesisTest() {
+        String input = ")";
+        List<Integer> expected = new ArrayList<>();
+        assertEquals(expected, ParseNestedParens.parseNestedParens(input));
+    }
+    @Test
+    public void SingleGroupTest1() {
+        String input = "(())";
+        List<Integer> expected = Arrays.asList(2);
+        assertEquals(expected, ParseNestedParens.parseNestedParens(input));
+    }
+    @Test
+    public void MultipleGroupsTest1() {
+        String input = "() (()) ((()))";
+        List<Integer> expected = java.util.Arrays.asList(1, 2, 3);
+        assertEquals(expected, ParseNestedParens.parseNestedParens(input));
+    }
+    @Test
+    public void IgnoreNonParenthesisTest() {
+        String input = "(hello)";
+        List<Integer> expected = new ArrayList<>();
+        expected.add(1);
+        assertEquals(expected, ParseNestedParens.parseNestedParens(input));
+    }
+                                    
+}

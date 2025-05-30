@@ -1,0 +1,140 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Common {
+
+  // compiled from: id_58.java
+  NESTMEMBER original/Common$1
+  // access flags 0x0
+  INNERCLASS original/Common$1 null null
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 7 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Common; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  // signature (Ljava/util/List<Ljava/lang/Integer;>;Ljava/util/List<Ljava/lang/Object;>;)Ljava/util/List<Ljava/lang/Object;>;
+  // declaration: java.util.List<java.lang.Object> common(java.util.List<java.lang.Integer>, java.util.List<java.lang.Object>)
+  public static common(Ljava/util/List;Ljava/util/List;)Ljava/util/List;
+   L0
+    LINENUMBER 21 L0
+    NEW java/util/HashSet
+    DUP
+    INVOKESPECIAL java/util/HashSet.<init> ()V
+    ASTORE 2
+   L1
+    LINENUMBER 22 L1
+    ALOAD 0
+    INVOKEINTERFACE java/util/List.iterator ()Ljava/util/Iterator; (itf)
+    ASTORE 3
+   L2
+   FRAME FULL [java/util/List java/util/List java/util/Set java/util/Iterator] []
+    ALOAD 3
+    INVOKEINTERFACE java/util/Iterator.hasNext ()Z (itf)
+    IFEQ L3
+    ALOAD 3
+    INVOKEINTERFACE java/util/Iterator.next ()Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/Integer
+    ASTORE 4
+   L4
+    LINENUMBER 23 L4
+    ALOAD 2
+    ALOAD 4
+    INVOKEINTERFACE java/util/Set.add (Ljava/lang/Object;)Z (itf)
+    POP
+   L5
+    LINENUMBER 24 L5
+    GOTO L2
+   L3
+    LINENUMBER 25 L3
+   FRAME FULL [java/util/List java/util/List java/util/Set] []
+    NEW java/util/ArrayList
+    DUP
+    INVOKESPECIAL java/util/ArrayList.<init> ()V
+    ASTORE 3
+   L6
+    LINENUMBER 26 L6
+    ALOAD 1
+    INVOKEINTERFACE java/util/List.iterator ()Ljava/util/Iterator; (itf)
+    ASTORE 4
+   L7
+   FRAME FULL [java/util/List java/util/List java/util/Set java/util/List java/util/Iterator] []
+    ALOAD 4
+    INVOKEINTERFACE java/util/Iterator.hasNext ()Z (itf)
+    IFEQ L8
+    ALOAD 4
+    INVOKEINTERFACE java/util/Iterator.next ()Ljava/lang/Object; (itf)
+    ASTORE 5
+   L9
+    LINENUMBER 27 L9
+    ALOAD 5
+    INSTANCEOF java/lang/Integer
+    IFEQ L10
+   L11
+    LINENUMBER 28 L11
+    ALOAD 5
+    CHECKCAST java/lang/Integer
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    ISTORE 6
+   L12
+    LINENUMBER 29 L12
+    ALOAD 2
+    ILOAD 6
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEINTERFACE java/util/Set.contains (Ljava/lang/Object;)Z (itf)
+    IFEQ L10
+    ALOAD 3
+    ILOAD 6
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEINTERFACE java/util/List.contains (Ljava/lang/Object;)Z (itf)
+    IFNE L10
+   L13
+    LINENUMBER 30 L13
+    ALOAD 3
+    ILOAD 6
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+   L10
+    LINENUMBER 33 L10
+   FRAME FULL [java/util/List java/util/List java/util/Set java/util/List java/util/Iterator] []
+    GOTO L7
+   L8
+    LINENUMBER 34 L8
+   FRAME FULL [java/util/List java/util/List java/util/Set java/util/List] []
+    ALOAD 3
+    NEW original/Common$1
+    DUP
+    INVOKESPECIAL original/Common$1.<init> ()V
+    INVOKESTATIC java/util/Collections.sort (Ljava/util/List;Ljava/util/Comparator;)V
+   L14
+    LINENUMBER 42 L14
+    ALOAD 3
+    ARETURN
+   L15
+    LOCALVARIABLE value Ljava/lang/Integer; L4 L5 4
+    LOCALVARIABLE i I L12 L10 6
+    LOCALVARIABLE value Ljava/lang/Object; L9 L10 5
+    LOCALVARIABLE l1 Ljava/util/List; L0 L15 0
+    // signature Ljava/util/List<Ljava/lang/Integer;>;
+    // declaration: l1 extends java.util.List<java.lang.Integer>
+    LOCALVARIABLE l2 Ljava/util/List; L0 L15 1
+    // signature Ljava/util/List<Ljava/lang/Object;>;
+    // declaration: l2 extends java.util.List<java.lang.Object>
+    LOCALVARIABLE set Ljava/util/Set; L1 L15 2
+    // signature Ljava/util/Set<Ljava/lang/Integer;>;
+    // declaration: set extends java.util.Set<java.lang.Integer>
+    LOCALVARIABLE result Ljava/util/List; L6 L15 3
+    // signature Ljava/util/List<Ljava/lang/Object;>;
+    // declaration: result extends java.util.List<java.lang.Object>
+    MAXSTACK = 3
+    MAXLOCALS = 7
+}
+

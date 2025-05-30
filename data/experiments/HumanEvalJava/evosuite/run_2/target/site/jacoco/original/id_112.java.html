@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_112.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HumanEvalJava</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_112.java</span></div><h1>id_112.java</h1><pre class="source lang-java linenums">package original;
+
+
+import java.util.Arrays;
+import java.util.List;
+
+
+<span class="fc" id="L8">class ReverseDelete {</span>
+    /**
+     * Task
+     * We are given two strings s and c, you have to deleted all the characters in s that are equal to any character in c
+     * then check if the result string is palindrome.
+     * A string is called palindrome if it reads the same backward as forward.
+     * You should return a tuple containing the result string and True/False for the check.
+     * Example
+     * For s = &quot;abcde&quot;, c = &quot;ae&quot;, the result should be ('bcd',False)
+     * For s = &quot;abcdef&quot;, c = &quot;b&quot;  the result should be ('acdef',False)
+     * For s = &quot;abcdedcba&quot;, c = &quot;ab&quot;, the result should be ('cdedc',True)
+     *
+     * &gt; reverseDelete(&quot;abcde&quot;, &quot;ae&quot;)
+     * [&quot;bcd&quot;, false]
+     * &gt; reverseDelete(&quot;abcdef&quot;, &quot;b&quot;)
+     * [&quot;acdef&quot;, false]
+     * &gt; reverseDelete(&quot;abcdedcba&quot;, &quot;ab&quot;)
+     * [&quot;cdedc&quot;, true]
+     * &gt; reverseDelete(&quot;dwik&quot;, &quot;w&quot;)
+     * [&quot;dik&quot;, false]
+     * &gt; reverseDelete(&quot;a&quot;, &quot;a&quot;)
+     * [&quot;&quot;, true]
+     * &gt; reverseDelete(&quot;abcdedcba&quot;, &quot;&quot;)
+     * [&quot;abcdedcba&quot;, true]
+     * &gt; reverseDelete(&quot;abcdedcba&quot;, &quot;v&quot;)
+     * [&quot;abcdedcba&quot;, true]
+     * &gt; reverseDelete(&quot;vabba&quot;, &quot;v&quot;)
+     * [&quot;abba&quot;, true]
+     * &gt; reverseDelete(&quot;mamma&quot;, &quot;mia&quot;)
+     * [&quot;&quot;, true]
+     */
+    public static List&lt;Object&gt; reverseDelete(String s, String c) {
+<span class="fc" id="L40">        String result = &quot;&quot;;</span>
+<span class="fc bfc" id="L41" title="All 2 branches covered.">        for (int i = 0; i &lt; s.length(); i++) {</span>
+<span class="fc bfc" id="L42" title="All 2 branches covered.">            if (c.indexOf(s.charAt(i)) == -1) {</span>
+<span class="fc" id="L43">                result += s.charAt(i);</span>
+            }
+        }
+<span class="fc" id="L46">        boolean isPalindrome = true;</span>
+<span class="fc bfc" id="L47" title="All 2 branches covered.">        for (int i = 0; i &lt; result.length() / 2; i++) {</span>
+<span class="fc bfc" id="L48" title="All 2 branches covered.">            if (result.charAt(i) != result.charAt(result.length() - i - 1)) {</span>
+<span class="fc" id="L49">                isPalindrome = false;</span>
+<span class="fc" id="L50">                break;</span>
+            }
+        }
+<span class="fc" id="L53">        return Arrays.asList(result, isPalindrome);</span>
+    }
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

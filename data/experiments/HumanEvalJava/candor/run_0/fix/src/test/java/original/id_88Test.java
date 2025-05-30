@@ -1,0 +1,151 @@
+package original;
+
+import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of SortArray1.
+*/
+class SortArray1Test {
+    @Test
+    void testSortArray_oddSum() {
+        List<Object> array = new ArrayList<>(List.of(2, 4, 3, 0, 1, 5));
+        List<Object> expected = List.of(0, 1, 2, 3, 4, 5);
+        assertEquals(expected, SortArray1.sortArray(array));
+    }
+    @Test
+    public void testEmptyArray() {
+        List<Object> input = new ArrayList<>();
+        assertEquals(Collections.emptyList(), SortArray1.sortArray(input));
+    }
+    
+    @Test
+        public void testNothing(){
+            SortArray1 s = new SortArray1();
+            }
+    @Test
+    public void TestEmptyArray() {
+        List<Object> array = new ArrayList<>();
+        assertEquals(new ArrayList<>(), SortArray1.sortArray(array));
+    }
+    @Test
+    public void testSortArrayEmptyList() {
+        List<Object> input = new ArrayList<>();
+        List<Object> expectedOutput = new ArrayList<>();
+        assertEquals(expectedOutput, SortArray1.sortArray(input));
+    }
+    @Test
+    public void sortArray_negativeNumbers_1() {
+        List<Object> input = new ArrayList<>(Arrays.asList(-5, -2, 0, 2, 4));
+        List<Object> expected = new ArrayList<>(Arrays.asList(-5, -2, 0, 2, 4));
+        assertEquals(expected, SortArray1.sortArray(input));
+    }
+    @Test
+    public void testModuloCorrectImplementation() {
+        int result = (int) original.SortArray1.sortArray(Collections.singletonList(17)).get(0) % 5;
+        assertEquals(2, result);
+    }
+    @Test
+    public void TestOddSumAscendingOrder1() {
+    List<Object> array = new ArrayList<>();
+    array.add(2);
+    array.add(4);
+    array.add(3);
+    array.add(0);
+    array.add(1);
+    array.add(5);
+    assertEquals(java.util.Arrays.asList(0, 1, 2, 3, 4, 5), SortArray1.sortArray(array));
+    }
+ 
+    @Test
+    public void testLargeArray() {
+        List<Object> input = new ArrayList<>();
+        for (int i = 0; i < 1000000; i++) {
+            input.add(1000000 - i);
+        }
+        assertEquals(Arrays.asList(1, 2, 3), SortArray1.sortArray(input).subList(0, 3));
+    }
+    @Test
+    public void testSortingAlgorithm() {
+        List<Object> input = Arrays.asList(5, 3, 8, 4, 2);
+        assertEquals(Arrays.asList(2, 3, 4, 5, 8), SortArray1.sortArray(input));
+    }
+    @Test
+    public void testNullInput() {
+        assertThrows(NullPointerException.class, () -> SortArray1.sortArray(null));
+    }
+    @Test
+    public void testInputWithNullElements() {
+        List<Object> input = Arrays.asList(1, null, 3);
+        assertThrows(NullPointerException.class, () -> SortArray1.sortArray(input));
+    }
+    @Test
+    public void testModuloCorrected() {
+        int a = 10;
+        int b = 2;
+        assertEquals(0, a % b);
+    }
+    @Test
+    public void testSortArray1StaticCall() {
+        assertDoesNotThrow(() -> SortArray1.sortArray(new ArrayList<>()));
+    }
+    @Test
+    public void testSortArray1InstanceFixed(){
+        // Run mvn clean before running this test
+        SortArray1 sortArray = new SortArray1();
+        assertNotNull(sortArray);
+    }
+    @Test
+    public void testEmptyArray2() {
+        List<Object> input = new ArrayList<>();
+        assertEquals(Collections.emptyList(), SortArray1.sortArray(input));
+    }
+    @Test
+    public void testSingleElementArray() {
+        List<Object> input = new ArrayList<>();
+        input.add(5);
+        assertEquals(input, SortArray1.sortArray(input));
+    }
+    @Test
+    public void testArrayWithNegativeNumbers() {
+        List<Object> input = new ArrayList<>();
+        input.add(-2);
+        input.add(-1);
+        input.add(0);
+        input.add(1);
+        assertEquals(input, SortArray1.sortArray(input));
+    }
+ 
+    @Test
+    public void testMultipleElementsDescendingOrderFixed1() {
+        SortArray1 s = new SortArray1();
+        List<Object> inputList = new ArrayList<>();
+        inputList.add(21);
+        inputList.add(14);
+        inputList.add(23);
+        inputList.add(11);
+        List<Object> expectedList = new ArrayList<>();
+        expectedList.add(23);
+        expectedList.add(21);
+        expectedList.add(14);
+        expectedList.add(11);
+        assertEquals(expectedList, SortArray1.sortArray(inputList));
+    }
+    @Test
+    public void testSortArray1Instance(){
+    	SortArray1 s = new SortArray1();
+    	assertNotNull(s);
+    }
+    @Test
+    public void testSortArrayEmpty() {
+        List<Object> input = new ArrayList<>();
+        List<Object> expected = new ArrayList<>();
+        assertEquals(expected, SortArray1.sortArray(input));
+    }
+                                    
+}

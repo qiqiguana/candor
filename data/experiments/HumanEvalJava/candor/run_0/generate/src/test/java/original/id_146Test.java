@@ -1,0 +1,75 @@
+package original;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of Specialfilter.
+*/
+class SpecialfilterTest {
+
+    @Test
+    void testSpecialFilter_OddFirstAndLastDigits_ReturnsExpectedResult() {
+        List<Object> numbers = Arrays.asList(15, -73, 14, -15);
+        int expectedResult = 1;
+        int actualResult = Specialfilter.specialfilter(numbers);
+        assertEquals(expectedResult, actualResult);
+    }
+    
+    @Test
+        public void testNothing(){
+            Specialfilter s = new Specialfilter();
+            }
+    @Test
+    public void testSpecialFilter_SingleElementLessThan10() {
+        List<Object> input = Arrays.asList(5);
+        int expected = 0;
+        assertEquals(expected, Specialfilter.specialfilter(input));
+    }
+    @Test
+    public void testSpecialFilter_SingleElementGreaterThan10_OddDigits() {
+        List<Object> input = Arrays.asList(15);
+        int expected = 1;
+        assertEquals(expected, Specialfilter.specialfilter(input));
+    }
+    @Test
+    public void testSpecialFilter_MultipleElements() {
+        List<Object> input = Arrays.asList(33, -2, -3, 45, 21, 109);
+        int expected = 2;
+        assertEquals(expected, Specialfilter.specialfilter(input));
+    }
+    @Test
+    public void testSpecialFilter_AllNegativeNumbers() {
+        List<Object> input = Arrays.asList(-1, -2, -3);
+        int expected = 0;
+        assertEquals(expected, Specialfilter.specialfilter(input));
+    }
+    @Test
+    public void testSpecialFilter_NonIntegerValues() {
+        List<Object> input = Arrays.asList(1, "a", 2);
+        assertThrows(RuntimeException.class, () -> Specialfilter.specialfilter(input));
+    }
+    @Test
+    public void testSpecialFilter_NullValues() {
+        List<Object> input = Arrays.asList(1, null, 2);
+        assertThrows(RuntimeException.class, () -> Specialfilter.specialfilter(input));
+    }
+    @Test
+    public void testSpecialFilter_NullInput() {
+        List<Object> input = null;
+        assertThrows(RuntimeException.class, () -> Specialfilter.specialfilter(input));
+    }
+    @Test
+    public void testSpecialFilter_EmptyList() {
+        List<Object> input = new ArrayList<>();
+        int expected = 0;
+        assertEquals(expected, Specialfilter.specialfilter(input));
+    }
+                                    
+
+}

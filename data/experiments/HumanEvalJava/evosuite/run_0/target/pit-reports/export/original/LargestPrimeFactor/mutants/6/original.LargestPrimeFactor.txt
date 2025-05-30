@@ -1,0 +1,72 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/LargestPrimeFactor {
+
+  // compiled from: id_59.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 4 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/LargestPrimeFactor; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  public static largestPrimeFactor(I)I
+   L0
+    LINENUMBER 22 L0
+    ICONST_0
+    ISTORE 1
+   L1
+    LINENUMBER 23 L1
+    ICONST_2
+    ISTORE 2
+   L2
+   FRAME FULL [I I I] []
+    ILOAD 2
+    ILOAD 0
+    IF_ICMPGT L3
+   L4
+    LINENUMBER 24 L4
+    ILOAD 0
+    ILOAD 2
+    IREM
+    IFNE L5
+   L6
+    LINENUMBER 25 L6
+    ILOAD 2
+    ISTORE 1
+   L7
+    LINENUMBER 26 L7
+    ILOAD 0
+    ILOAD 2
+    IDIV
+    ISTORE 0
+   L8
+    LINENUMBER 27 L8
+    IINC 2 -1
+   L5
+    LINENUMBER 23 L5
+   FRAME FULL [I I I] []
+    IINC 2 1
+    GOTO L2
+   L3
+    LINENUMBER 30 L3
+   FRAME FULL [I I I] []
+    ILOAD 1
+    POP
+    ICONST_0
+    IRETURN
+   L9
+    LOCALVARIABLE i I L2 L3 2
+    LOCALVARIABLE n I L0 L9 0
+    LOCALVARIABLE max I L1 L9 1
+    MAXSTACK = 2
+    MAXLOCALS = 3
+}
+

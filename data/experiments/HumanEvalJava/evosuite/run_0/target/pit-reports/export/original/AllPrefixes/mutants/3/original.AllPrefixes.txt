@@ -1,0 +1,70 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/AllPrefixes {
+
+  // compiled from: id_14.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 8 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/AllPrefixes; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  // signature (Ljava/lang/String;)Ljava/util/List<Ljava/lang/Object;>;
+  // declaration: java.util.List<java.lang.Object> allPrefixes(java.lang.String)
+  public static allPrefixes(Ljava/lang/String;)Ljava/util/List;
+   L0
+    LINENUMBER 22 L0
+    NEW java/util/ArrayList
+    DUP
+    INVOKESPECIAL java/util/ArrayList.<init> ()V
+    ASTORE 1
+   L1
+    LINENUMBER 23 L1
+    ICONST_0
+    ISTORE 2
+   L2
+   FRAME FULL [java/lang/String java/util/ArrayList I] []
+    ILOAD 2
+    ALOAD 0
+    INVOKEVIRTUAL java/lang/String.length ()I
+    IF_ICMPGE L3
+   L4
+    LINENUMBER 24 L4
+    ALOAD 1
+    ALOAD 0
+    ICONST_0
+    ILOAD 2
+    ICONST_1
+    IADD
+    INVOKEVIRTUAL java/lang/String.substring (II)Ljava/lang/String;
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+   L5
+    LINENUMBER 23 L5
+    IINC 2 1
+    GOTO L2
+   L3
+    LINENUMBER 26 L3
+   FRAME FULL [java/lang/String java/util/ArrayList I] []
+    ALOAD 1
+    POP
+    INVOKESTATIC java/util/Collections.emptyList ()Ljava/util/List;
+    ARETURN
+   L6
+    LOCALVARIABLE i I L2 L3 2
+    LOCALVARIABLE string Ljava/lang/String; L0 L6 0
+    LOCALVARIABLE result Ljava/util/List; L1 L6 1
+    // signature Ljava/util/List<Ljava/lang/Object;>;
+    // declaration: result extends java.util.List<java.lang.Object>
+    MAXSTACK = 5
+    MAXLOCALS = 3
+}
+

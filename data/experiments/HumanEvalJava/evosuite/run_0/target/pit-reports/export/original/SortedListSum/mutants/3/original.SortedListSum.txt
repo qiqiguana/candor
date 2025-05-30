@@ -1,0 +1,88 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/SortedListSum {
+
+  // compiled from: id_149.java
+  NESTMEMBER original/SortedListSum$1
+  // access flags 0x0
+  INNERCLASS original/SortedListSum$1 null null
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 10 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/SortedListSum; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  // signature (Ljava/util/List<Ljava/lang/String;>;)Ljava/util/List<Ljava/lang/Object;>;
+  // declaration: java.util.List<java.lang.Object> sortedListSum(java.util.List<java.lang.String>)
+  public static sortedListSum(Ljava/util/List;)Ljava/util/List;
+   L0
+    LINENUMBER 42 L0
+    NEW java/util/ArrayList
+    DUP
+    INVOKESPECIAL java/util/ArrayList.<init> ()V
+    ASTORE 1
+   L1
+    LINENUMBER 43 L1
+    ICONST_0
+    ISTORE 2
+   L2
+   FRAME FULL [java/util/List java/util/ArrayList I] []
+    ILOAD 2
+    ALOAD 0
+    INVOKEINTERFACE java/util/List.size ()I (itf)
+    IF_ICMPGE L3
+   L4
+    LINENUMBER 44 L4
+    ALOAD 0
+    ILOAD 2
+    INVOKEINTERFACE java/util/List.get (I)Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/String
+    INVOKEVIRTUAL java/lang/String.length ()I
+    ICONST_2
+    IREM
+    IFEQ L5
+   L6
+    LINENUMBER 45 L6
+    ALOAD 1
+    ALOAD 0
+    ILOAD 2
+    INVOKEINTERFACE java/util/List.get (I)Ljava/lang/Object; (itf)
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+   L5
+    LINENUMBER 43 L5
+   FRAME FULL [java/util/List java/util/ArrayList I] []
+    IINC 2 1
+    GOTO L2
+   L3
+    LINENUMBER 48 L3
+   FRAME FULL [java/util/List java/util/ArrayList I] []
+    ALOAD 1
+    NEW original/SortedListSum$1
+    DUP
+    INVOKESPECIAL original/SortedListSum$1.<init> ()V
+    INVOKESTATIC java/util/Collections.sort (Ljava/util/List;Ljava/util/Comparator;)V
+   L7
+    LINENUMBER 58 L7
+    ALOAD 1
+    ARETURN
+   L8
+    LOCALVARIABLE i I L2 L3 2
+    LOCALVARIABLE lst Ljava/util/List; L0 L8 0
+    // signature Ljava/util/List<Ljava/lang/String;>;
+    // declaration: lst extends java.util.List<java.lang.String>
+    LOCALVARIABLE result Ljava/util/List; L1 L8 1
+    // signature Ljava/util/List<Ljava/lang/Object;>;
+    // declaration: result extends java.util.List<java.lang.Object>
+    MAXSTACK = 3
+    MAXLOCALS = 3
+}
+

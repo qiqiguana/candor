@@ -1,0 +1,286 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Solution1345 {
+
+  // compiled from: id_1345.java
+  // access flags 0x19
+  public final static INNERCLASS java/lang/invoke/MethodHandles$Lookup java/lang/invoke/MethodHandles Lookup
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 9 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Solution1345; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public minJumps([I)I
+   L0
+    LINENUMBER 11 L0
+    NEW java/util/HashMap
+    DUP
+    INVOKESPECIAL java/util/HashMap.<init> ()V
+    ASTORE 2
+   L1
+    LINENUMBER 12 L1
+    ALOAD 1
+    ARRAYLENGTH
+    ISTORE 3
+   L2
+    LINENUMBER 13 L2
+    ICONST_0
+    ISTORE 4
+   L3
+   FRAME FULL [original/Solution1345 [I java/util/Map I I] []
+    ILOAD 4
+    ILOAD 3
+    IF_ICMPGE L4
+   L5
+    LINENUMBER 14 L5
+    ALOAD 2
+    ALOAD 1
+    ILOAD 4
+    IALOAD
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEDYNAMIC apply()Ljava/util/function/Function; [
+      // handle kind 0x6 : INVOKESTATIC
+      java/lang/invoke/LambdaMetafactory.metafactory(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;
+      // arguments:
+      (Ljava/lang/Object;)Ljava/lang/Object;, 
+      // handle kind 0x6 : INVOKESTATIC
+      original/Solution1345.lambda$minJumps$0(Ljava/lang/Integer;)Ljava/util/List;, 
+      (Ljava/lang/Integer;)Ljava/util/List;
+    ]
+    INVOKEINTERFACE java/util/Map.computeIfAbsent (Ljava/lang/Object;Ljava/util/function/Function;)Ljava/lang/Object; (itf)
+    CHECKCAST java/util/List
+    ILOAD 4
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+   L6
+    LINENUMBER 13 L6
+    IINC 4 1
+    GOTO L3
+   L4
+    LINENUMBER 16 L4
+   FRAME FULL [original/Solution1345 [I java/util/Map I] []
+    ILOAD 3
+    NEWARRAY T_BOOLEAN
+    ASTORE 4
+   L7
+    LINENUMBER 17 L7
+    NEW java/util/ArrayDeque
+    DUP
+    INVOKESPECIAL java/util/ArrayDeque.<init> ()V
+    ASTORE 5
+   L8
+    LINENUMBER 18 L8
+    ALOAD 5
+    ICONST_0
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEINTERFACE java/util/Deque.offer (Ljava/lang/Object;)Z (itf)
+    POP
+   L9
+    LINENUMBER 19 L9
+    ALOAD 4
+    ICONST_0
+    ICONST_1
+    BASTORE
+   L10
+    LINENUMBER 20 L10
+    ICONST_0
+    ISTORE 6
+   L11
+    LINENUMBER 21 L11
+   FRAME FULL [original/Solution1345 [I java/util/Map I [Z java/util/Deque I] []
+    ALOAD 5
+    INVOKEINTERFACE java/util/Deque.size ()I (itf)
+    ISTORE 7
+   L12
+   FRAME FULL [original/Solution1345 [I java/util/Map I [Z java/util/Deque I I] []
+    ILOAD 7
+    IFLE L13
+   L14
+    LINENUMBER 22 L14
+    ALOAD 5
+    INVOKEINTERFACE java/util/Deque.poll ()Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/Integer
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    ISTORE 8
+   L15
+    LINENUMBER 23 L15
+    ILOAD 8
+    ILOAD 3
+    ICONST_1
+    ISUB
+    IF_ICMPNE L16
+   L17
+    LINENUMBER 24 L17
+    ILOAD 6
+    IRETURN
+   L16
+    LINENUMBER 26 L16
+   FRAME FULL [original/Solution1345 [I java/util/Map I [Z java/util/Deque I I I] []
+    ALOAD 2
+    ALOAD 1
+    ILOAD 8
+    IALOAD
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEINTERFACE java/util/Map.get (Ljava/lang/Object;)Ljava/lang/Object; (itf)
+    CHECKCAST java/util/List
+    INVOKEINTERFACE java/util/List.iterator ()Ljava/util/Iterator; (itf)
+    ASTORE 9
+   L18
+   FRAME FULL [original/Solution1345 [I java/util/Map I [Z java/util/Deque I I I java/util/Iterator] []
+    ALOAD 9
+    INVOKEINTERFACE java/util/Iterator.hasNext ()Z (itf)
+    IFEQ L19
+    ALOAD 9
+    INVOKEINTERFACE java/util/Iterator.next ()Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/Integer
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    ISTORE 10
+   L20
+    LINENUMBER 27 L20
+    ALOAD 4
+    ILOAD 10
+    BALOAD
+    IFNE L21
+   L22
+    LINENUMBER 28 L22
+    ALOAD 4
+    ILOAD 10
+    ICONST_1
+    BASTORE
+   L23
+    LINENUMBER 29 L23
+    ALOAD 5
+    ILOAD 10
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEINTERFACE java/util/Deque.offer (Ljava/lang/Object;)Z (itf)
+    POP
+   L21
+    LINENUMBER 31 L21
+   FRAME FULL [original/Solution1345 [I java/util/Map I [Z java/util/Deque I I I java/util/Iterator] []
+    GOTO L18
+   L19
+    LINENUMBER 32 L19
+   FRAME FULL [original/Solution1345 [I java/util/Map I [Z java/util/Deque I I I] []
+    ALOAD 2
+    ALOAD 1
+    ILOAD 8
+    IALOAD
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEINTERFACE java/util/Map.get (Ljava/lang/Object;)Ljava/lang/Object; (itf)
+    CHECKCAST java/util/List
+    INVOKEINTERFACE java/util/List.clear ()V (itf)
+   L24
+    LINENUMBER 33 L24
+    ICONST_2
+    NEWARRAY T_INT
+    DUP
+    ICONST_0
+    ILOAD 8
+    ICONST_1
+    ISUB
+    IASTORE
+    DUP
+    ICONST_1
+    ILOAD 8
+    ICONST_1
+    IADD
+    IASTORE
+    ASTORE 9
+    ALOAD 9
+    ARRAYLENGTH
+    ISTORE 10
+    ICONST_0
+    ISTORE 11
+   L25
+   FRAME FULL [original/Solution1345 [I java/util/Map I [Z java/util/Deque I I I [I I I] []
+    ILOAD 11
+    ILOAD 10
+    IF_ICMPGE L26
+    ALOAD 9
+    ILOAD 11
+    IALOAD
+    ISTORE 12
+   L27
+    LINENUMBER 34 L27
+    ICONST_0
+    ILOAD 12
+    IF_ICMPGT L28
+    ILOAD 12
+    ILOAD 3
+    IF_ICMPGE L28
+    ALOAD 4
+    ILOAD 12
+    BALOAD
+    IFNE L28
+   L29
+    LINENUMBER 35 L29
+    ALOAD 4
+    ILOAD 12
+    ICONST_1
+    BASTORE
+   L30
+    LINENUMBER 36 L30
+    ALOAD 5
+    ILOAD 12
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEINTERFACE java/util/Deque.offer (Ljava/lang/Object;)Z (itf)
+    POP
+   L28
+    LINENUMBER 33 L28
+   FRAME FULL [original/Solution1345 [I java/util/Map I [Z java/util/Deque I I I [I I I] []
+    IINC 11 1
+    GOTO L25
+   L26
+    LINENUMBER 21 L26
+   FRAME FULL [original/Solution1345 [I java/util/Map I [Z java/util/Deque I I] []
+    IINC 7 -1
+    GOTO L12
+   L13
+    LINENUMBER 20 L13
+   FRAME FULL [original/Solution1345 [I java/util/Map I [Z java/util/Deque I] []
+    IINC 6 1
+    GOTO L11
+   L31
+    LOCALVARIABLE i I L3 L4 4
+    LOCALVARIABLE j I L20 L21 10
+    LOCALVARIABLE j I L27 L28 12
+    LOCALVARIABLE i I L15 L26 8
+    LOCALVARIABLE k I L12 L13 7
+    LOCALVARIABLE ans I L11 L31 6
+    LOCALVARIABLE this Loriginal/Solution1345; L0 L31 0
+    LOCALVARIABLE arr [I L0 L31 1
+    LOCALVARIABLE g Ljava/util/Map; L1 L31 2
+    // signature Ljava/util/Map<Ljava/lang/Integer;Ljava/util/List<Ljava/lang/Integer;>;>;
+    // declaration: g extends java.util.Map<java.lang.Integer, java.util.List<java.lang.Integer>>
+    LOCALVARIABLE n I L2 L31 3
+    LOCALVARIABLE vis [Z L7 L31 4
+    LOCALVARIABLE q Ljava/util/Deque; L8 L31 5
+    // signature Ljava/util/Deque<Ljava/lang/Integer;>;
+    // declaration: q extends java.util.Deque<java.lang.Integer>
+    MAXSTACK = 5
+    MAXLOCALS = 13
+
+  // access flags 0x100A
+  private static synthetic lambda$minJumps$0(Ljava/lang/Integer;)Ljava/util/List;
+   L0
+    LINENUMBER 14 L0
+    NEW java/util/ArrayList
+    DUP
+    INVOKESPECIAL java/util/ArrayList.<init> ()V
+    ARETURN
+   L1
+    LOCALVARIABLE k Ljava/lang/Integer; L0 L1 0
+    MAXSTACK = 2
+    MAXLOCALS = 1
+}
+

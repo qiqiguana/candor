@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_141.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HumanEvalJava</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_141.java</span></div><h1>id_141.java</h1><pre class="source lang-java linenums">package original;
+
+import java.util.Arrays;
+
+<span class="fc" id="L5">class FileNameCheck {</span>
+    /**
+     * Create a function which takes a string representing a file's name, and returns
+     * 'Yes' if the file's name is valid, and returns 'No' otherwise.
+     * A file's name is considered to be valid if and only if all the following conditions
+     * are met:
+     * - There should not be more than three digits ('0'-'9') in the file's name.
+     * - The file's name contains exactly one dot '.'
+     * - The substring before the dot should not be empty, and it starts with a letter from
+     * the latin alphabet ('a'-'z' and 'A'-'Z').
+     * - The substring after the dot should be one of these: ['txt', 'exe', 'dll']
+     * Examples:
+     * fileNameCheck(&quot;example.txt&quot;) # =&gt; 'Yes'
+     * fileNameCheck(&quot;1example.dll&quot;) # =&gt; 'No' (the name should start with a latin alphabet letter)
+     *
+     * &gt; fileNameCheck(&quot;example.txt&quot;)
+     * &quot;Yes&quot;
+     * &gt; fileNameCheck(&quot;1example.dll&quot;)
+     * &quot;No&quot;
+     * &gt; fileNameCheck(&quot;s1sdf3.asd&quot;)
+     * &quot;No&quot;
+     * &gt; fileNameCheck(&quot;K.dll&quot;)
+     * &quot;Yes&quot;
+     * &gt; fileNameCheck(&quot;MY16FILE3.exe&quot;)
+     * &quot;Yes&quot;
+     * &gt; fileNameCheck(&quot;His12FILE94.exe&quot;)
+     * &quot;No&quot;
+     * &gt; fileNameCheck(&quot;_Y.txt&quot;)
+     * &quot;No&quot;
+     * &gt; fileNameCheck(&quot;?aREYA.exe&quot;)
+     * &quot;No&quot;
+     * &gt; fileNameCheck(&quot;/this_is_valid.dll&quot;)
+     * &quot;No&quot;
+     * &gt; fileNameCheck(&quot;this_is_valid.wow&quot;)
+     * &quot;No&quot;
+     * &gt; fileNameCheck(&quot;this_is_valid.txt&quot;)
+     * &quot;Yes&quot;
+     * &gt; fileNameCheck(&quot;this_is_valid.txtexe&quot;)
+     * &quot;No&quot;
+     * &gt; fileNameCheck(&quot;#this2_i4s_5valid.ten&quot;)
+     * &quot;No&quot;
+     * &gt; fileNameCheck(&quot;@this1_is6_valid.exe&quot;)
+     * &quot;No&quot;
+     * &gt; fileNameCheck(&quot;this_is_12valid.6exe4.txt&quot;)
+     * &quot;No&quot;
+     * &gt; fileNameCheck(&quot;all.exe.txt&quot;)
+     * &quot;No&quot;
+     * &gt; fileNameCheck(&quot;I563_No.exe&quot;)
+     * &quot;Yes&quot;
+     * &gt; fileNameCheck(&quot;Is3youfault.txt&quot;)
+     * &quot;Yes&quot;
+     * &gt; fileNameCheck(&quot;no_one#knows.dll&quot;)
+     * &quot;Yes&quot;
+     * &gt; fileNameCheck(&quot;1I563_Yes3.exe&quot;)
+     * &quot;No&quot;
+     * &gt; fileNameCheck(&quot;I563_Yes3.txtt&quot;)
+     * &quot;No&quot;
+     * &gt; fileNameCheck(&quot;final..txt&quot;)
+     * &quot;No&quot;
+     * &gt; fileNameCheck(&quot;final132&quot;)
+     * &quot;No&quot;
+     * &gt; fileNameCheck(&quot;_f4indsartal132.&quot;)
+     * &quot;No&quot;
+     * &gt; fileNameCheck(&quot;.txt&quot;)
+     * &quot;No&quot;
+     * &gt; fileNameCheck(&quot;s.&quot;)
+     * &quot;No&quot;
+     */
+    public static String fileNameCheck(String fileName) {
+<span class="fc" id="L74">        String[] suf = {&quot;txt&quot;, &quot;exe&quot;, &quot;dll&quot;};</span>
+<span class="fc" id="L75">        String[] lst = fileName.split(&quot;\\.&quot;);</span>
+<span class="fc bfc" id="L76" title="All 2 branches covered.">        if (lst.length != 2) {</span>
+<span class="fc" id="L77">            return &quot;No&quot;;</span>
+        }
+<span class="fc bfc" id="L79" title="All 2 branches covered.">        if (!Arrays.asList(suf).contains(lst[1])) {</span>
+<span class="fc" id="L80">            return &quot;No&quot;;</span>
+        }
+<span class="fc bfc" id="L82" title="All 2 branches covered.">        if (lst[0].length() == 0) {</span>
+<span class="fc" id="L83">            return &quot;No&quot;;</span>
+        }
+<span class="fc bfc" id="L85" title="All 2 branches covered.">        if (!Character.isLetter(lst[0].charAt(0))) {</span>
+<span class="fc" id="L86">            return &quot;No&quot;;</span>
+        }
+<span class="fc" id="L88">        int t = 0;</span>
+<span class="fc bfc" id="L89" title="All 2 branches covered.">        for (int i = 0; i &lt; lst[0].length(); i++) {</span>
+<span class="fc bfc" id="L90" title="All 2 branches covered.">            if (Character.isDigit(lst[0].charAt(i))) {</span>
+<span class="fc" id="L91">                t++;</span>
+            }
+        }
+<span class="fc bfc" id="L94" title="All 2 branches covered.">        if (t &gt; 3) {</span>
+<span class="fc" id="L95">            return &quot;No&quot;;</span>
+        }
+<span class="fc" id="L97">        return &quot;Yes&quot;;</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

@@ -1,0 +1,65 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/ChooseNum {
+
+  // compiled from: id_102.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 4 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/ChooseNum; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  public static chooseNum(II)I
+   L0
+    LINENUMBER 32 L0
+    ICONST_M1
+    ISTORE 2
+   L1
+    LINENUMBER 33 L1
+    ILOAD 0
+    ISTORE 3
+   L2
+   FRAME FULL [I I I I] []
+    ILOAD 3
+    ILOAD 1
+    IF_ICMPGT L3
+   L4
+    LINENUMBER 34 L4
+    ILOAD 3
+    ICONST_2
+    IREM
+    IFNE L5
+    ILOAD 3
+    ILOAD 2
+    IF_ICMPLE L5
+   L6
+    LINENUMBER 35 L6
+    ILOAD 3
+    ISTORE 2
+   L5
+    LINENUMBER 33 L5
+   FRAME FULL [I I I I] []
+    IINC 3 1
+    GOTO L2
+   L3
+    LINENUMBER 38 L3
+   FRAME FULL [I I I] []
+    ILOAD 2
+    IRETURN
+   L7
+    LOCALVARIABLE i I L2 L3 3
+    LOCALVARIABLE x I L0 L7 0
+    LOCALVARIABLE y I L0 L7 1
+    LOCALVARIABLE max I L1 L7 2
+    MAXSTACK = 2
+    MAXLOCALS = 4
+}
+

@@ -1,0 +1,392 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Solution2503 {
+
+  // compiled from: id_2503.java
+  // access flags 0x19
+  public final static INNERCLASS java/lang/invoke/MethodHandles$Lookup java/lang/invoke/MethodHandles Lookup
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 6 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Solution2503; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public maxPoints([[I[I)[I
+   L0
+    LINENUMBER 8 L0
+    ALOAD 2
+    ARRAYLENGTH
+    ISTORE 3
+   L1
+    LINENUMBER 9 L1
+    ILOAD 3
+    ICONST_2
+    MULTIANEWARRAY [[I 2
+    ASTORE 4
+   L2
+    LINENUMBER 10 L2
+    ICONST_0
+    ISTORE 5
+   L3
+   FRAME FULL [original/Solution2503 [[I [I I [[I I] []
+    ILOAD 5
+    ILOAD 3
+    IF_ICMPGE L4
+   L5
+    LINENUMBER 11 L5
+    ALOAD 4
+    ILOAD 5
+    ICONST_2
+    NEWARRAY T_INT
+    DUP
+    ICONST_0
+    ALOAD 2
+    ILOAD 5
+    IALOAD
+    IASTORE
+    DUP
+    ICONST_1
+    ILOAD 5
+    IASTORE
+    AASTORE
+   L6
+    LINENUMBER 10 L6
+    IINC 5 1
+    GOTO L3
+   L4
+    LINENUMBER 13 L4
+   FRAME FULL [original/Solution2503 [[I [I I [[I I] []
+    ALOAD 4
+    INVOKEDYNAMIC compare()Ljava/util/Comparator; [
+      // handle kind 0x6 : INVOKESTATIC
+      java/lang/invoke/LambdaMetafactory.metafactory(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;
+      // arguments:
+      (Ljava/lang/Object;Ljava/lang/Object;)I, 
+      // handle kind 0x6 : INVOKESTATIC
+      original/Solution2503.lambda$maxPoints$0([I[I)I, 
+      ([I[I)I
+    ]
+    INVOKESTATIC java/util/Arrays.sort ([Ljava/lang/Object;Ljava/util/Comparator;)V
+   L7
+    LINENUMBER 14 L7
+    ILOAD 3
+    NEWARRAY T_INT
+    ASTORE 5
+   L8
+    LINENUMBER 15 L8
+    ALOAD 1
+    ARRAYLENGTH
+    ISTORE 6
+   L9
+    ALOAD 1
+    ICONST_0
+    AALOAD
+    ARRAYLENGTH
+    ISTORE 7
+   L10
+    LINENUMBER 16 L10
+    ILOAD 6
+    ILOAD 7
+    MULTIANEWARRAY [[Z 2
+    ASTORE 8
+   L11
+    LINENUMBER 17 L11
+    ALOAD 8
+    ICONST_0
+    AALOAD
+    ICONST_0
+    ICONST_1
+    BASTORE
+   L12
+    LINENUMBER 18 L12
+    NEW java/util/PriorityQueue
+    DUP
+    INVOKEDYNAMIC compare()Ljava/util/Comparator; [
+      // handle kind 0x6 : INVOKESTATIC
+      java/lang/invoke/LambdaMetafactory.metafactory(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;
+      // arguments:
+      (Ljava/lang/Object;Ljava/lang/Object;)I, 
+      // handle kind 0x6 : INVOKESTATIC
+      original/Solution2503.lambda$maxPoints$1([I[I)I, 
+      ([I[I)I
+    ]
+    INVOKESPECIAL java/util/PriorityQueue.<init> (Ljava/util/Comparator;)V
+    ASTORE 9
+   L13
+    LINENUMBER 19 L13
+    ALOAD 9
+    ICONST_3
+    NEWARRAY T_INT
+    DUP
+    ICONST_0
+    ALOAD 1
+    ICONST_0
+    AALOAD
+    ICONST_0
+    IALOAD
+    IASTORE
+    DUP
+    ICONST_1
+    ICONST_0
+    IASTORE
+    DUP
+    ICONST_2
+    ICONST_0
+    IASTORE
+    INVOKEVIRTUAL java/util/PriorityQueue.offer (Ljava/lang/Object;)Z
+    POP
+   L14
+    LINENUMBER 20 L14
+    ICONST_5
+    NEWARRAY T_INT
+    DUP
+    ICONST_0
+    ICONST_M1
+    IASTORE
+    DUP
+    ICONST_1
+    ICONST_0
+    IASTORE
+    DUP
+    ICONST_2
+    ICONST_1
+    IASTORE
+    DUP
+    ICONST_3
+    ICONST_0
+    IASTORE
+    DUP
+    ICONST_4
+    ICONST_M1
+    IASTORE
+    ASTORE 10
+   L15
+    LINENUMBER 21 L15
+    ICONST_0
+    ISTORE 11
+   L16
+    LINENUMBER 22 L16
+    ALOAD 4
+    ASTORE 12
+    ALOAD 12
+    ARRAYLENGTH
+    ISTORE 13
+    ICONST_0
+    ISTORE 14
+   L17
+   FRAME FULL [original/Solution2503 [[I [I I [[I [I I I [[Z java/util/PriorityQueue [I I [[I I I] []
+    ILOAD 14
+    ILOAD 13
+    IF_ICMPGE L18
+    ALOAD 12
+    ILOAD 14
+    AALOAD
+    ASTORE 15
+   L19
+    LINENUMBER 23 L19
+    ALOAD 15
+    ICONST_0
+    IALOAD
+    ISTORE 16
+   L20
+    LINENUMBER 24 L20
+    ALOAD 15
+    ICONST_1
+    IALOAD
+    ISTORE 3
+   L21
+    LINENUMBER 25 L21
+   FRAME FULL [original/Solution2503 [[I [I I [[I [I I I [[Z java/util/PriorityQueue [I I [[I I I [I I] []
+    ALOAD 9
+    INVOKEVIRTUAL java/util/PriorityQueue.isEmpty ()Z
+    IFNE L22
+    ALOAD 9
+    INVOKEVIRTUAL java/util/PriorityQueue.peek ()Ljava/lang/Object;
+    CHECKCAST [I
+    ICONST_0
+    IALOAD
+    ILOAD 16
+    IF_ICMPGE L22
+   L23
+    LINENUMBER 26 L23
+    ALOAD 9
+    INVOKEVIRTUAL java/util/PriorityQueue.poll ()Ljava/lang/Object;
+    CHECKCAST [I
+    ASTORE 17
+   L24
+    LINENUMBER 27 L24
+    IINC 11 -1
+   L25
+    LINENUMBER 28 L25
+    ICONST_0
+    ISTORE 18
+   L26
+   FRAME FULL [original/Solution2503 [[I [I I [[I [I I I [[Z java/util/PriorityQueue [I I [[I I I [I I [I I] []
+    ILOAD 18
+    ICONST_4
+    IF_ICMPGE L27
+   L28
+    LINENUMBER 29 L28
+    ALOAD 17
+    ICONST_1
+    IALOAD
+    ALOAD 10
+    ILOAD 18
+    IALOAD
+    IADD
+    ISTORE 19
+   L29
+    ALOAD 17
+    ICONST_2
+    IALOAD
+    ALOAD 10
+    ILOAD 18
+    ICONST_1
+    IADD
+    IALOAD
+    IADD
+    ISTORE 20
+   L30
+    LINENUMBER 30 L30
+    ILOAD 19
+    IFLT L31
+    ILOAD 19
+    ILOAD 6
+    IF_ICMPGE L31
+    ILOAD 20
+    IFLT L31
+    ILOAD 20
+    ILOAD 7
+    IF_ICMPGE L31
+    ALOAD 8
+    ILOAD 19
+    AALOAD
+    ILOAD 20
+    BALOAD
+    IFNE L31
+   L32
+    LINENUMBER 31 L32
+    ALOAD 8
+    ILOAD 19
+    AALOAD
+    ILOAD 20
+    ICONST_1
+    BASTORE
+   L33
+    LINENUMBER 32 L33
+    ALOAD 9
+    ICONST_3
+    NEWARRAY T_INT
+    DUP
+    ICONST_0
+    ALOAD 1
+    ILOAD 19
+    AALOAD
+    ILOAD 20
+    IALOAD
+    IASTORE
+    DUP
+    ICONST_1
+    ILOAD 19
+    IASTORE
+    DUP
+    ICONST_2
+    ILOAD 20
+    IASTORE
+    INVOKEVIRTUAL java/util/PriorityQueue.offer (Ljava/lang/Object;)Z
+    POP
+   L31
+    LINENUMBER 28 L31
+   FRAME FULL [original/Solution2503 [[I [I I [[I [I I I [[Z java/util/PriorityQueue [I I [[I I I [I I [I I I I] []
+    IINC 18 1
+    GOTO L26
+   L27
+    LINENUMBER 35 L27
+   FRAME FULL [original/Solution2503 [[I [I I [[I [I I I [[Z java/util/PriorityQueue [I I [[I I I [I I [I I] []
+    GOTO L21
+   L22
+    LINENUMBER 36 L22
+   FRAME FULL [original/Solution2503 [[I [I I [[I [I I I [[Z java/util/PriorityQueue [I I [[I I I [I I] []
+    ALOAD 5
+    ILOAD 3
+    ILOAD 11
+    IASTORE
+   L34
+    LINENUMBER 22 L34
+    IINC 14 1
+    GOTO L17
+   L18
+    LINENUMBER 38 L18
+   FRAME FULL [original/Solution2503 [[I [I I [[I [I I I [[Z java/util/PriorityQueue [I I [[I I I] []
+    ALOAD 5
+    ARETURN
+   L35
+    LOCALVARIABLE i I L3 L4 5
+    LOCALVARIABLE x I L29 L31 19
+    LOCALVARIABLE y I L30 L31 20
+    LOCALVARIABLE h I L26 L27 18
+    LOCALVARIABLE p [I L24 L27 17
+    LOCALVARIABLE v I L20 L34 16
+    LOCALVARIABLE e [I L19 L34 15
+    LOCALVARIABLE this Loriginal/Solution2503; L0 L35 0
+    LOCALVARIABLE grid [[I L0 L35 1
+    LOCALVARIABLE queries [I L0 L35 2
+    LOCALVARIABLE k I L1 L35 3
+    LOCALVARIABLE qs [[I L2 L35 4
+    LOCALVARIABLE ans [I L8 L35 5
+    LOCALVARIABLE m I L9 L35 6
+    LOCALVARIABLE n I L10 L35 7
+    LOCALVARIABLE vis [[Z L11 L35 8
+    LOCALVARIABLE q Ljava/util/PriorityQueue; L13 L35 9
+    // signature Ljava/util/PriorityQueue<[I>;
+    // declaration: q extends java.util.PriorityQueue<int[]>
+    LOCALVARIABLE dirs [I L15 L35 10
+    LOCALVARIABLE cnt I L16 L35 11
+    MAXSTACK = 7
+    MAXLOCALS = 21
+
+  // access flags 0x100A
+  private static synthetic lambda$maxPoints$1([I[I)I
+   L0
+    LINENUMBER 18 L0
+    ALOAD 0
+    ICONST_0
+    IALOAD
+    ALOAD 1
+    ICONST_0
+    IALOAD
+    ISUB
+    IRETURN
+   L1
+    LOCALVARIABLE a [I L0 L1 0
+    LOCALVARIABLE b [I L0 L1 1
+    MAXSTACK = 3
+    MAXLOCALS = 2
+
+  // access flags 0x100A
+  private static synthetic lambda$maxPoints$0([I[I)I
+   L0
+    LINENUMBER 13 L0
+    ALOAD 0
+    ICONST_0
+    IALOAD
+    ALOAD 1
+    ICONST_0
+    IALOAD
+    ISUB
+    IRETURN
+   L1
+    LOCALVARIABLE a [I L0 L1 0
+    LOCALVARIABLE b [I L0 L1 1
+    MAXSTACK = 3
+    MAXLOCALS = 2
+}
+

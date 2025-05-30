@@ -1,0 +1,106 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/StringToMd5 {
+
+  // compiled from: id_162.java
+  // access flags 0x19
+  public final static INNERCLASS java/lang/invoke/MethodHandles$Lookup java/lang/invoke/MethodHandles Lookup
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 9 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/StringToMd5; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  public static stringToMd5(Ljava/lang/String;)Ljava/lang/String;
+    TRYCATCHBLOCK L0 L1 L2 java/security/NoSuchAlgorithmException
+   L3
+    LINENUMBER 26 L3
+    ALOAD 0
+    LDC ""
+    INVOKEVIRTUAL java/lang/String.equals (Ljava/lang/Object;)Z
+    IFNE L0
+   L4
+    LINENUMBER 27 L4
+    ACONST_NULL
+    ARETURN
+   L0
+    LINENUMBER 30 L0
+   FRAME FULL [java/lang/String] []
+    LDC "MD5"
+    INVOKESTATIC java/security/MessageDigest.getInstance (Ljava/lang/String;)Ljava/security/MessageDigest;
+    ASTORE 1
+   L5
+    LINENUMBER 31 L5
+    ALOAD 1
+    ALOAD 0
+    INVOKEVIRTUAL java/lang/String.getBytes ()[B
+    INVOKEVIRTUAL java/security/MessageDigest.digest ([B)[B
+    ASTORE 2
+   L6
+    LINENUMBER 32 L6
+    NEW java/math/BigInteger
+    DUP
+    ICONST_1
+    ALOAD 2
+    INVOKESPECIAL java/math/BigInteger.<init> (I[B)V
+    ASTORE 3
+   L7
+    LINENUMBER 33 L7
+    ALOAD 3
+    BIPUSH 16
+    INVOKEVIRTUAL java/math/BigInteger.toString (I)Ljava/lang/String;
+    ASTORE 4
+   L8
+    LINENUMBER 34 L8
+   FRAME FULL [java/lang/String java/security/MessageDigest [B java/math/BigInteger java/lang/String] []
+    ALOAD 4
+    INVOKEVIRTUAL java/lang/String.length ()I
+    BIPUSH 32
+    IF_ICMPGE L9
+   L10
+    LINENUMBER 35 L10
+    ALOAD 4
+    INVOKEDYNAMIC makeConcatWithConstants(Ljava/lang/String;)Ljava/lang/String; [
+      // handle kind 0x6 : INVOKESTATIC
+      java/lang/invoke/StringConcatFactory.makeConcatWithConstants(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;
+      // arguments:
+      "0\u0001"
+    ]
+    ASTORE 4
+    GOTO L8
+   L9
+    LINENUMBER 37 L9
+   FRAME FULL [java/lang/String java/security/MessageDigest [B java/math/BigInteger java/lang/String] []
+    ALOAD 4
+   L1
+    ARETURN
+   L2
+    LINENUMBER 38 L2
+   FRAME FULL [java/lang/String] [java/security/NoSuchAlgorithmException]
+    ASTORE 1
+   L11
+    LINENUMBER 39 L11
+    NEW java/lang/RuntimeException
+    DUP
+    ALOAD 1
+    INVOKESPECIAL java/lang/RuntimeException.<init> (Ljava/lang/Throwable;)V
+    ATHROW
+   L12
+    LOCALVARIABLE md Ljava/security/MessageDigest; L5 L2 1
+    LOCALVARIABLE messageDigest [B L6 L2 2
+    LOCALVARIABLE number Ljava/math/BigInteger; L7 L2 3
+    LOCALVARIABLE hashText Ljava/lang/String; L8 L2 4
+    LOCALVARIABLE e Ljava/security/NoSuchAlgorithmException; L11 L12 1
+    LOCALVARIABLE text Ljava/lang/String; L3 L12 0
+    MAXSTACK = 4
+    MAXLOCALS = 5
+}
+

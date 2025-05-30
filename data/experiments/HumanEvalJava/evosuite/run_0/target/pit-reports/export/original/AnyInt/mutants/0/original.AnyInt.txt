@@ -1,0 +1,92 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/AnyInt {
+
+  // compiled from: id_92.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 3 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/AnyInt; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  public static anyInt(Ljava/lang/Number;Ljava/lang/Number;Ljava/lang/Number;)Ljava/lang/Boolean;
+   L0
+    LINENUMBER 40 L0
+    ALOAD 0
+    INSTANCEOF java/lang/Integer
+    IFNE L1
+    ALOAD 1
+    INSTANCEOF java/lang/Integer
+    IFEQ L1
+    ALOAD 2
+    INSTANCEOF java/lang/Integer
+    IFEQ L1
+   L2
+    LINENUMBER 41 L2
+    ALOAD 0
+    INVOKEVIRTUAL java/lang/Number.intValue ()I
+    ALOAD 1
+    INVOKEVIRTUAL java/lang/Number.intValue ()I
+    ALOAD 2
+    INVOKEVIRTUAL java/lang/Number.intValue ()I
+    IADD
+    IF_ICMPNE L3
+   L4
+    LINENUMBER 42 L4
+    ICONST_1
+    INVOKESTATIC java/lang/Boolean.valueOf (Z)Ljava/lang/Boolean;
+    ARETURN
+   L3
+    LINENUMBER 44 L3
+   FRAME FULL [java/lang/Number java/lang/Number java/lang/Number] []
+    ALOAD 1
+    INVOKEVIRTUAL java/lang/Number.intValue ()I
+    ALOAD 0
+    INVOKEVIRTUAL java/lang/Number.intValue ()I
+    ALOAD 2
+    INVOKEVIRTUAL java/lang/Number.intValue ()I
+    IADD
+    IF_ICMPNE L5
+   L6
+    LINENUMBER 45 L6
+    ICONST_1
+    INVOKESTATIC java/lang/Boolean.valueOf (Z)Ljava/lang/Boolean;
+    ARETURN
+   L5
+    LINENUMBER 47 L5
+   FRAME FULL [java/lang/Number java/lang/Number java/lang/Number] []
+    ALOAD 2
+    INVOKEVIRTUAL java/lang/Number.intValue ()I
+    ALOAD 0
+    INVOKEVIRTUAL java/lang/Number.intValue ()I
+    ALOAD 1
+    INVOKEVIRTUAL java/lang/Number.intValue ()I
+    IADD
+    IF_ICMPNE L1
+   L7
+    LINENUMBER 48 L7
+    ICONST_1
+    INVOKESTATIC java/lang/Boolean.valueOf (Z)Ljava/lang/Boolean;
+    ARETURN
+   L1
+    LINENUMBER 51 L1
+   FRAME FULL [java/lang/Number java/lang/Number java/lang/Number] []
+    ICONST_0
+    INVOKESTATIC java/lang/Boolean.valueOf (Z)Ljava/lang/Boolean;
+    ARETURN
+   L8
+    LOCALVARIABLE x Ljava/lang/Number; L0 L8 0
+    LOCALVARIABLE y Ljava/lang/Number; L0 L8 1
+    LOCALVARIABLE z Ljava/lang/Number; L0 L8 2
+    MAXSTACK = 3
+    MAXLOCALS = 3
+}
+

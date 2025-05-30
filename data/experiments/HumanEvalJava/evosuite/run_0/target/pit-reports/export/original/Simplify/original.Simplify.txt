@@ -1,0 +1,84 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Simplify {
+
+  // compiled from: id_144.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 4 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Simplify; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  public static simplify(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Boolean;
+   L0
+    LINENUMBER 45 L0
+    ALOAD 0
+    LDC "/"
+    INVOKEVIRTUAL java/lang/String.split (Ljava/lang/String;)[Ljava/lang/String;
+    ASTORE 2
+   L1
+    LINENUMBER 46 L1
+    ALOAD 1
+    LDC "/"
+    INVOKEVIRTUAL java/lang/String.split (Ljava/lang/String;)[Ljava/lang/String;
+    ASTORE 3
+   L2
+    LINENUMBER 47 L2
+    ALOAD 2
+    ICONST_0
+    AALOAD
+    INVOKESTATIC java/lang/Integer.parseInt (Ljava/lang/String;)I
+    ALOAD 3
+    ICONST_0
+    AALOAD
+    INVOKESTATIC java/lang/Integer.parseInt (Ljava/lang/String;)I
+    IMUL
+    ISTORE 4
+   L3
+    LINENUMBER 48 L3
+    ALOAD 2
+    ICONST_1
+    AALOAD
+    INVOKESTATIC java/lang/Integer.parseInt (Ljava/lang/String;)I
+    ALOAD 3
+    ICONST_1
+    AALOAD
+    INVOKESTATIC java/lang/Integer.parseInt (Ljava/lang/String;)I
+    IMUL
+    ISTORE 5
+   L4
+    LINENUMBER 49 L4
+    ILOAD 4
+    ILOAD 5
+    IREM
+    IFNE L5
+   L6
+    LINENUMBER 50 L6
+    ICONST_1
+    INVOKESTATIC java/lang/Boolean.valueOf (Z)Ljava/lang/Boolean;
+    ARETURN
+   L5
+    LINENUMBER 52 L5
+   FRAME FULL [java/lang/String java/lang/String [Ljava/lang/String; [Ljava/lang/String; I I] []
+    ICONST_0
+    INVOKESTATIC java/lang/Boolean.valueOf (Z)Ljava/lang/Boolean;
+    ARETURN
+   L7
+    LOCALVARIABLE x Ljava/lang/String; L0 L7 0
+    LOCALVARIABLE n Ljava/lang/String; L0 L7 1
+    LOCALVARIABLE a [Ljava/lang/String; L1 L7 2
+    LOCALVARIABLE b [Ljava/lang/String; L2 L7 3
+    LOCALVARIABLE numerator I L3 L7 4
+    LOCALVARIABLE denom I L4 L7 5
+    MAXSTACK = 3
+    MAXLOCALS = 6
+}
+

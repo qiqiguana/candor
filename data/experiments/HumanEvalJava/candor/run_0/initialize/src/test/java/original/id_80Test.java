@@ -1,0 +1,96 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of IsHappy.
+*/
+class IsHappyTest {
+    @Test
+    void testIsHappyReturnsTrueForValidInput() {
+        String input = "iopaxpoi";
+        assertTrue(IsHappy.isHappy(input));
+    }
+    
+    @Test
+        public void testNothing(){
+            IsHappy s = new IsHappy();
+            }
+    @Test
+    public void Test_HappyString_LengthLessThan3_ReturnsFalse() {
+        assertFalse(IsHappy.isHappy("ab"));
+    }
+    @Test
+    public void Test_HappyString_NoConsecutiveRepeatingChars_ReturnsTrue() {
+        assertTrue(IsHappy.isHappy("abcd"));
+    }
+    @Test
+    public void Test_HappyString_ConsecutiveRepeatingChars_ReturnsFalse() {
+        assertFalse(IsHappy.isHappy("aabb"));
+    }
+    @Test
+    public void Test_HappyString_LastThreeConsecutiveRepeatingChars_ReturnsFalse() {
+        assertFalse(IsHappy.isHappy("iopaxioi"));
+    }
+    @Test
+    public void Test_HappyString_EmptyString_ReturnsFalse() {
+        assertFalse(IsHappy.isHappy(""));
+    }
+    @Test
+    public void Test_HappyString_NullInput_ThrowsNullPointerException() {
+        assertThrows(NullPointerException.class, () -> IsHappy.isHappy(null));
+    }
+    @Test
+    public void isHappy_EmptyString_ReturnsFalse() {
+        String s = "";
+        assertFalse(IsHappy.isHappy(s));
+    }
+    @Test
+    public void isHappy_NullInput_ThrowsNullPointerException() {
+        String s = null;
+        assertThrows(NullPointerException.class, () -> IsHappy.isHappy(s));
+    }
+    @Test
+    public void isHappy_LengthLessThan3_ReturnsFalse() {
+        String s = "ab";
+        assertFalse(IsHappy.isHappy(s));
+    }
+    @Test
+    public void isHappy_LengthEqualTo3_AllDistinct_ReturnsTrue() {
+        String s = "abc";
+        assertTrue(IsHappy.isHappy(s));
+    }
+    @Test
+    public void isHappy_LengthEqualTo3_TwoIdenticalCharacters_ReturnsFalse() {
+        String s = "aab";
+        assertFalse(IsHappy.isHappy(s));
+    }
+    @Test
+    public void isHappy_LengthEqualTo3_AllSameCharacters_ReturnsFalse() {
+        String s = "aaa";
+        assertFalse(IsHappy.isHappy(s));
+    }
+    @Test
+    public void test_Happy_String_with_length_less_than_3() {
+        assertFalse(IsHappy.isHappy("a"));
+    }
+    @Test
+    public void test_Happy_String_with_consecutive_repeated_characters() {
+        assertFalse(IsHappy.isHappy("aa"));
+        assertFalse(IsHappy.isHappy("aba"));
+    }
+    @Test
+    public void test_Happy_String_with_non_consecutive_repeated_characters() {
+        assertTrue(IsHappy.isHappy("iopaxpoi"));
+    }
+    @Test
+    public void test_Happy_String_with_all_distinct_characters() {
+        assertTrue(IsHappy.isHappy("abcd"));
+        assertTrue(IsHappy.isHappy("adb"));
+    }
+    @Test
+    public void test_Happy_String_with_empty_string() {
+        assertFalse(IsHappy.isHappy(""));
+    }
+                                    
+}

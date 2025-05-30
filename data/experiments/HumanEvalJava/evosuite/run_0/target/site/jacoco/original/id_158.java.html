@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_158.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HumanEvalJava</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_158.java</span></div><h1>id_158.java</h1><pre class="source lang-java linenums">package original;
+
+
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+
+<span class="fc" id="L9">class FindMax {</span>
+    /**
+     * Write a function that accepts a list of strings.
+     * The list contains different words. Return the word with maximum number
+     * of unique characters. If multiple strings have maximum number of unique
+     * characters, return the one which comes first in lexicographical order.
+     *
+     * findMax([&quot;name&quot;, &quot;of&quot;, &quot;string&quot;]) == &quot;string&quot;
+     * findMax([&quot;name&quot;, &quot;enam&quot;, &quot;game&quot;]) == &quot;enam&quot;
+     * findMax([&quot;aaaaaaa&quot;, &quot;bb&quot; ,&quot;cc&quot;]) == &quot;&quot;aaaaaaa&quot;
+     *
+     * &gt; findMax([&quot;name&quot;, &quot;of&quot;, &quot;string&quot;])
+     * &quot;string&quot;
+     * &gt; findMax([&quot;name&quot;, &quot;enam&quot;, &quot;game&quot;])
+     * &quot;enam&quot;
+     * &gt; findMax([&quot;aaaaaaa&quot;, &quot;bb&quot;, &quot;cc&quot;])
+     * &quot;aaaaaaa&quot;
+     * &gt; findMax([&quot;abc&quot;, &quot;cba&quot;])
+     * &quot;abc&quot;
+     * &gt; findMax([&quot;play&quot;, &quot;this&quot;, &quot;game&quot;, &quot;of&quot;, &quot;footbott&quot;])
+     * &quot;footbott&quot;
+     * &gt; findMax([&quot;we&quot;, &quot;are&quot;, &quot;gonna&quot;, &quot;rock&quot;])
+     * &quot;gonna&quot;
+     * &gt; findMax([&quot;we&quot;, &quot;are&quot;, &quot;a&quot;, &quot;mad&quot;, &quot;nation&quot;])
+     * &quot;nation&quot;
+     * &gt; findMax([&quot;this&quot;, &quot;is&quot;, &quot;a&quot;, &quot;prrk&quot;])
+     * &quot;this&quot;
+     * &gt; findMax([&quot;b&quot;])
+     * &quot;b&quot;
+     * &gt; findMax([&quot;play&quot;, &quot;play&quot;, &quot;play&quot;])
+     * &quot;play&quot;
+     */
+    public static String findMax(List&lt;String&gt; words) {
+<span class="fc bfc" id="L42" title="All 4 branches covered.">        if (words == null || words.size() == 0) {</span>
+<span class="fc" id="L43">            return null;</span>
+        }
+
+<span class="fc" id="L46">        String maxWord = words.get(0);</span>
+<span class="fc" id="L47">        int maxUnique = 0;</span>
+<span class="fc bfc" id="L48" title="All 2 branches covered.">        for (String word : words) {</span>
+<span class="fc" id="L49">            Set&lt;Character&gt; seen = new HashSet&lt;&gt;();</span>
+<span class="fc bfc" id="L50" title="All 2 branches covered.">            for (int i = 0; i &lt; word.length(); i++) {</span>
+<span class="fc" id="L51">                seen.add(word.charAt(i));</span>
+            }
+<span class="fc bfc" id="L53" title="All 2 branches covered.">            if (seen.size() &gt; maxUnique) {</span>
+<span class="fc" id="L54">                maxWord = word;</span>
+<span class="fc" id="L55">                maxUnique = seen.size();</span>
+<span class="pc bpc" id="L56" title="1 of 4 branches missed.">            } else if (seen.size() == maxUnique &amp;&amp; word.compareTo(maxWord) &lt; 0) {</span>
+<span class="nc" id="L57">                maxWord = word;</span>
+            }
+<span class="fc" id="L59">        }</span>
+
+<span class="fc" id="L61">        return maxWord;</span>
+    }
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

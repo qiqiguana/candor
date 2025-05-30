@@ -1,0 +1,195 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Histogram {
+
+  // compiled from: id_111.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 7 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Histogram; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  public static histogram(Ljava/lang/String;)Ljava/lang/Object;
+   L0
+    LINENUMBER 39 L0
+    NEW java/util/HashMap
+    DUP
+    INVOKESPECIAL java/util/HashMap.<init> ()V
+    ASTORE 1
+   L1
+    LINENUMBER 40 L1
+    ALOAD 0
+    IFNULL L2
+    ALOAD 0
+    INVOKEVIRTUAL java/lang/String.length ()I
+    IFNE L3
+   L2
+    LINENUMBER 41 L2
+   FRAME FULL [java/lang/String java/util/HashMap] []
+    ALOAD 1
+    ARETURN
+   L3
+    LINENUMBER 44 L3
+   FRAME FULL [java/lang/String java/util/HashMap] []
+    ALOAD 0
+    LDC " "
+    INVOKEVIRTUAL java/lang/String.split (Ljava/lang/String;)[Ljava/lang/String;
+    ASTORE 2
+   L4
+    LINENUMBER 45 L4
+    ALOAD 2
+    ASTORE 3
+    ALOAD 3
+    ARRAYLENGTH
+    ISTORE 4
+    ICONST_0
+    ISTORE 5
+   L5
+   FRAME FULL [java/lang/String java/util/HashMap [Ljava/lang/String; [Ljava/lang/String; I I] []
+    ILOAD 5
+    ILOAD 4
+    IF_ICMPGE L6
+    ALOAD 3
+    ILOAD 5
+    AALOAD
+    ASTORE 6
+   L7
+    LINENUMBER 46 L7
+    ALOAD 1
+    ALOAD 6
+    INVOKEINTERFACE java/util/Map.containsKey (Ljava/lang/Object;)Z (itf)
+    IFEQ L8
+   L9
+    LINENUMBER 47 L9
+    ALOAD 1
+    ALOAD 6
+    ALOAD 1
+    ALOAD 6
+    INVOKEINTERFACE java/util/Map.get (Ljava/lang/Object;)Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/Integer
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    ICONST_1
+    IADD
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEINTERFACE java/util/Map.put (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object; (itf)
+    POP
+    GOTO L10
+   L8
+    LINENUMBER 49 L8
+   FRAME FULL [java/lang/String java/util/HashMap [Ljava/lang/String; [Ljava/lang/String; I I java/lang/String] []
+    ALOAD 1
+    ALOAD 6
+    ICONST_1
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEINTERFACE java/util/Map.put (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object; (itf)
+    POP
+   L10
+    LINENUMBER 45 L10
+   FRAME FULL [java/lang/String java/util/HashMap [Ljava/lang/String; [Ljava/lang/String; I I java/lang/String] []
+    IINC 5 1
+    GOTO L5
+   L6
+    LINENUMBER 53 L6
+   FRAME FULL [java/lang/String java/util/HashMap [Ljava/lang/String; [Ljava/lang/String; I I] []
+    ICONST_0
+    ISTORE 3
+   L11
+    LINENUMBER 54 L11
+    ALOAD 1
+    INVOKEINTERFACE java/util/Map.values ()Ljava/util/Collection; (itf)
+    INVOKEINTERFACE java/util/Collection.iterator ()Ljava/util/Iterator; (itf)
+    ASTORE 4
+   L12
+   FRAME FULL [java/lang/String java/util/HashMap [Ljava/lang/String; I java/util/Iterator I] []
+    ALOAD 4
+    INVOKEINTERFACE java/util/Iterator.hasNext ()Z (itf)
+    IFEQ L13
+    ALOAD 4
+    INVOKEINTERFACE java/util/Iterator.next ()Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/Integer
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    ISTORE 5
+   L14
+    LINENUMBER 55 L14
+    ILOAD 3
+    ILOAD 5
+    INVOKESTATIC java/lang/Math.max (II)I
+    ISTORE 3
+   L15
+    LINENUMBER 56 L15
+    GOTO L12
+   L13
+    LINENUMBER 58 L13
+   FRAME FULL [java/lang/String java/util/HashMap [Ljava/lang/String; I java/util/Iterator I] []
+    NEW java/util/HashMap
+    DUP
+    INVOKESPECIAL java/util/HashMap.<init> ()V
+    ASTORE 4
+   L16
+    LINENUMBER 59 L16
+    ALOAD 1
+    INVOKEINTERFACE java/util/Map.keySet ()Ljava/util/Set; (itf)
+    INVOKEINTERFACE java/util/Set.iterator ()Ljava/util/Iterator; (itf)
+    ASTORE 5
+   L17
+   FRAME FULL [java/lang/String java/util/HashMap [Ljava/lang/String; I java/util/HashMap java/util/Iterator] []
+    ALOAD 5
+    INVOKEINTERFACE java/util/Iterator.hasNext ()Z (itf)
+    IFEQ L18
+    ALOAD 5
+    INVOKEINTERFACE java/util/Iterator.next ()Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/String
+    ASTORE 6
+   L19
+    LINENUMBER 60 L19
+    ALOAD 1
+    ALOAD 6
+    INVOKEINTERFACE java/util/Map.get (Ljava/lang/Object;)Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/Integer
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    ILOAD 3
+    IF_ICMPEQ L20
+   L21
+    LINENUMBER 61 L21
+    ALOAD 4
+    ALOAD 6
+    ALOAD 1
+    ALOAD 6
+    INVOKEINTERFACE java/util/Map.get (Ljava/lang/Object;)Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/Integer
+    INVOKEINTERFACE java/util/Map.put (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object; (itf)
+    POP
+   L20
+    LINENUMBER 63 L20
+   FRAME FULL [java/lang/String java/util/HashMap [Ljava/lang/String; I java/util/HashMap java/util/Iterator java/lang/String] []
+    GOTO L17
+   L18
+    LINENUMBER 64 L18
+   FRAME FULL [java/lang/String java/util/HashMap [Ljava/lang/String; I java/util/HashMap java/util/Iterator] []
+    ALOAD 4
+    ARETURN
+   L22
+    LOCALVARIABLE s Ljava/lang/String; L7 L10 6
+    LOCALVARIABLE i I L14 L15 5
+    LOCALVARIABLE s Ljava/lang/String; L19 L20 6
+    LOCALVARIABLE test Ljava/lang/String; L0 L22 0
+    LOCALVARIABLE map Ljava/util/Map; L1 L22 1
+    // signature Ljava/util/Map<Ljava/lang/String;Ljava/lang/Integer;>;
+    // declaration: map extends java.util.Map<java.lang.String, java.lang.Integer>
+    LOCALVARIABLE arr [Ljava/lang/String; L4 L22 2
+    LOCALVARIABLE max I L11 L22 3
+    LOCALVARIABLE res Ljava/util/Map; L16 L22 4
+    // signature Ljava/util/Map<Ljava/lang/String;Ljava/lang/Integer;>;
+    // declaration: res extends java.util.Map<java.lang.String, java.lang.Integer>
+    MAXSTACK = 4
+    MAXLOCALS = 7
+}
+

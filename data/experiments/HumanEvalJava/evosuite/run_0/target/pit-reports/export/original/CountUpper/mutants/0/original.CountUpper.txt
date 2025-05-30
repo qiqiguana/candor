@@ -1,0 +1,75 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/CountUpper {
+
+  // compiled from: id_98.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 3 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/CountUpper; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  public static countUpper(Ljava/lang/String;)I
+   L0
+    LINENUMBER 22 L0
+    ICONST_0
+    ISTORE 1
+   L1
+    LINENUMBER 23 L1
+    ICONST_0
+    ISTORE 2
+   L2
+   FRAME FULL [java/lang/String I I] []
+    ILOAD 2
+    ALOAD 0
+    INVOKEVIRTUAL java/lang/String.length ()I
+    IF_ICMPLT L3
+   L4
+    LINENUMBER 24 L4
+    ALOAD 0
+    ILOAD 2
+    INVOKEVIRTUAL java/lang/String.charAt (I)C
+    ISTORE 3
+   L5
+    LINENUMBER 25 L5
+    ILOAD 2
+    ICONST_2
+    IREM
+    IFNE L6
+    ILOAD 3
+    INVOKESTATIC java/lang/Character.isUpperCase (C)Z
+    IFEQ L6
+    LDC "AEIOU"
+    ILOAD 3
+    INVOKEVIRTUAL java/lang/String.indexOf (I)I
+    IFLT L6
+   L7
+    LINENUMBER 26 L7
+    IINC 1 1
+   L6
+    LINENUMBER 23 L6
+   FRAME FULL [java/lang/String I I I] []
+    IINC 2 1
+    GOTO L2
+   L3
+    LINENUMBER 29 L3
+   FRAME FULL [java/lang/String I I] []
+    ILOAD 1
+    IRETURN
+   L8
+    LOCALVARIABLE c C L5 L6 3
+    LOCALVARIABLE i I L2 L3 2
+    LOCALVARIABLE s Ljava/lang/String; L0 L8 0
+    LOCALVARIABLE result I L1 L8 1
+    MAXSTACK = 2
+    MAXLOCALS = 4
+}
+

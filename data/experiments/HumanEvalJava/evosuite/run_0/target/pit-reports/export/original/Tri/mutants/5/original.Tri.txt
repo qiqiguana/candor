@@ -1,0 +1,137 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Tri {
+
+  // compiled from: id_130.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 8 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Tri; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  // signature (I)Ljava/util/List<Ljava/lang/Number;>;
+  // declaration: java.util.List<java.lang.Number> tri(int)
+  public static tri(I)Ljava/util/List;
+   L0
+    LINENUMBER 48 L0
+    ILOAD 0
+    IFNE L1
+   L2
+    LINENUMBER 49 L2
+    ICONST_1
+    ANEWARRAY java/lang/Number
+    DUP
+    ICONST_0
+    ICONST_1
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    AASTORE
+    INVOKESTATIC java/util/Arrays.asList ([Ljava/lang/Object;)Ljava/util/List;
+    ARETURN
+   L1
+    LINENUMBER 51 L1
+   FRAME FULL [I] []
+    NEW java/util/ArrayList
+    DUP
+    INVOKESPECIAL java/util/ArrayList.<init> ()V
+    ASTORE 1
+   L3
+    LINENUMBER 52 L3
+    ALOAD 1
+    ICONST_1
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+   L4
+    LINENUMBER 53 L4
+    ALOAD 1
+    ICONST_3
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+   L5
+    LINENUMBER 54 L5
+    ICONST_2
+    ISTORE 2
+   L6
+   FRAME FULL [I java/util/ArrayList I] []
+    ILOAD 2
+    ILOAD 0
+    ICONST_1
+    IADD
+    IF_ICMPGE L7
+   L8
+    LINENUMBER 55 L8
+    ILOAD 2
+    ICONST_2
+    IREM
+    IFEQ L9
+   L10
+    LINENUMBER 56 L10
+    ALOAD 1
+    ILOAD 2
+    ICONST_2
+    IDIV
+    I2D
+    DCONST_1
+    DADD
+    INVOKESTATIC java/lang/Double.valueOf (D)Ljava/lang/Double;
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+    GOTO L11
+   L9
+    LINENUMBER 58 L9
+   FRAME FULL [I java/util/ArrayList I] []
+    ALOAD 1
+    ALOAD 1
+    ILOAD 2
+    ICONST_1
+    ISUB
+    INVOKEINTERFACE java/util/List.get (I)Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/Number
+    INVOKEVIRTUAL java/lang/Number.doubleValue ()D
+    ALOAD 1
+    ILOAD 2
+    ICONST_2
+    ISUB
+    INVOKEINTERFACE java/util/List.get (I)Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/Number
+    INVOKEVIRTUAL java/lang/Number.doubleValue ()D
+    DADD
+    ILOAD 2
+    ICONST_3
+    IADD
+    ICONST_2
+    IDIV
+    I2D
+    DADD
+    INVOKESTATIC java/lang/Double.valueOf (D)Ljava/lang/Double;
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+   L11
+    LINENUMBER 54 L11
+   FRAME FULL [I java/util/ArrayList I] []
+    IINC 2 1
+    GOTO L6
+   L7
+    LINENUMBER 61 L7
+   FRAME FULL [I java/util/ArrayList I] []
+    ALOAD 1
+    ARETURN
+   L12
+    LOCALVARIABLE i I L6 L7 2
+    LOCALVARIABLE n I L0 L12 0
+    LOCALVARIABLE my_tri Ljava/util/List; L3 L12 1
+    // signature Ljava/util/List<Ljava/lang/Number;>;
+    // declaration: my_tri extends java.util.List<java.lang.Number>
+    MAXSTACK = 6
+    MAXLOCALS = 3
+}
+

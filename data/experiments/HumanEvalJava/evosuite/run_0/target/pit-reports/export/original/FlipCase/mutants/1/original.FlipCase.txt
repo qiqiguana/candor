@@ -1,0 +1,83 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/FlipCase {
+
+  // compiled from: id_27.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 3 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/FlipCase; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  public static flipCase(Ljava/lang/String;)Ljava/lang/String;
+   L0
+    LINENUMBER 17 L0
+    NEW java/lang/StringBuilder
+    DUP
+    INVOKESPECIAL java/lang/StringBuilder.<init> ()V
+    ASTORE 1
+   L1
+    LINENUMBER 18 L1
+    ICONST_0
+    ISTORE 2
+   L2
+   FRAME FULL [java/lang/String java/lang/StringBuilder I] []
+    ILOAD 2
+    ALOAD 0
+    INVOKEVIRTUAL java/lang/String.length ()I
+    IF_ICMPLT L3
+   L4
+    LINENUMBER 19 L4
+    ALOAD 0
+    ILOAD 2
+    INVOKEVIRTUAL java/lang/String.charAt (I)C
+    ISTORE 3
+   L5
+    LINENUMBER 20 L5
+    ILOAD 3
+    INVOKESTATIC java/lang/Character.isUpperCase (C)Z
+    IFEQ L6
+   L7
+    LINENUMBER 21 L7
+    ALOAD 1
+    ILOAD 3
+    INVOKESTATIC java/lang/Character.toLowerCase (C)C
+    INVOKEVIRTUAL java/lang/StringBuilder.append (C)Ljava/lang/StringBuilder;
+    POP
+    GOTO L8
+   L6
+    LINENUMBER 23 L6
+   FRAME FULL [java/lang/String java/lang/StringBuilder I I] []
+    ALOAD 1
+    ILOAD 3
+    INVOKESTATIC java/lang/Character.toUpperCase (C)C
+    INVOKEVIRTUAL java/lang/StringBuilder.append (C)Ljava/lang/StringBuilder;
+    POP
+   L8
+    LINENUMBER 18 L8
+   FRAME FULL [java/lang/String java/lang/StringBuilder I I] []
+    IINC 2 1
+    GOTO L2
+   L3
+    LINENUMBER 26 L3
+   FRAME FULL [java/lang/String java/lang/StringBuilder I] []
+    ALOAD 1
+    INVOKEVIRTUAL java/lang/StringBuilder.toString ()Ljava/lang/String;
+    ARETURN
+   L9
+    LOCALVARIABLE c C L5 L8 3
+    LOCALVARIABLE i I L2 L3 2
+    LOCALVARIABLE string Ljava/lang/String; L0 L9 0
+    LOCALVARIABLE result Ljava/lang/StringBuilder; L1 L9 1
+    MAXSTACK = 2
+    MAXLOCALS = 4
+}
+

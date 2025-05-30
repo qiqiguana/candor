@@ -1,0 +1,166 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/IsSorted {
+
+  // compiled from: id_126.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 6 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/IsSorted; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  // signature (Ljava/util/List<Ljava/lang/Object;>;)Ljava/lang/Boolean;
+  // declaration: java.lang.Boolean isSorted(java.util.List<java.lang.Object>)
+  public static isSorted(Ljava/util/List;)Ljava/lang/Boolean;
+   L0
+    LINENUMBER 50 L0
+    ALOAD 0
+    INVOKEINTERFACE java/util/List.size ()I (itf)
+    ICONST_1
+    IF_ICMPGT L1
+   L2
+    LINENUMBER 51 L2
+    ICONST_1
+    INVOKESTATIC java/lang/Boolean.valueOf (Z)Ljava/lang/Boolean;
+    ARETURN
+   L1
+    LINENUMBER 53 L1
+   FRAME FULL [java/util/List] []
+    NEW java/util/HashMap
+    DUP
+    INVOKESPECIAL java/util/HashMap.<init> ()V
+    ASTORE 1
+   L3
+    LINENUMBER 54 L3
+    ICONST_0
+    ISTORE 2
+   L4
+   FRAME FULL [java/util/List java/util/HashMap I] []
+    ILOAD 2
+    ALOAD 0
+    INVOKEINTERFACE java/util/List.size ()I (itf)
+    ICONST_1
+    IADD
+    IF_ICMPGE L5
+   L6
+    LINENUMBER 55 L6
+    ALOAD 0
+    ILOAD 2
+    INVOKEINTERFACE java/util/List.get (I)Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/Integer
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    ISTORE 3
+   L7
+    LINENUMBER 56 L7
+    ALOAD 1
+    ILOAD 3
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    ALOAD 1
+    ILOAD 3
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    ICONST_0
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEVIRTUAL java/util/HashMap.getOrDefault (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    CHECKCAST java/lang/Integer
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    ICONST_1
+    IADD
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEVIRTUAL java/util/HashMap.put (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    POP
+   L8
+    LINENUMBER 57 L8
+    ALOAD 1
+    ILOAD 3
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEVIRTUAL java/util/HashMap.get (Ljava/lang/Object;)Ljava/lang/Object;
+    CHECKCAST java/lang/Integer
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    ICONST_2
+    IF_ICMPLE L9
+   L10
+    LINENUMBER 58 L10
+    ICONST_0
+    INVOKESTATIC java/lang/Boolean.valueOf (Z)Ljava/lang/Boolean;
+    ARETURN
+   L9
+    LINENUMBER 54 L9
+   FRAME FULL [java/util/List java/util/HashMap I I] []
+    IINC 2 1
+    GOTO L4
+   L5
+    LINENUMBER 62 L5
+   FRAME FULL [java/util/List java/util/HashMap I] []
+    ALOAD 0
+    ICONST_0
+    INVOKEINTERFACE java/util/List.get (I)Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/Integer
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    ISTORE 2
+   L11
+    LINENUMBER 63 L11
+    ICONST_1
+    ISTORE 3
+   L12
+   FRAME FULL [java/util/List java/util/HashMap I I] []
+    ILOAD 3
+    ALOAD 0
+    INVOKEINTERFACE java/util/List.size ()I (itf)
+    IF_ICMPGE L13
+   L14
+    LINENUMBER 64 L14
+    ALOAD 0
+    ILOAD 3
+    INVOKEINTERFACE java/util/List.get (I)Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/Integer
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    ISTORE 4
+   L15
+    LINENUMBER 65 L15
+    ILOAD 4
+    ILOAD 2
+    IF_ICMPGE L16
+   L17
+    LINENUMBER 66 L17
+    ICONST_0
+    INVOKESTATIC java/lang/Boolean.valueOf (Z)Ljava/lang/Boolean;
+    ARETURN
+   L16
+    LINENUMBER 68 L16
+   FRAME FULL [java/util/List java/util/HashMap I I I] []
+    ILOAD 4
+    ISTORE 2
+   L18
+    LINENUMBER 63 L18
+    IINC 3 1
+    GOTO L12
+   L13
+    LINENUMBER 70 L13
+   FRAME FULL [java/util/List java/util/HashMap I I] []
+    ICONST_1
+    INVOKESTATIC java/lang/Boolean.valueOf (Z)Ljava/lang/Boolean;
+    ARETURN
+   L19
+    LOCALVARIABLE curr I L7 L9 3
+    LOCALVARIABLE i I L4 L5 2
+    LOCALVARIABLE curr I L15 L18 4
+    LOCALVARIABLE i I L12 L13 3
+    LOCALVARIABLE lst Ljava/util/List; L0 L19 0
+    // signature Ljava/util/List<Ljava/lang/Object;>;
+    // declaration: lst extends java.util.List<java.lang.Object>
+    LOCALVARIABLE map Ljava/util/HashMap; L3 L19 1
+    // signature Ljava/util/HashMap<Ljava/lang/Integer;Ljava/lang/Integer;>;
+    // declaration: map extends java.util.HashMap<java.lang.Integer, java.lang.Integer>
+    LOCALVARIABLE prev I L11 L19 2
+    MAXSTACK = 5
+    MAXLOCALS = 5
+}
+

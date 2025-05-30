@@ -1,0 +1,73 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Concatenate {
+
+  // compiled from: id_28.java
+  // access flags 0x19
+  public final static INNERCLASS java/lang/invoke/MethodHandles$Lookup java/lang/invoke/MethodHandles Lookup
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 7 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Concatenate; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  // signature (Ljava/util/List<Ljava/lang/Object;>;)Ljava/lang/String;
+  // declaration: java.lang.String concatenate(java.util.List<java.lang.Object>)
+  public static concatenate(Ljava/util/List;)Ljava/lang/String;
+   L0
+    LINENUMBER 23 L0
+    LDC ""
+    ASTORE 1
+   L1
+    LINENUMBER 24 L1
+    ALOAD 0
+    INVOKEINTERFACE java/util/List.iterator ()Ljava/util/Iterator; (itf)
+    ASTORE 2
+   L2
+   FRAME FULL [java/util/List java/lang/String java/util/Iterator] []
+    ALOAD 2
+    INVOKEINTERFACE java/util/Iterator.hasNext ()Z (itf)
+    IFEQ L3
+    ALOAD 2
+    INVOKEINTERFACE java/util/Iterator.next ()Ljava/lang/Object; (itf)
+    ASTORE 3
+   L4
+    LINENUMBER 25 L4
+    ALOAD 1
+    ALOAD 3
+    INVOKEVIRTUAL java/lang/Object.toString ()Ljava/lang/String;
+    INVOKEDYNAMIC makeConcatWithConstants(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String; [
+      // handle kind 0x6 : INVOKESTATIC
+      java/lang/invoke/StringConcatFactory.makeConcatWithConstants(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;
+      // arguments:
+      "\u0001\u0001"
+    ]
+    ASTORE 1
+   L5
+    LINENUMBER 26 L5
+    GOTO L2
+   L3
+    LINENUMBER 27 L3
+   FRAME FULL [java/util/List java/lang/String java/util/Iterator] []
+    ALOAD 1
+    POP
+    LDC ""
+    ARETURN
+   L6
+    LOCALVARIABLE string Ljava/lang/Object; L4 L5 3
+    LOCALVARIABLE strings Ljava/util/List; L0 L6 0
+    // signature Ljava/util/List<Ljava/lang/Object;>;
+    // declaration: strings extends java.util.List<java.lang.Object>
+    LOCALVARIABLE result Ljava/lang/String; L1 L6 1
+    MAXSTACK = 2
+    MAXLOCALS = 4
+}
+

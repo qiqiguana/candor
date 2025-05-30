@@ -1,0 +1,57 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/LargestDivisor {
+
+  // compiled from: id_24.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 4 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/LargestDivisor; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  public static largestDivisor(I)I
+   L0
+    LINENUMBER 22 L0
+    ILOAD 0
+    ICONST_1
+    ISUB
+    ISTORE 1
+   L1
+   FRAME FULL [I I] []
+    ILOAD 1
+    IFLE L2
+   L3
+    LINENUMBER 23 L3
+    ILOAD 0
+    ILOAD 1
+    IMUL
+    IFNE L4
+   L5
+    LINENUMBER 24 L5
+    ILOAD 1
+    IRETURN
+   L4
+    LINENUMBER 22 L4
+   FRAME FULL [I I] []
+    IINC 1 -1
+    GOTO L1
+   L2
+    LINENUMBER 27 L2
+   FRAME FULL [I I] []
+    ICONST_1
+    IRETURN
+   L6
+    LOCALVARIABLE i I L1 L2 1
+    LOCALVARIABLE n I L0 L6 0
+    MAXSTACK = 2
+    MAXLOCALS = 2
+}
+

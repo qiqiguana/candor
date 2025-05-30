@@ -1,0 +1,67 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of IsBored.
+*/
+class IsBoredTest {
+    @Test
+    void testIsBored_CountsSentencesStartingWithI() {
+        String input = "The sky is blue. The sun is shining. I love this weather";
+        int expectedCount = 1;
+        assertEquals(expectedCount, IsBored.isBored(input));
+    }
+    
+    @Test
+        public void testNothing(){
+            IsBored s = new IsBored();
+            }
+    @Test
+    public void testIsBored_SingleSentenceStartsWithI_Returns1() {
+        String input = "I love this weather";
+        int expected = 1;
+        int actual = IsBored.isBored(input);
+        assertEquals(expected, actual);
+    }
+    @Test
+    public void testIsBored_MultipleSentencesOneStartsWithI_Returns1() {
+        String input = "The sky is blue. I love this weather.";
+        int expected = 1;
+        int actual = IsBored.isBored(input);
+        assertEquals(expected, actual);
+    }
+    @Test
+    public void testIsBored_MultipleSentencesNoneStartsWithI_Returns0() {
+        String input = "Hello world. The sun is shining.";
+        int expected = 0;
+        int actual = IsBored.isBored(input);
+        assertEquals(expected, actual);
+    }
+    @Test
+    public void testIsBored_EmptyString_Returns0() {
+        String input = "";
+        int expected = 0;
+        int actual = IsBored.isBored(input);
+        assertEquals(expected, actual);
+    }
+    @Test
+    public void testUncoveredBranch() {
+        String input = "I love It !";
+        int expected = 1;
+        assertEquals(expected, IsBored.isBored(input));
+    }
+    @Test
+    public void testMultipleSentencesWithFirstWordI() {
+        String input = "I feel good today. I will be productive.";
+        int expected = 2;
+        assertEquals(expected, IsBored.isBored(input));
+    }
+    @Test
+    public void testSentenceWithLeadingWhitespace() {
+        String input = "  I love It !";
+        int expected = 1;
+        assertEquals(expected, IsBored.isBored(input));
+    }
+                                    
+}

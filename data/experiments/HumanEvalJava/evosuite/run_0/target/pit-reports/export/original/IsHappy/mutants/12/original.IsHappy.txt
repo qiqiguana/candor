@@ -1,0 +1,99 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/IsHappy {
+
+  // compiled from: id_80.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 4 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/IsHappy; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  public static isHappy(Ljava/lang/String;)Ljava/lang/Boolean;
+   L0
+    LINENUMBER 35 L0
+    ALOAD 0
+    INVOKEVIRTUAL java/lang/String.length ()I
+    ICONST_3
+    IF_ICMPGE L1
+   L2
+    LINENUMBER 36 L2
+    ICONST_0
+    INVOKESTATIC java/lang/Boolean.valueOf (Z)Ljava/lang/Boolean;
+    ARETURN
+   L1
+    LINENUMBER 38 L1
+   FRAME FULL [java/lang/String] []
+    ICONST_0
+    ISTORE 1
+   L3
+   FRAME FULL [java/lang/String I] []
+    ILOAD 1
+    ALOAD 0
+    INVOKEVIRTUAL java/lang/String.length ()I
+    ICONST_2
+    ISUB
+    IF_ICMPGE L4
+   L5
+    LINENUMBER 39 L5
+    ALOAD 0
+    ILOAD 1
+    INVOKEVIRTUAL java/lang/String.charAt (I)C
+    ALOAD 0
+    ILOAD 1
+    ICONST_1
+    IADD
+    INVOKEVIRTUAL java/lang/String.charAt (I)C
+    IF_ICMPEQ L6
+    ALOAD 0
+    ILOAD 1
+    INVOKEVIRTUAL java/lang/String.charAt (I)C
+    ALOAD 0
+    ILOAD 1
+    ICONST_2
+    IADD
+    INVOKEVIRTUAL java/lang/String.charAt (I)C
+    IF_ICMPEQ L6
+    ALOAD 0
+    ILOAD 1
+    ICONST_1
+    IADD
+    INVOKEVIRTUAL java/lang/String.charAt (I)C
+    ALOAD 0
+    ILOAD 1
+    ICONST_2
+    IADD
+    INVOKEVIRTUAL java/lang/String.charAt (I)C
+    IF_ICMPEQ L7
+   L6
+    LINENUMBER 40 L6
+   FRAME FULL [java/lang/String I] []
+    ICONST_0
+    INVOKESTATIC java/lang/Boolean.valueOf (Z)Ljava/lang/Boolean;
+    ARETURN
+   L7
+    LINENUMBER 38 L7
+   FRAME FULL [java/lang/String I] []
+    IINC 1 1
+    GOTO L3
+   L4
+    LINENUMBER 43 L4
+   FRAME FULL [java/lang/String I] []
+    ICONST_1
+    INVOKESTATIC java/lang/Boolean.valueOf (Z)Ljava/lang/Boolean;
+    ARETURN
+   L8
+    LOCALVARIABLE i I L3 L4 1
+    LOCALVARIABLE s Ljava/lang/String; L0 L8 0
+    MAXSTACK = 4
+    MAXLOCALS = 2
+}
+

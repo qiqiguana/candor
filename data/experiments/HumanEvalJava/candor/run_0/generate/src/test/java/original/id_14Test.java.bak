@@ -1,0 +1,86 @@
+package original;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Assertions;
+import java.util.ArrayList;
+
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of AllPrefixes.
+*/
+class AllPrefixesTest {
+    @Test
+    void testAllPrefixes_EmptyString_ReturnsEmptyList() {
+        String input = "";
+        List<Object> expected = new ArrayList<>();
+        List<Object> actual = AllPrefixes.allPrefixes(input);
+        assertEquals(expected, actual);
+    }
+    
+    @Test
+        public void testNothing(){
+            AllPrefixes s = new AllPrefixes();
+            }
+    @Test
+    public void testAllPrefixes_EmptyString_ReturnsEmptyList_Unique() {
+        // Arrange
+        String input = "";
+        List<java.lang.Object> expectedResult = new ArrayList<>();
+    
+        // Act
+        List<java.lang.Object> actualResult = AllPrefixes.allPrefixes(input);
+    
+        // Assert
+        org.junit.jupiter.api.Assertions.assertEquals(expectedResult, actualResult);
+    }
+    @Test
+    public void testAllPrefixes_SingleCharacterString_ReturnsListWithOnePrefix() {
+        // Arrange
+        String input = "a";
+        List<java.lang.Object> expectedResult = new ArrayList<>();
+        expectedResult.add("a");
+    
+        // Act
+        List<java.lang.Object> actualResult = AllPrefixes.allPrefixes(input);
+    
+        // Assert
+        assertEquals(expectedResult, actualResult);
+    }
+    @Test
+    public void testAllPrefixes_MultiCharacterString_ReturnsListOfAllPrefixes() {
+        // Arrange
+        String input = "abc";
+        List<java.lang.Object> expectedResult = new ArrayList<>();
+        expectedResult.add("a");
+        expectedResult.add("ab");
+        expectedResult.add("abc");
+    
+        // Act
+        List<java.lang.Object> actualResult = AllPrefixes.allPrefixes(input);
+    
+        // Assert
+        org.junit.jupiter.api.Assertions.assertEquals(expectedResult, actualResult);
+    }
+    @Test
+    public void testAllPrefixes_LongString_ReturnsListOfAllPrefixes() {
+        // Arrange
+        String input = "asdfgh";
+        List<java.lang.Object> expectedResult = new ArrayList<>();
+        expectedResult.add("a");
+        expectedResult.add("as");
+        expectedResult.add("asd");
+        expectedResult.add("asdf");
+        expectedResult.add("asdfg");
+        expectedResult.add("asdfgh");
+    
+        // Act
+        List<java.lang.Object> actualResult = AllPrefixes.allPrefixes(input);
+    
+        // Assert
+        assertEquals(expectedResult, actualResult);
+    }
+                                    
+}

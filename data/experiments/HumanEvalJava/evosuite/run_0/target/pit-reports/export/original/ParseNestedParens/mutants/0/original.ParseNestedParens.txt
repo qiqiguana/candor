@@ -1,0 +1,111 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/ParseNestedParens {
+
+  // compiled from: id_6.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 8 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/ParseNestedParens; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  // signature (Ljava/lang/String;)Ljava/util/List<Ljava/lang/Integer;>;
+  // declaration: java.util.List<java.lang.Integer> parseNestedParens(java.lang.String)
+  public static parseNestedParens(Ljava/lang/String;)Ljava/util/List;
+   L0
+    LINENUMBER 22 L0
+    NEW java/util/ArrayList
+    DUP
+    INVOKESPECIAL java/util/ArrayList.<init> ()V
+    ASTORE 1
+   L1
+    LINENUMBER 23 L1
+    ICONST_0
+    ISTORE 2
+   L2
+    LINENUMBER 24 L2
+    ICONST_0
+    ISTORE 3
+   L3
+    LINENUMBER 25 L3
+    ICONST_0
+    ISTORE 4
+   L4
+   FRAME FULL [java/lang/String java/util/ArrayList I I I] []
+    ILOAD 4
+    ALOAD 0
+    INVOKEVIRTUAL java/lang/String.length ()I
+    IF_ICMPLT L5
+   L6
+    LINENUMBER 26 L6
+    ALOAD 0
+    ILOAD 4
+    INVOKEVIRTUAL java/lang/String.charAt (I)C
+    BIPUSH 40
+    IF_ICMPNE L7
+   L8
+    LINENUMBER 27 L8
+    IINC 2 1
+   L9
+    LINENUMBER 28 L9
+    ILOAD 3
+    ILOAD 2
+    INVOKESTATIC java/lang/Math.max (II)I
+    ISTORE 3
+    GOTO L10
+   L7
+    LINENUMBER 29 L7
+   FRAME FULL [java/lang/String java/util/ArrayList I I I] []
+    ALOAD 0
+    ILOAD 4
+    INVOKEVIRTUAL java/lang/String.charAt (I)C
+    BIPUSH 41
+    IF_ICMPNE L10
+   L11
+    LINENUMBER 30 L11
+    IINC 2 -1
+   L12
+    LINENUMBER 31 L12
+    ILOAD 2
+    IFNE L10
+   L13
+    LINENUMBER 32 L13
+    ALOAD 1
+    ILOAD 3
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+   L14
+    LINENUMBER 33 L14
+    ICONST_0
+    ISTORE 3
+   L10
+    LINENUMBER 25 L10
+   FRAME FULL [java/lang/String java/util/ArrayList I I I] []
+    IINC 4 1
+    GOTO L4
+   L5
+    LINENUMBER 38 L5
+   FRAME FULL [java/lang/String java/util/ArrayList I I I] []
+    ALOAD 1
+    ARETURN
+   L15
+    LOCALVARIABLE i I L4 L5 4
+    LOCALVARIABLE parenString Ljava/lang/String; L0 L15 0
+    LOCALVARIABLE result Ljava/util/List; L1 L15 1
+    // signature Ljava/util/List<Ljava/lang/Integer;>;
+    // declaration: result extends java.util.List<java.lang.Integer>
+    LOCALVARIABLE count I L2 L15 2
+    LOCALVARIABLE maximum_depth I L3 L15 3
+    MAXSTACK = 2
+    MAXLOCALS = 5
+}
+

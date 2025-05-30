@@ -1,0 +1,106 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/RollingMax {
+
+  // compiled from: id_9.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 7 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/RollingMax; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  // signature (Ljava/util/List<Ljava/lang/Object;>;)Ljava/util/List<Ljava/lang/Object;>;
+  // declaration: java.util.List<java.lang.Object> rollingMax(java.util.List<java.lang.Object>)
+  public static rollingMax(Ljava/util/List;)Ljava/util/List;
+   L0
+    LINENUMBER 24 L0
+    NEW java/util/ArrayList
+    DUP
+    INVOKESPECIAL java/util/ArrayList.<init> ()V
+    ASTORE 1
+   L1
+    LINENUMBER 25 L1
+    ACONST_NULL
+    ASTORE 2
+   L2
+    LINENUMBER 26 L2
+    ALOAD 0
+    INVOKEINTERFACE java/util/List.iterator ()Ljava/util/Iterator; (itf)
+    ASTORE 3
+   L3
+   FRAME FULL [java/util/List java/util/ArrayList java/lang/Integer java/util/Iterator] []
+    ALOAD 3
+    INVOKEINTERFACE java/util/Iterator.hasNext ()Z (itf)
+    IFEQ L4
+    ALOAD 3
+    INVOKEINTERFACE java/util/Iterator.next ()Ljava/lang/Object; (itf)
+    ASTORE 4
+   L5
+    LINENUMBER 27 L5
+    ALOAD 4
+    INSTANCEOF java/lang/Integer
+    IFEQ L6
+   L7
+    LINENUMBER 28 L7
+    ALOAD 2
+    IFNULL L8
+    ALOAD 4
+    CHECKCAST java/lang/Integer
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    ALOAD 2
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    IF_ICMPLE L9
+   L8
+    LINENUMBER 29 L8
+   FRAME FULL [java/util/List java/util/ArrayList java/lang/Integer java/util/Iterator java/lang/Object] []
+    ALOAD 4
+    CHECKCAST java/lang/Integer
+    ASTORE 2
+   L9
+    LINENUMBER 31 L9
+   FRAME FULL [java/util/List java/util/ArrayList java/lang/Integer java/util/Iterator java/lang/Object] []
+    ALOAD 1
+    ALOAD 2
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+    GOTO L10
+   L6
+    LINENUMBER 33 L6
+   FRAME FULL [java/util/List java/util/ArrayList java/lang/Integer java/util/Iterator java/lang/Object] []
+    NEW java/lang/IllegalArgumentException
+    DUP
+    LDC "Invalid number type"
+    INVOKESPECIAL java/lang/IllegalArgumentException.<init> (Ljava/lang/String;)V
+    ATHROW
+   L10
+    LINENUMBER 35 L10
+   FRAME FULL [java/util/List java/util/ArrayList java/lang/Integer java/util/Iterator java/lang/Object] []
+    GOTO L3
+   L4
+    LINENUMBER 36 L4
+   FRAME FULL [java/util/List java/util/ArrayList java/lang/Integer java/util/Iterator] []
+    ALOAD 1
+    POP
+    INVOKESTATIC java/util/Collections.emptyList ()Ljava/util/List;
+    ARETURN
+   L11
+    LOCALVARIABLE number Ljava/lang/Object; L5 L10 4
+    LOCALVARIABLE numbers Ljava/util/List; L0 L11 0
+    // signature Ljava/util/List<Ljava/lang/Object;>;
+    // declaration: numbers extends java.util.List<java.lang.Object>
+    LOCALVARIABLE result Ljava/util/List; L1 L11 1
+    // signature Ljava/util/List<Ljava/lang/Object;>;
+    // declaration: result extends java.util.List<java.lang.Object>
+    LOCALVARIABLE max Ljava/lang/Integer; L2 L11 2
+    MAXSTACK = 3
+    MAXLOCALS = 5
+}
+

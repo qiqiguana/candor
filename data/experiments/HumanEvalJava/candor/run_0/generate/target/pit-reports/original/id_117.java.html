@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>id_117.java</h1>
+
+<table class="src">
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1e20c8cd_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1e20c8cd_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package original;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1e20c8cd_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1e20c8cd_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1e20c8cd_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1e20c8cd_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.ArrayList;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1e20c8cd_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1e20c8cd_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.List;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1e20c8cd_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1e20c8cd_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1e20c8cd_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1e20c8cd_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1e20c8cd_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1e20c8cd_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>class SelectWords {</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1e20c8cd_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1e20c8cd_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1e20c8cd_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1e20c8cd_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Given a string s and a natural number n, you have been tasked to implement</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1e20c8cd_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1e20c8cd_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * a function that returns a list of all words from string s that contain exactly</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1e20c8cd_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1e20c8cd_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * n consonants, in order these words appear in the string s.</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1e20c8cd_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1e20c8cd_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * If the string s is empty then the function should return an empty list.</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1e20c8cd_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1e20c8cd_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Note: you may assume the input string contains only letters and spaces.</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1e20c8cd_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1e20c8cd_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Examples:</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1e20c8cd_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1e20c8cd_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * selectWords(&#34;Mary had a little lamb&#34;, 4) ==&#62; [&#34;little&#34;]</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1e20c8cd_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1e20c8cd_16'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * selectWords(&#34;Mary had a little lamb&#34;, 3) ==&#62; [&#34;Mary&#34;, &#34;lamb&#34;]</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1e20c8cd_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1e20c8cd_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * selectWords(&#34;simple white space&#34;, 2) ==&#62; []</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1e20c8cd_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1e20c8cd_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * selectWords(&#34;Hello world&#34;, 4) ==&#62; [&#34;world&#34;]</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1e20c8cd_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1e20c8cd_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * selectWords(&#34;Uncle sam&#34;, 3) ==&#62; [&#34;Uncle&#34;]</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1e20c8cd_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1e20c8cd_20'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     *</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1e20c8cd_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1e20c8cd_21'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * &#62; selectWords(&#34;Mary had a little lamb&#34;, 4)</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1e20c8cd_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1e20c8cd_22'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * [&#34;little&#34;]</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1e20c8cd_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1e20c8cd_23'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * &#62; selectWords(&#34;Mary had a little lamb&#34;, 3)</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1e20c8cd_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1e20c8cd_24'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * [&#34;Mary&#34;, &#34;lamb&#34;]</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1e20c8cd_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1e20c8cd_25'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * &#62; selectWords(&#34;simple white space&#34;, 2)</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1e20c8cd_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1e20c8cd_26'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * []</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1e20c8cd_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1e20c8cd_27'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * &#62; selectWords(&#34;Hello world&#34;, 4)</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1e20c8cd_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1e20c8cd_28'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * [&#34;world&#34;]</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1e20c8cd_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1e20c8cd_29'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * &#62; selectWords(&#34;Uncle sam&#34;, 3)</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1e20c8cd_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1e20c8cd_30'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * [&#34;Uncle&#34;]</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1e20c8cd_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1e20c8cd_31'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * &#62; selectWords(&#34;&#34;, 4)</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1e20c8cd_32'/>
+32
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1e20c8cd_32'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * []</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1e20c8cd_33'/>
+33
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1e20c8cd_33'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * &#62; selectWords(&#34;a b c d e f&#34;, 1)</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1e20c8cd_34'/>
+34
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1e20c8cd_34'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * [&#34;b&#34;, &#34;c&#34;, &#34;d&#34;, &#34;f&#34;]</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1e20c8cd_35'/>
+35
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1e20c8cd_35'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1e20c8cd_36'/>
+36
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1e20c8cd_36'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public static List&#60;Object&#62; selectWords(String s, int n) {</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1e20c8cd_37'/>
+37
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1e20c8cd_37'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        List&#60;Object&#62; result = new ArrayList&#60;&#62;();</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1e20c8cd_38'/>
+38
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1e20c8cd_38'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        String[] words = s.split(&#34; &#34;);</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1e20c8cd_39'/>
+39
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1e20c8cd_39'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        for (String word : words) {</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1e20c8cd_40'/>
+40
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1e20c8cd_40'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            int consonants = 0;</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1e20c8cd_41'/>
+41
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1e20c8cd_41'>2</a>
+<span>
+1. selectWords : negated conditional &rarr; KILLED<br/>
+2. selectWords : changed conditional boundary &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            for (int i = 0; i &#60; word.length(); i++) {</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1e20c8cd_42'/>
+42
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1e20c8cd_42'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                char c = word.charAt(i);</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1e20c8cd_43'/>
+43
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1e20c8cd_43'>10</a>
+<span>
+1. selectWords : negated conditional &rarr; KILLED<br/>
+2. selectWords : negated conditional &rarr; KILLED<br/>
+3. selectWords : negated conditional &rarr; KILLED<br/>
+4. selectWords : negated conditional &rarr; KILLED<br/>
+5. selectWords : negated conditional &rarr; KILLED<br/>
+6. selectWords : negated conditional &rarr; KILLED<br/>
+7. selectWords : negated conditional &rarr; KILLED<br/>
+8. selectWords : negated conditional &rarr; KILLED<br/>
+9. selectWords : negated conditional &rarr; KILLED<br/>
+10. selectWords : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                if (c != &#39;a&#39; &#38;&#38; c != &#39;e&#39; &#38;&#38; c != &#39;i&#39; &#38;&#38; c != &#39;o&#39; &#38;&#38; c != &#39;u&#39; &#38;&#38; c != &#39;A&#39; &#38;&#38; c != &#39;E&#39; &#38;&#38; c != &#39;I&#39; &#38;&#38; c != &#39;O&#39; &#38;&#38; c != &#39;U&#39;) {</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1e20c8cd_44'/>
+44
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1e20c8cd_44'>1</a>
+<span>
+1. selectWords : Changed increment from 1 to -1 &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                    consonants++;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1e20c8cd_45'/>
+45
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1e20c8cd_45'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                }</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1e20c8cd_46'/>
+46
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1e20c8cd_46'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1e20c8cd_47'/>
+47
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1e20c8cd_47'>1</a>
+<span>
+1. selectWords : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            if (consonants == n) {</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1e20c8cd_48'/>
+48
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1e20c8cd_48'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                result.add(word);</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1e20c8cd_49'/>
+49
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1e20c8cd_49'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1e20c8cd_50'/>
+50
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1e20c8cd_50'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1e20c8cd_51'/>
+51
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1e20c8cd_51'>1</a>
+<span>
+1. selectWords : replaced return value with Collections.emptyList for original/SelectWords::selectWords &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return result;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1e20c8cd_52'/>
+52
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1e20c8cd_52'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1e20c8cd_53'/>
+53
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1e20c8cd_53'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1e20c8cd_54'/>
+54
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1e20c8cd_54'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1e20c8cd_55'/>
+55
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1e20c8cd_55'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1e20c8cd_41'>41</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1e20c8cd_41'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>selectWords<br/><b>Killed by : </b>original.SelectWordsTest.[engine:junit-jupiter]/[class:original.SelectWordsTest]/[method:testSelectWordsReturnsEmptyListWhenInputStringIsEmpty()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>selectWords<br/><b>Killed by : </b>original.SelectWordsTest.[engine:junit-jupiter]/[class:original.SelectWordsTest]/[method:testSelectWordsReturnsEmptyListWhenInputStringIsEmpty()]</span></span> changed conditional boundary &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1e20c8cd_43'>43</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1e20c8cd_43'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>selectWords<br/><b>Killed by : </b>original.SelectWordsTest.[engine:junit-jupiter]/[class:original.SelectWordsTest]/[method:testEdgeCaseMultipleSpacesBetweenWords()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>selectWords<br/><b>Killed by : </b>original.SelectWordsTest.[engine:junit-jupiter]/[class:original.SelectWordsTest]/[method:testEdgeCaseMultipleSpacesBetweenWords()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>selectWords<br/><b>Killed by : </b>original.SelectWordsTest.[engine:junit-jupiter]/[class:original.SelectWordsTest]/[method:testEdgeCaseMultipleSpacesBetweenWords()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>selectWords<br/><b>Killed by : </b>original.SelectWordsTest.[engine:junit-jupiter]/[class:original.SelectWordsTest]/[method:testEdgeCaseMultipleSpacesBetweenWords()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>selectWords<br/><b>Killed by : </b>original.SelectWordsTest.[engine:junit-jupiter]/[class:original.SelectWordsTest]/[method:testSelectWordsWithWordsContainingOnlyVowels()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>selectWords<br/><b>Killed by : </b>original.SelectWordsTest.[engine:junit-jupiter]/[class:original.SelectWordsTest]/[method:testSelectWords_SingleWord_NoConsonants_ReturnsEmptyList()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>selectWords<br/><b>Killed by : </b>original.SelectWordsTest.[engine:junit-jupiter]/[class:original.SelectWordsTest]/[method:testSelectWordsWithWordsContainingOnlyVowels()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>8.<span><b>8</b><br/><b>Location : </b>selectWords<br/><b>Killed by : </b>original.SelectWordsTest.[engine:junit-jupiter]/[class:original.SelectWordsTest]/[method:testSelectWordsWithWordsContainingOnlyVowels()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>9.<span><b>9</b><br/><b>Location : </b>selectWords<br/><b>Killed by : </b>original.SelectWordsTest.[engine:junit-jupiter]/[class:original.SelectWordsTest]/[method:testEdgeCaseMultipleSpacesBetweenWords()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>10.<span><b>10</b><br/><b>Location : </b>selectWords<br/><b>Killed by : </b>original.SelectWordsTest.[engine:junit-jupiter]/[class:original.SelectWordsTest]/[method:testSelectWordsWithWordsContainingOnlyVowels()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1e20c8cd_44'>44</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1e20c8cd_44'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>selectWords<br/><b>Killed by : </b>original.SelectWordsTest.[engine:junit-jupiter]/[class:original.SelectWordsTest]/[method:testEdgeCaseMultipleSpacesBetweenWords()]</span></span> Changed increment from 1 to -1 &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1e20c8cd_47'>47</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1e20c8cd_47'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>selectWords<br/><b>Killed by : </b>original.SelectWordsTest.[engine:junit-jupiter]/[class:original.SelectWordsTest]/[method:testSelectWordsReturnsEmptyListWhenInputStringIsEmpty()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1e20c8cd_51'>51</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1e20c8cd_51'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>selectWords<br/><b>Killed by : </b>original.SelectWordsTest.[engine:junit-jupiter]/[class:original.SelectWordsTest]/[method:testEdgeCaseMultipleSpacesBetweenWords()]</span></span> replaced return value with Collections.emptyList for original/SelectWords::selectWords &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+<li class='mutator'>CONDITIONALS_BOUNDARY</li>
+<li class='mutator'>EMPTY_RETURNS</li>
+<li class='mutator'>FALSE_RETURNS</li>
+<li class='mutator'>INCREMENTS</li>
+<li class='mutator'>INVERT_NEGS</li>
+<li class='mutator'>MATH</li>
+<li class='mutator'>NEGATE_CONDITIONALS</li>
+<li class='mutator'>NULL_RETURNS</li>
+<li class='mutator'>PRIMITIVE_RETURNS</li>
+<li class='mutator'>TRUE_RETURNS</li>
+<li class='mutator'>VOID_METHOD_CALLS</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>original.SelectWordsTest.[engine:junit-jupiter]/[class:original.SelectWordsTest]/[method:testSelectWordsReturnsEmptyListWhenInputStringIsEmpty()] (0 ms)</li><li>original.SelectWordsTest.[engine:junit-jupiter]/[class:original.SelectWordsTest]/[method:EmptyStringTest()] (0 ms)</li><li>original.SelectWordsTest.[engine:junit-jupiter]/[class:original.SelectWordsTest]/[method:testSelectWords_SingleWord_NoConsonants_ReturnsEmptyList()] (0 ms)</li><li>original.SelectWordsTest.[engine:junit-jupiter]/[class:original.SelectWordsTest]/[method:SingleVowelTest()] (0 ms)</li><li>original.SelectWordsTest.[engine:junit-jupiter]/[class:original.SelectWordsTest]/[method:testSelectWordsWithEmptyString()] (0 ms)</li><li>original.SelectWordsTest.[engine:junit-jupiter]/[class:original.SelectWordsTest]/[method:TestEmptyInput()] (0 ms)</li><li>original.SelectWordsTest.[engine:junit-jupiter]/[class:original.SelectWordsTest]/[method:testEmptyString()] (0 ms)</li><li>original.SelectWordsTest.[engine:junit-jupiter]/[class:original.SelectWordsTest]/[method:testEdgeCaseSingleLetterWord_Fixed()] (0 ms)</li><li>original.SelectWordsTest.[engine:junit-jupiter]/[class:original.SelectWordsTest]/[method:testSelectWords_WithNoConsonants()] (0 ms)</li><li>original.SelectWordsTest.[engine:junit-jupiter]/[class:original.SelectWordsTest]/[method:testSelectWordsWithNoMatchingWords()] (0 ms)</li><li>original.SelectWordsTest.[engine:junit-jupiter]/[class:original.SelectWordsTest]/[method:testSelectWordsWithWordsContainingOnlyVowels()] (0 ms)</li><li>original.SelectWordsTest.[engine:junit-jupiter]/[class:original.SelectWordsTest]/[method:testSelectWords_WordsWithDifferentCase_NoMatchingConsonantCount_ReturnsEmptyList()] (0 ms)</li><li>original.SelectWordsTest.[engine:junit-jupiter]/[class:original.SelectWordsTest]/[method:testSelectWords_WithOnlyVowels()] (0 ms)</li><li>original.SelectWordsTest.[engine:junit-jupiter]/[class:original.SelectWordsTest]/[method:testEdgeCaseMultipleSpacesBetweenWords()] (0 ms)</li><li>original.SelectWordsTest.[engine:junit-jupiter]/[class:original.SelectWordsTest]/[method:testSelectWords_WithZeroConsonantCount()] (0 ms)</li><li>original.SelectWordsTest.[engine:junit-jupiter]/[class:original.SelectWordsTest]/[method:TestConsonantOnlyWord()] (0 ms)</li><li>original.SelectWordsTest.[engine:junit-jupiter]/[class:original.SelectWordsTest]/[method:testSelectWordsWithMultipleConsonantWords()] (0 ms)</li><li>original.SelectWordsTest.[engine:junit-jupiter]/[class:original.SelectWordsTest]/[method:testSelectWords_WordsWithDifferentCase_MatchingConsonantCount_ReturnsWord()] (0 ms)</li><li>original.SelectWordsTest.[engine:junit-jupiter]/[class:original.SelectWordsTest]/[method:TestConsonantCounting()] (0 ms)</li><li>original.SelectWordsTest.[engine:junit-jupiter]/[class:original.SelectWordsTest]/[method:testSelectWords_SingleWord_MatchingConsonantCount_ReturnsWord()] (0 ms)</li><li>original.SelectWordsTest.[engine:junit-jupiter]/[class:original.SelectWordsTest]/[method:testSelectWords_WithMultipleConsonants()] (0 ms)</li><li>original.SelectWordsTest.[engine:junit-jupiter]/[class:original.SelectWordsTest]/[method:testEdgeCaseMultipleSpaces()] (0 ms)</li><li>original.SelectWordsTest.[engine:junit-jupiter]/[class:original.SelectWordsTest]/[method:testSelectWordsWithSingleConsonantWords()] (0 ms)</li><li>original.SelectWordsTest.[engine:junit-jupiter]/[class:original.SelectWordsTest]/[method:testSelectWords_WithSingleConsonant()] (0 ms)</li><li>original.SelectWordsTest.[engine:junit-jupiter]/[class:original.SelectWordsTest]/[method:testSingleWord()] (0 ms)</li><li>original.SelectWordsTest.[engine:junit-jupiter]/[class:original.SelectWordsTest]/[method:TestSingleCharacterWord()] (0 ms)</li><li>original.SelectWordsTest.[engine:junit-jupiter]/[class:original.SelectWordsTest]/[method:testSelectWords_WithConsonantAndVowel()] (0 ms)</li><li>original.SelectWordsTest.[engine:junit-jupiter]/[class:original.SelectWordsTest]/[method:testMultipleWords()] (0 ms)</li><li>original.SelectWordsTest.[engine:junit-jupiter]/[class:original.SelectWordsTest]/[method:testSelectWords_WithNegativeConsonantCount()] (0 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='https://pitest.org'>PIT</a> 1.18.0
+
+</body>
+</html>

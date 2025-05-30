@@ -1,0 +1,86 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Longest {
+
+  // compiled from: id_12.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 6 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Longest; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  // signature (Ljava/util/List<Ljava/lang/Object;>;)Ljava/lang/String;
+  // declaration: java.lang.String longest(java.util.List<java.lang.Object>)
+  public static longest(Ljava/util/List;)Ljava/lang/String;
+   L0
+    LINENUMBER 23 L0
+    ALOAD 0
+    INVOKEINTERFACE java/util/List.size ()I (itf)
+    IFNE L1
+   L2
+    LINENUMBER 24 L2
+    ACONST_NULL
+    ARETURN
+   L1
+    LINENUMBER 26 L1
+   FRAME FULL [java/util/List] []
+    ALOAD 0
+    ICONST_0
+    INVOKEINTERFACE java/util/List.get (I)Ljava/lang/Object; (itf)
+    INVOKEVIRTUAL java/lang/Object.toString ()Ljava/lang/String;
+    ASTORE 1
+   L3
+    LINENUMBER 27 L3
+    ICONST_1
+    ISTORE 2
+   L4
+   FRAME FULL [java/util/List java/lang/String I] []
+    ILOAD 2
+    ALOAD 0
+    INVOKEINTERFACE java/util/List.size ()I (itf)
+    IF_ICMPGE L5
+   L6
+    LINENUMBER 28 L6
+    ALOAD 0
+    ILOAD 2
+    INVOKEINTERFACE java/util/List.get (I)Ljava/lang/Object; (itf)
+    INVOKEVIRTUAL java/lang/Object.toString ()Ljava/lang/String;
+    INVOKEVIRTUAL java/lang/String.length ()I
+    ALOAD 1
+    INVOKEVIRTUAL java/lang/String.length ()I
+    IF_ICMPGT L7
+   L8
+    LINENUMBER 29 L8
+    ALOAD 0
+    ILOAD 2
+    INVOKEINTERFACE java/util/List.get (I)Ljava/lang/Object; (itf)
+    INVOKEVIRTUAL java/lang/Object.toString ()Ljava/lang/String;
+    ASTORE 1
+   L7
+    LINENUMBER 27 L7
+   FRAME FULL [java/util/List java/lang/String I] []
+    IINC 2 1
+    GOTO L4
+   L5
+    LINENUMBER 32 L5
+   FRAME FULL [java/util/List java/lang/String I] []
+    ALOAD 1
+    ARETURN
+   L9
+    LOCALVARIABLE i I L4 L5 2
+    LOCALVARIABLE strings Ljava/util/List; L0 L9 0
+    // signature Ljava/util/List<Ljava/lang/Object;>;
+    // declaration: strings extends java.util.List<java.lang.Object>
+    LOCALVARIABLE longest Ljava/lang/String; L3 L9 1
+    MAXSTACK = 2
+    MAXLOCALS = 3
+}
+

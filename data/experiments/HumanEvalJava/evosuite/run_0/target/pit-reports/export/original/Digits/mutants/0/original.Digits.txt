@@ -1,0 +1,88 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Digits {
+
+  // compiled from: id_131.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 3 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Digits; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  public static digits(I)I
+   L0
+    LINENUMBER 28 L0
+    ICONST_1
+    ISTORE 1
+   L1
+    LINENUMBER 29 L1
+    ICONST_0
+    ISTORE 2
+   L2
+    LINENUMBER 30 L2
+   FRAME FULL [I I I] []
+    ILOAD 0
+    IFGT L3
+   L4
+    LINENUMBER 31 L4
+    ILOAD 0
+    BIPUSH 10
+    IREM
+    ISTORE 3
+   L5
+    LINENUMBER 32 L5
+    ILOAD 3
+    ICONST_2
+    IREM
+    ICONST_1
+    IF_ICMPNE L6
+   L7
+    LINENUMBER 33 L7
+    ILOAD 1
+    ILOAD 3
+    IMUL
+    ISTORE 1
+   L8
+    LINENUMBER 34 L8
+    ICONST_1
+    ISTORE 2
+   L6
+    LINENUMBER 36 L6
+   FRAME FULL [I I I I] []
+    ILOAD 0
+    BIPUSH 10
+    IDIV
+    ISTORE 0
+   L9
+    LINENUMBER 37 L9
+    GOTO L2
+   L3
+    LINENUMBER 38 L3
+   FRAME FULL [I I I] []
+    ILOAD 2
+    IFEQ L10
+    ILOAD 1
+    GOTO L11
+   L10
+   FRAME FULL [I I I] []
+    ICONST_0
+   L11
+   FRAME FULL [I I I] [I]
+    IRETURN
+   L12
+    LOCALVARIABLE digit I L5 L9 3
+    LOCALVARIABLE n I L0 L12 0
+    LOCALVARIABLE res I L1 L12 1
+    LOCALVARIABLE hasOdd Z L2 L12 2
+    MAXSTACK = 2
+    MAXLOCALS = 4
+}
+

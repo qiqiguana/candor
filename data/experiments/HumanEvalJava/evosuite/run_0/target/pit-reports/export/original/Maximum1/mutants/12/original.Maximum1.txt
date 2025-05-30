@@ -1,0 +1,181 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Maximum1 {
+
+  // compiled from: id_120.java
+  NESTMEMBER original/Maximum1$1
+  // access flags 0x0
+  INNERCLASS original/Maximum1$1 null null
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 6 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Maximum1; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  // signature (Ljava/util/List<Ljava/lang/Integer;>;I)Ljava/util/List<Ljava/lang/Object;>;
+  // declaration: java.util.List<java.lang.Object> maximum(java.util.List<java.lang.Integer>, int)
+  public static maximum(Ljava/util/List;I)Ljava/util/List;
+   L0
+    LINENUMBER 55 L0
+    ALOAD 0
+    INVOKEINTERFACE java/util/List.size ()I (itf)
+    ISTORE 2
+   L1
+    LINENUMBER 56 L1
+    ILOAD 2
+    IFEQ L2
+    ILOAD 1
+    IFNE L3
+   L2
+    LINENUMBER 57 L2
+   FRAME FULL [java/util/List I I] []
+    NEW java/util/ArrayList
+    DUP
+    INVOKESPECIAL java/util/ArrayList.<init> ()V
+    ARETURN
+   L3
+    LINENUMBER 59 L3
+   FRAME FULL [java/util/List I I] []
+    ILOAD 2
+    ILOAD 1
+    IF_ICMPGT L4
+   L5
+    LINENUMBER 61 L5
+    ALOAD 0
+    INVOKESTATIC java/util/Collections.sort (Ljava/util/List;)V
+   L6
+    LINENUMBER 62 L6
+    NEW java/util/ArrayList
+    DUP
+    ALOAD 0
+    INVOKESPECIAL java/util/ArrayList.<init> (Ljava/util/Collection;)V
+    ARETURN
+   L4
+    LINENUMBER 64 L4
+   FRAME FULL [java/util/List I I] []
+    NEW java/util/ArrayList
+    DUP
+    INVOKESPECIAL java/util/ArrayList.<init> ()V
+    ASTORE 3
+   L7
+    LINENUMBER 65 L7
+    NEW java/util/PriorityQueue
+    DUP
+    ILOAD 1
+    INVOKESPECIAL java/util/PriorityQueue.<init> (I)V
+    ASTORE 4
+   L8
+    LINENUMBER 66 L8
+    ICONST_0
+    ISTORE 5
+   L9
+   FRAME FULL [java/util/List I I java/util/ArrayList java/util/PriorityQueue I] []
+    ILOAD 5
+    ILOAD 2
+    IF_ICMPGE L10
+   L11
+    LINENUMBER 67 L11
+    ILOAD 5
+    ILOAD 1
+    IF_ICMPGE L12
+   L13
+    LINENUMBER 68 L13
+    ALOAD 4
+    ALOAD 0
+    ILOAD 5
+    INVOKEINTERFACE java/util/List.get (I)Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/Integer
+    INVOKEVIRTUAL java/util/PriorityQueue.add (Ljava/lang/Object;)Z
+    POP
+    GOTO L14
+   L12
+    LINENUMBER 70 L12
+   FRAME FULL [java/util/List I I java/util/ArrayList java/util/PriorityQueue I] []
+    ALOAD 0
+    ILOAD 5
+    INVOKEINTERFACE java/util/List.get (I)Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/Integer
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    ALOAD 4
+    INVOKEVIRTUAL java/util/PriorityQueue.peek ()Ljava/lang/Object;
+    CHECKCAST java/lang/Integer
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    IF_ICMPGT L14
+   L15
+    LINENUMBER 71 L15
+    ALOAD 4
+    INVOKEVIRTUAL java/util/PriorityQueue.poll ()Ljava/lang/Object;
+    POP
+   L16
+    LINENUMBER 72 L16
+    ALOAD 4
+    ALOAD 0
+    ILOAD 5
+    INVOKEINTERFACE java/util/List.get (I)Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/Integer
+    INVOKEVIRTUAL java/util/PriorityQueue.add (Ljava/lang/Object;)Z
+    POP
+   L14
+    LINENUMBER 66 L14
+   FRAME FULL [java/util/List I I java/util/ArrayList java/util/PriorityQueue I] []
+    IINC 5 1
+    GOTO L9
+   L10
+    LINENUMBER 76 L10
+   FRAME FULL [java/util/List I I java/util/ArrayList java/util/PriorityQueue I] []
+    ICONST_0
+    ISTORE 5
+   L17
+   FRAME FULL [java/util/List I I java/util/ArrayList java/util/PriorityQueue I] []
+    ILOAD 5
+    ILOAD 1
+    IF_ICMPGE L18
+   L19
+    LINENUMBER 77 L19
+    ALOAD 3
+    ALOAD 4
+    INVOKEVIRTUAL java/util/PriorityQueue.poll ()Ljava/lang/Object;
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+   L20
+    LINENUMBER 76 L20
+    IINC 5 1
+    GOTO L17
+   L18
+    LINENUMBER 79 L18
+   FRAME FULL [java/util/List I I java/util/ArrayList java/util/PriorityQueue I] []
+    ALOAD 3
+    NEW original/Maximum1$1
+    DUP
+    INVOKESPECIAL original/Maximum1$1.<init> ()V
+    INVOKESTATIC java/util/Collections.sort (Ljava/util/List;Ljava/util/Comparator;)V
+   L21
+    LINENUMBER 84 L21
+    ALOAD 3
+    ARETURN
+   L22
+    LOCALVARIABLE i I L9 L10 5
+    LOCALVARIABLE i I L17 L18 5
+    LOCALVARIABLE arr Ljava/util/List; L0 L22 0
+    // signature Ljava/util/List<Ljava/lang/Integer;>;
+    // declaration: arr extends java.util.List<java.lang.Integer>
+    LOCALVARIABLE k I L0 L22 1
+    LOCALVARIABLE n I L1 L22 2
+    LOCALVARIABLE res Ljava/util/List; L7 L22 3
+    // signature Ljava/util/List<Ljava/lang/Object;>;
+    // declaration: res extends java.util.List<java.lang.Object>
+    LOCALVARIABLE heap Ljava/util/PriorityQueue; L8 L22 4
+    // signature Ljava/util/PriorityQueue<Ljava/lang/Integer;>;
+    // declaration: heap extends java.util.PriorityQueue<java.lang.Integer>
+    MAXSTACK = 3
+    MAXLOCALS = 6
+}
+

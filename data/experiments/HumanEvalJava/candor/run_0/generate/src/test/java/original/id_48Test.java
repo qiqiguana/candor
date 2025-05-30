@@ -1,0 +1,48 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of IsPalindrome.
+*/
+class IsPalindromeTest {
+    @Test
+    void isPalindrome_shouldReturnTrueWhenEmptyString() {
+        // Given
+        String text = "";
+        // When
+        Boolean result = IsPalindrome.isPalindrome(text);
+        // Then
+        assertTrue(result);
+    }
+    
+    @Test
+        public void testNothing(){
+            IsPalindrome s = new IsPalindrome();
+            }
+    @Test
+    public void testEmptyString() {
+        assertTrue(IsPalindrome.isPalindrome(""));
+    }
+    @Test
+    public void testSingleCharacter() {
+        assertTrue(IsPalindrome.isPalindrome("a"));
+    }
+    @Test
+    public void testEvenLength() {
+        assertTrue(IsPalindrome.isPalindrome("abba"));
+    }
+    @Test
+    public void testOddLength() {
+        assertTrue(IsPalindrome.isPalindrome("aba"));
+    }
+    @Test
+    public void testNotPalindrome() {
+        assertFalse(IsPalindrome.isPalindrome("abcd"));
+    }
+    @Test
+    public void testNullInput() {
+        assertThrows(NullPointerException.class, () -> IsPalindrome.isPalindrome(null));
+    }
+                                    
+}

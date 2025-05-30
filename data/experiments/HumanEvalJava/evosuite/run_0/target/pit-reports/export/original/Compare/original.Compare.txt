@@ -1,0 +1,80 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Compare {
+
+  // compiled from: id_152.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 8 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Compare; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  // signature (Ljava/util/List<Ljava/lang/Integer;>;Ljava/util/List<Ljava/lang/Integer;>;)Ljava/util/List<Ljava/lang/Integer;>;
+  // declaration: java.util.List<java.lang.Integer> compare(java.util.List<java.lang.Integer>, java.util.List<java.lang.Integer>)
+  public static compare(Ljava/util/List;Ljava/util/List;)Ljava/util/List;
+   L0
+    LINENUMBER 34 L0
+    NEW java/util/ArrayList
+    DUP
+    INVOKESPECIAL java/util/ArrayList.<init> ()V
+    ASTORE 2
+   L1
+    LINENUMBER 35 L1
+    ICONST_0
+    ISTORE 3
+   L2
+   FRAME FULL [java/util/List java/util/List java/util/List I] []
+    ILOAD 3
+    ALOAD 0
+    INVOKEINTERFACE java/util/List.size ()I (itf)
+    IF_ICMPGE L3
+   L4
+    LINENUMBER 36 L4
+    ALOAD 2
+    ALOAD 0
+    ILOAD 3
+    INVOKEINTERFACE java/util/List.get (I)Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/Integer
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    ALOAD 1
+    ILOAD 3
+    INVOKEINTERFACE java/util/List.get (I)Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/Integer
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    ISUB
+    INVOKESTATIC java/lang/Math.abs (I)I
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+   L5
+    LINENUMBER 35 L5
+    IINC 3 1
+    GOTO L2
+   L3
+    LINENUMBER 38 L3
+   FRAME FULL [java/util/List java/util/List java/util/List] []
+    ALOAD 2
+    ARETURN
+   L6
+    LOCALVARIABLE i I L2 L3 3
+    LOCALVARIABLE game Ljava/util/List; L0 L6 0
+    // signature Ljava/util/List<Ljava/lang/Integer;>;
+    // declaration: game extends java.util.List<java.lang.Integer>
+    LOCALVARIABLE guess Ljava/util/List; L0 L6 1
+    // signature Ljava/util/List<Ljava/lang/Integer;>;
+    // declaration: guess extends java.util.List<java.lang.Integer>
+    LOCALVARIABLE result Ljava/util/List; L1 L6 2
+    // signature Ljava/util/List<Ljava/lang/Integer;>;
+    // declaration: result extends java.util.List<java.lang.Integer>
+    MAXSTACK = 4
+    MAXLOCALS = 4
+}
+

@@ -1,0 +1,75 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Solution1359 {
+
+  // compiled from: id_1359.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 3 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Solution1359; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public countOrders(I)I
+   L0
+    LINENUMBER 5 L0
+    LDC 1000000007
+    ISTORE 2
+   L1
+    LINENUMBER 6 L1
+    LCONST_1
+    LSTORE 3
+   L2
+    LINENUMBER 7 L2
+    ICONST_2
+    ISTORE 5
+   L3
+   FRAME FULL [original/Solution1359 I I J I] []
+    ILOAD 5
+    ILOAD 1
+    IF_ICMPGT L4
+   L5
+    LINENUMBER 8 L5
+    LLOAD 3
+    ILOAD 5
+    I2L
+    LMUL
+    ICONST_2
+    ILOAD 5
+    IMUL
+    ICONST_1
+    ISUB
+    I2L
+    LMUL
+    LDC 1000000007L
+    LREM
+    LSTORE 3
+   L6
+    LINENUMBER 7 L6
+    IINC 5 1
+    GOTO L3
+   L4
+    LINENUMBER 10 L4
+   FRAME FULL [original/Solution1359 I I J I] []
+    LLOAD 3
+    L2I
+    POP
+    ICONST_0
+    IRETURN
+   L7
+    LOCALVARIABLE i I L3 L4 5
+    LOCALVARIABLE this Loriginal/Solution1359; L0 L7 0
+    LOCALVARIABLE n I L0 L7 1
+    LOCALVARIABLE mod I L1 L7 2
+    LOCALVARIABLE f J L2 L7 3
+    MAXSTACK = 4
+    MAXLOCALS = 6
+}
+

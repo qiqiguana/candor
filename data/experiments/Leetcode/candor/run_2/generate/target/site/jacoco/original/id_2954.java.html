@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_2954.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">leetcode</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_2954.java</span></div><h1>id_2954.java</h1><pre class="source lang-java linenums">package original;
+
+<span class="fc" id="L3">class Solution2954 {</span>
+    private static final int MOD = (int) (1e9 + 7);
+    private static final int MX = 100000;
+<span class="fc" id="L6">    private static final int[] FAC = new int[MX + 1];</span>
+
+    static {
+<span class="fc" id="L9">        FAC[0] = 1;</span>
+<span class="fc bfc" id="L10" title="All 2 branches covered.">        for (int i = 1; i &lt;= MX; i++) {</span>
+<span class="fc" id="L11">            FAC[i] = (int) ((long) FAC[i - 1] * i % MOD);</span>
+        }
+<span class="fc" id="L13">    }</span>
+
+    public int numberOfSequence(int n, int[] sick) {
+<span class="fc" id="L16">        int m = sick.length;</span>
+<span class="fc" id="L17">        int[] nums = new int[m + 1];</span>
+<span class="fc" id="L18">        nums[0] = sick[0];</span>
+<span class="fc" id="L19">        nums[m] = n - sick[m - 1] - 1;</span>
+<span class="fc bfc" id="L20" title="All 2 branches covered.">        for (int i = 1; i &lt; m; i++) {</span>
+<span class="fc" id="L21">            nums[i] = sick[i] - sick[i - 1] - 1;</span>
+        }
+<span class="fc" id="L23">        int s = 0;</span>
+<span class="fc bfc" id="L24" title="All 2 branches covered.">        for (int x : nums) {</span>
+<span class="fc" id="L25">            s += x;</span>
+        }
+<span class="fc" id="L27">        int ans = FAC[s];</span>
+<span class="fc bfc" id="L28" title="All 2 branches covered.">        for (int x : nums) {</span>
+<span class="pc bpc" id="L29" title="1 of 2 branches missed.">            if (x &gt; 0) {</span>
+<span class="fc" id="L30">                ans = (int) ((long) ans * qpow(FAC[x], MOD - 2) % MOD);</span>
+            }
+        }
+<span class="fc bfc" id="L33" title="All 2 branches covered.">        for (int i = 1; i &lt; nums.length - 1; ++i) {</span>
+<span class="pc bpc" id="L34" title="1 of 2 branches missed.">            if (nums[i] &gt; 1) {</span>
+<span class="nc" id="L35">                ans = (int) ((long) ans * qpow(2, nums[i] - 1) % MOD);</span>
+            }
+        }
+<span class="fc" id="L38">        return ans;</span>
+    }
+
+    private int qpow(long a, long n) {
+<span class="fc" id="L42">        long ans = 1;</span>
+<span class="fc bfc" id="L43" title="All 2 branches covered.">        for (; n &gt; 0; n &gt;&gt;= 1) {</span>
+<span class="fc bfc" id="L44" title="All 2 branches covered.">            if ((n &amp; 1) == 1) {</span>
+<span class="fc" id="L45">                ans = ans * a % MOD;</span>
+            }
+<span class="fc" id="L47">            a = a * a % MOD;</span>
+        }
+<span class="fc" id="L49">        return (int) ans;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

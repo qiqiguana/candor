@@ -1,0 +1,123 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/SeparateParenGroups {
+
+  // compiled from: id_1.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 8 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/SeparateParenGroups; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  // signature (Ljava/lang/String;)Ljava/util/List<Ljava/lang/String;>;
+  // declaration: java.util.List<java.lang.String> separateParenGroups(java.lang.String)
+  public static separateParenGroups(Ljava/lang/String;)Ljava/util/List;
+   L0
+    LINENUMBER 25 L0
+    NEW java/util/ArrayList
+    DUP
+    INVOKESPECIAL java/util/ArrayList.<init> ()V
+    ASTORE 1
+   L1
+    LINENUMBER 26 L1
+    ICONST_0
+    ISTORE 2
+   L2
+    LINENUMBER 27 L2
+    NEW java/lang/StringBuilder
+    DUP
+    INVOKESPECIAL java/lang/StringBuilder.<init> ()V
+    ASTORE 3
+   L3
+    LINENUMBER 28 L3
+    ICONST_0
+    ISTORE 4
+   L4
+   FRAME FULL [java/lang/String java/util/ArrayList I java/lang/StringBuilder I] []
+    ILOAD 4
+    ALOAD 0
+    INVOKEVIRTUAL java/lang/String.length ()I
+    IF_ICMPGE L5
+   L6
+    LINENUMBER 29 L6
+    ALOAD 0
+    ILOAD 4
+    INVOKEVIRTUAL java/lang/String.charAt (I)C
+    BIPUSH 40
+    IF_ICMPNE L7
+   L8
+    LINENUMBER 30 L8
+    IINC 2 1
+   L9
+    LINENUMBER 31 L9
+    ALOAD 3
+    BIPUSH 40
+    INVOKEVIRTUAL java/lang/StringBuilder.append (C)Ljava/lang/StringBuilder;
+    POP
+    GOTO L10
+   L7
+    LINENUMBER 32 L7
+   FRAME FULL [java/lang/String java/util/ArrayList I java/lang/StringBuilder I] []
+    ALOAD 0
+    ILOAD 4
+    INVOKEVIRTUAL java/lang/String.charAt (I)C
+    BIPUSH 41
+    IF_ICMPNE L10
+   L11
+    LINENUMBER 33 L11
+    IINC 2 -1
+   L12
+    LINENUMBER 34 L12
+    ALOAD 3
+    BIPUSH 41
+    INVOKEVIRTUAL java/lang/StringBuilder.append (C)Ljava/lang/StringBuilder;
+    POP
+   L13
+    LINENUMBER 35 L13
+    ILOAD 2
+    IFNE L10
+   L14
+    LINENUMBER 36 L14
+    ALOAD 1
+    ALOAD 3
+    INVOKEVIRTUAL java/lang/StringBuilder.toString ()Ljava/lang/String;
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+   L15
+    LINENUMBER 37 L15
+    NEW java/lang/StringBuilder
+    DUP
+    INVOKESPECIAL java/lang/StringBuilder.<init> ()V
+    ASTORE 3
+   L10
+    LINENUMBER 28 L10
+   FRAME FULL [java/lang/String java/util/ArrayList I java/lang/StringBuilder I] []
+    IINC 4 1
+    GOTO L4
+   L5
+    LINENUMBER 42 L5
+   FRAME FULL [java/lang/String java/util/ArrayList I java/lang/StringBuilder I] []
+    ALOAD 1
+    POP
+    INVOKESTATIC java/util/Collections.emptyList ()Ljava/util/List;
+    ARETURN
+   L16
+    LOCALVARIABLE i I L4 L5 4
+    LOCALVARIABLE parenString Ljava/lang/String; L0 L16 0
+    LOCALVARIABLE result Ljava/util/List; L1 L16 1
+    // signature Ljava/util/List<Ljava/lang/String;>;
+    // declaration: result extends java.util.List<java.lang.String>
+    LOCALVARIABLE count I L2 L16 2
+    LOCALVARIABLE curString Ljava/lang/StringBuilder; L3 L16 3
+    MAXSTACK = 2
+    MAXLOCALS = 5
+}
+

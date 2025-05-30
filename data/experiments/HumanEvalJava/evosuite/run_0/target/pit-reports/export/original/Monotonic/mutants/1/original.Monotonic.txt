@@ -1,0 +1,155 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Monotonic {
+
+  // compiled from: id_57.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 6 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Monotonic; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  // signature (Ljava/util/List<Ljava/lang/Integer;>;)Ljava/lang/Boolean;
+  // declaration: java.lang.Boolean monotonic(java.util.List<java.lang.Integer>)
+  public static monotonic(Ljava/util/List;)Ljava/lang/Boolean;
+   L0
+    LINENUMBER 28 L0
+    ALOAD 0
+    INVOKEINTERFACE java/util/List.size ()I (itf)
+    ISTORE 1
+   L1
+    LINENUMBER 29 L1
+    ILOAD 1
+    ICONST_1
+    IF_ICMPNE L2
+   L3
+    LINENUMBER 30 L3
+    ICONST_1
+    INVOKESTATIC java/lang/Boolean.valueOf (Z)Ljava/lang/Boolean;
+    POP
+    ICONST_0
+    INVOKESTATIC java/lang/Boolean.valueOf (Z)Ljava/lang/Boolean;
+    ARETURN
+   L2
+    LINENUMBER 32 L2
+   FRAME FULL [java/util/List I] []
+    ALOAD 0
+    ICONST_1
+    INVOKEINTERFACE java/util/List.get (I)Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/Integer
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    ALOAD 0
+    ICONST_0
+    INVOKEINTERFACE java/util/List.get (I)Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/Integer
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    ISUB
+    ISTORE 2
+   L4
+    LINENUMBER 33 L4
+    ICONST_1
+    ISTORE 3
+   L5
+   FRAME FULL [java/util/List I I I] []
+    ILOAD 3
+    ILOAD 1
+    ICONST_1
+    ISUB
+    IF_ICMPGE L6
+   L7
+    LINENUMBER 34 L7
+    ILOAD 2
+    IFNE L8
+   L9
+    LINENUMBER 35 L9
+    ALOAD 0
+    ILOAD 3
+    ICONST_1
+    IADD
+    INVOKEINTERFACE java/util/List.get (I)Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/Integer
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    ALOAD 0
+    ILOAD 3
+    INVOKEINTERFACE java/util/List.get (I)Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/Integer
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    ISUB
+    ISTORE 2
+    GOTO L10
+   L8
+    LINENUMBER 36 L8
+   FRAME FULL [java/util/List I I I] []
+    ILOAD 2
+    IFLE L11
+   L12
+    LINENUMBER 37 L12
+    ALOAD 0
+    ILOAD 3
+    ICONST_1
+    IADD
+    INVOKEINTERFACE java/util/List.get (I)Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/Integer
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    ALOAD 0
+    ILOAD 3
+    INVOKEINTERFACE java/util/List.get (I)Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/Integer
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    IF_ICMPGE L10
+   L13
+    LINENUMBER 38 L13
+    ICONST_0
+    INVOKESTATIC java/lang/Boolean.valueOf (Z)Ljava/lang/Boolean;
+    ARETURN
+   L11
+    LINENUMBER 41 L11
+   FRAME FULL [java/util/List I I I] []
+    ALOAD 0
+    ILOAD 3
+    ICONST_1
+    IADD
+    INVOKEINTERFACE java/util/List.get (I)Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/Integer
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    ALOAD 0
+    ILOAD 3
+    INVOKEINTERFACE java/util/List.get (I)Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/Integer
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    IF_ICMPLE L10
+   L14
+    LINENUMBER 42 L14
+    ICONST_0
+    INVOKESTATIC java/lang/Boolean.valueOf (Z)Ljava/lang/Boolean;
+    ARETURN
+   L10
+    LINENUMBER 33 L10
+   FRAME FULL [java/util/List I I I] []
+    IINC 3 1
+    GOTO L5
+   L6
+    LINENUMBER 46 L6
+   FRAME FULL [java/util/List I I I] []
+    ICONST_1
+    INVOKESTATIC java/lang/Boolean.valueOf (Z)Ljava/lang/Boolean;
+    ARETURN
+   L15
+    LOCALVARIABLE i I L5 L6 3
+    LOCALVARIABLE l Ljava/util/List; L0 L15 0
+    // signature Ljava/util/List<Ljava/lang/Integer;>;
+    // declaration: l extends java.util.List<java.lang.Integer>
+    LOCALVARIABLE size I L1 L15 1
+    LOCALVARIABLE direction I L4 L15 2
+    MAXSTACK = 3
+    MAXLOCALS = 4
+}
+

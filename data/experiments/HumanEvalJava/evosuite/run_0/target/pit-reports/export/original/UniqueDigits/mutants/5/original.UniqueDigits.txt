@@ -1,0 +1,122 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/UniqueDigits {
+
+  // compiled from: id_104.java
+  NESTMEMBER original/UniqueDigits$1
+  // access flags 0x0
+  INNERCLASS original/UniqueDigits$1 null null
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 9 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/UniqueDigits; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  // signature (Ljava/util/List<Ljava/lang/Integer;>;)Ljava/util/List<Ljava/lang/Object;>;
+  // declaration: java.util.List<java.lang.Object> uniqueDigits(java.util.List<java.lang.Integer>)
+  public static uniqueDigits(Ljava/util/List;)Ljava/util/List;
+   L0
+    LINENUMBER 32 L0
+    NEW java/util/ArrayList
+    DUP
+    INVOKESPECIAL java/util/ArrayList.<init> ()V
+    ASTORE 1
+   L1
+    LINENUMBER 33 L1
+    ALOAD 0
+    INVOKEINTERFACE java/util/List.iterator ()Ljava/util/Iterator; (itf)
+    ASTORE 2
+   L2
+   FRAME FULL [java/util/List java/util/ArrayList java/util/Iterator] []
+    ALOAD 2
+    INVOKEINTERFACE java/util/Iterator.hasNext ()Z (itf)
+    IFEQ L3
+    ALOAD 2
+    INVOKEINTERFACE java/util/Iterator.next ()Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/Integer
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    ISTORE 3
+   L4
+    LINENUMBER 34 L4
+    ICONST_0
+    ISTORE 4
+   L5
+    LINENUMBER 35 L5
+    ILOAD 3
+    ISTORE 5
+   L6
+    LINENUMBER 36 L6
+   FRAME FULL [java/util/List java/util/ArrayList java/util/Iterator I I I] []
+    ILOAD 3
+    IFLE L7
+   L8
+    LINENUMBER 37 L8
+    ILOAD 3
+    ICONST_2
+    IREM
+    IFNE L9
+   L10
+    LINENUMBER 38 L10
+    ICONST_1
+    ISTORE 4
+   L11
+    LINENUMBER 39 L11
+    GOTO L7
+   L9
+    LINENUMBER 41 L9
+   FRAME FULL [java/util/List java/util/ArrayList java/util/Iterator I I I] []
+    ILOAD 3
+    BIPUSH 10
+    IDIV
+    ISTORE 3
+    GOTO L6
+   L7
+    LINENUMBER 43 L7
+   FRAME FULL [java/util/List java/util/ArrayList java/util/Iterator I I I] []
+    ILOAD 4
+    IFEQ L12
+   L13
+    LINENUMBER 44 L13
+    ALOAD 1
+    ILOAD 5
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+   L12
+    LINENUMBER 46 L12
+   FRAME FULL [java/util/List java/util/ArrayList java/util/Iterator I I I] []
+    GOTO L2
+   L3
+    LINENUMBER 47 L3
+   FRAME FULL [java/util/List java/util/ArrayList java/util/Iterator] []
+    ALOAD 1
+    NEW original/UniqueDigits$1
+    DUP
+    INVOKESPECIAL original/UniqueDigits$1.<init> ()V
+    INVOKESTATIC java/util/Collections.sort (Ljava/util/List;Ljava/util/Comparator;)V
+   L14
+    LINENUMBER 52 L14
+    ALOAD 1
+    ARETURN
+   L15
+    LOCALVARIABLE hasEven Z L5 L12 4
+    LOCALVARIABLE oldValue I L6 L12 5
+    LOCALVARIABLE value I L4 L12 3
+    LOCALVARIABLE x Ljava/util/List; L0 L15 0
+    // signature Ljava/util/List<Ljava/lang/Integer;>;
+    // declaration: x extends java.util.List<java.lang.Integer>
+    LOCALVARIABLE result Ljava/util/List; L1 L15 1
+    // signature Ljava/util/List<Ljava/lang/Object;>;
+    // declaration: result extends java.util.List<java.lang.Object>
+    MAXSTACK = 3
+    MAXLOCALS = 6
+}
+

@@ -1,0 +1,154 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/FileNameCheck {
+
+  // compiled from: id_141.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 5 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/FileNameCheck; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  public static fileNameCheck(Ljava/lang/String;)Ljava/lang/String;
+   L0
+    LINENUMBER 74 L0
+    ICONST_3
+    ANEWARRAY java/lang/String
+    DUP
+    ICONST_0
+    LDC "txt"
+    AASTORE
+    DUP
+    ICONST_1
+    LDC "exe"
+    AASTORE
+    DUP
+    ICONST_2
+    LDC "dll"
+    AASTORE
+    ASTORE 1
+   L1
+    LINENUMBER 75 L1
+    ALOAD 0
+    LDC "\\."
+    INVOKEVIRTUAL java/lang/String.split (Ljava/lang/String;)[Ljava/lang/String;
+    ASTORE 2
+   L2
+    LINENUMBER 76 L2
+    ALOAD 2
+    ARRAYLENGTH
+    ICONST_2
+    IF_ICMPEQ L3
+   L4
+    LINENUMBER 77 L4
+    LDC "No"
+    POP
+    LDC ""
+    ARETURN
+   L3
+    LINENUMBER 79 L3
+   FRAME FULL [java/lang/String [Ljava/lang/String; [Ljava/lang/String;] []
+    ALOAD 1
+    INVOKESTATIC java/util/Arrays.asList ([Ljava/lang/Object;)Ljava/util/List;
+    ALOAD 2
+    ICONST_1
+    AALOAD
+    INVOKEINTERFACE java/util/List.contains (Ljava/lang/Object;)Z (itf)
+    IFNE L5
+   L6
+    LINENUMBER 80 L6
+    LDC "No"
+    ARETURN
+   L5
+    LINENUMBER 82 L5
+   FRAME FULL [java/lang/String [Ljava/lang/String; [Ljava/lang/String;] []
+    ALOAD 2
+    ICONST_0
+    AALOAD
+    INVOKEVIRTUAL java/lang/String.length ()I
+    IFNE L7
+   L8
+    LINENUMBER 83 L8
+    LDC "No"
+    ARETURN
+   L7
+    LINENUMBER 85 L7
+   FRAME FULL [java/lang/String [Ljava/lang/String; [Ljava/lang/String;] []
+    ALOAD 2
+    ICONST_0
+    AALOAD
+    ICONST_0
+    INVOKEVIRTUAL java/lang/String.charAt (I)C
+    INVOKESTATIC java/lang/Character.isLetter (C)Z
+    IFNE L9
+   L10
+    LINENUMBER 86 L10
+    LDC "No"
+    ARETURN
+   L9
+    LINENUMBER 88 L9
+   FRAME FULL [java/lang/String [Ljava/lang/String; [Ljava/lang/String;] []
+    ICONST_0
+    ISTORE 3
+   L11
+    LINENUMBER 89 L11
+    ICONST_0
+    ISTORE 4
+   L12
+   FRAME FULL [java/lang/String [Ljava/lang/String; [Ljava/lang/String; I I] []
+    ILOAD 4
+    ALOAD 2
+    ICONST_0
+    AALOAD
+    INVOKEVIRTUAL java/lang/String.length ()I
+    IF_ICMPGE L13
+   L14
+    LINENUMBER 90 L14
+    ALOAD 2
+    ICONST_0
+    AALOAD
+    ILOAD 4
+    INVOKEVIRTUAL java/lang/String.charAt (I)C
+    INVOKESTATIC java/lang/Character.isDigit (C)Z
+    IFEQ L15
+   L16
+    LINENUMBER 91 L16
+    IINC 3 1
+   L15
+    LINENUMBER 89 L15
+   FRAME FULL [java/lang/String [Ljava/lang/String; [Ljava/lang/String; I I] []
+    IINC 4 1
+    GOTO L12
+   L13
+    LINENUMBER 94 L13
+   FRAME FULL [java/lang/String [Ljava/lang/String; [Ljava/lang/String; I I] []
+    ILOAD 3
+    ICONST_3
+    IF_ICMPLE L17
+   L18
+    LINENUMBER 95 L18
+    LDC "No"
+    ARETURN
+   L17
+    LINENUMBER 97 L17
+   FRAME FULL [java/lang/String [Ljava/lang/String; [Ljava/lang/String; I I] []
+    LDC "Yes"
+    ARETURN
+   L19
+    LOCALVARIABLE i I L12 L13 4
+    LOCALVARIABLE fileName Ljava/lang/String; L0 L19 0
+    LOCALVARIABLE suf [Ljava/lang/String; L1 L19 1
+    LOCALVARIABLE lst [Ljava/lang/String; L2 L19 2
+    LOCALVARIABLE t I L11 L19 3
+    MAXSTACK = 4
+    MAXLOCALS = 5
+}
+

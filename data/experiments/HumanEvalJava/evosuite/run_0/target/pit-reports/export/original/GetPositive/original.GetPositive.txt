@@ -1,0 +1,85 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/GetPositive {
+
+  // compiled from: id_30.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 7 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/GetPositive; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  // signature (Ljava/util/List<Ljava/lang/Object;>;)Ljava/util/List<Ljava/lang/Object;>;
+  // declaration: java.util.List<java.lang.Object> getPositive(java.util.List<java.lang.Object>)
+  public static getPositive(Ljava/util/List;)Ljava/util/List;
+   L0
+    LINENUMBER 25 L0
+    NEW java/util/ArrayList
+    DUP
+    INVOKESPECIAL java/util/ArrayList.<init> ()V
+    ASTORE 1
+   L1
+    LINENUMBER 26 L1
+    ALOAD 0
+    INVOKEINTERFACE java/util/List.iterator ()Ljava/util/Iterator; (itf)
+    ASTORE 2
+   L2
+   FRAME FULL [java/util/List java/util/List java/util/Iterator] []
+    ALOAD 2
+    INVOKEINTERFACE java/util/Iterator.hasNext ()Z (itf)
+    IFEQ L3
+    ALOAD 2
+    INVOKEINTERFACE java/util/Iterator.next ()Ljava/lang/Object; (itf)
+    ASTORE 3
+   L4
+    LINENUMBER 27 L4
+    ALOAD 3
+    INSTANCEOF java/lang/Integer
+    IFEQ L5
+   L6
+    LINENUMBER 28 L6
+    ALOAD 3
+    CHECKCAST java/lang/Integer
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    ISTORE 4
+   L7
+    LINENUMBER 29 L7
+    ILOAD 4
+    IFLE L5
+   L8
+    LINENUMBER 30 L8
+    ALOAD 1
+    ILOAD 4
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+   L5
+    LINENUMBER 33 L5
+   FRAME FULL [java/util/List java/util/List java/util/Iterator] []
+    GOTO L2
+   L3
+    LINENUMBER 34 L3
+   FRAME FULL [java/util/List java/util/List] []
+    ALOAD 1
+    ARETURN
+   L9
+    LOCALVARIABLE i I L7 L5 4
+    LOCALVARIABLE value Ljava/lang/Object; L4 L5 3
+    LOCALVARIABLE l Ljava/util/List; L0 L9 0
+    // signature Ljava/util/List<Ljava/lang/Object;>;
+    // declaration: l extends java.util.List<java.lang.Object>
+    LOCALVARIABLE result Ljava/util/List; L1 L9 1
+    // signature Ljava/util/List<Ljava/lang/Object;>;
+    // declaration: result extends java.util.List<java.lang.Object>
+    MAXSTACK = 2
+    MAXLOCALS = 5
+}
+

@@ -1,0 +1,177 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Solution3154 {
+
+  // compiled from: id_3154.java
+
+  // access flags 0x2
+  // signature Ljava/util/Map<Ljava/lang/Long;Ljava/lang/Integer;>;
+  // declaration: f extends java.util.Map<java.lang.Long, java.lang.Integer>
+  private Ljava/util/Map; f
+
+  // access flags 0x2
+  private I k
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 5 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+   L1
+    LINENUMBER 6 L1
+    ALOAD 0
+    NEW java/util/HashMap
+    DUP
+    INVOKESPECIAL java/util/HashMap.<init> ()V
+    PUTFIELD original/Solution3154.f : Ljava/util/Map;
+    RETURN
+   L2
+    LOCALVARIABLE this Loriginal/Solution3154; L0 L2 0
+    MAXSTACK = 3
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public waysToReachStair(I)I
+   L0
+    LINENUMBER 10 L0
+    ALOAD 0
+    ILOAD 1
+    PUTFIELD original/Solution3154.k : I
+   L1
+    LINENUMBER 11 L1
+    ALOAD 0
+    ICONST_1
+    ICONST_0
+    ICONST_0
+    INVOKEVIRTUAL original/Solution3154.dfs (III)I
+    IRETURN
+   L2
+    LOCALVARIABLE this Loriginal/Solution3154; L0 L2 0
+    LOCALVARIABLE k I L0 L2 1
+    MAXSTACK = 4
+    MAXLOCALS = 2
+
+  // access flags 0x2
+  private dfs(III)I
+   L0
+    LINENUMBER 15 L0
+    ILOAD 1
+    ALOAD 0
+    GETFIELD original/Solution3154.k : I
+    ICONST_1
+    IADD
+    IF_ICMPGT L1
+   L2
+    LINENUMBER 16 L2
+    ICONST_0
+    IRETURN
+   L1
+    LINENUMBER 18 L1
+   FRAME FULL [original/Solution3154 I I I] []
+    ILOAD 1
+    I2L
+    BIPUSH 32
+    LSHL
+    ILOAD 3
+    ICONST_1
+    ISHL
+    I2L
+    LOR
+    ILOAD 2
+    I2L
+    LOR
+    LSTORE 4
+   L3
+    LINENUMBER 19 L3
+    ALOAD 0
+    GETFIELD original/Solution3154.f : Ljava/util/Map;
+    LLOAD 4
+    INVOKESTATIC java/lang/Long.valueOf (J)Ljava/lang/Long;
+    INVOKEINTERFACE java/util/Map.containsKey (Ljava/lang/Object;)Z (itf)
+    IFEQ L4
+   L5
+    LINENUMBER 20 L5
+    ALOAD 0
+    GETFIELD original/Solution3154.f : Ljava/util/Map;
+    LLOAD 4
+    INVOKESTATIC java/lang/Long.valueOf (J)Ljava/lang/Long;
+    INVOKEINTERFACE java/util/Map.get (Ljava/lang/Object;)Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/Integer
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    IRETURN
+   L4
+    LINENUMBER 22 L4
+   FRAME FULL [original/Solution3154 I I I J] []
+    ILOAD 1
+    ALOAD 0
+    GETFIELD original/Solution3154.k : I
+    IF_ICMPNE L6
+    ICONST_1
+    GOTO L7
+   L6
+   FRAME FULL [original/Solution3154 I I I J] []
+    ICONST_0
+   L7
+   FRAME FULL [original/Solution3154 I I I J] [I]
+    ISTORE 6
+   L8
+    LINENUMBER 23 L8
+    ILOAD 1
+    IFLE L9
+    ILOAD 2
+    IFNE L9
+   L10
+    LINENUMBER 24 L10
+    ILOAD 6
+    ALOAD 0
+    ILOAD 1
+    ICONST_1
+    ISUB
+    ICONST_1
+    ILOAD 3
+    INVOKEVIRTUAL original/Solution3154.dfs (III)I
+    IADD
+    ISTORE 6
+   L9
+    LINENUMBER 26 L9
+   FRAME FULL [original/Solution3154 I I I J I] []
+    ILOAD 6
+    ALOAD 0
+    ILOAD 1
+    ICONST_1
+    ILOAD 3
+    ISHL
+    IADD
+    ICONST_0
+    ILOAD 3
+    ICONST_1
+    IADD
+    INVOKEVIRTUAL original/Solution3154.dfs (III)I
+    IADD
+    ISTORE 6
+   L11
+    LINENUMBER 27 L11
+    ALOAD 0
+    GETFIELD original/Solution3154.f : Ljava/util/Map;
+    LLOAD 4
+    INVOKESTATIC java/lang/Long.valueOf (J)Ljava/lang/Long;
+    ILOAD 6
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEINTERFACE java/util/Map.put (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object; (itf)
+    POP
+   L12
+    LINENUMBER 28 L12
+    ILOAD 6
+    IRETURN
+   L13
+    LOCALVARIABLE this Loriginal/Solution3154; L0 L13 0
+    LOCALVARIABLE i I L0 L13 1
+    LOCALVARIABLE j I L0 L13 2
+    LOCALVARIABLE jump I L0 L13 3
+    LOCALVARIABLE key J L3 L13 4
+    LOCALVARIABLE ans I L8 L13 6
+    MAXSTACK = 6
+    MAXLOCALS = 7
+}
+

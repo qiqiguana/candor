@@ -1,0 +1,132 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Solution0479 {
+
+  // compiled from: id_0479.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 3 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Solution0479; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public largestPalindrome(I)I
+   L0
+    LINENUMBER 5 L0
+    LDC 10.0D
+    ILOAD 1
+    I2D
+    INVOKESTATIC java/lang/Math.pow (DD)D
+    D2I
+    ICONST_1
+    ISUB
+    ISTORE 2
+   L1
+    LINENUMBER 6 L1
+    ILOAD 2
+    ISTORE 3
+   L2
+   FRAME FULL [original/Solution0479 I I I] []
+    ILOAD 3
+    ILOAD 2
+    BIPUSH 10
+    IDIV
+    IF_ICMPLE L3
+   L4
+    LINENUMBER 7 L4
+    ILOAD 3
+    ISTORE 4
+   L5
+    LINENUMBER 8 L5
+    ILOAD 3
+    I2L
+    LSTORE 5
+   L6
+    LINENUMBER 9 L6
+   FRAME FULL [original/Solution0479 I I I I J] []
+    ILOAD 4
+    IFEQ L7
+   L8
+    LINENUMBER 10 L8
+    LLOAD 5
+    LDC 10L
+    LMUL
+    ILOAD 4
+    BIPUSH 10
+    IREM
+    I2L
+    LADD
+    LSTORE 5
+   L9
+    LINENUMBER 11 L9
+    ILOAD 4
+    BIPUSH 10
+    IDIV
+    ISTORE 4
+    GOTO L6
+   L7
+    LINENUMBER 13 L7
+   FRAME FULL [original/Solution0479 I I I I J] []
+    ILOAD 2
+    I2L
+    LSTORE 7
+   L10
+   FRAME FULL [original/Solution0479 I I I I J J] []
+    LLOAD 7
+    LLOAD 7
+    LMUL
+    LLOAD 5
+    LCMP
+    IFLT L11
+   L12
+    LINENUMBER 14 L12
+    LLOAD 5
+    LLOAD 7
+    LREM
+    LCONST_0
+    LCMP
+    IFNE L13
+   L14
+    LINENUMBER 15 L14
+    LLOAD 5
+    LDC 1337L
+    LREM
+    L2I
+    IRETURN
+   L13
+    LINENUMBER 13 L13
+   FRAME FULL [original/Solution0479 I I I I J J] []
+    LLOAD 7
+    LCONST_1
+    LADD
+    LSTORE 7
+    GOTO L10
+   L11
+    LINENUMBER 6 L11
+   FRAME FULL [original/Solution0479 I I I I J J] []
+    IINC 3 -1
+    GOTO L2
+   L3
+    LINENUMBER 19 L3
+   FRAME FULL [original/Solution0479 I I I] []
+    BIPUSH 9
+    IRETURN
+   L15
+    LOCALVARIABLE t J L10 L11 7
+    LOCALVARIABLE b I L5 L11 4
+    LOCALVARIABLE x J L6 L11 5
+    LOCALVARIABLE a I L2 L3 3
+    LOCALVARIABLE this Loriginal/Solution0479; L0 L15 0
+    LOCALVARIABLE n I L0 L15 1
+    LOCALVARIABLE mx I L1 L15 2
+    MAXSTACK = 4
+    MAXLOCALS = 9
+}
+

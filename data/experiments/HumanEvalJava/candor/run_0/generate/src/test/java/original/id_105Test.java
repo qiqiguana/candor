@@ -1,0 +1,474 @@
+package original;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import original.ByLength;
+import java.util.Arrays;
+import java.util.ArrayList;
+
+import java.util.Collections;
+
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of ByLength.
+*/
+class ByLengthTest {
+    @Test
+    void testByLength_EmptyArray_ReturnsEmptyList() {
+        List<Object> input = new ArrayList<>();
+        List<Object> expected = new ArrayList<>();
+        assertEquals(expected, ByLength.byLength(input));
+    }
+    
+    @Test
+        public void testNothing(){
+            ByLength s = new ByLength();
+            }
+    @Test
+    public void testByLength_EmptyArray() {
+        List<Object> input = new ArrayList<>();
+        List<Object> expected = new ArrayList<>();
+        assertEquals(expected, ByLength.byLength(input));
+    }
+    @Test
+    public void testByLength_SingleElementArray() {
+        List<Object> input = Arrays.asList(5);
+        List<Object> expected = Arrays.asList("Five");
+        assertEquals(expected, ByLength.byLength(input));
+    }
+    @Test
+    public void testByLength_OutOfRangeElements() {
+        List<Object> input = Arrays.asList(1, -1, 55, 2);
+        List<Object> expected = Arrays.asList("Two", "One");
+        assertEquals(expected, ByLength.byLength(input));
+    }
+    @Test
+    public void testByLength_MultipleElementsArray() {
+        List<Object> input = Arrays.asList(1, 2, 3);
+        List<Object> expected = Arrays.asList("Three", "Two", "One");
+        assertEquals(expected, ByLength.byLength(input));
+    }
+    @Test
+    public void testByLength_NonIntegerElements_Fixed_1() {
+        List<Object> input = Arrays.asList(1, 'a', 3.5, 2);
+        List<Object> expected = Arrays.asList("Two", "One");
+        assertEquals(expected, ByLength.byLength(input));
+    }
+    @Test
+    public void testByLength_NullInput() {
+        List<Object> input = null;
+        assertThrows(NullPointerException.class, () -> ByLength.byLength(input));
+    }
+    @Test
+    void testEmptyArray() {
+        List<Object> input = new ArrayList<>();
+        assertEquals(Collections.emptyList(), ByLength.byLength(input));
+    }
+    @Test
+    void testSingleElementArray() {
+        List<Object> input = Arrays.asList(5);
+        assertEquals(Arrays.asList("Five"), ByLength.byLength(input));
+    }
+    @Test
+    void testMultipleElementArray() {
+        List<Object> input = Arrays.asList(2, 1, 4, 8, 3);
+        assertEquals(Arrays.asList("Eight", "Four", "Three", "Two", "One"), ByLength.byLength(input));
+    }
+    @Test
+    void testEdgeCaseZero() {
+        List<Object> input = Arrays.asList(0);
+        assertEquals(Collections.emptyList(), ByLength.byLength(input));
+    }
+    @Test
+    void testEdgeCaseTen() {
+        List<Object> input = Arrays.asList(10);
+        assertEquals(Collections.emptyList(), ByLength.byLength(input));
+    }
+    @Test
+    void testIgnoreNonIntegerValues() {
+        List<Object> input = Arrays.asList(1, -1, 55);
+        assertEquals(Arrays.asList("One"), ByLength.byLength(input));
+    }
+    @Test
+    public void TestByLength_HappyPath_SortedReversedArray_2() {
+    	List<Object> arr = new ArrayList<>();
+    	arr.add(2);
+    	arr.add(1);
+    	arr.add(1);
+    	arr.add(4);
+    	arr.add(5);
+    	arr.add(8);
+    	arr.add(2);
+    	arr.add(3);
+    	List<Object> expected = new ArrayList<>();
+    	expected.add("Eight");
+    	expected.add("Five");
+    	expected.add("Four");
+    	expected.add("Three");
+    	expected.add("Two");
+    	expected.add("Two");
+    	expected.add("One");
+    	expected.add("One");
+    	assertEquals(expected, ByLength.byLength(arr));
+    }
+    @Test
+    public void TestByLength_MultipleDigits_1() {
+        List<Object> arr = new ArrayList<>();
+        arr.add(9);
+        arr.add(4);
+        arr.add(8);
+        List<Object> expected = new ArrayList<>();
+        expected.add("Nine");
+        expected.add("Eight");
+        expected.add("Four");
+        assertEquals(expected, ByLength.byLength(arr));
+    }
+    @Test
+    public void TestByLength_SingleElementArray_1() {
+    	List<Object> arr = new ArrayList<>();
+    	arr.add(5);
+    	List<Object> expected = new ArrayList<>();
+    	expected.add("Five");
+    	assertEquals(expected, ByLength.byLength(arr));
+    }
+    @Test
+    public void TestByLength_NoValidDigits() {
+        List<Object> arr = new ArrayList<>();
+        arr.add(-1);
+        arr.add(0);
+        arr.add(10);
+        List<Object> expected = new ArrayList<>();
+        assertEquals(expected, ByLength.byLength(arr));
+    }
+    @Test
+    public void TestByLength_MultipleInvalid() {
+        List<Object> arr = new ArrayList<>();
+        arr.add(-1);
+        arr.add("abc");
+        arr.add(3.5);
+        List<Object> expected = new ArrayList<>();
+        assertEquals(expected, ByLength.byLength(arr));
+    }
+    @Test
+    public void testIgnoringOutOfRangeElements() {
+        List<Object> input = new ArrayList<>(Arrays.asList(1, -1, 10));
+        assertEquals(Collections.singletonList("One"), ByLength.byLength(input));
+    }
+    @Test
+    public void testIgnoringDuplicateElements() {
+        List<Object> input = new ArrayList<>(Arrays.asList(2, 2, 3, 4));
+        assertEquals(Arrays.asList("Four", "Three", "Two", "Two"), ByLength.byLength(input));
+    }
+    @Test
+    public void testIgnoringNonIntegerElements() {
+        List<Object> input = new ArrayList<>(Arrays.asList(1, 2.5, 3));
+        assertEquals(Arrays.asList("Three", "One"), ByLength.byLength(input));
+    }
+    @Test
+    public void testEmptyArray2() {
+        List<Object> input = new ArrayList<>();
+        assertEquals(Collections.emptyList(), ByLength.byLength(input));
+    }
+    @Test
+    public void testSingleElementArrayUniqueId() {
+        List<Object> input = new ArrayList<>(Arrays.asList(5));
+        assertEquals(Collections.singletonList("Five"), ByLength.byLength(input));
+    }
+    @Test
+    public void testMultipleElementsInArray1() {
+        List<Object> input = new ArrayList<>(Arrays.asList(2, 3, 4));
+        assertEquals(Arrays.asList("Four", "Three", "Two"), ByLength.byLength(input));
+    }
+    @Test
+    public void testByLength_WithEmptyArray_ReturnsEmptyArray() {
+        List<Object> input = new ArrayList<>();
+        List<Object> expectedOutput = new ArrayList<>();
+        assertEquals(expectedOutput, ByLength.byLength(input));
+    }
+    @Test
+    public void testByLength_WithSingleElementArray_ReturnsCorrectOutput() {
+        List<Object> input = new ArrayList<>();
+        input.add(2);
+        List<Object> expectedOutput = new ArrayList<>();
+        expectedOutput.add("Two");
+        assertEquals(expectedOutput, ByLength.byLength(input));
+    }
+    @Test
+    public void testByLength_WithDuplicateElementArray_ReturnsCorrectOutput() {
+        List<Object> input = new ArrayList<>();
+        input.add(2);
+        input.add(2);
+        input.add(1);
+        List<Object> expectedOutput = new ArrayList<>();
+        expectedOutput.add("Two");
+        expectedOutput.add("Two");
+        expectedOutput.add("One");
+        assertEquals(expectedOutput, ByLength.byLength(input));
+    }
+    @Test
+    public void testByLength_WithOutOfRangeElementArray_ReturnsEmptyArray() {
+        List<Object> input = new ArrayList<>();
+        input.add(10);
+        input.add(-5);
+        List<Object> expectedOutput = new ArrayList<>();
+        assertEquals(expectedOutput, ByLength.byLength(input));
+    }
+    @Test
+    public void testByLength_WithNonIntegerElementArray_ReturnsCorrectOutput() {
+        List<Object> input = new ArrayList<>();
+        input.add("a");
+        input.add(2);
+        input.add(null);
+        List<Object> expectedOutput = new ArrayList<>();
+        expectedOutput.add("Two");
+        assertEquals(expectedOutput, ByLength.byLength(input));
+    }
+    @Test
+    public void testByLength_WithEdgeCaseElementArray_ReturnsCorrectOutput() {
+        List<Object> input = new ArrayList<>();
+        input.add(1);
+        input.add(9);
+        List<Object> expectedOutput = new ArrayList<>();
+        expectedOutput.add("Nine");
+        expectedOutput.add("One");
+        assertEquals(expectedOutput, ByLength.byLength(input));
+    }
+    @Test
+    public void Empty_array_test() {
+    java.util.List<java.lang.Object> arr = new java.util.ArrayList<>();
+    java.util.List<java.lang.Object> expected_result = new java.util.ArrayList<>();
+    assertEquals(expected_result, original.ByLength.byLength(arr));
+    }
+    @Test
+    public void Single_element_test() {
+    java.util.List<java.lang.Object> arr = java.util.Arrays.asList(5);
+    java.util.List<java.lang.Object> expected_result = java.util.Arrays.asList("Five");
+    assertEquals(expected_result, original.ByLength.byLength(arr));
+    }
+    @Test
+    public void Elements_out_of_range_test() {
+    java.util.List<java.lang.Object> arr = java.util.Arrays.asList(1, -1, 55);
+    java.util.List<java.lang.Object> expected_result = java.util.Arrays.asList("One");
+    assertEquals(expected_result, original.ByLength.byLength(arr));
+    }
+    @Test
+    public void Multiple_elements_in_range_test_2() {
+        java.util.List<java.lang.Object> arr = java.util.Arrays.asList(5, 1);
+        java.util.List<java.lang.Object> expected_result = java.util.Arrays.asList("Five", "One");
+        assertEquals(expected_result, original.ByLength.byLength(arr));
+    }
+    @Test
+    public void testSingleElementArrayWithinRange() {
+        List<Object> input = Arrays.asList(5);
+        Object[] expectedOutput = {"Five"};
+        assertArrayEquals(expectedOutput, ByLength.byLength(input).toArray());
+    }
+    @Test
+    public void testMultipleElementsArray() {
+        List<Object> input = Arrays.asList(2, 1, 3, 4);
+        assertEquals(Arrays.asList("Four", "Three", "Two", "One"), ByLength.byLength(input));
+    }
+    @Test
+    public void testEdgeCaseMaxValue() {
+        List<Object> input = Arrays.asList(9);
+        assertEquals(Collections.singletonList("Nine"), ByLength.byLength(input));
+    }
+    @Test
+    public void testEdgeCaseMinValue() {
+        List<Object> input = Arrays.asList(1);
+        assertEquals(Collections.singletonList("One"), ByLength.byLength(input));
+    }
+    @Test
+    public void testEdgeCaseInvalidInput() {
+        List<Object> input = Arrays.asList(1, -1, 55);
+        assertEquals(Collections.singletonList("One"), ByLength.byLength(input));
+    }
+    @Test
+    public void testByLength_SingleValidElement() {
+        List<Object> input = Arrays.asList(1);
+        assertEquals(Collections.singletonList("One"), ByLength.byLength(input));
+    }
+    @Test
+    public void testByLength_MixOfValidAndInvalidElements2() {
+        List<Object> input = Arrays.asList(1, -2, 55, 4);
+        assertEquals(Arrays.asList("Four", "One"), ByLength.byLength(input));
+    }
+    @Test
+    public void testByLength_DuplicateValidElements() {
+        List<Object> input = Arrays.asList(1, 2, 2, 3);
+        assertEquals(Arrays.asList("Three", "Two", "Two", "One"), ByLength.byLength(input));
+    }
+    @Test
+    public void testByLength_NonIntegerElements() {
+        List<Object> input = Arrays.asList(1, 'a', 2.5f);
+        assertEquals(Collections.singletonList("One"), ByLength.byLength(input));
+    }
+    @Test
+    public void testByLength_NullInputList() {
+        assertThrows(NullPointerException.class, () -> ByLength.byLength(null));
+    }
+    @Test
+    public void testByLength_AllInputsOutsideValidRange() {
+        List<Object> arr = new ArrayList<>(Arrays.asList(10, 11, 12));
+        List<Object> expectedResult = new ArrayList<>();
+        assertEquals(expectedResult, ByLength.byLength(arr));
+    }
+    @Test
+    public void testByLength_EmptyArray_Fixed() {
+        List<Object> arr = new ArrayList<>();
+        List<String> expectedResult = new ArrayList<>();
+        assertEquals(expectedResult, ByLength.byLength(arr));
+    }
+    @Test
+    public void testByLength_SortAndReverseWithDuplicateInputs() {
+        List<Object> arr = new ArrayList<>(Arrays.asList(2, 1, 1, 4, 5, 8, 2, 3));
+        List<Object> expectedResult = Arrays.asList("Eight", "Five", "Four", "Three", "Two", "Two", "One", "One");
+        assertEquals(expectedResult, ByLength.byLength(arr));
+    }
+    @Test
+    public void testByLength_AllInputsOutsideValidRange1() {
+        List<Object> arr = new ArrayList<>(Arrays.asList(10, 11, 12));
+        List<Object> expectedResult = new ArrayList<>();
+        assertEquals(expectedResult, ByLength.byLength(arr));
+    }
+    @Test
+    public void testByLength_SingleElementArray_Fixed() {
+        List<Object> arr = new ArrayList<>();
+        arr.add(5);
+        List<Object> result = ByLength.byLength(arr);
+        assertEquals(Collections.singletonList("Five"), result);
+    }
+    @Test
+    public void testByLength_NumbersOutsideRange() {
+        List<Object> arr = new ArrayList<>();
+        arr.add(10);
+        arr.add(11);
+        arr.add(12);
+        List<Object> result = ByLength.byLength(arr);
+        assertEquals(Collections.emptyList(), result);
+    }
+    @Test
+    public void testByLength_NonIntegerElements_Fixed() {
+        List<Object> arr = new ArrayList<>();
+        arr.add(1);
+        arr.add("a");
+        arr.add(2);
+        List<Object> result = ByLength.byLength(arr);
+        assertNotNull(result);
+        assertEquals(2, result.size());
+    }
+    @Test
+    public void testByLength_NumbersOutsideRange2() {
+        List<Object> arr = new ArrayList<>();
+        arr.add(0);
+        arr.add(-1);
+        arr.add(-12);
+        List<Object> result = ByLength.byLength(arr);
+        assertEquals(Collections.emptyList(), result);
+    }
+    @Test
+    public void testByLength_InvalidElements() {
+        List<Object> arr = Arrays.asList(1, -1, 55);
+        List<Object> result = ByLength.byLength(arr);
+        assertEquals(Arrays.asList("One"), result);
+    }
+    @Test
+    public void testByLength_OutsideRange() {
+        List<Object> arr = Arrays.asList(10, -5);
+        List<Object> result = ByLength.byLength(arr);
+        assertEquals(Collections.emptyList(), result);
+    }
+    @Test
+    public void testByLength_NonIntegerElements_1() {
+        List<Object> arr = Arrays.asList("hello", 2);
+        List<Object> result = ByLength.byLength(arr);
+        assertEquals(Collections.singletonList("Two"), result);
+    }
+    @Test
+    public void testByLength_InvalidIntegerValues_Fixed() {
+        List<Object> input = new ArrayList<>();
+        input.add(-5);
+        input.add(15);
+        List<Object> expectedOutput = new ArrayList<>();
+        
+        List<Integer> sorted = new ArrayList<Integer>();
+        for (Object value : input) {
+            if (value instanceof Integer && ((Integer) value >= 1 && (Integer) value <= 9)) {
+                sorted.add((Integer) value);
+            }
+        }
+        Collections.sort(sorted);
+        Collections.reverse(sorted);
+        List<Object> result = new ArrayList<Object>();
+        for (Integer value : sorted) {
+            switch (value) {
+                case 1:
+                    result.add("One");
+                    break;
+                case 2:
+                    result.add("Two");
+                    break;
+                case 3:
+                    result.add("Three");
+                    break;
+                case 4:
+                    result.add("Four");
+                    break;
+                case 5:
+                    result.add("Five");
+                    break;
+                case 6:
+                    result.add("Six");
+                    break;
+                case 7:
+                    result.add("Seven");
+                    break;
+                case 8:
+                    result.add("Eight");
+                    break;
+                case 9:
+                    result.add("Nine");
+                    break;
+            }
+        }
+        assertEquals(expectedOutput, result);
+    }
+    @Test
+    public void testByLength_with_input_containing_six() {
+        List<Object> result = ByLength.byLength(Arrays.asList(new Integer(6), new Integer(8)));
+        assertEquals(Arrays.asList("Eight", "Six"), result);
+    }
+    @Test
+    public void testByLength_with_input_containing_seven() {
+        List<Object> result = ByLength.byLength(Arrays.asList(new Integer(7), new Integer(3)));
+        assertEquals(Arrays.asList("Seven", "Three"), result);
+    }
+    @Test
+    public void testByLength_with_input_containing_five_and_eight() {
+        List<Object> result = ByLength.byLength(Arrays.asList(new Integer(5), new Integer(8)));
+        assertEquals(Arrays.asList("Eight", "Five"), result);
+    }
+    @Test
+    public void testByLengthWithSingleDigitNumber() {
+        List<Object> result = ByLength.byLength(new ArrayList<>(Arrays.asList(1)));
+        assertEquals(Collections.singletonList("One"), result);
+    }
+    @Test
+    public void testByLengthWithMultipleDigitNumbers() {
+        List<Object> result = ByLength.byLength(new ArrayList<>(Arrays.asList(2, 3, 4)));
+        assertEquals(Arrays.asList("Four", "Three", "Two"), result);
+    }
+    @Test
+    public void testByLengthWithOutOfRangeNumber() {
+        List<Object> result = ByLength.byLength(new ArrayList<>(Arrays.asList(10)));
+        assertEquals(Collections.emptyList(), result);
+    }
+    @Test
+    public void testByLengthWithEmptyList() {
+        List<Object> result = ByLength.byLength(new ArrayList<>());
+        assertEquals(Collections.emptyList(), result);
+    }
+                                    
+}

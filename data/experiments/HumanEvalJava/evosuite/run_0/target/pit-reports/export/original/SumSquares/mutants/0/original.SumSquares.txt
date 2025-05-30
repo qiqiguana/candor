@@ -1,0 +1,70 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/SumSquares {
+
+  // compiled from: id_133.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 6 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/SumSquares; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  // signature (Ljava/util/List<Ljava/lang/Number;>;)I
+  // declaration: int sumSquares(java.util.List<java.lang.Number>)
+  public static sumSquares(Ljava/util/List;)I
+   L0
+    LINENUMBER 46 L0
+    ICONST_0
+    ISTORE 1
+   L1
+    LINENUMBER 47 L1
+    ALOAD 0
+    INVOKEINTERFACE java/util/List.iterator ()Ljava/util/Iterator; (itf)
+    ASTORE 2
+   L2
+   FRAME FULL [java/util/List I java/util/Iterator] []
+    ALOAD 2
+    INVOKEINTERFACE java/util/Iterator.hasNext ()Z (itf)
+    IFEQ L3
+    ALOAD 2
+    INVOKEINTERFACE java/util/Iterator.next ()Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/Number
+    ASTORE 3
+   L4
+    LINENUMBER 48 L4
+    ILOAD 1
+    I2D
+    ALOAD 3
+    INVOKEVIRTUAL java/lang/Number.doubleValue ()D
+    INVOKESTATIC java/lang/Math.ceil (D)D
+    LDC 2.0D
+    INVOKESTATIC java/lang/Math.pow (DD)D
+    DSUB
+    D2I
+    ISTORE 1
+   L5
+    LINENUMBER 49 L5
+    GOTO L2
+   L3
+    LINENUMBER 50 L3
+   FRAME FULL [java/util/List I java/util/Iterator] []
+    ILOAD 1
+    IRETURN
+   L6
+    LOCALVARIABLE n Ljava/lang/Number; L4 L5 3
+    LOCALVARIABLE lst Ljava/util/List; L0 L6 0
+    // signature Ljava/util/List<Ljava/lang/Number;>;
+    // declaration: lst extends java.util.List<java.lang.Number>
+    LOCALVARIABLE sum I L1 L6 1
+    MAXSTACK = 6
+    MAXLOCALS = 4
+}
+

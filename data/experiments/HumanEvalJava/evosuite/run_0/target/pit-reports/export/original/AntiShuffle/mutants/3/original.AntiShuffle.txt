@@ -1,0 +1,88 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/AntiShuffle {
+
+  // compiled from: id_86.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 7 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/AntiShuffle; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  public static antiShuffle(Ljava/lang/String;)Ljava/lang/String;
+   L0
+    LINENUMBER 36 L0
+    ALOAD 0
+    LDC " "
+    INVOKEVIRTUAL java/lang/String.split (Ljava/lang/String;)[Ljava/lang/String;
+    ASTORE 1
+   L1
+    LINENUMBER 37 L1
+    ICONST_0
+    ISTORE 2
+   L2
+   FRAME FULL [java/lang/String [Ljava/lang/String; I] []
+    ILOAD 2
+    ALOAD 1
+    ARRAYLENGTH
+    IF_ICMPGE L3
+   L4
+    LINENUMBER 38 L4
+    ALOAD 1
+    ILOAD 2
+    ALOAD 1
+    ILOAD 2
+    AALOAD
+    INVOKESTATIC original/AntiShuffle.sortString (Ljava/lang/String;)Ljava/lang/String;
+    AASTORE
+   L5
+    LINENUMBER 37 L5
+    IINC 2 1
+    GOTO L2
+   L3
+    LINENUMBER 40 L3
+   FRAME FULL [java/lang/String [Ljava/lang/String; I] []
+    LDC " "
+    ALOAD 1
+    INVOKESTATIC java/lang/String.join (Ljava/lang/CharSequence;[Ljava/lang/CharSequence;)Ljava/lang/String;
+    ARETURN
+   L6
+    LOCALVARIABLE i I L2 L3 2
+    LOCALVARIABLE s Ljava/lang/String; L0 L6 0
+    LOCALVARIABLE words [Ljava/lang/String; L1 L6 1
+    MAXSTACK = 4
+    MAXLOCALS = 3
+
+  // access flags 0xA
+  private static sortString(Ljava/lang/String;)Ljava/lang/String;
+   L0
+    LINENUMBER 44 L0
+    ALOAD 0
+    INVOKEVIRTUAL java/lang/String.toCharArray ()[C
+    ASTORE 1
+   L1
+    LINENUMBER 45 L1
+    ALOAD 1
+    POP
+   L2
+    LINENUMBER 46 L2
+    NEW java/lang/String
+    DUP
+    ALOAD 1
+    INVOKESPECIAL java/lang/String.<init> ([C)V
+    ARETURN
+   L3
+    LOCALVARIABLE s Ljava/lang/String; L0 L3 0
+    LOCALVARIABLE chars [C L1 L3 1
+    MAXSTACK = 3
+    MAXLOCALS = 2
+}
+

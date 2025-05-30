@@ -1,0 +1,135 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/ReverseDelete {
+
+  // compiled from: id_112.java
+  // access flags 0x19
+  public final static INNERCLASS java/lang/invoke/MethodHandles$Lookup java/lang/invoke/MethodHandles Lookup
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 8 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/ReverseDelete; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  // signature (Ljava/lang/String;Ljava/lang/String;)Ljava/util/List<Ljava/lang/Object;>;
+  // declaration: java.util.List<java.lang.Object> reverseDelete(java.lang.String, java.lang.String)
+  public static reverseDelete(Ljava/lang/String;Ljava/lang/String;)Ljava/util/List;
+   L0
+    LINENUMBER 40 L0
+    LDC ""
+    ASTORE 2
+   L1
+    LINENUMBER 41 L1
+    ICONST_0
+    ISTORE 3
+   L2
+   FRAME FULL [java/lang/String java/lang/String java/lang/String I] []
+    ILOAD 3
+    ALOAD 0
+    INVOKEVIRTUAL java/lang/String.length ()I
+    IF_ICMPGE L3
+   L4
+    LINENUMBER 42 L4
+    ALOAD 1
+    ALOAD 0
+    ILOAD 3
+    INVOKEVIRTUAL java/lang/String.charAt (I)C
+    INVOKEVIRTUAL java/lang/String.indexOf (I)I
+    ICONST_M1
+    IF_ICMPNE L5
+   L6
+    LINENUMBER 43 L6
+    ALOAD 2
+    ALOAD 0
+    ILOAD 3
+    INVOKEVIRTUAL java/lang/String.charAt (I)C
+    INVOKEDYNAMIC makeConcatWithConstants(Ljava/lang/String;C)Ljava/lang/String; [
+      // handle kind 0x6 : INVOKESTATIC
+      java/lang/invoke/StringConcatFactory.makeConcatWithConstants(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;
+      // arguments:
+      "\u0001\u0001"
+    ]
+    ASTORE 2
+   L5
+    LINENUMBER 41 L5
+   FRAME FULL [java/lang/String java/lang/String java/lang/String I] []
+    IINC 3 1
+    GOTO L2
+   L3
+    LINENUMBER 46 L3
+   FRAME FULL [java/lang/String java/lang/String java/lang/String I] []
+    ICONST_1
+    ISTORE 3
+   L7
+    LINENUMBER 47 L7
+    ICONST_0
+    ISTORE 4
+   L8
+   FRAME FULL [java/lang/String java/lang/String java/lang/String I I] []
+    ILOAD 4
+    ALOAD 2
+    INVOKEVIRTUAL java/lang/String.length ()I
+    ICONST_2
+    IDIV
+    IF_ICMPGE L9
+   L10
+    LINENUMBER 48 L10
+    ALOAD 2
+    ILOAD 4
+    INVOKEVIRTUAL java/lang/String.charAt (I)C
+    ALOAD 2
+    ALOAD 2
+    INVOKEVIRTUAL java/lang/String.length ()I
+    ILOAD 4
+    ISUB
+    ICONST_1
+    IADD
+    INVOKEVIRTUAL java/lang/String.charAt (I)C
+    IF_ICMPEQ L11
+   L12
+    LINENUMBER 49 L12
+    ICONST_0
+    ISTORE 3
+   L13
+    LINENUMBER 50 L13
+    GOTO L9
+   L11
+    LINENUMBER 47 L11
+   FRAME FULL [java/lang/String java/lang/String java/lang/String I I] []
+    IINC 4 1
+    GOTO L8
+   L9
+    LINENUMBER 53 L9
+   FRAME FULL [java/lang/String java/lang/String java/lang/String I I] []
+    ICONST_2
+    ANEWARRAY java/lang/Object
+    DUP
+    ICONST_0
+    ALOAD 2
+    AASTORE
+    DUP
+    ICONST_1
+    ILOAD 3
+    INVOKESTATIC java/lang/Boolean.valueOf (Z)Ljava/lang/Boolean;
+    AASTORE
+    INVOKESTATIC java/util/Arrays.asList ([Ljava/lang/Object;)Ljava/util/List;
+    ARETURN
+   L14
+    LOCALVARIABLE i I L2 L3 3
+    LOCALVARIABLE i I L8 L9 4
+    LOCALVARIABLE s Ljava/lang/String; L0 L14 0
+    LOCALVARIABLE c Ljava/lang/String; L0 L14 1
+    LOCALVARIABLE result Ljava/lang/String; L1 L14 2
+    LOCALVARIABLE isPalindrome Z L7 L14 3
+    MAXSTACK = 4
+    MAXLOCALS = 5
+}
+

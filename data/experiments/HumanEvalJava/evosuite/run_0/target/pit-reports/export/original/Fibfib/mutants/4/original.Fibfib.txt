@@ -1,0 +1,105 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Fibfib {
+
+  // compiled from: id_63.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 4 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Fibfib; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  public static fibfib(I)I
+   L0
+    LINENUMBER 29 L0
+    ILOAD 0
+    ICONST_2
+    IF_ICMPGE L1
+   L2
+    LINENUMBER 30 L2
+    ICONST_0
+    IRETURN
+   L1
+    LINENUMBER 32 L1
+   FRAME FULL [I] []
+    ILOAD 0
+    ICONST_2
+    IF_ICMPNE L3
+   L4
+    LINENUMBER 33 L4
+    ICONST_1
+    IRETURN
+   L3
+    LINENUMBER 35 L3
+   FRAME FULL [I] []
+    ICONST_0
+    ISTORE 1
+   L5
+    LINENUMBER 36 L5
+    ICONST_0
+    ISTORE 2
+   L6
+    LINENUMBER 37 L6
+    ICONST_1
+    ISTORE 3
+   L7
+    LINENUMBER 38 L7
+    ICONST_0
+    ISTORE 4
+   L8
+    LINENUMBER 39 L8
+    ICONST_3
+    ISTORE 5
+   L9
+   FRAME FULL [I I I I I I] []
+    ILOAD 5
+    ILOAD 0
+    IF_ICMPLE L10
+   L11
+    LINENUMBER 40 L11
+    ILOAD 1
+    ILOAD 2
+    IADD
+    ILOAD 3
+    IADD
+    ISTORE 4
+   L12
+    LINENUMBER 41 L12
+    ILOAD 2
+    ISTORE 1
+   L13
+    LINENUMBER 42 L13
+    ILOAD 3
+    ISTORE 2
+   L14
+    LINENUMBER 43 L14
+    ILOAD 4
+    ISTORE 3
+   L15
+    LINENUMBER 39 L15
+    IINC 5 1
+    GOTO L9
+   L10
+    LINENUMBER 45 L10
+   FRAME FULL [I I I I I I] []
+    ILOAD 4
+    IRETURN
+   L16
+    LOCALVARIABLE i I L9 L10 5
+    LOCALVARIABLE n I L0 L16 0
+    LOCALVARIABLE a I L5 L16 1
+    LOCALVARIABLE b I L6 L16 2
+    LOCALVARIABLE c I L7 L16 3
+    LOCALVARIABLE d I L8 L16 4
+    MAXSTACK = 2
+    MAXLOCALS = 6
+}
+

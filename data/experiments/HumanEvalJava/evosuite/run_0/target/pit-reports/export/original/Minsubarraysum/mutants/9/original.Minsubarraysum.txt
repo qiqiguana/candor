@@ -1,0 +1,140 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Minsubarraysum {
+
+  // compiled from: id_114.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 7 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Minsubarraysum; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  // signature (Ljava/util/List<Ljava/lang/Object;>;)J
+  // declaration: long minsubarraysum(java.util.List<java.lang.Object>)
+  public static minsubarraysum(Ljava/util/List;)J
+   L0
+    LINENUMBER 41 L0
+    LCONST_0
+    LSTORE 1
+   L1
+    LINENUMBER 42 L1
+    LCONST_0
+    LSTORE 3
+   L2
+    LINENUMBER 43 L2
+    ICONST_0
+    ISTORE 5
+   L3
+   FRAME FULL [java/util/List J J I] []
+    ILOAD 5
+    ALOAD 0
+    INVOKEINTERFACE java/util/List.size ()I (itf)
+    IF_ICMPGE L4
+   L5
+    LINENUMBER 44 L5
+    ALOAD 0
+    ILOAD 5
+    INVOKEINTERFACE java/util/List.get (I)Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/Number
+    INVOKEVIRTUAL java/lang/Number.longValue ()J
+    LSTORE 6
+   L6
+    LINENUMBER 45 L6
+    LLOAD 1
+    LLOAD 6
+    LSUB
+    LSTORE 1
+   L7
+    LINENUMBER 46 L7
+    LLOAD 1
+    LCONST_0
+    LCMP
+    IFGE L8
+   L9
+    LINENUMBER 47 L9
+    LCONST_0
+    LSTORE 1
+   L8
+    LINENUMBER 49 L8
+   FRAME FULL [java/util/List J J I J] []
+    LLOAD 1
+    LLOAD 3
+    INVOKESTATIC java/lang/Math.max (JJ)J
+    LSTORE 3
+   L10
+    LINENUMBER 43 L10
+    IINC 5 1
+    GOTO L3
+   L4
+    LINENUMBER 51 L4
+   FRAME FULL [java/util/List J J I] []
+    LLOAD 3
+    LCONST_0
+    LCMP
+    IFNE L11
+   L12
+    LINENUMBER 52 L12
+    ALOAD 0
+    ICONST_0
+    INVOKEINTERFACE java/util/List.get (I)Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/Number
+    INVOKEVIRTUAL java/lang/Number.longValue ()J
+    LNEG
+    LSTORE 3
+   L13
+    LINENUMBER 53 L13
+    ICONST_0
+    ISTORE 5
+   L14
+   FRAME FULL [java/util/List J J I] []
+    ILOAD 5
+    ALOAD 0
+    INVOKEINTERFACE java/util/List.size ()I (itf)
+    IF_ICMPGE L11
+   L15
+    LINENUMBER 54 L15
+    ALOAD 0
+    ILOAD 5
+    INVOKEINTERFACE java/util/List.get (I)Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/Number
+    INVOKEVIRTUAL java/lang/Number.longValue ()J
+    NOP
+    LLOAD 3
+    INVOKESTATIC java/lang/Math.max (JJ)J
+    LSTORE 3
+   L16
+    LINENUMBER 53 L16
+    IINC 5 1
+    GOTO L14
+   L11
+    LINENUMBER 57 L11
+   FRAME FULL [java/util/List J J I] []
+    LLOAD 3
+    LNEG
+    LSTORE 5
+   L17
+    LINENUMBER 58 L17
+    LLOAD 5
+    LRETURN
+   L18
+    LOCALVARIABLE num J L6 L10 6
+    LOCALVARIABLE i I L3 L4 5
+    LOCALVARIABLE i I L14 L11 5
+    LOCALVARIABLE nums Ljava/util/List; L0 L18 0
+    // signature Ljava/util/List<Ljava/lang/Object;>;
+    // declaration: nums extends java.util.List<java.lang.Object>
+    LOCALVARIABLE s J L1 L18 1
+    LOCALVARIABLE max_sum J L2 L18 3
+    LOCALVARIABLE min_sum J L17 L18 5
+    MAXSTACK = 4
+    MAXLOCALS = 8
+}
+

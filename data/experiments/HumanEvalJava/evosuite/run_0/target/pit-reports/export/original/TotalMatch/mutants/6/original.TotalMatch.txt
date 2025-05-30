@@ -1,0 +1,123 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/TotalMatch {
+
+  // compiled from: id_74.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 7 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/TotalMatch; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  // signature (Ljava/util/List<Ljava/lang/Object;>;Ljava/util/List<Ljava/lang/Object;>;)Ljava/util/List<Ljava/lang/Object;>;
+  // declaration: java.util.List<java.lang.Object> totalMatch(java.util.List<java.lang.Object>, java.util.List<java.lang.Object>)
+  public static totalMatch(Ljava/util/List;Ljava/util/List;)Ljava/util/List;
+   L0
+    LINENUMBER 41 L0
+    ICONST_0
+    ISTORE 2
+   L1
+    LINENUMBER 42 L1
+    ICONST_0
+    ISTORE 3
+   L2
+    LINENUMBER 43 L2
+    ALOAD 0
+    INVOKEINTERFACE java/util/List.iterator ()Ljava/util/Iterator; (itf)
+    ASTORE 4
+   L3
+   FRAME FULL [java/util/List java/util/List I I java/util/Iterator] []
+    ALOAD 4
+    INVOKEINTERFACE java/util/Iterator.hasNext ()Z (itf)
+    IFEQ L4
+    ALOAD 4
+    INVOKEINTERFACE java/util/Iterator.next ()Ljava/lang/Object; (itf)
+    ASTORE 5
+   L5
+    LINENUMBER 44 L5
+    ALOAD 5
+    INSTANCEOF java/lang/String
+    IFEQ L6
+   L7
+    LINENUMBER 45 L7
+    ILOAD 2
+    ALOAD 5
+    CHECKCAST java/lang/String
+    INVOKEVIRTUAL java/lang/String.length ()I
+    IADD
+    ISTORE 2
+   L6
+    LINENUMBER 47 L6
+   FRAME FULL [java/util/List java/util/List I I java/util/Iterator java/lang/Object] []
+    GOTO L3
+   L4
+    LINENUMBER 48 L4
+   FRAME FULL [java/util/List java/util/List I I java/util/Iterator] []
+    ALOAD 1
+    INVOKEINTERFACE java/util/List.iterator ()Ljava/util/Iterator; (itf)
+    ASTORE 4
+   L8
+   FRAME FULL [java/util/List java/util/List I I java/util/Iterator] []
+    ALOAD 4
+    INVOKEINTERFACE java/util/Iterator.hasNext ()Z (itf)
+    IFEQ L9
+    ALOAD 4
+    INVOKEINTERFACE java/util/Iterator.next ()Ljava/lang/Object; (itf)
+    ASTORE 5
+   L10
+    LINENUMBER 49 L10
+    ALOAD 5
+    INSTANCEOF java/lang/String
+    IFEQ L11
+   L12
+    LINENUMBER 50 L12
+    ILOAD 3
+    ALOAD 5
+    CHECKCAST java/lang/String
+    INVOKEVIRTUAL java/lang/String.length ()I
+    IADD
+    ISTORE 3
+   L11
+    LINENUMBER 52 L11
+   FRAME FULL [java/util/List java/util/List I I java/util/Iterator java/lang/Object] []
+    GOTO L8
+   L9
+    LINENUMBER 53 L9
+   FRAME FULL [java/util/List java/util/List I I java/util/Iterator] []
+    ILOAD 2
+    ILOAD 3
+    IF_ICMPGT L13
+   L14
+    LINENUMBER 54 L14
+    ALOAD 0
+    POP
+    INVOKESTATIC java/util/Collections.emptyList ()Ljava/util/List;
+    ARETURN
+   L13
+    LINENUMBER 56 L13
+   FRAME FULL [java/util/List java/util/List I I java/util/Iterator] []
+    ALOAD 1
+    ARETURN
+   L15
+    LOCALVARIABLE value Ljava/lang/Object; L5 L6 5
+    LOCALVARIABLE value Ljava/lang/Object; L10 L11 5
+    LOCALVARIABLE lst1 Ljava/util/List; L0 L15 0
+    // signature Ljava/util/List<Ljava/lang/Object;>;
+    // declaration: lst1 extends java.util.List<java.lang.Object>
+    LOCALVARIABLE lst2 Ljava/util/List; L0 L15 1
+    // signature Ljava/util/List<Ljava/lang/Object;>;
+    // declaration: lst2 extends java.util.List<java.lang.Object>
+    LOCALVARIABLE sum1 I L1 L15 2
+    LOCALVARIABLE sum2 I L2 L15 3
+    MAXSTACK = 2
+    MAXLOCALS = 6
+}
+

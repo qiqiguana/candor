@@ -1,0 +1,96 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/CheckIfLastCharIsALetter {
+
+  // compiled from: id_134.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 4 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/CheckIfLastCharIsALetter; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  public static checkIfLastCharIsALetter(Ljava/lang/String;)Ljava/lang/Boolean;
+   L0
+    LINENUMBER 39 L0
+    ALOAD 0
+    INVOKEVIRTUAL java/lang/String.length ()I
+    IFNE L1
+   L2
+    LINENUMBER 40 L2
+    ICONST_0
+    INVOKESTATIC java/lang/Boolean.valueOf (Z)Ljava/lang/Boolean;
+    ARETURN
+   L1
+    LINENUMBER 42 L1
+   FRAME FULL [java/lang/String] []
+    ALOAD 0
+    ALOAD 0
+    INVOKEVIRTUAL java/lang/String.length ()I
+    ICONST_1
+    IADD
+    INVOKEVIRTUAL java/lang/String.charAt (I)C
+    ISTORE 1
+   L3
+    LINENUMBER 43 L3
+    ILOAD 1
+    INVOKESTATIC java/lang/Character.isLetter (C)Z
+    IFEQ L4
+   L5
+    LINENUMBER 44 L5
+    ALOAD 0
+    INVOKEVIRTUAL java/lang/String.length ()I
+    ICONST_1
+    IF_ICMPNE L6
+   L7
+    LINENUMBER 45 L7
+    ICONST_1
+    INVOKESTATIC java/lang/Boolean.valueOf (Z)Ljava/lang/Boolean;
+    ARETURN
+   L6
+    LINENUMBER 47 L6
+   FRAME FULL [java/lang/String I] []
+    ALOAD 0
+    ALOAD 0
+    INVOKEVIRTUAL java/lang/String.length ()I
+    ICONST_2
+    ISUB
+    INVOKEVIRTUAL java/lang/String.charAt (I)C
+    ISTORE 2
+   L8
+    LINENUMBER 48 L8
+    ILOAD 2
+    INVOKESTATIC java/lang/Character.isLetter (C)Z
+    IFEQ L9
+   L10
+    LINENUMBER 49 L10
+    ICONST_0
+    INVOKESTATIC java/lang/Boolean.valueOf (Z)Ljava/lang/Boolean;
+    ARETURN
+   L9
+    LINENUMBER 51 L9
+   FRAME FULL [java/lang/String I I] []
+    ICONST_1
+    INVOKESTATIC java/lang/Boolean.valueOf (Z)Ljava/lang/Boolean;
+    ARETURN
+   L4
+    LINENUMBER 53 L4
+   FRAME FULL [java/lang/String I] []
+    ICONST_0
+    INVOKESTATIC java/lang/Boolean.valueOf (Z)Ljava/lang/Boolean;
+    ARETURN
+   L11
+    LOCALVARIABLE secondLastChar C L8 L4 2
+    LOCALVARIABLE txt Ljava/lang/String; L0 L11 0
+    LOCALVARIABLE lastChar C L3 L11 1
+    MAXSTACK = 3
+    MAXLOCALS = 3
+}
+

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_0.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HumanEvalJava</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_0.java</span></div><h1>id_0.java</h1><pre class="source lang-java linenums">package original;
+
+import java.util.List;
+
+<span class="nc" id="L5">class HasCloseElements {</span>
+    /**
+     * Check if in given list of numbers, are any two numbers closer to each other than the given threshold.
+     *
+     * &gt; hasCloseElements([1.0, 2.0, 3.0], 0.5)
+     * false
+     * &gt; hasCloseElements([1.0, 2.8, 3.0, 4.0, 5.0, 2.0], 0.3)
+     * true
+     * &gt; hasCloseElements([1.0, 2.0, 3.9, 4.0, 5.0, 2.2], 0.3)
+     * true
+     * &gt; hasCloseElements([1.0, 2.0, 3.9, 4.0, 5.0, 2.2], 0.05)
+     * false
+     * &gt; hasCloseElements([1.0, 2.0, 5.9, 4.0, 5.0], 0.95)
+     * true
+     * &gt; hasCloseElements([1.0, 2.0, 5.9, 4.0, 5.0], 0.8)
+     * false
+     * &gt; hasCloseElements([1.0, 2.0, 3.0, 4.0, 5.0, 2.0], 0.1)
+     * true
+     * &gt; hasCloseElements([1.1, 2.2, 3.1, 4.1, 5.1], 1.0)
+     * true
+     * &gt; hasCloseElements([1.1, 2.2, 3.1, 4.1, 5.1], 0.5)
+     * false
+     */
+    public static Boolean hasCloseElements(List&lt;Double&gt; numbers, Double threshold) {
+<span class="fc bfc" id="L29" title="All 2 branches covered.">        for (int i = 0; i &lt; numbers.size(); i++) {</span>
+<span class="fc bfc" id="L30" title="All 2 branches covered.">            for (int j = i + 1; j &lt; numbers.size(); j++) {</span>
+<span class="fc bfc" id="L31" title="All 2 branches covered.">                if (Math.abs(numbers.get(i) - numbers.get(j)) &lt; threshold) {</span>
+<span class="fc" id="L32">                    return true;</span>
+                }
+            }
+        }
+<span class="fc" id="L36">        return false;</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

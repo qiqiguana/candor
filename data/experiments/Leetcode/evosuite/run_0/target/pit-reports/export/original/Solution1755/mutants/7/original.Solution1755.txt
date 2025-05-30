@@ -1,0 +1,277 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Solution1755 {
+
+  // compiled from: id_1755.java
+  // access flags 0x19
+  public final static INNERCLASS java/lang/invoke/MethodHandles$Lookup java/lang/invoke/MethodHandles Lookup
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 5 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Solution1755; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public minAbsDifference([II)I
+   L0
+    LINENUMBER 7 L0
+    ALOAD 1
+    ARRAYLENGTH
+    ISTORE 3
+   L1
+    LINENUMBER 8 L1
+    NEW java/util/ArrayList
+    DUP
+    INVOKESPECIAL java/util/ArrayList.<init> ()V
+    ASTORE 4
+   L2
+    LINENUMBER 9 L2
+    NEW java/util/ArrayList
+    DUP
+    INVOKESPECIAL java/util/ArrayList.<init> ()V
+    ASTORE 5
+   L3
+    LINENUMBER 10 L3
+    ALOAD 0
+    ALOAD 1
+    ALOAD 4
+    ICONST_0
+    ILOAD 3
+    ICONST_2
+    IDIV
+    ICONST_0
+    INVOKEVIRTUAL original/Solution1755.dfs ([ILjava/util/List;III)V
+   L4
+    LINENUMBER 11 L4
+    ALOAD 0
+    ALOAD 1
+    ALOAD 5
+    ILOAD 3
+    ICONST_2
+    IDIV
+    ILOAD 3
+    ICONST_0
+    INVOKEVIRTUAL original/Solution1755.dfs ([ILjava/util/List;III)V
+   L5
+    LINENUMBER 13 L5
+    ALOAD 5
+    INVOKEDYNAMIC compare()Ljava/util/Comparator; [
+      // handle kind 0x6 : INVOKESTATIC
+      java/lang/invoke/LambdaMetafactory.metafactory(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;
+      // arguments:
+      (Ljava/lang/Object;Ljava/lang/Object;)I, 
+      // handle kind 0x5 : INVOKEVIRTUAL
+      java/lang/Integer.compareTo(Ljava/lang/Integer;)I, 
+      (Ljava/lang/Integer;Ljava/lang/Integer;)I
+    ]
+    INVOKEINTERFACE java/util/List.sort (Ljava/util/Comparator;)V (itf)
+   L6
+    LINENUMBER 14 L6
+    LDC 2147483647
+    ISTORE 6
+   L7
+    LINENUMBER 16 L7
+    ALOAD 4
+    INVOKEINTERFACE java/util/List.iterator ()Ljava/util/Iterator; (itf)
+    ASTORE 7
+   L8
+   FRAME FULL [original/Solution1755 [I I I java/util/ArrayList java/util/ArrayList I java/util/Iterator] []
+    ALOAD 7
+    INVOKEINTERFACE java/util/Iterator.hasNext ()Z (itf)
+    IFEQ L9
+    ALOAD 7
+    INVOKEINTERFACE java/util/Iterator.next ()Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/Integer
+    ASTORE 8
+   L10
+    LINENUMBER 17 L10
+    ILOAD 2
+    ALOAD 8
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    ISUB
+    ISTORE 9
+   L11
+    LINENUMBER 18 L11
+    ICONST_0
+    ISTORE 10
+   L12
+    ALOAD 5
+    INVOKEINTERFACE java/util/List.size ()I (itf)
+    ISTORE 11
+   L13
+    LINENUMBER 19 L13
+   FRAME FULL [original/Solution1755 [I I I java/util/ArrayList java/util/ArrayList I java/util/Iterator java/lang/Integer I I I] []
+    ILOAD 10
+    ILOAD 11
+    IF_ICMPGT L14
+   L15
+    LINENUMBER 20 L15
+    ILOAD 10
+    ILOAD 11
+    IADD
+    ICONST_1
+    ISHR
+    ISTORE 12
+   L16
+    LINENUMBER 21 L16
+    ALOAD 5
+    ILOAD 12
+    INVOKEINTERFACE java/util/List.get (I)Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/Integer
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    ILOAD 9
+    IF_ICMPGE L17
+   L18
+    LINENUMBER 22 L18
+    ILOAD 12
+    ICONST_1
+    IADD
+    ISTORE 10
+    GOTO L19
+   L17
+    LINENUMBER 24 L17
+   FRAME FULL [original/Solution1755 [I I I java/util/ArrayList java/util/ArrayList I java/util/Iterator java/lang/Integer I I I I] []
+    ILOAD 12
+    ISTORE 11
+   L19
+    LINENUMBER 26 L19
+   FRAME FULL [original/Solution1755 [I I I java/util/ArrayList java/util/ArrayList I java/util/Iterator java/lang/Integer I I I I] []
+    GOTO L13
+   L14
+    LINENUMBER 27 L14
+   FRAME FULL [original/Solution1755 [I I I java/util/ArrayList java/util/ArrayList I java/util/Iterator java/lang/Integer I I I] []
+    ILOAD 10
+    ALOAD 5
+    INVOKEINTERFACE java/util/List.size ()I (itf)
+    IF_ICMPGE L20
+   L21
+    LINENUMBER 28 L21
+    ILOAD 6
+    ILOAD 9
+    ALOAD 5
+    ILOAD 10
+    INVOKEINTERFACE java/util/List.get (I)Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/Integer
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    ISUB
+    INVOKESTATIC java/lang/Math.abs (I)I
+    INVOKESTATIC java/lang/Math.min (II)I
+    ISTORE 6
+   L20
+    LINENUMBER 30 L20
+   FRAME FULL [original/Solution1755 [I I I java/util/ArrayList java/util/ArrayList I java/util/Iterator java/lang/Integer I I I] []
+    ILOAD 10
+    IFLE L22
+   L23
+    LINENUMBER 31 L23
+    ILOAD 6
+    ILOAD 9
+    ALOAD 5
+    ILOAD 10
+    ICONST_1
+    ISUB
+    INVOKEINTERFACE java/util/List.get (I)Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/Integer
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    ISUB
+    INVOKESTATIC java/lang/Math.abs (I)I
+    INVOKESTATIC java/lang/Math.min (II)I
+    ISTORE 6
+   L22
+    LINENUMBER 33 L22
+   FRAME FULL [original/Solution1755 [I I I java/util/ArrayList java/util/ArrayList I java/util/Iterator java/lang/Integer I I I] []
+    GOTO L8
+   L9
+    LINENUMBER 35 L9
+   FRAME FULL [original/Solution1755 [I I I java/util/ArrayList java/util/ArrayList I java/util/Iterator] []
+    ILOAD 6
+    IRETURN
+   L24
+    LOCALVARIABLE mid I L16 L19 12
+    LOCALVARIABLE target I L11 L22 9
+    LOCALVARIABLE left I L12 L22 10
+    LOCALVARIABLE right I L13 L22 11
+    LOCALVARIABLE x Ljava/lang/Integer; L10 L22 8
+    LOCALVARIABLE this Loriginal/Solution1755; L0 L24 0
+    LOCALVARIABLE nums [I L0 L24 1
+    LOCALVARIABLE goal I L0 L24 2
+    LOCALVARIABLE n I L1 L24 3
+    LOCALVARIABLE lsum Ljava/util/List; L2 L24 4
+    // signature Ljava/util/List<Ljava/lang/Integer;>;
+    // declaration: lsum extends java.util.List<java.lang.Integer>
+    LOCALVARIABLE rsum Ljava/util/List; L3 L24 5
+    // signature Ljava/util/List<Ljava/lang/Integer;>;
+    // declaration: rsum extends java.util.List<java.lang.Integer>
+    LOCALVARIABLE res I L7 L24 6
+    MAXSTACK = 6
+    MAXLOCALS = 13
+
+  // access flags 0x2
+  // signature ([ILjava/util/List<Ljava/lang/Integer;>;III)V
+  // declaration: void dfs(int[], java.util.List<java.lang.Integer>, int, int, int)
+  private dfs([ILjava/util/List;III)V
+   L0
+    LINENUMBER 39 L0
+    ILOAD 3
+    ILOAD 4
+    IF_ICMPNE L1
+   L2
+    LINENUMBER 40 L2
+    ALOAD 2
+    ILOAD 5
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+   L3
+    LINENUMBER 41 L3
+    RETURN
+   L1
+    LINENUMBER 44 L1
+   FRAME FULL [original/Solution1755 [I java/util/List I I I] []
+    ALOAD 0
+    ALOAD 1
+    ALOAD 2
+    ILOAD 3
+    ICONST_1
+    IADD
+    ILOAD 4
+    ILOAD 5
+    INVOKEVIRTUAL original/Solution1755.dfs ([ILjava/util/List;III)V
+   L4
+    LINENUMBER 45 L4
+    ALOAD 0
+    ALOAD 1
+    ALOAD 2
+    ILOAD 3
+    ICONST_1
+    IADD
+    ILOAD 4
+    ILOAD 5
+    ALOAD 1
+    ILOAD 3
+    IALOAD
+    IADD
+    INVOKEVIRTUAL original/Solution1755.dfs ([ILjava/util/List;III)V
+   L5
+    LINENUMBER 46 L5
+    RETURN
+   L6
+    LOCALVARIABLE this Loriginal/Solution1755; L0 L6 0
+    LOCALVARIABLE nums [I L0 L6 1
+    LOCALVARIABLE sum Ljava/util/List; L0 L6 2
+    // signature Ljava/util/List<Ljava/lang/Integer;>;
+    // declaration: sum extends java.util.List<java.lang.Integer>
+    LOCALVARIABLE i I L0 L6 3
+    LOCALVARIABLE n I L0 L6 4
+    LOCALVARIABLE cur I L0 L6 5
+    MAXSTACK = 8
+    MAXLOCALS = 6
+}
+

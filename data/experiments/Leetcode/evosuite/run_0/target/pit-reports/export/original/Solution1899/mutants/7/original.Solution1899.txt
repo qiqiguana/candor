@@ -1,0 +1,152 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Solution1899 {
+
+  // compiled from: id_1899.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 3 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Solution1899; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public mergeTriplets([[I[I)Z
+   L0
+    LINENUMBER 5 L0
+    ALOAD 2
+    ICONST_0
+    IALOAD
+    ISTORE 3
+   L1
+    ALOAD 2
+    ICONST_1
+    IALOAD
+    ISTORE 4
+   L2
+    ALOAD 2
+    ICONST_2
+    IALOAD
+    ISTORE 5
+   L3
+    LINENUMBER 6 L3
+    ICONST_0
+    ISTORE 6
+   L4
+    ICONST_0
+    ISTORE 7
+   L5
+    ICONST_0
+    ISTORE 8
+   L6
+    LINENUMBER 7 L6
+    ALOAD 1
+    ASTORE 9
+    ALOAD 9
+    ARRAYLENGTH
+    ISTORE 10
+    ICONST_0
+    ISTORE 11
+   L7
+   FRAME FULL [original/Solution1899 [[I [I I I I I I I [[I I I] []
+    ILOAD 11
+    ILOAD 10
+    IF_ICMPGE L8
+    ALOAD 9
+    ILOAD 11
+    AALOAD
+    ASTORE 12
+   L9
+    LINENUMBER 8 L9
+    ALOAD 12
+    ICONST_0
+    IALOAD
+    ISTORE 13
+   L10
+    ALOAD 12
+    ICONST_1
+    IALOAD
+    ISTORE 14
+   L11
+    ALOAD 12
+    ICONST_2
+    IALOAD
+    ISTORE 15
+   L12
+    LINENUMBER 9 L12
+    ILOAD 13
+    ILOAD 3
+    IF_ICMPGT L13
+    ILOAD 14
+    ILOAD 4
+    IF_ICMPGT L13
+    ILOAD 15
+    ILOAD 5
+    IF_ICMPGT L13
+   L14
+    LINENUMBER 10 L14
+    ILOAD 6
+    ILOAD 13
+    INVOKESTATIC java/lang/Math.max (II)I
+    ISTORE 6
+   L15
+    LINENUMBER 11 L15
+    ILOAD 7
+    ILOAD 14
+    INVOKESTATIC java/lang/Math.max (II)I
+    ISTORE 7
+   L16
+    LINENUMBER 12 L16
+    ILOAD 8
+    ILOAD 15
+    INVOKESTATIC java/lang/Math.max (II)I
+    ISTORE 8
+   L13
+    LINENUMBER 7 L13
+   FRAME FULL [original/Solution1899 [[I [I I I I I I I [[I I I [I I I I] []
+    IINC 11 1
+    GOTO L7
+   L8
+    LINENUMBER 15 L8
+   FRAME FULL [original/Solution1899 [[I [I I I I I I I [[I I I] []
+    ILOAD 6
+    ILOAD 3
+    IF_ICMPEQ L17
+    ILOAD 7
+    ILOAD 4
+    IF_ICMPNE L17
+    ILOAD 8
+    ILOAD 5
+    IF_ICMPNE L17
+    ICONST_1
+    GOTO L18
+   L17
+   FRAME FULL [original/Solution1899 [[I [I I I I I I I [[I I I] []
+    ICONST_0
+   L18
+   FRAME FULL [original/Solution1899 [[I [I I I I I I I [[I I I] [I]
+    IRETURN
+   L19
+    LOCALVARIABLE a I L10 L13 13
+    LOCALVARIABLE b I L11 L13 14
+    LOCALVARIABLE c I L12 L13 15
+    LOCALVARIABLE t [I L9 L13 12
+    LOCALVARIABLE this Loriginal/Solution1899; L0 L19 0
+    LOCALVARIABLE triplets [[I L0 L19 1
+    LOCALVARIABLE target [I L0 L19 2
+    LOCALVARIABLE x I L1 L19 3
+    LOCALVARIABLE y I L2 L19 4
+    LOCALVARIABLE z I L3 L19 5
+    LOCALVARIABLE d I L4 L19 6
+    LOCALVARIABLE e I L5 L19 7
+    LOCALVARIABLE f I L6 L19 8
+    MAXSTACK = 2
+    MAXLOCALS = 16
+}
+

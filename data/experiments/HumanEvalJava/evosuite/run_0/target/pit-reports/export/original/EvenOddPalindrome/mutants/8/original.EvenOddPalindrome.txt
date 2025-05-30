@@ -1,0 +1,153 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/EvenOddPalindrome {
+
+  // compiled from: id_107.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 7 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/EvenOddPalindrome; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  // signature (I)Ljava/util/List<Ljava/lang/Integer;>;
+  // declaration: java.util.List<java.lang.Integer> evenOddPalindrome(int)
+  public static evenOddPalindrome(I)Ljava/util/List;
+   L0
+    LINENUMBER 48 L0
+    NEW java/util/ArrayList
+    DUP
+    INVOKESPECIAL java/util/ArrayList.<init> ()V
+    ASTORE 1
+   L1
+    LINENUMBER 49 L1
+    ICONST_0
+    ISTORE 2
+   L2
+    LINENUMBER 50 L2
+    ICONST_0
+    ISTORE 3
+   L3
+    LINENUMBER 51 L3
+    ICONST_1
+    ISTORE 4
+   L4
+   FRAME FULL [I java/util/ArrayList I I I] []
+    ILOAD 4
+    ILOAD 0
+    IF_ICMPGT L5
+   L6
+    LINENUMBER 52 L6
+    ILOAD 4
+    INVOKESTATIC original/EvenOddPalindrome.isPalindrome (I)Z
+    IFEQ L7
+   L8
+    LINENUMBER 53 L8
+    ILOAD 4
+    ICONST_2
+    IREM
+    IFNE L9
+   L10
+    LINENUMBER 54 L10
+    IINC 2 1
+    GOTO L7
+   L9
+    LINENUMBER 56 L9
+   FRAME FULL [I java/util/ArrayList I I I] []
+    IINC 3 1
+   L7
+    LINENUMBER 51 L7
+   FRAME FULL [I java/util/ArrayList I I I] []
+    IINC 4 1
+    GOTO L4
+   L5
+    LINENUMBER 60 L5
+   FRAME FULL [I java/util/ArrayList I I I] []
+    ALOAD 1
+    ILOAD 2
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+   L11
+    LINENUMBER 61 L11
+    ALOAD 1
+    ILOAD 3
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+   L12
+    LINENUMBER 62 L12
+    ALOAD 1
+    ARETURN
+   L13
+    LOCALVARIABLE i I L4 L5 4
+    LOCALVARIABLE n I L0 L13 0
+    LOCALVARIABLE result Ljava/util/List; L1 L13 1
+    // signature Ljava/util/List<Ljava/lang/Integer;>;
+    // declaration: result extends java.util.List<java.lang.Integer>
+    LOCALVARIABLE even I L2 L13 2
+    LOCALVARIABLE odd I L3 L13 3
+    MAXSTACK = 2
+    MAXLOCALS = 5
+
+  // access flags 0xA
+  private static isPalindrome(I)Z
+   L0
+    LINENUMBER 66 L0
+    ILOAD 0
+    ISTORE 1
+   L1
+    LINENUMBER 67 L1
+    ICONST_0
+    ISTORE 2
+   L2
+    LINENUMBER 68 L2
+   FRAME FULL [I I I] []
+    ILOAD 1
+    IFLT L3
+   L4
+    LINENUMBER 69 L4
+    ILOAD 2
+    BIPUSH 10
+    IMUL
+    ILOAD 1
+    BIPUSH 10
+    IREM
+    IADD
+    ISTORE 2
+   L5
+    LINENUMBER 70 L5
+    ILOAD 1
+    BIPUSH 10
+    IDIV
+    ISTORE 1
+    GOTO L2
+   L3
+    LINENUMBER 72 L3
+   FRAME FULL [I I I] []
+    ILOAD 0
+    ILOAD 2
+    IF_ICMPNE L6
+    ICONST_1
+    GOTO L7
+   L6
+   FRAME FULL [I I I] []
+    ICONST_0
+   L7
+   FRAME FULL [I I I] [I]
+    IRETURN
+   L8
+    LOCALVARIABLE n I L0 L8 0
+    LOCALVARIABLE m I L1 L8 1
+    LOCALVARIABLE reversed I L2 L8 2
+    MAXSTACK = 3
+    MAXLOCALS = 3
+}
+

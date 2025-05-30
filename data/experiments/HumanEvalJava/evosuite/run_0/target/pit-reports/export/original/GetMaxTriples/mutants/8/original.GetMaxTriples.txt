@@ -1,0 +1,116 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/GetMaxTriples {
+
+  // compiled from: id_147.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 3 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/GetMaxTriples; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  public static getMaxTriples(I)I
+   L0
+    LINENUMBER 27 L0
+    ICONST_0
+    ISTORE 1
+   L1
+    LINENUMBER 28 L1
+    ICONST_1
+    ISTORE 2
+   L2
+   FRAME FULL [I I I] []
+    ILOAD 2
+    ILOAD 0
+    IF_ICMPGT L3
+   L4
+    LINENUMBER 29 L4
+    ILOAD 2
+    ICONST_1
+    IADD
+    ISTORE 3
+   L5
+   FRAME FULL [I I I I] []
+    ILOAD 3
+    ILOAD 0
+    IF_ICMPGT L6
+   L7
+    LINENUMBER 30 L7
+    ILOAD 3
+    ICONST_1
+    IADD
+    ISTORE 4
+   L8
+   FRAME FULL [I I I I I] []
+    ILOAD 4
+    ILOAD 0
+    IF_ICMPGT L9
+   L10
+    LINENUMBER 31 L10
+    ILOAD 2
+    ILOAD 2
+    IMUL
+    ILOAD 2
+    ISUB
+    ICONST_1
+    IADD
+    ILOAD 3
+    ILOAD 3
+    IMUL
+    IADD
+    ILOAD 3
+    ISUB
+    ICONST_1
+    IADD
+    ILOAD 4
+    ILOAD 4
+    IMUL
+    IADD
+    ILOAD 4
+    ISUB
+    ICONST_1
+    IADD
+    ICONST_3
+    IREM
+    IFEQ L11
+   L12
+    LINENUMBER 32 L12
+    IINC 1 1
+   L11
+    LINENUMBER 30 L11
+   FRAME FULL [I I I I I] []
+    IINC 4 1
+    GOTO L8
+   L9
+    LINENUMBER 29 L9
+   FRAME FULL [I I I I I] []
+    IINC 3 1
+    GOTO L5
+   L6
+    LINENUMBER 28 L6
+   FRAME FULL [I I I I] []
+    IINC 2 1
+    GOTO L2
+   L3
+    LINENUMBER 37 L3
+   FRAME FULL [I I I] []
+    ILOAD 1
+    IRETURN
+   L13
+    LOCALVARIABLE k I L8 L9 4
+    LOCALVARIABLE j I L5 L6 3
+    LOCALVARIABLE i I L2 L3 2
+    LOCALVARIABLE n I L0 L13 0
+    LOCALVARIABLE count I L1 L13 1
+    MAXSTACK = 3
+    MAXLOCALS = 5
+}
+

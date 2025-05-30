@@ -1,0 +1,57 @@
+package original;
+import java.util.List;
+import java.util.Arrays;
+import java.util.ArrayList;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of TotalMatch.
+*/
+class TotalMatchTest {
+    @Test
+    void testTotalMatch() {
+        List<Object> lst1 = new ArrayList<>();
+        lst1.add("hi");
+        lst1.add("admin");
+        List<Object> lst2 = new ArrayList<>();
+        lst2.add("hI");
+        lst2.add("Hi");
+        assertEquals(lst2, TotalMatch.totalMatch(lst1, lst2));
+    }
+    
+    @Test
+        public void testNothing(){
+            TotalMatch s = new TotalMatch();
+            }
+    @Test
+    public void testEmptyLists() {
+        List<Object> lst1 = new ArrayList<>();
+        List<Object> lst2 = new ArrayList<>();
+        assertEquals(lst1, TotalMatch.totalMatch(lst1, lst2));
+    }
+    @Test
+    public void testSingleElementLists1() {
+        List<Object> lst1 = Arrays.asList("a");
+        List<Object> lst2 = Arrays.asList("ab", "c");
+        assertEquals(lst1, TotalMatch.totalMatch(lst1, lst2));
+    }
+    @Test
+    public void testUnequalLengths1() {
+        List<Object> lst1 = Arrays.asList("hi", "admin");
+        List<Object> lst2 = Arrays.asList("hI", "Hi", "longer string");
+        assertEquals(lst1, TotalMatch.totalMatch(lst1, lst2));
+    }
+    @Test
+    public void testEqualLengths_1() {
+        List<Object> lst1 = Arrays.asList("a");
+        List<Object> lst2 = Arrays.asList("b");
+        assertEquals(lst1, TotalMatch.totalMatch(lst1, lst2));
+    }
+    @Test
+    public void testSameTotalCharacters() {
+        List<Object> lst1 = Arrays.asList("a", "b");
+        List<Object> lst2 = Arrays.asList("ab", " ");
+        assertEquals(lst1, TotalMatch.totalMatch(lst1, lst2));
+    }
+                                    
+}

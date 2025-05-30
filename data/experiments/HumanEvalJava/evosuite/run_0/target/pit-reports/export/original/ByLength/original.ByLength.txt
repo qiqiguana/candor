@@ -1,0 +1,223 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/ByLength {
+
+  // compiled from: id_105.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 9 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/ByLength; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  // signature (Ljava/util/List<Ljava/lang/Object;>;)Ljava/util/List<Ljava/lang/Object;>;
+  // declaration: java.util.List<java.lang.Object> byLength(java.util.List<java.lang.Object>)
+  public static byLength(Ljava/util/List;)Ljava/util/List;
+   L0
+    LINENUMBER 43 L0
+    NEW java/util/ArrayList
+    DUP
+    INVOKESPECIAL java/util/ArrayList.<init> ()V
+    ASTORE 1
+   L1
+    LINENUMBER 44 L1
+    ALOAD 0
+    INVOKEINTERFACE java/util/List.iterator ()Ljava/util/Iterator; (itf)
+    ASTORE 2
+   L2
+   FRAME FULL [java/util/List java/util/List java/util/Iterator] []
+    ALOAD 2
+    INVOKEINTERFACE java/util/Iterator.hasNext ()Z (itf)
+    IFEQ L3
+    ALOAD 2
+    INVOKEINTERFACE java/util/Iterator.next ()Ljava/lang/Object; (itf)
+    ASTORE 3
+   L4
+    LINENUMBER 45 L4
+    ALOAD 3
+    INSTANCEOF java/lang/Integer
+    IFEQ L5
+   L6
+    LINENUMBER 46 L6
+    ALOAD 1
+    ALOAD 3
+    CHECKCAST java/lang/Integer
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+   L5
+    LINENUMBER 48 L5
+   FRAME FULL [java/util/List java/util/List java/util/Iterator] []
+    GOTO L2
+   L3
+    LINENUMBER 49 L3
+   FRAME FULL [java/util/List java/util/List] []
+    ALOAD 1
+    INVOKESTATIC java/util/Collections.sort (Ljava/util/List;)V
+   L7
+    LINENUMBER 50 L7
+    ALOAD 1
+    INVOKESTATIC java/util/Collections.reverse (Ljava/util/List;)V
+   L8
+    LINENUMBER 51 L8
+    NEW java/util/ArrayList
+    DUP
+    INVOKESPECIAL java/util/ArrayList.<init> ()V
+    ASTORE 2
+   L9
+    LINENUMBER 52 L9
+    ALOAD 1
+    INVOKEINTERFACE java/util/List.iterator ()Ljava/util/Iterator; (itf)
+    ASTORE 3
+   L10
+   FRAME FULL [java/util/List java/util/List java/util/List java/util/Iterator] []
+    ALOAD 3
+    INVOKEINTERFACE java/util/Iterator.hasNext ()Z (itf)
+    IFEQ L11
+    ALOAD 3
+    INVOKEINTERFACE java/util/Iterator.next ()Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/Integer
+    ASTORE 4
+   L12
+    LINENUMBER 53 L12
+    ALOAD 4
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    ICONST_1
+    IF_ICMPLT L13
+    ALOAD 4
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    BIPUSH 9
+    IF_ICMPGT L13
+   L14
+    LINENUMBER 54 L14
+    ALOAD 4
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    TABLESWITCH
+      1: L15
+      2: L16
+      3: L17
+      4: L18
+      5: L19
+      6: L20
+      7: L21
+      8: L22
+      9: L23
+      default: L13
+   L15
+    LINENUMBER 56 L15
+   FRAME FULL [java/util/List java/util/List java/util/List java/util/Iterator java/lang/Integer] []
+    ALOAD 2
+    LDC "One"
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+   L24
+    LINENUMBER 57 L24
+    GOTO L13
+   L16
+    LINENUMBER 59 L16
+   FRAME FULL [java/util/List java/util/List java/util/List java/util/Iterator java/lang/Integer] []
+    ALOAD 2
+    LDC "Two"
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+   L25
+    LINENUMBER 60 L25
+    GOTO L13
+   L17
+    LINENUMBER 62 L17
+   FRAME FULL [java/util/List java/util/List java/util/List java/util/Iterator java/lang/Integer] []
+    ALOAD 2
+    LDC "Three"
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+   L26
+    LINENUMBER 63 L26
+    GOTO L13
+   L18
+    LINENUMBER 65 L18
+   FRAME FULL [java/util/List java/util/List java/util/List java/util/Iterator java/lang/Integer] []
+    ALOAD 2
+    LDC "Four"
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+   L27
+    LINENUMBER 66 L27
+    GOTO L13
+   L19
+    LINENUMBER 68 L19
+   FRAME FULL [java/util/List java/util/List java/util/List java/util/Iterator java/lang/Integer] []
+    ALOAD 2
+    LDC "Five"
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+   L28
+    LINENUMBER 69 L28
+    GOTO L13
+   L20
+    LINENUMBER 71 L20
+   FRAME FULL [java/util/List java/util/List java/util/List java/util/Iterator java/lang/Integer] []
+    ALOAD 2
+    LDC "Six"
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+   L29
+    LINENUMBER 72 L29
+    GOTO L13
+   L21
+    LINENUMBER 74 L21
+   FRAME FULL [java/util/List java/util/List java/util/List java/util/Iterator java/lang/Integer] []
+    ALOAD 2
+    LDC "Seven"
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+   L30
+    LINENUMBER 75 L30
+    GOTO L13
+   L22
+    LINENUMBER 77 L22
+   FRAME FULL [java/util/List java/util/List java/util/List java/util/Iterator java/lang/Integer] []
+    ALOAD 2
+    LDC "Eight"
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+   L31
+    LINENUMBER 78 L31
+    GOTO L13
+   L23
+    LINENUMBER 80 L23
+   FRAME FULL [java/util/List java/util/List java/util/List java/util/Iterator java/lang/Integer] []
+    ALOAD 2
+    LDC "Nine"
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+   L13
+    LINENUMBER 84 L13
+   FRAME FULL [java/util/List java/util/List java/util/List java/util/Iterator] []
+    GOTO L10
+   L11
+    LINENUMBER 85 L11
+   FRAME FULL [java/util/List java/util/List java/util/List] []
+    ALOAD 2
+    ARETURN
+   L32
+    LOCALVARIABLE value Ljava/lang/Object; L4 L5 3
+    LOCALVARIABLE value Ljava/lang/Integer; L12 L13 4
+    LOCALVARIABLE arr Ljava/util/List; L0 L32 0
+    // signature Ljava/util/List<Ljava/lang/Object;>;
+    // declaration: arr extends java.util.List<java.lang.Object>
+    LOCALVARIABLE sorted Ljava/util/List; L1 L32 1
+    // signature Ljava/util/List<Ljava/lang/Integer;>;
+    // declaration: sorted extends java.util.List<java.lang.Integer>
+    LOCALVARIABLE result Ljava/util/List; L9 L32 2
+    // signature Ljava/util/List<Ljava/lang/Object;>;
+    // declaration: result extends java.util.List<java.lang.Object>
+    MAXSTACK = 2
+    MAXLOCALS = 5
+}
+
