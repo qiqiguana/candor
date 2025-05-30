@@ -1,0 +1,81 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Solution1446 {
+
+  // compiled from: id_1446.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 3 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Solution1446; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public maxPower(Ljava/lang/String;)I
+   L0
+    LINENUMBER 5 L0
+    ICONST_1
+    ISTORE 2
+   L1
+    ICONST_1
+    ISTORE 3
+   L2
+    LINENUMBER 6 L2
+    ICONST_1
+    ISTORE 4
+   L3
+   FRAME FULL [original/Solution1446 java/lang/String I I I] []
+    ILOAD 4
+    ALOAD 1
+    INVOKEVIRTUAL java/lang/String.length ()I
+    IF_ICMPGE L4
+   L5
+    LINENUMBER 7 L5
+    ALOAD 1
+    ILOAD 4
+    INVOKEVIRTUAL java/lang/String.charAt (I)C
+    ALOAD 1
+    ILOAD 4
+    ICONST_1
+    IADD
+    INVOKEVIRTUAL java/lang/String.charAt (I)C
+    IF_ICMPNE L6
+   L7
+    LINENUMBER 8 L7
+    ILOAD 2
+    IINC 3 1
+    ILOAD 3
+    INVOKESTATIC java/lang/Math.max (II)I
+    ISTORE 2
+    GOTO L8
+   L6
+    LINENUMBER 10 L6
+   FRAME FULL [original/Solution1446 java/lang/String I I I] []
+    ICONST_1
+    ISTORE 3
+   L8
+    LINENUMBER 6 L8
+   FRAME FULL [original/Solution1446 java/lang/String I I I] []
+    IINC 4 1
+    GOTO L3
+   L4
+    LINENUMBER 13 L4
+   FRAME FULL [original/Solution1446 java/lang/String I I I] []
+    ILOAD 2
+    IRETURN
+   L9
+    LOCALVARIABLE i I L3 L4 4
+    LOCALVARIABLE this Loriginal/Solution1446; L0 L9 0
+    LOCALVARIABLE s Ljava/lang/String; L0 L9 1
+    LOCALVARIABLE ans I L1 L9 2
+    LOCALVARIABLE t I L2 L9 3
+    MAXSTACK = 4
+    MAXLOCALS = 5
+}
+

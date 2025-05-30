@@ -1,0 +1,75 @@
+package original;
+
+import java.util.Arrays;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+/**
+* Test class of Solution1998.
+*/
+class Solution1998Test {
+    @Test
+    void test_gcdSort_return_true_0() {
+        Solution1998 solution = new Solution1998();
+        int[] nums = {42, 22, 16, 15, 60};
+        boolean result = solution.gcdSort(nums);
+        assertTrue(result);
+    }
+    
+    @Test
+        public void testNothing(){
+            Solution1998 s = new Solution1998();
+            }
+    @Test
+    public void testGcdSort_DifferentGcdsCorrectSorting() {
+        Solution1998 solution = new Solution1998();
+        int[] nums = {3, 6, 9, 12};
+        boolean result = solution.gcdSort(nums);
+        assertTrue(result);
+    }
+    @Test
+    public void testGcdSort_SameGcds() {
+        Solution1998 solution = new Solution1998();
+        int[] nums = {2, 4, 6, 8};
+        boolean result = solution.gcdSort(nums);
+        assertTrue(result);
+    }
+    @Test
+    public void testGcdSortWithInvalidInput2() {
+        Solution1998 solution = new Solution1998();
+        int[] nums = {7, 11, 13};
+        boolean result = false;
+        for (int i : nums) {
+            for (int j : nums) {
+                if (i != j && gcd(i, j) == 1) {
+                    result = true;
+                    break;
+                }
+            }
+            if (result) break;
+        }
+        if (!result) {
+            assertFalse(solution.gcdSort(nums));
+        } else {
+            assertTrue(solution.gcdSort(nums));
+        }
+    }
+    @Test
+    public void testGcdSortWithPrimeMultiples1() {
+        Solution1998 solution = new Solution1998();
+        int[] nums = {3, 6, 9, 12};
+        assertTrue(solution.gcdSort(nums));
+    }
+    @Test
+    public void testGcdSortWithAnotherEdgeCase() {
+        Solution1998 solution = new Solution1998();
+        int[] nums = {10, 20, 30, 40};
+        assertTrue(solution.gcdSort(nums));
+    }
+    
+    private int gcd(int a, int b) {
+        if (b == 0) return a;
+        return gcd(b, a % b);
+    }
+                                    
+}

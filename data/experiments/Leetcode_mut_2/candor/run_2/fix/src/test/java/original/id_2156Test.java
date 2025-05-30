@@ -1,0 +1,44 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of Solution2156.
+*/
+class Solution2156Test {
+    @Test
+    void testSubStrHash_KIsEqualToLengthOfS_ReturnsEntireString() {
+        Solution2156 solution = new Solution2156();
+        String s = "fbxzaad";
+        int power = 31;
+        int modulo = 1000000007;
+        int k = s.length();
+        int hashValue = 32;
+        String expected = s;
+        assertEquals(expected, solution.subStrHash(s, power, modulo, k, hashValue));
+    }
+    
+    @Test
+        public void testNothing(){
+            Solution2156 s = new Solution2156();
+            }
+    @Test
+    public void testSubStrHashFixed3() {
+        Solution2156 solution = new Solution2156();
+        String result = solution.subStrHash("fbxzaad", 31, 1000000007, 3, 32);
+        assertEquals("aad", result);
+    }
+    @Test
+    public void testSubStrHash4() {
+        Solution2156 solution = new Solution2156();
+        String result = solution.subStrHash("foobar", 31, 1000000007, 3, 0);
+        assertEquals("bar", result);
+    }
+    @Test
+    public void TestSubStrHash_HappyPath() {
+        Solution2156 solution = new Solution2156();
+        String result = solution.subStrHash("leetcode", 7, 20, 2, 0);
+        assertEquals("ee", result);
+    }
+                                    
+}

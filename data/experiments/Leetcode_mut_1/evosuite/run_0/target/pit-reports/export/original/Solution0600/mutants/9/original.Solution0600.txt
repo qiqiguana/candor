@@ -1,0 +1,197 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Solution0600 {
+
+  // compiled from: id_0600.java
+
+  // access flags 0x2
+  private I n
+
+  // access flags 0x2
+  private [[Ljava/lang/Integer; f
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 3 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Solution0600; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public findIntegers(I)I
+   L0
+    LINENUMBER 8 L0
+    ALOAD 0
+    ILOAD 1
+    PUTFIELD original/Solution0600.n : I
+   L1
+    LINENUMBER 9 L1
+    BIPUSH 32
+    ILOAD 1
+    INVOKESTATIC java/lang/Integer.numberOfLeadingZeros (I)I
+    ISUB
+    ISTORE 2
+   L2
+    LINENUMBER 10 L2
+    ALOAD 0
+    ILOAD 2
+    ICONST_2
+    MULTIANEWARRAY [[Ljava/lang/Integer; 2
+    PUTFIELD original/Solution0600.f : [[Ljava/lang/Integer;
+   L3
+    LINENUMBER 11 L3
+    ALOAD 0
+    ILOAD 2
+    ICONST_1
+    ISUB
+    ICONST_0
+    ICONST_1
+    INVOKEVIRTUAL original/Solution0600.dfs (IIZ)I
+    IRETURN
+   L4
+    LOCALVARIABLE this Loriginal/Solution0600; L0 L4 0
+    LOCALVARIABLE n I L0 L4 1
+    LOCALVARIABLE m I L2 L4 2
+    MAXSTACK = 4
+    MAXLOCALS = 3
+
+  // access flags 0x2
+  private dfs(IIZ)I
+   L0
+    LINENUMBER 15 L0
+    ILOAD 1
+    IFGE L1
+   L2
+    LINENUMBER 16 L2
+    ICONST_1
+    IRETURN
+   L1
+    LINENUMBER 18 L1
+   FRAME FULL [original/Solution0600 I I I] []
+    ILOAD 3
+    IFNE L3
+    ALOAD 0
+    GETFIELD original/Solution0600.f : [[Ljava/lang/Integer;
+    ILOAD 1
+    AALOAD
+    ILOAD 2
+    AALOAD
+    IFNULL L3
+   L4
+    LINENUMBER 19 L4
+    ALOAD 0
+    GETFIELD original/Solution0600.f : [[Ljava/lang/Integer;
+    ILOAD 1
+    AALOAD
+    ILOAD 2
+    AALOAD
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    IRETURN
+   L3
+    LINENUMBER 21 L3
+   FRAME FULL [original/Solution0600 I I I] []
+    ILOAD 3
+    IFEQ L5
+    ALOAD 0
+    GETFIELD original/Solution0600.n : I
+    ILOAD 1
+    ISHL
+    ICONST_1
+    IAND
+    GOTO L6
+   L5
+   FRAME FULL [original/Solution0600 I I I] []
+    ICONST_1
+   L6
+   FRAME FULL [original/Solution0600 I I I] [I]
+    ISTORE 4
+   L7
+    LINENUMBER 22 L7
+    ICONST_0
+    ISTORE 5
+   L8
+    LINENUMBER 23 L8
+    ICONST_0
+    ISTORE 6
+   L9
+   FRAME FULL [original/Solution0600 I I I I I I] []
+    ILOAD 6
+    ILOAD 4
+    IF_ICMPGT L10
+   L11
+    LINENUMBER 24 L11
+    ILOAD 6
+    ICONST_1
+    IF_ICMPNE L12
+    ILOAD 2
+    ICONST_1
+    IF_ICMPNE L12
+   L13
+    LINENUMBER 25 L13
+    GOTO L14
+   L12
+    LINENUMBER 27 L12
+   FRAME FULL [original/Solution0600 I I I I I I] []
+    ILOAD 5
+    ALOAD 0
+    ILOAD 1
+    ICONST_1
+    ISUB
+    ILOAD 6
+    ILOAD 3
+    IFEQ L15
+    ILOAD 6
+    ILOAD 4
+    IF_ICMPNE L15
+    ICONST_1
+    GOTO L16
+   L15
+   FRAME FULL [original/Solution0600 I I I I I I] [I original/Solution0600 I I]
+    ICONST_0
+   L16
+   FRAME FULL [original/Solution0600 I I I I I I] [I original/Solution0600 I I I]
+    INVOKEVIRTUAL original/Solution0600.dfs (IIZ)I
+    IADD
+    ISTORE 5
+   L14
+    LINENUMBER 23 L14
+   FRAME FULL [original/Solution0600 I I I I I I] []
+    IINC 6 1
+    GOTO L9
+   L10
+    LINENUMBER 29 L10
+   FRAME FULL [original/Solution0600 I I I I I I] []
+    ILOAD 3
+    IFNE L17
+   L18
+    LINENUMBER 30 L18
+    ALOAD 0
+    GETFIELD original/Solution0600.f : [[Ljava/lang/Integer;
+    ILOAD 1
+    AALOAD
+    ILOAD 2
+    ILOAD 5
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    AASTORE
+   L17
+    LINENUMBER 32 L17
+   FRAME FULL [original/Solution0600 I I I I I I] []
+    ILOAD 5
+    IRETURN
+   L19
+    LOCALVARIABLE j I L9 L10 6
+    LOCALVARIABLE this Loriginal/Solution0600; L0 L19 0
+    LOCALVARIABLE i I L0 L19 1
+    LOCALVARIABLE pre I L0 L19 2
+    LOCALVARIABLE limit Z L0 L19 3
+    LOCALVARIABLE up I L7 L19 4
+    LOCALVARIABLE ans I L8 L19 5
+    MAXSTACK = 6
+    MAXLOCALS = 7
+}
+

@@ -1,0 +1,113 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Solution3467 {
+
+  // compiled from: id_3467.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 3 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Solution3467; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public transformArray([I)[I
+   L0
+    LINENUMBER 5 L0
+    ICONST_0
+    ISTORE 2
+   L1
+    LINENUMBER 6 L1
+    ALOAD 1
+    ASTORE 3
+    ALOAD 3
+    ARRAYLENGTH
+    ISTORE 4
+    ICONST_0
+    ISTORE 5
+   L2
+   FRAME FULL [original/Solution3467 [I I [I I I] []
+    ILOAD 5
+    ILOAD 4
+    IF_ICMPGE L3
+    ALOAD 3
+    ILOAD 5
+    IALOAD
+    ISTORE 6
+   L4
+    LINENUMBER 7 L4
+    ILOAD 2
+    ILOAD 6
+    ICONST_1
+    IAND
+    ICONST_1
+    IXOR
+    IADD
+    ISTORE 2
+   L5
+    LINENUMBER 6 L5
+    IINC 5 1
+    GOTO L2
+   L3
+    LINENUMBER 9 L3
+   FRAME FULL [original/Solution3467 [I I [I I I] []
+    ICONST_0
+    ISTORE 3
+   L6
+   FRAME FULL [original/Solution3467 [I I I I I] []
+    ILOAD 3
+    ILOAD 2
+    IF_ICMPGE L7
+   L8
+    LINENUMBER 10 L8
+    ALOAD 1
+    ILOAD 3
+    ICONST_0
+    IASTORE
+   L9
+    LINENUMBER 9 L9
+    IINC 3 1
+    GOTO L6
+   L7
+    LINENUMBER 12 L7
+   FRAME FULL [original/Solution3467 [I I I I I] []
+    ILOAD 2
+    ISTORE 3
+   L10
+   FRAME FULL [original/Solution3467 [I I I I I] []
+    ILOAD 3
+    ALOAD 1
+    ARRAYLENGTH
+    IF_ICMPGT L11
+   L12
+    LINENUMBER 13 L12
+    ALOAD 1
+    ILOAD 3
+    ICONST_1
+    IASTORE
+   L13
+    LINENUMBER 12 L13
+    IINC 3 1
+    GOTO L10
+   L11
+    LINENUMBER 15 L11
+   FRAME FULL [original/Solution3467 [I I I I I] []
+    ALOAD 1
+    ARETURN
+   L14
+    LOCALVARIABLE x I L4 L5 6
+    LOCALVARIABLE i I L6 L7 3
+    LOCALVARIABLE i I L10 L11 3
+    LOCALVARIABLE this Loriginal/Solution3467; L0 L14 0
+    LOCALVARIABLE nums [I L0 L14 1
+    LOCALVARIABLE even I L1 L14 2
+    MAXSTACK = 3
+    MAXLOCALS = 7
+}
+

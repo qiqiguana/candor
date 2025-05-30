@@ -1,0 +1,120 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Solution2928 {
+
+  // compiled from: id_2928.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 3 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Solution2928; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public distributeCandies(II)I
+   L0
+    LINENUMBER 5 L0
+    ILOAD 1
+    ICONST_3
+    ILOAD 2
+    IMUL
+    IF_ICMPLE L1
+   L2
+    LINENUMBER 6 L2
+    ICONST_0
+    IRETURN
+   L1
+    LINENUMBER 8 L1
+   FRAME FULL [original/Solution2928 I I] []
+    ALOAD 0
+    ILOAD 1
+    ICONST_2
+    IADD
+    INVOKEVIRTUAL original/Solution2928.comb2 (I)J
+    LSTORE 3
+   L3
+    LINENUMBER 9 L3
+    ILOAD 1
+    ILOAD 2
+    IF_ICMPLE L4
+   L5
+    LINENUMBER 10 L5
+    LLOAD 3
+    LDC 3L
+    ALOAD 0
+    ILOAD 1
+    ILOAD 2
+    IADD
+    ICONST_1
+    IADD
+    INVOKEVIRTUAL original/Solution2928.comb2 (I)J
+    LMUL
+    LSUB
+    LSTORE 3
+   L4
+    LINENUMBER 12 L4
+   FRAME FULL [original/Solution2928 I I J] []
+    ILOAD 1
+    ICONST_2
+    ISUB
+    ICONST_2
+    ILOAD 2
+    IMUL
+    IF_ICMPLT L6
+   L7
+    LINENUMBER 13 L7
+    LLOAD 3
+    LDC 3L
+    ALOAD 0
+    ILOAD 1
+    ICONST_2
+    ILOAD 2
+    IMUL
+    ISUB
+    INVOKEVIRTUAL original/Solution2928.comb2 (I)J
+    LMUL
+    LADD
+    LSTORE 3
+   L6
+    LINENUMBER 15 L6
+   FRAME FULL [original/Solution2928 I I J] []
+    LLOAD 3
+    L2I
+    IRETURN
+   L8
+    LOCALVARIABLE this Loriginal/Solution2928; L0 L8 0
+    LOCALVARIABLE n I L0 L8 1
+    LOCALVARIABLE limit I L0 L8 2
+    LOCALVARIABLE ans J L3 L8 3
+    MAXSTACK = 8
+    MAXLOCALS = 5
+
+  // access flags 0x2
+  private comb2(I)J
+   L0
+    LINENUMBER 19 L0
+    LCONST_1
+    ILOAD 1
+    I2L
+    LMUL
+    ILOAD 1
+    ICONST_1
+    ISUB
+    I2L
+    LMUL
+    LDC 2L
+    LDIV
+    LRETURN
+   L1
+    LOCALVARIABLE this Loriginal/Solution2928; L0 L1 0
+    LOCALVARIABLE n I L0 L1 1
+    MAXSTACK = 4
+    MAXLOCALS = 2
+}
+

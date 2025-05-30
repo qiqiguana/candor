@@ -1,0 +1,52 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of StringSequence.
+*/
+class StringSequenceTest {
+    @Test
+    void testStringSequenceZero() {
+        // Arrange and Act
+        String result = StringSequence.stringSequence(0);
+        // Assert
+        assertEquals("0", result);
+    }
+    
+    @Test
+        public void testNothing(){
+            StringSequence s = new StringSequence();
+            }
+    @Test
+    void testStringSequenceWithZero() {
+        int n = 0;
+        String expected = "0";
+        String result = original.StringSequence.stringSequence(n);
+        assertEquals(expected, result);
+    }
+    @Test
+    void testStringSequenceWithPositiveNumber() {
+        int n = 5;
+        String expected = "0 1 2 3 4 5";
+        String result = original.StringSequence.stringSequence(n);
+        assertEquals(expected, result);
+    }
+    @Test
+    void testStringSequenceWithLargeNumber() {
+        int n = 1000;
+        StringBuilder expected = new StringBuilder();
+        for (int i = 0; i <= n; i++) {
+            expected.append(i).append(" ");
+        }
+        String result = original.StringSequence.stringSequence(n);
+        assertEquals(expected.toString().trim(), result);
+    }
+    @Test
+    public void testStringLength() {
+        String test = "Hello World";
+        System.out.println(test);
+        assertEquals(11, test.length());
+    }
+                                    
+}

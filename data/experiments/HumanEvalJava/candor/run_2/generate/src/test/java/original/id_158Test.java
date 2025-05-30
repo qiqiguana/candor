@@ -1,0 +1,65 @@
+package original;
+
+import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of FindMax.
+*/
+class FindMaxTest {
+    @Test
+    void testFindMax_WithDuplicateWords_ReturnsFirstWordInLexicographicalOrder() {
+        List<String> words = new ArrayList<>();
+        words.add("name");
+        words.add("enam");
+        words.add("game");
+        String expected = "enam";
+        String actual = FindMax.findMax(words);
+        assertEquals(expected, actual);
+    }
+    
+    @Test
+        public void testNothing(){
+            FindMax s = new FindMax();
+            }
+    @Test
+    public void FindMax_SadPath_NullInput() {
+        List<String> words = null;
+        String result = FindMax.findMax(words);
+        assertNull(result);
+    }
+    @Test
+    public void FindMax_SadPath_EmptyList() {
+        List<String> words = new ArrayList<>();
+        String result = FindMax.findMax(words);
+        assertNull(result);
+    }
+    @Test
+    public void FindMax_EdgeCase_SingleWord_1() {
+        List<String> words = Arrays.asList("hello");
+        String result = original.FindMax.findMax(words);
+        assertEquals("hello", result);
+    }
+    @Test
+    public void FindMax_HappyPath_SingleElementList_ReturnsSingleElement() {
+        List<String> words = new ArrayList<>();
+        words.add("hello");
+        assertEquals("hello", FindMax.findMax(words));
+    }
+    @Test
+    public void FindMax_HappyPath_MultipleElementsList_ReturnsWordWithMostUniqueCharacters() {
+        List<String> words = new ArrayList<>();
+        words.add("apple");
+        words.add("banana");
+        words.add("orange");
+        assertEquals("orange", FindMax.findMax(words));
+    }
+    @Test
+    public void FindMax_HappyPath_EmptyList_ReturnsNull1() {
+        List<String> words = new ArrayList<>();
+        assertNull(FindMax.findMax(words));
+    }
+                                    
+}

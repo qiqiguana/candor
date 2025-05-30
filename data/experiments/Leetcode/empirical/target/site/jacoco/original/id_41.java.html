@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_41.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HumanEvalJava</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_41.java</span></div><h1>id_41.java</h1><pre class="source lang-java linenums">package original;
+
+<span class="nc" id="L3">class CarRaceCollision {</span>
+    /**
+     * * Imagine a road that's a perfectly straight infinitely long line.
+     * n cars are driving left to right;  simultaneously, a different set of n cars
+     * are driving right to left.   The two sets of cars start out being very far from
+     * each other.  All cars move in the same speed.  Two cars are said to collide
+     * when a car that's moving left to right hits a car that's moving right to left.
+     * However, the cars are infinitely sturdy and strong; as a result, they continue moving
+     * in their trajectory as if they did not collide.
+     * This function outputs the number of such collisions.
+     *
+     * &gt; carRaceCollision(2)
+     * 4
+     * &gt; carRaceCollision(3)
+     * 9
+     * &gt; carRaceCollision(4)
+     * 16
+     * &gt; carRaceCollision(8)
+     * 64
+     * &gt; carRaceCollision(10)
+     * 100
+     */
+    public static int carRaceCollision(int n) {
+<span class="fc" id="L26">        int count = 0;</span>
+<span class="fc bfc" id="L27" title="All 2 branches covered.">        for (int i = 0; i &lt; n; i++) {</span>
+<span class="fc bfc" id="L28" title="All 2 branches covered.">            for (int j = 0; j &lt; n; j++) {</span>
+<span class="fc" id="L29">                count++;</span>
+            }
+        }
+<span class="fc" id="L32">        return count;</span>
+    }
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

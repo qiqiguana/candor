@@ -1,0 +1,70 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+/**
+* Test class of SortNumbers.
+*/
+class SortNumbersTest {
+    @Test
+    void sortNumbers_SingleNumber_ReturnsSameString() {
+        // Arrange
+        String input = "three";
+        String expected = "three";
+
+        // Act
+        String result = SortNumbers.sortNumbers(input);
+
+        // Assert
+        assertEquals(expected, result);
+    }
+    
+    @Test
+        public void testNothing(){
+            SortNumbers s = new SortNumbers();
+            }
+    @Test
+    public void testSortEmptyString() {
+    	String numbers = "";
+    	String result = SortNumbers.sortNumbers(numbers);
+    	assertEquals("", result);
+    }
+    @Test
+    public void testSortSingleNumber() {
+    	String numbers = "three";
+    	String result = SortNumbers.sortNumbers(numbers);
+    	assertEquals("three", result);
+    }
+    @Test
+    public void testSortMultipleNumbers() {
+    	String numbers = "eight one nine";
+    	String result = SortNumbers.sortNumbers(numbers);
+    	assertEquals("one eight nine", result);
+    }
+    @Test
+    public void testSortWithZeroCorrected() {
+    	String numbers = "three zero four";
+    	String result = SortNumbers.sortNumbers(numbers);
+    	assertEquals("zero three four", result);
+    }
+    @Test
+    public void testNumbersWithTwoCorrected() {
+        String[] input = new String[] {"three one two"};
+        String expected_result = "one two three";
+        assertEquals(expected_result, SortNumbers.sortNumbers(String.join(" ", input)));
+    }
+    @Test
+    public void testNumbersWithFive() {
+    	String[] input = new String[] {"three one five"};
+    	String expected_result = "one three five";
+    	assertEquals(expected_result, SortNumbers.sortNumbers(String.join(" ", input)));
+    }
+    @Test
+    public void testNumbersWithSixCorrected() {
+        String[] input = new String[] {"three one six"};
+        String expected_result = "one three six";
+        assertEquals(expected_result, SortNumbers.sortNumbers(String.join(" ", input)));
+    }
+                                    
+}

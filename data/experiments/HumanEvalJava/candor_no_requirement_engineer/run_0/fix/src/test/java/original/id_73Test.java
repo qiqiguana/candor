@@ -1,0 +1,28 @@
+package original;
+
+import java.util.Arrays;
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of SmallestChange.
+*/
+class SmallestChangeTest {
+    @Test
+    void testSmallestChange() {
+        List<Integer> arr = List.of(1, 2, 3, 5, 4, 7, 9, 6);
+        assertEquals(4, SmallestChange.smallestChange(arr));
+    }
+    
+    @Test
+     void testNothing(){
+         SmallestChange s = new SmallestChange();
+         }
+    @Test
+    public void testSmallestChangeWithPalindromicArray() {
+        List<Integer> arr = Arrays.asList(1, 2, 3, 2, 1);
+        assertEquals(0, SmallestChange.smallestChange(arr));
+    }
+                                  
+}

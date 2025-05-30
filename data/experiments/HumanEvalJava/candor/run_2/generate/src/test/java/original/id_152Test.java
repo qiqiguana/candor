@@ -1,0 +1,88 @@
+package original;
+
+import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of Compare.
+*/
+class CompareTest {
+    @Test
+    void testCompare() {
+        List<Integer> game = new ArrayList<>();
+        game.add(1);
+        game.add(2);
+        game.add(3);
+        game.add(4);
+        game.add(5);
+        game.add(1);
+        
+        List<Integer> guess = new ArrayList<>();
+        guess.add(1);
+        guess.add(2);
+        guess.add(3);
+        guess.add(4);
+        guess.add(2);
+        guess.add(-2);
+        
+        List<Integer> expected = new ArrayList<>();
+        expected.add(0);
+        expected.add(0);
+        expected.add(0);
+        expected.add(0);
+        expected.add(3);
+        expected.add(3);
+        
+        assertEquals(expected, Compare.compare(game, guess));
+    }
+    
+    @Test
+        public void testNothing(){
+            Compare s = new Compare();
+            }
+    @Test
+    void testCompareWithValidInputAndCorrectGuesses() {
+        List<Integer> game = new ArrayList<>(List.of(1, 2, 3, 4, 5));
+        List<Integer> guess = new ArrayList<>(List.of(1, 2, 3, 4, 5));
+        assertEquals(List.of(0, 0, 0, 0, 0), Compare.compare(game, guess));
+    }
+    @Test
+    void testCompareWithValidInputAndIncorrectGuesses() {
+        List<Integer> game = new ArrayList<>(List.of(1, 2, 3, 4, 5));
+        List<Integer> guess = new ArrayList<>(List.of(6, 7, 8, 9, 10));
+        assertEquals(List.of(5, 5, 5, 5, 5), Compare.compare(game, guess));
+    }
+    @Test
+    void testCompareWithValidInputAndMixedGuesses() {
+        List<Integer> game = new ArrayList<>(List.of(1, 2, 3, 4, 5));
+        List<Integer> guess = new ArrayList<>(List.of(1, 7, 3, 9, 5));
+        assertEquals(List.of(0, 5, 0, 5, 0), Compare.compare(game, guess));
+    }
+    @Test
+    void testCompareWithEmptyInput() {
+        List<Integer> game = new ArrayList<>();
+        List<Integer> guess = new ArrayList<>();
+        assertEquals(new ArrayList<>(), Compare.compare(game, guess));
+    }
+    @Test
+    void testCompareWithNullInput() {
+        assertThrows(NullPointerException.class, () -> Compare.compare(null, new ArrayList<>()));
+    }
+    @Test
+    public void compare_ZeroLengthInputs() {
+        List<Integer> game = new ArrayList<>();
+        List<Integer> guess = new ArrayList<>();
+        assertTrue(Compare.compare(game, guess).isEmpty());
+    }
+    @Test
+    public void compare_HappyPath() {
+        List<Integer> game = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 1));
+        List<Integer> guess = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 2, -2));
+        List<Integer> expected = Arrays.asList(0, 0, 0, 0, 3, 3);
+        assertEquals(expected, Compare.compare(game, guess));
+    }
+                                    
+}

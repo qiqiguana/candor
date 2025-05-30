@@ -1,0 +1,208 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Solution2047 {
+
+  // compiled from: id_2047.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 3 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Solution2047; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public countValidWords(Ljava/lang/String;)I
+   L0
+    LINENUMBER 5 L0
+    ICONST_0
+    ISTORE 2
+   L1
+    LINENUMBER 6 L1
+    ALOAD 1
+    LDC " "
+    INVOKEVIRTUAL java/lang/String.split (Ljava/lang/String;)[Ljava/lang/String;
+    ASTORE 3
+    ALOAD 3
+    ARRAYLENGTH
+    ISTORE 4
+    ICONST_0
+    ISTORE 5
+   L2
+   FRAME FULL [original/Solution2047 java/lang/String I [Ljava/lang/String; I I] []
+    ILOAD 5
+    ILOAD 4
+    IF_ICMPGE L3
+    ALOAD 3
+    ILOAD 5
+    AALOAD
+    ASTORE 6
+   L4
+    LINENUMBER 7 L4
+    ILOAD 2
+    ALOAD 0
+    ALOAD 6
+    INVOKEVIRTUAL java/lang/String.toCharArray ()[C
+    INVOKEVIRTUAL original/Solution2047.check ([C)I
+    IADD
+    ISTORE 2
+   L5
+    LINENUMBER 6 L5
+    IINC 5 1
+    GOTO L2
+   L3
+    LINENUMBER 9 L3
+   FRAME FULL [original/Solution2047 java/lang/String I [Ljava/lang/String; I I] []
+    ILOAD 2
+    IRETURN
+   L6
+    LOCALVARIABLE s Ljava/lang/String; L4 L5 6
+    LOCALVARIABLE this Loriginal/Solution2047; L0 L6 0
+    LOCALVARIABLE sentence Ljava/lang/String; L0 L6 1
+    LOCALVARIABLE ans I L1 L6 2
+    MAXSTACK = 3
+    MAXLOCALS = 7
+
+  // access flags 0x2
+  private check([C)I
+   L0
+    LINENUMBER 13 L0
+    ALOAD 1
+    ARRAYLENGTH
+    IFNE L1
+   L2
+    LINENUMBER 14 L2
+    ICONST_0
+    IRETURN
+   L1
+    LINENUMBER 16 L1
+   FRAME FULL [original/Solution2047 [C] []
+    ICONST_0
+    ISTORE 2
+   L3
+    LINENUMBER 17 L3
+    ICONST_0
+    ISTORE 3
+   L4
+   FRAME FULL [original/Solution2047 [C I I] []
+    ILOAD 3
+    ALOAD 1
+    ARRAYLENGTH
+    IF_ICMPGE L5
+   L6
+    LINENUMBER 18 L6
+    ALOAD 1
+    ILOAD 3
+    CALOAD
+    INVOKESTATIC java/lang/Character.isDigit (C)Z
+    IFEQ L7
+   L8
+    LINENUMBER 19 L8
+    ICONST_0
+    IRETURN
+   L7
+    LINENUMBER 21 L7
+   FRAME FULL [original/Solution2047 [C I I] []
+    ALOAD 1
+    ILOAD 3
+    CALOAD
+    BIPUSH 33
+    IF_ICMPEQ L9
+    ALOAD 1
+    ILOAD 3
+    CALOAD
+    BIPUSH 46
+    IF_ICMPEQ L9
+    ALOAD 1
+    ILOAD 3
+    CALOAD
+    BIPUSH 44
+    IF_ICMPNE L10
+   L9
+   FRAME FULL [original/Solution2047 [C I I] []
+    ILOAD 3
+    ALOAD 1
+    ARRAYLENGTH
+    ICONST_1
+    ISUB
+    IF_ICMPLT L10
+   L11
+    LINENUMBER 22 L11
+    ICONST_0
+    IRETURN
+   L10
+    LINENUMBER 24 L10
+   FRAME FULL [original/Solution2047 [C I I] []
+    ALOAD 1
+    ILOAD 3
+    CALOAD
+    BIPUSH 45
+    IF_ICMPNE L12
+   L13
+    LINENUMBER 25 L13
+    ILOAD 2
+    IFNE L14
+    ILOAD 3
+    IFEQ L14
+    ILOAD 3
+    ALOAD 1
+    ARRAYLENGTH
+    ICONST_1
+    ISUB
+    IF_ICMPNE L15
+   L14
+    LINENUMBER 26 L14
+   FRAME FULL [original/Solution2047 [C I I] []
+    ICONST_0
+    IRETURN
+   L15
+    LINENUMBER 28 L15
+   FRAME FULL [original/Solution2047 [C I I] []
+    ALOAD 1
+    ILOAD 3
+    ICONST_1
+    ISUB
+    CALOAD
+    INVOKESTATIC java/lang/Character.isAlphabetic (I)Z
+    IFEQ L16
+    ALOAD 1
+    ILOAD 3
+    ICONST_1
+    IADD
+    CALOAD
+    INVOKESTATIC java/lang/Character.isAlphabetic (I)Z
+    IFNE L17
+   L16
+    LINENUMBER 29 L16
+   FRAME FULL [original/Solution2047 [C I I] []
+    ICONST_0
+    IRETURN
+   L17
+    LINENUMBER 31 L17
+   FRAME FULL [original/Solution2047 [C I I] []
+    ICONST_1
+    ISTORE 2
+   L12
+    LINENUMBER 17 L12
+   FRAME FULL [original/Solution2047 [C I I] []
+    IINC 3 1
+    GOTO L4
+   L5
+    LINENUMBER 34 L5
+   FRAME FULL [original/Solution2047 [C I I] []
+    ICONST_1
+    IRETURN
+   L18
+    LOCALVARIABLE i I L4 L5 3
+    LOCALVARIABLE this Loriginal/Solution2047; L0 L18 0
+    LOCALVARIABLE s [C L0 L18 1
+    LOCALVARIABLE st Z L3 L18 2
+    MAXSTACK = 3
+    MAXLOCALS = 4
+}
+

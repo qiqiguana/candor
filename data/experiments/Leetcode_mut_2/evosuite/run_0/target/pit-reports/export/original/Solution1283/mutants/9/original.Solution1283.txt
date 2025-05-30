@@ -1,0 +1,119 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Solution1283 {
+
+  // compiled from: id_1283.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 3 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Solution1283; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public smallestDivisor([II)I
+   L0
+    LINENUMBER 5 L0
+    ICONST_1
+    ISTORE 3
+   L1
+    LDC 1000000
+    ISTORE 4
+   L2
+    LINENUMBER 6 L2
+   FRAME FULL [original/Solution1283 [I I I I] []
+    ILOAD 3
+    ILOAD 4
+    IF_ICMPGE L3
+   L4
+    LINENUMBER 7 L4
+    ILOAD 3
+    ILOAD 4
+    IADD
+    ICONST_1
+    ISHR
+    ISTORE 5
+   L5
+    LINENUMBER 8 L5
+    ICONST_0
+    ISTORE 6
+   L6
+    LINENUMBER 9 L6
+    ALOAD 1
+    ASTORE 7
+    ALOAD 7
+    ARRAYLENGTH
+    ISTORE 8
+    ICONST_0
+    ISTORE 9
+   L7
+   FRAME FULL [original/Solution1283 [I I I I I I [I I I] []
+    ILOAD 9
+    ILOAD 8
+    IF_ICMPGE L8
+    ALOAD 7
+    ILOAD 9
+    IALOAD
+    ISTORE 10
+   L9
+    LINENUMBER 10 L9
+    ILOAD 6
+    ILOAD 10
+    ILOAD 5
+    IADD
+    ICONST_1
+    ISUB
+    ILOAD 5
+    IDIV
+    IADD
+    ISTORE 6
+   L10
+    LINENUMBER 9 L10
+    IINC 9 1
+    GOTO L7
+   L8
+    LINENUMBER 12 L8
+   FRAME FULL [original/Solution1283 [I I I I I I [I I I] []
+    ILOAD 6
+    ILOAD 2
+    IF_ICMPGE L11
+   L12
+    LINENUMBER 13 L12
+    ILOAD 5
+    ISTORE 4
+    GOTO L13
+   L11
+    LINENUMBER 15 L11
+   FRAME FULL [original/Solution1283 [I I I I I I [I I I] []
+    ILOAD 5
+    ICONST_1
+    IADD
+    ISTORE 3
+   L13
+    LINENUMBER 17 L13
+   FRAME FULL [original/Solution1283 [I I I I I I [I I I] []
+    GOTO L2
+   L3
+    LINENUMBER 18 L3
+   FRAME FULL [original/Solution1283 [I I I I] []
+    ILOAD 3
+    IRETURN
+   L14
+    LOCALVARIABLE x I L9 L10 10
+    LOCALVARIABLE mid I L5 L13 5
+    LOCALVARIABLE s I L6 L13 6
+    LOCALVARIABLE this Loriginal/Solution1283; L0 L14 0
+    LOCALVARIABLE nums [I L0 L14 1
+    LOCALVARIABLE threshold I L0 L14 2
+    LOCALVARIABLE l I L1 L14 3
+    LOCALVARIABLE r I L2 L14 4
+    MAXSTACK = 3
+    MAXLOCALS = 11
+}
+

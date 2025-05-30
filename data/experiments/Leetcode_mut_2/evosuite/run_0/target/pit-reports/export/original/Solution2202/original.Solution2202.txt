@@ -1,0 +1,119 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Solution2202 {
+
+  // compiled from: id_2202.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 3 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Solution2202; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public maximumTop([II)I
+   L0
+    LINENUMBER 5 L0
+    ILOAD 2
+    IFNE L1
+   L2
+    LINENUMBER 6 L2
+    ALOAD 1
+    ICONST_0
+    IALOAD
+    IRETURN
+   L1
+    LINENUMBER 8 L1
+   FRAME FULL [original/Solution2202 [I I] []
+    ALOAD 1
+    ARRAYLENGTH
+    ISTORE 3
+   L3
+    LINENUMBER 9 L3
+    ILOAD 3
+    ICONST_1
+    IF_ICMPNE L4
+   L5
+    LINENUMBER 10 L5
+    ILOAD 2
+    ICONST_2
+    IREM
+    ICONST_1
+    IF_ICMPNE L6
+   L7
+    LINENUMBER 11 L7
+    ICONST_M1
+    IRETURN
+   L6
+    LINENUMBER 13 L6
+   FRAME FULL [original/Solution2202 [I I I] []
+    ALOAD 1
+    ICONST_0
+    IALOAD
+    IRETURN
+   L4
+    LINENUMBER 15 L4
+   FRAME FULL [original/Solution2202 [I I I] []
+    ICONST_M1
+    ISTORE 4
+   L8
+    LINENUMBER 16 L8
+    ICONST_0
+    ISTORE 5
+   L9
+   FRAME FULL [original/Solution2202 [I I I I I] []
+    ILOAD 5
+    ILOAD 2
+    ICONST_1
+    ISUB
+    ILOAD 3
+    INVOKESTATIC java/lang/Math.min (II)I
+    IF_ICMPGE L10
+   L11
+    LINENUMBER 17 L11
+    ILOAD 4
+    ALOAD 1
+    ILOAD 5
+    IALOAD
+    INVOKESTATIC java/lang/Math.max (II)I
+    ISTORE 4
+   L12
+    LINENUMBER 16 L12
+    IINC 5 1
+    GOTO L9
+   L10
+    LINENUMBER 19 L10
+   FRAME FULL [original/Solution2202 [I I I I] []
+    ILOAD 2
+    ILOAD 3
+    IF_ICMPGE L13
+   L14
+    LINENUMBER 20 L14
+    ILOAD 4
+    ALOAD 1
+    ILOAD 2
+    IALOAD
+    INVOKESTATIC java/lang/Math.max (II)I
+    ISTORE 4
+   L13
+    LINENUMBER 22 L13
+   FRAME FULL [original/Solution2202 [I I I I] []
+    ILOAD 4
+    IRETURN
+   L15
+    LOCALVARIABLE i I L9 L10 5
+    LOCALVARIABLE this Loriginal/Solution2202; L0 L15 0
+    LOCALVARIABLE nums [I L0 L15 1
+    LOCALVARIABLE k I L0 L15 2
+    LOCALVARIABLE n I L3 L15 3
+    LOCALVARIABLE ans I L8 L15 4
+    MAXSTACK = 3
+    MAXLOCALS = 6
+}
+

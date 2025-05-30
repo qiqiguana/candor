@@ -1,0 +1,107 @@
+package original;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of MoveOneBall.
+*/
+class MoveOneBallTest {
+    @Test
+    void test_move_one_ball_empty_array() {
+        List<Object> arr = new ArrayList<>();
+        assertTrue(MoveOneBall.moveOneBall(arr));
+    }
+    @Test
+    public void testEmptyArray() {
+        List<Object> arr = new ArrayList<>();
+        assertTrue(MoveOneBall.moveOneBall(arr));
+    }
+    @Test
+    public void testSingleElementArray() {
+        List<Object> arr = Arrays.asList(1);
+        assertTrue(MoveOneBall.moveOneBall(arr));
+    }
+    @Test
+    public void testAlreadySortedArray() {
+        List<Object> arr = Arrays.asList(1, 2, 3, 4, 5);
+        assertTrue(MoveOneBall.moveOneBall(arr));
+    }
+    @Test
+    public void testReverseSortedArray() {
+        List<Object> arr = Arrays.asList(5, 4, 3, 2, 1);
+        assertFalse(MoveOneBall.moveOneBall(arr));
+    }
+    @Test
+    public void testArrayWithOneBehavior() {
+        List<Object> arr = Arrays.asList(1, 4, 5, 3, 2);
+        assertFalse(MoveOneBall.moveOneBall(arr));
+    }
+    @Test
+    public void testArrayWithAnotherBehavior() {
+        List<Object> arr = Arrays.asList(1, 4, 5, 3, 2);
+        assertFalse(MoveOneBall.moveOneBall(arr));
+    }
+    @Test
+    public void testArrayWithYetAnotherBehavior() {
+        List<Object> arr = Arrays.asList(1, 4, 5, 3, 2);
+        assertFalse(MoveOneBall.moveOneBall(arr));
+    }
+    @Test
+    public void testEmptyArrayFixed() {
+        List<Object> arr = new ArrayList<>();
+        Object result = MoveOneBall.moveOneBall(arr);
+        assertNotNull(result);
+        assertTrue((Boolean)result);
+    }
+    @Test
+    public void testAlreadySortedArrayFixed() {
+        List<Object> arr = Arrays.asList(1, 2, 3, 4, 5);
+        assertTrue(MoveOneBall.moveOneBall(arr));
+    }
+    @Test
+    public void testUnsortedArrayWithOneShift() {
+        List<Object> arr = Arrays.asList(3, 1, 2, 4, 5);
+        Boolean result = MoveOneBall.moveOneBall(arr);
+        if (result == null) {
+            assertTrue(false);
+        } else {
+           assertFalse(result);
+        }
+    }
+    @Test
+    public void testUnsortedArrayWithMultipleShifts() {
+        List<Object> arr = Arrays.asList(3, 1, 2, 4, 5, 6);
+        assertFalse(MoveOneBall.moveOneBall(arr));
+    }
+    @Test
+    public void testNullArray() {
+        List<Object> arr = null;
+        assertThrows(NullPointerException.class, () -> MoveOneBall.moveOneBall(arr));
+    }
+    @Test
+    public void testEmptyList() {
+        List<Object> input = new ArrayList<>();
+        Object expected = true;
+        Object actual = MoveOneBall.moveOneBall(input);
+        assertEquals(expected, actual);
+    }
+    @Test
+    public void testAlreadySortedArray2() {
+        List<Object> input = Arrays.asList(1, 2, 3, 4, 5);
+        assertTrue(MoveOneBall.moveOneBall(input));
+    }
+    @Test
+    public void testArrayWithOneRotation() {
+        List<Object> input = Arrays.asList(5, 1, 2, 3, 4);
+        assertTrue(MoveOneBall.moveOneBall(input));
+    }
+    @Test
+    public void testUnsortedArray() {
+        List<Object> input = Arrays.asList(5, 2, 8, 1, 9);
+        assertFalse(MoveOneBall.moveOneBall(input));
+    }
+}

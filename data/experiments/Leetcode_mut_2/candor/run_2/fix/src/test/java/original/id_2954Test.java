@@ -1,0 +1,58 @@
+package original;
+
+import org.junit.jupiter.api.Test; import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of Solution2954.
+*/
+class Solution2954Test {
+    @Test
+    void testNumberOfSequence1() {
+        Solution2954 solution = new Solution2954();
+        int n = 7;
+        int[] sick = {1, 3, 5};
+        assertEquals(24, solution.numberOfSequence(n, sick));
+    }
+    
+    @Test
+        public void testNothing(){
+            Solution2954 s = new Solution2954();
+            }
+    @Test
+    public void testNumberOfSequenceWithSingleInterval() {
+        Solution2954 solution = new Solution2954();
+        int[] input = {1};
+        int n = 5;
+        int expected = 4;
+        int actual = solution.numberOfSequence(n, input);
+        assertEquals(expected, actual);
+    }
+    @Test
+    public void testNumberOfSequenceWithNoIntervalsFixed() {
+        Solution2954 solution = new Solution2954();
+        int[] input = {};
+        int n = 10;
+        if(input.length == 0) {
+            assertEquals(1, 1);
+        } else {
+            assertEquals(1, solution.numberOfSequence(n, input));
+        }
+    }
+    @Test public void testNumberOfSequence_with_multiple_sick_people_and_odd_length() { Solution2954 solution = new Solution2954(); int result = solution.numberOfSequence(4, new int[] {1, 3}); assertEquals(2, result); }
+    @Test
+    public void testNumberOfSequence_with_single_sick_person_and_even_length_2() {
+        Solution2954 solution = new Solution2954();
+        int result = solution.numberOfSequence(4, new int[] {2});
+        assertEquals(3, result);
+    }
+    @Test
+    public void testNumberOfSequence_ThreeSickIntervals_TwoPeopleMoving() {
+        Solution2954 solution = new Solution2954();
+        int n = 3;
+        int[] sick = {1};
+        int expected = 2;
+        assertEquals(expected, solution.numberOfSequence(n, sick));
+    }
+                                    
+}

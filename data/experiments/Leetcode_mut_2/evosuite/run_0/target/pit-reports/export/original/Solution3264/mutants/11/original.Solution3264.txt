@@ -1,0 +1,153 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Solution3264 {
+
+  // compiled from: id_3264.java
+  // access flags 0x19
+  public final static INNERCLASS java/lang/invoke/MethodHandles$Lookup java/lang/invoke/MethodHandles Lookup
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 5 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Solution3264; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public getFinalState([III)[I
+   L0
+    LINENUMBER 7 L0
+    NEW java/util/PriorityQueue
+    DUP
+    ALOAD 1
+    INVOKEDYNAMIC compare([I)Ljava/util/Comparator; [
+      // handle kind 0x6 : INVOKESTATIC
+      java/lang/invoke/LambdaMetafactory.metafactory(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;
+      // arguments:
+      (Ljava/lang/Object;Ljava/lang/Object;)I, 
+      // handle kind 0x6 : INVOKESTATIC
+      original/Solution3264.lambda$getFinalState$0([ILjava/lang/Integer;Ljava/lang/Integer;)I, 
+      (Ljava/lang/Integer;Ljava/lang/Integer;)I
+    ]
+    INVOKESPECIAL java/util/PriorityQueue.<init> (Ljava/util/Comparator;)V
+    ASTORE 4
+   L1
+    LINENUMBER 9 L1
+    ICONST_0
+    ISTORE 5
+   L2
+   FRAME FULL [original/Solution3264 [I I I java/util/PriorityQueue I] []
+    ILOAD 5
+    ALOAD 1
+    ARRAYLENGTH
+    IF_ICMPGE L3
+   L4
+    LINENUMBER 10 L4
+    ALOAD 4
+    ILOAD 5
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEVIRTUAL java/util/PriorityQueue.offer (Ljava/lang/Object;)Z
+    POP
+   L5
+    LINENUMBER 9 L5
+    IINC 5 1
+    GOTO L2
+   L3
+    LINENUMBER 12 L3
+   FRAME FULL [original/Solution3264 [I I I java/util/PriorityQueue I] []
+    ILOAD 2
+    IINC 2 -1
+    IFLE L6
+   L7
+    LINENUMBER 13 L7
+    ALOAD 4
+    INVOKEVIRTUAL java/util/PriorityQueue.poll ()Ljava/lang/Object;
+    CHECKCAST java/lang/Integer
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    ISTORE 5
+   L8
+    LINENUMBER 14 L8
+    ALOAD 1
+    ILOAD 5
+    DUP2
+    IALOAD
+    ILOAD 3
+    IMUL
+    IASTORE
+   L9
+    LINENUMBER 15 L9
+    ALOAD 4
+    ILOAD 5
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEVIRTUAL java/util/PriorityQueue.offer (Ljava/lang/Object;)Z
+    POP
+   L10
+    LINENUMBER 16 L10
+    GOTO L3
+   L6
+    LINENUMBER 17 L6
+   FRAME FULL [original/Solution3264 [I I I java/util/PriorityQueue I] []
+    ALOAD 1
+    POP
+    ACONST_NULL
+    ARETURN
+   L11
+    LOCALVARIABLE i I L2 L3 5
+    LOCALVARIABLE i I L8 L10 5
+    LOCALVARIABLE this Loriginal/Solution3264; L0 L11 0
+    LOCALVARIABLE nums [I L0 L11 1
+    LOCALVARIABLE k I L0 L11 2
+    LOCALVARIABLE multiplier I L0 L11 3
+    LOCALVARIABLE pq Ljava/util/PriorityQueue; L1 L11 4
+    // signature Ljava/util/PriorityQueue<Ljava/lang/Integer;>;
+    // declaration: pq extends java.util.PriorityQueue<java.lang.Integer>
+    MAXSTACK = 4
+    MAXLOCALS = 6
+
+  // access flags 0x100A
+  private static synthetic lambda$getFinalState$0([ILjava/lang/Integer;Ljava/lang/Integer;)I
+   L0
+    LINENUMBER 8 L0
+    ALOAD 0
+    ALOAD 1
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    IALOAD
+    ALOAD 0
+    ALOAD 2
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    IALOAD
+    ISUB
+    IFNE L1
+    ALOAD 1
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    ALOAD 2
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    ISUB
+    GOTO L2
+   L1
+   FRAME FULL [[I java/lang/Integer java/lang/Integer] []
+    ALOAD 0
+    ALOAD 1
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    IALOAD
+    ALOAD 0
+    ALOAD 2
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    IALOAD
+    ISUB
+   L2
+   FRAME FULL [[I java/lang/Integer java/lang/Integer] [I]
+    IRETURN
+   L3
+    LOCALVARIABLE nums [I L0 L3 0
+    LOCALVARIABLE i Ljava/lang/Integer; L0 L3 1
+    LOCALVARIABLE j Ljava/lang/Integer; L0 L3 2
+    MAXSTACK = 3
+    MAXLOCALS = 3
+}
+

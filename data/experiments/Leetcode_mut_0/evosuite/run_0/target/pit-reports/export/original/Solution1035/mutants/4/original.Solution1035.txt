@@ -1,0 +1,144 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Solution1035 {
+
+  // compiled from: id_1035.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 3 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Solution1035; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public maxUncrossedLines([I[I)I
+   L0
+    LINENUMBER 5 L0
+    ALOAD 1
+    ARRAYLENGTH
+    ISTORE 3
+   L1
+    ALOAD 2
+    ARRAYLENGTH
+    ISTORE 4
+   L2
+    LINENUMBER 6 L2
+    ILOAD 3
+    ICONST_1
+    IADD
+    ILOAD 4
+    ICONST_1
+    IADD
+    MULTIANEWARRAY [[I 2
+    ASTORE 5
+   L3
+    LINENUMBER 7 L3
+    ICONST_1
+    ISTORE 6
+   L4
+   FRAME FULL [original/Solution1035 [I [I I I [[I I] []
+    ILOAD 6
+    ILOAD 3
+    IF_ICMPGT L5
+   L6
+    LINENUMBER 8 L6
+    ICONST_1
+    ISTORE 7
+   L7
+   FRAME FULL [original/Solution1035 [I [I I I [[I I I] []
+    ILOAD 7
+    ILOAD 4
+    IF_ICMPLE L8
+   L9
+    LINENUMBER 9 L9
+    ALOAD 1
+    ILOAD 6
+    ICONST_1
+    ISUB
+    IALOAD
+    ALOAD 2
+    ILOAD 7
+    ICONST_1
+    ISUB
+    IALOAD
+    IF_ICMPNE L10
+   L11
+    LINENUMBER 10 L11
+    ALOAD 5
+    ILOAD 6
+    AALOAD
+    ILOAD 7
+    ALOAD 5
+    ILOAD 6
+    ICONST_1
+    ISUB
+    AALOAD
+    ILOAD 7
+    ICONST_1
+    ISUB
+    IALOAD
+    ICONST_1
+    IADD
+    IASTORE
+    GOTO L12
+   L10
+    LINENUMBER 12 L10
+   FRAME FULL [original/Solution1035 [I [I I I [[I I I] []
+    ALOAD 5
+    ILOAD 6
+    AALOAD
+    ILOAD 7
+    ALOAD 5
+    ILOAD 6
+    ICONST_1
+    ISUB
+    AALOAD
+    ILOAD 7
+    IALOAD
+    ALOAD 5
+    ILOAD 6
+    AALOAD
+    ILOAD 7
+    ICONST_1
+    ISUB
+    IALOAD
+    INVOKESTATIC java/lang/Math.max (II)I
+    IASTORE
+   L12
+    LINENUMBER 8 L12
+   FRAME FULL [original/Solution1035 [I [I I I [[I I I] []
+    IINC 7 1
+    GOTO L7
+   L8
+    LINENUMBER 7 L8
+   FRAME FULL [original/Solution1035 [I [I I I [[I I I] []
+    IINC 6 1
+    GOTO L4
+   L5
+    LINENUMBER 16 L5
+   FRAME FULL [original/Solution1035 [I [I I I [[I I] []
+    ALOAD 5
+    ILOAD 3
+    AALOAD
+    ILOAD 4
+    IALOAD
+    IRETURN
+   L13
+    LOCALVARIABLE j I L7 L8 7
+    LOCALVARIABLE i I L4 L5 6
+    LOCALVARIABLE this Loriginal/Solution1035; L0 L13 0
+    LOCALVARIABLE nums1 [I L0 L13 1
+    LOCALVARIABLE nums2 [I L0 L13 2
+    LOCALVARIABLE m I L1 L13 3
+    LOCALVARIABLE n I L2 L13 4
+    LOCALVARIABLE f [[I L3 L13 5
+    MAXSTACK = 6
+    MAXLOCALS = 8
+}
+

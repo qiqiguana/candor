@@ -1,0 +1,39 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of LargestDivisor.
+*/
+class LargestDivisorTest {
+    @Test
+    void testLargestDivisor() {
+        assertEquals(5, LargestDivisor.largestDivisor(10));
+    }
+    
+    @Test
+        public void testNothing(){
+            LargestDivisor s = new LargestDivisor();
+            }
+    @Test
+    public void testLargestDivisorClassInitialization() {
+        assertDoesNotThrow(() -> new LargestDivisor());
+    }
+    @Test
+    public void testNoOtherDivisorsThan1() {
+        int input = 7;
+        int expected = 1;
+        assertEquals(expected, LargestDivisor.largestDivisor(input));
+    }
+    @Test
+    public void Test_largestDivisor_with_a_prime_number() {
+        int result = LargestDivisor.largestDivisor(17);
+        assertEquals(1, result);
+    }
+    @Test
+    public void testLargestDivisorOfPrimeNumber() {
+        int result = LargestDivisor.largestDivisor(7);
+        assertEquals(1, result);
+    }
+                                    
+}

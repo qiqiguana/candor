@@ -1,0 +1,253 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Solution1316 {
+
+  // compiled from: id_1316.java
+
+  // access flags 0x2
+  private [J h
+
+  // access flags 0x2
+  private [J p
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 5 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Solution1316; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public distinctEchoSubstrings(Ljava/lang/String;)I
+   L0
+    LINENUMBER 10 L0
+    ALOAD 1
+    INVOKEVIRTUAL java/lang/String.length ()I
+    ISTORE 2
+   L1
+    LINENUMBER 11 L1
+    SIPUSH 131
+    ISTORE 3
+   L2
+    LINENUMBER 12 L2
+    ALOAD 0
+    ILOAD 2
+    BIPUSH 10
+    IADD
+    NEWARRAY T_LONG
+    PUTFIELD original/Solution1316.h : [J
+   L3
+    LINENUMBER 13 L3
+    ALOAD 0
+    ILOAD 2
+    BIPUSH 10
+    IADD
+    NEWARRAY T_LONG
+    PUTFIELD original/Solution1316.p : [J
+   L4
+    LINENUMBER 14 L4
+    ALOAD 0
+    GETFIELD original/Solution1316.p : [J
+    ICONST_0
+    LCONST_1
+    LASTORE
+   L5
+    LINENUMBER 15 L5
+    ICONST_0
+    ISTORE 4
+   L6
+   FRAME FULL [original/Solution1316 java/lang/String I I I] []
+    ILOAD 4
+    ILOAD 2
+    IF_ICMPGE L7
+   L8
+    LINENUMBER 16 L8
+    ALOAD 1
+    ILOAD 4
+    INVOKEVIRTUAL java/lang/String.charAt (I)C
+    BIPUSH 97
+    ISUB
+    ICONST_1
+    IADD
+    ISTORE 5
+   L9
+    LINENUMBER 17 L9
+    ALOAD 0
+    GETFIELD original/Solution1316.h : [J
+    ILOAD 4
+    ICONST_1
+    IADD
+    ALOAD 0
+    GETFIELD original/Solution1316.h : [J
+    ILOAD 4
+    LALOAD
+    ILOAD 3
+    I2L
+    LMUL
+    ILOAD 5
+    I2L
+    LADD
+    LASTORE
+   L10
+    LINENUMBER 18 L10
+    ALOAD 0
+    GETFIELD original/Solution1316.p : [J
+    ILOAD 4
+    ICONST_1
+    IADD
+    ALOAD 0
+    GETFIELD original/Solution1316.p : [J
+    ILOAD 4
+    LALOAD
+    ILOAD 3
+    I2L
+    LMUL
+    LASTORE
+   L11
+    LINENUMBER 15 L11
+    IINC 4 1
+    GOTO L6
+   L7
+    LINENUMBER 20 L7
+   FRAME FULL [original/Solution1316 java/lang/String I I I] []
+    NEW java/util/HashSet
+    DUP
+    INVOKESPECIAL java/util/HashSet.<init> ()V
+    ASTORE 4
+   L12
+    LINENUMBER 21 L12
+    ICONST_0
+    ISTORE 5
+   L13
+   FRAME FULL [original/Solution1316 java/lang/String I I java/util/HashSet I] []
+    ILOAD 5
+    ILOAD 2
+    ICONST_1
+    ISUB
+    IF_ICMPGE L14
+   L15
+    LINENUMBER 22 L15
+    ILOAD 5
+    ICONST_1
+    IADD
+    ISTORE 6
+   L16
+   FRAME FULL [original/Solution1316 java/lang/String I I java/util/HashSet I I] []
+    ILOAD 6
+    ILOAD 2
+    IF_ICMPGT L17
+   L18
+    LINENUMBER 23 L18
+    ILOAD 5
+    ILOAD 6
+    IADD
+    ICONST_1
+    ISHR
+    ISTORE 7
+   L19
+    LINENUMBER 24 L19
+    ALOAD 0
+    ILOAD 5
+    ICONST_1
+    IADD
+    ILOAD 7
+    ICONST_1
+    IADD
+    INVOKEVIRTUAL original/Solution1316.get (II)J
+    LSTORE 8
+   L20
+    LINENUMBER 25 L20
+    ALOAD 0
+    ILOAD 7
+    ICONST_2
+    IADD
+    ILOAD 6
+    ICONST_1
+    IADD
+    INVOKEVIRTUAL original/Solution1316.get (II)J
+    LSTORE 10
+   L21
+    LINENUMBER 26 L21
+    LLOAD 8
+    LLOAD 10
+    LCMP
+    IFNE L22
+   L23
+    LINENUMBER 27 L23
+    ALOAD 4
+    LLOAD 8
+    INVOKESTATIC java/lang/Long.valueOf (J)Ljava/lang/Long;
+    INVOKEINTERFACE java/util/Set.add (Ljava/lang/Object;)Z (itf)
+    POP
+   L22
+    LINENUMBER 22 L22
+   FRAME FULL [original/Solution1316 java/lang/String I I java/util/HashSet I I I J J] []
+    IINC 6 2
+    GOTO L16
+   L17
+    LINENUMBER 21 L17
+   FRAME FULL [original/Solution1316 java/lang/String I I java/util/HashSet I I] []
+    IINC 5 1
+    GOTO L13
+   L14
+    LINENUMBER 31 L14
+   FRAME FULL [original/Solution1316 java/lang/String I I java/util/HashSet I] []
+    ALOAD 4
+    INVOKEINTERFACE java/util/Set.size ()I (itf)
+    IRETURN
+   L24
+    LOCALVARIABLE t I L9 L11 5
+    LOCALVARIABLE i I L6 L7 4
+    LOCALVARIABLE k I L19 L22 7
+    LOCALVARIABLE a J L20 L22 8
+    LOCALVARIABLE b J L21 L22 10
+    LOCALVARIABLE j I L16 L17 6
+    LOCALVARIABLE i I L13 L14 5
+    LOCALVARIABLE this Loriginal/Solution1316; L0 L24 0
+    LOCALVARIABLE text Ljava/lang/String; L0 L24 1
+    LOCALVARIABLE n I L1 L24 2
+    LOCALVARIABLE base I L2 L24 3
+    LOCALVARIABLE vis Ljava/util/Set; L12 L24 4
+    // signature Ljava/util/Set<Ljava/lang/Long;>;
+    // declaration: vis extends java.util.Set<java.lang.Long>
+    MAXSTACK = 6
+    MAXLOCALS = 12
+
+  // access flags 0x2
+  private get(II)J
+   L0
+    LINENUMBER 35 L0
+    ALOAD 0
+    GETFIELD original/Solution1316.h : [J
+    ILOAD 2
+    LALOAD
+    ALOAD 0
+    GETFIELD original/Solution1316.h : [J
+    ILOAD 1
+    ICONST_1
+    ISUB
+    LALOAD
+    ALOAD 0
+    GETFIELD original/Solution1316.p : [J
+    ILOAD 2
+    ILOAD 1
+    ISUB
+    ICONST_1
+    IADD
+    LALOAD
+    LMUL
+    LSUB
+    LRETURN
+   L1
+    LOCALVARIABLE this Loriginal/Solution1316; L0 L1 0
+    LOCALVARIABLE i I L0 L1 1
+    LOCALVARIABLE j I L0 L1 2
+    MAXSTACK = 7
+    MAXLOCALS = 3
+}
+

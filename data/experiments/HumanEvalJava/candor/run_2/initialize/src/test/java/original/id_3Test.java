@@ -1,0 +1,66 @@
+package original;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import java.util.ArrayList;
+import java.util.List;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+/**
+* Test class of BelowZero.
+*/
+class BelowZeroTest {
+    @Test
+    void testBelowZero_withMultipleDepositsAndWithdrawals_returnsTrue() {
+        List<Object> operations = List.of(1, 2, -4, 5);
+        assertTrue(BelowZero.belowZero(operations));
+    }
+    
+    @Test
+        public void testNothing(){
+            BelowZero s = new BelowZero();
+            }
+    @Test
+    public void testSingleDeposit2() {
+        List<Object> operations = new ArrayList<>();
+        operations.add(1.0);
+        assertEquals(Boolean.FALSE, BelowZero.belowZero(operations));
+    }
+    @Test
+    public void testSingleWithdrawal() {
+        List<Object> operations = new ArrayList<>();
+        operations.add(-1.0);
+        assertTrue(BelowZero.belowZero(operations));
+    }
+    @Test
+    public void testMultipleDeposits() {
+        List<Object> operations = new ArrayList<>();
+        operations.add(1.0);
+        operations.add(2.0);
+        operations.add(3.0);
+        assertFalse(BelowZero.belowZero(operations));
+    }
+    @Test
+    public void testMultipleWithdrawals() {
+        List<Object> operations = new ArrayList<>();
+        operations.add(-1.0);
+        operations.add(-2.0);
+        operations.add(-3.0);
+        assertTrue(BelowZero.belowZero(operations));
+    }
+    @Test
+    public void testMixedOperations() {
+        List<Object> operations = new ArrayList<>();
+        operations.add(1.0);
+        operations.add(-2.0);
+        operations.add(3.0);
+        assertTrue(BelowZero.belowZero(operations));
+    }
+    @Test
+    public void testInvalidOperationFixed() {
+        List<Object> operations = new ArrayList<>();
+        operations.add("invalid");
+        assertThrows(IllegalArgumentException.class, () -> BelowZero.belowZero(operations));
+    }
+                                    
+}

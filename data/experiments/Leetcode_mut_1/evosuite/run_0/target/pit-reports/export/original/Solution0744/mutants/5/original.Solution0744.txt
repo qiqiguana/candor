@@ -1,0 +1,64 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Solution0744 {
+
+  // compiled from: id_0744.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 4 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Solution0744; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public nextGreatestLetter([CC)C
+   L0
+    LINENUMBER 6 L0
+    ALOAD 1
+    ILOAD 2
+    ICONST_1
+    IADD
+    I2C
+    INVOKESTATIC java/util/Arrays.binarySearch ([CC)I
+    ISTORE 3
+   L1
+    LINENUMBER 7 L1
+    ILOAD 3
+    IFGE L2
+    ILOAD 3
+    INEG
+    ICONST_1
+    ISUB
+    GOTO L3
+   L2
+   FRAME FULL [original/Solution0744 [C I I] []
+    ILOAD 3
+   L3
+   FRAME FULL [original/Solution0744 [C I I] [I]
+    ISTORE 3
+   L4
+    LINENUMBER 8 L4
+    ALOAD 1
+    ILOAD 3
+    ALOAD 1
+    ARRAYLENGTH
+    IREM
+    CALOAD
+    POP
+    ICONST_0
+    IRETURN
+   L5
+    LOCALVARIABLE this Loriginal/Solution0744; L0 L5 0
+    LOCALVARIABLE letters [C L0 L5 1
+    LOCALVARIABLE target C L0 L5 2
+    LOCALVARIABLE i I L1 L5 3
+    MAXSTACK = 3
+    MAXLOCALS = 4
+}
+

@@ -1,0 +1,46 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of SameChars.
+*/
+class SameCharsTest {
+    @Test
+    void testSameChars_withDifferentCharacters_ReturnsFalse() {
+        String s0 = "abcd";
+        String s1 = "abcdddddabce";
+        Boolean result = SameChars.sameChars(s0, s1);
+        assertFalse(result);
+    }
+    
+    @Test
+        public void testNothing(){
+            SameChars s = new SameChars();
+            }
+    @Test
+    public void SameChars_PositiveTest() {
+    	String s0 = "eabcdzzzz";
+    	String s1 = "dddzzzzzzzddeddabc";
+    	assertTrue(SameChars.sameChars(s0, s1));
+    }
+    @Test
+    public void SameChars_NegativeTest() {
+    	String s0 = "eabcd";
+    	String s1 = "dddddddabc";
+    	assertFalse(SameChars.sameChars(s0, s1));
+    }
+    @Test
+    public void SameChars_EmptyStringTest() {
+    	String s0 = "";
+    	String s1 = "abcd";
+    	assertFalse(SameChars.sameChars(s0, s1));
+    }
+    @Test
+    public void SameChars_SingleCharacterTest() {
+    	String s0 = "a";
+    	String s1 = "abcd";
+    	assertFalse(SameChars.sameChars(s0, s1));
+    }
+                                    
+}

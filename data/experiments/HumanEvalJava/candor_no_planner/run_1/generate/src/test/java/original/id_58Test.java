@@ -1,0 +1,48 @@
+package original;
+
+import java.util.*;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of Common.
+*/
+class CommonTest {
+
+    @Test
+    void testCommon_WhenBothListsHaveCommonElements_ReturnsSortedUniqueCommonElements() {
+        List<Integer> l1 = Arrays.asList(1, 4, 3, 34, 653, 2, 5);
+        List<Object> l2 = Arrays.asList(5, 7, 1, 5, 9, 653, 121);
+        List<Object> expected = Arrays.asList(1, 5, 653);
+
+        assertEquals(expected, Common.common(l1, l2));
+    }
+    
+    @Test
+        public void testNothing(){
+            Common s = new Common();
+            }
+    @Test
+    void testCommonClassInitialization() {
+        assertDoesNotThrow(() -> new Common());
+    }
+    @Test
+    void testEmptyListComparison() {
+        List<Integer> l1 = new ArrayList<>();
+        List<Object> l2 = new ArrayList<>();
+        assertEquals(Collections.emptyList(), Common.common(l1, l2));
+    }
+    @Test
+    void testIntegerTypeCheckFalse() {
+        List<Integer> l1 = Arrays.asList(1, 2, 3);
+        List<Object> l2 = Arrays.asList("a", "b");
+        assertEquals(Collections.emptyList(), Common.common(l1, l2));
+    }
+    @Test
+    void testIntegerTypeCheckTrue() {
+        List<Integer> l1 = Arrays.asList(1, 2, 3);
+        List<Object> l2 = Arrays.asList(2);
+        assertEquals(Collections.singletonList(2), Common.common(l1, l2));
+    }
+                                    
+}

@@ -1,0 +1,38 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of Strlen.
+*/
+class StrlenTest {
+    @Test
+    void test_strlen_of_empty_string() {
+        // Arrange and Act
+        int result = Strlen.strlen("");
+        // Assert
+        assertEquals(0, result);
+    }
+    
+    @Test
+        public void testNothing(){
+            Strlen s = new Strlen();
+            }
+    @Test
+    public void testStrlenEmptyString() {
+        assertEquals(0, Strlen.strlen(""));
+    }
+    @Test
+    public void testStrlenSingleCharacter() {
+        assertEquals(1, Strlen.strlen("x"));
+    }
+    @Test
+    public void testStrlenMultipleCharacters() {
+        assertEquals(9, Strlen.strlen("asdasnakj"));
+    }
+    @Test
+    public void testStrlenNullString() {
+        assertThrows(NullPointerException.class, () -> Strlen.strlen(null));
+    }
+                                    
+}

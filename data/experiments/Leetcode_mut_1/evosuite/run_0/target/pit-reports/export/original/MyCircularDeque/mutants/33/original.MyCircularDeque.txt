@@ -1,0 +1,326 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/MyCircularDeque {
+
+  // compiled from: id_0641.java
+
+  // access flags 0x2
+  private [I q
+
+  // access flags 0x2
+  private I front
+
+  // access flags 0x2
+  private I size
+
+  // access flags 0x2
+  private I capacity
+
+  // access flags 0x1
+  public <init>(I)V
+   L0
+    LINENUMBER 12 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+   L1
+    LINENUMBER 13 L1
+    ALOAD 0
+    ILOAD 1
+    NEWARRAY T_INT
+    PUTFIELD original/MyCircularDeque.q : [I
+   L2
+    LINENUMBER 14 L2
+    ALOAD 0
+    ILOAD 1
+    PUTFIELD original/MyCircularDeque.capacity : I
+   L3
+    LINENUMBER 15 L3
+    RETURN
+   L4
+    LOCALVARIABLE this Loriginal/MyCircularDeque; L0 L4 0
+    LOCALVARIABLE k I L0 L4 1
+    MAXSTACK = 2
+    MAXLOCALS = 2
+
+  // access flags 0x1
+  public insertFront(I)Z
+   L0
+    LINENUMBER 19 L0
+    ALOAD 0
+    INVOKEVIRTUAL original/MyCircularDeque.isFull ()Z
+    IFEQ L1
+   L2
+    LINENUMBER 20 L2
+    ICONST_0
+    IRETURN
+   L1
+    LINENUMBER 22 L1
+   FRAME FULL [original/MyCircularDeque I] []
+    ALOAD 0
+    INVOKEVIRTUAL original/MyCircularDeque.isEmpty ()Z
+    IFNE L3
+   L4
+    LINENUMBER 23 L4
+    ALOAD 0
+    ALOAD 0
+    GETFIELD original/MyCircularDeque.front : I
+    ICONST_1
+    ISUB
+    ALOAD 0
+    GETFIELD original/MyCircularDeque.capacity : I
+    IADD
+    ALOAD 0
+    GETFIELD original/MyCircularDeque.capacity : I
+    IREM
+    PUTFIELD original/MyCircularDeque.front : I
+   L3
+    LINENUMBER 25 L3
+   FRAME FULL [original/MyCircularDeque I] []
+    ALOAD 0
+    GETFIELD original/MyCircularDeque.q : [I
+    ALOAD 0
+    GETFIELD original/MyCircularDeque.front : I
+    ILOAD 1
+    IASTORE
+   L5
+    LINENUMBER 26 L5
+    ALOAD 0
+    DUP
+    GETFIELD original/MyCircularDeque.size : I
+    ICONST_1
+    IADD
+    PUTFIELD original/MyCircularDeque.size : I
+   L6
+    LINENUMBER 27 L6
+    ICONST_1
+    IRETURN
+   L7
+    LOCALVARIABLE this Loriginal/MyCircularDeque; L0 L7 0
+    LOCALVARIABLE value I L0 L7 1
+    MAXSTACK = 3
+    MAXLOCALS = 2
+
+  // access flags 0x1
+  public insertLast(I)Z
+   L0
+    LINENUMBER 32 L0
+    ALOAD 0
+    INVOKEVIRTUAL original/MyCircularDeque.isFull ()Z
+    IFEQ L1
+   L2
+    LINENUMBER 33 L2
+    ICONST_0
+    IRETURN
+   L1
+    LINENUMBER 35 L1
+   FRAME FULL [original/MyCircularDeque I] []
+    ALOAD 0
+    GETFIELD original/MyCircularDeque.front : I
+    ALOAD 0
+    GETFIELD original/MyCircularDeque.size : I
+    IADD
+    ALOAD 0
+    GETFIELD original/MyCircularDeque.capacity : I
+    IREM
+    ISTORE 2
+   L3
+    LINENUMBER 36 L3
+    ALOAD 0
+    GETFIELD original/MyCircularDeque.q : [I
+    ILOAD 2
+    ILOAD 1
+    IASTORE
+   L4
+    LINENUMBER 37 L4
+    ALOAD 0
+    DUP
+    GETFIELD original/MyCircularDeque.size : I
+    ICONST_1
+    IADD
+    PUTFIELD original/MyCircularDeque.size : I
+   L5
+    LINENUMBER 38 L5
+    ICONST_1
+    IRETURN
+   L6
+    LOCALVARIABLE this Loriginal/MyCircularDeque; L0 L6 0
+    LOCALVARIABLE value I L0 L6 1
+    LOCALVARIABLE idx I L3 L6 2
+    MAXSTACK = 3
+    MAXLOCALS = 3
+
+  // access flags 0x1
+  public deleteFront()Z
+   L0
+    LINENUMBER 43 L0
+    ALOAD 0
+    INVOKEVIRTUAL original/MyCircularDeque.isEmpty ()Z
+    IFEQ L1
+   L2
+    LINENUMBER 44 L2
+    ICONST_0
+    IRETURN
+   L1
+    LINENUMBER 46 L1
+   FRAME FULL [original/MyCircularDeque] []
+    ALOAD 0
+    ALOAD 0
+    GETFIELD original/MyCircularDeque.front : I
+    ICONST_1
+    IADD
+    ALOAD 0
+    GETFIELD original/MyCircularDeque.capacity : I
+    IREM
+    PUTFIELD original/MyCircularDeque.front : I
+   L3
+    LINENUMBER 47 L3
+    ALOAD 0
+    DUP
+    GETFIELD original/MyCircularDeque.size : I
+    ICONST_1
+    ISUB
+    PUTFIELD original/MyCircularDeque.size : I
+   L4
+    LINENUMBER 48 L4
+    ICONST_1
+    IRETURN
+   L5
+    LOCALVARIABLE this Loriginal/MyCircularDeque; L0 L5 0
+    MAXSTACK = 3
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public deleteLast()Z
+   L0
+    LINENUMBER 53 L0
+    ALOAD 0
+    INVOKEVIRTUAL original/MyCircularDeque.isEmpty ()Z
+    IFEQ L1
+   L2
+    LINENUMBER 54 L2
+    ICONST_0
+    IRETURN
+   L1
+    LINENUMBER 56 L1
+   FRAME FULL [original/MyCircularDeque] []
+    ALOAD 0
+    DUP
+    GETFIELD original/MyCircularDeque.size : I
+    ICONST_1
+    ISUB
+    PUTFIELD original/MyCircularDeque.size : I
+   L3
+    LINENUMBER 57 L3
+    ICONST_1
+    IRETURN
+   L4
+    LOCALVARIABLE this Loriginal/MyCircularDeque; L0 L4 0
+    MAXSTACK = 3
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public getFront()I
+   L0
+    LINENUMBER 62 L0
+    ALOAD 0
+    INVOKEVIRTUAL original/MyCircularDeque.isEmpty ()Z
+    IFEQ L1
+   L2
+    LINENUMBER 63 L2
+    ICONST_M1
+    IRETURN
+   L1
+    LINENUMBER 65 L1
+   FRAME FULL [original/MyCircularDeque] []
+    ALOAD 0
+    GETFIELD original/MyCircularDeque.q : [I
+    ALOAD 0
+    GETFIELD original/MyCircularDeque.front : I
+    IALOAD
+    IRETURN
+   L3
+    LOCALVARIABLE this Loriginal/MyCircularDeque; L0 L3 0
+    MAXSTACK = 2
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public getRear()I
+   L0
+    LINENUMBER 70 L0
+    ALOAD 0
+    INVOKEVIRTUAL original/MyCircularDeque.isEmpty ()Z
+    IFEQ L1
+   L2
+    LINENUMBER 71 L2
+    ICONST_M1
+    IRETURN
+   L1
+    LINENUMBER 73 L1
+   FRAME FULL [original/MyCircularDeque] []
+    ALOAD 0
+    GETFIELD original/MyCircularDeque.front : I
+    ALOAD 0
+    GETFIELD original/MyCircularDeque.size : I
+    IADD
+    ICONST_1
+    ISUB
+    ALOAD 0
+    GETFIELD original/MyCircularDeque.capacity : I
+    IREM
+    ISTORE 1
+   L3
+    LINENUMBER 74 L3
+    ALOAD 0
+    GETFIELD original/MyCircularDeque.q : [I
+    ILOAD 1
+    IALOAD
+    IRETURN
+   L4
+    LOCALVARIABLE this Loriginal/MyCircularDeque; L0 L4 0
+    LOCALVARIABLE idx I L3 L4 1
+    MAXSTACK = 2
+    MAXLOCALS = 2
+
+  // access flags 0x1
+  public isEmpty()Z
+   L0
+    LINENUMBER 79 L0
+    ALOAD 0
+    GETFIELD original/MyCircularDeque.size : I
+    IFEQ L1
+    ICONST_1
+    GOTO L2
+   L1
+   FRAME FULL [original/MyCircularDeque] []
+    ICONST_0
+   L2
+   FRAME FULL [original/MyCircularDeque] [I]
+    IRETURN
+   L3
+    LOCALVARIABLE this Loriginal/MyCircularDeque; L0 L3 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public isFull()Z
+   L0
+    LINENUMBER 84 L0
+    ALOAD 0
+    GETFIELD original/MyCircularDeque.size : I
+    ALOAD 0
+    GETFIELD original/MyCircularDeque.capacity : I
+    IF_ICMPNE L1
+    ICONST_1
+    GOTO L2
+   L1
+   FRAME FULL [original/MyCircularDeque] []
+    ICONST_0
+   L2
+   FRAME FULL [original/MyCircularDeque] [I]
+    IRETURN
+   L3
+    LOCALVARIABLE this Loriginal/MyCircularDeque; L0 L3 0
+    MAXSTACK = 2
+    MAXLOCALS = 1
+}
+

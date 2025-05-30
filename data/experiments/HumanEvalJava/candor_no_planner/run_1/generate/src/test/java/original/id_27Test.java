@@ -1,0 +1,27 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of FlipCase.
+*/
+class FlipCaseTest {
+    @Test
+    void testFlipCase_should_flip_lowercase_to_uppercase_and_viceversa() {
+        // Given
+        String input = "Hello";
+        String expectedOutput = "hELLO";
+
+        // When
+        String actualOutput = FlipCase.flipCase(input);
+
+        // Then
+        assertEquals(expectedOutput, actualOutput);
+    }
+    
+    @Test
+        public void testNothing(){
+            FlipCase s = new FlipCase();
+            }
+                                    
+}

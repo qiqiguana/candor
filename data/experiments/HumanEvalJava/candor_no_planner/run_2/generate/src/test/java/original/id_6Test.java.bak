@@ -1,0 +1,49 @@
+package original;
+
+import java.util.Arrays;
+import java.util.ArrayList;
+
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of ParseNestedParens.
+*/
+class ParseNestedParensTest {
+    @Test
+    void testParseNestedParens_SingleGroup_ReturnsCorrectDepth() {
+        // Arrange
+        String input = "((()))";
+        List<Integer> expected = new ArrayList<>(List.of(3));
+        // Act
+        List<Integer> actual = ParseNestedParens.parseNestedParens(input);
+        // Assert
+        assertEquals(expected, actual);
+    }
+    
+    @Test
+        public void testNothing(){
+            ParseNestedParens s = new ParseNestedParens();
+            }
+    @Test
+    void testClassInstantiation() {
+        assertDoesNotThrow(ParseNestedParens::new);
+    }
+    @Test
+    void testEmptyParenString() {
+        List<Integer> result = ParseNestedParens.parseNestedParens("");
+        assertTrue(result.isEmpty());
+    }
+    @Test
+    public void testParseNestedParens_MultipleGroups_MaximumDepth_Variant2() {
+        String input = "() (()) ((())) (((())))";
+        List<Integer> expectedOutput = new ArrayList<>(Arrays.asList(1, 2, 3, 4));
+        String[] groups = input.split(" ");
+        for(String group : groups) {
+            List<Integer> output = ParseNestedParens.parseNestedParens(group);
+            assertEquals(expectedOutput.remove(0), output.get(0));
+        }
+    }
+                                    
+}

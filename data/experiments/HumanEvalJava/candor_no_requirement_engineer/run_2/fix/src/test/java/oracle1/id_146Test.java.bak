@@ -1,0 +1,65 @@
+package oracle1;
+
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of Specialfilter.
+*/
+class SpecialfilterTest {
+
+    @Test
+    void testSpecialFilter_ForInput_15_minus73_14_minus15_Returns1() {
+        List<Object> nums = Arrays.asList(15, -73, 14, -15);
+        int expectedResult = 1;
+        int actualResult = Specialfilter.specialfilter(nums);
+        assertEquals(expectedResult, actualResult);
+    }
+    
+    @Test
+     void testNothing(){
+         Specialfilter s = new Specialfilter();
+         }
+    @Test
+    public void testSpecialFilter_SingleElement_Positive() {
+    java.util.List<java.lang.Object> nums = new java.util.ArrayList<>(Arrays.asList(15));
+    int expectedCount = 1;
+    assertEquals(expectedCount, Specialfilter.specialfilter(nums));
+    }
+    @Test
+    public void testSpecialFilter_NoElementsMeetCondition_Negative() {
+    java.util.List<java.lang.Object> nums = new java.util.ArrayList<>(Arrays.asList(-2, -3, 14));
+    int expectedCount = 0;
+    assertEquals(expectedCount, Specialfilter.specialfilter(nums));
+    }
+    @Test
+    public void testSpecialFilter_EmptyList_EdgeCase() {
+    java.util.List<java.lang.Object> nums = new java.util.ArrayList<>();
+    int expectedCount = 0;
+    assertEquals(expectedCount, Specialfilter.specialfilter(nums));
+    }
+    @Test
+    public void testSpecialFilter_SingleElementLessThan10_EdgeCase() {
+    java.util.List<java.lang.Object> nums = new java.util.ArrayList<>(Arrays.asList(5));
+    int expectedCount = 0;
+    assertEquals(expectedCount, Specialfilter.specialfilter(nums));
+    }
+    @Test
+    public void testSpecialFilter_SingleElementNotMeetingCondition_EdgeCase() {
+    java.util.List<java.lang.Object> nums = new java.util.ArrayList<>(Arrays.asList(10));
+    int expectedCount = 0;
+    assertEquals(expectedCount, Specialfilter.specialfilter(nums));
+    }
+    @Test
+    public void testSpecialFilter_MultipleElements_Positive_2() {
+    	java.util.List<java.lang.Object> nums = new java.util.ArrayList<>(Arrays.asList(33, 45, 109));
+    	int expectedCount = 2;
+    	assertEquals(expectedCount, Specialfilter.specialfilter(nums));
+    }
+                                  
+
+}

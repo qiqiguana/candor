@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_11.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HumanEvalJava</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_11.java</span></div><h1>id_11.java</h1><pre class="source lang-java linenums">package original;
+
+<span class="nc" id="L3">class StringXor {</span>
+    /**
+     * Input are two strings a and b consisting only of 1s and 0s.
+     * Perform binary XOR on these inputs and return result also as a string.
+     *
+     * &gt; stringXor(&quot;010&quot;, &quot;110&quot;)
+     * &quot;100&quot;
+     * &gt; stringXor(&quot;111000&quot;, &quot;101010&quot;)
+     * &quot;010010&quot;
+     * &gt; stringXor(&quot;1&quot;, &quot;1&quot;)
+     * &quot;0&quot;
+     * &gt; stringXor(&quot;0101&quot;, &quot;0000&quot;)
+     * &quot;0101&quot;
+     */
+    public static String stringXor(String a, String b) {
+<span class="fc" id="L18">        String result = &quot;&quot;;</span>
+<span class="fc bfc" id="L19" title="All 2 branches covered.">        for (int i = 0; i &lt; a.length(); i++) {</span>
+<span class="fc bfc" id="L20" title="All 2 branches covered.">            if (a.charAt(i) == b.charAt(i)) {</span>
+<span class="fc" id="L21">                result += &quot;0&quot;;</span>
+            } else {
+<span class="fc" id="L23">                result += &quot;1&quot;;</span>
+            }
+        }
+<span class="fc" id="L26">        return result;</span>
+    }
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

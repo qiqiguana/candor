@@ -1,0 +1,64 @@
+package original;
+
+import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+/**
+* Test class of BelowThreshold.
+*/
+class BelowThresholdTest {
+
+    @Test
+    void testBelowThreshold_AllNumbersBelowThreshold_ReturnsTrue() {
+        List<Integer> numbers = List.of(1, 2, 4, 10);
+        int threshold = 100;
+        boolean result = BelowThreshold.belowThreshold(numbers, threshold);
+        assertTrue(result);
+    }
+    
+    @Test
+        public void testNothing(){
+            BelowThreshold s = new BelowThreshold();
+            }
+    @Test
+    public void positiveTest_allNumbersBelowThreshold() {
+        List<Integer> l = new ArrayList<>(Arrays.asList(1, 2, 4, 10));
+        int t = 100;
+        assertTrue(BelowThreshold.belowThreshold(l, t));
+    }
+    @Test
+    public void negativeTest_numberAboveThreshold_2() {
+        List<Integer> l = new ArrayList<>(Arrays.asList(1, 20, 4, 10));
+        int t = 5;
+        assertFalse(BelowThreshold.belowThreshold(l, t));
+    }
+    @Test
+    public void edgeCaseTest_emptyList() {
+        List<Integer> l = new ArrayList<>();
+        int t = 100;
+        assertTrue(BelowThreshold.belowThreshold(l, t));
+    }
+    @Test
+    public void edgeCaseTest_singleElementListBelowThreshold() {
+        List<Integer> l = new ArrayList<>(Arrays.asList(5));
+        int t = 10;
+        assertTrue(BelowThreshold.belowThreshold(l, t));
+    }
+    @Test
+    public void edgeCaseTest_singleElementListAboveThreshold() {
+        List<Integer> l = new ArrayList<>(Arrays.asList(15));
+        int t = 10;
+        assertFalse(BelowThreshold.belowThreshold(l, t));
+    }
+    @Test
+    public void specificFunctionalityTest_allNumbersEqualToThreshold() {
+        List<Integer> l = new ArrayList<>(Arrays.asList(10, 10, 10));
+        int t = 10;
+        assertFalse(BelowThreshold.belowThreshold(l, t));
+    }
+                                    
+
+}

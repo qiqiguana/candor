@@ -1,0 +1,163 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Solution1958 {
+
+  // compiled from: id_1958.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 3 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Solution1958; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public checkMove([[CIIC)Z
+   L0
+    LINENUMBER 5 L0
+    ICONST_M1
+    ISTORE 5
+   L1
+   FRAME FULL [original/Solution1958 [[C I I I I] []
+    ILOAD 5
+    ICONST_1
+    IF_ICMPGT L2
+   L3
+    LINENUMBER 6 L3
+    ICONST_M1
+    ISTORE 6
+   L4
+   FRAME FULL [original/Solution1958 [[C I I I I I] []
+    ILOAD 6
+    ICONST_1
+    IF_ICMPGT L5
+   L6
+    LINENUMBER 7 L6
+    ILOAD 5
+    IFNE L7
+    ILOAD 6
+    IFNE L7
+   L8
+    LINENUMBER 8 L8
+    GOTO L9
+   L7
+    LINENUMBER 10 L7
+   FRAME FULL [original/Solution1958 [[C I I I I I] []
+    ILOAD 2
+    ISTORE 7
+   L10
+    ILOAD 3
+    ISTORE 8
+   L11
+    LINENUMBER 11 L11
+    ICONST_0
+    ISTORE 9
+   L12
+    LINENUMBER 12 L12
+   FRAME FULL [original/Solution1958 [[C I I I I I I I I] []
+    ICONST_0
+    ILOAD 7
+    ILOAD 5
+    IADD
+    IF_ICMPGT L9
+    ILOAD 7
+    ILOAD 5
+    IADD
+    BIPUSH 8
+    IF_ICMPGE L9
+    ICONST_0
+    ILOAD 8
+    ILOAD 6
+    IADD
+    IF_ICMPGT L9
+    ILOAD 8
+    ILOAD 6
+    IADD
+    BIPUSH 8
+    IF_ICMPGE L9
+   L13
+    LINENUMBER 13 L13
+    ILOAD 7
+    ILOAD 5
+    IADD
+    ISTORE 7
+   L14
+    LINENUMBER 14 L14
+    ILOAD 8
+    ILOAD 6
+    IADD
+    ISTORE 8
+   L15
+    LINENUMBER 15 L15
+    IINC 9 1
+    ILOAD 9
+    ICONST_1
+    IF_ICMPLE L16
+    ALOAD 1
+    ILOAD 7
+    AALOAD
+    ILOAD 8
+    CALOAD
+    ILOAD 4
+    IF_ICMPNE L16
+   L17
+    LINENUMBER 16 L17
+    ICONST_1
+    IRETURN
+   L16
+    LINENUMBER 18 L16
+   FRAME FULL [original/Solution1958 [[C I I I I I I I I] []
+    ALOAD 1
+    ILOAD 7
+    AALOAD
+    ILOAD 8
+    CALOAD
+    ILOAD 4
+    IF_ICMPEQ L9
+    ALOAD 1
+    ILOAD 7
+    AALOAD
+    ILOAD 8
+    CALOAD
+    BIPUSH 46
+    IF_ICMPNE L12
+   L18
+    LINENUMBER 19 L18
+    GOTO L9
+   L9
+    LINENUMBER 6 L9
+   FRAME FULL [original/Solution1958 [[C I I I I I] []
+    IINC 6 1
+    GOTO L4
+   L5
+    LINENUMBER 5 L5
+   FRAME FULL [original/Solution1958 [[C I I I I I] []
+    IINC 5 1
+    GOTO L1
+   L2
+    LINENUMBER 24 L2
+   FRAME FULL [original/Solution1958 [[C I I I I] []
+    ICONST_0
+    POP
+    ICONST_1
+    IRETURN
+   L19
+    LOCALVARIABLE i I L10 L9 7
+    LOCALVARIABLE j I L11 L9 8
+    LOCALVARIABLE cnt I L12 L9 9
+    LOCALVARIABLE b I L4 L5 6
+    LOCALVARIABLE a I L1 L2 5
+    LOCALVARIABLE this Loriginal/Solution1958; L0 L19 0
+    LOCALVARIABLE board [[C L0 L19 1
+    LOCALVARIABLE rMove I L0 L19 2
+    LOCALVARIABLE cMove I L0 L19 3
+    LOCALVARIABLE color C L0 L19 4
+    MAXSTACK = 3
+    MAXLOCALS = 10
+}
+

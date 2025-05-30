@@ -1,0 +1,312 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Solution1067 {
+
+  // compiled from: id_1067.java
+
+  // access flags 0x2
+  private I d
+
+  // access flags 0x2
+  private [I a
+
+  // access flags 0x2
+  private [[I dp
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 4 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+   L1
+    LINENUMBER 6 L1
+    ALOAD 0
+    BIPUSH 11
+    NEWARRAY T_INT
+    PUTFIELD original/Solution1067.a : [I
+   L2
+    LINENUMBER 7 L2
+    ALOAD 0
+    BIPUSH 11
+    BIPUSH 11
+    MULTIANEWARRAY [[I 2
+    PUTFIELD original/Solution1067.dp : [[I
+    RETURN
+   L3
+    LOCALVARIABLE this Loriginal/Solution1067; L0 L3 0
+    MAXSTACK = 3
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public digitsCount(III)I
+   L0
+    LINENUMBER 10 L0
+    ALOAD 0
+    ILOAD 1
+    PUTFIELD original/Solution1067.d : I
+   L1
+    LINENUMBER 11 L1
+    ALOAD 0
+    ILOAD 3
+    INVOKEVIRTUAL original/Solution1067.f (I)I
+    ALOAD 0
+    ILOAD 2
+    ICONST_1
+    ISUB
+    INVOKEVIRTUAL original/Solution1067.f (I)I
+    IADD
+    IRETURN
+   L2
+    LOCALVARIABLE this Loriginal/Solution1067; L0 L2 0
+    LOCALVARIABLE d I L0 L2 1
+    LOCALVARIABLE low I L0 L2 2
+    LOCALVARIABLE high I L0 L2 3
+    MAXSTACK = 4
+    MAXLOCALS = 4
+
+  // access flags 0x2
+  private f(I)I
+   L0
+    LINENUMBER 15 L0
+    ALOAD 0
+    GETFIELD original/Solution1067.dp : [[I
+    ASTORE 2
+    ALOAD 2
+    ARRAYLENGTH
+    ISTORE 3
+    ICONST_0
+    ISTORE 4
+   L1
+   FRAME FULL [original/Solution1067 I [[I I I] []
+    ILOAD 4
+    ILOAD 3
+    IF_ICMPGE L2
+    ALOAD 2
+    ILOAD 4
+    AALOAD
+    ASTORE 5
+   L3
+    LINENUMBER 16 L3
+    ALOAD 5
+    ICONST_M1
+    INVOKESTATIC java/util/Arrays.fill ([II)V
+   L4
+    LINENUMBER 15 L4
+    IINC 4 1
+    GOTO L1
+   L2
+    LINENUMBER 18 L2
+   FRAME FULL [original/Solution1067 I [[I I I] []
+    ICONST_0
+    ISTORE 2
+   L5
+    LINENUMBER 19 L5
+   FRAME FULL [original/Solution1067 I I I I] []
+    ILOAD 1
+    IFLE L6
+   L7
+    LINENUMBER 20 L7
+    ALOAD 0
+    GETFIELD original/Solution1067.a : [I
+    IINC 2 1
+    ILOAD 2
+    ILOAD 1
+    BIPUSH 10
+    IREM
+    IASTORE
+   L8
+    LINENUMBER 21 L8
+    ILOAD 1
+    BIPUSH 10
+    IDIV
+    ISTORE 1
+    GOTO L5
+   L6
+    LINENUMBER 23 L6
+   FRAME FULL [original/Solution1067 I I I I] []
+    ALOAD 0
+    ILOAD 2
+    ICONST_0
+    ICONST_1
+    ICONST_1
+    INVOKEVIRTUAL original/Solution1067.dfs (IIZZ)I
+    IRETURN
+   L9
+    LOCALVARIABLE e [I L3 L4 5
+    LOCALVARIABLE this Loriginal/Solution1067; L0 L9 0
+    LOCALVARIABLE n I L0 L9 1
+    LOCALVARIABLE len I L5 L9 2
+    MAXSTACK = 5
+    MAXLOCALS = 6
+
+  // access flags 0x2
+  private dfs(IIZZ)I
+   L0
+    LINENUMBER 27 L0
+    ILOAD 1
+    IFGT L1
+   L2
+    LINENUMBER 28 L2
+    ILOAD 2
+    IRETURN
+   L1
+    LINENUMBER 30 L1
+   FRAME FULL [original/Solution1067 I I I I] []
+    ILOAD 3
+    IFNE L3
+    ILOAD 4
+    IFNE L3
+    ALOAD 0
+    GETFIELD original/Solution1067.dp : [[I
+    ILOAD 1
+    AALOAD
+    ILOAD 2
+    IALOAD
+    ICONST_M1
+    IF_ICMPEQ L3
+   L4
+    LINENUMBER 31 L4
+    ALOAD 0
+    GETFIELD original/Solution1067.dp : [[I
+    ILOAD 1
+    AALOAD
+    ILOAD 2
+    IALOAD
+    IRETURN
+   L3
+    LINENUMBER 33 L3
+   FRAME FULL [original/Solution1067 I I I I] []
+    ILOAD 4
+    IFEQ L5
+    ALOAD 0
+    GETFIELD original/Solution1067.a : [I
+    ILOAD 1
+    IALOAD
+    GOTO L6
+   L5
+   FRAME FULL [original/Solution1067 I I I I] []
+    BIPUSH 9
+   L6
+   FRAME FULL [original/Solution1067 I I I I] [I]
+    ISTORE 5
+   L7
+    LINENUMBER 34 L7
+    ICONST_0
+    ISTORE 6
+   L8
+    LINENUMBER 35 L8
+    ICONST_0
+    ISTORE 7
+   L9
+   FRAME FULL [original/Solution1067 I I I I I I I] []
+    ILOAD 7
+    ILOAD 5
+    IF_ICMPGT L10
+   L11
+    LINENUMBER 36 L11
+    ILOAD 7
+    IFNE L12
+    ILOAD 3
+    IFEQ L12
+   L13
+    LINENUMBER 37 L13
+    ILOAD 6
+    ALOAD 0
+    ILOAD 1
+    ICONST_1
+    ISUB
+    ILOAD 2
+    ILOAD 3
+    ILOAD 4
+    IFEQ L14
+    ILOAD 7
+    ILOAD 5
+    IF_ICMPNE L14
+    ICONST_1
+    GOTO L15
+   L14
+   FRAME FULL [original/Solution1067 I I I I I I I] [I original/Solution1067 I I I]
+    ICONST_0
+   L15
+   FRAME FULL [original/Solution1067 I I I I I I I] [I original/Solution1067 I I I I]
+    INVOKEVIRTUAL original/Solution1067.dfs (IIZZ)I
+    IADD
+    ISTORE 6
+    GOTO L16
+   L12
+    LINENUMBER 39 L12
+   FRAME FULL [original/Solution1067 I I I I I I I] []
+    ILOAD 6
+    ALOAD 0
+    ILOAD 1
+    ICONST_1
+    ISUB
+    ILOAD 2
+    ILOAD 7
+    ALOAD 0
+    GETFIELD original/Solution1067.d : I
+    IF_ICMPNE L17
+    ICONST_1
+    GOTO L18
+   L17
+   FRAME FULL [original/Solution1067 I I I I I I I] [I original/Solution1067 I I]
+    ICONST_0
+   L18
+   FRAME FULL [original/Solution1067 I I I I I I I] [I original/Solution1067 I I I]
+    IADD
+    ICONST_0
+    ILOAD 4
+    IFEQ L19
+    ILOAD 7
+    ILOAD 5
+    IF_ICMPNE L19
+    ICONST_1
+    GOTO L20
+   L19
+   FRAME FULL [original/Solution1067 I I I I I I I] [I original/Solution1067 I I I]
+    ICONST_0
+   L20
+   FRAME FULL [original/Solution1067 I I I I I I I] [I original/Solution1067 I I I I]
+    INVOKEVIRTUAL original/Solution1067.dfs (IIZZ)I
+    IADD
+    ISTORE 6
+   L16
+    LINENUMBER 35 L16
+   FRAME FULL [original/Solution1067 I I I I I I I] []
+    IINC 7 1
+    GOTO L9
+   L10
+    LINENUMBER 42 L10
+   FRAME FULL [original/Solution1067 I I I I I I I] []
+    ILOAD 3
+    IFNE L21
+    ILOAD 4
+    IFNE L21
+   L22
+    LINENUMBER 43 L22
+    ALOAD 0
+    GETFIELD original/Solution1067.dp : [[I
+    ILOAD 1
+    AALOAD
+    ILOAD 2
+    ILOAD 6
+    IASTORE
+   L21
+    LINENUMBER 45 L21
+   FRAME FULL [original/Solution1067 I I I I I I I] []
+    ILOAD 6
+    IRETURN
+   L23
+    LOCALVARIABLE i I L9 L10 7
+    LOCALVARIABLE this Loriginal/Solution1067; L0 L23 0
+    LOCALVARIABLE pos I L0 L23 1
+    LOCALVARIABLE cnt I L0 L23 2
+    LOCALVARIABLE lead Z L0 L23 3
+    LOCALVARIABLE limit Z L0 L23 4
+    LOCALVARIABLE up I L7 L23 5
+    LOCALVARIABLE ans I L8 L23 6
+    MAXSTACK = 7
+    MAXLOCALS = 8
+}
+

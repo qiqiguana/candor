@@ -1,0 +1,95 @@
+package original;
+
+import java.util.HashMap;
+
+import java.util.Map;
+
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of Histogram.
+*/
+class HistogramTest {
+    @Test
+    void testHistogram() {
+        Map<String, Integer> expected = new HashMap<>();
+        expected.put("a", 2);
+        expected.put("b", 2);
+        assertEquals(expected, Histogram.histogram("a b b a"));
+    }
+    @Test
+    public void testEmptyString() {
+        Map<String, Integer> expected = new HashMap<>();
+        assertEquals(expected, Histogram.histogram(""));
+    }
+    @Test
+    public void testSingleCharacter() {
+        Map<String, Integer> expected = Map.of("a", 1);
+        assertEquals(expected, Histogram.histogram("a"));
+    }
+    @Test
+    public void testMultipleCharacters() {
+        Map<String, Integer> expected = Map.of("a", 1, "b", 1, "c", 1);
+        assertEquals(expected, Histogram.histogram("a b c"));
+    }
+    @Test
+    public void testRepeatedCharacters() {
+        Map<String, Integer> expected = Map.of("a", 2, "b", 2);
+        assertEquals(expected, Histogram.histogram("a b b a"));
+    }
+    @Test
+    public void testNullInput() {
+        Map<String, Integer> expected = new HashMap<>();
+        assertEquals(expected, Histogram.histogram(null));
+    }
+    @Test
+    public void testHistogram_WithEmptyString_ReturnsEmptyMap() {
+        Map<String, Integer> result = (Map<String, Integer>) Histogram.histogram("");
+        assertEquals(new HashMap<>(), result);
+    }
+    @Test
+    public void testHistogram_WithSingleCharacter_ReturnsMapWithSingleCharacter() {
+        Map<String, Integer> result = (Map<String, Integer>) Histogram.histogram("a");
+        assertEquals(Map.of("a", 1), result);
+    }
+    @Test
+    public void testHistogram_WithMultipleCharacters_ReturnsMapWithAllCharacters() {
+        Map<String, Integer> result = (Map<String, Integer>) Histogram.histogram("a b c");
+        assertEquals(Map.of("a", 1, "b", 1, "c", 1), result);
+    }
+    @Test
+    public void testHistogram_WithNullInput_ReturnsEmptyMap() {
+        Map<String, Integer> result = (Map<String, Integer>) Histogram.histogram(null);
+        assertEquals(new HashMap<>(), result);
+    }
+    @Test
+    public void testEmptyStringFixed() {
+        Map<String, Integer> expected = new HashMap<>();
+        assertEquals(expected, (Map<String, Integer>) Histogram.histogram(""));
+    }
+    @Test
+    public void testMultipleCharactersSameFrequency1() {
+        Map<String, Integer> expected = new HashMap<>();
+        expected.put("a", 2);
+        expected.put("b", 2);
+        assertEquals(expected, Histogram.histogram("a b a b"));
+    }
+    @Test
+    public void testDuplicateCharacters() {
+        Map<String, Integer> expected = new HashMap<>();
+        expected.put("a", 2);
+        expected.put("b", 2);
+        assertEquals(expected, Histogram.histogram("a b a b"));
+    }
+    @Test
+    public void testNullInputFixed() {
+        Map<String, Integer> result = (Map<String, Integer>) Histogram.histogram(null);
+        assertTrue(result.isEmpty());
+    }
+    @Test
+    public void testSingleSpace() {
+        Map<String, Integer> expected = new HashMap<>();
+        assertEquals(expected, Histogram.histogram(" "));
+    }
+}

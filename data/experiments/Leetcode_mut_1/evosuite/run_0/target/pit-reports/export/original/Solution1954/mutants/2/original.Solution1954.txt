@@ -1,0 +1,65 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Solution1954 {
+
+  // compiled from: id_1954.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 3 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Solution1954; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public minimumPerimeter(J)J
+   L0
+    LINENUMBER 5 L0
+    LCONST_1
+    LSTORE 3
+   L1
+    LINENUMBER 6 L1
+   FRAME FULL [original/Solution1954 J J] []
+    LDC 2L
+    LLOAD 3
+    LMUL
+    LLOAD 3
+    LCONST_1
+    LADD
+    LMUL
+    LDC 2L
+    LLOAD 3
+    LDIV
+    LCONST_1
+    LADD
+    LMUL
+    LLOAD 1
+    LCMP
+    IFGE L2
+   L3
+    LINENUMBER 7 L3
+    LLOAD 3
+    LCONST_1
+    LADD
+    LSTORE 3
+    GOTO L1
+   L2
+    LINENUMBER 9 L2
+   FRAME FULL [original/Solution1954 J J] []
+    LDC 8L
+    LLOAD 3
+    LMUL
+    LRETURN
+   L4
+    LOCALVARIABLE this Loriginal/Solution1954; L0 L4 0
+    LOCALVARIABLE neededApples J L0 L4 1
+    LOCALVARIABLE x J L1 L4 3
+    MAXSTACK = 6
+    MAXLOCALS = 5
+}
+

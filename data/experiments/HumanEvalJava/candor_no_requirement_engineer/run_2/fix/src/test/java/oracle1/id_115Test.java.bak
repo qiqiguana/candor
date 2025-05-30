@@ -1,0 +1,41 @@
+package oracle1;
+
+import java.util.List;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+/**
+* Test class of MaxFill.
+*/
+class MaxFillTest {
+    @Test
+    void testMaxFill_1() {
+        List<List<Integer>> grid = List.of(
+                List.of(0, 0, 1, 0), 
+                List.of(0, 1, 0, 0), 
+                List.of(1, 1, 1, 1)
+        );
+        int capacity = 1;
+        assertEquals(6, MaxFill.maxFill(grid, capacity));
+    }
+    
+    @Test
+        void testNothing(){
+            MaxFill s = new MaxFill();
+            }
+    @Test
+    void testMaxFillWithEmptyGrid() {
+        int result = MaxFill.maxFill(List.of(), 1);
+        assertEquals(0, result);
+    }
+    @Test
+    void testMaxFillWithInvalidInput() {
+        assertThrows(NullPointerException.class, () -> MaxFill.maxFill(List.of(null), 1));
+    }
+    @Test
+    void testMaxFillWithSingleBucket() {
+        int result = MaxFill.maxFill(List.of(List.of(1)), 1);
+        assertEquals(1, result);
+    }
+                                    
+}

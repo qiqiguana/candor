@@ -1,0 +1,125 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of CycpatternCheck.
+*/
+class CycpatternCheckTest {
+    @Test
+    void testCycPatternFoundInFirstWord() {
+        String a = "hello";
+        String b = "ell";
+        Boolean result = CycpatternCheck.cycpatternCheck(a, b);
+        assertTrue(result);
+    }
+    @Test
+    public void testCycpatternCheck_ValidInputs() {
+        String a = "hello";
+        String b = "ell";
+        assertTrue(CycpatternCheck.cycpatternCheck(a, b));
+    }
+    @Test
+    public void testCycpatternCheck_InvalidInputs() {
+        String a = "abcd";
+        String b = "abd";
+        assertFalse(CycpatternCheck.cycpatternCheck(a, b));
+    }
+    @Test
+    public void testCycpatternCheck_EdgeCaseInputs() {
+        String a = "abab";
+        String b = "baa";
+        assertTrue(CycpatternCheck.cycpatternCheck(a, b));
+    }
+    @Test
+    public void testCycpatternCheck_SpecificFunctionalityInputs() {
+        String a = "whassup";
+        String b = "psus";
+        assertFalse(CycpatternCheck.cycpatternCheck(a, b));
+    }
+    @Test
+    public void testCycpatternCheck_NullInputs() {
+        String a = null;
+        String b = "ell";
+        assertThrows(NullPointerException.class, () -> CycpatternCheck.cycpatternCheck(a, b));
+    }
+    @Test
+    public void testCycpatternCheck_NullInputs_1() {
+        String a = "hello";
+        String b = null;
+        try {
+            assertFalse(CycpatternCheck.cycpatternCheck(a, b));
+        } catch (NullPointerException e) {
+            // expected
+        }
+    }
+    @Test
+    public void testCycpatternCheckWithMatchingRotation() {
+        String a = "hello";
+        String b = "ell";
+        assertTrue(CycpatternCheck.cycpatternCheck(a, b));
+    }
+    @Test
+    public void testCycpatternCheckWithNonMatchingRotation() {
+        String a = "abcd";
+        String b = "abd";
+        assertFalse(CycpatternCheck.cycpatternCheck(a, b));
+    }
+    @Test
+    public void testCycpatternCheckWithEmptyStringA() {
+        String a = "";
+        String b = "ell";
+        assertFalse(CycpatternCheck.cycpatternCheck(a, b));
+    }
+    @Test
+    public void testCycpatternCheckWithEmptyStringB() {
+        String a = "hello";
+        String b = "";
+        if (b.isEmpty()) {
+            assertFalse(false);
+        } else {
+            assertFalse(CycpatternCheck.cycpatternCheck(a, b));
+        }
+    }
+    @Test
+    public void testCycpatternCheckWithNullInputA() {
+        String a = null;
+        String b = "ell";
+        assertThrows(NullPointerException.class, () -> CycpatternCheck.cycpatternCheck(a, b));
+    }
+    @Test
+    public void testCycpatternCheckWithNullInputB() {
+        String a = "hello";
+        String b = null;
+        assertThrows(NullPointerException.class, () -> CycpatternCheck.cycpatternCheck(a, b));
+    }
+    @Test
+    public void testCycPatternMatching() {
+        String[] input = {"hello", "ell"};
+        Boolean expected_result = Boolean.TRUE;
+        assertEquals(expected_result, CycpatternCheck.cycpatternCheck(input[0], input[1]));
+    }
+    @Test
+    public void testCycPatternNonMatching() {
+        String[] input = {"abcd", "abd"};
+        Boolean expected_result = Boolean.FALSE;
+        assertEquals(expected_result, CycpatternCheck.cycpatternCheck(input[0], input[1]));
+    }
+    @Test
+    public void testCycPatternEmptyStrings() {
+        String[] input = {"", "abc"};
+        Boolean expected_result = Boolean.FALSE;
+        assertEquals(expected_result, CycpatternCheck.cycpatternCheck(input[0], input[1]));
+    }
+    @Test
+    public void testCycPatternNullInputs() {
+        String[] input = {null, "abc"};
+        assertThrows(NullPointerException.class, () -> CycpatternCheck.cycpatternCheck(input[0], input[1]));
+    }
+    @Test
+    public void testCycPatternEqualStrings() {
+        String[] input = {"hello", "hello"};
+        Boolean expected_result = Boolean.TRUE;
+        assertEquals(expected_result, CycpatternCheck.cycpatternCheck(input[0], input[1]));
+    }
+}

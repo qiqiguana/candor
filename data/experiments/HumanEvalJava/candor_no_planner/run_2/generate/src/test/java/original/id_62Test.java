@@ -1,0 +1,29 @@
+package original;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of Derivative.
+*/
+class DerivativeTest {
+    @Test
+    void testDerivativeNonEmptyList() {
+        List<Integer> input = new ArrayList<>();
+        input.add(3);
+        input.add(2);
+        input.add(1);
+        List<Object> expected = new ArrayList<>();
+        expected.add(2);
+        expected.add(2);
+        assertEquals(expected, Derivative.derivative(input));
+    }
+    
+    @Test
+        public void testNothing(){
+            Derivative s = new Derivative();
+            }
+                                    
+}

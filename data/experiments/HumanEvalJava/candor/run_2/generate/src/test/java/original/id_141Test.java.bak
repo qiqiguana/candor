@@ -1,0 +1,81 @@
+package original;
+
+import java.util.Arrays;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of FileNameCheck.
+*/
+class FileNameCheckTest {
+    @Test
+    void testFileNameCheck_DotCount() {
+        assertEquals("No", FileNameCheck.fileNameCheck("final..txt"));
+    }
+    
+    @Test
+        public void testNothing(){
+            FileNameCheck s = new FileNameCheck();
+            }
+    @Test
+    public void TestFileNameCheck_InvalidExtension() {
+    	String fileName = "example.invalid";
+    	assertEquals("No", FileNameCheck.fileNameCheck(fileName));
+    }
+    @Test
+    public void TestFileNameCheck_NoDot() {
+    	String fileName = "example";
+    	assertEquals("No", FileNameCheck.fileNameCheck(fileName));
+    }
+    @Test
+    public void TestFileNameCheck_MultipleDots() {
+    	String fileName = "example.txt.dll";
+    	assertEquals("No", FileNameCheck.fileNameCheck(fileName));
+    }
+    @Test
+    public void TestFileNameCheck_EmptySubstringBeforeDot() {
+    	String fileName = ".txt";
+    	assertEquals("No", FileNameCheck.fileNameCheck(fileName));
+    }
+    @Test
+    public void TestFileNameCheck_SubstringBeforeDotNotStartingWithLetter() {
+    	String fileName = "123.txt";
+    	assertEquals("No", FileNameCheck.fileNameCheck(fileName));
+    }
+    @Test
+    public void TestFileNameCheck_MoreThanThreeDigitsInSubstringBeforeDot() {
+    	String fileName = "abcd1234.txt";
+    	assertEquals("No", FileNameCheck.fileNameCheck(fileName));
+    }
+    @Test
+    public void testEmptyString() {
+        String fileName = "";
+        assertEquals("No", FileNameCheck.fileNameCheck(fileName));
+    }
+    @Test
+    public void testNoDot() {
+    	String fileName = "example";
+    	assertEquals("No", original.FileNameCheck.fileNameCheck(fileName));
+    }
+    @Test
+    public void testMultipleDots() {
+        String fileName = "example.txt.dll";
+        assertEquals("No", original.FileNameCheck.fileNameCheck(fileName));
+    }
+    @Test
+    public void testInvalidSuffix() {
+    	String fileName = "example.pdf";
+    	assertEquals("No", FileNameCheck.fileNameCheck(fileName));
+    }
+    @Test
+    public void testStartsWithDigit2() {
+    	String fileName = "123example.txt";
+    	assertEquals("No", original.FileNameCheck.fileNameCheck(fileName));
+    }
+    @Test
+    public void testMoreThanThreeDigits() {
+    	String fileName = "abc1234def.txt";
+    	assertEquals("No", FileNameCheck.fileNameCheck(fileName));
+    }
+                                    
+}

@@ -1,0 +1,39 @@
+package original;
+
+import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+/**
+* Test class of SortEven.
+*/
+class SortEvenTest {
+    @Test
+    void testSortEven_SortedEvenIndices() {
+        List<Integer> input = new ArrayList<>(List.of(5, 6, 3, 4));
+        List<Integer> expected = new ArrayList<>(List.of(3, 6, 5, 4));
+        assertEquals(expected, SortEven.sortEven(input));
+    }
+    
+    @Test
+        void testNothing(){
+            SortEven s = new SortEven();
+            }
+    @Test
+    public void testSortEvenFunctionalityWithEmptyList() {
+        List<Integer> input = new ArrayList<>();
+        List<Integer> expectedOutput = new ArrayList<>();
+        assertEquals(expectedOutput, SortEven.sortEven(input));
+    }
+    @Test
+    public void testSortEvenFunctionalityWithTwoElementListCorrected_1() {
+        List<Integer> input = new ArrayList<>(Arrays.asList(5, 6));
+        List<Integer> expectedOutput = new ArrayList<>(Arrays.asList(5, 6));
+        assertIterableEquals(expectedOutput, SortEven.sortEven(input));
+    }
+                                    
+}

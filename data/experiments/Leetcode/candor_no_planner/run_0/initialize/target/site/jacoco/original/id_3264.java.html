@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_3264.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">leetcode</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_3264.java</span></div><h1>id_3264.java</h1><pre class="source lang-java linenums">package original;
+
+import java.util.PriorityQueue;
+import java.util.Queue;
+<span class="fc" id="L5">class Solution3264 {</span>
+    public int[] getFinalState(int[] nums, int k, int multiplier) {
+<span class="fc" id="L7">        PriorityQueue&lt;Integer&gt; pq</span>
+<span class="nc bnc" id="L8" title="All 2 branches missed.">            = new PriorityQueue&lt;&gt;((i, j) -&gt; nums[i] - nums[j] == 0 ? i - j : nums[i] - nums[j]);</span>
+<span class="fc bfc" id="L9" title="All 2 branches covered.">        for (int i = 0; i &lt; nums.length; i++) {</span>
+<span class="fc" id="L10">            pq.offer(i);</span>
+        }
+<span class="fc bfc" id="L12" title="All 2 branches covered.">        while (k-- &gt; 0) {</span>
+<span class="fc" id="L13">            int i = pq.poll();</span>
+<span class="fc" id="L14">            nums[i] *= multiplier;</span>
+<span class="fc" id="L15">            pq.offer(i);</span>
+<span class="fc" id="L16">        }</span>
+<span class="fc" id="L17">        return nums;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

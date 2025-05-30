@@ -1,0 +1,66 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Solution3274 {
+
+  // compiled from: id_3274.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 3 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Solution3274; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public checkTwoChessboards(Ljava/lang/String;Ljava/lang/String;)Z
+   L0
+    LINENUMBER 5 L0
+    ALOAD 1
+    ICONST_0
+    INVOKEVIRTUAL java/lang/String.charAt (I)C
+    ALOAD 2
+    ICONST_0
+    INVOKEVIRTUAL java/lang/String.charAt (I)C
+    IADD
+    ISTORE 3
+   L1
+    LINENUMBER 6 L1
+    ALOAD 1
+    ICONST_1
+    INVOKEVIRTUAL java/lang/String.charAt (I)C
+    ALOAD 2
+    ICONST_1
+    INVOKEVIRTUAL java/lang/String.charAt (I)C
+    ISUB
+    ISTORE 4
+   L2
+    LINENUMBER 7 L2
+    ILOAD 3
+    ILOAD 4
+    IADD
+    ICONST_2
+    IREM
+    IFNE L3
+    ICONST_1
+    GOTO L4
+   L3
+   FRAME FULL [original/Solution3274 java/lang/String java/lang/String I I] []
+    ICONST_0
+   L4
+   FRAME FULL [original/Solution3274 java/lang/String java/lang/String I I] [I]
+    IRETURN
+   L5
+    LOCALVARIABLE this Loriginal/Solution3274; L0 L5 0
+    LOCALVARIABLE coordinate1 Ljava/lang/String; L0 L5 1
+    LOCALVARIABLE coordinate2 Ljava/lang/String; L0 L5 2
+    LOCALVARIABLE x I L1 L5 3
+    LOCALVARIABLE y I L2 L5 4
+    MAXSTACK = 3
+    MAXLOCALS = 5
+}
+

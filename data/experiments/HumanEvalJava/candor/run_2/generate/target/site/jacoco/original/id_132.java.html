@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_132.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HumanEvalJava</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_132.java</span></div><h1>id_132.java</h1><pre class="source lang-java linenums">package original;
+
+
+import java.util.ArrayList;
+import java.util.Collections;
+
+
+<span class="fc" id="L8">class IsNested {</span>
+    /**
+     * * Create a function that takes a string as input which contains only square brackets.
+     * The function should return True if and only if there is a valid subsequence of brackets
+     * where at least one bracket in the subsequence is nested.
+     * Examples:
+     * isNested('[[]]') ➞ True
+     * isNested('[]]]]]]][[[[[]') ➞ False
+     * isNested('[][]') ➞ False
+     * isNested('[]') ➞ False
+     * isNested('[[][]]') ➞ True
+     * isNested('[[]][[') ➞ True
+     *
+     * &gt; isNested(&quot;[[]]&quot;)
+     * true
+     * &gt; isNested(&quot;[]]]]]]][[[[[]&quot;)
+     * false
+     * &gt; isNested(&quot;[][]&quot;)
+     * false
+     * &gt; isNested(&quot;[]&quot;)
+     * false
+     * &gt; isNested(&quot;[[[[]]]]&quot;)
+     * true
+     * &gt; isNested(&quot;[]]]]]]]]]]&quot;)
+     * false
+     * &gt; isNested(&quot;[][][[]]&quot;)
+     * true
+     * &gt; isNested(&quot;[[]&quot;)
+     * false
+     * &gt; isNested(&quot;[]]&quot;)
+     * false
+     * &gt; isNested(&quot;[[]][[&quot;)
+     * true
+     * &gt; isNested(&quot;[[][]]&quot;)
+     * true
+     * &gt; isNested(&quot;&quot;)
+     * false
+     * &gt; isNested(&quot;[[[[[[[[&quot;)
+     * false
+     * &gt; isNested(&quot;]]]]]]]]&quot;)
+     * false
+     */
+    public static Boolean isNested(String string) {
+<span class="fc" id="L51">        ArrayList&lt;Integer&gt; opening_bracket_index = new ArrayList&lt;Integer&gt;();</span>
+<span class="fc" id="L52">        ArrayList&lt;Integer&gt; closing_bracket_index = new ArrayList&lt;Integer&gt;();</span>
+<span class="fc bfc" id="L53" title="All 2 branches covered.">        for (int i = 0; i &lt; string.length(); i++) {</span>
+<span class="fc bfc" id="L54" title="All 2 branches covered.">            if (string.charAt(i) == '[') {</span>
+<span class="fc" id="L55">                opening_bracket_index.add(i);</span>
+            } else {
+<span class="fc" id="L57">                closing_bracket_index.add(i);</span>
+            }
+        }
+<span class="fc" id="L60">        Collections.reverse(closing_bracket_index);</span>
+<span class="fc" id="L61">        int cnt = 0;</span>
+<span class="fc" id="L62">        int i = 0;</span>
+<span class="fc" id="L63">        int l = closing_bracket_index.size();</span>
+<span class="fc bfc" id="L64" title="All 2 branches covered.">        for (int idx : opening_bracket_index) {</span>
+<span class="fc bfc" id="L65" title="All 4 branches covered.">            if (i &lt; l &amp;&amp; idx &lt; closing_bracket_index.get(i)) {</span>
+<span class="fc" id="L66">                cnt += 1;</span>
+<span class="fc" id="L67">                i += 1;</span>
+            }
+<span class="fc" id="L69">        }</span>
+<span class="fc bfc" id="L70" title="All 2 branches covered.">        return cnt &gt;= 2;</span>
+    }
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

@@ -1,0 +1,35 @@
+package original;
+
+import java.util.HashSet;
+
+import java.util.Set;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of Solution2395.
+*/
+class Solution2395Test {
+
+    @Test
+    void testFindSubarrays_DuplicateSum_ReturnsTrue() {
+        // Arrange
+        int[] nums = {4,2,4};
+        Solution2395 solution = new Solution2395();
+        
+        // Act and Assert
+        assertTrue(solution.findSubarrays(nums));
+    }
+    
+    @Test
+        public void testNothing(){
+            Solution2395 s = new Solution2395();
+            }
+    @Test
+    public void testFindSubarrays_NoRepeatedSums() {
+        Solution2395 solution = new Solution2395();
+        int[] nums = {1, 2, 3};
+        assertFalse(solution.findSubarrays(nums));
+    }
+                                    
+}

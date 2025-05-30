@@ -1,0 +1,73 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Solution1317 {
+
+  // compiled from: id_1317.java
+  // access flags 0x19
+  public final static INNERCLASS java/lang/invoke/MethodHandles$Lookup java/lang/invoke/MethodHandles Lookup
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 3 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Solution1317; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public getNoZeroIntegers(I)[I
+   L0
+    LINENUMBER 5 L0
+    ICONST_1
+    ISTORE 2
+   L1
+    LINENUMBER 6 L1
+   FRAME FULL [original/Solution1317 I I] []
+    ILOAD 1
+    ILOAD 2
+    IADD
+    ISTORE 3
+   L2
+    LINENUMBER 7 L2
+    ILOAD 2
+    ILOAD 3
+    INVOKEDYNAMIC makeConcatWithConstants(II)Ljava/lang/String; [
+      // handle kind 0x6 : INVOKESTATIC
+      java/lang/invoke/StringConcatFactory.makeConcatWithConstants(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;
+      // arguments:
+      "\u0001\u0001"
+    ]
+    LDC "0"
+    INVOKEVIRTUAL java/lang/String.contains (Ljava/lang/CharSequence;)Z
+    IFNE L3
+   L4
+    LINENUMBER 8 L4
+    ICONST_2
+    NEWARRAY T_INT
+    DUP
+    ICONST_0
+    ILOAD 2
+    IASTORE
+    DUP
+    ICONST_1
+    ILOAD 3
+    IASTORE
+    ARETURN
+   L3
+    LINENUMBER 5 L3
+   FRAME FULL [original/Solution1317 I I I] []
+    IINC 2 1
+    GOTO L1
+   L5
+    LOCALVARIABLE b I L2 L3 3
+    LOCALVARIABLE a I L1 L5 2
+    LOCALVARIABLE this Loriginal/Solution1317; L0 L5 0
+    LOCALVARIABLE n I L0 L5 1
+    MAXSTACK = 4
+    MAXLOCALS = 4
+}
+

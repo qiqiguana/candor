@@ -1,0 +1,102 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Solution0387 {
+
+  // compiled from: id_0387.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 3 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Solution0387; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public firstUniqChar(Ljava/lang/String;)I
+   L0
+    LINENUMBER 5 L0
+    BIPUSH 26
+    NEWARRAY T_INT
+    ASTORE 2
+   L1
+    LINENUMBER 6 L1
+    ALOAD 1
+    INVOKEVIRTUAL java/lang/String.length ()I
+    ISTORE 3
+   L2
+    LINENUMBER 7 L2
+    ICONST_0
+    ISTORE 4
+   L3
+   FRAME FULL [original/Solution0387 java/lang/String [I I I] []
+    ILOAD 4
+    ILOAD 3
+    IF_ICMPLT L4
+   L5
+    LINENUMBER 8 L5
+    ALOAD 2
+    ALOAD 1
+    ILOAD 4
+    INVOKEVIRTUAL java/lang/String.charAt (I)C
+    BIPUSH 97
+    ISUB
+    DUP2
+    IALOAD
+    ICONST_1
+    IADD
+    IASTORE
+   L6
+    LINENUMBER 7 L6
+    IINC 4 1
+    GOTO L3
+   L4
+    LINENUMBER 10 L4
+   FRAME FULL [original/Solution0387 java/lang/String [I I I] []
+    ICONST_0
+    ISTORE 4
+   L7
+   FRAME FULL [original/Solution0387 java/lang/String [I I I] []
+    ILOAD 4
+    ILOAD 3
+    IF_ICMPGE L8
+   L9
+    LINENUMBER 11 L9
+    ALOAD 2
+    ALOAD 1
+    ILOAD 4
+    INVOKEVIRTUAL java/lang/String.charAt (I)C
+    BIPUSH 97
+    ISUB
+    IALOAD
+    ICONST_1
+    IF_ICMPNE L10
+   L11
+    LINENUMBER 12 L11
+    ILOAD 4
+    IRETURN
+   L10
+    LINENUMBER 10 L10
+   FRAME FULL [original/Solution0387 java/lang/String [I I I] []
+    IINC 4 1
+    GOTO L7
+   L8
+    LINENUMBER 15 L8
+   FRAME FULL [original/Solution0387 java/lang/String [I I I] []
+    ICONST_M1
+    IRETURN
+   L12
+    LOCALVARIABLE i I L3 L4 4
+    LOCALVARIABLE i I L7 L8 4
+    LOCALVARIABLE this Loriginal/Solution0387; L0 L12 0
+    LOCALVARIABLE s Ljava/lang/String; L0 L12 1
+    LOCALVARIABLE cnt [I L1 L12 2
+    LOCALVARIABLE n I L2 L12 3
+    MAXSTACK = 4
+    MAXLOCALS = 5
+}
+

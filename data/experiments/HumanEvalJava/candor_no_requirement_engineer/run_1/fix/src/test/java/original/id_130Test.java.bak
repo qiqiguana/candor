@@ -1,0 +1,31 @@
+package original;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of Tri.
+*/
+class TriTest {
+    @Test
+    void testTri() {
+        List<Number> actual = Tri.tri(3);
+        List<Number> expected = Arrays.asList(1, 3, 2.0, 8.0);
+        assertEquals(expected, actual);
+    }
+    
+    @Test
+     void testNothing(){
+         Tri s = new Tri();
+         }
+    @Test
+    public void testTri_EvenInputFixed_2() {
+        List<Number> expectedResults = Arrays.asList(1, 3);
+        List<Number> actualResults = Tri.tri(1);
+        assertEquals(expectedResults, actualResults);
+    }
+                                  
+}

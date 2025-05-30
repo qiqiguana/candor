@@ -1,0 +1,254 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Solution0267 {
+
+  // compiled from: id_0267.java
+  // access flags 0x19
+  public final static INNERCLASS java/lang/invoke/MethodHandles$Lookup java/lang/invoke/MethodHandles Lookup
+
+  // access flags 0x2
+  // signature Ljava/util/List<Ljava/lang/String;>;
+  // declaration: ans extends java.util.List<java.lang.String>
+  private Ljava/util/List; ans
+
+  // access flags 0x2
+  private [I cnt
+
+  // access flags 0x2
+  private I n
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 5 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+   L1
+    LINENUMBER 6 L1
+    ALOAD 0
+    NEW java/util/ArrayList
+    DUP
+    INVOKESPECIAL java/util/ArrayList.<init> ()V
+    PUTFIELD original/Solution0267.ans : Ljava/util/List;
+   L2
+    LINENUMBER 7 L2
+    ALOAD 0
+    BIPUSH 26
+    NEWARRAY T_INT
+    PUTFIELD original/Solution0267.cnt : [I
+    RETURN
+   L3
+    LOCALVARIABLE this Loriginal/Solution0267; L0 L3 0
+    MAXSTACK = 3
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  // signature (Ljava/lang/String;)Ljava/util/List<Ljava/lang/String;>;
+  // declaration: java.util.List<java.lang.String> generatePalindromes(java.lang.String)
+  public generatePalindromes(Ljava/lang/String;)Ljava/util/List;
+   L0
+    LINENUMBER 11 L0
+    ALOAD 0
+    ALOAD 1
+    INVOKEVIRTUAL java/lang/String.length ()I
+    PUTFIELD original/Solution0267.n : I
+   L1
+    LINENUMBER 12 L1
+    ALOAD 1
+    INVOKEVIRTUAL java/lang/String.toCharArray ()[C
+    ASTORE 2
+    ALOAD 2
+    ARRAYLENGTH
+    ISTORE 3
+    ICONST_0
+    ISTORE 4
+   L2
+   FRAME FULL [original/Solution0267 java/lang/String [C I I] []
+    ILOAD 4
+    ILOAD 3
+    IF_ICMPGE L3
+    ALOAD 2
+    ILOAD 4
+    CALOAD
+    ISTORE 5
+   L4
+    LINENUMBER 13 L4
+    ALOAD 0
+    GETFIELD original/Solution0267.cnt : [I
+    ILOAD 5
+    BIPUSH 97
+    ISUB
+    DUP2
+    IALOAD
+    ICONST_1
+    IADD
+    IASTORE
+   L5
+    LINENUMBER 12 L5
+    IINC 4 1
+    GOTO L2
+   L3
+    LINENUMBER 15 L3
+   FRAME FULL [original/Solution0267 java/lang/String [C I I] []
+    LDC ""
+    ASTORE 2
+   L6
+    LINENUMBER 16 L6
+    ICONST_0
+    ISTORE 3
+   L7
+   FRAME FULL [original/Solution0267 java/lang/String java/lang/String I I] []
+    ILOAD 3
+    BIPUSH 26
+    IF_ICMPGE L8
+   L9
+    LINENUMBER 17 L9
+    ALOAD 0
+    GETFIELD original/Solution0267.cnt : [I
+    ILOAD 3
+    IALOAD
+    ICONST_2
+    IREM
+    ICONST_1
+    IF_ICMPNE L10
+   L11
+    LINENUMBER 18 L11
+    LDC ""
+    ALOAD 2
+    INVOKEVIRTUAL java/lang/String.equals (Ljava/lang/Object;)Z
+    IFEQ L12
+   L13
+    LINENUMBER 19 L13
+    ALOAD 0
+    GETFIELD original/Solution0267.ans : Ljava/util/List;
+    ARETURN
+   L12
+    LINENUMBER 21 L12
+   FRAME FULL [original/Solution0267 java/lang/String java/lang/String I I] []
+    ILOAD 3
+    BIPUSH 97
+    IADD
+    I2C
+    INVOKESTATIC java/lang/String.valueOf (C)Ljava/lang/String;
+    ASTORE 2
+   L10
+    LINENUMBER 16 L10
+   FRAME FULL [original/Solution0267 java/lang/String java/lang/String I I] []
+    IINC 3 1
+    GOTO L7
+   L8
+    LINENUMBER 24 L8
+   FRAME FULL [original/Solution0267 java/lang/String java/lang/String I I] []
+    ALOAD 0
+    ALOAD 2
+    INVOKEVIRTUAL original/Solution0267.dfs (Ljava/lang/String;)V
+   L14
+    LINENUMBER 25 L14
+    ALOAD 0
+    GETFIELD original/Solution0267.ans : Ljava/util/List;
+    ARETURN
+   L15
+    LOCALVARIABLE c C L4 L5 5
+    LOCALVARIABLE i I L7 L8 3
+    LOCALVARIABLE this Loriginal/Solution0267; L0 L15 0
+    LOCALVARIABLE s Ljava/lang/String; L0 L15 1
+    LOCALVARIABLE mid Ljava/lang/String; L6 L15 2
+    MAXSTACK = 4
+    MAXLOCALS = 6
+
+  // access flags 0x2
+  private dfs(Ljava/lang/String;)V
+   L0
+    LINENUMBER 29 L0
+    ALOAD 1
+    INVOKEVIRTUAL java/lang/String.length ()I
+    ALOAD 0
+    GETFIELD original/Solution0267.n : I
+    IF_ICMPNE L1
+   L2
+    LINENUMBER 30 L2
+    ALOAD 0
+    GETFIELD original/Solution0267.ans : Ljava/util/List;
+    ALOAD 1
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+   L3
+    LINENUMBER 31 L3
+    RETURN
+   L1
+    LINENUMBER 33 L1
+   FRAME FULL [original/Solution0267 java/lang/String] []
+    ICONST_0
+    ISTORE 2
+   L4
+   FRAME FULL [original/Solution0267 java/lang/String I] []
+    ILOAD 2
+    BIPUSH 26
+    IF_ICMPGE L5
+   L6
+    LINENUMBER 34 L6
+    ALOAD 0
+    GETFIELD original/Solution0267.cnt : [I
+    ILOAD 2
+    IALOAD
+    ICONST_1
+    IF_ICMPLE L7
+   L8
+    LINENUMBER 35 L8
+    ILOAD 2
+    BIPUSH 97
+    IADD
+    I2C
+    INVOKESTATIC java/lang/String.valueOf (C)Ljava/lang/String;
+    ASTORE 3
+   L9
+    LINENUMBER 36 L9
+    ALOAD 0
+    GETFIELD original/Solution0267.cnt : [I
+    ILOAD 2
+    DUP2
+    IALOAD
+    ICONST_2
+    ISUB
+    IASTORE
+   L10
+    LINENUMBER 37 L10
+    ALOAD 0
+    ALOAD 3
+    ALOAD 1
+    ALOAD 3
+    INVOKEDYNAMIC makeConcatWithConstants(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String; [
+      // handle kind 0x6 : INVOKESTATIC
+      java/lang/invoke/StringConcatFactory.makeConcatWithConstants(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;
+      // arguments:
+      "\u0001\u0001\u0001"
+    ]
+    INVOKEVIRTUAL original/Solution0267.dfs (Ljava/lang/String;)V
+   L11
+    LINENUMBER 38 L11
+    ALOAD 0
+    GETFIELD original/Solution0267.cnt : [I
+    ILOAD 2
+    DUP2
+    IALOAD
+    ICONST_2
+    IADD
+    IASTORE
+   L7
+    LINENUMBER 33 L7
+   FRAME FULL [original/Solution0267 java/lang/String I] []
+    IINC 2 1
+    GOTO L4
+   L5
+    LINENUMBER 41 L5
+   FRAME FULL [original/Solution0267 java/lang/String I] []
+    RETURN
+   L12
+    LOCALVARIABLE c Ljava/lang/String; L9 L7 3
+    LOCALVARIABLE i I L4 L5 2
+    LOCALVARIABLE this Loriginal/Solution0267; L0 L12 0
+    LOCALVARIABLE t Ljava/lang/String; L0 L12 1
+    MAXSTACK = 4
+    MAXLOCALS = 4
+}
+

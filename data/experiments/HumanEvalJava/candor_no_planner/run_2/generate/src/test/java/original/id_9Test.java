@@ -1,0 +1,73 @@
+package original;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of RollingMax.
+*/
+class RollingMaxTest {
+    @Test
+    void testRollingMax_EmptyList_ReturnsEmptyList() {
+        List<Object> numbers = new ArrayList<>();
+        List<Object> expected = new ArrayList<>();
+        assertEquals(expected, RollingMax.rollingMax(numbers));
+    }
+    
+    @Test
+        public void testNothing(){
+            RollingMax s = new RollingMax();
+            }
+    @Test
+    void testRollingMaxWithEmptyList() {
+        List<Object> numbers = new ArrayList<>();
+        assertEquals(new ArrayList<>(), RollingMax.rollingMax(numbers));
+    }
+    @Test
+    public void testRollingMaxWithNullInput() {
+        List<java.lang.Object> numbers = null;
+        assertThrows(NullPointerException.class, () -> RollingMax.rollingMax(numbers));
+    }
+    @Test
+    public void testRollingMaxWithEmptyInput() {
+        List<Object> numbers = new ArrayList<>();
+        List<Object> expected = new ArrayList<>();
+        assertEquals(expected, RollingMax.rollingMax(numbers));
+    }
+    @Test
+    public void testRollingMaxWithIntegerList() {
+        List<Object> numbers = new ArrayList<>();
+        numbers.add(1);
+        numbers.add(2);
+        numbers.add(3);
+        numbers.add(4);
+        List<Object> expected = new ArrayList<>();
+        expected.add(1);
+        expected.add(2);
+        expected.add(3);
+        expected.add(4);
+        assertEquals(expected, RollingMax.rollingMax(numbers));
+    }
+    @Test
+    public void testRollingMaxWithNonIntegerList() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            List<Object> numbers = new ArrayList<>();
+            numbers.add(1);
+            numbers.add("a");
+            numbers.add(3);
+            numbers.add(4);
+            RollingMax.rollingMax(numbers);
+        });
+    }
+    @Test
+    public void testRollingMaxWithSingleElementList() {
+        List<Object> numbers = new ArrayList<>();
+        numbers.add(5);
+        List<Object> expected = new ArrayList<>();
+        expected.add(5);
+        assertEquals(expected, RollingMax.rollingMax(numbers));
+    }
+                                    
+}

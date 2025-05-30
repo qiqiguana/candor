@@ -1,0 +1,143 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Solution3069 {
+
+  // compiled from: id_3069.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 3 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Solution3069; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public resultArray([I)[I
+   L0
+    LINENUMBER 5 L0
+    ALOAD 1
+    ARRAYLENGTH
+    ISTORE 2
+   L1
+    LINENUMBER 6 L1
+    ILOAD 2
+    NEWARRAY T_INT
+    ASTORE 3
+   L2
+    LINENUMBER 7 L2
+    ILOAD 2
+    NEWARRAY T_INT
+    ASTORE 4
+   L3
+    LINENUMBER 8 L3
+    ALOAD 3
+    ICONST_0
+    ALOAD 1
+    ICONST_0
+    IALOAD
+    IASTORE
+   L4
+    LINENUMBER 9 L4
+    ALOAD 4
+    ICONST_0
+    ALOAD 1
+    ICONST_1
+    IALOAD
+    IASTORE
+   L5
+    LINENUMBER 10 L5
+    ICONST_0
+    ISTORE 5
+   L6
+    ICONST_0
+    ISTORE 6
+   L7
+    LINENUMBER 11 L7
+    ICONST_2
+    ISTORE 7
+   L8
+   FRAME FULL [original/Solution3069 [I I [I [I I I I] []
+    ILOAD 7
+    ILOAD 2
+    IF_ICMPGE L9
+   L10
+    LINENUMBER 12 L10
+    ALOAD 3
+    ILOAD 5
+    IALOAD
+    ALOAD 4
+    ILOAD 6
+    IALOAD
+    IF_ICMPLE L11
+   L12
+    LINENUMBER 13 L12
+    ALOAD 3
+    IINC 5 1
+    ILOAD 5
+    ALOAD 1
+    ILOAD 7
+    IALOAD
+    IASTORE
+    GOTO L13
+   L11
+    LINENUMBER 15 L11
+   FRAME FULL [original/Solution3069 [I I [I [I I I I] []
+    ALOAD 4
+    IINC 6 1
+    ILOAD 6
+    ALOAD 1
+    ILOAD 7
+    IALOAD
+    IASTORE
+   L13
+    LINENUMBER 11 L13
+   FRAME FULL [original/Solution3069 [I I [I [I I I I] []
+    IINC 7 1
+    GOTO L8
+   L9
+    LINENUMBER 18 L9
+   FRAME FULL [original/Solution3069 [I I [I [I I I I] []
+    ICONST_0
+    ISTORE 7
+   L14
+   FRAME FULL [original/Solution3069 [I I [I [I I I I] []
+    ILOAD 7
+    ILOAD 6
+    IF_ICMPGT L15
+   L16
+    LINENUMBER 19 L16
+    ALOAD 3
+    IINC 5 -1
+    ILOAD 5
+    ALOAD 4
+    ILOAD 7
+    IALOAD
+    IASTORE
+   L17
+    LINENUMBER 18 L17
+    IINC 7 1
+    GOTO L14
+   L15
+    LINENUMBER 21 L15
+   FRAME FULL [original/Solution3069 [I I [I [I I I I] []
+    ALOAD 3
+    ARETURN
+   L18
+    LOCALVARIABLE k I L8 L9 7
+    LOCALVARIABLE k I L14 L15 7
+    LOCALVARIABLE this Loriginal/Solution3069; L0 L18 0
+    LOCALVARIABLE nums [I L0 L18 1
+    LOCALVARIABLE n I L1 L18 2
+    LOCALVARIABLE arr1 [I L2 L18 3
+    LOCALVARIABLE arr2 [I L3 L18 4
+    LOCALVARIABLE i I L6 L18 5
+    LOCALVARIABLE j I L7 L18 6
+    MAXSTACK = 4
+    MAXLOCALS = 8
+}
+

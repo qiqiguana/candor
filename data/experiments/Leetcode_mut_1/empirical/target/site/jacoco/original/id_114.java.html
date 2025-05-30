@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_114.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HumanEvalJava</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_114.java</span></div><h1>id_114.java</h1><pre class="source lang-java linenums">package original;
+
+
+import java.util.List;
+
+
+<span class="nc" id="L7">class Minsubarraysum {</span>
+    /**
+     * * Given an array of integers nums, find the minimum sum of any non-empty sub-array
+     * of nums.
+     * Example
+     * minSubArraySum([2, 3, 4, 1, 2, 4]) == 1
+     * minSubArraySum([-1, -2, -3]) == -6
+     *
+     * &gt; minsubarraysum([2, 3, 4, 1, 2, 4])
+     * 1
+     * &gt; minsubarraysum([-1, -2, -3])
+     * -6
+     * &gt; minsubarraysum([-1, -2, -3, 2, -10])
+     * -14
+     * &gt; minsubarraysum([-9999999999999999L])
+     * -9999999999999999L
+     * &gt; minsubarraysum([0, 10, 20, 1000000])
+     * 0
+     * &gt; minsubarraysum([-1, -2, -3, 10, -5])
+     * -6
+     * &gt; minsubarraysum([100, -1, -2, -3, 10, -5])
+     * -6
+     * &gt; minsubarraysum([10, 11, 13, 8, 3, 4])
+     * 3
+     * &gt; minsubarraysum([100, -33, 32, -1, 0, -2])
+     * -33
+     * &gt; minsubarraysum([-10])
+     * -10
+     * &gt; minsubarraysum([7])
+     * 7
+     * &gt; minsubarraysum([1, -1])
+     * -1
+     */
+    public static long minsubarraysum(List&lt;Object&gt; nums) {
+<span class="fc" id="L41">        long s = 0;</span>
+<span class="fc" id="L42">        long max_sum = 0;</span>
+<span class="fc bfc" id="L43" title="All 2 branches covered.">        for (int i = 0; i &lt; nums.size(); i++) {</span>
+<span class="fc" id="L44">            long num = ((Number) nums.get(i)).longValue();</span>
+<span class="fc" id="L45">            s -= num;</span>
+<span class="fc bfc" id="L46" title="All 2 branches covered.">            if (s &lt; 0) {</span>
+<span class="fc" id="L47">                s = 0;</span>
+            }
+<span class="fc" id="L49">            max_sum = Math.max(s, max_sum);</span>
+        }
+<span class="fc bfc" id="L51" title="All 2 branches covered.">        if (max_sum == 0) {</span>
+<span class="fc" id="L52">            max_sum = -((Number) nums.get(0)).longValue();</span>
+<span class="fc bfc" id="L53" title="All 2 branches covered.">            for (int i = 0; i &lt; nums.size(); i++) {</span>
+<span class="fc" id="L54">                max_sum = Math.max(-((Number) nums.get(i)).longValue(), max_sum);</span>
+            }
+        }
+<span class="fc" id="L57">        long min_sum = -max_sum;</span>
+<span class="fc" id="L58">        return min_sum;</span>
+    }
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

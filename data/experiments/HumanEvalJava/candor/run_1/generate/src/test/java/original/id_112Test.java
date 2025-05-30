@@ -1,0 +1,63 @@
+package original;
+
+import java.util.Arrays;
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of ReverseDelete.
+*/
+class ReverseDeleteTest {
+    @Test
+    void testReverseDelete_SingleCharacterString_ReturnsEmptyStringAndTrue() {
+        List<Object> result = ReverseDelete.reverseDelete("a", "a");
+        assertEquals(2, result.size());
+        assertEquals("", result.get(0));
+        assertTrue((Boolean) result.get(1));
+    }
+    
+    @Test
+        public void testNothing(){
+            ReverseDelete s = new ReverseDelete();
+            }
+    @Test
+    public void testEmptyString() {
+        List<Object> result = ReverseDelete.reverseDelete("", "");
+        assertEquals(Arrays.asList("", true), result);
+    }
+    @Test
+    public void testSingleCharacterString() {
+        List<Object> result = ReverseDelete.reverseDelete("a", "");
+        assertEquals(Arrays.asList("a", true), result);
+    }
+    @Test
+    public void testStringWithoutDeletion() {
+        List<Object> result = ReverseDelete.reverseDelete("abcdedcba", "");
+        assertEquals(Arrays.asList("abcdedcba", true), result);
+    }
+    @Test
+    public void testStringWithDeletion() {
+        List<Object> result = ReverseDelete.reverseDelete("abcde", "a");
+        assertEquals(Arrays.asList("bcde", false), result);
+    }
+    @Test
+    public void testInvalidInput() {
+        assertThrows(NullPointerException.class, () -> ReverseDelete.reverseDelete("abcde", null));
+    }
+    @Test
+    public void testPalindromeString() {
+        List<Object> result = ReverseDelete.reverseDelete("abcdedcba", "");
+        assertEquals(Arrays.asList("abcdedcba", true), result);
+    }
+    @Test
+    public void testNonPalindromeString() {
+        List<Object> result = ReverseDelete.reverseDelete("abcdefg", "");
+        assertEquals(Arrays.asList("abcdefg", false), result);
+    }
+    @Test
+    public void testNullInputString() {
+        assertThrows(NullPointerException.class, () -> ReverseDelete.reverseDelete(null, "a"));
+    }
+                                    
+}

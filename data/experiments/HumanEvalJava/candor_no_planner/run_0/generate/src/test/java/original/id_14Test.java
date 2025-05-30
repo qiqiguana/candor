@@ -1,0 +1,36 @@
+package original;
+
+import java.util.ArrayList;
+
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of AllPrefixes.
+*/
+class AllPrefixesTest {
+
+@Test
+void testEmptyString() {
+        List<Object> expected = new ArrayList<>();
+        assertEquals(expected, AllPrefixes.allPrefixes(""));  
+}
+
+@Test
+    public void testNothing(){
+        AllPrefixes s = new AllPrefixes();
+        }
+@Test
+public void testAllPrefixesInstantiation() {
+	AllPrefixes allPrefixes = new AllPrefixes();
+	assertNotNull(allPrefixes);
+}
+@Test
+public void testSingleCharacter() {
+	List<Object> result = AllPrefixes.allPrefixes("a");
+	assertEquals(1, result.size());
+	assertEquals("a", result.get(0));
+}
+                                
+}

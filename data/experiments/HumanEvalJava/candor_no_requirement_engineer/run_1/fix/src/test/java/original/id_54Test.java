@@ -1,0 +1,51 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of SameChars.
+*/
+class SameCharsTest {
+    @Test
+    void testSameChars_DifferentCharacters_ReturnsFalse() {
+        String s0 = "abcd";
+        String s1 = "dddddddabce";
+        assertFalse(SameChars.sameChars(s0, s1));
+    }
+    
+    @Test
+        void testNothing(){
+            SameChars s = new SameChars();
+            }
+    @Test
+    public void testSameChars_HappyPath() {
+        String[] input = {"eabcdzzzz", "dddzzzzzzzddeddabc"};
+        assertTrue(SameChars.sameChars(input[0], input[1]));
+    }
+    @Test
+    public void testSameChars_SadPath() {
+        String[] input = {"abcd", "dddddddabce"};
+        assertFalse(SameChars.sameChars(input[0], input[1]));
+    }
+    @Test
+    public void testSameChars_EmptyStrings() {
+        String[] input = {"", ""};
+        assertTrue(SameChars.sameChars(input[0], input[1]));
+    }
+    @Test
+    public void testSameChars_SingleCharacter() {
+        String[] input = {"a", "a"};
+        assertTrue(SameChars.sameChars(input[0], input[1]));
+    }
+    @Test
+    public void testSameChars_NullInputFixed() {
+        String[] input = {null, "abcd"};
+        assertThrows(NullPointerException.class, () -> SameChars.sameChars(input[0], input[1]));
+    }
+    @Test
+    public void testSameChars_IgnoreCase() {
+        String[] input = {"AbCd", "dCdBa"};
+        assertTrue(SameChars.sameChars(input[0].toLowerCase(), input[1].toLowerCase()));
+    }
+                                    
+}

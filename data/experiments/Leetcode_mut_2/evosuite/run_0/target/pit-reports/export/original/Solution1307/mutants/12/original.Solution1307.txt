@@ -1,0 +1,467 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Solution1307 {
+
+  // compiled from: id_1307.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 7 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Solution1307; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x2
+  // signature (Ljava/util/List<Ljava/lang/String;>;IIILjava/util/HashMap<Ljava/lang/Character;Ljava/lang/Integer;>;[CII)Z
+  // declaration: boolean isAnyMapping(java.util.List<java.lang.String>, int, int, int, java.util.HashMap<java.lang.Character, java.lang.Integer>, char[], int, int)
+  private isAnyMapping(Ljava/util/List;IIILjava/util/HashMap;[CII)Z
+   L0
+    LINENUMBER 11 L0
+    ILOAD 3
+    ILOAD 8
+    IF_ICMPNE L1
+   L2
+    LINENUMBER 12 L2
+    ILOAD 4
+    IFNE L3
+    ICONST_1
+    GOTO L4
+   L3
+   FRAME FULL [original/Solution1307 java/util/List I I I java/util/HashMap [C I I] []
+    ICONST_0
+   L4
+   FRAME FULL [original/Solution1307 java/util/List I I I java/util/HashMap [C I I] [I]
+    IRETURN
+   L1
+    LINENUMBER 16 L1
+   FRAME FULL [original/Solution1307 java/util/List I I I java/util/HashMap [C I I] []
+    ILOAD 2
+    ILOAD 7
+    IF_ICMPNE L5
+   L6
+    LINENUMBER 17 L6
+    ILOAD 4
+    BIPUSH 10
+    IREM
+    IFNE L7
+    ALOAD 0
+    ALOAD 1
+    ICONST_0
+    ILOAD 3
+    ICONST_1
+    IADD
+    ILOAD 4
+    BIPUSH 10
+    IDIV
+    ALOAD 5
+    ALOAD 6
+    ILOAD 7
+    ILOAD 8
+   L8
+    LINENUMBER 18 L8
+    INVOKEVIRTUAL original/Solution1307.isAnyMapping (Ljava/util/List;IIILjava/util/HashMap;[CII)Z
+    IFEQ L7
+    ICONST_1
+    GOTO L9
+   L7
+   FRAME FULL [original/Solution1307 java/util/List I I I java/util/HashMap [C I I] []
+    ICONST_0
+   L9
+    LINENUMBER 17 L9
+   FRAME FULL [original/Solution1307 java/util/List I I I java/util/HashMap [C I I] [I]
+    IRETURN
+   L5
+    LINENUMBER 22 L5
+   FRAME FULL [original/Solution1307 java/util/List I I I java/util/HashMap [C I I] []
+    ALOAD 1
+    ILOAD 2
+    INVOKEINTERFACE java/util/List.get (I)Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/String
+    ASTORE 9
+   L10
+    LINENUMBER 25 L10
+    ILOAD 3
+    ALOAD 9
+    INVOKEVIRTUAL java/lang/String.length ()I
+    IF_ICMPLT L11
+   L12
+    LINENUMBER 26 L12
+    ALOAD 0
+    ALOAD 1
+    ILOAD 2
+    ICONST_1
+    IADD
+    ILOAD 3
+    ILOAD 4
+    ALOAD 5
+    ALOAD 6
+    ILOAD 7
+    ILOAD 8
+    INVOKEVIRTUAL original/Solution1307.isAnyMapping (Ljava/util/List;IIILjava/util/HashMap;[CII)Z
+    POP
+    ICONST_1
+    IRETURN
+   L11
+    LINENUMBER 30 L11
+   FRAME FULL [original/Solution1307 java/util/List I I I java/util/HashMap [C I I java/lang/String] []
+    ALOAD 9
+    ALOAD 9
+    INVOKEVIRTUAL java/lang/String.length ()I
+    ICONST_1
+    ISUB
+    ILOAD 3
+    ISUB
+    INVOKEVIRTUAL java/lang/String.charAt (I)C
+    ISTORE 10
+   L13
+    LINENUMBER 33 L13
+    ILOAD 2
+    ILOAD 7
+    ICONST_1
+    ISUB
+    IF_ICMPGE L14
+    ICONST_1
+    GOTO L15
+   L14
+   FRAME FULL [original/Solution1307 java/util/List I I I java/util/HashMap [C I I java/lang/String I] []
+    ICONST_M1
+   L15
+   FRAME FULL [original/Solution1307 java/util/List I I I java/util/HashMap [C I I java/lang/String I] [I]
+    ISTORE 11
+   L16
+    LINENUMBER 37 L16
+    ALOAD 5
+    ILOAD 10
+    INVOKESTATIC java/lang/Character.valueOf (C)Ljava/lang/Character;
+    INVOKEVIRTUAL java/util/HashMap.containsKey (Ljava/lang/Object;)Z
+    IFEQ L17
+    ALOAD 5
+    ILOAD 10
+   L18
+    LINENUMBER 38 L18
+    INVOKESTATIC java/lang/Character.valueOf (C)Ljava/lang/Character;
+    INVOKEVIRTUAL java/util/HashMap.get (Ljava/lang/Object;)Ljava/lang/Object;
+    CHECKCAST java/lang/Integer
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    IFNE L19
+    ALOAD 5
+    ILOAD 10
+    INVOKESTATIC java/lang/Character.valueOf (C)Ljava/lang/Character;
+    INVOKEVIRTUAL java/util/HashMap.get (Ljava/lang/Object;)Ljava/lang/Object;
+    CHECKCAST java/lang/Integer
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    IFNE L20
+    ALOAD 9
+    INVOKEVIRTUAL java/lang/String.length ()I
+    ICONST_1
+    IF_ICMPEQ L19
+   L20
+   FRAME FULL [original/Solution1307 java/util/List I I I java/util/HashMap [C I I java/lang/String I I] []
+    ILOAD 3
+    ALOAD 9
+   L21
+    LINENUMBER 39 L21
+    INVOKEVIRTUAL java/lang/String.length ()I
+    ICONST_1
+    ISUB
+    IF_ICMPEQ L17
+   L19
+    LINENUMBER 41 L19
+   FRAME FULL [original/Solution1307 java/util/List I I I java/util/HashMap [C I I java/lang/String I I] []
+    ALOAD 0
+    ALOAD 1
+    ILOAD 2
+    ICONST_1
+    IADD
+    ILOAD 3
+    ILOAD 4
+    ILOAD 11
+    ALOAD 5
+    ILOAD 10
+    INVOKESTATIC java/lang/Character.valueOf (C)Ljava/lang/Character;
+    INVOKEVIRTUAL java/util/HashMap.get (Ljava/lang/Object;)Ljava/lang/Object;
+    CHECKCAST java/lang/Integer
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    IMUL
+    IADD
+    ALOAD 5
+    ALOAD 6
+    ILOAD 7
+    ILOAD 8
+    INVOKEVIRTUAL original/Solution1307.isAnyMapping (Ljava/util/List;IIILjava/util/HashMap;[CII)Z
+    IRETURN
+   L17
+    LINENUMBER 46 L17
+   FRAME FULL [original/Solution1307 java/util/List I I I java/util/HashMap [C I I java/lang/String I I] []
+    ICONST_0
+    ISTORE 12
+   L22
+   FRAME FULL [original/Solution1307 java/util/List I I I java/util/HashMap [C I I java/lang/String I I I] []
+    ILOAD 12
+    BIPUSH 10
+    IF_ICMPGE L23
+   L24
+    LINENUMBER 48 L24
+    ALOAD 6
+    ILOAD 12
+    CALOAD
+    BIPUSH 45
+    IF_ICMPNE L25
+    ILOAD 12
+    IFNE L26
+    ILOAD 12
+    IFNE L27
+    ALOAD 9
+   L28
+    LINENUMBER 49 L28
+    INVOKEVIRTUAL java/lang/String.length ()I
+    ICONST_1
+    IF_ICMPEQ L26
+   L27
+   FRAME FULL [original/Solution1307 java/util/List I I I java/util/HashMap [C I I java/lang/String I I I] []
+    ILOAD 3
+    ALOAD 9
+    INVOKEVIRTUAL java/lang/String.length ()I
+    ICONST_1
+    ISUB
+    IF_ICMPEQ L25
+   L26
+    LINENUMBER 50 L26
+   FRAME FULL [original/Solution1307 java/util/List I I I java/util/HashMap [C I I java/lang/String I I I] []
+    ALOAD 6
+    ILOAD 12
+    ILOAD 10
+    CASTORE
+   L29
+    LINENUMBER 51 L29
+    ALOAD 5
+    ILOAD 10
+    INVOKESTATIC java/lang/Character.valueOf (C)Ljava/lang/Character;
+    ILOAD 12
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEVIRTUAL java/util/HashMap.put (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    POP
+   L30
+    LINENUMBER 54 L30
+    ALOAD 0
+    ALOAD 1
+    ILOAD 2
+    ICONST_1
+    IADD
+    ILOAD 3
+    ILOAD 4
+    ILOAD 11
+    ALOAD 5
+    ILOAD 10
+    INVOKESTATIC java/lang/Character.valueOf (C)Ljava/lang/Character;
+    INVOKEVIRTUAL java/util/HashMap.get (Ljava/lang/Object;)Ljava/lang/Object;
+    CHECKCAST java/lang/Integer
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    IMUL
+    IADD
+    ALOAD 5
+    ALOAD 6
+    ILOAD 7
+    ILOAD 8
+    INVOKEVIRTUAL original/Solution1307.isAnyMapping (Ljava/util/List;IIILjava/util/HashMap;[CII)Z
+    IFEQ L31
+   L32
+    LINENUMBER 56 L32
+    ICONST_1
+    IRETURN
+   L31
+    LINENUMBER 60 L31
+   FRAME FULL [original/Solution1307 java/util/List I I I java/util/HashMap [C I I java/lang/String I I I] []
+    ALOAD 6
+    ILOAD 12
+    BIPUSH 45
+    CASTORE
+   L33
+    LINENUMBER 61 L33
+    ALOAD 5
+    ILOAD 10
+    INVOKESTATIC java/lang/Character.valueOf (C)Ljava/lang/Character;
+    INVOKEVIRTUAL java/util/HashMap.remove (Ljava/lang/Object;)Ljava/lang/Object;
+    POP
+   L25
+    LINENUMBER 46 L25
+   FRAME FULL [original/Solution1307 java/util/List I I I java/util/HashMap [C I I java/lang/String I I I] []
+    IINC 12 1
+    GOTO L22
+   L23
+    LINENUMBER 67 L23
+   FRAME FULL [original/Solution1307 java/util/List I I I java/util/HashMap [C I I java/lang/String I I I] []
+    ICONST_0
+    IRETURN
+   L34
+    LOCALVARIABLE i I L22 L23 12
+    LOCALVARIABLE this Loriginal/Solution1307; L0 L34 0
+    LOCALVARIABLE words Ljava/util/List; L0 L34 1
+    // signature Ljava/util/List<Ljava/lang/String;>;
+    // declaration: words extends java.util.List<java.lang.String>
+    LOCALVARIABLE row I L0 L34 2
+    LOCALVARIABLE col I L0 L34 3
+    LOCALVARIABLE bal I L0 L34 4
+    LOCALVARIABLE letToDig Ljava/util/HashMap; L0 L34 5
+    // signature Ljava/util/HashMap<Ljava/lang/Character;Ljava/lang/Integer;>;
+    // declaration: letToDig extends java.util.HashMap<java.lang.Character, java.lang.Integer>
+    LOCALVARIABLE digToLet [C L0 L34 6
+    LOCALVARIABLE totalRows I L0 L34 7
+    LOCALVARIABLE totalCols I L0 L34 8
+    LOCALVARIABLE w Ljava/lang/String; L10 L34 9
+    LOCALVARIABLE letter C L13 L34 10
+    LOCALVARIABLE sign I L16 L34 11
+    MAXSTACK = 9
+    MAXLOCALS = 13
+
+  // access flags 0x1
+  public isSolvable([Ljava/lang/String;Ljava/lang/String;)Z
+   L0
+    LINENUMBER 72 L0
+    NEW java/util/ArrayList
+    DUP
+    INVOKESPECIAL java/util/ArrayList.<init> ()V
+    ASTORE 3
+   L1
+    LINENUMBER 73 L1
+    ALOAD 1
+    ASTORE 4
+    ALOAD 4
+    ARRAYLENGTH
+    ISTORE 5
+    ICONST_0
+    ISTORE 6
+   L2
+   FRAME FULL [original/Solution1307 [Ljava/lang/String; java/lang/String java/util/ArrayList [Ljava/lang/String; I I] []
+    ILOAD 6
+    ILOAD 5
+    IF_ICMPGE L3
+    ALOAD 4
+    ILOAD 6
+    AALOAD
+    ASTORE 7
+   L4
+    LINENUMBER 74 L4
+    ALOAD 3
+    ALOAD 7
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+   L5
+    LINENUMBER 73 L5
+    IINC 6 1
+    GOTO L2
+   L3
+    LINENUMBER 76 L3
+   FRAME FULL [original/Solution1307 [Ljava/lang/String; java/lang/String java/util/ArrayList [Ljava/lang/String; I I] []
+    ALOAD 3
+    ALOAD 2
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+   L6
+    LINENUMBER 78 L6
+    ALOAD 3
+    INVOKEINTERFACE java/util/List.size ()I (itf)
+    ISTORE 4
+   L7
+    LINENUMBER 81 L7
+    ICONST_0
+    ISTORE 5
+   L8
+    LINENUMBER 82 L8
+    ALOAD 3
+    INVOKEINTERFACE java/util/List.iterator ()Ljava/util/Iterator; (itf)
+    ASTORE 6
+   L9
+   FRAME FULL [original/Solution1307 [Ljava/lang/String; java/lang/String java/util/ArrayList I I java/util/Iterator] []
+    ALOAD 6
+    INVOKEINTERFACE java/util/Iterator.hasNext ()Z (itf)
+    IFEQ L10
+    ALOAD 6
+    INVOKEINTERFACE java/util/Iterator.next ()Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/String
+    ASTORE 7
+   L11
+    LINENUMBER 83 L11
+    ILOAD 5
+    ALOAD 7
+    INVOKEVIRTUAL java/lang/String.length ()I
+    IF_ICMPGE L12
+   L13
+    LINENUMBER 84 L13
+    ALOAD 7
+    INVOKEVIRTUAL java/lang/String.length ()I
+    ISTORE 5
+   L12
+    LINENUMBER 86 L12
+   FRAME FULL [original/Solution1307 [Ljava/lang/String; java/lang/String java/util/ArrayList I I java/util/Iterator java/lang/String] []
+    GOTO L9
+   L10
+    LINENUMBER 89 L10
+   FRAME FULL [original/Solution1307 [Ljava/lang/String; java/lang/String java/util/ArrayList I I java/util/Iterator] []
+    NEW java/util/HashMap
+    DUP
+    INVOKESPECIAL java/util/HashMap.<init> ()V
+    ASTORE 6
+   L14
+    LINENUMBER 92 L14
+    BIPUSH 10
+    NEWARRAY T_CHAR
+    ASTORE 7
+   L15
+    LINENUMBER 93 L15
+    ICONST_0
+    ISTORE 8
+   L16
+   FRAME FULL [original/Solution1307 [Ljava/lang/String; java/lang/String java/util/ArrayList I I java/util/HashMap [C I] []
+    ILOAD 8
+    BIPUSH 10
+    IF_ICMPGE L17
+   L18
+    LINENUMBER 94 L18
+    ALOAD 7
+    ILOAD 8
+    BIPUSH 45
+    CASTORE
+   L19
+    LINENUMBER 93 L19
+    IINC 8 1
+    GOTO L16
+   L17
+    LINENUMBER 97 L17
+   FRAME FULL [original/Solution1307 [Ljava/lang/String; java/lang/String java/util/ArrayList I I java/util/HashMap [C I] []
+    ALOAD 0
+    ALOAD 3
+    ICONST_0
+    ICONST_0
+    ICONST_0
+    ALOAD 6
+    ALOAD 7
+    ILOAD 4
+    ILOAD 5
+    INVOKEVIRTUAL original/Solution1307.isAnyMapping (Ljava/util/List;IIILjava/util/HashMap;[CII)Z
+    IRETURN
+   L20
+    LOCALVARIABLE word Ljava/lang/String; L4 L5 7
+    LOCALVARIABLE word Ljava/lang/String; L11 L12 7
+    LOCALVARIABLE i I L16 L17 8
+    LOCALVARIABLE this Loriginal/Solution1307; L0 L20 0
+    LOCALVARIABLE wordsArr [Ljava/lang/String; L0 L20 1
+    LOCALVARIABLE result Ljava/lang/String; L0 L20 2
+    LOCALVARIABLE words Ljava/util/List; L1 L20 3
+    // signature Ljava/util/List<Ljava/lang/String;>;
+    // declaration: words extends java.util.List<java.lang.String>
+    LOCALVARIABLE totalRows I L7 L20 4
+    LOCALVARIABLE totalCols I L8 L20 5
+    LOCALVARIABLE letToDig Ljava/util/HashMap; L14 L20 6
+    // signature Ljava/util/HashMap<Ljava/lang/Character;Ljava/lang/Integer;>;
+    // declaration: letToDig extends java.util.HashMap<java.lang.Character, java.lang.Integer>
+    LOCALVARIABLE digToLet [C L15 L20 7
+    MAXSTACK = 9
+    MAXLOCALS = 9
+}
+

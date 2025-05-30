@@ -1,0 +1,20 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of GreatestCommonDivisor.
+*/
+class GreatestCommonDivisorTest {
+    @Test
+    void testGreatestCommonDivisorShouldReturn1WhenInputIs3And5() {
+        int result = GreatestCommonDivisor.greatestCommonDivisor(3, 5);
+        assertEquals(1, result);
+    }
+    
+    @Test
+        public void testNothing(){
+            GreatestCommonDivisor s = new GreatestCommonDivisor();
+            }
+                                    
+}

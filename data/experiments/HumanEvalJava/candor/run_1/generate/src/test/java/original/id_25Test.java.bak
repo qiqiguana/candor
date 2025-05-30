@@ -1,0 +1,62 @@
+package original;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of Factorize.
+*/
+class FactorizeTest {
+    @Test
+    void testFactorize_SimpleCase() {
+        List<Integer> expected = new ArrayList<>();
+        expected.add(2);
+        expected.add(3);
+        expected.add(3);
+        List<Integer> actual = Factorize.factorize(18);
+        assertEquals(expected, actual);
+    }
+    
+    @Test
+        public void testNothing(){
+            Factorize s = new Factorize();
+            }
+    @Test
+    public void TestFactorizeSmallPrimeNumber() {
+        List<Integer> result = Factorize.factorize(2);
+        assertEquals(List.of(2), result);
+    }
+    @Test
+    public void TestFactorizeLargePrimeNumber() {
+        List<Integer> result = Factorize.factorize(37);
+        assertEquals(List.of(37), result);
+    }
+    @Test
+    public void TestFactorizeSmallCompositeNumber() {
+        List<Integer> result = Factorize.factorize(4);
+        assertEquals(List.of(2, 2), result);
+    }
+    @Test
+    public void TestFactorizeLargeCompositeNumber() {
+        List<Integer> result = Factorize.factorize(3249);
+        assertEquals(List.of(3, 3, 19, 19), result);
+    }
+    @Test
+    public void TestFactorizeSquareNumber() {
+        List<Integer> result = Factorize.factorize(25);
+        assertEquals(List.of(5, 5), result);
+    }
+    @Test
+    public void TestFactorizeCubeNumber() {
+        List<Integer> result = Factorize.factorize(27);
+        assertEquals(List.of(3, 3, 3), result);
+    }
+    @Test
+    public void TestFactorizeNegativeNumber() {
+        List<Integer> result = Factorize.factorize(-2);
+        assertEquals(List.of(), result);
+    }
+                                    
+}

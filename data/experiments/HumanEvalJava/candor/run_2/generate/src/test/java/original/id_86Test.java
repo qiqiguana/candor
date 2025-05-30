@@ -1,0 +1,62 @@
+package original;
+
+import java.util.Arrays;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of AntiShuffle.
+*/
+class AntiShuffleTest {
+    @Test
+    void testAntiShuffle_SingleWord_ReturnsOrderedString() {
+        String result = AntiShuffle.antiShuffle("hello");
+        assertEquals("ehllo", result);
+    }
+    
+    @Test
+        public void testNothing(){
+            AntiShuffle s = new AntiShuffle();
+            }
+    @Test
+    public void AntiShuffle_EmptyString_ReturnsEmptyString() {
+        String input = "";
+        String expectedResult = "";
+        String actualResult = AntiShuffle.antiShuffle(input);
+        assertEquals(expectedResult, actualResult);
+    }
+    @Test
+    public void AntiShuffle_SingleCharacterString_ReturnsSameString() {
+        String input = "a";
+        String expectedResult = "a";
+        String actualResult = AntiShuffle.antiShuffle(input);
+        assertEquals(expectedResult, actualResult);
+    }
+    @Test
+    public void AntiShuffle_AlreadySortedString_ReturnsSameString() {
+        String input = "abcd";
+        String expectedResult = "abcd";
+        String actualResult = AntiShuffle.antiShuffle(input);
+        assertEquals(expectedResult, actualResult);
+    }
+    @Test
+    public void AntiShuffle_UnsortedString_ReturnsSortedString() {
+        String input = "dcba";
+        String expectedResult = "abcd";
+        String actualResult = AntiShuffle.antiShuffle(input);
+        assertEquals(expectedResult, actualResult);
+    }
+    @Test
+    public void AntiShuffle_NullInput_ThrowsNullPointerException() {
+        String input = null;
+        assertThrows(NullPointerException.class, () -> AntiShuffle.antiShuffle(input));
+    }
+    @Test
+    public void AntiShuffle_SortsWordsBasedOnSortedCharacters() {
+        String input = "world hello";
+        String expectedResult = "dlorw ehllo";
+        String actualResult = original.AntiShuffle.antiShuffle(input);
+        assertEquals(expectedResult, actualResult);
+    }
+                                    
+}

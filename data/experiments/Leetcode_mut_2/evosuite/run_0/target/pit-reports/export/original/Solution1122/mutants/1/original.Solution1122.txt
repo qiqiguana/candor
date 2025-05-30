@@ -1,0 +1,184 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Solution1122 {
+
+  // compiled from: id_1122.java
+  // access flags 0x19
+  public final static INNERCLASS java/lang/invoke/MethodHandles$Lookup java/lang/invoke/MethodHandles Lookup
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 6 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Solution1122; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public relativeSortArray([I[I)[I
+   L0
+    LINENUMBER 8 L0
+    NEW java/util/HashMap
+    DUP
+    ALOAD 2
+    ARRAYLENGTH
+    INVOKESPECIAL java/util/HashMap.<init> (I)V
+    ASTORE 3
+   L1
+    LINENUMBER 9 L1
+    ICONST_0
+    ISTORE 4
+   L2
+   FRAME FULL [original/Solution1122 [I [I java/util/HashMap I] []
+    ILOAD 4
+    ALOAD 2
+    ARRAYLENGTH
+    IF_ICMPGT L3
+   L4
+    LINENUMBER 10 L4
+    ALOAD 3
+    ALOAD 2
+    ILOAD 4
+    IALOAD
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    ILOAD 4
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEINTERFACE java/util/Map.put (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object; (itf)
+    POP
+   L5
+    LINENUMBER 9 L5
+    IINC 4 1
+    GOTO L2
+   L3
+    LINENUMBER 12 L3
+   FRAME FULL [original/Solution1122 [I [I java/util/HashMap I] []
+    ALOAD 1
+    ARRAYLENGTH
+    ICONST_0
+    MULTIANEWARRAY [[I 2
+    ASTORE 4
+   L6
+    LINENUMBER 13 L6
+    ICONST_0
+    ISTORE 5
+   L7
+   FRAME FULL [original/Solution1122 [I [I java/util/HashMap [[I I] []
+    ILOAD 5
+    ALOAD 4
+    ARRAYLENGTH
+    IF_ICMPGE L8
+   L9
+    LINENUMBER 14 L9
+    ALOAD 4
+    ILOAD 5
+    ICONST_2
+    NEWARRAY T_INT
+    DUP
+    ICONST_0
+    ALOAD 1
+    ILOAD 5
+    IALOAD
+    IASTORE
+    DUP
+    ICONST_1
+    ALOAD 3
+    ALOAD 1
+    ILOAD 5
+    IALOAD
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    ALOAD 2
+    ARRAYLENGTH
+    ALOAD 1
+    ILOAD 5
+    IALOAD
+    IADD
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEINTERFACE java/util/Map.getOrDefault (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/Integer
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    IASTORE
+    AASTORE
+   L10
+    LINENUMBER 13 L10
+    IINC 5 1
+    GOTO L7
+   L8
+    LINENUMBER 16 L8
+   FRAME FULL [original/Solution1122 [I [I java/util/HashMap [[I I] []
+    ALOAD 4
+    INVOKEDYNAMIC compare()Ljava/util/Comparator; [
+      // handle kind 0x6 : INVOKESTATIC
+      java/lang/invoke/LambdaMetafactory.metafactory(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;
+      // arguments:
+      (Ljava/lang/Object;Ljava/lang/Object;)I, 
+      // handle kind 0x6 : INVOKESTATIC
+      original/Solution1122.lambda$relativeSortArray$0([I[I)I, 
+      ([I[I)I
+    ]
+    INVOKESTATIC java/util/Arrays.sort ([Ljava/lang/Object;Ljava/util/Comparator;)V
+   L11
+    LINENUMBER 17 L11
+    ICONST_0
+    ISTORE 5
+   L12
+   FRAME FULL [original/Solution1122 [I [I java/util/HashMap [[I I] []
+    ILOAD 5
+    ALOAD 4
+    ARRAYLENGTH
+    IF_ICMPGE L13
+   L14
+    LINENUMBER 18 L14
+    ALOAD 1
+    ILOAD 5
+    ALOAD 4
+    ILOAD 5
+    AALOAD
+    ICONST_0
+    IALOAD
+    IASTORE
+   L15
+    LINENUMBER 17 L15
+    IINC 5 1
+    GOTO L12
+   L13
+    LINENUMBER 20 L13
+   FRAME FULL [original/Solution1122 [I [I java/util/HashMap [[I I] []
+    ALOAD 1
+    ARETURN
+   L16
+    LOCALVARIABLE i I L2 L3 4
+    LOCALVARIABLE i I L7 L8 5
+    LOCALVARIABLE i I L12 L13 5
+    LOCALVARIABLE this Loriginal/Solution1122; L0 L16 0
+    LOCALVARIABLE arr1 [I L0 L16 1
+    LOCALVARIABLE arr2 [I L0 L16 2
+    LOCALVARIABLE pos Ljava/util/Map; L1 L16 3
+    // signature Ljava/util/Map<Ljava/lang/Integer;Ljava/lang/Integer;>;
+    // declaration: pos extends java.util.Map<java.lang.Integer, java.lang.Integer>
+    LOCALVARIABLE arr [[I L6 L16 4
+    MAXSTACK = 10
+    MAXLOCALS = 6
+
+  // access flags 0x100A
+  private static synthetic lambda$relativeSortArray$0([I[I)I
+   L0
+    LINENUMBER 16 L0
+    ALOAD 0
+    ICONST_1
+    IALOAD
+    ALOAD 1
+    ICONST_1
+    IALOAD
+    ISUB
+    IRETURN
+   L1
+    LOCALVARIABLE a [I L0 L1 0
+    LOCALVARIABLE b [I L0 L1 1
+    MAXSTACK = 3
+    MAXLOCALS = 2
+}
+

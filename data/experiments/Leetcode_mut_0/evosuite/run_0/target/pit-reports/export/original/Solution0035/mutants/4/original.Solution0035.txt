@@ -1,0 +1,81 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Solution0035 {
+
+  // compiled from: id_0035.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 3 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Solution0035; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public searchInsert([II)I
+   L0
+    LINENUMBER 5 L0
+    ICONST_0
+    ISTORE 3
+   L1
+    ALOAD 1
+    ARRAYLENGTH
+    ISTORE 4
+   L2
+    LINENUMBER 6 L2
+   FRAME FULL [original/Solution0035 [I I I I] []
+    ILOAD 3
+    ILOAD 4
+    IF_ICMPGE L3
+   L4
+    LINENUMBER 7 L4
+    ILOAD 3
+    ILOAD 4
+    IADD
+    ICONST_1
+    IUSHR
+    ISTORE 5
+   L5
+    LINENUMBER 8 L5
+    ALOAD 1
+    ILOAD 5
+    IALOAD
+    ILOAD 2
+    IF_ICMPGE L6
+   L7
+    LINENUMBER 9 L7
+    ILOAD 5
+    ISTORE 4
+    GOTO L8
+   L6
+    LINENUMBER 11 L6
+   FRAME FULL [original/Solution0035 [I I I I I] []
+    ILOAD 5
+    ICONST_1
+    IADD
+    ISTORE 3
+   L8
+    LINENUMBER 13 L8
+   FRAME FULL [original/Solution0035 [I I I I I] []
+    GOTO L2
+   L3
+    LINENUMBER 14 L3
+   FRAME FULL [original/Solution0035 [I I I I] []
+    ILOAD 3
+    IRETURN
+   L9
+    LOCALVARIABLE mid I L5 L8 5
+    LOCALVARIABLE this Loriginal/Solution0035; L0 L9 0
+    LOCALVARIABLE nums [I L0 L9 1
+    LOCALVARIABLE target I L0 L9 2
+    LOCALVARIABLE l I L1 L9 3
+    LOCALVARIABLE r I L2 L9 4
+    MAXSTACK = 2
+    MAXLOCALS = 6
+}
+

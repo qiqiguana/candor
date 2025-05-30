@@ -1,0 +1,31 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of Solve.
+*/
+class SolveTest {
+    @Test
+    void testSolve_ContainsLetters_ReturnsStringWithReversedCase() {
+        String input = "#a@C";
+        String expectedOutput = "#A@c";
+        assertEquals(expectedOutput, Solve.solve(input));
+    }
+    
+    @Test
+        public void testNothing(){
+            Solve s = new Solve();
+            }
+    @Test
+    void testClassInitialization() {
+        original.Solve solve = new original.Solve();
+        assertNotNull(solve);
+    }
+    @Test
+    void testSolveMethodWithNoLettersAndReversedString() {
+        String result = original.Solve.solve("1234");
+        assertEquals("4321", result);
+    }
+                                    
+}

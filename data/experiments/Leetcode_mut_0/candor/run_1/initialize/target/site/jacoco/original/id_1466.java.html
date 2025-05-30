@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_1466.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">leetcode</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_1466.java</span></div><h1>id_1466.java</h1><pre class="source lang-java linenums">package original;
+
+import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
+<span class="fc" id="L6">class Solution1466 {</span>
+    private List&lt;int[]&gt;[] g;
+
+    public int minReorder(int n, int[][] connections) {
+<span class="fc" id="L10">        g = new List[n];</span>
+<span class="fc" id="L11">        Arrays.setAll(g, k -&gt; new ArrayList&lt;&gt;());</span>
+<span class="fc bfc" id="L12" title="All 2 branches covered.">        for (var e : connections) {</span>
+<span class="fc" id="L13">            int a = e[0], b = e[1];</span>
+<span class="fc" id="L14">            g[a].add(new int[] {b, 1});</span>
+<span class="fc" id="L15">            g[b].add(new int[] {a, 0});</span>
+        }
+<span class="fc" id="L17">        return dfs(0, -1);</span>
+    }
+
+    private int dfs(int a, int fa) {
+<span class="fc" id="L21">        int ans = 0;</span>
+<span class="fc bfc" id="L22" title="All 2 branches covered.">        for (var e : g[a]) {</span>
+<span class="fc" id="L23">            int b = e[0], c = e[1];</span>
+<span class="fc bfc" id="L24" title="All 2 branches covered.">            if (b != fa) {</span>
+<span class="fc" id="L25">                ans += c + dfs(b, a);</span>
+            }
+<span class="fc" id="L27">        }</span>
+<span class="fc" id="L28">        return ans;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

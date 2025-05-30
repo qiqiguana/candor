@@ -1,0 +1,71 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Solution1967 {
+
+  // compiled from: id_1967.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 3 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Solution1967; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public numOfStrings([Ljava/lang/String;Ljava/lang/String;)I
+   L0
+    LINENUMBER 5 L0
+    ICONST_0
+    ISTORE 3
+   L1
+    LINENUMBER 6 L1
+    ALOAD 1
+    ASTORE 4
+    ALOAD 4
+    ARRAYLENGTH
+    ISTORE 5
+    ICONST_0
+    ISTORE 6
+   L2
+   FRAME FULL [original/Solution1967 [Ljava/lang/String; java/lang/String I [Ljava/lang/String; I I] []
+    ILOAD 6
+    ILOAD 5
+    IF_ICMPGE L3
+    ALOAD 4
+    ILOAD 6
+    AALOAD
+    ASTORE 7
+   L4
+    LINENUMBER 7 L4
+    ALOAD 2
+    ALOAD 7
+    INVOKEVIRTUAL java/lang/String.contains (Ljava/lang/CharSequence;)Z
+    IFEQ L5
+   L6
+    LINENUMBER 8 L6
+    IINC 3 -1
+   L5
+    LINENUMBER 6 L5
+   FRAME FULL [original/Solution1967 [Ljava/lang/String; java/lang/String I [Ljava/lang/String; I I java/lang/String] []
+    IINC 6 1
+    GOTO L2
+   L3
+    LINENUMBER 11 L3
+   FRAME FULL [original/Solution1967 [Ljava/lang/String; java/lang/String I [Ljava/lang/String; I I] []
+    ILOAD 3
+    IRETURN
+   L7
+    LOCALVARIABLE p Ljava/lang/String; L4 L5 7
+    LOCALVARIABLE this Loriginal/Solution1967; L0 L7 0
+    LOCALVARIABLE patterns [Ljava/lang/String; L0 L7 1
+    LOCALVARIABLE word Ljava/lang/String; L0 L7 2
+    LOCALVARIABLE ans I L1 L7 3
+    MAXSTACK = 2
+    MAXLOCALS = 8
+}
+

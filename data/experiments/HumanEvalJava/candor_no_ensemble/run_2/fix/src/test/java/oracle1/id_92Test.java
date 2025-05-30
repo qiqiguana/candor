@@ -1,0 +1,47 @@
+package oracle1;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of AnyInt.
+*/
+class AnyIntTest {
+    @Test
+    void anyInt_WhenSumOfTwoNumbersIsEqualToThirdNumber_ReturnsTrue() {
+        assertTrue(AnyInt.anyInt(5, 2, 7));
+    }
+    
+    @Test
+     void testNothing(){
+         AnyInt s = new AnyInt();
+         }
+    @Test
+    public void test_AnyInt_Positive() {
+        assertEquals(true, AnyInt.anyInt(Integer.valueOf(5), Integer.valueOf(2), Integer.valueOf(7)));
+    }
+    @Test
+    public void test_AnyInt_Negative_NoNumberEqualsSum() {
+        assertEquals(false, AnyInt.anyInt(Integer.valueOf(3), Integer.valueOf(2), Integer.valueOf(2)));
+    }
+    @Test
+    public void test_AnyInt_EdgeCase_NegativeNumbers() {
+        assertEquals(true, AnyInt.anyInt(Integer.valueOf(-4), Integer.valueOf(6), Integer.valueOf(2)));
+    }
+    @Test
+    public void test_AnyInt_EdgeCase_Zero() {
+        assertEquals(true, AnyInt.anyInt(Integer.valueOf(0), Integer.valueOf(2), Integer.valueOf(-2)));
+    }
+    @Test
+    public void test_AnyInt_EdgeCase_Zero2() {
+        assertEquals(true, AnyInt.anyInt(Integer.valueOf(0), Integer.valueOf(-2), Integer.valueOf(2)));
+    }
+    @Test
+    public void test_AnyInt_EdgeCase_Zero3() {
+        assertEquals(true, AnyInt.anyInt(Integer.valueOf(-2), Integer.valueOf(0), Integer.valueOf(2)));
+    }
+    @Test
+    public void test_AnyInt_Negative_NoIntegerEqualsSum() {
+        assertEquals(true, AnyInt.anyInt(Double.valueOf(3.0), Double.valueOf(4.0), Double.valueOf(7.0)));
+    }
+                                  
+}

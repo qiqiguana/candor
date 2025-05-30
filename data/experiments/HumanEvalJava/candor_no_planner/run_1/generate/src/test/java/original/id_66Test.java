@@ -1,0 +1,22 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of Digitsum.
+*/
+class DigitsumTest {
+    @Test
+    void testDigitSum_OnlyUppercaseCharacters_ReturnsCorrectSum() {
+        // Arrange and Act
+        int result = Digitsum.digitSum("How are yOu?");
+        // Assert
+        assertEquals(151, result);
+    }
+    
+    @Test
+        public void testNothing(){
+            Digitsum s = new Digitsum();
+            }
+                                    
+}

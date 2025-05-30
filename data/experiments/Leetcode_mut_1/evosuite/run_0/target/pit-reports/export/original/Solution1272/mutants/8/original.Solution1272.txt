@@ -1,0 +1,172 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Solution1272 {
+
+  // compiled from: id_1272.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 6 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Solution1272; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  // signature ([[I[I)Ljava/util/List<Ljava/util/List<Ljava/lang/Integer;>;>;
+  // declaration: java.util.List<java.util.List<java.lang.Integer>> removeInterval(int[][], int[])
+  public removeInterval([[I[I)Ljava/util/List;
+   L0
+    LINENUMBER 8 L0
+    ALOAD 2
+    ICONST_0
+    IALOAD
+    ISTORE 3
+   L1
+    ALOAD 2
+    ICONST_1
+    IALOAD
+    ISTORE 4
+   L2
+    LINENUMBER 9 L2
+    NEW java/util/ArrayList
+    DUP
+    INVOKESPECIAL java/util/ArrayList.<init> ()V
+    ASTORE 5
+   L3
+    LINENUMBER 10 L3
+    ALOAD 1
+    ASTORE 6
+    ALOAD 6
+    ARRAYLENGTH
+    ISTORE 7
+    ICONST_0
+    ISTORE 8
+   L4
+   FRAME FULL [original/Solution1272 [[I [I I I java/util/ArrayList [[I I I] []
+    ILOAD 8
+    ILOAD 7
+    IF_ICMPGE L5
+    ALOAD 6
+    ILOAD 8
+    AALOAD
+    ASTORE 9
+   L6
+    LINENUMBER 11 L6
+    ALOAD 9
+    ICONST_0
+    IALOAD
+    ISTORE 10
+   L7
+    ALOAD 9
+    ICONST_1
+    IALOAD
+    ISTORE 11
+   L8
+    LINENUMBER 12 L8
+    ILOAD 10
+    ILOAD 4
+    IF_ICMPGE L9
+    ILOAD 11
+    ILOAD 3
+    IF_ICMPGT L10
+   L9
+    LINENUMBER 13 L9
+   FRAME FULL [original/Solution1272 [[I [I I I java/util/ArrayList [[I I I [I I I] []
+    ALOAD 5
+    ICONST_2
+    ANEWARRAY java/lang/Integer
+    DUP
+    ICONST_0
+    ILOAD 10
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    AASTORE
+    DUP
+    ICONST_1
+    ILOAD 11
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    AASTORE
+    INVOKESTATIC java/util/Arrays.asList ([Ljava/lang/Object;)Ljava/util/List;
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+    GOTO L11
+   L10
+    LINENUMBER 15 L10
+   FRAME FULL [original/Solution1272 [[I [I I I java/util/ArrayList [[I I I [I I I] []
+    ILOAD 10
+    ILOAD 3
+    IF_ICMPGE L12
+   L13
+    LINENUMBER 16 L13
+    ALOAD 5
+    ICONST_2
+    ANEWARRAY java/lang/Integer
+    DUP
+    ICONST_0
+    ILOAD 10
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    AASTORE
+    DUP
+    ICONST_1
+    ILOAD 3
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    AASTORE
+    INVOKESTATIC java/util/Arrays.asList ([Ljava/lang/Object;)Ljava/util/List;
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+   L12
+    LINENUMBER 18 L12
+   FRAME FULL [original/Solution1272 [[I [I I I java/util/ArrayList [[I I I [I I I] []
+    ILOAD 11
+    ILOAD 4
+    IF_ICMPLE L11
+   L14
+    LINENUMBER 19 L14
+    ALOAD 5
+    ICONST_2
+    ANEWARRAY java/lang/Integer
+    DUP
+    ICONST_0
+    ILOAD 4
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    AASTORE
+    DUP
+    ICONST_1
+    ILOAD 11
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    AASTORE
+    INVOKESTATIC java/util/Arrays.asList ([Ljava/lang/Object;)Ljava/util/List;
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+   L11
+    LINENUMBER 10 L11
+   FRAME FULL [original/Solution1272 [[I [I I I java/util/ArrayList [[I I I [I I I] []
+    IINC 8 1
+    GOTO L4
+   L5
+    LINENUMBER 23 L5
+   FRAME FULL [original/Solution1272 [[I [I I I java/util/ArrayList [[I I I] []
+    ALOAD 5
+    POP
+    INVOKESTATIC java/util/Collections.emptyList ()Ljava/util/List;
+    ARETURN
+   L15
+    LOCALVARIABLE a I L7 L11 10
+    LOCALVARIABLE b I L8 L11 11
+    LOCALVARIABLE e [I L6 L11 9
+    LOCALVARIABLE this Loriginal/Solution1272; L0 L15 0
+    LOCALVARIABLE intervals [[I L0 L15 1
+    LOCALVARIABLE toBeRemoved [I L0 L15 2
+    LOCALVARIABLE x I L1 L15 3
+    LOCALVARIABLE y I L2 L15 4
+    LOCALVARIABLE ans Ljava/util/List; L3 L15 5
+    // signature Ljava/util/List<Ljava/util/List<Ljava/lang/Integer;>;>;
+    // declaration: ans extends java.util.List<java.util.List<java.lang.Integer>>
+    MAXSTACK = 5
+    MAXLOCALS = 12
+}
+

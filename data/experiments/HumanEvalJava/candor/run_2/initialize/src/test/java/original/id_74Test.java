@@ -1,0 +1,87 @@
+package original;
+
+import java.util.Arrays;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import java.util.List;
+import java.util.ArrayList;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of TotalMatch.
+*/
+class TotalMatchTest {
+
+    @Test
+    void test_totalMatch_DifferentLengths() {
+        List<Object> list1 = new ArrayList<>();
+        list1.add("hi");
+        list1.add("admin");
+        List<Object> list2 = new ArrayList<>();
+        list2.add("hI");
+        list2.add("Hi");
+        assertEquals(list2, TotalMatch.totalMatch(list1, list2));
+    }
+    
+    @Test
+        public void testNothing(){
+            TotalMatch s = new TotalMatch();
+            }
+    @Test
+    public void testTotalMatchClassInitialization() {
+        // Given
+        TotalMatch totalMatch = new TotalMatch();
+        // Then
+        assertNotNull(totalMatch);
+    }
+    @Test
+    public void testTotalMatchWithEqualCharCounts1() {
+        // Given
+        List<Object> lst1 = Arrays.asList("a", "b");
+        List<Object> lst2 = Arrays.asList("c", "d");
+        // When
+        List<Object> result = TotalMatch.totalMatch(lst1, lst2);
+        // Then
+        assertEquals(lst1, TotalMatch.totalMatch(lst1, lst2));
+    }
+    @Test
+    public void testTotalMatchWithDifferentCharCounts() {
+        // Given
+        List<Object> lst1 = Arrays.asList("a", "bb");
+        List<Object> lst2 = Arrays.asList("c");
+        // When
+        List<Object> result = TotalMatch.totalMatch(lst1, lst2);
+        // Then
+        assertEquals(lst2, result);
+    }
+    @Test
+    public void testTotalMatchWithEmptyLists() {
+        // Given
+        List<Object> lst1 = new ArrayList<>();
+        List<Object> lst2 = new ArrayList<>();
+        // When
+        List<Object> result = TotalMatch.totalMatch(lst1, lst2);
+        // Then
+        assertEquals(lst1, result);
+    }
+    @Test
+    public void testTotalMatchWithTwoEmptyLists() {
+        List<Object> lst1 = new ArrayList<>();
+        List<Object> lst2 = new ArrayList<>();
+        assertEquals(lst1, TotalMatch.totalMatch(lst1, lst2));
+    }
+    @Test
+    public void testTotalMatchWithOneNonEmptyAndOneEmptyList() {
+        List<Object> lst1 = Arrays.asList("this");
+        List<Object> lst2 = new ArrayList<>();
+        assertEquals(lst2, TotalMatch.totalMatch(lst1, lst2));
+    }
+    @Test
+    public void testTotalMatchWithTwoListsContainingNonStringValue() {
+        List<Object> lst1 = Arrays.asList(1, 2);
+        List<Object> lst2 = Arrays.asList(3, "four");
+        assertEquals(lst1, TotalMatch.totalMatch(lst1, lst2));
+    }
+                                    
+
+}

@@ -1,0 +1,46 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of Digits.
+*/
+class DigitsTest {
+    @Test
+    void testDigits_ProductOfOddDigits() {
+        int result = Digits.digits(235);
+        assertEquals(15, result);
+    }
+    
+    @Test
+        public void testNothing(){
+            Digits s = new Digits();
+            }
+    @Test
+    public void testClassInitialization() {
+        // Given
+        Digits digits = new Digits();
+        // Then
+        assertNotNull(digits);
+    }
+    @Test
+    public void testClassInitialization2() {
+        // Given
+        Digits digits = new Digits();
+        // Then
+        assertNotEquals(null, digits);
+    }
+    @Test
+    public void testOddDigitProduct() {
+        int[] input = {1, 3, 5};
+        long expected = 15;
+        long actual = 1;
+        for (int i : input) {
+            if (i % 2 == 1) {
+                actual *= i;
+            }
+        }
+        assertEquals(expected, actual);
+    }
+                                    
+}

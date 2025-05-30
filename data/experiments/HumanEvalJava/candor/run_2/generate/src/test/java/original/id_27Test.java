@@ -1,0 +1,49 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of FlipCase.
+*/
+class FlipCaseTest {
+    @Test
+    void testFlipCaseWithMixedCaseString() {
+        String input = "Hello";
+        String expectedOutput = "hELLO";
+        assertEquals(expectedOutput, FlipCase.flipCase(input));
+    }
+    
+    @Test
+        public void testNothing(){
+            FlipCase s = new FlipCase();
+            }
+    @Test
+    public void testFlipCase_EmptyString() {
+        assertEquals("", FlipCase.flipCase(""));
+    }
+    @Test
+    public void testFlipCase_SingleLowercaseCharacter() {
+        assertEquals("A", FlipCase.flipCase("a"));
+    }
+    @Test
+    public void testFlipCase_SingleUppercaseCharacter() {
+        assertEquals("a", FlipCase.flipCase("A"));
+    }
+    @Test
+    public void testFlipCase_MixedCaseString() {
+        assertEquals("hELLO wORLD!", FlipCase.flipCase("Hello World!"));
+    }
+    @Test
+    public void testFlipCase_NullInput() {
+        assertThrows(NullPointerException.class, () -> FlipCase.flipCase(null));
+    }
+    @Test
+    public void testFlipCase_OnlyUppercaseCharacters() {
+        assertEquals("abcdefghijklmnopqrstuvwxyz", FlipCase.flipCase("ABCDEFGHIJKLMNOPQRSTUVWXYZ"));
+    }
+    @Test
+    public void testFlipCase_OnlyLowercaseCharacters() {
+        assertEquals("ABCDEFGHIJKLMNOPQRSTUVWXYZ", FlipCase.flipCase("abcdefghijklmnopqrstuvwxyz"));
+    }
+                                    
+}

@@ -1,0 +1,44 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of HexKey.
+*/
+class HexKeyTest {
+    @Test
+    void testHexKey() {
+        int result = HexKey.hexKey("AB");
+        assertEquals(1, result);
+    }
+    
+    @Test
+        public void testNothing(){
+            HexKey s = new HexKey();
+            }
+    @Test
+    public void testEmptyString() {
+        assertEquals(0, HexKey.hexKey(""));
+    }
+    @Test
+    public void testSinglePrimeDigit() {
+        assertEquals(1, HexKey.hexKey("2"));
+    }
+    @Test
+    public void testMultiplePrimeDigits() {
+        assertEquals(6, HexKey.hexKey("2357BD"));
+    }
+    @Test
+    public void testNonPrimeDigits() {
+        assertEquals(0, HexKey.hexKey("04689ACEF"));
+    }
+    @Test
+    public void testMixedPrimeAndNonPrimeDigits() {
+        assertEquals(6, HexKey.hexKey("23A45B67C8D9E"));
+    }
+    @Test
+    public void testCorrectCountingOfPrimeDigits() {
+        assertEquals(9, HexKey.hexKey("11235813215151617181920"));
+    }
+                                    
+}

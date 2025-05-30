@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_3154.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">leetcode</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_3154.java</span></div><h1>id_3154.java</h1><pre class="source lang-java linenums">package original;
+
+import java.util.HashMap;
+import java.util.Map;
+<span class="fc" id="L5">class Solution3154 {</span>
+<span class="fc" id="L6">    private Map&lt;Long, Integer&gt; f = new HashMap&lt;&gt;();</span>
+    private int k;
+
+    public int waysToReachStair(int k) {
+<span class="fc" id="L10">        this.k = k;</span>
+<span class="fc" id="L11">        return dfs(1, 0, 0);</span>
+    }
+
+    private int dfs(int i, int j, int jump) {
+<span class="fc bfc" id="L15" title="All 2 branches covered.">        if (i &gt; k + 1) {</span>
+<span class="fc" id="L16">            return 0;</span>
+        }
+<span class="fc" id="L18">        long key = ((long) i &lt;&lt; 32) | jump &lt;&lt; 1 | j;</span>
+<span class="fc bfc" id="L19" title="All 2 branches covered.">        if (f.containsKey(key)) {</span>
+<span class="fc" id="L20">            return f.get(key);</span>
+        }
+<span class="fc bfc" id="L22" title="All 2 branches covered.">        int ans = i == k ? 1 : 0;</span>
+<span class="fc bfc" id="L23" title="All 4 branches covered.">        if (i &gt; 0 &amp;&amp; j == 0) {</span>
+<span class="fc" id="L24">            ans += dfs(i - 1, 1, jump);</span>
+        }
+<span class="fc" id="L26">        ans += dfs(i + (1 &lt;&lt; jump), 0, jump + 1);</span>
+<span class="fc" id="L27">        f.put(key, ans);</span>
+<span class="fc" id="L28">        return ans;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

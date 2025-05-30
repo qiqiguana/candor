@@ -1,0 +1,76 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Solution2395 {
+
+  // compiled from: id_2395.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 5 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Solution2395; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public findSubarrays([I)Z
+   L0
+    LINENUMBER 7 L0
+    NEW java/util/HashSet
+    DUP
+    INVOKESPECIAL java/util/HashSet.<init> ()V
+    ASTORE 2
+   L1
+    LINENUMBER 8 L1
+    ICONST_1
+    ISTORE 3
+   L2
+   FRAME FULL [original/Solution2395 [I java/util/HashSet I] []
+    ILOAD 3
+    ALOAD 1
+    ARRAYLENGTH
+    IF_ICMPGE L3
+   L4
+    LINENUMBER 9 L4
+    ALOAD 2
+    ALOAD 1
+    ILOAD 3
+    ICONST_1
+    ISUB
+    IALOAD
+    ALOAD 1
+    ILOAD 3
+    IALOAD
+    ISUB
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEINTERFACE java/util/Set.add (Ljava/lang/Object;)Z (itf)
+    IFNE L5
+   L6
+    LINENUMBER 10 L6
+    ICONST_1
+    IRETURN
+   L5
+    LINENUMBER 8 L5
+   FRAME FULL [original/Solution2395 [I java/util/HashSet I] []
+    IINC 3 1
+    GOTO L2
+   L3
+    LINENUMBER 13 L3
+   FRAME FULL [original/Solution2395 [I java/util/HashSet I] []
+    ICONST_0
+    IRETURN
+   L7
+    LOCALVARIABLE i I L2 L3 3
+    LOCALVARIABLE this Loriginal/Solution2395; L0 L7 0
+    LOCALVARIABLE nums [I L0 L7 1
+    LOCALVARIABLE vis Ljava/util/Set; L1 L7 2
+    // signature Ljava/util/Set<Ljava/lang/Integer;>;
+    // declaration: vis extends java.util.Set<java.lang.Integer>
+    MAXSTACK = 4
+    MAXLOCALS = 4
+}
+

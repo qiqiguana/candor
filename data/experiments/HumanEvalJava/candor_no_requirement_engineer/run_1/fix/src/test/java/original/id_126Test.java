@@ -1,0 +1,49 @@
+package original;
+
+import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of IsSorted.
+*/
+class IsSortedTest {
+    @Test
+    void testIsSorted_EmptyList_ReturnsTrue() {
+        List<Object> lst = new ArrayList<>();
+        assertTrue(IsSorted.isSorted(lst));
+    }
+    
+    @Test
+        void testNothing(){
+            IsSorted s = new IsSorted();
+            }
+    @Test
+    public void testSingleElementList() {
+        List<java.lang.Object> lst = java.util.Arrays.asList(1);
+        assertTrue(original.IsSorted.isSorted(lst));
+    }
+    @Test
+    public void testAlreadySortedList() {
+        List<Object> lst = Arrays.asList(1, 2, 3, 4, 5);
+        assertTrue(IsSorted.isSorted(lst));
+    }
+    @Test
+    public void testUnsortedListWithDuplicates() {
+        List<Object> lst = Arrays.asList(3, 2, 2, 1);
+        assertFalse(IsSorted.isSorted(lst));
+    }
+    @Test
+    public void testEmptyList() {
+        List<Object> lst = Arrays.asList();
+        assertTrue(IsSorted.isSorted(lst));
+    }
+    @Test
+    public void testDuplicateElementsMoreThanTwiceFixed() {
+        List<Object> lst = Arrays.asList(1, 2, 2, 2, 3);
+        assertFalse(IsSorted.isSorted(lst));
+    }
+                                    
+}

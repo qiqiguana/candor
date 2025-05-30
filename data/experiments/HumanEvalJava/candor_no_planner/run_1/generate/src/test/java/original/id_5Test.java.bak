@@ -1,0 +1,25 @@
+package original;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of Intersperse.
+*/
+class IntersperseTest {
+
+    @Test
+    void testInterspersewithEmptyList() {
+        List<Object> numbers = new ArrayList<>();
+        int delimiter = 4;
+        assertEquals(0, Intersperse.intersperse(numbers, delimiter).size());
+    }
+    
+    @Test
+        public void testNothing(){
+            Intersperse s = new Intersperse();
+            }
+                                    
+}

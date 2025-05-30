@@ -1,0 +1,93 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of GetClosestVowel.
+*/
+class GetClosestVowelTest {
+    @Test
+    void testGetClosestVowel_ReturnsVowel_WhenWordContainsVowelBetweenConsonants() {
+        String word = "yogurt";
+        String expected = "u";
+        String actual = GetClosestVowel.getClosestVowel(word);
+        assertEquals(expected, actual);
+    }
+    
+    @Test
+        public void testNothing(){
+            GetClosestVowel s = new GetClosestVowel();
+            }
+    @Test
+    public void testGetClosestVowelHappyPathLowercase() {
+        String result = GetClosestVowel.getClosestVowel("yogurt");
+        assertEquals("u", result);
+    }
+    @Test
+    public void testGetClosestVowelHappyPathUppercase() {
+        String result = GetClosestVowel.getClosestVowel("FULL");
+        assertEquals("U", result);
+    }
+    @Test
+    public void testGetClosestVowelNoClosestVowel() {
+        String result = GetClosestVowel.getClosestVowel("ab");
+        assertEquals("", result);
+    }
+    @Test
+    public void testGetClosestVowelEdgeCaseSingleLetterWord() {
+        String result = GetClosestVowel.getClosestVowel("a");
+        assertEquals("", result);
+    }
+    @Test
+    public void testGetClosestVowelEdgeCaseTwoLetterWord() {
+        String result = GetClosestVowel.getClosestVowel("ab");
+        assertEquals("", result);
+    }
+    @Test
+    public void testGetClosestVowelNegativeNullPointerException() {
+        assertThrows(NullPointerException.class, () -> GetClosestVowel.getClosestVowel(null));
+    }
+    @Test
+    public void testNoVowelBetweenConsonants() {
+    	String word = "quick";
+    	String expected = "";
+    	assertEquals(expected, GetClosestVowel.getClosestVowel(word));
+    }
+    @Test
+    public void testVowelAtBeginning() {
+    	String word = "easy";
+    	String expected = "";
+    	assertEquals(expected, GetClosestVowel.getClosestVowel(word));
+    }
+    @Test
+    public void testVowelAtEnd() {
+    	String word = "abu";
+    	String expected = "";
+    	assertEquals(expected, GetClosestVowel.getClosestVowel(word));
+    }
+    @Test
+    public void testSingleCharacterInput() {
+    	String word = "a";
+    	String expected = "";
+    	assertEquals(expected, GetClosestVowel.getClosestVowel(word));
+    }
+    @Test
+    public void testUppercaseVowelBetweenConsonants3() {
+        String word = "YOGURT";
+        String expected = "U";
+        assertEquals(expected, GetClosestVowel.getClosestVowel(word));
+    }
+    @Test
+    public void testVowelBetweenConsonants1() {
+    	String word = "hello";
+    	String expected = "e";
+    	assertEquals(expected, GetClosestVowel.getClosestVowel(word));
+    }
+    @Test
+    public void testVowelBetweenConsonants2() {
+    	String word = "world";
+    	String expected = "o";
+    	assertEquals(expected, GetClosestVowel.getClosestVowel(word));
+    }
+                                    
+}

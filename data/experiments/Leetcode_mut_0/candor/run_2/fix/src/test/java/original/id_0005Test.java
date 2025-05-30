@@ -1,0 +1,166 @@
+package original;
+
+import java.util.Arrays;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of Solution0005.
+*/
+class Solution0005Test {
+    @Test
+    void testLongestPalindrome() {
+        Solution0005 solution = new Solution0005();
+        String result = solution.longestPalindrome("babad");
+        assertEquals("aba", result);
+    }
+    
+    @Test
+        public void testNothing(){
+            Solution0005 s = new Solution0005();
+            }
+    @Test
+    public void test_SingleCharacterPalindrome() {
+        Solution0005 solution = new Solution0005();
+        String result = solution.longestPalindrome("a");
+        assertEquals("a", result);
+    }
+    @Test
+    public void test_TwoCharactersPalindrome() {
+        Solution0005 solution = new Solution0005();
+        String result = solution.longestPalindrome("aa");
+        assertEquals("aa", result);
+    }
+    @Test
+    public void test_NonPalindromicTwoCharacters() {
+        Solution0005 solution = new Solution0005();
+        String result = solution.longestPalindrome("ab");
+        assertEquals("a", result);
+    }
+    @Test
+    public void test_EvenLengthPalindrome() {
+        Solution0005 solution = new Solution0005();
+        String result = solution.longestPalindrome("abcdedcba");
+        assertEquals("abcdedcba", result);
+    }
+    @Test
+    public void testLongestPalindrome_SingleCharacter() {
+        Solution0005 solution = new Solution0005();
+        String s = "a";
+        assertEquals("a", solution.longestPalindrome(s));
+    }
+    @Test
+    public void testLongestPalindrome_NoPalindrome() {
+        Solution0005 solution = new Solution0005();
+        String s = "abcde";
+        assertEquals("a", solution.longestPalindrome(s));
+    }
+    @Test
+    public void testLongestPalindrome_EvenLengthPalindrome() {
+        Solution0005 solution = new Solution0005();
+        String s = "abba";
+        assertEquals("abba", solution.longestPalindrome(s));
+    }
+    @Test
+    public void testLongestPalindrome_OddLengthPalindrome() {
+        Solution0005 solution = new Solution0005();
+        String s = "aba";
+        assertEquals("aba", solution.longestPalindrome(s));
+    }
+    @Test
+    public void TestLongestPalindrome_SingleCharacter() {
+        Solution0005 solution = new Solution0005();
+        String result = solution.longestPalindrome("a");
+        assertEquals("a", result);
+    }
+    @Test
+    public void TestLongestPalindrome_NoPalindrome() {
+        Solution0005 solution = new Solution0005();
+        String result = solution.longestPalindrome("abc");
+        assertEquals("a", result);
+    }
+    @Test
+    public void TestLongestPalindrome_EvenLengthPalindrome() {
+        Solution0005 solution = new Solution0005();
+        String result = solution.longestPalindrome("abba");
+        assertEquals("abba", result);
+    }
+    @Test
+    public void TestLongestPalindrome_OddLengthPalindrome() {
+        Solution0005 solution = new Solution0005();
+        String result = solution.longestPalindrome("aba");
+        assertEquals("aba", result);
+    }
+    @Test
+    public void TestLongestPalindrome_LongString_MultiplePossibleResults() {
+        Solution0005 solution = new Solution0005();
+        String result = solution.longestPalindrome("babad");
+        assertTrue(result.equals("bab") || result.equals("aba"));
+    }
+    @Test
+    void testLongestPalindromeWithEvenLength1() {
+        Solution0005 solution = new Solution0005();
+        String input = "babad";
+        String expectedOutput = "aba";
+        assertEquals(expectedOutput, solution.longestPalindrome(input));
+    }
+    @Test
+    void testLongestPalindromeWithOddLength() {
+        Solution0005 solution = new Solution0005();
+        String input = "cbbd";
+        String expectedOutput = "bb";
+        assertEquals(expectedOutput, solution.longestPalindrome(input));
+    }
+    @Test
+    void testLongestPalindromeWithSingleCharacter() {
+        Solution0005 solution = new Solution0005();
+        String input = "a";
+        String expectedOutput = "a";
+        assertEquals(expectedOutput, solution.longestPalindrome(input));
+    }
+    @Test
+    void testLongestPalindromeWithNoPalindrom() {
+        Solution0005 solution = new Solution0005();
+        String input = "abcd";
+        String expectedOutput = "a";
+        assertEquals(expectedOutput, solution.longestPalindrome(input));
+    }
+    @Test
+    public void TestPalindromeEvenLength() {
+        Solution0005 solution = new Solution0005();
+        String s = "abba";
+        String expected_result = "abba";
+        assertEquals(expected_result, solution.longestPalindrome(s));
+    }
+    @Test
+    public void TestPalindromeOddLength() {
+        Solution0005 solution = new Solution0005();
+        String s = "aba";
+        String expected_result = "aba";
+        assertEquals(expected_result, solution.longestPalindrome(s));
+    }
+    @Test
+    public void testPalindromeWithEvenLength() {
+        Solution0005 solution = new Solution0005();
+        String result = solution.longestPalindrome("abba");
+        assertEquals("abba", result);
+    }
+    @Test
+    public void testPalindromeWithOddLength() {
+        Solution0005 solution = new Solution0005();
+        String result = solution.longestPalindrome("aba");
+        assertEquals("aba", result);
+    }
+    @Test
+    public void testSingleCharacterInput() {
+        Solution0005 solution = new Solution0005();
+        String result = solution.longestPalindrome("a");
+        assertEquals("a", result);
+    }
+    @Test
+    public void testNullInput() {
+        Solution0005 solution = new Solution0005();
+        assertThrows(NullPointerException.class, () -> solution.longestPalindrome(null));
+    }
+                                    
+}

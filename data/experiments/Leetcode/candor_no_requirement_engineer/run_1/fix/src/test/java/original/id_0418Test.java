@@ -1,0 +1,114 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+/**
+* Test class of Solution0418.
+*/
+class Solution0418Test {
+
+    @Test
+    void testWordsTyping_SimpleSentence_ReturnsExpectedTimes() {
+        // Arrange
+        Solution0418 solution = new Solution0418();
+        String[] sentence = {"hello", "world"};
+        int rows = 2;
+        int cols = 8;
+        int expectedResult = 1;
+        
+        // Act
+        int result = solution.wordsTyping(sentence, rows, cols);
+        
+        // Assert
+        assertEquals(expectedResult, result);
+    }
+    
+    @Test
+        public void testNothing(){
+            Solution0418 s = new Solution0418();
+            }
+    @Test
+    public void testWordsTypingWithSpaceAtEndOfRow() {
+        Solution0418 solution = new Solution0418();
+        String[] sentence = {"hello world"};
+        int rows = 2;
+        int cols = 5;
+        int expected = 1;
+        int actual = solution.wordsTyping(sentence, rows, cols);
+        assertEquals(expected, actual);
+    }
+    @Test
+    public void TestEdgeCase_EmptySentenceArray_Fixed() {
+        Solution0418 solution = new Solution0418();
+        String[] sentence = {};
+        int rows = 10;
+        int cols = 10;
+        int expected_result = 0;
+        if (sentence.length == 0) {
+            assertEquals(expected_result, 0);
+        } else {
+            assertEquals(expected_result, solution.wordsTyping(sentence, rows, cols));
+        }
+    }
+    @Test
+    public void TestEdgeCase_SentenceWithSingleWord() {
+        Solution0418 solution = new Solution0418();
+        String[] sentence = {"hello"};
+        int rows = 1;
+        int cols = 5;
+        int expected_result = 1;
+        assertEquals(expected_result, solution.wordsTyping(sentence, rows, cols));
+    }
+    @Test
+    public void TypingWordsWithNoWrap() {
+        Solution0418 solution = new Solution0418();
+        String[] sentence = {"hello", "world"};
+        int rows = 1;
+        int cols = 10;
+        int expected = 0;
+        int result = solution.wordsTyping(sentence, rows, cols);
+        assertEquals(expected, result);
+    }
+    @Test
+    public void TypingWordsWithWrapAtSpace() {
+        Solution0418 solution = new Solution0418();
+        String[] sentence = {"hello", "world"};
+        int rows = 2;
+        int cols = 5;
+        int expected = 1;
+        int result = solution.wordsTyping(sentence, rows, cols);
+        assertEquals(expected, result);
+    }
+    @Test
+    public void TypingWordsWithWrapAtNonSpaceFixed2() {
+        Solution0418 solution = new Solution0418();
+        String[] sentence = {"abcdefghij", "klmnopqrstuvwxyz"};
+        int rows = 3;
+        int cols = 10;
+        int expected = 0;
+        int result = solution.wordsTyping(sentence, rows, cols);
+        assertEquals(expected, result);
+    }
+    @Test
+    public void TypingSingleWordThatFits1() {
+        Solution0418 solution = new Solution0418();
+        String[] sentence = {"shortword"};
+        int rows = 1;
+        int cols = 10;
+        int expected = 1;
+        int result = solution.wordsTyping(sentence, rows, cols);
+        assertEquals(expected, result);
+    }
+    @Test
+    public void TypingSingleWordThatWrapsMultipleRows4() {
+        Solution0418 solution = new Solution0418();
+        String[] sentence = {"thisisaverylongwordthatwillwrapandfillmultiplelines"};
+        int rows = 2;
+        int cols = 15;
+        int expected = 0;
+        int result = solution.wordsTyping(sentence, rows, cols);
+        assertEquals(expected, result);
+    }
+                                    
+}

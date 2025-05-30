@@ -1,0 +1,60 @@
+package oracle1;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of Solve.
+*/
+class SolveTest {
+
+    @Test
+    void testSolve_HasLetters_ReturnsReversedCaseString() {
+        // Arrange
+        String input = "#a@C";
+        String expected = "#A@c";
+
+        // Act
+        String result = Solve.solve(input);
+
+        // Assert
+        assertEquals(expected, result);
+    }
+    
+    @Test
+        void testNothing(){
+            Solve s = new Solve();
+            }
+    @Test
+    public void testEmptyString() {
+        assertEquals("", Solve.solve(""));
+    }
+    @Test
+    public void testSingleLetterLowercase() {
+        assertEquals("A", Solve.solve("a"));
+    }
+    @Test
+    public void testSingleLetterUppercase() {
+        assertEquals("a", Solve.solve("A"));
+    }
+    @Test
+    public void testMultipleLettersMixedCase() {
+        assertEquals("aSdF", Solve.solve("AsDf"));
+    }
+    @Test
+    public void testNonLetterCharactersOnly() {
+        assertEquals("4321", Solve.solve("1234"));
+    }
+    @Test
+    public void testLettersAndNonLetters() {
+        assertEquals("#A@c", Solve.solve("#a@C"));
+    }
+    @Test
+    public void testEdgeCaseSingleCharacterStringWithLetter() {
+        assertEquals("A", Solve.solve("a"));
+    }
+    @Test
+    public void testEdgeCaseSingleCharacterStringWithoutLetter() {
+        assertEquals("1", Solve.solve("1"));
+    }
+                                    
+}

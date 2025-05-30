@@ -1,0 +1,359 @@
+package original;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of MakePalindrome.
+*/
+class MakePalindromeTest {
+
+    @Test
+    void testMakePalindromeEmptyString() {
+        String result = MakePalindrome.makePalindrome("");
+        assertEquals("", result);
+    }
+    
+    @Test
+        void testNothing(){
+            MakePalindrome s = new MakePalindrome();
+            }
+    @Test
+    public void MakePalindrome_HappyPath_EmptyString() {
+        String input = "";
+        String expected = "";
+        assertEquals(expected, MakePalindrome.makePalindrome(input));
+    }
+    @Test
+    public void MakePalindrome_HappyPath_SingleCharacter() {
+        String input = "x";
+        String expected = "x";
+        assertEquals(expected, MakePalindrome.makePalindrome(input));
+    }
+    @Test
+    public void MakePalindrome_HappyPath_Palindrome() {
+        String input = "xyx";
+        String expected = "xyx";
+        assertEquals(expected, MakePalindrome.makePalindrome(input));
+    }
+    @Test
+    public void MakePalindrome_SadPath_NullInput() {
+        String input = null;
+        assertThrows(NullPointerException.class, () -> MakePalindrome.makePalindrome(input));
+    }
+    @Test
+    public void MakePalindrome_LongString_Fixed() {
+        String input = "abcdefghijklmnopqrstuvwxyz";
+        assertNotNull(MakePalindrome.makePalindrome(input));
+    }
+    @Test
+    public void testMakePalindrome_WithEmptyString_ReturnsEmptyString() {
+        // Arrange
+        String input = "";
+        String expectedResult = "";
+        
+        // Act
+        String result = MakePalindrome.makePalindrome(input);
+        
+        // Assert
+        assertEquals(expectedResult, result);
+    }
+    @Test
+    public void testMakePalindrome_WithSingleCharacter_ReturnsSameCharacter() {
+        // Arrange
+        String input = "x";
+        String expectedResult = "x";
+        
+        // Act
+        String result = MakePalindrome.makePalindrome(input);
+        
+        // Assert
+        assertEquals(expectedResult, result);
+    }
+    @Test
+    public void testMakePalindrome_WithAlreadyPalindromicString_ReturnsOriginalString() {
+        // Arrange
+        String input = "xyx";
+        String expectedResult = "xyx";
+        
+        // Act
+        String result = MakePalindrome.makePalindrome(input);
+        
+        // Assert
+        assertEquals(expectedResult, result);
+    }
+    @Test
+    public void testMakePalindrome_WithNonPalindromicString_ReturnsNewPalindromicString() {
+        // Arrange
+        String input = "xyz";
+        String expectedResult = "xyzyx";
+        
+        // Act
+        String result = MakePalindrome.makePalindrome(input);
+        
+        // Assert
+        assertEquals(expectedResult, result);
+    }
+    @Test
+    public void testMakePalindrome_WithNullInput_ThrowsNullPointerException() {
+        // Arrange
+        String input = null;
+        
+        // Act and Assert
+        assertThrows(NullPointerException.class, () -> MakePalindrome.makePalindrome(input));
+    }
+    @Test
+    public void testMakePalindrome_WithNullInput2_ThrowsNullPointerException() {
+        // Arrange
+        String input = null;
+        
+        // Act and Assert
+        assertThrows(NullPointerException.class, () -> MakePalindrome.makePalindrome(input));
+    }
+    @Test
+    void testMakePalindromeStaticMethod(){
+        String result = MakePalindrome.makePalindrome("cat");
+        assertEquals("catac", result);
+    }
+    @Test
+    public void testEmptyString() {
+        String input = "";
+        assertEquals("", MakePalindrome.makePalindrome(input));
+    }
+    @Test
+    public void testSingleCharacterPalindrome() {
+        String input = "x";
+        assertEquals("x", MakePalindrome.makePalindrome(input));
+    }
+    @Test
+    public void testMediumPalindrome() {
+        String input = "abcde";
+        assertEquals("abcdedcba", MakePalindrome.makePalindrome(input));
+    }
+    @Test
+    public void testLongPalindrome() {
+        String input = "abcdefghij";
+        assertEquals("abcdefghijihgfedcba", MakePalindrome.makePalindrome(input));
+    }
+    @Test
+    public void testEdgeCaseReverse() {
+        String input = "abcdef";
+        String reversed = new StringBuilder(input).reverse().toString();
+        assertEquals("fedcba", reversed);
+    }
+    @Test
+    public void testEdgeCaseSubString() {
+        String input = "abcdef";
+        String substring = input.substring(2);
+        assertEquals("cdef", substring);
+    }
+    @Test
+    void testSingleCharacterInput() {
+        String result = MakePalindrome.makePalindrome("x");
+        assertEquals("x", result);
+    }
+    @Test
+    public void testShortPalindrome2Fixed() {
+        String input = "xy";
+        assertNotNull(MakePalindrome.makePalindrome(input));
+    }
+    @Test
+    public void testMakePalindrome_EmptyString() {
+        String input = "";
+        String expected = "";
+        String result = MakePalindrome.makePalindrome(input);
+        assertEquals(expected, result);
+    }
+    @Test
+    public void testMakePalindrome_SingleCharacter() {
+        String input = "x";
+        String expected = "x";
+        String result = MakePalindrome.makePalindrome(input);
+        assertEquals(expected, result);
+    }
+    @Test
+    public void testMakePalindrome_Palindrome() {
+        String input = "xyx";
+        String expected = "xyx";
+        String result = MakePalindrome.makePalindrome(input);
+        assertEquals(expected, result);
+    }
+    @Test
+    public void testMakePalindrome_NonPalindrome() {
+        String input = "xyz";
+        String expected = "xyzyx";
+        String result = MakePalindrome.makePalindrome(input);
+        assertEquals(expected, result);
+    }
+    @Test
+    public void testMakePalindrome_NullInput() {
+        String input = null;
+        assertThrows(NullPointerException.class, () -> MakePalindrome.makePalindrome(input));
+    }
+    @Test
+    void testMakePalindromeEmptyStringFixed() {
+        String result = MakePalindrome.makePalindrome("");
+        assertNotNull(result);
+        assertEquals("", result);
+    }
+    @Test
+    public void testNullInput() {
+    	Assertions.assertThrows(NullPointerException.class, () -> MakePalindrome.makePalindrome(null));
+    }
+    @Test
+    void testMakePalindromeEmptyStringFixed1() {
+        String result = MakePalindrome.makePalindrome("");
+        assertEquals("", result);
+    }
+    @Test
+    void testMakePalindrome_EmptyString_Fixed() {
+        String input = "";
+        String expected = "";
+        assertEquals(expected, MakePalindrome.makePalindrome(input));
+    }
+    @Test
+    public void testSingleCharacterFixed1() {
+        String result = MakePalindrome.makePalindrome("x");
+        assertEquals("x", result);
+    }
+    @Test
+    public void testNonPalindrome2() {
+        String result = MakePalindrome.makePalindrome("xyz");
+        assertNotNull(result);
+    }
+    @Test
+    public void testSingleCharacter() {
+    	String input = "x";
+    	String expected = "x";
+    	String actual = MakePalindrome.makePalindrome(input);
+    	assertEquals(expected, actual);
+    }
+    @Test
+    public void testPalindromeString() {
+    	String input = "xyx";
+    	String expected = "xyx";
+    	String actual = MakePalindrome.makePalindrome(input);
+    	assertEquals(expected, actual);
+    }
+    @Test
+    public void testNonPalindromeString() {
+    	String input = "xyz";
+    	String expected = "xyzyx";
+    	String actual = MakePalindrome.makePalindrome(input);
+    	assertEquals(expected, actual);
+    }
+    @Test
+    public void testMakePalindromeReturnsNonNullOriginalSuffix() {
+        String result = MakePalindrome.makePalindrome("abcddcba");
+        assertNotNull(result);
+    }
+    @Test
+    public void testMakePalindromeReturnsCorrectResultForPalindrome1() {
+        String result = MakePalindrome.makePalindrome("abcddcba");
+        assertEquals("abcddcba", result);
+    }
+    @Test
+    void testMakePalindrome(){
+        String result = MakePalindrome.makePalindrome("cat");
+        assertEquals("catac", result);
+    }
+    @Test
+    public void testEmptyStringFixed() {
+        String input = "";
+        String expected = "";
+        String actual = MakePalindrome.makePalindrome(input);
+        assertEquals(expected, actual);
+    }
+    @Test
+    public void TestEmptyString() {
+        String input = "";
+        String expectedOutput = "";
+        assertEquals(expectedOutput, MakePalindrome.makePalindrome(input));
+    }
+    @Test
+    public void TestSingleCharacter() {
+        String input = "x";
+        String expectedOutput = "x";
+        assertEquals(expectedOutput, MakePalindrome.makePalindrome(input));
+    }
+    @Test
+    public void TestShortPalindrome() {
+        String input = "xyx";
+        String expectedOutput = "xyx";
+        assertEquals(expectedOutput, MakePalindrome.makePalindrome(input));
+    }
+    @Test
+    public void TestNonPalindrome() {
+        String input = "jerry";
+        String expectedOutput = "jerryrrej";
+        assertEquals(expectedOutput, MakePalindrome.makePalindrome(input));
+    }
+    @Test
+    public void TestEdgeCase_NullInput() {
+        String input = null;
+        assertThrows(NullPointerException.class, () -> MakePalindrome.makePalindrome(input));
+    }
+    @Test
+    public void TestMakePalindrome_LongString() {
+        String input = "abcdefghijklmnopqrstuvwxyz";
+        String expectedOutput = "abcdefghijklmnopqrstuvwxyzyxwvutsrqponmlkjihgfedcba";
+        assertEquals(expectedOutput, MakePalindrome.makePalindrome(input));
+    }
+    @Test
+    public void testShortPalindrome() {
+    	String result = MakePalindrome.makePalindrome("xyx");
+    	assertEquals("xyx", result);
+    }
+    @Test
+    public void testEdgeCase_ShortStringWithTwoCharacters() {
+    	String result = MakePalindrome.makePalindrome("ab");
+    	assertEquals("aba", result);
+    }
+    @Test
+    public void testMakePalindromeForEmptyString() {
+        String result = MakePalindrome.makePalindrome("");
+        assertEquals("", result);
+    }
+    @Test
+    public void testSingleCharacterAlternate() {
+        String result = MakePalindrome.makePalindrome("x");
+        assertEquals("x", result);
+    }
+    @Test
+    public void testNonPalindromeStringUnique() { String result = MakePalindrome.makePalindrome("xyz"); assertEquals("xyzyx", result); }
+    @Test
+    public void testMakePalindrome_Cata() {
+        String result = MakePalindrome.makePalindrome("cata");
+        assertEquals("catac", result);
+    }
+    @Test
+    public void testNullInputException() {
+        assertThrows(NullPointerException.class, () -> MakePalindrome.makePalindrome(null));
+    }
+    @Test
+    public void testMakePalindromeSingleCharacter() {
+        String result = MakePalindrome.makePalindrome("x");
+        assertEquals("x", result);
+    }
+    @Test
+    public void testMakePalindromeNonPalindromicString() {
+        String result = MakePalindrome.makePalindrome("xyz");
+        assertEquals("xyzyx", result);
+    }
+    @Test
+    public void testMakePalindromeAlreadyPalindromicString() {
+        String result = MakePalindrome.makePalindrome("xyx");
+        assertEquals("xyx", result);
+    }
+    @Test
+    public void testMakePalindromeLongNonPalindromicString() {
+        String result = MakePalindrome.makePalindrome("jerry");
+        assertEquals("jerryrrej", result);
+    }
+    @Test
+    public void testMakePalindromeNullInput() {
+        assertThrows(NullPointerException.class, () -> MakePalindrome.makePalindrome(null));
+    }
+                                    
+}

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_3235.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">leetcode</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_3235.java</span></div><h1>id_3235.java</h1><pre class="source lang-java linenums">package original;
+
+<span class="fc" id="L3">class Solution3235 {</span>
+    private int[][] circles;
+    private int xCorner, yCorner;
+    private boolean[] vis;
+
+    public boolean canReachCorner(int xCorner, int yCorner, int[][] circles) {
+<span class="fc" id="L9">        int n = circles.length;</span>
+<span class="fc" id="L10">        this.circles = circles;</span>
+<span class="fc" id="L11">        this.xCorner = xCorner;</span>
+<span class="fc" id="L12">        this.yCorner = yCorner;</span>
+<span class="fc" id="L13">        vis = new boolean[n];</span>
+<span class="fc bfc" id="L14" title="All 2 branches covered.">        for (int i = 0; i &lt; n; ++i) {</span>
+<span class="fc" id="L15">            var c = circles[i];</span>
+<span class="fc" id="L16">            int x = c[0], y = c[1], r = c[2];</span>
+<span class="fc bfc" id="L17" title="All 4 branches covered.">            if (inCircle(0, 0, x, y, r) || inCircle(xCorner, yCorner, x, y, r)) {</span>
+<span class="fc" id="L18">                return false;</span>
+            }
+<span class="fc bfc" id="L20" title="All 6 branches covered.">            if (!vis[i] &amp;&amp; crossLeftTop(x, y, r) &amp;&amp; dfs(i)) {</span>
+<span class="fc" id="L21">                return false;</span>
+            }
+        }
+<span class="fc" id="L24">        return true;</span>
+    }
+
+    private boolean inCircle(long x, long y, long cx, long cy, long r) {
+<span class="fc bfc" id="L28" title="All 2 branches covered.">        return (x - cx) * (x - cx) + (y - cy) * (y - cy) &lt;= r * r;</span>
+    }
+
+    private boolean crossLeftTop(long cx, long cy, long r) {
+<span class="fc bfc" id="L32" title="All 6 branches covered.">        boolean a = Math.abs(cx) &lt;= r &amp;&amp; (cy &gt;= 0 &amp;&amp; cy &lt;= yCorner);</span>
+<span class="fc bfc" id="L33" title="All 6 branches covered.">        boolean b = Math.abs(cy - yCorner) &lt;= r &amp;&amp; (cx &gt;= 0 &amp;&amp; cx &lt;= xCorner);</span>
+<span class="fc bfc" id="L34" title="All 4 branches covered.">        return a || b;</span>
+    }
+
+    private boolean crossRightBottom(long cx, long cy, long r) {
+<span class="fc bfc" id="L38" title="All 6 branches covered.">        boolean a = Math.abs(cx - xCorner) &lt;= r &amp;&amp; (cy &gt;= 0 &amp;&amp; cy &lt;= yCorner);</span>
+<span class="fc bfc" id="L39" title="All 6 branches covered.">        boolean b = Math.abs(cy) &lt;= r &amp;&amp; (cx &gt;= 0 &amp;&amp; cx &lt;= xCorner);</span>
+<span class="fc bfc" id="L40" title="All 4 branches covered.">        return a || b;</span>
+    }
+
+    private boolean dfs(int i) {
+<span class="fc" id="L44">        var c = circles[i];</span>
+<span class="fc" id="L45">        long x1 = c[0], y1 = c[1], r1 = c[2];</span>
+<span class="fc bfc" id="L46" title="All 2 branches covered.">        if (crossRightBottom(x1, y1, r1)) {</span>
+<span class="fc" id="L47">            return true;</span>
+        }
+<span class="fc" id="L49">        vis[i] = true;</span>
+<span class="fc bfc" id="L50" title="All 2 branches covered.">        for (int j = 0; j &lt; circles.length; ++j) {</span>
+<span class="fc" id="L51">            var c2 = circles[j];</span>
+<span class="fc" id="L52">            long x2 = c2[0], y2 = c2[1], r2 = c2[2];</span>
+<span class="fc bfc" id="L53" title="All 2 branches covered.">            if (vis[j]) {</span>
+<span class="fc" id="L54">                continue;</span>
+            }
+<span class="fc bfc" id="L56" title="All 2 branches covered.">            if ((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2) &gt; (r1 + r2) * (r1 + r2)) {</span>
+<span class="fc" id="L57">                continue;</span>
+            }
+<span class="fc bfc" id="L59" title="All 4 branches covered.">            if (x1 * r2 + x2 * r1 &lt; (r1 + r2) * xCorner &amp;&amp; y1 * r2 + y2 * r1 &lt; (r1 + r2) * yCorner</span>
+<span class="fc bfc" id="L60" title="All 2 branches covered.">                &amp;&amp; dfs(j)) {</span>
+<span class="fc" id="L61">                return true;</span>
+            }
+        }
+<span class="fc" id="L64">        return false;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

@@ -1,0 +1,120 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Solution2734 {
+
+  // compiled from: id_2734.java
+  // access flags 0x19
+  public final static INNERCLASS java/lang/invoke/MethodHandles$Lookup java/lang/invoke/MethodHandles Lookup
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 3 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Solution2734; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public smallestString(Ljava/lang/String;)Ljava/lang/String;
+   L0
+    LINENUMBER 5 L0
+    ALOAD 1
+    INVOKEVIRTUAL java/lang/String.length ()I
+    ISTORE 2
+   L1
+    LINENUMBER 6 L1
+    ICONST_0
+    ISTORE 3
+   L2
+    LINENUMBER 7 L2
+   FRAME FULL [original/Solution2734 java/lang/String I I] []
+    ILOAD 3
+    ILOAD 2
+    IF_ICMPGE L3
+    ALOAD 1
+    ILOAD 3
+    INVOKEVIRTUAL java/lang/String.charAt (I)C
+    BIPUSH 97
+    IF_ICMPNE L3
+   L4
+    LINENUMBER 8 L4
+    IINC 3 1
+    GOTO L2
+   L3
+    LINENUMBER 10 L3
+   FRAME FULL [original/Solution2734 java/lang/String I I] []
+    ILOAD 3
+    ILOAD 2
+    IF_ICMPNE L5
+   L6
+    LINENUMBER 11 L6
+    ALOAD 1
+    ICONST_0
+    ILOAD 2
+    ICONST_1
+    ISUB
+    INVOKEVIRTUAL java/lang/String.substring (II)Ljava/lang/String;
+    INVOKEDYNAMIC makeConcatWithConstants(Ljava/lang/String;)Ljava/lang/String; [
+      // handle kind 0x6 : INVOKESTATIC
+      java/lang/invoke/StringConcatFactory.makeConcatWithConstants(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;
+      // arguments:
+      "\u0001z"
+    ]
+    ARETURN
+   L5
+    LINENUMBER 13 L5
+   FRAME FULL [original/Solution2734 java/lang/String I I] []
+    ILOAD 3
+    ISTORE 4
+   L7
+    LINENUMBER 14 L7
+    ALOAD 1
+    INVOKEVIRTUAL java/lang/String.toCharArray ()[C
+    ASTORE 5
+   L8
+    LINENUMBER 15 L8
+   FRAME FULL [original/Solution2734 java/lang/String I I I [C] []
+    ILOAD 4
+    ILOAD 2
+    IF_ICMPLT L9
+    ALOAD 5
+    ILOAD 4
+    CALOAD
+    BIPUSH 97
+    IF_ICMPEQ L9
+   L10
+    LINENUMBER 16 L10
+    ALOAD 5
+    ILOAD 4
+    ALOAD 5
+    ILOAD 4
+    CALOAD
+    ICONST_1
+    ISUB
+    I2C
+    CASTORE
+   L11
+    LINENUMBER 17 L11
+    IINC 4 1
+    GOTO L8
+   L9
+    LINENUMBER 19 L9
+   FRAME FULL [original/Solution2734 java/lang/String I I I [C] []
+    ALOAD 5
+    INVOKESTATIC java/lang/String.valueOf ([C)Ljava/lang/String;
+    ARETURN
+   L12
+    LOCALVARIABLE this Loriginal/Solution2734; L0 L12 0
+    LOCALVARIABLE s Ljava/lang/String; L0 L12 1
+    LOCALVARIABLE n I L1 L12 2
+    LOCALVARIABLE i I L2 L12 3
+    LOCALVARIABLE j I L7 L12 4
+    LOCALVARIABLE cs [C L8 L12 5
+    MAXSTACK = 4
+    MAXLOCALS = 6
+}
+

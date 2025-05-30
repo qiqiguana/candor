@@ -1,0 +1,36 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of RemoveVowels.
+*/
+class RemoveVowelsTest {
+    @Test
+    void testRemoveVowels_withEmptyString_shouldReturnEmptyString() {
+        String text = "";
+        String expected = "";
+        assertEquals(expected, RemoveVowels.removeVowels(text));
+    }
+    
+    @Test
+        public void testNothing(){
+            RemoveVowels s = new RemoveVowels();
+            }
+    @Test
+    public void testRemoveVowelsClassInstantiation() {
+        original.RemoveVowels removeVowels = new original.RemoveVowels();
+        assertNotNull(removeVowels);
+    }
+    @Test
+    public void testCharAtMethodCall() {
+        String result = original.RemoveVowels.removeVowels("abcdef");
+        assertEquals("bcdf", result);
+    }
+    @Test
+    public void testConditionalStatementInLoop() {
+        String result = original.RemoveVowels.removeVowels("aeiouAEIOU");
+        assertEquals("", result);
+    }
+                                    
+}

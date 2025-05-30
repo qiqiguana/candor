@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_69.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HumanEvalJava</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_69.java</span></div><h1>id_69.java</h1><pre class="source lang-java linenums">package original;
+
+
+import java.util.List;
+
+
+<span class="nc" id="L7">class Search {</span>
+    /**
+     * You are given a non-empty list of positive integers. Return the greatest integer that is greater than
+     * zero, and has a frequency greater than or equal to the value of the integer itself.
+     * The frequency of an integer is the number of times it appears in the list.
+     * If no such a value exist, return -1.
+     * Examples:
+     * search([4, 1, 2, 2, 3, 1]) == 2
+     * search([1, 2, 2, 3, 3, 3, 4, 4, 4]) == 3
+     * search([5, 5, 4, 4, 4]) == -1
+     *
+     * &gt; search([5, 5, 5, 5, 1])
+     * 1
+     * &gt; search([4, 1, 4, 1, 4, 4])
+     * 4
+     * &gt; search([3, 3])
+     * -1
+     * &gt; search([8, 8, 8, 8, 8, 8, 8, 8])
+     * 8
+     * &gt; search([2, 3, 3, 2, 2])
+     * 2
+     * &gt; search([2, 7, 8, 8, 4, 8, 7, 3, 9, 6, 5, 10, 4, 3, 6, 7, 1, 7, 4, 10, 8, 1])
+     * 1
+     * &gt; search([3, 2, 8, 2])
+     * 2
+     * &gt; search([6, 7, 1, 8, 8, 10, 5, 8, 5, 3, 10])
+     * 1
+     * &gt; search([8, 8, 3, 6, 5, 6, 4])
+     * -1
+     * &gt; search([6, 9, 6, 7, 1, 4, 7, 1, 8, 8, 9, 8, 10, 10, 8, 4, 10, 4, 10, 1, 2, 9, 5, 7, 9])
+     * 1
+     * &gt; search([1, 9, 10, 1, 3])
+     * 1
+     * &gt; search([6, 9, 7, 5, 8, 7, 5, 3, 7, 5, 10, 10, 3, 6, 10, 2, 8, 6, 5, 4, 9, 5, 3, 10])
+     * 5
+     * &gt; search([1])
+     * 1
+     * &gt; search([8, 8, 10, 6, 4, 3, 5, 8, 2, 4, 2, 8, 4, 6, 10, 4, 2, 1, 10, 2, 1, 1, 5])
+     * 4
+     * &gt; search([2, 10, 4, 8, 2, 10, 5, 1, 2, 9, 5, 5, 6, 3, 8, 6, 4, 10])
+     * 2
+     * &gt; search([1, 6, 10, 1, 6, 9, 10, 8, 6, 8, 7, 3])
+     * 1
+     * &gt; search([9, 2, 4, 1, 5, 1, 5, 2, 5, 7, 7, 7, 3, 10, 1, 5, 4, 2, 8, 4, 1, 9, 10, 7, 10, 2, 8, 10, 9, 4])
+     * 4
+     * &gt; search([2, 6, 4, 2, 8, 7, 5, 6, 4, 10, 4, 6, 3, 7, 8, 8, 3, 1, 4, 2, 2, 10, 7])
+     * 4
+     * &gt; search([9, 8, 6, 10, 2, 6, 10, 2, 7, 8, 10, 3, 8, 2, 6, 2, 3, 1])
+     * 2
+     * &gt; search([5, 5, 3, 9, 5, 6, 3, 2, 8, 5, 6, 10, 10, 6, 8, 4, 10, 7, 7, 10, 8])
+     * -1
+     * &gt; search([10])
+     * -1
+     * &gt; search([9, 7, 7, 2, 4, 7, 2, 10, 9, 7, 5, 7, 2])
+     * 2
+     * &gt; search([5, 4, 10, 2, 1, 1, 10, 3, 6, 1, 8])
+     * 1
+     * &gt; search([7, 9, 9, 9, 3, 4, 1, 5, 9, 1, 2, 1, 1, 10, 7, 5, 6, 7, 6, 7, 7, 6])
+     * 1
+     * &gt; search([3, 10, 10, 9, 2])
+     * -1
+     */
+    public static int search(List&lt;Integer&gt; lst) {
+<span class="fc" id="L70">        int max = -1;</span>
+<span class="fc" id="L71">        int[] freq = new int[11];</span>
+<span class="fc bfc" id="L72" title="All 2 branches covered.">        for (int i = 0; i &lt; lst.size(); i++) {</span>
+<span class="fc" id="L73">            freq[lst.get(i)]++;</span>
+        }
+<span class="fc bfc" id="L75" title="All 2 branches covered.">        for (int i = 1; i &lt; 11; i++) {</span>
+<span class="fc bfc" id="L76" title="All 2 branches covered.">            if (freq[i] &gt;= i) {</span>
+<span class="fc" id="L77">                max = i;</span>
+            }
+        }
+<span class="fc" id="L80">        return max;</span>
+    }
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

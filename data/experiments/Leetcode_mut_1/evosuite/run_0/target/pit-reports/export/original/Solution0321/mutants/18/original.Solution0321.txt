@@ -1,0 +1,383 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Solution0321 {
+
+  // compiled from: id_0321.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 3 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Solution0321; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public maxNumber([I[II)[I
+   L0
+    LINENUMBER 5 L0
+    ALOAD 1
+    ARRAYLENGTH
+    ISTORE 4
+   L1
+    ALOAD 2
+    ARRAYLENGTH
+    ISTORE 5
+   L2
+    LINENUMBER 6 L2
+    ICONST_0
+    ILOAD 3
+    ILOAD 5
+    ISUB
+    INVOKESTATIC java/lang/Math.max (II)I
+    ISTORE 6
+   L3
+    ILOAD 3
+    ILOAD 4
+    INVOKESTATIC java/lang/Math.min (II)I
+    ISTORE 7
+   L4
+    LINENUMBER 7 L4
+    ILOAD 3
+    NEWARRAY T_INT
+    ASTORE 8
+   L5
+    LINENUMBER 8 L5
+    ILOAD 6
+    ISTORE 9
+   L6
+   FRAME FULL [original/Solution0321 [I [I I I I I I [I I] []
+    ILOAD 9
+    ILOAD 7
+    IF_ICMPGT L7
+   L8
+    LINENUMBER 9 L8
+    ALOAD 0
+    ALOAD 1
+    ILOAD 9
+    INVOKEVIRTUAL original/Solution0321.f ([II)[I
+    ASTORE 10
+   L9
+    LINENUMBER 10 L9
+    ALOAD 0
+    ALOAD 2
+    ILOAD 3
+    ILOAD 9
+    ISUB
+    INVOKEVIRTUAL original/Solution0321.f ([II)[I
+    ASTORE 11
+   L10
+    LINENUMBER 11 L10
+    ALOAD 0
+    ALOAD 10
+    ALOAD 11
+    INVOKEVIRTUAL original/Solution0321.merge ([I[I)[I
+    ASTORE 12
+   L11
+    LINENUMBER 12 L11
+    ALOAD 0
+    ALOAD 12
+    ALOAD 8
+    ICONST_0
+    ICONST_0
+    INVOKEVIRTUAL original/Solution0321.compare ([I[III)Z
+    IFEQ L12
+   L13
+    LINENUMBER 13 L13
+    ALOAD 12
+    ASTORE 8
+   L12
+    LINENUMBER 8 L12
+   FRAME FULL [original/Solution0321 [I [I I I I I I [I I [I [I [I] []
+    IINC 9 1
+    GOTO L6
+   L7
+    LINENUMBER 16 L7
+   FRAME FULL [original/Solution0321 [I [I I I I I I [I I] []
+    ALOAD 8
+    ARETURN
+   L14
+    LOCALVARIABLE arr1 [I L9 L12 10
+    LOCALVARIABLE arr2 [I L10 L12 11
+    LOCALVARIABLE arr [I L11 L12 12
+    LOCALVARIABLE x I L6 L7 9
+    LOCALVARIABLE this Loriginal/Solution0321; L0 L14 0
+    LOCALVARIABLE nums1 [I L0 L14 1
+    LOCALVARIABLE nums2 [I L0 L14 2
+    LOCALVARIABLE k I L0 L14 3
+    LOCALVARIABLE m I L1 L14 4
+    LOCALVARIABLE n I L2 L14 5
+    LOCALVARIABLE l I L3 L14 6
+    LOCALVARIABLE r I L4 L14 7
+    LOCALVARIABLE ans [I L5 L14 8
+    MAXSTACK = 5
+    MAXLOCALS = 13
+
+  // access flags 0x2
+  private f([II)[I
+   L0
+    LINENUMBER 20 L0
+    ALOAD 1
+    ARRAYLENGTH
+    ISTORE 3
+   L1
+    LINENUMBER 21 L1
+    ILOAD 2
+    NEWARRAY T_INT
+    ASTORE 4
+   L2
+    LINENUMBER 22 L2
+    ICONST_M1
+    ISTORE 5
+   L3
+    LINENUMBER 23 L3
+    ILOAD 3
+    ILOAD 2
+    ISUB
+    ISTORE 6
+   L4
+    LINENUMBER 24 L4
+    ALOAD 1
+    ASTORE 7
+    ALOAD 7
+    ARRAYLENGTH
+    ISTORE 8
+    ICONST_0
+    ISTORE 9
+   L5
+   FRAME FULL [original/Solution0321 [I I I [I I I [I I I] []
+    ILOAD 9
+    ILOAD 8
+    IF_ICMPGE L6
+    ALOAD 7
+    ILOAD 9
+    IALOAD
+    ISTORE 10
+   L7
+    LINENUMBER 25 L7
+   FRAME FULL [original/Solution0321 [I I I [I I I [I I I I] []
+    ILOAD 5
+    IFLT L8
+    ALOAD 4
+    ILOAD 5
+    IALOAD
+    ILOAD 10
+    IF_ICMPGE L8
+    ILOAD 6
+    IFLE L8
+   L9
+    LINENUMBER 26 L9
+    IINC 5 -1
+   L10
+    LINENUMBER 27 L10
+    IINC 6 -1
+    GOTO L7
+   L8
+    LINENUMBER 29 L8
+   FRAME FULL [original/Solution0321 [I I I [I I I [I I I I] []
+    ILOAD 5
+    ICONST_1
+    IADD
+    ILOAD 2
+    IF_ICMPGE L11
+   L12
+    LINENUMBER 30 L12
+    ALOAD 4
+    IINC 5 -1
+    ILOAD 5
+    ILOAD 10
+    IASTORE
+    GOTO L13
+   L11
+    LINENUMBER 32 L11
+   FRAME FULL [original/Solution0321 [I I I [I I I [I I I I] []
+    IINC 6 -1
+   L13
+    LINENUMBER 24 L13
+   FRAME FULL [original/Solution0321 [I I I [I I I [I I I I] []
+    IINC 9 1
+    GOTO L5
+   L6
+    LINENUMBER 35 L6
+   FRAME FULL [original/Solution0321 [I I I [I I I [I I I] []
+    ALOAD 4
+    ARETURN
+   L14
+    LOCALVARIABLE x I L7 L13 10
+    LOCALVARIABLE this Loriginal/Solution0321; L0 L14 0
+    LOCALVARIABLE nums [I L0 L14 1
+    LOCALVARIABLE k I L0 L14 2
+    LOCALVARIABLE n I L1 L14 3
+    LOCALVARIABLE stk [I L2 L14 4
+    LOCALVARIABLE top I L3 L14 5
+    LOCALVARIABLE remain I L4 L14 6
+    MAXSTACK = 3
+    MAXLOCALS = 11
+
+  // access flags 0x2
+  private merge([I[I)[I
+   L0
+    LINENUMBER 39 L0
+    ALOAD 1
+    ARRAYLENGTH
+    ISTORE 3
+   L1
+    ALOAD 2
+    ARRAYLENGTH
+    ISTORE 4
+   L2
+    LINENUMBER 40 L2
+    ICONST_0
+    ISTORE 5
+   L3
+    ICONST_0
+    ISTORE 6
+   L4
+    LINENUMBER 41 L4
+    ILOAD 3
+    ILOAD 4
+    IADD
+    NEWARRAY T_INT
+    ASTORE 7
+   L5
+    LINENUMBER 42 L5
+    ICONST_0
+    ISTORE 8
+   L6
+   FRAME FULL [original/Solution0321 [I [I I I I I [I I] []
+    ILOAD 8
+    ILOAD 3
+    ILOAD 4
+    IADD
+    IF_ICMPGE L7
+   L8
+    LINENUMBER 43 L8
+    ALOAD 0
+    ALOAD 1
+    ALOAD 2
+    ILOAD 5
+    ILOAD 6
+    INVOKEVIRTUAL original/Solution0321.compare ([I[III)Z
+    IFEQ L9
+   L10
+    LINENUMBER 44 L10
+    ALOAD 7
+    ILOAD 8
+    ALOAD 1
+    ILOAD 5
+    IINC 5 1
+    IALOAD
+    IASTORE
+    GOTO L11
+   L9
+    LINENUMBER 46 L9
+   FRAME FULL [original/Solution0321 [I [I I I I I [I I] []
+    ALOAD 7
+    ILOAD 8
+    ALOAD 2
+    ILOAD 6
+    IINC 6 1
+    IALOAD
+    IASTORE
+   L11
+    LINENUMBER 42 L11
+   FRAME FULL [original/Solution0321 [I [I I I I I [I I] []
+    IINC 8 1
+    GOTO L6
+   L7
+    LINENUMBER 49 L7
+   FRAME FULL [original/Solution0321 [I [I I I I I [I I] []
+    ALOAD 7
+    ARETURN
+   L12
+    LOCALVARIABLE k I L6 L7 8
+    LOCALVARIABLE this Loriginal/Solution0321; L0 L12 0
+    LOCALVARIABLE nums1 [I L0 L12 1
+    LOCALVARIABLE nums2 [I L0 L12 2
+    LOCALVARIABLE m I L1 L12 3
+    LOCALVARIABLE n I L2 L12 4
+    LOCALVARIABLE i I L3 L12 5
+    LOCALVARIABLE j I L4 L12 6
+    LOCALVARIABLE ans [I L5 L12 7
+    MAXSTACK = 5
+    MAXLOCALS = 9
+
+  // access flags 0x2
+  private compare([I[III)Z
+   L0
+    LINENUMBER 53 L0
+    ILOAD 3
+    ALOAD 1
+    ARRAYLENGTH
+    IF_ICMPLT L1
+   L2
+    LINENUMBER 54 L2
+    ICONST_0
+    IRETURN
+   L1
+    LINENUMBER 56 L1
+   FRAME FULL [original/Solution0321 [I [I I I] []
+    ILOAD 4
+    ALOAD 2
+    ARRAYLENGTH
+    IF_ICMPLT L3
+   L4
+    LINENUMBER 57 L4
+    ICONST_1
+    IRETURN
+   L3
+    LINENUMBER 59 L3
+   FRAME FULL [original/Solution0321 [I [I I I] []
+    ALOAD 1
+    ILOAD 3
+    IALOAD
+    ALOAD 2
+    ILOAD 4
+    IALOAD
+    IF_ICMPLE L5
+   L6
+    LINENUMBER 60 L6
+    ICONST_1
+    IRETURN
+   L5
+    LINENUMBER 62 L5
+   FRAME FULL [original/Solution0321 [I [I I I] []
+    ALOAD 1
+    ILOAD 3
+    IALOAD
+    ALOAD 2
+    ILOAD 4
+    IALOAD
+    IF_ICMPGE L7
+   L8
+    LINENUMBER 63 L8
+    ICONST_0
+    IRETURN
+   L7
+    LINENUMBER 65 L7
+   FRAME FULL [original/Solution0321 [I [I I I] []
+    ALOAD 0
+    ALOAD 1
+    ALOAD 2
+    ILOAD 3
+    ICONST_1
+    IADD
+    ILOAD 4
+    ICONST_1
+    IADD
+    INVOKEVIRTUAL original/Solution0321.compare ([I[III)Z
+    IRETURN
+   L9
+    LOCALVARIABLE this Loriginal/Solution0321; L0 L9 0
+    LOCALVARIABLE nums1 [I L0 L9 1
+    LOCALVARIABLE nums2 [I L0 L9 2
+    LOCALVARIABLE i I L0 L9 3
+    LOCALVARIABLE j I L0 L9 4
+    MAXSTACK = 6
+    MAXLOCALS = 5
+}
+

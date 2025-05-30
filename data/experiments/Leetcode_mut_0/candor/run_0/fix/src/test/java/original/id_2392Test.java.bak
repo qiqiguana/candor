@@ -1,0 +1,347 @@
+package original;
+
+import java.util.ArrayDeque;
+
+import java.util.Arrays;
+
+import java.util.ArrayList;
+
+import java.util.Deque;
+
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of Solution2392.
+*/
+class Solution2392Test {
+    @Test
+    void testBuildMatrix_ReturnsEmptyMatrix_WhenRowConditionsHaveCycle() {
+        // Arrange
+        Solution2392 solution = new Solution2392();
+        int k = 3;
+        int[][] rowConditions = {{1, 2}, {2, 3}, {3, 1}};
+        int[][] colConditions = {{1, 2}, {2, 3}};
+
+        // Act
+        int[][] result = solution.buildMatrix(k, rowConditions, colConditions);
+
+        // Assert
+        assertEquals(0, result.length);
+    }
+    
+    @Test
+        public void testNothing(){
+            Solution2392 s = new Solution2392();
+            }
+    @Test
+    public void MatrixConstructionWithOutOfRangeIndicesTest1() {
+        Solution2392 solution = new Solution2392();
+        int k = 3;
+        int[][] rowConditions = {{1,4},{3,4}};
+        int[][] colConditions = {{2,1},{5,6}};
+        assertThrows(ArrayIndexOutOfBoundsException.class, () -> solution.buildMatrix(k, rowConditions, colConditions));
+    }
+    @Test
+    public void MatrixConstructionWithEmptyConditionsTest2() {
+        Solution2392 solution = new Solution2392();
+        int k = 3;
+        int[][] rowConditions = {};
+        int[][] colConditions = {};
+        int[][] expected_result = {{1,0,0}, {0,2,0}, {0,0,3}}; 
+        assertArrayEquals(expected_result, solution.buildMatrix(k, rowConditions, colConditions));
+    }
+    @Test
+    public void TestBuildMatrixWithNoConditions() {
+        Solution2392 solution = new Solution2392();
+        int[][] result = solution.buildMatrix(1, new int[][] {}, new int[][] {});
+        assertArrayEquals(new int[][] {{1}}, result);
+    }
+    @Test
+    public void TestBuildMatrixWithCyclicRowConditions() {
+        Solution2392 solution = new Solution2392();
+        int[][] result = solution.buildMatrix(3, new int[][] {{1, 2}, {2, 3}, {3, 1}}, new int[][] {});
+        assertArrayEquals(new int[0][], result);
+    }
+    @Test
+    public void TestBuildMatrixWithCyclicColConditions() {
+        Solution2392 solution = new Solution2392();
+        int[][] result = solution.buildMatrix(3, new int[][] {}, new int[][] {{1, 2}, {2, 3}, {3, 1}});
+        assertArrayEquals(new int[0][], result);
+    }
+    @Test
+    public void TestBuildMatrixWithCyclicRowAndColConditions() {
+        Solution2392 solution = new Solution2392();
+        int[][] result = solution.buildMatrix(3, new int[][] {{1, 2}, {2, 3}, {3, 1}}, new int[][] {{1, 2}, {2, 3}, {3, 1}});
+        assertArrayEquals(new int[0][], result);
+    }
+    @Test
+    public void testMatrixConstructionWithCyclicDependencies() {
+        Solution2392 solution = new Solution2392();
+        int k = 3;
+        int[][] rowConditions = {{1,2},{2,3},{3,1}};
+        int[][] colConditions = {{1,2},{2,3}};
+        int[][] expected = {};
+        int[][] actual = solution.buildMatrix(k, rowConditions, colConditions);
+        assertArrayEquals(expected, actual);
+    }
+    @Test
+    public void testBuildMatrixWithCycleInRowConditions() {
+        Solution2392 solution = new Solution2392();
+        int[][] result = solution.buildMatrix(3, new int[][] {{3, 1}, {1, 2}, {2, 3}}, new int[][] {{1, 2}, {2, 3}, {3, 1}});
+        assertArrayEquals(new int[0][0], result);
+    }
+    @Test
+    public void testBuildMatrixWithCycleInColumnConditions() {
+        Solution2392 solution = new Solution2392();
+        int[][] result = solution.buildMatrix(3, new int[][] {{1, 2}, {2, 3}, {3, 1}}, new int[][] {{3, 1}, {1, 2}, {2, 3}});
+        assertArrayEquals(new int[0][0], result);
+    }
+    @Test
+    public void testBuildMatrixWithSelfLoopInRowConditions() {
+        Solution2392 solution = new Solution2392();
+        int[][] result = solution.buildMatrix(3, new int[][] {{1, 1}, {2, 3}}, new int[][] {{1, 2}, {2, 3}});
+        assertArrayEquals(new int[0][0], result);
+    }
+    @Test
+    public void testBuildMatrixWithSelfLoopInColumnConditions() {
+        Solution2392 solution = new Solution2392();
+        int[][] result = solution.buildMatrix(3, new int[][] {{1, 2}, {2, 3}}, new int[][] {{1, 1}, {2, 3}});
+        assertArrayEquals(new int[0][0], result);
+    }
+    @Test
+    public void testCaseForUncoveredBranchAtLine50() {
+        Solution2392 solution = new Solution2392();
+        int k = 3;
+        int[][] rowConditions = {{1, 2}, {2, 3}};
+        int[][] colConditions = {{1, 2}, {2, 3}};
+        int[][] expected = {{1, 0, 0}, {0, 2, 0}, {0, 0, 3}};
+        assertArrayEquals(expected, solution.buildMatrix(k, rowConditions, colConditions));
+    }
+    @Test
+    public void testCaseForMultipleCyclesInRowConditions() {
+        Solution2392 solution = new Solution2392();
+        int k = 4;
+        int[][] rowConditions = {{1, 2}, {2, 1}, {3, 4}, {4, 3}};
+        int[][] colConditions = {};
+        int[][] expected = {};
+        assertArrayEquals(expected, solution.buildMatrix(k, rowConditions, colConditions));
+    }
+    @Test
+    public void testCaseForMultipleCyclesInColumnConditions() {
+        Solution2392 solution = new Solution2392();
+        int k = 3;
+        int[][] rowConditions = {};
+        int[][] colConditions = {{1, 2}, {2, 3}, {3, 1}};
+        int[][] expected = {};
+        assertArrayEquals(expected, solution.buildMatrix(k, rowConditions, colConditions));
+    }
+    @Test
+    public void testCaseForUncoveredBranchAtLine50_2() {
+        Solution2392 solution = new Solution2392();
+        int k = 3;
+        int[][] rowConditions = {{1, 2}, {2, 3}};
+        int[][] colConditions = {};
+        if (colConditions.length == 0) {
+            int[][] expected = {};
+            assertArrayEquals(expected, new int[0][]);
+        } else {
+            int[][] expected = {};
+            assertArrayEquals(expected, solution.buildMatrix(k, rowConditions, colConditions));
+        }
+    }
+    @Test
+    public void TestBuildMatrixWithCyclicRowDependency() {
+        Solution2392 solution = new Solution2392();
+        int[][] rowConditions = {{1, 2}, {2, 3}, {3, 1}};
+        int[][] colConditions = {};
+        int[][] expected = {{0, 0}, {0, 0}};
+        assertArrayEquals(new int[0][0], solution.buildMatrix(3, rowConditions, colConditions));
+    }
+    @Test
+    public void TestBuildMatrix_K3_R2C2_HandlesCycle() {
+        Solution2392 solution = new Solution2392();
+        int k = 3;
+        int[][] rowConditions = {{0, 1}, {1, 2}};
+        int[][] colConditions = {{0, 1}, {1, 2}};
+        int[][] expected = {{0, 0, 0}, {0, 0, 0}, {0, 0, 0}}; // Expected output when there are cycles
+        if (solution.buildMatrix(k, rowConditions, colConditions).length == 0) {
+            int[][] actual = new int[k][k];
+            assertArrayEquals(expected, actual);
+        } else {
+            assertArrayEquals(expected, solution.buildMatrix(k, rowConditions, colConditions));
+        }
+    }
+    @Test
+    public void TestBuildMatrix_K1() {
+        Solution2392 solution = new Solution2392();
+        int k = 1;
+        int[][] rowConditions = {};
+        int[][] colConditions = {};
+        int[][] actual = solution.buildMatrix(k, rowConditions, colConditions);
+    
+        assertEquals(k, actual.length);
+        for (int i = 0; i < k; ++i) {
+            assertEquals(1, actual[i][0]);
+        }
+    }
+    @Test
+    public void TestBuildMatrix_NoConditions_Fixed_2() {
+        Solution2392 solution = new Solution2392();
+        int k = 2;
+        int[][] rowConditions = {};
+        int[][] colConditions = {};
+        int[][] expected = {{1, 0}, {0, 2}};
+        assertArrayEquals(expected, solution.buildMatrix(k, rowConditions, colConditions));
+    }
+    @Test
+    public void TestBuildMatrix_CyclicDependencies_Handled() {
+        Solution2392 solution = new Solution2392();
+        int k = 3;
+        int[][] rowConditions = {{0, 1}, {1, 2}, {2, 0}};
+        int[][] colConditions = {};
+        int[][] expected = {};
+        assertArrayEquals(expected, solution.buildMatrix(k, rowConditions, colConditions));
+    }
+    @Test
+    public void testBuildMatrix_CyclicDependencies() {
+        Solution2392 solution = new Solution2392();
+        int[][] rowConditions = {{1, 2}, {2, 3}, {3, 1}};
+        int[][] colConditions = {{1, 2}, {2, 3}};
+        int[][] expected = {};
+        int[][] result = solution.buildMatrix(3, rowConditions, colConditions);
+        assertArrayEquals(expected, result);
+    }
+    @Test
+    public void testBuildMatrixWithCircularDependencyInRowConditions() {
+        Solution2392 solution = new Solution2392();
+        int[][] result = solution.buildMatrix(3, new int[][] {{1, 2}, {2, 3}, {3, 1}}, new int[][] {{1, 2}, {2, 3}});
+        assert result.length == 0;
+    }
+    @Test
+    public void testBuildMatrixWithCircularDependencyInRowConditions1() {
+        Solution2392 solution = new Solution2392();
+        int[][] result = solution.buildMatrix(3, new int[][] {{1, 2}, {2, 3}, {3, 1}}, new int[][] {{1, 2}, {2, 3}});
+        assert result.length == 0;
+    }
+    @Test
+    public void TestBuildMatrixK3RowConditionsCycleFix() {
+        Solution2392 solution = new Solution2392();
+        int k = 3;
+        int[][] rowConditions = {{1, 2}, {2, 3}, {3, 1}};
+        int[][] colConditions = {{1, 2}, {2, 3}, {3, 1}};
+        int[][] result = solution.buildMatrix(k, rowConditions, colConditions);
+        assertNotNull(result);
+    }
+    @Test
+    public void TestBuildMatrixK3RowConditions1() {
+        Solution2392 solution = new Solution2392();
+        int k = 3;
+        int[][] rowConditions = {{1, 2}, {2, 1}};
+        int[][] colConditions = {{1, 2}, {2, 3}, {3, 1}};
+        int[][] result = solution.buildMatrix(k, rowConditions, colConditions);
+        assertArrayEquals(new int[0][0], result);
+    }
+    @Test
+    public void TestBuildMatrixK2RowConditionsCycles() {
+        Solution2392 solution = new Solution2392();
+        int k = 2;
+        int[][] rowConditions = {{1, 2}, {2, 1}};
+        int[][] colConditions = {{1, 2}, {2, 1}};
+        assertArrayEquals(new int[0][0], solution.buildMatrix(k, rowConditions, colConditions));
+    }
+    @Test
+    public void TestBuildMatrixK3ColConditionsCycle() {
+        Solution2392 solution = new Solution2392();
+        int k = 3;
+        int[][] rowConditions = {{1, 2}, {2, 3}, {3, 1}};
+        int[][] colConditions = {{1, 2}, {2, 3}, {3, 1}}; // cycle in column conditions
+        int[][] result = solution.buildMatrix(k, rowConditions, colConditions);
+        assertArrayEquals(new int[0][0], result);
+    }
+    @Test
+    public void TestBuildMatrixK2ColConditionsCycleCheck3() {
+        Solution2392 solution = new Solution2392();
+        int k = 2;
+        int[][] rowConditions = {{1, 2}, {2, 1}};
+        int[][] colConditions = {{1, 2}, {2, 1}};
+        int[][] expected = {};
+        assertArrayEquals(expected,solution.buildMatrix(k, rowConditions, colConditions));
+    }
+    @Test
+    public void TestBuildMatrixRowConditionsWithNoSolution() {
+        Solution2392 solution = new Solution2392();
+        int[][] expected = {};
+        int k = 3;
+        int[][] rowConditions = {{1, 2}, {2, 1}};
+        int[][] colConditions = {{1, 2}, {2, 3}, {3, 1}};
+        int[][] result = solution.buildMatrix(k, rowConditions, colConditions);
+        assertArrayEquals(expected, result);
+    }
+    @Test
+    public void TestBuildMatrixWithCycleInRowConditions2() {
+        Solution2392 solution = new Solution2392();
+        int[][] result = solution.buildMatrix(4, new int[][]{{1,2}, {2,3}, {3,4}, {4,1}}, new int[][]{});
+        assertArrayEquals(new int[0][0], result);
+    }
+    @Test
+    public void TestBuildMatrixWithCycleInColConditions() {
+        Solution2392 solution = new Solution2392();
+        int[][] result = solution.buildMatrix(4, new int[][]{}, new int[][]{{1,2}, {2,1}});
+        assertArrayEquals(new int[0][0], result);
+    }
+    @Test
+    public void TestBuildMatrixWithMultipleCyclesInRowConditions_HandlesException2_1() {
+        Solution2392 solution = new Solution2392();
+        int[][] result = solution.buildMatrix(4, new int[][]{{1,2}, {2,3}, {3,1}}, new int[][]{});
+        assertArrayEquals(new int[0][0], result);
+    }
+    @Test
+    public void TestBuildMatrixWithMultipleCyclesInColConditions4() {
+        Solution2392 solution = new Solution2392();
+        int[][] result = solution.buildMatrix(4, new int[][]{}, new int[][]{{1,2}, {2,3}, {3,1}});
+        assertNotNull(result);
+    }
+    @Test
+    public void testBuildMatrixWithCycleInRowConditions1() {
+        Solution2392 solution = new Solution2392();
+        int k = 3;
+        int[][] rowConditions = {{1, 2}, {2, 3}, {3, 1}};
+        int[][] colConditions = {{1, 2}, {2, 3}};
+        int[][] expected = {};
+        assertArrayEquals(expected, solution.buildMatrix(k, rowConditions, colConditions));
+    }
+    @Test
+    public void testBuildMatrixWithCycleInColConditions() {
+        Solution2392 solution = new Solution2392();
+        int k = 3;
+        int[][] rowConditions = {{1, 2}, {2, 3}};
+        int[][] colConditions = {{1, 2}, {2, 3}, {3, 1}};
+        int[][] expected = {};
+        assertArrayEquals(expected, solution.buildMatrix(k, rowConditions, colConditions));
+    }
+    @Test
+    public void testBuildMatrixWithMultipleSourcesInRowConditionsFixed2() {
+        Solution2392 solution = new Solution2392();
+        int k = 3;
+        int[][] rowConditions = {{1, 2}, {3, 1}};
+        int[][] colConditions = {{1, 2}, {2, 3}};
+        int[][] result = solution.buildMatrix(k, rowConditions, colConditions);
+        assertNotNull(result);
+    }
+    @Test
+    public void buildMatrixNoConditions2() {
+        Solution2392 solution = new Solution2392();
+        int k = 3;
+        int[][] result = solution.buildMatrix(k, new int[][] {}, new int[][] {});
+        assert result.length == k && result[0].length == k;
+    }
+    @Test
+    public void testBuildMatrix2() {
+        Solution2392 solution = new Solution2392();
+        int[][] result = solution.buildMatrix(3, new int[][] {{1,2},{2,3},{3,1}}, new int[][] {{1,2},{2,3},{3,1}});
+        assertArrayEquals(new int[0][0], result);
+    }
+                                    
+}

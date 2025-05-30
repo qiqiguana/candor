@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_3242.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">leetcode</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_3242.java</span></div><h1>id_3242.java</h1><pre class="source lang-java linenums">package original;
+
+import java.util.HashMap;
+import java.util.Map;
+class NeighborSum {
+    private int[][] grid;
+<span class="fc" id="L7">    private final Map&lt;Integer, int[]&gt; d = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L8">    private final int[][] dirs = {{-1, 0, 1, 0, -1}, {-1, 1, 1, -1, -1}};</span>
+
+<span class="fc" id="L10">    public NeighborSum(int[][] grid) {</span>
+<span class="fc" id="L11">        this.grid = grid;</span>
+<span class="fc" id="L12">        int m = grid.length, n = grid[0].length;</span>
+<span class="fc bfc" id="L13" title="All 2 branches covered.">        for (int i = 0; i &lt; m; ++i) {</span>
+<span class="fc bfc" id="L14" title="All 2 branches covered.">            for (int j = 0; j &lt; n; ++j) {</span>
+<span class="fc" id="L15">                d.put(grid[i][j], new int[] {i, j});</span>
+            }
+        }
+<span class="fc" id="L18">    }</span>
+
+    public int adjacentSum(int value) {
+<span class="fc" id="L21">        return cal(value, 0);</span>
+    }
+
+    public int diagonalSum(int value) {
+<span class="fc" id="L25">        return cal(value, 1);</span>
+    }
+
+    private int cal(int value, int k) {
+<span class="fc" id="L29">        int[] p = d.get(value);</span>
+<span class="fc" id="L30">        int s = 0;</span>
+<span class="fc bfc" id="L31" title="All 2 branches covered.">        for (int q = 0; q &lt; 4; ++q) {</span>
+<span class="fc" id="L32">            int x = p[0] + dirs[k][q], y = p[1] + dirs[k][q + 1];</span>
+<span class="fc bfc" id="L33" title="All 8 branches covered.">            if (x &gt;= 0 &amp;&amp; x &lt; grid.length &amp;&amp; y &gt;= 0 &amp;&amp; y &lt; grid[0].length) {</span>
+<span class="fc" id="L34">                s += grid[x][y];</span>
+            }
+        }
+<span class="fc" id="L37">        return s;</span>
+    }
+}
+
+/**
+ * Your NeighborSum object will be instantiated and called as such:
+ * NeighborSum obj = new NeighborSum(grid);
+ * int param_1 = obj.adjacentSum(value);
+ * int param_2 = obj.diagonalSum(value);
+ */
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

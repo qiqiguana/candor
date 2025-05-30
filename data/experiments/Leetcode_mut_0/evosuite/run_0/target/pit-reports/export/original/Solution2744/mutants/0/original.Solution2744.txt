@@ -1,0 +1,127 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Solution2744 {
+
+  // compiled from: id_2744.java
+  // access flags 0x19
+  public final static INNERCLASS java/lang/invoke/MethodHandles$Lookup java/lang/invoke/MethodHandles Lookup
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 5 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Solution2744; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public maximumNumberOfStringPairs([Ljava/lang/String;)I
+   L0
+    LINENUMBER 7 L0
+    NEW java/util/HashMap
+    DUP
+    INVOKESPECIAL java/util/HashMap.<init> ()V
+    ASTORE 2
+   L1
+    LINENUMBER 8 L1
+    ICONST_0
+    ISTORE 3
+   L2
+    LINENUMBER 9 L2
+    ALOAD 1
+    ASTORE 4
+    ALOAD 4
+    ARRAYLENGTH
+    ISTORE 5
+    ICONST_0
+    ISTORE 6
+   L3
+   FRAME FULL [original/Solution2744 [Ljava/lang/String; java/util/HashMap I [Ljava/lang/String; I I] []
+    ILOAD 6
+    ILOAD 5
+    IF_ICMPGE L4
+    ALOAD 4
+    ILOAD 6
+    AALOAD
+    ASTORE 7
+   L5
+    LINENUMBER 10 L5
+    ALOAD 7
+    ICONST_0
+    INVOKEVIRTUAL java/lang/String.charAt (I)C
+    BIPUSH 97
+    IADD
+    ISTORE 8
+   L6
+    ALOAD 7
+    ICONST_1
+    INVOKEVIRTUAL java/lang/String.charAt (I)C
+    BIPUSH 97
+    ISUB
+    ISTORE 9
+   L7
+    LINENUMBER 11 L7
+    ILOAD 3
+    ALOAD 2
+    ILOAD 9
+    ICONST_5
+    ISHL
+    ILOAD 8
+    IOR
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    ICONST_0
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEINTERFACE java/util/Map.getOrDefault (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/Integer
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    IADD
+    ISTORE 3
+   L8
+    LINENUMBER 12 L8
+    ALOAD 2
+    ILOAD 8
+    ICONST_5
+    ISHL
+    ILOAD 9
+    IOR
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    ICONST_1
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEDYNAMIC apply()Ljava/util/function/BiFunction; [
+      // handle kind 0x6 : INVOKESTATIC
+      java/lang/invoke/LambdaMetafactory.metafactory(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;
+      // arguments:
+      (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;, 
+      // handle kind 0x6 : INVOKESTATIC
+      java/lang/Integer.sum(II)I, 
+      (Ljava/lang/Integer;Ljava/lang/Integer;)Ljava/lang/Integer;
+    ]
+    INVOKEINTERFACE java/util/Map.merge (Ljava/lang/Object;Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object; (itf)
+    POP
+   L9
+    LINENUMBER 9 L9
+    IINC 6 1
+    GOTO L3
+   L4
+    LINENUMBER 14 L4
+   FRAME FULL [original/Solution2744 [Ljava/lang/String; java/util/HashMap I [Ljava/lang/String; I I] []
+    ILOAD 3
+    IRETURN
+   L10
+    LOCALVARIABLE a I L6 L9 8
+    LOCALVARIABLE b I L7 L9 9
+    LOCALVARIABLE w Ljava/lang/String; L5 L9 7
+    LOCALVARIABLE this Loriginal/Solution2744; L0 L10 0
+    LOCALVARIABLE words [Ljava/lang/String; L0 L10 1
+    LOCALVARIABLE cnt Ljava/util/Map; L1 L10 2
+    // signature Ljava/util/Map<Ljava/lang/Integer;Ljava/lang/Integer;>;
+    // declaration: cnt extends java.util.Map<java.lang.Integer, java.lang.Integer>
+    LOCALVARIABLE ans I L2 L10 3
+    MAXSTACK = 4
+    MAXLOCALS = 10
+}
+

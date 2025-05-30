@@ -1,0 +1,152 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Solution3082 {
+
+  // compiled from: id_3082.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 3 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Solution3082; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public sumOfPower([II)I
+   L0
+    LINENUMBER 5 L0
+    LDC 1000000007
+    ISTORE 3
+   L1
+    LINENUMBER 6 L1
+    ALOAD 1
+    ARRAYLENGTH
+    ISTORE 4
+   L2
+    LINENUMBER 7 L2
+    ILOAD 4
+    ICONST_1
+    IADD
+    ILOAD 2
+    ICONST_1
+    IADD
+    MULTIANEWARRAY [[I 2
+    ASTORE 5
+   L3
+    LINENUMBER 8 L3
+    ALOAD 5
+    ICONST_0
+    AALOAD
+    ICONST_0
+    ICONST_1
+    IASTORE
+   L4
+    LINENUMBER 9 L4
+    ICONST_1
+    ISTORE 6
+   L5
+   FRAME FULL [original/Solution3082 [I I I I [[I I] []
+    ILOAD 6
+    ILOAD 4
+    IF_ICMPGT L6
+   L7
+    LINENUMBER 10 L7
+    ICONST_0
+    ISTORE 7
+   L8
+   FRAME FULL [original/Solution3082 [I I I I [[I I I] []
+    ILOAD 7
+    ILOAD 2
+    IF_ICMPGT L9
+   L10
+    LINENUMBER 11 L10
+    ALOAD 5
+    ILOAD 6
+    AALOAD
+    ILOAD 7
+    ALOAD 5
+    ILOAD 6
+    ICONST_1
+    ISUB
+    AALOAD
+    ILOAD 7
+    IALOAD
+    ICONST_2
+    IMUL
+    LDC 1000000007
+    IREM
+    IASTORE
+   L11
+    LINENUMBER 12 L11
+    ILOAD 7
+    ALOAD 1
+    ILOAD 6
+    ICONST_1
+    ISUB
+    IALOAD
+    IF_ICMPLT L12
+   L13
+    LINENUMBER 13 L13
+    ALOAD 5
+    ILOAD 6
+    AALOAD
+    ILOAD 7
+    ALOAD 5
+    ILOAD 6
+    AALOAD
+    ILOAD 7
+    IALOAD
+    ALOAD 5
+    ILOAD 6
+    ICONST_1
+    ISUB
+    AALOAD
+    ILOAD 7
+    ALOAD 1
+    ILOAD 6
+    ICONST_1
+    ISUB
+    IALOAD
+    ISUB
+    IALOAD
+    ISUB
+    LDC 1000000007
+    IREM
+    IASTORE
+   L12
+    LINENUMBER 10 L12
+   FRAME FULL [original/Solution3082 [I I I I [[I I I] []
+    IINC 7 1
+    GOTO L8
+   L9
+    LINENUMBER 9 L9
+   FRAME FULL [original/Solution3082 [I I I I [[I I I] []
+    IINC 6 1
+    GOTO L5
+   L6
+    LINENUMBER 17 L6
+   FRAME FULL [original/Solution3082 [I I I I [[I I] []
+    ALOAD 5
+    ILOAD 4
+    AALOAD
+    ILOAD 2
+    IALOAD
+    IRETURN
+   L14
+    LOCALVARIABLE j I L8 L9 7
+    LOCALVARIABLE i I L5 L6 6
+    LOCALVARIABLE this Loriginal/Solution3082; L0 L14 0
+    LOCALVARIABLE nums [I L0 L14 1
+    LOCALVARIABLE k I L0 L14 2
+    LOCALVARIABLE mod I L1 L14 3
+    LOCALVARIABLE n I L2 L14 4
+    LOCALVARIABLE f [[I L3 L14 5
+    MAXSTACK = 8
+    MAXLOCALS = 8
+}
+

@@ -1,0 +1,244 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Bitset {
+
+  // compiled from: id_2166.java
+
+  // access flags 0x2
+  private [C a
+
+  // access flags 0x2
+  private [C b
+
+  // access flags 0x2
+  private I cnt
+
+  // access flags 0x1
+  public <init>(I)V
+   L0
+    LINENUMBER 9 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+   L1
+    LINENUMBER 10 L1
+    ALOAD 0
+    ILOAD 1
+    NEWARRAY T_CHAR
+    PUTFIELD original/Bitset.a : [C
+   L2
+    LINENUMBER 11 L2
+    ALOAD 0
+    ILOAD 1
+    NEWARRAY T_CHAR
+    PUTFIELD original/Bitset.b : [C
+   L3
+    LINENUMBER 12 L3
+    ALOAD 0
+    GETFIELD original/Bitset.a : [C
+    BIPUSH 48
+    INVOKESTATIC java/util/Arrays.fill ([CC)V
+   L4
+    LINENUMBER 13 L4
+    ALOAD 0
+    GETFIELD original/Bitset.b : [C
+    BIPUSH 49
+    INVOKESTATIC java/util/Arrays.fill ([CC)V
+   L5
+    LINENUMBER 14 L5
+    RETURN
+   L6
+    LOCALVARIABLE this Loriginal/Bitset; L0 L6 0
+    LOCALVARIABLE size I L0 L6 1
+    MAXSTACK = 2
+    MAXLOCALS = 2
+
+  // access flags 0x1
+  public fix(I)V
+   L0
+    LINENUMBER 17 L0
+    ALOAD 0
+    GETFIELD original/Bitset.a : [C
+    ILOAD 1
+    CALOAD
+    BIPUSH 48
+    IF_ICMPNE L1
+   L2
+    LINENUMBER 18 L2
+    ALOAD 0
+    GETFIELD original/Bitset.a : [C
+    ILOAD 1
+    BIPUSH 49
+    CASTORE
+   L3
+    LINENUMBER 19 L3
+    ALOAD 0
+    DUP
+    GETFIELD original/Bitset.cnt : I
+    ICONST_1
+    IADD
+    PUTFIELD original/Bitset.cnt : I
+   L1
+    LINENUMBER 21 L1
+   FRAME FULL [original/Bitset I] []
+    ALOAD 0
+    GETFIELD original/Bitset.b : [C
+    ILOAD 1
+    BIPUSH 48
+    CASTORE
+   L4
+    LINENUMBER 22 L4
+    RETURN
+   L5
+    LOCALVARIABLE this Loriginal/Bitset; L0 L5 0
+    LOCALVARIABLE idx I L0 L5 1
+    MAXSTACK = 3
+    MAXLOCALS = 2
+
+  // access flags 0x1
+  public unfix(I)V
+   L0
+    LINENUMBER 25 L0
+    ALOAD 0
+    GETFIELD original/Bitset.a : [C
+    ILOAD 1
+    CALOAD
+    BIPUSH 49
+    IF_ICMPNE L1
+   L2
+    LINENUMBER 26 L2
+    ALOAD 0
+    GETFIELD original/Bitset.a : [C
+    ILOAD 1
+    BIPUSH 48
+    CASTORE
+   L3
+    LINENUMBER 27 L3
+    ALOAD 0
+    DUP
+    GETFIELD original/Bitset.cnt : I
+    ICONST_1
+    ISUB
+    PUTFIELD original/Bitset.cnt : I
+   L1
+    LINENUMBER 29 L1
+   FRAME FULL [original/Bitset I] []
+    ALOAD 0
+    GETFIELD original/Bitset.b : [C
+    ILOAD 1
+    BIPUSH 49
+    CASTORE
+   L4
+    LINENUMBER 30 L4
+    RETURN
+   L5
+    LOCALVARIABLE this Loriginal/Bitset; L0 L5 0
+    LOCALVARIABLE idx I L0 L5 1
+    MAXSTACK = 3
+    MAXLOCALS = 2
+
+  // access flags 0x1
+  public flip()V
+   L0
+    LINENUMBER 33 L0
+    ALOAD 0
+    GETFIELD original/Bitset.a : [C
+    ASTORE 1
+   L1
+    LINENUMBER 34 L1
+    ALOAD 0
+    ALOAD 0
+    GETFIELD original/Bitset.b : [C
+    PUTFIELD original/Bitset.a : [C
+   L2
+    LINENUMBER 35 L2
+    ALOAD 0
+    ALOAD 1
+    PUTFIELD original/Bitset.b : [C
+   L3
+    LINENUMBER 36 L3
+    ALOAD 0
+    ALOAD 0
+    GETFIELD original/Bitset.a : [C
+    ARRAYLENGTH
+    ALOAD 0
+    GETFIELD original/Bitset.cnt : I
+    ISUB
+    PUTFIELD original/Bitset.cnt : I
+   L4
+    LINENUMBER 37 L4
+    RETURN
+   L5
+    LOCALVARIABLE this Loriginal/Bitset; L0 L5 0
+    LOCALVARIABLE t [C L1 L5 1
+    MAXSTACK = 3
+    MAXLOCALS = 2
+
+  // access flags 0x1
+  public all()Z
+   L0
+    LINENUMBER 40 L0
+    ALOAD 0
+    GETFIELD original/Bitset.cnt : I
+    ALOAD 0
+    GETFIELD original/Bitset.a : [C
+    ARRAYLENGTH
+    IF_ICMPNE L1
+    ICONST_1
+    GOTO L2
+   L1
+   FRAME FULL [original/Bitset] []
+    ICONST_0
+   L2
+   FRAME FULL [original/Bitset] [I]
+    IRETURN
+   L3
+    LOCALVARIABLE this Loriginal/Bitset; L0 L3 0
+    MAXSTACK = 2
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public one()Z
+   L0
+    LINENUMBER 44 L0
+    ALOAD 0
+    GETFIELD original/Bitset.cnt : I
+    IFGT L1
+    ICONST_1
+    GOTO L2
+   L1
+   FRAME FULL [original/Bitset] []
+    ICONST_0
+   L2
+   FRAME FULL [original/Bitset] [I]
+    IRETURN
+   L3
+    LOCALVARIABLE this Loriginal/Bitset; L0 L3 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public count()I
+   L0
+    LINENUMBER 48 L0
+    ALOAD 0
+    GETFIELD original/Bitset.cnt : I
+    IRETURN
+   L1
+    LOCALVARIABLE this Loriginal/Bitset; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public toString()Ljava/lang/String;
+   L0
+    LINENUMBER 52 L0
+    ALOAD 0
+    GETFIELD original/Bitset.a : [C
+    INVOKESTATIC java/lang/String.valueOf ([C)Ljava/lang/String;
+    ARETURN
+   L1
+    LOCALVARIABLE this Loriginal/Bitset; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+}
+

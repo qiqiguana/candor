@@ -1,0 +1,24 @@
+package original;
+
+import java.util.Arrays;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of AntiShuffle.
+*/
+class AntiShuffleTest {
+    @Test
+    void testAntiShuffle_SingleWord_ReturnsOrderedString() {
+        String input = "hello";
+        String expectedOutput = "ehllo";
+        String actualOutput = AntiShuffle.antiShuffle(input);
+        assertEquals(expectedOutput, actualOutput);
+    }
+    
+    @Test
+        public void testNothing(){
+            AntiShuffle s = new AntiShuffle();
+            }
+                                    
+}

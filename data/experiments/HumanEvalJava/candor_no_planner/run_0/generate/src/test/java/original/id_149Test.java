@@ -1,0 +1,43 @@
+package original;
+
+import java.util.ArrayList;
+
+import java.util.Collections;
+
+import java.util.Comparator;
+
+import java.util.List;
+
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of SortedListSum.
+*/
+class SortedListSumTest {
+    @Test
+    void testSortedListSum_EvenLengthStrings_ReturnsSortedStrings() {
+        // Arrange
+        List<String> input = new ArrayList<>();
+        input.add("aa");
+        input.add("a");
+        input.add("aaa");
+
+        // Act
+        List<Object> result = SortedListSum.sortedListSum(input);
+
+        // Assert
+        assertEquals(1, result.size());
+    }
+    
+    @Test
+        public void testNothing(){
+            SortedListSum s = new SortedListSum();
+            }
+    @Test
+    public void testSortedListSum_EmptyList_EmptyList() {
+        List<Object> result = SortedListSum.sortedListSum(new ArrayList<>());
+        assertEquals(Collections.emptyList(), result);
+    }
+                                    
+}
