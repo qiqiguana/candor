@@ -13,7 +13,7 @@ import tensorflow as tf
 
 from torch.utils.tensorboard import SummaryWriter
 
-# /home/anonymous/projects/matg/data/HumanEvalJava/matg/src/main/java/original/id_147.java
+# /home/qinghua/projects/matg/data/HumanEvalJava/matg/src/main/java/original/id_147.java
 class TestCaseGenerator:
     def __init__(self, config):
         self.config=config
@@ -117,7 +117,7 @@ class TestCaseGenerator:
                     test_plan=self._generate_test_plan()
                     # test_plan=self._fix_plan(test_plan)
                     self._generate_test_with_plan(test_plan)
-                    self._check_coverage_increase()
+                    # self._check_coverage_increase()
                     self._log2tensorboard()
                 except Exception as e:
                     logger.error(f"Error generating test cases: {e}")
@@ -236,8 +236,8 @@ class TestCaseGenerator:
                 validation_result=self._validate_and_serialize_test_code(new_test)
                 if validation_result:
                     # break if pass
-                    new_line_coverage,new_branch_coverage=self._check_coverage_increase()
-                    if new_line_coverage>self.config.target_line_coverage and new_branch_coverage>self.config.target_line_coverage:
+                    # new_line_coverage,new_branch_coverage=self._check_coverage_increase()
+                    if self.line_coverage>self.config.target_line_coverage and self.branch_coverage>self.config.target_line_coverage:
                         logger.info(f"Target coverage reached: \n Line coverage: {new_line_coverage*100:.2f}%\n Branch coverage: {new_branch_coverage*100:.2f}%")
                         self.writer.close()
                         return
@@ -370,30 +370,76 @@ class TestCaseGenerator:
                 )
                 if result.returncode == 0:
                     logger.info(f"Test passed for\n{new_test_code}")
+                    self.coverage_processor.parse_coverage_report()
+                    # check coverage improvement --- only executable test cases with coverage improvement will be considered valid
+                    new_line_coverage = (
+                        self.coverage_processor.calculate_line_coverage_rate_for_file(
+                            self.config.relative_source_file_path
+                        )
+                    )
+                    new_branch_coverage = (self.coverage_processor.calculate_branch_coverage_rate_for_file(self.config.relative_source_file_path))
+                    if new_line_coverage>self.line_coverage or new_branch_coverage>self.branch_coverage:
+                        banner=f"🚀📈 Coverage Improved! 📈🚀 "
+                    else:
+                        # executable but not improvement -> revert and continue
+                        banner=f"🙃📉Coverage Status: No Improvement📉🙃"
+                        self._revert_test_file()
+                        return False
+                    if new_line_coverage>self.line_coverage:
+                        line_output=f"➡️  Line coverage increased from 🔴  {self.line_coverage*100:.2f}% to 🟢 {new_line_coverage*100:.2f}% 🎯"
+                        self.line_coverage=new_line_coverage
+                    else:
+                        line_output=f"🔁 No Change: Line coverage remains at 🔵 {self.line_coverage*100:.2f}%"
+                    if new_branch_coverage>self.branch_coverage:
+                        branch_output=f"➡️  Branch coverage increased from 🔴  {self.branch_coverage*100:.2f}% to 🟢 {new_branch_coverage*100:.2f}% 🎯"   
+                        self.branch_coverage=new_branch_coverage
+                    else:
+                        branch_output=f"🔁 No Change: Branch coverage remains at 🔵 {self.branch_coverage*100:.2f}%"
+                    
+                    logger.info(
+                        f"""
+                            {"#"*70}
+                            {banner}
+                            {line_output}
+                            {branch_output}
+                            {"#"*70}
+                        """
+                    )
                     return True
                 else: # return only CalledProcessError
                     execution_errors  = extract_error_message( "java", result.stdout + result.stderr)
                     self._revert_test_file(new_test_code, execution_errors)
+                    subprocess.run(
+                    self.config.test_command.split(),
+                    capture_output=True,
+                    text=True,
+                    timeout=300, 
+                    cwd=os.getcwd(),
+                )
                     return False
             except Exception as e:      # catch timeout error mostly
                 self._revert_test_file(new_test_code, str(e))
+                
                 return False
                 
         # if there are errors, add to failed tests
 
         return False
     
-    def _revert_test_file(self,new_test_code,error_message):
+    def _revert_test_file(self,new_test_code=None,error_message=None):
         """
         Revert the test file to the last version.
         """
-        logger.info(f"Test failed for\n{new_test_code}")
-        lang = "java"
-        self.failed_tests.append({"test_code": new_test_code, "error": error_message})
+        if error_message:
+            logger.info(f"Test failed for\n{new_test_code}")
+            lang = "java"
+            self.failed_tests.append({"test_code": new_test_code, "error": error_message})
+        logger.info(f"Reverting test file {self.test_file_path} to the last version")
         FileUtils.revert(self.test_file_path)
-        subprocess.run(
-        self.config.test_command.split(),
-        capture_output=True,
-        text=True,
-        cwd=os.getcwd(),
-        )
+        if error_message:
+            subprocess.run(
+            self.config.test_command.split(),
+            capture_output=True,
+            text=True,
+            cwd=os.getcwd(),
+            )

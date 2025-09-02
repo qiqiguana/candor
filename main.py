@@ -39,6 +39,7 @@ def parse_args():
     oracle_fixer_parser.add_argument("--relative-test-file-path", help="Relative path to the test file ", required=True, type=str)
     oracle_fixer_parser.add_argument("--test-command", help="Command to run the test file", required=True, type=str)
     oracle_fixer_parser.add_argument("--generator", help="Test generator to use", required=True, choices=["matg"])
+    oracle_fixer_parser.add_argument("--doc-file", type=str, default=None, help="Path to the documentation file")
     
     return parser.parse_args()
                                     

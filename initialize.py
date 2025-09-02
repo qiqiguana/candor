@@ -19,8 +19,8 @@ class Initializer:
         # set up LLMs
         # llm = HuggingFaceEndpoint(endpoint_url="https://ks9ha1fe7g9taog7.us-east-1.aws.endpoints.huggingface.cloud")
         # self.llm=ChatHuggingFace(llm=llm)
-        # self.llm=ChatOllama(model="llama3.1:70b",callbacks=[StreamingStdOutCallbackHandler()])    
-        self.llm=ChatOllama(model="llama3.1:70b" )         
+        self.llm=ChatOllama(model="llama3.1:70b",callbacks=[StreamingStdOutCallbackHandler()])    
+        # self.llm=ChatOllama(model="llama3.1:70b" )         
         self.initializer_parser=PydanticOutputParser(pydantic_object=InitialTestFile)
         self.initializer= (self.llm | self.initializer_parser).with_retry(stop_after_attempt=5)
         
@@ -81,6 +81,7 @@ class Initializer:
                 ("system", initializer_system_prompt),
                 ("user", initializer_user_prompt)
             ])
+            print(initializer_user_prompt)
             test_file_code=response.test_file_code
             with open(self.test_file_path, "w") as f:
                 f.write(test_file_code)
@@ -95,14 +96,14 @@ class Initializer:
                     logger.info(f"Test failed: {result.stderr} \n {result.stdout}")
                     error_message=result.stderr+result.stdout
                     error_message=extract_error_message("java",error_message)
-                    # self.failed_tests.append({
-                    #     "code":test_file_code,
-                    #     "error":error_message,
-                    # })
-                    self.failed_tests=[{
-                        "code": test_file_code,
-                        "error": error_message,
-                    }]
+                    self.failed_tests.append({
+                        "code":test_file_code,
+                        "error":error_message,
+                    })
+                    # self.failed_tests=[{
+                    #     "code": test_file_code,
+                    #     "error": error_message,
+                    # }]
                     self.test_file_path.unlink()
             except Exception as e:
                 self.test_file_path.unlink()
