@@ -1,5 +1,6 @@
 package original;
 
+import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,6 +30,15 @@ class FilterIntegersTest {
     public void testFilterIntegersWithNullInput() {
         List<Object> values = null;
         assertThrows(NullPointerException.class, () -> FilterIntegers.filterIntegers(values));
+    }
+    @Test
+    public void testFilterIntegersWithOnlyIntegers() {
+        List<Object> values = new ArrayList<>();
+        values.add(1);
+        values.add(2);
+        values.add(3);
+        List<Object> result = FilterIntegers.filterIntegers(values);
+        assertEquals(result, Arrays.asList(1, 2, 3));
     }
                                     
 }

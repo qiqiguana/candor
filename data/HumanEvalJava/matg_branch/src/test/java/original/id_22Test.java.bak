@@ -25,5 +25,10 @@ class FilterIntegersTest {
         public void testNothing(){
             FilterIntegers s = new FilterIntegers();
             }
+    @Test
+    public void testFilterIntegersWithNullInput() {
+        List<Object> values = null;
+        assertThrows(NullPointerException.class, () -> FilterIntegers.filterIntegers(values));
+    }
                                     
 }
