@@ -1,0 +1,88 @@
+package original;
+
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of Encode.
+*/
+class EncodeTest {
+    @Test
+    void testEncodeShouldSwapCaseAndReplaceVowels1() {
+        String message = "Hello World";
+        String expected = "hGLLQ wQRLD";
+        assertEquals(expected, Encode.encode(message));
+    }
+    
+    @Test
+        public void testNothing(){
+            Encode s = new Encode();
+            }
+    @Test
+    public void testEncode() {
+        String message = "test";
+        String expected = "TGST";
+        assertEquals(expected, Encode.encode(message));
+    }
+    @Test
+    public void testEncodeEmptyString() {
+        String message = "";
+        String expected = "";
+        assertEquals(expected, Encode.encode(message));
+    }
+    @Test
+    void testEncodePositiveHappyPath() {
+        String[] inputs = {"test", "This is a message", "TEST", "Mudasir", "YES", "This is a message", "I DoNt KnOw WhAt tO WrItE"};
+        String[] expectedResults = {"TGST", "tHKS KS C MGSSCGG", "tgst", "mWDCSKR", "ygs", "tHKS KS C MGSSCGG", "k dQnT kNqW wHcT Tq wRkTg"};
+        for (int i = 0; i < inputs.length; i++) {
+            assertArrayEquals(new String[]{Encode.encode(inputs[i])}, new String[]{expectedResults[i]});
+        }
+    }
+    @Test
+    void testEncodeEdgeCase1() {
+        String[] inputs = {"a", "A", "1", "!@#$%^&*()"};
+        String[] expectedResults = {"C", "c", "1", "!@#$%^&*()"};
+        for (int i = 0; i < inputs.length; i++) {
+            assertEquals(expectedResults[i], Encode.encode(inputs[i]));
+        }
+    }
+    @Test
+    void testEncodeEdgeCase2() {
+        String[] inputs = {"!@#$%^&*()"};
+        String[] expectedResults = {"!@#$%^&*()"};
+        for (int i = 0; i < inputs.length; i++) {
+            assertArrayEquals(new String[]{Encode.encode(inputs[i])}, new String[]{expectedResults[i]});
+        }
+    }
+    @Test
+    void testEncodeFunctionalityWithLowercaseLetters() {
+        String input = "test";
+        String expectedOutput = "TGST";
+        assertEquals(expectedOutput, Encode.encode(input));
+    }
+    @Test
+    void testEncodeFunctionalityWithUppercaseLetters() {
+        String input = "TEST";
+        String expectedOutput = "tgst";
+        assertEquals(expectedOutput, Encode.encode(input));
+    }
+    @Test
+    void testEncodeFunctionalityWithMixedCaseLetters() {
+        String input = "This is a message";
+        String expectedOutput = "tHKS KS C MGSSCGG";
+        assertEquals(expectedOutput, Encode.encode(input));
+    }
+    @Test
+    void testEncodeFunctionalityWithVowels() {
+        String input = "Mudasir";
+        String expectedOutput = "mWDCSKR";
+        assertEquals(expectedOutput, Encode.encode(input));
+    }
+    @Test
+    void testEncodeFunctionalityWithEmptyString() {
+        String input = "";
+        String expectedOutput = "";
+        assertEquals(expectedOutput, Encode.encode(input));
+    }
+                                    
+}

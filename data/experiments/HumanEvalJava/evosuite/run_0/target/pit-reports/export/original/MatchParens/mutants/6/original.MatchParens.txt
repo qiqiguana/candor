@@ -1,0 +1,192 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/MatchParens {
+
+  // compiled from: id_119.java
+  // access flags 0x19
+  public final static INNERCLASS java/lang/invoke/MethodHandles$Lookup java/lang/invoke/MethodHandles Lookup
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 7 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/MatchParens; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  // signature (Ljava/util/List<Ljava/lang/String;>;)Ljava/lang/String;
+  // declaration: java.lang.String matchParens(java.util.List<java.lang.String>)
+  public static matchParens(Ljava/util/List;)Ljava/lang/String;
+   L0
+    LINENUMBER 48 L0
+    ALOAD 0
+    ICONST_0
+    INVOKEINTERFACE java/util/List.get (I)Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/String
+    ASTORE 1
+   L1
+    LINENUMBER 49 L1
+    ALOAD 0
+    ICONST_1
+    INVOKEINTERFACE java/util/List.get (I)Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/String
+    ASTORE 2
+   L2
+    LINENUMBER 50 L2
+    ALOAD 1
+    ALOAD 2
+    INVOKEDYNAMIC makeConcatWithConstants(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String; [
+      // handle kind 0x6 : INVOKESTATIC
+      java/lang/invoke/StringConcatFactory.makeConcatWithConstants(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;
+      // arguments:
+      "\u0001\u0001"
+    ]
+    ASTORE 3
+   L3
+    LINENUMBER 51 L3
+    ALOAD 2
+    ALOAD 1
+    INVOKEDYNAMIC makeConcatWithConstants(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String; [
+      // handle kind 0x6 : INVOKESTATIC
+      java/lang/invoke/StringConcatFactory.makeConcatWithConstants(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;
+      // arguments:
+      "\u0001\u0001"
+    ]
+    ASTORE 4
+   L4
+    LINENUMBER 53 L4
+    ICONST_0
+    ISTORE 5
+   L5
+    LINENUMBER 54 L5
+    ICONST_1
+    ISTORE 6
+   L6
+    LINENUMBER 55 L6
+    ICONST_0
+    ISTORE 7
+   L7
+   FRAME FULL [java/util/List java/lang/String java/lang/String java/lang/String java/lang/String I I I] []
+    ILOAD 7
+    ALOAD 3
+    INVOKEVIRTUAL java/lang/String.length ()I
+    IF_ICMPGE L8
+   L9
+    LINENUMBER 56 L9
+    ALOAD 3
+    ILOAD 7
+    INVOKEVIRTUAL java/lang/String.charAt (I)C
+    BIPUSH 40
+    IF_ICMPNE L10
+   L11
+    LINENUMBER 57 L11
+    IINC 5 1
+    GOTO L12
+   L10
+    LINENUMBER 59 L10
+   FRAME FULL [java/util/List java/lang/String java/lang/String java/lang/String java/lang/String I I I] []
+    IINC 5 -1
+   L12
+    LINENUMBER 61 L12
+   FRAME FULL [java/util/List java/lang/String java/lang/String java/lang/String java/lang/String I I I] []
+    ILOAD 5
+    IFLT L13
+   L14
+    LINENUMBER 62 L14
+    ICONST_0
+    ISTORE 6
+   L13
+    LINENUMBER 55 L13
+   FRAME FULL [java/util/List java/lang/String java/lang/String java/lang/String java/lang/String I I I] []
+    IINC 7 1
+    GOTO L7
+   L8
+    LINENUMBER 65 L8
+   FRAME FULL [java/util/List java/lang/String java/lang/String java/lang/String java/lang/String I I I] []
+    ILOAD 6
+    IFEQ L15
+    ILOAD 5
+    IFNE L15
+   L16
+    LINENUMBER 66 L16
+    LDC "Yes"
+    ARETURN
+   L15
+    LINENUMBER 68 L15
+   FRAME FULL [java/util/List java/lang/String java/lang/String java/lang/String java/lang/String I I I] []
+    ICONST_0
+    ISTORE 5
+   L17
+    LINENUMBER 69 L17
+    ICONST_0
+    ISTORE 7
+   L18
+   FRAME FULL [java/util/List java/lang/String java/lang/String java/lang/String java/lang/String I I I] []
+    ILOAD 7
+    ALOAD 4
+    INVOKEVIRTUAL java/lang/String.length ()I
+    IF_ICMPGE L19
+   L20
+    LINENUMBER 70 L20
+    ALOAD 4
+    ILOAD 7
+    INVOKEVIRTUAL java/lang/String.charAt (I)C
+    BIPUSH 40
+    IF_ICMPNE L21
+   L22
+    LINENUMBER 71 L22
+    IINC 5 1
+    GOTO L23
+   L21
+    LINENUMBER 73 L21
+   FRAME FULL [java/util/List java/lang/String java/lang/String java/lang/String java/lang/String I I I] []
+    IINC 5 -1
+   L23
+    LINENUMBER 75 L23
+   FRAME FULL [java/util/List java/lang/String java/lang/String java/lang/String java/lang/String I I I] []
+    ILOAD 5
+    IFGE L24
+   L25
+    LINENUMBER 76 L25
+    LDC "No"
+    ARETURN
+   L24
+    LINENUMBER 69 L24
+   FRAME FULL [java/util/List java/lang/String java/lang/String java/lang/String java/lang/String I I I] []
+    IINC 7 1
+    GOTO L18
+   L19
+    LINENUMBER 79 L19
+   FRAME FULL [java/util/List java/lang/String java/lang/String java/lang/String java/lang/String I I I] []
+    ILOAD 5
+    IFNE L26
+   L27
+    LINENUMBER 80 L27
+    LDC "Yes"
+    ARETURN
+   L26
+    LINENUMBER 82 L26
+   FRAME FULL [java/util/List java/lang/String java/lang/String java/lang/String java/lang/String I I I] []
+    LDC "No"
+    ARETURN
+   L28
+    LOCALVARIABLE i I L7 L8 7
+    LOCALVARIABLE i I L18 L19 7
+    LOCALVARIABLE lst Ljava/util/List; L0 L28 0
+    // signature Ljava/util/List<Ljava/lang/String;>;
+    // declaration: lst extends java.util.List<java.lang.String>
+    LOCALVARIABLE s1 Ljava/lang/String; L1 L28 1
+    LOCALVARIABLE s2 Ljava/lang/String; L2 L28 2
+    LOCALVARIABLE s1s2 Ljava/lang/String; L3 L28 3
+    LOCALVARIABLE s2s1 Ljava/lang/String; L4 L28 4
+    LOCALVARIABLE count I L5 L28 5
+    LOCALVARIABLE flag Z L6 L28 6
+    MAXSTACK = 2
+    MAXLOCALS = 8
+}
+

@@ -1,0 +1,64 @@
+// class version 55.0 (55)
+// access flags 0x20
+// signature Ljava/lang/Object;Ljava/util/Comparator<Ljava/lang/Object;>;
+// declaration: original/SortedListSum$1 implements java.util.Comparator<java.lang.Object>
+class original/SortedListSum$1 implements java/util/Comparator {
+
+  // compiled from: id_149.java
+  NESTHOST original/SortedListSum
+  OUTERCLASS original/SortedListSum sortedListSum (Ljava/util/List;)Ljava/util/List;
+  // access flags 0x0
+  INNERCLASS original/SortedListSum$1 null null
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 48 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/SortedListSum$1; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public compare(Ljava/lang/Object;Ljava/lang/Object;)I
+   L0
+    LINENUMBER 51 L0
+    ALOAD 1
+    INVOKEVIRTUAL java/lang/Object.toString ()Ljava/lang/String;
+    INVOKEVIRTUAL java/lang/String.length ()I
+    ALOAD 2
+    INVOKEVIRTUAL java/lang/Object.toString ()Ljava/lang/String;
+    INVOKEVIRTUAL java/lang/String.length ()I
+    IF_ICMPNE L1
+   L2
+    LINENUMBER 52 L2
+    ALOAD 1
+    INVOKEVIRTUAL java/lang/Object.toString ()Ljava/lang/String;
+    ALOAD 2
+    INVOKEVIRTUAL java/lang/Object.toString ()Ljava/lang/String;
+    INVOKEVIRTUAL java/lang/String.compareTo (Ljava/lang/String;)I
+    IRETURN
+   L1
+    LINENUMBER 54 L1
+   FRAME FULL [original/SortedListSum$1 java/lang/Object java/lang/Object] []
+    ALOAD 1
+    INVOKEVIRTUAL java/lang/Object.toString ()Ljava/lang/String;
+    INVOKEVIRTUAL java/lang/String.length ()I
+    ALOAD 2
+    INVOKEVIRTUAL java/lang/Object.toString ()Ljava/lang/String;
+    INVOKEVIRTUAL java/lang/String.length ()I
+    ISUB
+    POP
+    ICONST_0
+    IRETURN
+   L3
+    LOCALVARIABLE this Loriginal/SortedListSum$1; L0 L3 0
+    LOCALVARIABLE o1 Ljava/lang/Object; L0 L3 1
+    LOCALVARIABLE o2 Ljava/lang/Object; L0 L3 2
+    MAXSTACK = 2
+    MAXLOCALS = 3
+}
+

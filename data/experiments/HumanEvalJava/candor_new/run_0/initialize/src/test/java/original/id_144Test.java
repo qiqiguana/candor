@@ -1,0 +1,13 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of Simplify.
+*/
+class SimplifyTest {
+    @Test
+    void test_simplify() {
+        assertTrue(Simplify.simplify("1/5", "5/1"));
+    }
+}

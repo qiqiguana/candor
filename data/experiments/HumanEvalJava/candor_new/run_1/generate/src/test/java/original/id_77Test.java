@@ -1,0 +1,28 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of Iscube.
+*/
+class IscubeTest {
+    @Test
+    void testIscube() {
+        assertTrue(Iscube.iscube(1));
+    }
+    
+    @Test
+        public void testNothing(){
+            Iscube s = new Iscube();
+            }
+    @Test
+    public void testIscubeMethodPositiveNumbers1() {
+        assertTrue(Iscube.iscube(1));
+        assertFalse(Iscube.iscube(2));
+    }
+    @Test
+    public void testIscubeMethodWithNegativeInput() {
+    assert original.Iscube.iscube(-1) == true;
+    }
+                                    
+}

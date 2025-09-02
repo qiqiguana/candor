@@ -1,0 +1,128 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Solution1400 {
+
+  // compiled from: id_1400.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 3 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Solution1400; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public canConstruct(Ljava/lang/String;I)Z
+   L0
+    LINENUMBER 5 L0
+    ALOAD 1
+    INVOKEVIRTUAL java/lang/String.length ()I
+    ISTORE 3
+   L1
+    LINENUMBER 6 L1
+    ILOAD 3
+    ILOAD 2
+    IF_ICMPGE L2
+   L3
+    LINENUMBER 7 L3
+    ICONST_0
+    IRETURN
+   L2
+    LINENUMBER 9 L2
+   FRAME FULL [original/Solution1400 java/lang/String I I] []
+    BIPUSH 26
+    NEWARRAY T_INT
+    ASTORE 4
+   L4
+    LINENUMBER 10 L4
+    ICONST_0
+    ISTORE 5
+   L5
+   FRAME FULL [original/Solution1400 java/lang/String I I [I I] []
+    ILOAD 5
+    ILOAD 3
+    IF_ICMPGE L6
+   L7
+    LINENUMBER 11 L7
+    ALOAD 4
+    ALOAD 1
+    ILOAD 5
+    INVOKEVIRTUAL java/lang/String.charAt (I)C
+    BIPUSH 97
+    ISUB
+    DUP2
+    IALOAD
+    ICONST_1
+    IADD
+    IASTORE
+   L8
+    LINENUMBER 10 L8
+    IINC 5 1
+    GOTO L5
+   L6
+    LINENUMBER 13 L6
+   FRAME FULL [original/Solution1400 java/lang/String I I [I I] []
+    ICONST_0
+    ISTORE 5
+   L9
+    LINENUMBER 14 L9
+    ALOAD 4
+    ASTORE 6
+    ALOAD 6
+    ARRAYLENGTH
+    ISTORE 7
+    ICONST_0
+    ISTORE 8
+   L10
+   FRAME FULL [original/Solution1400 java/lang/String I I [I I [I I I] []
+    ILOAD 8
+    ILOAD 7
+    IF_ICMPGE L11
+    ALOAD 6
+    ILOAD 8
+    IALOAD
+    ISTORE 9
+   L12
+    LINENUMBER 15 L12
+    ILOAD 5
+    ILOAD 9
+    ICONST_1
+    IOR
+    IADD
+    ISTORE 5
+   L13
+    LINENUMBER 14 L13
+    IINC 8 1
+    GOTO L10
+   L11
+    LINENUMBER 17 L11
+   FRAME FULL [original/Solution1400 java/lang/String I I [I I [I I I] []
+    ILOAD 5
+    ILOAD 2
+    IF_ICMPGT L14
+    ICONST_1
+    GOTO L15
+   L14
+   FRAME FULL [original/Solution1400 java/lang/String I I [I I [I I I] []
+    ICONST_0
+   L15
+   FRAME FULL [original/Solution1400 java/lang/String I I [I I [I I I] [I]
+    IRETURN
+   L16
+    LOCALVARIABLE i I L5 L6 5
+    LOCALVARIABLE v I L12 L13 9
+    LOCALVARIABLE this Loriginal/Solution1400; L0 L16 0
+    LOCALVARIABLE s Ljava/lang/String; L0 L16 1
+    LOCALVARIABLE k I L0 L16 2
+    LOCALVARIABLE n I L1 L16 3
+    LOCALVARIABLE cnt [I L4 L16 4
+    LOCALVARIABLE x I L9 L16 5
+    MAXSTACK = 4
+    MAXLOCALS = 10
+}
+

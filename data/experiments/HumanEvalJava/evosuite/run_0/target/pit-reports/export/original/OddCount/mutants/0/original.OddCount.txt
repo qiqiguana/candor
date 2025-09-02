@@ -1,0 +1,119 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/OddCount {
+
+  // compiled from: id_113.java
+  // access flags 0x19
+  public final static INNERCLASS java/lang/invoke/MethodHandles$Lookup java/lang/invoke/MethodHandles Lookup
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 8 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/OddCount; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  // signature (Ljava/util/List<Ljava/lang/String;>;)Ljava/util/List<Ljava/lang/String;>;
+  // declaration: java.util.List<java.lang.String> oddCount(java.util.List<java.lang.String>)
+  public static oddCount(Ljava/util/List;)Ljava/util/List;
+   L0
+    LINENUMBER 29 L0
+    NEW java/util/ArrayList
+    DUP
+    INVOKESPECIAL java/util/ArrayList.<init> ()V
+    ASTORE 1
+   L1
+    LINENUMBER 30 L1
+    ICONST_0
+    ISTORE 2
+   L2
+   FRAME FULL [java/util/List java/util/ArrayList I] []
+    ILOAD 2
+    ALOAD 0
+    INVOKEINTERFACE java/util/List.size ()I (itf)
+    IF_ICMPLT L3
+   L4
+    LINENUMBER 31 L4
+    ICONST_0
+    ISTORE 3
+   L5
+    LINENUMBER 32 L5
+    ICONST_0
+    ISTORE 4
+   L6
+   FRAME FULL [java/util/List java/util/ArrayList I I I] []
+    ILOAD 4
+    ALOAD 0
+    ILOAD 2
+    INVOKEINTERFACE java/util/List.get (I)Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/String
+    INVOKEVIRTUAL java/lang/String.length ()I
+    IF_ICMPGE L7
+   L8
+    LINENUMBER 33 L8
+    ALOAD 0
+    ILOAD 2
+    INVOKEINTERFACE java/util/List.get (I)Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/String
+    ILOAD 4
+    ILOAD 4
+    ICONST_1
+    IADD
+    INVOKEVIRTUAL java/lang/String.substring (II)Ljava/lang/String;
+    INVOKESTATIC java/lang/Integer.parseInt (Ljava/lang/String;)I
+    ICONST_2
+    IREM
+    IFEQ L9
+   L10
+    LINENUMBER 34 L10
+    IINC 3 1
+   L9
+    LINENUMBER 32 L9
+   FRAME FULL [java/util/List java/util/ArrayList I I I] []
+    IINC 4 1
+    GOTO L6
+   L7
+    LINENUMBER 37 L7
+   FRAME FULL [java/util/List java/util/ArrayList I I I] []
+    ALOAD 1
+    ILOAD 3
+    ILOAD 3
+    ILOAD 3
+    ILOAD 3
+    INVOKEDYNAMIC makeConcatWithConstants(IIII)Ljava/lang/String; [
+      // handle kind 0x6 : INVOKESTATIC
+      java/lang/invoke/StringConcatFactory.makeConcatWithConstants(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;
+      // arguments:
+      "the number of odd elements \u0001n the str\u0001ng \u0001 of the \u0001nput."
+    ]
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+   L11
+    LINENUMBER 30 L11
+    IINC 2 1
+    GOTO L2
+   L3
+    LINENUMBER 39 L3
+   FRAME FULL [java/util/List java/util/ArrayList I] []
+    ALOAD 1
+    ARETURN
+   L12
+    LOCALVARIABLE j I L6 L7 4
+    LOCALVARIABLE count I L5 L11 3
+    LOCALVARIABLE i I L2 L3 2
+    LOCALVARIABLE lst Ljava/util/List; L0 L12 0
+    // signature Ljava/util/List<Ljava/lang/String;>;
+    // declaration: lst extends java.util.List<java.lang.String>
+    LOCALVARIABLE result Ljava/util/List; L1 L12 1
+    // signature Ljava/util/List<Ljava/lang/String;>;
+    // declaration: result extends java.util.List<java.lang.String>
+    MAXSTACK = 5
+    MAXLOCALS = 5
+}
+

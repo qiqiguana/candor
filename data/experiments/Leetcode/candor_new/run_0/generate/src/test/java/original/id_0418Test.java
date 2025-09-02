@@ -1,0 +1,36 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of Solution0418.
+*/
+class Solution0418Test {
+    @Test
+    void testWordsTyping_SimpleSentence_ReturnsExpectedValue() {
+        Solution0418 solution = new Solution0418();
+        String[] sentence = {"hello", "world"};
+        int rows = 2;
+        int cols = 8;
+        int expected = 1;
+        assertEquals(expected, solution.wordsTyping(sentence, rows, cols));
+    }
+    @Test
+    public void testWordsTyping_2() {
+        Solution0418 s = new Solution0418();
+        String[] sentence = {"hello", "world"};
+        int rows = 1;
+        int cols = 5;
+        int expected = 0;
+        assertEquals(expected, s.wordsTyping(sentence, rows, cols));
+    }
+    @Test
+    public void test_wordsTyping_with_single_word_sentence_and_small_screen_3() {
+        Solution0418 solution = new Solution0418();
+        String[] sentence = {"hello"};
+        int rows = 1;
+        int cols = 3;
+        int expected_result = 0;
+        assertEquals(expected_result, solution.wordsTyping(sentence, rows, cols));
+    }
+}

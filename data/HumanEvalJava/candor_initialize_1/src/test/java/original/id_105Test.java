@@ -1,0 +1,99 @@
+package original;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+/**
+* Test class of ByLength.
+*/
+class ByLengthTest {
+    @Test
+    void testByLengthShouldReturnEmptyArrayWhenInputIsEmpty() {
+        List<Object> input = new ArrayList<>();
+        List<Object> expected = new ArrayList<>();
+        assertEquals(expected, ByLength.byLength(input));
+    }
+    
+    @Test
+        public void testNothing(){
+            ByLength s = new ByLength();
+            }
+    @Test
+    public void testByLength_EmptyArray_ReturnsEmptyArray() {
+        List<Object> input = new ArrayList<>();
+        assertEquals(new ArrayList<>(), ByLength.byLength(input));
+    }
+    @Test
+    public void testByLength_NullArray_ThrowsNullPointerException() {
+        List<Object> input = null;
+        assertThrows(NullPointerException.class, () -> ByLength.byLength(input));
+    }
+    @Test
+    public void testByLengthWithEmptyList() {
+        List<Object> input = new ArrayList<>();
+        List<Object> expected = new ArrayList<>();
+        assertEquals(expected, original.ByLength.byLength(input));
+    }
+    @Test
+    public void test_byLength_with_empty_array() {
+    	List<Object> arr = new ArrayList<>();
+    	List<Object> expected_result = new ArrayList<>();
+    	assertEquals(expected_result, ByLength.byLength(arr));
+    }
+    @Test
+    public void test_byLength_with_single_element_array() {
+    	List<Object> arr = new ArrayList<>();
+    	arr.add(1);
+    	List<Object> expected_result = new ArrayList<>();
+    	expected_result.add("One");
+    	assertEquals(expected_result, ByLength.byLength(arr));
+    }
+    @Test
+    public void test_byLength_with_invalid_element_array() {
+    	List<Object> arr = new ArrayList<>();
+    	arr.add(1);
+    	arr.add(-1);
+    	arr.add(55);
+    	List<Object> expected_result = new ArrayList<>();
+    	expected_result.add("One");
+    	assertEquals(expected_result, ByLength.byLength(arr));
+    }
+    @Test
+    public void test_byLength_with_null_input() {
+    	assertThrows(NullPointerException.class, () -> ByLength.byLength(null));
+    }
+    @Test
+    public void test_byLength_with_non_integer_element_array_corrected_1() {
+        List<Object> arr = new ArrayList<>();
+        arr.add(1);
+        arr.add("2.5");
+        arr.add(3);
+        List<Object> expected_result = new ArrayList<>();
+        expected_result.add("Three");
+        expected_result.add("One");
+        assertEquals(expected_result, ByLength.byLength(arr));
+    }
+    @Test
+    public void test_byLength_with_negative_element_array() {
+    	List<Object> arr = new ArrayList<>();
+    	arr.add(-1);
+    	arr.add(-2);
+    	arr.add(-3);
+    	List<Object> expected_result = new ArrayList<>();
+    	assertEquals(expected_result, ByLength.byLength(arr));
+    }
+    @Test
+    public void test_byLength_with_zero_element_array() {
+    	List<Object> arr = new ArrayList<>();
+    	arr.add(0);
+    	arr.add(0);
+    	arr.add(0);
+    	List<Object> expected_result = new ArrayList<>();
+    	assertEquals(expected_result, ByLength.byLength(arr));
+    }
+                                    
+}

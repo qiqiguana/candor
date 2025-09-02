@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_1728.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">leetcode</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_1728.java</span></div><h1>id_1728.java</h1><pre class="source lang-java linenums">package original;
+
+import java.util.ArrayDeque;
+import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.Deque;
+import java.util.List;
+<span class="nc" id="L8">class Solution1728 {</span>
+<span class="nc" id="L9">    private final int[] dirs = {-1, 0, 1, 0, -1};</span>
+
+    public boolean canMouseWin(String[] grid, int catJump, int mouseJump) {
+  /**
+  A game is played by a cat and a mouse named Cat and Mouse. The environment is represented by a grid of size rows x cols, where each element is a wall, floor, player (Cat, Mouse), or food. Players are represented by the characters &amp;#39;C&amp;#39;(Cat),&amp;#39;M&amp;#39;(Mouse). Floors are represented by the character &amp;#39;.&amp;#39; and can be walked on. Walls are represented by the character &amp;#39;#&amp;#39; and cannot be walked on. Food is represented by the character &amp;#39;F&amp;#39; and can be walked on. There is only one of each character &amp;#39;C&amp;#39;, &amp;#39;M&amp;#39;, and &amp;#39;F&amp;#39; in grid. Mouse and Cat play according to the following rules: Mouse moves first, then they take turns to move. During each turn, Cat and Mouse can jump in one of the four directions (left, right, up, down). They cannot jump over the wall nor outside of the grid. catJump, mouseJump are the maximum lengths Cat and Mouse can jump at a time, respectively. Cat and Mouse can jump less than the maximum length. Staying in the same position is allowed. Mouse can jump over Cat. The game can end in 4 ways: If Cat occupies the same position as Mouse, Cat wins. If Cat reaches the food first, Cat wins. If Mouse reaches the food first, Mouse wins. If Mouse cannot get to the food within 1000 turns, Cat wins. Given a rows x cols matrix grid and two integers catJump and mouseJump, return true if Mouse can win the game if both Cat and Mouse play optimally, otherwise return false. &amp;nbsp; Example 1: Input: grid = [&amp;quot;####F&amp;quot;,&amp;quot;#C...&amp;quot;,&amp;quot;M....&amp;quot;], catJump = 1, mouseJump = 2 Output: true Explanation: Cat cannot catch Mouse on its turn nor can it get the food before Mouse. Example 2: Input: grid = [&amp;quot;M.C...F&amp;quot;], catJump = 1, mouseJump = 4 Output: true Example 3: Input: grid = [&amp;quot;M.C...F&amp;quot;], catJump = 1, mouseJump = 3 Output: false &amp;nbsp; Constraints: rows == grid.length cols = grid[i].length 1 &amp;lt;= rows, cols &amp;lt;= 8 grid[i][j] consist only of characters &amp;#39;C&amp;#39;, &amp;#39;M&amp;#39;, &amp;#39;F&amp;#39;, &amp;#39;.&amp;#39;, and &amp;#39;#&amp;#39;. There is only one of each character &amp;#39;C&amp;#39;, &amp;#39;M&amp;#39;, and &amp;#39;F&amp;#39; in grid. 1 &amp;lt;= catJump, mouseJump &amp;lt;= 8
+  */
+<span class="nc" id="L15">        int m = grid.length;</span>
+<span class="nc" id="L16">        int n = grid[0].length();</span>
+<span class="nc" id="L17">        int catStart = 0, mouseStart = 0, food = 0;</span>
+<span class="nc" id="L18">        List&lt;Integer&gt;[] gMouse = new List[m * n];</span>
+<span class="nc" id="L19">        List&lt;Integer&gt;[] gCat = new List[m * n];</span>
+<span class="nc" id="L20">        Arrays.setAll(gMouse, i -&gt; new ArrayList&lt;&gt;());</span>
+<span class="nc" id="L21">        Arrays.setAll(gCat, i -&gt; new ArrayList&lt;&gt;());</span>
+
+<span class="nc bnc" id="L23" title="All 2 branches missed.">        for (int i = 0; i &lt; m; i++) {</span>
+<span class="nc bnc" id="L24" title="All 2 branches missed.">            for (int j = 0; j &lt; n; j++) {</span>
+<span class="nc" id="L25">                char c = grid[i].charAt(j);</span>
+<span class="nc bnc" id="L26" title="All 2 branches missed.">                if (c == '#') {</span>
+<span class="nc" id="L27">                    continue;</span>
+                }
+<span class="nc" id="L29">                int v = i * n + j;</span>
+<span class="nc bnc" id="L30" title="All 2 branches missed.">                if (c == 'C') {</span>
+<span class="nc" id="L31">                    catStart = v;</span>
+<span class="nc bnc" id="L32" title="All 2 branches missed.">                } else if (c == 'M') {</span>
+<span class="nc" id="L33">                    mouseStart = v;</span>
+<span class="nc bnc" id="L34" title="All 2 branches missed.">                } else if (c == 'F') {</span>
+<span class="nc" id="L35">                    food = v;</span>
+                }
+
+<span class="nc bnc" id="L38" title="All 2 branches missed.">                for (int d = 0; d &lt; 4; ++d) {</span>
+<span class="nc bnc" id="L39" title="All 2 branches missed.">                    for (int k = 0; k &lt;= mouseJump; k++) {</span>
+<span class="nc" id="L40">                        int x = i + k * dirs[d];</span>
+<span class="nc" id="L41">                        int y = j + k * dirs[d + 1];</span>
+<span class="nc bnc" id="L42" title="All 10 branches missed.">                        if (x &lt; 0 || x &gt;= m || y &lt; 0 || y &gt;= n || grid[x].charAt(y) == '#') {</span>
+<span class="nc" id="L43">                            break;</span>
+                        }
+<span class="nc" id="L45">                        gMouse[v].add(x * n + y);</span>
+                    }
+<span class="nc bnc" id="L47" title="All 2 branches missed.">                    for (int k = 0; k &lt;= catJump; k++) {</span>
+<span class="nc" id="L48">                        int x = i + k * dirs[d];</span>
+<span class="nc" id="L49">                        int y = j + k * dirs[d + 1];</span>
+<span class="nc bnc" id="L50" title="All 10 branches missed.">                        if (x &lt; 0 || x &gt;= m || y &lt; 0 || y &gt;= n || grid[x].charAt(y) == '#') {</span>
+<span class="nc" id="L51">                            break;</span>
+                        }
+<span class="nc" id="L53">                        gCat[v].add(x * n + y);</span>
+                    }
+                }
+            }
+        }
+
+<span class="nc bnc" id="L59" title="All 2 branches missed.">        return calc(gMouse, gCat, mouseStart, catStart, food) == 1;</span>
+    }
+
+    private int calc(
+        List&lt;Integer&gt;[] gMouse, List&lt;Integer&gt;[] gCat, int mouseStart, int catStart, int hole) {
+<span class="nc" id="L64">        int n = gMouse.length;</span>
+<span class="nc" id="L65">        int[][][] degree = new int[n][n][2];</span>
+<span class="nc" id="L66">        int[][][] ans = new int[n][n][2];</span>
+<span class="nc" id="L67">        Deque&lt;int[]&gt; q = new ArrayDeque&lt;&gt;();</span>
+
+<span class="nc bnc" id="L69" title="All 2 branches missed.">        for (int i = 0; i &lt; n; i++) {</span>
+<span class="nc bnc" id="L70" title="All 2 branches missed.">            for (int j = 0; j &lt; n; j++) {</span>
+<span class="nc" id="L71">                degree[i][j][0] = gMouse[i].size();</span>
+<span class="nc" id="L72">                degree[i][j][1] = gCat[j].size();</span>
+            }
+        }
+
+<span class="nc bnc" id="L76" title="All 2 branches missed.">        for (int i = 0; i &lt; n; i++) {</span>
+<span class="nc" id="L77">            ans[hole][i][1] = 1;</span>
+<span class="nc" id="L78">            ans[i][hole][0] = 2;</span>
+<span class="nc" id="L79">            ans[i][i][1] = 2;</span>
+<span class="nc" id="L80">            ans[i][i][0] = 2;</span>
+<span class="nc" id="L81">            q.offer(new int[] {hole, i, 1});</span>
+<span class="nc" id="L82">            q.offer(new int[] {i, hole, 0});</span>
+<span class="nc" id="L83">            q.offer(new int[] {i, i, 0});</span>
+<span class="nc" id="L84">            q.offer(new int[] {i, i, 1});</span>
+        }
+
+<span class="nc bnc" id="L87" title="All 2 branches missed.">        while (!q.isEmpty()) {</span>
+<span class="nc" id="L88">            int[] state = q.poll();</span>
+<span class="nc" id="L89">            int m = state[0], c = state[1], t = state[2];</span>
+<span class="nc" id="L90">            int result = ans[m][c][t];</span>
+<span class="nc bnc" id="L91" title="All 2 branches missed.">            for (int[] prevState : getPrevStates(gMouse, gCat, state, ans)) {</span>
+<span class="nc" id="L92">                int pm = prevState[0], pc = prevState[1], pt = prevState[2];</span>
+<span class="nc bnc" id="L93" title="All 2 branches missed.">                if (pt == result - 1) {</span>
+<span class="nc" id="L94">                    ans[pm][pc][pt] = result;</span>
+<span class="nc" id="L95">                    q.offer(prevState);</span>
+                } else {
+<span class="nc" id="L97">                    degree[pm][pc][pt]--;</span>
+<span class="nc bnc" id="L98" title="All 2 branches missed.">                    if (degree[pm][pc][pt] == 0) {</span>
+<span class="nc" id="L99">                        ans[pm][pc][pt] = result;</span>
+<span class="nc" id="L100">                        q.offer(prevState);</span>
+                    }
+                }
+<span class="nc" id="L103">            }</span>
+<span class="nc" id="L104">        }</span>
+
+<span class="nc" id="L106">        return ans[mouseStart][catStart][0];</span>
+    }
+
+    private List&lt;int[]&gt; getPrevStates(
+        List&lt;Integer&gt;[] gMouse, List&lt;Integer&gt;[] gCat, int[] state, int[][][] ans) {
+<span class="nc" id="L111">        int m = state[0], c = state[1], t = state[2];</span>
+<span class="nc" id="L112">        int pt = t ^ 1;</span>
+<span class="nc" id="L113">        List&lt;int[]&gt; pre = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L114" title="All 2 branches missed.">        if (pt == 1) {</span>
+<span class="nc bnc" id="L115" title="All 2 branches missed.">            for (int pc : gCat[c]) {</span>
+<span class="nc bnc" id="L116" title="All 2 branches missed.">                if (ans[m][pc][1] == 0) {</span>
+<span class="nc" id="L117">                    pre.add(new int[] {m, pc, pt});</span>
+                }
+<span class="nc" id="L119">            }</span>
+        } else {
+<span class="nc bnc" id="L121" title="All 2 branches missed.">            for (int pm : gMouse[m]) {</span>
+<span class="nc bnc" id="L122" title="All 2 branches missed.">                if (ans[pm][c][0] == 0) {</span>
+<span class="nc" id="L123">                    pre.add(new int[] {pm, c, 0});</span>
+                }
+<span class="nc" id="L125">            }</span>
+        }
+<span class="nc" id="L127">        return pre;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

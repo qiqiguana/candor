@@ -1,0 +1,24 @@
+package original;
+
+import java.util.ArrayList;
+
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of F.
+*/
+class FTest {
+    @Test
+    void testF1() {
+        List<Integer> result = F.f(5);
+        assertEquals(15, result.get(4)); 
+    }
+    
+    @Test
+        public void testNothing(){
+            F s = new F();
+            }
+                                    
+}

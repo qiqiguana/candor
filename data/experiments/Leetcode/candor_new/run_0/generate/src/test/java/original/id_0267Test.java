@@ -1,0 +1,40 @@
+package original;
+
+import java.util.ArrayList;
+
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of Solution0267.
+*/
+class Solution0267Test {
+
+    @Test
+    void testGeneratePalindromes() {
+        // Arrange
+        Solution0267 solution = new Solution0267();
+        String s = "a";
+        
+        // Act
+        List<String> result = solution.generatePalindromes(s);
+        
+        // Assert
+        assertEquals(1, result.size());
+    }
+    @Test
+    public void testGeneratePalindromesNoPermutation() {
+        Solution0267 s = new Solution0267();
+        List<String> result = s.generatePalindromes("abc");
+        assertTrue(result.isEmpty());
+    }
+    @Test
+    public void testGeneratePalindromes1() {
+        Solution0267 s = new Solution0267();
+        List<String> result = s.generatePalindromes("aabb");
+        assertEquals(2, result.size());
+        assertTrue(result.contains("abba"));
+        assertTrue(result.contains("baab"));
+    }
+}

@@ -1,0 +1,76 @@
+package original;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import java.util.List;
+import java.util.ArrayList;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of MoveOneBall.
+*/
+class MoveOneBallTest {
+    @Test
+    void testMoveOneBall_ReturnsTrue_WhenArrayIsEmpty() {
+        List<Object> arr = new ArrayList<>();
+        assertTrue(MoveOneBall.moveOneBall(arr));
+    }
+    @Test
+    public void testMoveOneBallWithEmptyArray() {
+        assertTrue(MoveOneBall.moveOneBall(new ArrayList<>()));
+    }
+    @Test
+    public void testMoveOneBallWithAlreadySortedArray2() {
+        List<Object> list = new ArrayList<>();
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        list.add(4);
+        list.add(5);
+        assertTrue(MoveOneBall.moveOneBall(list));
+    }
+    @Test
+    public void testMoveOneBall_WithEmptyArray_ReturnTrue() {
+        // Arrange
+        List<Object> input = new ArrayList<>();
+        Boolean expected = true;
+        
+        // Act
+        Boolean actual = MoveOneBall.moveOneBall(input);
+        
+        // Assert
+        assertEquals(expected, actual);
+    }
+    @Test
+    public void testMoveOneBall_WithAlreadySortedArray_ReturnTrue() {
+        // Arrange
+        java.util.List<java.lang.Object> input = java.util.Arrays.asList(1, 2, 3, 4, 5);
+        Boolean expected = true;
+        
+        // Act
+        Boolean actual = original.MoveOneBall.moveOneBall(input);
+        
+        // Assert
+        if (actual) {
+            assertEquals(expected, actual);
+        } else {
+            org.junit.jupiter.api.Assertions.fail("Expected moveOneBall to return true for an already sorted array");
+        }
+    }
+    @Test
+    public void testMoveOneBall_WithNullInput_ThrowNullPointerException() {
+        // Arrange
+        List<Object> input = null;
+        
+        // Act and Assert
+        assertThrows(NullPointerException.class, () -> MoveOneBall.moveOneBall(input));
+    }
+    @Test
+    public void Test_Empty_Array() {
+    	List<Object> input = new ArrayList<>();
+    	assertTrue(MoveOneBall.moveOneBall(input));
+    }
+    @Test
+    public void Test_Null_Input() {
+    	assertThrows(NullPointerException.class, () -> MoveOneBall.moveOneBall(null));
+    }
+}

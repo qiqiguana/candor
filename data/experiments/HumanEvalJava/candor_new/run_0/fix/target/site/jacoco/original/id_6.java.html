@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_6.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HumanEvalJava</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_6.java</span></div><h1>id_6.java</h1><pre class="source lang-java linenums">package original;
+
+
+import java.util.ArrayList;
+import java.util.List;
+
+
+<span class="fc" id="L8">class ParseNestedParens {</span>
+    /**
+     * Input to this function is a string represented multiple groups for nested parentheses separated by spaces.
+     * For each of the group, output the deepest level of nesting of parentheses.
+     * E.g. (()()) has maximum two levels of nesting while ((())) has three.
+     *
+     * &gt; parseNestedParens(&quot;(()()) ((())) () ((())()())&quot;)
+     * [2, 3, 1, 3]
+     * &gt; parseNestedParens(&quot;() (()) ((())) (((())))&quot;)
+     * [1, 2, 3, 4]
+     * &gt; parseNestedParens(&quot;(()(())((())))&quot;)
+     * [4]
+     */
+    public static List&lt;Integer&gt; parseNestedParens(String parenString) {
+<span class="fc" id="L22">        List&lt;Integer&gt; result = new ArrayList&lt;Integer&gt;();</span>
+<span class="fc" id="L23">        int count = 0;</span>
+<span class="fc" id="L24">        int maximum_depth = 0;</span>
+<span class="fc bfc" id="L25" title="All 2 branches covered.">        for (int i = 0; i &lt; parenString.length(); i++) {</span>
+<span class="fc bfc" id="L26" title="All 2 branches covered.">            if (parenString.charAt(i) == '(') {</span>
+<span class="fc" id="L27">                count++;</span>
+<span class="fc" id="L28">                maximum_depth = Math.max(maximum_depth, count);</span>
+<span class="fc bfc" id="L29" title="All 2 branches covered.">            } else if (parenString.charAt(i) == ')') {</span>
+<span class="fc" id="L30">                count--;</span>
+<span class="fc bfc" id="L31" title="All 2 branches covered.">                if (count == 0) {</span>
+<span class="fc" id="L32">                    result.add(maximum_depth);</span>
+<span class="fc" id="L33">                    maximum_depth = 0;</span>
+
+                }
+            }
+        }
+<span class="fc" id="L38">        return result;</span>
+    }
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

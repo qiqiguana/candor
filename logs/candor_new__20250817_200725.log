@@ -1,0 +1,1316 @@
+nohup: ignoring input
+2025-08-17 20:07:25,090   INFO : 
+
+ Processing file 1/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_150.java
+2025-08-17 20:07:25,090   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_150Test.java
+2025-08-17 20:07:25,090   INFO : 
+
+ Processing file 2/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_130.java
+2025-08-17 20:07:25.805940: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2025-08-17 20:07:25.815221: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1755457645.825883 2309639 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1755457645.828858 2309639 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+W0000 00:00:1755457645.837079 2309639 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1755457645.837096 2309639 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1755457645.837097 2309639 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1755457645.837098 2309639 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+2025-08-17 20:07:25.839792: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX512_FP16 AVX_VNNI AMX_TILE AMX_INT8 AMX_BF16 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-08-17 20:07:28,165   INFO : 
+
+
+
+                ▗▄▄▄▖  ▗▄▖  ▗▖  ▗▖ ▗▄▄▄    ▗▄▖  ▗▄▄▖ 
+                ▐▌    ▐▌ ▐▌ ▐▛▚▖▐▌ ▐▌  █  ▐▌ ▐▌ ▐▌ ▐▌
+                ▐▌    ▐▛▀▜▌ ▐▌ ▝▜▌ ▐▌  █  ▐▌ ▐▌ ▐▛▀▚▖
+                ▝▚▄▄▖ ▐▌ ▐▌ ▐▌  ▐▌ ▐▙▄▄▀  ▝▚▄▞▘ ▐▌ ▐▌
+
+2025-08-17 20:07:28,165   INFO : ======================================================================
+
+2025-08-17 20:07:28,165   INFO : 🚀 Starting MATG: Multi-Agent LLM-Based Test Generation Framework
+2025-08-17 20:07:28,165   INFO : 📘 Purpose : Automated test generation for Java using LLM agents
+2025-08-17 20:07:28,165   INFO : 🧠 Agents  : Planner, Generator, Executor, and Evaluator
+2025-08-17 20:07:28,165   INFO : 🛠️  Engine  : Powered by matg (Machine-Assisted Test Generation)
+2025-08-17 20:07:28,165   INFO : ======================================================================
+
+
+2025-08-17 20:07:28,181   INFO : 🚨🚨🚨 🚀 🚀 🚀 ----- 🤖 AGENT Initializer: Generating initial test file ----- 🚀 🚀 🚀 🚨🚨🚨 
+{"test_file_code": "package original;\n\nimport java.util.ArrayList;\nimport java.util.Arrays;\nimport java.util.List;\n\nimport org.junit.jupiter.api.Test;\nimport static org.junit.jupiter.api.Assertions.*;\n/**\n* Test class of Tri.\n*/\nclass TriTest {\n    @Test\n    void testTri() {\n        List<Number> expected = Arrays.asList(1, 3, 2.0, 8.0, 3.0);\n        assertEquals(expected, Tri.tri(4));\n    }\n}\n"}2025-08-17 20:07:43,911   INFO : Running test file: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_130Test.java
+2025-08-17 20:07:46,792   INFO : Test passed!
+2025-08-17 20:07:46,792   INFO : Test file created at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_130Test.java
+# Unit Test Generator for Java using JUnit5
+
+## Task
+Generate only one unit test for the given source code. 
+ 
+## Source File
+```Java
+package original;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+
+class Tri {
+    /**
+     * Everyone knows Fibonacci sequence, it was studied deeply by mathematicians in
+     * the last couple centuries. However, what people don't know is Tribonacci sequence.
+     * Tribonacci sequence is defined by the recurrence:
+     * tri(1) = 3
+     * tri(n) = 1 + n / 2, if n is even.
+     * tri(n) =  tri(n - 1) + tri(n - 2) + tri(n + 1), if n is odd.
+     * For example:
+     * tri(2) = 1 + (2 / 2) = 2
+     * tri(4) = 3
+     * tri(3) = tri(2) + tri(1) + tri(4)
+     * = 2 + 3 + 3 = 8
+     * You are given a non-negative integer number n, you have to a return a list of the
+     * first n + 1 numbers of the Tribonacci sequence.
+     * Examples:
+     * tri(3) = [1, 3, 2, 8]
+     *
+     * > tri(3)
+     * [1, 3, 2.0, 8.0]
+     * > tri(4)
+     * [1, 3, 2.0, 8.0, 3.0]
+     * > tri(5)
+     * [1, 3, 2.0, 8.0, 3.0, 15.0]
+     * > tri(6)
+     * [1, 3, 2.0, 8.0, 3.0, 15.0, 4.0]
+     * > tri(7)
+     * [1, 3, 2.0, 8.0, 3.0, 15.0, 4.0, 24.0]
+     * > tri(8)
+     * [1, 3, 2.0, 8.0, 3.0, 15.0, 4.0, 24.0, 5.0]
+     * > tri(9)
+     * [1, 3, 2.0, 8.0, 3.0, 15.0, 4.0, 24.0, 5.0, 35.0]
+     * > tri(20)
+     * [1, 3, 2.0, 8.0, 3.0, 15.0, 4.0, 24.0, 5.0, 35.0, 6.0, 48.0, 7.0, 63.0, 8.0, 80.0, 9.0, 99.0, 10.0, 120.0, 11.0]
+     * > tri(0)
+     * [1]
+     * > tri(1)
+     * [1, 3]
+     */
+    public static List<Number> tri(int n) {
+        if (n == 0) {
+            return Arrays.asList(1);
+        }
+        List<Number> my_tri = new ArrayList<>();
+        my_tri.add(1);
+        my_tri.add(3);
+        for (int i = 2; i < n + 1; i++) {
+            if (i % 2 == 0) {
+                my_tri.add(i / 2 + 1.0);
+            } else {
+                my_tri.add(my_tri.get(i - 1).doubleValue() + my_tri.get(i - 2).doubleValue() + (i + 3) / 2);
+            }
+        }
+        return my_tri;
+    }
+
+
+}
+```
+
+
+
+
+## Requirements
+1. Write a test file including only one test case for the source code
+2. Test code must assert one concept per test case.
+3. Test code must be full complete function in Java using JUnit5.
+4. Focus on testing a single behavior or outcome per test case.
+5. Include only the test function, not boilerplate code
+6. Add import statements if needed. 
+7. Use appropriate test tags
+8. Double check the test code for correctness
+9. Double check all the necessary imports are included
+10. Avoid duplicate test method definition. Append an increasing id number to the method name to avoid duplicate if necessary.
+11. keep all the import statements from the source code and keep the package declaration statement.
+12. Remember to import data type packages such as List and ArrayList
+13. One test case method should only contain one assertion!
+14. Add the package declaration statement from the source code to the beginning of the test file.
+
+
+## output
+Generate test file 
+package original;
+
+import java.util.ArrayList;
+
+import java.util.Arrays;
+
+import java.util.List;
+
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of Tri.
+*/
+class TriTest {
+
+# Provide only the java test output. Do not include any additional explanations or comments.
+# Here is the format instruction
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {"properties": {"foo": {"title": "Foo", "description": "a list of strings", "type": "array", "items": {"type": "string"}}}, "required": ["foo"]}
+the object {"foo": ["bar", "baz"]} is a well-formatted instance of the schema. The object {"properties": {"foo": ["bar", "baz"]}} is not well-formatted.
+
+Here is the output schema:
+```
+{"properties": {"test_file_code": {"description": "The code of the test file", "title": "Test File Code", "type": "string"}}, "required": ["test_file_code"]}
+```
+2025-08-17 20:07:47,475   INFO : 
+
+ Processing file 3/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_146.java
+2025-08-17 20:07:47,475   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_146Test.java
+2025-08-17 20:07:47,475   INFO : 
+
+ Processing file 4/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_39.java
+2025-08-17 20:07:47,476   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_39Test.java
+2025-08-17 20:07:47,476   INFO : 
+
+ Processing file 5/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_53.java
+2025-08-17 20:07:47,476   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_53Test.java
+2025-08-17 20:07:47,476   INFO : 
+
+ Processing file 6/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_31.java
+2025-08-17 20:07:47,476   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_31Test.java
+2025-08-17 20:07:47,476   INFO : 
+
+ Processing file 7/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_72.java
+2025-08-17 20:07:47,476   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_72Test.java
+2025-08-17 20:07:47,476   INFO : 
+
+ Processing file 8/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_109.java
+2025-08-17 20:07:47,476   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_109Test.java
+2025-08-17 20:07:47,476   INFO : 
+
+ Processing file 9/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_111.java
+2025-08-17 20:07:47,476   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_111Test.java
+2025-08-17 20:07:47,476   INFO : 
+
+ Processing file 10/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_133.java
+2025-08-17 20:07:47,476   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_133Test.java
+2025-08-17 20:07:47,477   INFO : 
+
+ Processing file 11/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_144.java
+2025-08-17 20:07:47,477   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_144Test.java
+2025-08-17 20:07:47,477   INFO : 
+
+ Processing file 12/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_8.java
+2025-08-17 20:07:47,477   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_8Test.java
+2025-08-17 20:07:47,477   INFO : 
+
+ Processing file 13/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_119.java
+2025-08-17 20:07:47,477   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_119Test.java
+2025-08-17 20:07:47,477   INFO : 
+
+ Processing file 14/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_102.java
+2025-08-17 20:07:47,477   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_102Test.java
+2025-08-17 20:07:47,477   INFO : 
+
+ Processing file 15/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_85.java
+2025-08-17 20:07:47,477   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_85Test.java
+2025-08-17 20:07:47,477   INFO : 
+
+ Processing file 16/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_88.java
+2025-08-17 20:07:47,477   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_88Test.java
+2025-08-17 20:07:47,477   INFO : 
+
+ Processing file 17/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_11.java
+2025-08-17 20:07:47,477   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_11Test.java
+2025-08-17 20:07:47,477   INFO : 
+
+ Processing file 18/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_154.java
+2025-08-17 20:07:47,477   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_154Test.java
+2025-08-17 20:07:47,477   INFO : 
+
+ Processing file 19/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_42.java
+2025-08-17 20:07:47,477   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_42Test.java
+2025-08-17 20:07:47,478   INFO : 
+
+ Processing file 20/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_136.java
+2025-08-17 20:07:47,478   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_136Test.java
+2025-08-17 20:07:47,478   INFO : 
+
+ Processing file 21/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_125.java
+2025-08-17 20:07:47,478   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_125Test.java
+2025-08-17 20:07:47,478   INFO : 
+
+ Processing file 22/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_48.java
+2025-08-17 20:07:47,478   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_48Test.java
+2025-08-17 20:07:47,478   INFO : 
+
+ Processing file 23/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_84.java
+2025-08-17 20:07:47,478   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_84Test.java
+2025-08-17 20:07:47,478   INFO : 
+
+ Processing file 24/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_81.java
+2025-08-17 20:07:47,478   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_81Test.java
+2025-08-17 20:07:47,478   INFO : 
+
+ Processing file 25/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_71.java
+2025-08-17 20:07:47,478   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_71Test.java
+2025-08-17 20:07:47,478   INFO : 
+
+ Processing file 26/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_112.java
+2025-08-17 20:07:47,479   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_112Test.java
+2025-08-17 20:07:47,479   INFO : 
+
+ Processing file 27/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_116.java
+2025-08-17 20:07:47,479   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_116Test.java
+2025-08-17 20:07:47,479   INFO : 
+
+ Processing file 28/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_73.java
+2025-08-17 20:07:47,479   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_73Test.java
+2025-08-17 20:07:47,479   INFO : 
+
+ Processing file 29/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_99.java
+2025-08-17 20:07:47,479   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_99Test.java
+2025-08-17 20:07:47,479   INFO : 
+
+ Processing file 30/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_92.java
+2025-08-17 20:07:47,479   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_92Test.java
+2025-08-17 20:07:47,479   INFO : 
+
+ Processing file 31/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_79.java
+2025-08-17 20:07:47,479   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_79Test.java
+2025-08-17 20:07:47,479   INFO : 
+
+ Processing file 32/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_49.java
+2025-08-17 20:07:47,479   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_49Test.java
+2025-08-17 20:07:47,479   INFO : 
+
+ Processing file 33/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_1.java
+2025-08-17 20:07:47,479   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_1Test.java
+2025-08-17 20:07:47,479   INFO : 
+
+ Processing file 34/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_120.java
+2025-08-17 20:07:47,479   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_120Test.java
+2025-08-17 20:07:47,479   INFO : 
+
+ Processing file 35/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_139.java
+2025-08-17 20:07:47,479   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_139Test.java
+2025-08-17 20:07:47,479   INFO : 
+
+ Processing file 36/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_132.java
+2025-08-17 20:07:47,479   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_132Test.java
+2025-08-17 20:07:47,479   INFO : 
+
+ Processing file 37/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_93.java
+2025-08-17 20:07:47,479   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_93Test.java
+2025-08-17 20:07:47,479   INFO : 
+
+ Processing file 38/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_16.java
+2025-08-17 20:07:47,479   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_16Test.java
+2025-08-17 20:07:47,479   INFO : 
+
+ Processing file 39/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_80.java
+2025-08-17 20:07:47,479   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_80Test.java
+2025-08-17 20:07:47,479   INFO : 
+
+ Processing file 40/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_23.java
+2025-08-17 20:07:47,479   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_23Test.java
+2025-08-17 20:07:47,479   INFO : 
+
+ Processing file 41/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_140.java
+2025-08-17 20:07:47,479   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_140Test.java
+2025-08-17 20:07:47,479   INFO : 
+
+ Processing file 42/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_123.java
+2025-08-17 20:07:47,479   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_123Test.java
+2025-08-17 20:07:47,479   INFO : 
+
+ Processing file 43/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_28.java
+2025-08-17 20:07:47,479   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_28Test.java
+2025-08-17 20:07:47,480   INFO : 
+
+ Processing file 44/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_34.java
+2025-08-17 20:07:47,480   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_34Test.java
+2025-08-17 20:07:47,480   INFO : 
+
+ Processing file 45/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_153.java
+2025-08-17 20:07:47,480   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_153Test.java
+2025-08-17 20:07:47,480   INFO : 
+
+ Processing file 46/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_3.java
+2025-08-17 20:07:47,480   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_3Test.java
+2025-08-17 20:07:47,480   INFO : 
+
+ Processing file 47/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_83.java
+2025-08-17 20:07:47,480   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_83Test.java
+2025-08-17 20:07:47,480   INFO : 
+
+ Processing file 48/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_18.java
+2025-08-17 20:07:47,480   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_18Test.java
+2025-08-17 20:07:47,480   INFO : 
+
+ Processing file 49/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_10.java
+2025-08-17 20:07:47,480   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_10Test.java
+2025-08-17 20:07:47,480   INFO : 
+
+ Processing file 50/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_74.java
+2025-08-17 20:07:47,480   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_74Test.java
+2025-08-17 20:07:47,480   INFO : 
+
+ Processing file 51/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_15.java
+2025-08-17 20:07:47,480   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_15Test.java
+2025-08-17 20:07:47,480   INFO : 
+
+ Processing file 52/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_9.java
+2025-08-17 20:07:47,480   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_9Test.java
+2025-08-17 20:07:47,480   INFO : 
+
+ Processing file 53/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_33.java
+2025-08-17 20:07:47,480   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_33Test.java
+2025-08-17 20:07:47,480   INFO : 
+
+ Processing file 54/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_0.java
+2025-08-17 20:07:47,480   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_0Test.java
+2025-08-17 20:07:47,480   INFO : 
+
+ Processing file 55/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_19.java
+2025-08-17 20:07:47,480   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_19Test.java
+2025-08-17 20:07:47,480   INFO : 
+
+ Processing file 56/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_158.java
+2025-08-17 20:07:47,480   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_158Test.java
+2025-08-17 20:07:47,480   INFO : 
+
+ Processing file 57/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_135.java
+2025-08-17 20:07:47,480   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_135Test.java
+2025-08-17 20:07:47,480   INFO : 
+
+ Processing file 58/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_95.java
+2025-08-17 20:07:47,480   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_95Test.java
+2025-08-17 20:07:47,480   INFO : 
+
+ Processing file 59/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_117.java
+2025-08-17 20:07:47,480   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_117Test.java
+2025-08-17 20:07:47,480   INFO : 
+
+ Processing file 60/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_67.java
+2025-08-17 20:07:47,480   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_67Test.java
+2025-08-17 20:07:47,480   INFO : 
+
+ Processing file 61/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_66.java
+2025-08-17 20:07:47,480   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_66Test.java
+2025-08-17 20:07:47,480   INFO : 
+
+ Processing file 62/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_41.java
+2025-08-17 20:07:47,480   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_41Test.java
+2025-08-17 20:07:47,480   INFO : 
+
+ Processing file 63/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_29.java
+2025-08-17 20:07:47,480   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_29Test.java
+2025-08-17 20:07:47,480   INFO : 
+
+ Processing file 64/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_78.java
+2025-08-17 20:07:47,480   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_78Test.java
+2025-08-17 20:07:47,480   INFO : 
+
+ Processing file 65/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_98.java
+2025-08-17 20:07:47,480   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_98Test.java
+2025-08-17 20:07:47,480   INFO : 
+
+ Processing file 66/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_108.java
+2025-08-17 20:07:47,480   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_108Test.java
+2025-08-17 20:07:47,480   INFO : 
+
+ Processing file 67/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_27.java
+2025-08-17 20:07:47,480   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_27Test.java
+2025-08-17 20:07:47,480   INFO : 
+
+ Processing file 68/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_82.java
+2025-08-17 20:07:47,480   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_82Test.java
+2025-08-17 20:07:47,480   INFO : 
+
+ Processing file 69/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_143.java
+2025-08-17 20:07:47,480   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_143Test.java
+2025-08-17 20:07:47,480   INFO : 
+
+ Processing file 70/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_60.java
+2025-08-17 20:07:47,480   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_60Test.java
+2025-08-17 20:07:47,480   INFO : 
+
+ Processing file 71/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_128.java
+2025-08-17 20:07:47,480   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_128Test.java
+2025-08-17 20:07:47,480   INFO : 
+
+ Processing file 72/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_105.java
+2025-08-17 20:07:47,480   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_105Test.java
+2025-08-17 20:07:47,480   INFO : 
+
+ Processing file 73/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_121.java
+2025-08-17 20:07:47,480   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_121Test.java
+2025-08-17 20:07:47,480   INFO : 
+
+ Processing file 74/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_137.java
+2025-08-17 20:07:47,480   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_137Test.java
+2025-08-17 20:07:47,480   INFO : 
+
+ Processing file 75/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_12.java
+2025-08-17 20:07:47,480   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_12Test.java
+2025-08-17 20:07:47,480   INFO : 
+
+ Processing file 76/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_134.java
+2025-08-17 20:07:47,480   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_134Test.java
+2025-08-17 20:07:47,480   INFO : 
+
+ Processing file 77/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_94.java
+2025-08-17 20:07:47,480   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_94Test.java
+2025-08-17 20:07:47,480   INFO : 
+
+ Processing file 78/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_90.java
+2025-08-17 20:07:47,480   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_90Test.java
+2025-08-17 20:07:47,480   INFO : 
+
+ Processing file 79/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_58.java
+2025-08-17 20:07:47,480   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_58Test.java
+2025-08-17 20:07:47,480   INFO : 
+
+ Processing file 80/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_148.java
+2025-08-17 20:07:47,480   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_148Test.java
+2025-08-17 20:07:47,480   INFO : 
+
+ Processing file 81/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_157.java
+2025-08-17 20:07:47,480   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_157Test.java
+2025-08-17 20:07:47,480   INFO : 
+
+ Processing file 82/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_17.java
+2025-08-17 20:07:47,480   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_17Test.java
+2025-08-17 20:07:47,480   INFO : 
+
+ Processing file 83/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_57.java
+2025-08-17 20:07:47,480   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_57Test.java
+2025-08-17 20:07:47,480   INFO : 
+
+ Processing file 84/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_70.java
+2025-08-17 20:07:47,480   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_70Test.java
+2025-08-17 20:07:47,480   INFO : 
+
+ Processing file 85/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_51.java
+2025-08-17 20:07:47,480   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_51Test.java
+2025-08-17 20:07:47,480   INFO : 
+
+ Processing file 86/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_20.java
+2025-08-17 20:07:47,480   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_20Test.java
+2025-08-17 20:07:47,480   INFO : 
+
+ Processing file 87/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_91.java
+2025-08-17 20:07:47,480   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_91Test.java
+2025-08-17 20:07:47,480   INFO : 
+
+ Processing file 88/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_21.java
+2025-08-17 20:07:47,480   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_21Test.java
+2025-08-17 20:07:47,480   INFO : 
+
+ Processing file 89/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_126.java
+2025-08-17 20:07:47,480   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_126Test.java
+2025-08-17 20:07:47,480   INFO : 
+
+ Processing file 90/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_97.java
+2025-08-17 20:07:47,480   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_97Test.java
+2025-08-17 20:07:47,480   INFO : 
+
+ Processing file 91/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_159.java
+2025-08-17 20:07:47,480   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_159Test.java
+2025-08-17 20:07:47,481   INFO : 
+
+ Processing file 92/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_104.java
+2025-08-17 20:07:47,481   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_104Test.java
+2025-08-17 20:07:47,481   INFO : 
+
+ Processing file 93/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_163.java
+2025-08-17 20:07:47,481   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_163Test.java
+2025-08-17 20:07:47,481   INFO : 
+
+ Processing file 94/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_131.java
+2025-08-17 20:07:47,481   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_131Test.java
+2025-08-17 20:07:47,481   INFO : 
+
+ Processing file 95/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_37.java
+2025-08-17 20:07:47,481   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_37Test.java
+2025-08-17 20:07:47,481   INFO : 
+
+ Processing file 96/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_161.java
+2025-08-17 20:07:47,481   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_161Test.java
+2025-08-17 20:07:47,481   INFO : 
+
+ Processing file 97/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_26.java
+2025-08-17 20:07:47,481   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_26Test.java
+2025-08-17 20:07:47,481   INFO : 
+
+ Processing file 98/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_100.java
+2025-08-17 20:07:47,481   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_100Test.java
+2025-08-17 20:07:47,481   INFO : 
+
+ Processing file 99/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_118.java
+2025-08-17 20:07:47,481   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_118Test.java
+2025-08-17 20:07:47,481   INFO : 
+
+ Processing file 100/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_4.java
+2025-08-17 20:07:47,481   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_4Test.java
+2025-08-17 20:07:47,481   INFO : 
+
+ Processing file 101/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_6.java
+2025-08-17 20:07:47,481   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_6Test.java
+2025-08-17 20:07:47,481   INFO : 
+
+ Processing file 102/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_114.java
+2025-08-17 20:07:47,481   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_114Test.java
+2025-08-17 20:07:47,481   INFO : 
+
+ Processing file 103/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_147.java
+2025-08-17 20:07:47,481   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_147Test.java
+2025-08-17 20:07:47,481   INFO : 
+
+ Processing file 104/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_43.java
+2025-08-17 20:07:47,481   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_43Test.java
+2025-08-17 20:07:47,481   INFO : 
+
+ Processing file 105/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_162.java
+2025-08-17 20:07:47,481   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_162Test.java
+2025-08-17 20:07:47,481   INFO : 
+
+ Processing file 106/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_122.java
+2025-08-17 20:07:47,481   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_122Test.java
+2025-08-17 20:07:47,481   INFO : 
+
+ Processing file 107/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_47.java
+2025-08-17 20:07:47,481   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_47Test.java
+2025-08-17 20:07:47,481   INFO : 
+
+ Processing file 108/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_40.java
+2025-08-17 20:07:47,481   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_40Test.java
+2025-08-17 20:07:47,481   INFO : 
+
+ Processing file 109/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_115.java
+2025-08-17 20:07:47,481   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_115Test.java
+2025-08-17 20:07:47,481   INFO : 
+
+ Processing file 110/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_152.java
+2025-08-17 20:07:47,481   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_152Test.java
+2025-08-17 20:07:47,481   INFO : 
+
+ Processing file 111/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_2.java
+2025-08-17 20:07:47,481   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_2Test.java
+2025-08-17 20:07:47,481   INFO : 
+
+ Processing file 112/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_101.java
+2025-08-17 20:07:47,481   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_101Test.java
+2025-08-17 20:07:47,481   INFO : 
+
+ Processing file 113/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_106.java
+2025-08-17 20:07:47,481   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_106Test.java
+2025-08-17 20:07:47,481   INFO : 
+
+ Processing file 114/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_138.java
+2025-08-17 20:07:47,481   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_138Test.java
+2025-08-17 20:07:47,481   INFO : 
+
+ Processing file 115/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_127.java
+2025-08-17 20:07:47,481   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_127Test.java
+2025-08-17 20:07:47,481   INFO : 
+
+ Processing file 116/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_25.java
+2025-08-17 20:07:47,481   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_25Test.java
+2025-08-17 20:07:47,481   INFO : 
+
+ Processing file 117/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_52.java
+2025-08-17 20:07:47,481   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_52Test.java
+2025-08-17 20:07:47,481   INFO : 
+
+ Processing file 118/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_63.java
+2025-08-17 20:07:47,481   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_63Test.java
+2025-08-17 20:07:47,481   INFO : 
+
+ Processing file 119/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_44.java
+2025-08-17 20:07:47,481   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_44Test.java
+2025-08-17 20:07:47,481   INFO : 
+
+ Processing file 120/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_103.java
+2025-08-17 20:07:47,481   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_103Test.java
+2025-08-17 20:07:47,481   INFO : 
+
+ Processing file 121/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_86.java
+2025-08-17 20:07:47,481   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_86Test.java
+2025-08-17 20:07:47,481   INFO : 
+
+ Processing file 122/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_35.java
+2025-08-17 20:07:47,481   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_35Test.java
+2025-08-17 20:07:47,481   INFO : 
+
+ Processing file 123/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_46.java
+2025-08-17 20:07:47,481   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_46Test.java
+2025-08-17 20:07:47,481   INFO : 
+
+ Processing file 124/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_54.java
+2025-08-17 20:07:47,481   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_54Test.java
+2025-08-17 20:07:47,481   INFO : 
+
+ Processing file 125/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_65.java
+2025-08-17 20:07:47,481   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_65Test.java
+2025-08-17 20:07:47,481   INFO : 
+
+ Processing file 126/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_96.java
+2025-08-17 20:07:47,481   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_96Test.java
+2025-08-17 20:07:47,481   INFO : 
+
+ Processing file 127/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_149.java
+2025-08-17 20:07:47,481   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_149Test.java
+2025-08-17 20:07:47,481   INFO : 
+
+ Processing file 128/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_56.java
+2025-08-17 20:07:47,481   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_56Test.java
+2025-08-17 20:07:47,481   INFO : 
+
+ Processing file 129/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_145.java
+2025-08-17 20:07:47,481   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_145Test.java
+2025-08-17 20:07:47,481   INFO : 
+
+ Processing file 130/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_64.java
+2025-08-17 20:07:47,481   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_64Test.java
+2025-08-17 20:07:47,481   INFO : 
+
+ Processing file 131/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_7.java
+2025-08-17 20:07:47,481   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_7Test.java
+2025-08-17 20:07:47,481   INFO : 
+
+ Processing file 132/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_45.java
+2025-08-17 20:07:47,481   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_45Test.java
+2025-08-17 20:07:47,481   INFO : 
+
+ Processing file 133/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_22.java
+2025-08-17 20:07:47,481   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_22Test.java
+2025-08-17 20:07:47,481   INFO : 
+
+ Processing file 134/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_110.java
+2025-08-17 20:07:47,481   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_110Test.java
+2025-08-17 20:07:47,481   INFO : 
+
+ Processing file 135/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_89.java
+2025-08-17 20:07:47,481   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_89Test.java
+2025-08-17 20:07:47,481   INFO : 
+
+ Processing file 136/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_155.java
+2025-08-17 20:07:47,481   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_155Test.java
+2025-08-17 20:07:47,481   INFO : 
+
+ Processing file 137/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_87.java
+2025-08-17 20:07:47,481   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_87Test.java
+2025-08-17 20:07:47,481   INFO : 
+
+ Processing file 138/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_113.java
+2025-08-17 20:07:47,481   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_113Test.java
+2025-08-17 20:07:47,481   INFO : 
+
+ Processing file 139/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_68.java
+2025-08-17 20:07:47,481   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_68Test.java
+2025-08-17 20:07:47,482   INFO : 
+
+ Processing file 140/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_129.java
+2025-08-17 20:07:47,482   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_129Test.java
+2025-08-17 20:07:47,482   INFO : 
+
+ Processing file 141/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_77.java
+2025-08-17 20:07:47,482   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_77Test.java
+2025-08-17 20:07:47,482   INFO : 
+
+ Processing file 142/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_61.java
+2025-08-17 20:07:47,482   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_61Test.java
+2025-08-17 20:07:47,482   INFO : 
+
+ Processing file 143/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_156.java
+2025-08-17 20:07:47,482   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_156Test.java
+2025-08-17 20:07:47,482   INFO : 
+
+ Processing file 144/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_75.java
+2025-08-17 20:07:47,482   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_75Test.java
+2025-08-17 20:07:47,482   INFO : 
+
+ Processing file 145/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_13.java
+2025-08-17 20:07:47,482   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_13Test.java
+2025-08-17 20:07:47,482   INFO : 
+
+ Processing file 146/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_107.java
+2025-08-17 20:07:47,482   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_107Test.java
+2025-08-17 20:07:47,482   INFO : 
+
+ Processing file 147/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_24.java
+2025-08-17 20:07:47,482   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_24Test.java
+2025-08-17 20:07:47,482   INFO : 
+
+ Processing file 148/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_141.java
+2025-08-17 20:07:47,482   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_141Test.java
+2025-08-17 20:07:47,482   INFO : 
+
+ Processing file 149/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_5.java
+2025-08-17 20:07:47,482   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_5Test.java
+2025-08-17 20:07:47,482   INFO : 
+
+ Processing file 150/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_55.java
+2025-08-17 20:07:47,482   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_55Test.java
+2025-08-17 20:07:47,482   INFO : 
+
+ Processing file 151/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_36.java
+2025-08-17 20:07:47,482   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_36Test.java
+2025-08-17 20:07:47,482   INFO : 
+
+ Processing file 152/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_14.java
+2025-08-17 20:07:47,482   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_14Test.java
+2025-08-17 20:07:47,482   INFO : 
+
+ Processing file 153/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_124.java
+2025-08-17 20:07:47,482   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_124Test.java
+2025-08-17 20:07:47,482   INFO : 
+
+ Processing file 154/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_142.java
+2025-08-17 20:07:47,482   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_142Test.java
+2025-08-17 20:07:47,482   INFO : 
+
+ Processing file 155/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_59.java
+2025-08-17 20:07:47,482   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_59Test.java
+2025-08-17 20:07:47,482   INFO : 
+
+ Processing file 156/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_62.java
+2025-08-17 20:07:47,482   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_62Test.java
+2025-08-17 20:07:47,482   INFO : 
+
+ Processing file 157/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_151.java
+2025-08-17 20:07:47,482   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_151Test.java
+2025-08-17 20:07:47,482   INFO : 
+
+ Processing file 158/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_30.java
+2025-08-17 20:07:47,482   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_30Test.java
+2025-08-17 20:07:47,482   INFO : 
+
+ Processing file 159/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_69.java
+2025-08-17 20:07:48.214232: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2025-08-17 20:07:48.223376: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1755457668.234271 2310008 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1755457668.237459 2310008 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+W0000 00:00:1755457668.245741 2310008 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1755457668.245758 2310008 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1755457668.245759 2310008 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1755457668.245760 2310008 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+2025-08-17 20:07:48.248307: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX512_FP16 AVX_VNNI AMX_TILE AMX_INT8 AMX_BF16 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-08-17 20:07:50,580   INFO : 
+
+
+
+                ▗▄▄▄▖  ▗▄▖  ▗▖  ▗▖ ▗▄▄▄    ▗▄▖  ▗▄▄▖ 
+                ▐▌    ▐▌ ▐▌ ▐▛▚▖▐▌ ▐▌  █  ▐▌ ▐▌ ▐▌ ▐▌
+                ▐▌    ▐▛▀▜▌ ▐▌ ▝▜▌ ▐▌  █  ▐▌ ▐▌ ▐▛▀▚▖
+                ▝▚▄▄▖ ▐▌ ▐▌ ▐▌  ▐▌ ▐▙▄▄▀  ▝▚▄▞▘ ▐▌ ▐▌
+
+2025-08-17 20:07:50,580   INFO : ======================================================================
+
+2025-08-17 20:07:50,580   INFO : 🚀 Starting MATG: Multi-Agent LLM-Based Test Generation Framework
+2025-08-17 20:07:50,580   INFO : 📘 Purpose : Automated test generation for Java using LLM agents
+2025-08-17 20:07:50,580   INFO : 🧠 Agents  : Planner, Generator, Executor, and Evaluator
+2025-08-17 20:07:50,580   INFO : 🛠️  Engine  : Powered by matg (Machine-Assisted Test Generation)
+2025-08-17 20:07:50,580   INFO : ======================================================================
+
+
+2025-08-17 20:07:50,596   INFO : 🚨🚨🚨 🚀 🚀 🚀 ----- 🤖 AGENT Initializer: Generating initial test file ----- 🚀 🚀 🚀 🚨🚨🚨 
+{"test_file_code": "package original;\n\nimport java.util.List;\nimport java.util.ArrayList;\n\nimport org.junit.jupiter.api.Test;\nimport static org.junit.jupiter.api.Assertions.*;\n/**\n* Test class of Search.\n*/\nclass SearchTest {\n\n    @Test\n    void test_search() {\n        List<Integer> list = new ArrayList<>();\n        list.add(1);\n        list.add(2);\n        list.add(3);\n        assertEquals(3, Search.search(list));\n    }\n}\n"}2025-08-17 20:07:59,750   INFO : Running test file: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_69Test.java
+2025-08-17 20:08:02,419   INFO : Test failed:  
+ [[1;34mINFO[m] Scanning for projects...
+[[1;33mWARNING[m] 
+[[1;33mWARNING[m] Some problems were encountered while building the effective model for mbxp:HumanEvalJava:jar:1.0
+[[1;33mWARNING[m] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-site-plugin is missing. @ line 74, column 21
+[[1;33mWARNING[m] 
+[[1;33mWARNING[m] It is highly recommended to fix these problems because they threaten the stability of your build.
+[[1;33mWARNING[m] 
+[[1;33mWARNING[m] For this reason, future Maven versions might no longer support building such malformed projects.
+[[1;33mWARNING[m] 
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m-------------------------< [0;36mmbxp:HumanEvalJava[0;1m >-------------------------[m
+[[1;34mINFO[m] [1mBuilding HumanEvalJava 1.0[m
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-clean-plugin:2.5:clean[m [1m(default-clean)[m @ [36mHumanEvalJava[0;1m ---[m
+[[1;34mINFO[m] Deleting /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/target
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco-maven-plugin:0.8.8:prepare-agent[m [1m(default-prepare-agent)[m @ [36mHumanEvalJava[0;1m ---[m
+[[1;34mINFO[m] argLine set to -javaagent:/home/qinghua/.m2/repository/org/jacoco/org.jacoco.agent/0.8.8/org.jacoco.agent-0.8.8-runtime.jar=destfile=/home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/target/jacoco.exec
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:2.6:resources[m [1m(default-resources)[m @ [36mHumanEvalJava[0;1m ---[m
+[[1;34mINFO[m] Using 'UTF-8' encoding to copy filtered resources.
+[[1;34mINFO[m] skip non existing resourceDirectory /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.11.0:compile[m [1m(default-compile)[m @ [36mHumanEvalJava[0;1m ---[m
+[[1;34mINFO[m] Changes detected - recompiling the module! :source
+[[1;34mINFO[m] Compiling 160 source files with javac [debug target 11] to target/classes
+[[1;33mWARNING[m] /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_101.java:[35,30] non-varargs call of varargs method with inexact argument type for last parameter;
+  cast to java.lang.Object for a varargs call
+  cast to java.lang.Object[] for a non-varargs call and to suppress this warning
+[[1;34mINFO[m] /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_87.java: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_87.java uses unchecked or unsafe operations.
+[[1;34mINFO[m] /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_87.java: Recompile with -Xlint:unchecked for details.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:2.6:testResources[m [1m(default-testResources)[m @ [36mHumanEvalJava[0;1m ---[m
+[[1;34mINFO[m] Using 'UTF-8' encoding to copy filtered resources.
+[[1;34mINFO[m] skip non existing resourceDirectory /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.11.0:testCompile[m [1m(default-testCompile)[m @ [36mHumanEvalJava[0;1m ---[m
+[[1;34mINFO[m] Changes detected - recompiling the module! :dependency
+[[1;34mINFO[m] Compiling 160 source files with javac [debug target 11] to target/test-classes
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mevosuite-maven-plugin:1.2.0:prepare[m [1m(default)[m @ [36mHumanEvalJava[0;1m ---[m
+[[1;34mINFO[m] Preparing EvoSuite tests for execution
+[[1;34mINFO[m] Analyzing test folder: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/target/test-classes
+[[1;34mINFO[m] Found 0 EvoSuite scaffolding files
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-surefire-plugin:3.0.0:test[m [1m(default-test)[m @ [36mHumanEvalJava[0;1m ---[m
+[[1;34mINFO[m] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[[1;34mINFO[m] 
+[[1;34mINFO[m] -------------------------------------------------------
+[[1;34mINFO[m]  T E S T S
+[[1;34mINFO[m] -------------------------------------------------------
+[[1;34mINFO[m] Running original.[1mSearchTest[m
+[[1;31mERROR[m] [1;31mTests [0;1mrun: [0;1m1[m, [1;31mFailures: [0;1;31m1[m, Errors: 0, Skipped: 0, Time elapsed: 0.05 s[1;31m <<< FAILURE![m - in original.[1mSearchTest[m
+[[1;31mERROR[m] original.SearchTest.test_search  Time elapsed: 0.032 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <3> but was: <1>
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
+	at org.junit.jupiter.api.AssertionUtils.failNotEqual(AssertionUtils.java:62)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:150)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:145)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:527)
+	at original.SearchTest.test_search(id_69Test.java:19)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:725)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:149)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:140)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:84)
+	at org.junit.jupiter.engine.execution.ExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(ExecutableInvoker.java:115)
+	at org.junit.jupiter.engine.execution.ExecutableInvoker.lambda$invoke$0(ExecutableInvoker.java:105)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+	at org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:104)
+	at org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:98)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:214)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:210)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:135)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:66)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:147)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:127)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:90)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:55)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:102)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:54)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
+	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:50)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:184)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:148)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:122)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+
+[[1;34mINFO[m] 
+[[1;34mINFO[m] Results:
+[[1;34mINFO[m] 
+[[1;31mERROR[m] [1;31mFailures: [m
+[[1;31mERROR[m] [1;31m  SearchTest.test_search:19 expected: <3> but was: <1>[m
+[[1;34mINFO[m] 
+[[1;31mERROR[m] [1;31mTests run: 1, Failures: 1, Errors: 0, Skipped: 0[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] [1;31mBUILD FAILURE[m
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] Total time:  2.107 s
+[[1;34mINFO[m] Finished at: 2025-08-17T20:08:02+01:00
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;31mERROR[m] Failed to execute goal [32morg.apache.maven.plugins:maven-surefire-plugin:3.0.0:test[m [1m(default-test)[m on project [36mHumanEvalJava[m: [1;31mThere are test failures.[m
+[[1;31mERROR[m] [1;31m[m
+[[1;31mERROR[m] [1;31mPlease refer to /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/target/surefire-reports for the individual test results.[m
+[[1;31mERROR[m] [1;31mPlease refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.[m
+[[1;31mERROR[m] -> [1m[Help 1][m
+[[1;31mERROR[m] 
+[[1;31mERROR[m] To see the full stack trace of the errors, re-run Maven with the [1m-e[m switch.
+[[1;31mERROR[m] Re-run Maven using the [1m-X[m switch to enable full debug logging.
+[[1;31mERROR[m] 
+[[1;31mERROR[m] For more information about the errors and possible solutions, please read the following articles:
+[[1;31mERROR[m] [1m[Help 1][m http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+2025-08-17 20:08:02,420   INFO : 🚨🚨🚨 🚀 🚀 🚀 ----- 🤖 AGENT Initializer: Generating initial test file ----- 🚀 🚀 🚀 🚨🚨🚨 
+# Unit Test Generator for Java using JUnit5
+
+## Task
+Generate only one unit test for the given source code. 
+ 
+## Source File
+```Java
+package original;
+
+
+import java.util.List;
+
+
+class Search {
+    /**
+     * You are given a non-empty list of positive integers. Return the greatest integer that is greater than
+     * zero, and has a frequency greater than or equal to the value of the integer itself.
+     * The frequency of an integer is the number of times it appears in the list.
+     * If no such a value exist, return -1.
+     * Examples:
+     * search([4, 1, 2, 2, 3, 1]) == 2
+     * search([1, 2, 2, 3, 3, 3, 4, 4, 4]) == 3
+     * search([5, 5, 4, 4, 4]) == -1
+     *
+     * > search([5, 5, 5, 5, 1])
+     * 1
+     * > search([4, 1, 4, 1, 4, 4])
+     * 4
+     * > search([3, 3])
+     * -1
+     * > search([8, 8, 8, 8, 8, 8, 8, 8])
+     * 8
+     * > search([2, 3, 3, 2, 2])
+     * 2
+     * > search([2, 7, 8, 8, 4, 8, 7, 3, 9, 6, 5, 10, 4, 3, 6, 7, 1, 7, 4, 10, 8, 1])
+     * 1
+     * > search([3, 2, 8, 2])
+     * 2
+     * > search([6, 7, 1, 8, 8, 10, 5, 8, 5, 3, 10])
+     * 1
+     * > search([8, 8, 3, 6, 5, 6, 4])
+     * -1
+     * > search([6, 9, 6, 7, 1, 4, 7, 1, 8, 8, 9, 8, 10, 10, 8, 4, 10, 4, 10, 1, 2, 9, 5, 7, 9])
+     * 1
+     * > search([1, 9, 10, 1, 3])
+     * 1
+     * > search([6, 9, 7, 5, 8, 7, 5, 3, 7, 5, 10, 10, 3, 6, 10, 2, 8, 6, 5, 4, 9, 5, 3, 10])
+     * 5
+     * > search([1])
+     * 1
+     * > search([8, 8, 10, 6, 4, 3, 5, 8, 2, 4, 2, 8, 4, 6, 10, 4, 2, 1, 10, 2, 1, 1, 5])
+     * 4
+     * > search([2, 10, 4, 8, 2, 10, 5, 1, 2, 9, 5, 5, 6, 3, 8, 6, 4, 10])
+     * 2
+     * > search([1, 6, 10, 1, 6, 9, 10, 8, 6, 8, 7, 3])
+     * 1
+     * > search([9, 2, 4, 1, 5, 1, 5, 2, 5, 7, 7, 7, 3, 10, 1, 5, 4, 2, 8, 4, 1, 9, 10, 7, 10, 2, 8, 10, 9, 4])
+     * 4
+     * > search([2, 6, 4, 2, 8, 7, 5, 6, 4, 10, 4, 6, 3, 7, 8, 8, 3, 1, 4, 2, 2, 10, 7])
+     * 4
+     * > search([9, 8, 6, 10, 2, 6, 10, 2, 7, 8, 10, 3, 8, 2, 6, 2, 3, 1])
+     * 2
+     * > search([5, 5, 3, 9, 5, 6, 3, 2, 8, 5, 6, 10, 10, 6, 8, 4, 10, 7, 7, 10, 8])
+     * -1
+     * > search([10])
+     * -1
+     * > search([9, 7, 7, 2, 4, 7, 2, 10, 9, 7, 5, 7, 2])
+     * 2
+     * > search([5, 4, 10, 2, 1, 1, 10, 3, 6, 1, 8])
+     * 1
+     * > search([7, 9, 9, 9, 3, 4, 1, 5, 9, 1, 2, 1, 1, 10, 7, 5, 6, 7, 6, 7, 7, 6])
+     * 1
+     * > search([3, 10, 10, 9, 2])
+     * -1
+     */
+    public static int search(List<Integer> lst) {
+        int max = -1;
+        int[] freq = new int[11];
+        for (int i = 0; i < lst.size(); i++) {
+            freq[lst.get(i)]++;
+        }
+        for (int i = 1; i < 11; i++) {
+            if (freq[i] >= i) {
+                max = i;
+            }
+        }
+        return max;
+    }
+
+
+}
+```
+
+
+
+
+## Requirements
+1. Write a test file including only one test case for the source code
+2. Test code must assert one concept per test case.
+3. Test code must be full complete function in Java using JUnit5.
+4. Focus on testing a single behavior or outcome per test case.
+5. Include only the test function, not boilerplate code
+6. Add import statements if needed. 
+7. Use appropriate test tags
+8. Double check the test code for correctness
+9. Double check all the necessary imports are included
+10. Avoid duplicate test method definition. Append an increasing id number to the method name to avoid duplicate if necessary.
+11. keep all the import statements from the source code and keep the package declaration statement.
+12. Remember to import data type packages such as List and ArrayList
+13. One test case method should only contain one assertion!
+14. Add the package declaration statement from the source code to the beginning of the test file.
+
+
+## output
+Generate test file 
+package original;
+
+import java.util.List;
+
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of Search.
+*/
+class SearchTest {
+
+# Provide only the java test output. Do not include any additional explanations or comments.
+# Here is the format instruction
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {"properties": {"foo": {"title": "Foo", "description": "a list of strings", "type": "array", "items": {"type": "string"}}}, "required": ["foo"]}
+the object {"foo": ["bar", "baz"]} is a well-formatted instance of the schema. The object {"properties": {"foo": ["bar", "baz"]}} is not well-formatted.
+
+Here is the output schema:
+```
+{"properties": {"test_file_code": {"description": "The code of the test file", "title": "Test File Code", "type": "string"}}, "required": ["test_file_code"]}
+```
+{"test_file_code": "package original;\n\nimport java.util.List;\nimport org.junit.jupiter.api.Test;\nimport static org.junit.jupiter.api.Assertions.*;\n/**\n* Test class of Search.\n*/\nclass SearchTest {\n@Test\nvoid test_search() {\n    List<Integer> a = List.of(1, 2, 3);\n    assertEquals(1, Search.search(a));\n}\n}" }2025-08-17 20:08:10,210   INFO : Running test file: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_69Test.java
+2025-08-17 20:08:13,117   INFO : Test passed!
+2025-08-17 20:08:13,117   INFO : Test file created at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_69Test.java
+# Unit Test Generator for Java using JUnit5
+
+## Task
+Generate only one unit test for the given source code. 
+ 
+## Source File
+```Java
+package original;
+
+
+import java.util.List;
+
+
+class Search {
+    /**
+     * You are given a non-empty list of positive integers. Return the greatest integer that is greater than
+     * zero, and has a frequency greater than or equal to the value of the integer itself.
+     * The frequency of an integer is the number of times it appears in the list.
+     * If no such a value exist, return -1.
+     * Examples:
+     * search([4, 1, 2, 2, 3, 1]) == 2
+     * search([1, 2, 2, 3, 3, 3, 4, 4, 4]) == 3
+     * search([5, 5, 4, 4, 4]) == -1
+     *
+     * > search([5, 5, 5, 5, 1])
+     * 1
+     * > search([4, 1, 4, 1, 4, 4])
+     * 4
+     * > search([3, 3])
+     * -1
+     * > search([8, 8, 8, 8, 8, 8, 8, 8])
+     * 8
+     * > search([2, 3, 3, 2, 2])
+     * 2
+     * > search([2, 7, 8, 8, 4, 8, 7, 3, 9, 6, 5, 10, 4, 3, 6, 7, 1, 7, 4, 10, 8, 1])
+     * 1
+     * > search([3, 2, 8, 2])
+     * 2
+     * > search([6, 7, 1, 8, 8, 10, 5, 8, 5, 3, 10])
+     * 1
+     * > search([8, 8, 3, 6, 5, 6, 4])
+     * -1
+     * > search([6, 9, 6, 7, 1, 4, 7, 1, 8, 8, 9, 8, 10, 10, 8, 4, 10, 4, 10, 1, 2, 9, 5, 7, 9])
+     * 1
+     * > search([1, 9, 10, 1, 3])
+     * 1
+     * > search([6, 9, 7, 5, 8, 7, 5, 3, 7, 5, 10, 10, 3, 6, 10, 2, 8, 6, 5, 4, 9, 5, 3, 10])
+     * 5
+     * > search([1])
+     * 1
+     * > search([8, 8, 10, 6, 4, 3, 5, 8, 2, 4, 2, 8, 4, 6, 10, 4, 2, 1, 10, 2, 1, 1, 5])
+     * 4
+     * > search([2, 10, 4, 8, 2, 10, 5, 1, 2, 9, 5, 5, 6, 3, 8, 6, 4, 10])
+     * 2
+     * > search([1, 6, 10, 1, 6, 9, 10, 8, 6, 8, 7, 3])
+     * 1
+     * > search([9, 2, 4, 1, 5, 1, 5, 2, 5, 7, 7, 7, 3, 10, 1, 5, 4, 2, 8, 4, 1, 9, 10, 7, 10, 2, 8, 10, 9, 4])
+     * 4
+     * > search([2, 6, 4, 2, 8, 7, 5, 6, 4, 10, 4, 6, 3, 7, 8, 8, 3, 1, 4, 2, 2, 10, 7])
+     * 4
+     * > search([9, 8, 6, 10, 2, 6, 10, 2, 7, 8, 10, 3, 8, 2, 6, 2, 3, 1])
+     * 2
+     * > search([5, 5, 3, 9, 5, 6, 3, 2, 8, 5, 6, 10, 10, 6, 8, 4, 10, 7, 7, 10, 8])
+     * -1
+     * > search([10])
+     * -1
+     * > search([9, 7, 7, 2, 4, 7, 2, 10, 9, 7, 5, 7, 2])
+     * 2
+     * > search([5, 4, 10, 2, 1, 1, 10, 3, 6, 1, 8])
+     * 1
+     * > search([7, 9, 9, 9, 3, 4, 1, 5, 9, 1, 2, 1, 1, 10, 7, 5, 6, 7, 6, 7, 7, 6])
+     * 1
+     * > search([3, 10, 10, 9, 2])
+     * -1
+     */
+    public static int search(List<Integer> lst) {
+        int max = -1;
+        int[] freq = new int[11];
+        for (int i = 0; i < lst.size(); i++) {
+            freq[lst.get(i)]++;
+        }
+        for (int i = 1; i < 11; i++) {
+            if (freq[i] >= i) {
+                max = i;
+            }
+        }
+        return max;
+    }
+
+
+}
+```
+
+
+## You have generated the test files several times, but all failed. Here are the tests and error messages:
+
+#### Failed test file version 1:
+package original;
+
+import java.util.List;
+import java.util.ArrayList;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of Search.
+*/
+class SearchTest {
+
+    @Test
+    void test_search() {
+        List<Integer> list = new ArrayList<>();
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        assertEquals(3, Search.search(list));
+    }
+}
+
+#### Error message:
+[[1;31mERROR[m] [1;31mTests [0;1mrun: [0;1m1[m, [1;31mFailures: [0;1;31m1[m, Errors: 0, Skipped: 0, Time elapsed: 0.05 s[1;31m <<< FAILURE![m - in original.[1mSearchTest[m
+[[1;31mERROR[m] original.SearchTest.test_search  Time elapsed: 0.032 s  <<< FAILURE!
+[[1;31mERROR[m] [1;31mFailures: [m
+[[1;31mERROR[m] [1;31m  SearchTest.test_search:19 expected: <3> but was: <1>[m
+[[1;31mERROR[m] [1;31mTests run: 1, Failures: 1, Errors: 0, Skipped: 0[m
+[[1;34mINFO[m] [1;31mBUILD FAILURE[m
+[[1;31mERROR[m] Failed to execute goal [32morg.apache.maven.plugins:maven-surefire-plugin:3.0.0:test[m [1m(default-test)[m on project [36mHumanEvalJava[m: [1;31mThere are test failures.[m
+[[1;31mERROR[m] [1;31m[m
+[[1;31mERROR[m] [1;31mPlease refer to /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/target/surefire-reports for the individual test results.[m
+[[1;31mERROR[m] [1;31mPlease refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.[m
+[[1;31mERROR[m] -> [1m[Help 1][m
+[[1;31mERROR[m] 
+[[1;31mERROR[m] To see the full stack trace of the errors, re-run Maven with the [1m-e[m switch.
+[[1;31mERROR[m] Re-run Maven using the [1m-X[m switch to enable full debug logging.
+[[1;31mERROR[m] 
+[[1;31mERROR[m] For more information about the errors and possible solutions, please read the following articles:
+[[1;31mERROR[m] [1m[Help 1][m http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+**Fix this error. If it is the oracle error, just use the correct oracle suggested in the log.**
+
+
+
+
+## Requirements
+1. Write a test file including only one test case for the source code
+2. Test code must assert one concept per test case.
+3. Test code must be full complete function in Java using JUnit5.
+4. Focus on testing a single behavior or outcome per test case.
+5. Include only the test function, not boilerplate code
+6. Add import statements if needed. 
+7. Use appropriate test tags
+8. Double check the test code for correctness
+9. Double check all the necessary imports are included
+10. Avoid duplicate test method definition. Append an increasing id number to the method name to avoid duplicate if necessary.
+11. keep all the import statements from the source code and keep the package declaration statement.
+12. Remember to import data type packages such as List and ArrayList
+13. One test case method should only contain one assertion!
+14. Add the package declaration statement from the source code to the beginning of the test file.
+
+
+## output
+Generate test file 
+package original;
+
+import java.util.List;
+
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of Search.
+*/
+class SearchTest {
+
+# Provide only the java test output. Do not include any additional explanations or comments.
+# Here is the format instruction
+The output should be formatted as a JSON instance that conforms to the JSON schema below.
+
+As an example, for the schema {"properties": {"foo": {"title": "Foo", "description": "a list of strings", "type": "array", "items": {"type": "string"}}}, "required": ["foo"]}
+the object {"foo": ["bar", "baz"]} is a well-formatted instance of the schema. The object {"properties": {"foo": ["bar", "baz"]}} is not well-formatted.
+
+Here is the output schema:
+```
+{"properties": {"test_file_code": {"description": "The code of the test file", "title": "Test File Code", "type": "string"}}, "required": ["test_file_code"]}
+```
+2025-08-17 20:08:13,807   INFO : 
+
+ Processing file 160/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/main/java/original/id_76.java
+2025-08-17 20:08:13,807   INFO : Test file already exists at /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_1/initialize/src/test/java/original/id_76Test.java
+2025-08-17 20:08:13,808   INFO : Initialization completed: 2/2 successful initializations.

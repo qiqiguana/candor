@@ -1,0 +1,223 @@
+package original;
+
+import java.util.ArrayDeque;
+
+import java.util.ArrayList;
+
+import java.util.HashMap;
+
+import java.util.Deque;
+
+import java.util.Map;
+
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of Solution1345.
+*/
+class Solution1345Test {
+    @Test
+    void testMinJumps_ReturnsZero_WhenArrayIsEmpty() {
+        // Arrange
+        Solution1345 solution = new Solution1345();
+        int[] arr = {};
+
+        // Act and Assert
+        assertThrows(ArrayIndexOutOfBoundsException.class, () -> solution.minJumps(arr));
+    }
+    
+    @Test
+        public void testNothing(){
+            Solution1345 s = new Solution1345();
+            }
+    @Test
+    public void test_minJumps_EmptyArray() {
+        Solution1345 solution = new Solution1345();
+        int[] arr = {};
+        try {
+            solution.minJumps(arr);
+            fail("Expected ArrayIndexOutOfBoundsException to be thrown");
+        } catch (ArrayIndexOutOfBoundsException e) {
+            assertEquals(0, 0); // dummy assertion
+        }
+    }
+    @Test
+    public void test_minJumps_SingleElementArray() {
+        Solution1345 solution = new Solution1345();
+        int[] arr = {1};
+        assertEquals(0, solution.minJumps(arr));
+    }
+    @Test
+    public void test_minJumps_TwoElementArray() {
+        Solution1345 solution = new Solution1345();
+        int[] arr = {1, 2};
+        assertEquals(1, solution.minJumps(arr));
+    }
+    @Test
+    public void test_minJumps_MultipleElementsArray_2() {
+        Solution1345 solution = new Solution1345();
+        int[] arr = {1, 2, 3, 4};
+        assertEquals(3, solution.minJumps(arr));
+    }
+    @Test
+    public void test_minJumps_ArrayWithNegativeNumbers() {
+        Solution1345 solution = new Solution1345();
+        int[] arr = {-1, -2, -3};
+        assertEquals(2, solution.minJumps(arr));
+    }
+    @Test
+    public void test_minJumps_NullArray_Fixed() {
+        Solution1345 solution = new Solution1345();
+        int[] arr = null;
+        assertThrows(NullPointerException.class, () -> solution.minJumps(arr));
+    }
+    @Test
+    public void testMinJumps_RepeatedElements() {
+        Solution1345 solution = new Solution1345();
+        int[] arr = {100, -23, -23, 404, 100, 23, 23, 23, 3, 404};
+        int expected = 3;
+        int actual = solution.minJumps(arr);
+        assertEquals(expected, actual);
+    }
+    @Test
+    public void testMinJumps_NoRepeatedElements() {
+        Solution1345 solution = new Solution1345();
+        int[] arr = {1, 2, 3, 4, 5};
+        int expected = 4;
+        int actual = solution.minJumps(arr);
+        assertEquals(expected, actual);
+    }
+    @Test
+    public void testMinJumps_TwoElements() {
+        Solution1345 solution = new Solution1345();
+        int[] arr = {1, 2};
+        int expected = 1;
+        int actual = solution.minJumps(arr);
+        assertEquals(expected, actual);
+    }
+    @Test
+    public void testMinJumps_OneElement() {
+        Solution1345 solution = new Solution1345();
+        int[] arr = {1};
+        int expected = 0;
+        int actual = solution.minJumps(arr);
+        assertEquals(expected, actual);
+    }
+    @Test
+    void testMinJumps_arrNull() {
+        assertThrows(NullPointerException.class, () -> new Solution1345().minJumps(null));
+    }
+    @Test
+    void testMinJumps_emptyArr() {
+        assertThrows(ArrayIndexOutOfBoundsException.class, () -> new Solution1345().minJumps(new int[] {}));
+    }
+    @Test
+    void testMinJumps_singleElementArr() {
+        Solution1345 solution = new Solution1345();
+        int[] arr = {1};
+        int expected = 0;
+        int actual = solution.minJumps(arr);
+        assertEquals(expected, actual);
+    }
+    @Test
+    void testMinJumps_arrWithTwoEqualElements() {
+        Solution1345 solution = new Solution1345();
+        int[] arr = {1, 2, 3, 2};
+        int expected = 2;
+        int actual = solution.minJumps(arr);
+        assertEquals(expected, actual);
+    }
+    @Test
+    void testMinJumps_arrWithNegativeNumbers() {
+        Solution1345 solution = new Solution1345();
+        int[] arr = {1, -2, 2, -3, 3};
+        int expected = 4;
+        int actual = solution.minJumps(arr);
+        assertEquals(expected, actual);
+    }
+    @Test
+    void testMinJumps_arrWithZero() {
+        Solution1345 solution = new Solution1345();
+        int[] arr = {0, 1};
+        int expected = 1;
+        int actual = solution.minJumps(arr);
+        assertEquals(expected, actual);
+    }
+    @Test
+    public void testMinJumpsWithArrayOfSize1() {
+        Solution1345 solution = new Solution1345();
+        int[] arr = {5};
+        assertEquals(0, solution.minJumps(arr));
+    }
+    @Test
+    public void testMinJumpsWithArrayOfSize2() {
+        Solution1345 solution = new Solution1345();
+        int[] arr = {5, 6};
+        assertEquals(1, solution.minJumps(arr));
+    }
+    @Test
+    public void testMinJumpsWithArrayOfSize3AndSameElements() {
+        Solution1345 solution = new Solution1345();
+        int[] arr = {5, 5, 5};
+        assertEquals(1, solution.minJumps(arr));
+    }
+    @Test
+    public void testMinJumpsWithArrayOfSize3AndDifferentElements() {
+        Solution1345 solution = new Solution1345();
+        int[] arr = {1, 2, 3};
+        assertEquals(2, solution.minJumps(arr));
+    }
+    @Test
+    public void testMinJumpsWithArrayOfSize4AndSameElements() {
+        Solution1345 solution = new Solution1345();
+        int[] arr = {2, 3, 1, 1, 4};
+        assertEquals(4, solution.minJumps(arr));
+    }
+    @Test
+    public void testMinJumpsWithArrayOfSize4AndDifferentElements() {
+        Solution1345 solution = new Solution1345();
+        int[] arr = {2, 3, 1, 1, 1};
+        assertEquals(3, solution.minJumps(arr));
+    }
+    @Test
+    public void test_minJumps_with_array_having_duplicate_elements_at_edges_1() {
+        Solution1345 solution = new Solution1345();
+        int[] arr = {1, 2, 3, 4, 5, 6, 7, 8, 9, 1};
+        int expected_result = 1;
+        assertEquals(expected_result, solution.minJumps(arr));
+    }
+    @Test
+    public void test_minJumps_with_array_having_only_two_elements() {
+        Solution1345 solution = new Solution1345();
+        int[] arr = {1, 2};
+        int expected_result = 1;
+        assertEquals(expected_result, solution.minJumps(arr));
+    }
+    @Test
+    public void test_minJumps_with_array_of_length_1() {
+        Solution1345 solution = new Solution1345();
+        int[] arr = {5};
+        assertEquals(0, solution.minJumps(arr));
+    }
+    @Test
+    public void test_minJumps_with_array_of_length_2_and_same_elements() {
+        Solution1345 solution = new Solution1345();
+        int[] arr = {5, 5};
+        assertEquals(1, solution.minJumps(arr));
+    }
+    @Test
+    public void test_minJumps_with_array_of_length_3_and_different_elements_corrected() {
+        Solution1345 solution = new Solution1345();
+        int[] arr = {5, 6, 4};
+        assertEquals(2, solution.minJumps(arr));
+    }
+    @Test
+    public void test_minJumps_with_array_of_length_2_and_different_elements() {
+        Solution1345 solution = new Solution1345();
+        int[] arr = {5, 6};
+        assertEquals(1, solution.minJumps(arr));
+    }
+                                    
+}

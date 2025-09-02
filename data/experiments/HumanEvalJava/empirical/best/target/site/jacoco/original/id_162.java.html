@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_162.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HumanEvalJava</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_162.java</span></div><h1>id_162.java</h1><pre class="source lang-java linenums">package original;
+
+
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+
+
+<span class="nc" id="L9">class StringToMd5 {</span>
+    /**
+     * Given a string 'text', return its md5 hash equivalent string.
+     * If 'text' is an empty string, return null.
+     *
+     * &gt;&gt;&gt; stringToMd5('Hello world') == '3e25960a79dbc69b674cd4ec67a72c62'
+     *
+     * &gt; stringToMd5(&quot;Hello world&quot;)
+     * &quot;3e25960a79dbc69b674cd4ec67a72c62&quot;
+     * &gt; stringToMd5(&quot;&quot;)
+     * null
+     * &gt; stringToMd5(&quot;A B C&quot;)
+     * &quot;0ef78513b0cb8cef12743f5aeb35f888&quot;
+     * &gt; stringToMd5(&quot;password&quot;)
+     * &quot;5f4dcc3b5aa765d61d8327deb882cf99&quot;
+     */
+    public static String stringToMd5(String text) {
+<span class="fc bfc" id="L26" title="All 2 branches covered.">        if (text.equals(&quot;&quot;)) {</span>
+<span class="fc" id="L27">            return null;</span>
+        }
+        try {
+<span class="fc" id="L30">            MessageDigest md = MessageDigest.getInstance(&quot;MD5&quot;);</span>
+<span class="fc" id="L31">            byte[] messageDigest = md.digest(text.getBytes());</span>
+<span class="fc" id="L32">            BigInteger number = new BigInteger(1, messageDigest);</span>
+<span class="fc" id="L33">            String hashText = number.toString(16);</span>
+<span class="fc bfc" id="L34" title="All 2 branches covered.">            while (hashText.length() &lt; 32) {</span>
+<span class="fc" id="L35">                hashText = &quot;0&quot; + hashText;</span>
+            }
+<span class="fc" id="L37">            return hashText;</span>
+<span class="nc" id="L38">        } catch (NoSuchAlgorithmException e) {</span>
+<span class="nc" id="L39">            throw new RuntimeException(e);</span>
+        }
+    }
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

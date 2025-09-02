@@ -1,3 +1,4 @@
+from langchain_huggingface import ChatHuggingFace, HuggingFaceEndpoint
 from .logger import logger
 from langchain_ollama import ChatOllama
 from jinja2 import Environment, FileSystemLoader
@@ -16,7 +17,10 @@ class Initializer:
         self.source_file_path=self.config.data_path/self.config.relative_source_file_path
         self.test_file_path=self.config.data_path/self.config.relative_test_file_path
         # set up LLMs
-        self.llm=ChatOllama(model="llama3.1:70b",callbacks=[StreamingStdOutCallbackHandler()])            
+        # llm = HuggingFaceEndpoint(endpoint_url="https://ks9ha1fe7g9taog7.us-east-1.aws.endpoints.huggingface.cloud")
+        # self.llm=ChatHuggingFace(llm=llm)
+        self.llm=ChatOllama(model="llama3.1:70b",callbacks=[StreamingStdOutCallbackHandler()])    
+        # self.llm=ChatOllama(model="llama3.1:70b" )         
         self.initializer_parser=PydanticOutputParser(pydantic_object=InitialTestFile)
         self.initializer= (self.llm | self.initializer_parser).with_retry(stop_after_attempt=5)
         
@@ -29,7 +33,7 @@ class Initializer:
         self.source_code=FileUtils.read_file(self.source_file_path)
         self.package_name,self.imports,self.class_name=extract_source_metadata(self.source_code)
         self.format_instructions=self.initializer_parser.get_format_instructions()
-        
+        self.config.test_command=self.config.test_command.replace("jacoco:report",f"-Dtest={self.class_name}Test jacoco:report") # test only one test file to save time
         # record failed test files
         self.failed_tests=[]
         
@@ -47,12 +51,12 @@ class Initializer:
                     logger.error(f"Failed to create {self.test_file_path} after {self.config.max_attempts} attempts.")
             else:
                 logger.info(f"Test file already exists at {self.test_file_path}")
+                return
         except Exception as e:
             if self.test_file_path.exists():
                 self.test_file_path.unlink()
             logger.error(f"Error creating test file: {e}")
-        finally:
-            subprocess.run(self.config.test_command.split(),capture_output=True,text=True,cwd=os.getcwd(), check=True)
+        
             
     def _initialize(self):
         """
@@ -77,24 +81,31 @@ class Initializer:
                 ("system", initializer_system_prompt),
                 ("user", initializer_user_prompt)
             ])
+            print(initializer_user_prompt)
             test_file_code=response.test_file_code
             with open(self.test_file_path, "w") as f:
                 f.write(test_file_code)
-            result=subprocess.run(config.test_command.split(),capture_output=True,text=True,cwd=os.getcwd()) 
-                
-            if result.returncode==0:
-                logger.info("Test passed!")
-                return True
-            else:
-                logger.info(f"Test failed: {result.stderr} \n {result.stdout}")
-                error_message=result.stderr+result.stdout
-                error_message=extract_error_message(error_message)
-                self.failed_tests.append({
-                    "code":test_file_code,
-                    "error":error_message,
-                })
+            try:
+                # run the test file
+                logger.info(f"Running test file: {self.test_file_path}")
+                result=subprocess.run(config.test_command.split(),capture_output=True,text=True,cwd=os.getcwd())
+                if result.returncode==0:
+                    logger.info("Test passed!")
+                    return True
+                else:
+                    logger.info(f"Test failed: {result.stderr} \n {result.stdout}")
+                    error_message=result.stderr+result.stdout
+                    error_message=extract_error_message("java",error_message)
+                    self.failed_tests.append({
+                        "code":test_file_code,
+                        "error":error_message,
+                    })
+                    # self.failed_tests=[{
+                    #     "code": test_file_code,
+                    #     "error": error_message,
+                    # }]
+                    self.test_file_path.unlink()
+            except Exception as e:
                 self.test_file_path.unlink()
-                    
-        self.test_file_path.unlink()
         return False
             

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_0017.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">leetcode</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_0017.java</span></div><h1>id_0017.java</h1><pre class="source lang-java linenums">package original;
+
+import java.util.ArrayList;
+import java.util.List;
+<span class="nc" id="L5">class Solution0017 {</span>
+    public List&lt;String&gt; letterCombinations(String digits) {
+  /**
+  Given a string containing digits from 2-9 inclusive, return all possible letter combinations that the number could represent. Return the answer in any order. A mapping of digits to letters (just like on the telephone buttons) is given below. Note that 1 does not map to any letters. &amp;nbsp; Example 1: Input: digits = &amp;quot;23&amp;quot; Output: [&amp;quot;ad&amp;quot;,&amp;quot;ae&amp;quot;,&amp;quot;af&amp;quot;,&amp;quot;bd&amp;quot;,&amp;quot;be&amp;quot;,&amp;quot;bf&amp;quot;,&amp;quot;cd&amp;quot;,&amp;quot;ce&amp;quot;,&amp;quot;cf&amp;quot;] Example 2: Input: digits = &amp;quot;&amp;quot; Output: [] Example 3: Input: digits = &amp;quot;2&amp;quot; Output: [&amp;quot;a&amp;quot;,&amp;quot;b&amp;quot;,&amp;quot;c&amp;quot;] &amp;nbsp; Constraints: 0 &amp;lt;= digits.length &amp;lt;= 4 digits[i] is a digit in the range [&amp;#39;2&amp;#39;, &amp;#39;9&amp;#39;].
+  */
+<span class="nc" id="L10">        List&lt;String&gt; ans = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L11" title="All 2 branches missed.">        if (digits.length() == 0) {</span>
+<span class="nc" id="L12">            return ans;</span>
+        }
+<span class="nc" id="L14">        ans.add(&quot;&quot;);</span>
+<span class="nc" id="L15">        String[] d = new String[] {&quot;abc&quot;, &quot;def&quot;, &quot;ghi&quot;, &quot;jkl&quot;, &quot;mno&quot;, &quot;pqrs&quot;, &quot;tuv&quot;, &quot;wxyz&quot;};</span>
+<span class="nc bnc" id="L16" title="All 2 branches missed.">        for (char i : digits.toCharArray()) {</span>
+<span class="nc" id="L17">            String s = d[i - '2'];</span>
+<span class="nc" id="L18">            List&lt;String&gt; t = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L19" title="All 2 branches missed.">            for (String a : ans) {</span>
+<span class="nc bnc" id="L20" title="All 2 branches missed.">                for (String b : s.split(&quot;&quot;)) {</span>
+<span class="nc" id="L21">                    t.add(a + b);</span>
+                }
+<span class="nc" id="L23">            }</span>
+<span class="nc" id="L24">            ans = t;</span>
+        }
+<span class="nc" id="L26">        return ans;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

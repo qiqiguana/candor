@@ -1,0 +1,1004 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Solution1728 {
+
+  // compiled from: id_1728.java
+  // access flags 0x19
+  public final static INNERCLASS java/lang/invoke/MethodHandles$Lookup java/lang/invoke/MethodHandles Lookup
+
+  // access flags 0x12
+  private final [I dirs
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 8 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+   L1
+    LINENUMBER 9 L1
+    ALOAD 0
+    ICONST_5
+    NEWARRAY T_INT
+    DUP
+    ICONST_0
+    ICONST_M1
+    IASTORE
+    DUP
+    ICONST_1
+    ICONST_0
+    IASTORE
+    DUP
+    ICONST_2
+    ICONST_1
+    IASTORE
+    DUP
+    ICONST_3
+    ICONST_0
+    IASTORE
+    DUP
+    ICONST_4
+    ICONST_M1
+    IASTORE
+    PUTFIELD original/Solution1728.dirs : [I
+    RETURN
+   L2
+    LOCALVARIABLE this Loriginal/Solution1728; L0 L2 0
+    MAXSTACK = 5
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public canMouseWin([Ljava/lang/String;II)Z
+   L0
+    LINENUMBER 12 L0
+    ALOAD 1
+    ARRAYLENGTH
+    ISTORE 4
+   L1
+    LINENUMBER 13 L1
+    ALOAD 1
+    ICONST_0
+    AALOAD
+    INVOKEVIRTUAL java/lang/String.length ()I
+    ISTORE 5
+   L2
+    LINENUMBER 14 L2
+    ICONST_0
+    ISTORE 6
+   L3
+    ICONST_0
+    ISTORE 7
+   L4
+    ICONST_0
+    ISTORE 8
+   L5
+    LINENUMBER 15 L5
+    ILOAD 4
+    ILOAD 5
+    IMUL
+    ANEWARRAY java/util/List
+    ASTORE 9
+   L6
+    LINENUMBER 16 L6
+    ILOAD 4
+    ILOAD 5
+    IMUL
+    ANEWARRAY java/util/List
+    ASTORE 10
+   L7
+    LINENUMBER 17 L7
+    ALOAD 9
+    INVOKEDYNAMIC apply()Ljava/util/function/IntFunction; [
+      // handle kind 0x6 : INVOKESTATIC
+      java/lang/invoke/LambdaMetafactory.metafactory(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;
+      // arguments:
+      (I)Ljava/lang/Object;, 
+      // handle kind 0x6 : INVOKESTATIC
+      original/Solution1728.lambda$canMouseWin$0(I)Ljava/util/List;, 
+      (I)Ljava/util/List;
+    ]
+    INVOKESTATIC java/util/Arrays.setAll ([Ljava/lang/Object;Ljava/util/function/IntFunction;)V
+   L8
+    LINENUMBER 18 L8
+    ALOAD 10
+    INVOKEDYNAMIC apply()Ljava/util/function/IntFunction; [
+      // handle kind 0x6 : INVOKESTATIC
+      java/lang/invoke/LambdaMetafactory.metafactory(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;
+      // arguments:
+      (I)Ljava/lang/Object;, 
+      // handle kind 0x6 : INVOKESTATIC
+      original/Solution1728.lambda$canMouseWin$1(I)Ljava/util/List;, 
+      (I)Ljava/util/List;
+    ]
+    INVOKESTATIC java/util/Arrays.setAll ([Ljava/lang/Object;Ljava/util/function/IntFunction;)V
+   L9
+    LINENUMBER 20 L9
+    ICONST_0
+    ISTORE 11
+   L10
+   FRAME FULL [original/Solution1728 [Ljava/lang/String; I I I I I I I [Ljava/util/List; [Ljava/util/List; I] []
+    ILOAD 11
+    ILOAD 4
+    IF_ICMPGE L11
+   L12
+    LINENUMBER 21 L12
+    ICONST_0
+    ISTORE 12
+   L13
+   FRAME FULL [original/Solution1728 [Ljava/lang/String; I I I I I I I [Ljava/util/List; [Ljava/util/List; I I] []
+    ILOAD 12
+    ILOAD 5
+    IF_ICMPGE L14
+   L15
+    LINENUMBER 22 L15
+    ALOAD 1
+    ILOAD 11
+    AALOAD
+    ILOAD 12
+    INVOKEVIRTUAL java/lang/String.charAt (I)C
+    ISTORE 13
+   L16
+    LINENUMBER 23 L16
+    ILOAD 13
+    BIPUSH 35
+    IF_ICMPNE L17
+   L18
+    LINENUMBER 24 L18
+    GOTO L19
+   L17
+    LINENUMBER 26 L17
+   FRAME FULL [original/Solution1728 [Ljava/lang/String; I I I I I I I [Ljava/util/List; [Ljava/util/List; I I I] []
+    ILOAD 11
+    ILOAD 5
+    IMUL
+    ILOAD 12
+    ISUB
+    ISTORE 14
+   L20
+    LINENUMBER 27 L20
+    ILOAD 13
+    BIPUSH 67
+    IF_ICMPNE L21
+   L22
+    LINENUMBER 28 L22
+    ILOAD 14
+    ISTORE 6
+    GOTO L23
+   L21
+    LINENUMBER 29 L21
+   FRAME FULL [original/Solution1728 [Ljava/lang/String; I I I I I I I [Ljava/util/List; [Ljava/util/List; I I I I] []
+    ILOAD 13
+    BIPUSH 77
+    IF_ICMPNE L24
+   L25
+    LINENUMBER 30 L25
+    ILOAD 14
+    ISTORE 7
+    GOTO L23
+   L24
+    LINENUMBER 31 L24
+   FRAME FULL [original/Solution1728 [Ljava/lang/String; I I I I I I I [Ljava/util/List; [Ljava/util/List; I I I I] []
+    ILOAD 13
+    BIPUSH 70
+    IF_ICMPNE L23
+   L26
+    LINENUMBER 32 L26
+    ILOAD 14
+    ISTORE 8
+   L23
+    LINENUMBER 35 L23
+   FRAME FULL [original/Solution1728 [Ljava/lang/String; I I I I I I I [Ljava/util/List; [Ljava/util/List; I I I I] []
+    ICONST_0
+    ISTORE 15
+   L27
+   FRAME FULL [original/Solution1728 [Ljava/lang/String; I I I I I I I [Ljava/util/List; [Ljava/util/List; I I I I I] []
+    ILOAD 15
+    ICONST_4
+    IF_ICMPGE L19
+   L28
+    LINENUMBER 36 L28
+    ICONST_0
+    ISTORE 16
+   L29
+   FRAME FULL [original/Solution1728 [Ljava/lang/String; I I I I I I I [Ljava/util/List; [Ljava/util/List; I I I I I I] []
+    ILOAD 16
+    ILOAD 3
+    IF_ICMPGT L30
+   L31
+    LINENUMBER 37 L31
+    ILOAD 11
+    ILOAD 16
+    ALOAD 0
+    GETFIELD original/Solution1728.dirs : [I
+    ILOAD 15
+    IALOAD
+    IMUL
+    IADD
+    ISTORE 17
+   L32
+    LINENUMBER 38 L32
+    ILOAD 12
+    ILOAD 16
+    ALOAD 0
+    GETFIELD original/Solution1728.dirs : [I
+    ILOAD 15
+    ICONST_1
+    IADD
+    IALOAD
+    IMUL
+    IADD
+    ISTORE 18
+   L33
+    LINENUMBER 39 L33
+    ILOAD 17
+    IFLT L30
+    ILOAD 17
+    ILOAD 4
+    IF_ICMPGE L30
+    ILOAD 18
+    IFLT L30
+    ILOAD 18
+    ILOAD 5
+    IF_ICMPGE L30
+    ALOAD 1
+    ILOAD 17
+    AALOAD
+    ILOAD 18
+    INVOKEVIRTUAL java/lang/String.charAt (I)C
+    BIPUSH 35
+    IF_ICMPNE L34
+   L35
+    LINENUMBER 40 L35
+    GOTO L30
+   L34
+    LINENUMBER 42 L34
+   FRAME FULL [original/Solution1728 [Ljava/lang/String; I I I I I I I [Ljava/util/List; [Ljava/util/List; I I I I I I I I] []
+    ALOAD 9
+    ILOAD 14
+    AALOAD
+    ILOAD 17
+    ILOAD 5
+    IMUL
+    ILOAD 18
+    IADD
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+   L36
+    LINENUMBER 36 L36
+    IINC 16 1
+    GOTO L29
+   L30
+    LINENUMBER 44 L30
+   FRAME FULL [original/Solution1728 [Ljava/lang/String; I I I I I I I [Ljava/util/List; [Ljava/util/List; I I I I I I] []
+    ICONST_0
+    ISTORE 16
+   L37
+   FRAME FULL [original/Solution1728 [Ljava/lang/String; I I I I I I I [Ljava/util/List; [Ljava/util/List; I I I I I I] []
+    ILOAD 16
+    ILOAD 2
+    IF_ICMPGT L38
+   L39
+    LINENUMBER 45 L39
+    ILOAD 11
+    ILOAD 16
+    ALOAD 0
+    GETFIELD original/Solution1728.dirs : [I
+    ILOAD 15
+    IALOAD
+    IMUL
+    IADD
+    ISTORE 17
+   L40
+    LINENUMBER 46 L40
+    ILOAD 12
+    ILOAD 16
+    ALOAD 0
+    GETFIELD original/Solution1728.dirs : [I
+    ILOAD 15
+    ICONST_1
+    IADD
+    IALOAD
+    IMUL
+    IADD
+    ISTORE 18
+   L41
+    LINENUMBER 47 L41
+    ILOAD 17
+    IFLT L38
+    ILOAD 17
+    ILOAD 4
+    IF_ICMPGE L38
+    ILOAD 18
+    IFLT L38
+    ILOAD 18
+    ILOAD 5
+    IF_ICMPGE L38
+    ALOAD 1
+    ILOAD 17
+    AALOAD
+    ILOAD 18
+    INVOKEVIRTUAL java/lang/String.charAt (I)C
+    BIPUSH 35
+    IF_ICMPNE L42
+   L43
+    LINENUMBER 48 L43
+    GOTO L38
+   L42
+    LINENUMBER 50 L42
+   FRAME FULL [original/Solution1728 [Ljava/lang/String; I I I I I I I [Ljava/util/List; [Ljava/util/List; I I I I I I I I] []
+    ALOAD 10
+    ILOAD 14
+    AALOAD
+    ILOAD 17
+    ILOAD 5
+    IMUL
+    ILOAD 18
+    IADD
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+   L44
+    LINENUMBER 44 L44
+    IINC 16 1
+    GOTO L37
+   L38
+    LINENUMBER 35 L38
+   FRAME FULL [original/Solution1728 [Ljava/lang/String; I I I I I I I [Ljava/util/List; [Ljava/util/List; I I I I I I] []
+    IINC 15 1
+    GOTO L27
+   L19
+    LINENUMBER 21 L19
+   FRAME FULL [original/Solution1728 [Ljava/lang/String; I I I I I I I [Ljava/util/List; [Ljava/util/List; I I I] []
+    IINC 12 1
+    GOTO L13
+   L14
+    LINENUMBER 20 L14
+   FRAME FULL [original/Solution1728 [Ljava/lang/String; I I I I I I I [Ljava/util/List; [Ljava/util/List; I I] []
+    IINC 11 1
+    GOTO L10
+   L11
+    LINENUMBER 56 L11
+   FRAME FULL [original/Solution1728 [Ljava/lang/String; I I I I I I I [Ljava/util/List; [Ljava/util/List; I] []
+    ALOAD 0
+    ALOAD 9
+    ALOAD 10
+    ILOAD 7
+    ILOAD 6
+    ILOAD 8
+    INVOKEVIRTUAL original/Solution1728.calc ([Ljava/util/List;[Ljava/util/List;III)I
+    ICONST_1
+    IF_ICMPNE L45
+    ICONST_1
+    GOTO L46
+   L45
+   FRAME FULL [original/Solution1728 [Ljava/lang/String; I I I I I I I [Ljava/util/List; [Ljava/util/List; I] []
+    ICONST_0
+   L46
+   FRAME FULL [original/Solution1728 [Ljava/lang/String; I I I I I I I [Ljava/util/List; [Ljava/util/List; I] [I]
+    IRETURN
+   L47
+    LOCALVARIABLE x I L32 L36 17
+    LOCALVARIABLE y I L33 L36 18
+    LOCALVARIABLE k I L29 L30 16
+    LOCALVARIABLE x I L40 L44 17
+    LOCALVARIABLE y I L41 L44 18
+    LOCALVARIABLE k I L37 L38 16
+    LOCALVARIABLE d I L27 L19 15
+    LOCALVARIABLE c C L16 L19 13
+    LOCALVARIABLE v I L20 L19 14
+    LOCALVARIABLE j I L13 L14 12
+    LOCALVARIABLE i I L10 L11 11
+    LOCALVARIABLE this Loriginal/Solution1728; L0 L47 0
+    LOCALVARIABLE grid [Ljava/lang/String; L0 L47 1
+    LOCALVARIABLE catJump I L0 L47 2
+    LOCALVARIABLE mouseJump I L0 L47 3
+    LOCALVARIABLE m I L1 L47 4
+    LOCALVARIABLE n I L2 L47 5
+    LOCALVARIABLE catStart I L3 L47 6
+    LOCALVARIABLE mouseStart I L4 L47 7
+    LOCALVARIABLE food I L5 L47 8
+    LOCALVARIABLE gMouse [Ljava/util/List; L6 L47 9
+    // signature [Ljava/util/List<Ljava/lang/Integer;>;
+    // declaration: gMouse extends java.util.List<java.lang.Integer>[]
+    LOCALVARIABLE gCat [Ljava/util/List; L7 L47 10
+    // signature [Ljava/util/List<Ljava/lang/Integer;>;
+    // declaration: gCat extends java.util.List<java.lang.Integer>[]
+    MAXSTACK = 6
+    MAXLOCALS = 19
+
+  // access flags 0x2
+  // signature ([Ljava/util/List<Ljava/lang/Integer;>;[Ljava/util/List<Ljava/lang/Integer;>;III)I
+  // declaration: int calc(java.util.List<java.lang.Integer>[], java.util.List<java.lang.Integer>[], int, int, int)
+  private calc([Ljava/util/List;[Ljava/util/List;III)I
+   L0
+    LINENUMBER 61 L0
+    ALOAD 1
+    ARRAYLENGTH
+    ISTORE 6
+   L1
+    LINENUMBER 62 L1
+    ILOAD 6
+    ILOAD 6
+    ICONST_2
+    MULTIANEWARRAY [[[I 3
+    ASTORE 7
+   L2
+    LINENUMBER 63 L2
+    ILOAD 6
+    ILOAD 6
+    ICONST_2
+    MULTIANEWARRAY [[[I 3
+    ASTORE 8
+   L3
+    LINENUMBER 64 L3
+    NEW java/util/ArrayDeque
+    DUP
+    INVOKESPECIAL java/util/ArrayDeque.<init> ()V
+    ASTORE 9
+   L4
+    LINENUMBER 66 L4
+    ICONST_0
+    ISTORE 10
+   L5
+   FRAME FULL [original/Solution1728 [Ljava/util/List; [Ljava/util/List; I I I I [[[I [[[I java/util/ArrayDeque I] []
+    ILOAD 10
+    ILOAD 6
+    IF_ICMPGE L6
+   L7
+    LINENUMBER 67 L7
+    ICONST_0
+    ISTORE 11
+   L8
+   FRAME FULL [original/Solution1728 [Ljava/util/List; [Ljava/util/List; I I I I [[[I [[[I java/util/ArrayDeque I I] []
+    ILOAD 11
+    ILOAD 6
+    IF_ICMPGE L9
+   L10
+    LINENUMBER 68 L10
+    ALOAD 7
+    ILOAD 10
+    AALOAD
+    ILOAD 11
+    AALOAD
+    ICONST_0
+    ALOAD 1
+    ILOAD 10
+    AALOAD
+    INVOKEINTERFACE java/util/List.size ()I (itf)
+    IASTORE
+   L11
+    LINENUMBER 69 L11
+    ALOAD 7
+    ILOAD 10
+    AALOAD
+    ILOAD 11
+    AALOAD
+    ICONST_1
+    ALOAD 2
+    ILOAD 11
+    AALOAD
+    INVOKEINTERFACE java/util/List.size ()I (itf)
+    IASTORE
+   L12
+    LINENUMBER 67 L12
+    IINC 11 1
+    GOTO L8
+   L9
+    LINENUMBER 66 L9
+   FRAME FULL [original/Solution1728 [Ljava/util/List; [Ljava/util/List; I I I I [[[I [[[I java/util/ArrayDeque I I] []
+    IINC 10 1
+    GOTO L5
+   L6
+    LINENUMBER 73 L6
+   FRAME FULL [original/Solution1728 [Ljava/util/List; [Ljava/util/List; I I I I [[[I [[[I java/util/ArrayDeque I] []
+    ICONST_0
+    ISTORE 10
+   L13
+   FRAME FULL [original/Solution1728 [Ljava/util/List; [Ljava/util/List; I I I I [[[I [[[I java/util/ArrayDeque I] []
+    ILOAD 10
+    ILOAD 6
+    IF_ICMPGE L14
+   L15
+    LINENUMBER 74 L15
+    ALOAD 8
+    ILOAD 5
+    AALOAD
+    ILOAD 10
+    AALOAD
+    ICONST_1
+    ICONST_1
+    IASTORE
+   L16
+    LINENUMBER 75 L16
+    ALOAD 8
+    ILOAD 10
+    AALOAD
+    ILOAD 5
+    AALOAD
+    ICONST_0
+    ICONST_2
+    IASTORE
+   L17
+    LINENUMBER 76 L17
+    ALOAD 8
+    ILOAD 10
+    AALOAD
+    ILOAD 10
+    AALOAD
+    ICONST_1
+    ICONST_2
+    IASTORE
+   L18
+    LINENUMBER 77 L18
+    ALOAD 8
+    ILOAD 10
+    AALOAD
+    ILOAD 10
+    AALOAD
+    ICONST_0
+    ICONST_2
+    IASTORE
+   L19
+    LINENUMBER 78 L19
+    ALOAD 9
+    ICONST_3
+    NEWARRAY T_INT
+    DUP
+    ICONST_0
+    ILOAD 5
+    IASTORE
+    DUP
+    ICONST_1
+    ILOAD 10
+    IASTORE
+    DUP
+    ICONST_2
+    ICONST_1
+    IASTORE
+    INVOKEINTERFACE java/util/Deque.offer (Ljava/lang/Object;)Z (itf)
+    POP
+   L20
+    LINENUMBER 79 L20
+    ALOAD 9
+    ICONST_3
+    NEWARRAY T_INT
+    DUP
+    ICONST_0
+    ILOAD 10
+    IASTORE
+    DUP
+    ICONST_1
+    ILOAD 5
+    IASTORE
+    DUP
+    ICONST_2
+    ICONST_0
+    IASTORE
+    INVOKEINTERFACE java/util/Deque.offer (Ljava/lang/Object;)Z (itf)
+    POP
+   L21
+    LINENUMBER 80 L21
+    ALOAD 9
+    ICONST_3
+    NEWARRAY T_INT
+    DUP
+    ICONST_0
+    ILOAD 10
+    IASTORE
+    DUP
+    ICONST_1
+    ILOAD 10
+    IASTORE
+    DUP
+    ICONST_2
+    ICONST_0
+    IASTORE
+    INVOKEINTERFACE java/util/Deque.offer (Ljava/lang/Object;)Z (itf)
+    POP
+   L22
+    LINENUMBER 81 L22
+    ALOAD 9
+    ICONST_3
+    NEWARRAY T_INT
+    DUP
+    ICONST_0
+    ILOAD 10
+    IASTORE
+    DUP
+    ICONST_1
+    ILOAD 10
+    IASTORE
+    DUP
+    ICONST_2
+    ICONST_1
+    IASTORE
+    INVOKEINTERFACE java/util/Deque.offer (Ljava/lang/Object;)Z (itf)
+    POP
+   L23
+    LINENUMBER 73 L23
+    IINC 10 1
+    GOTO L13
+   L14
+    LINENUMBER 84 L14
+   FRAME FULL [original/Solution1728 [Ljava/util/List; [Ljava/util/List; I I I I [[[I [[[I java/util/ArrayDeque] []
+    ALOAD 9
+    INVOKEINTERFACE java/util/Deque.isEmpty ()Z (itf)
+    IFNE L24
+   L25
+    LINENUMBER 85 L25
+    ALOAD 9
+    INVOKEINTERFACE java/util/Deque.poll ()Ljava/lang/Object; (itf)
+    CHECKCAST [I
+    ASTORE 10
+   L26
+    LINENUMBER 86 L26
+    ALOAD 10
+    ICONST_0
+    IALOAD
+    ISTORE 11
+   L27
+    ALOAD 10
+    ICONST_1
+    IALOAD
+    ISTORE 12
+   L28
+    ALOAD 10
+    ICONST_2
+    IALOAD
+    ISTORE 13
+   L29
+    LINENUMBER 87 L29
+    ALOAD 8
+    ILOAD 11
+    AALOAD
+    ILOAD 12
+    AALOAD
+    ILOAD 13
+    IALOAD
+    ISTORE 14
+   L30
+    LINENUMBER 88 L30
+    ALOAD 0
+    ALOAD 1
+    ALOAD 2
+    ALOAD 10
+    ALOAD 8
+    INVOKEVIRTUAL original/Solution1728.getPrevStates ([Ljava/util/List;[Ljava/util/List;[I[[[I)Ljava/util/List;
+    INVOKEINTERFACE java/util/List.iterator ()Ljava/util/Iterator; (itf)
+    ASTORE 15
+   L31
+   FRAME FULL [original/Solution1728 [Ljava/util/List; [Ljava/util/List; I I I I [[[I [[[I java/util/ArrayDeque [I I I I I java/util/Iterator] []
+    ALOAD 15
+    INVOKEINTERFACE java/util/Iterator.hasNext ()Z (itf)
+    IFEQ L32
+    ALOAD 15
+    INVOKEINTERFACE java/util/Iterator.next ()Ljava/lang/Object; (itf)
+    CHECKCAST [I
+    ASTORE 16
+   L33
+    LINENUMBER 89 L33
+    ALOAD 16
+    ICONST_0
+    IALOAD
+    ISTORE 17
+   L34
+    ALOAD 16
+    ICONST_1
+    IALOAD
+    ISTORE 18
+   L35
+    ALOAD 16
+    ICONST_2
+    IALOAD
+    ISTORE 19
+   L36
+    LINENUMBER 90 L36
+    ILOAD 19
+    ILOAD 14
+    ICONST_1
+    ISUB
+    IF_ICMPNE L37
+   L38
+    LINENUMBER 91 L38
+    ALOAD 8
+    ILOAD 17
+    AALOAD
+    ILOAD 18
+    AALOAD
+    ILOAD 19
+    ILOAD 14
+    IASTORE
+   L39
+    LINENUMBER 92 L39
+    ALOAD 9
+    ALOAD 16
+    INVOKEINTERFACE java/util/Deque.offer (Ljava/lang/Object;)Z (itf)
+    POP
+    GOTO L40
+   L37
+    LINENUMBER 94 L37
+   FRAME FULL [original/Solution1728 [Ljava/util/List; [Ljava/util/List; I I I I [[[I [[[I java/util/ArrayDeque [I I I I I java/util/Iterator [I I I I] []
+    ALOAD 7
+    ILOAD 17
+    AALOAD
+    ILOAD 18
+    AALOAD
+    ILOAD 19
+    DUP2
+    IALOAD
+    ICONST_1
+    ISUB
+    IASTORE
+   L41
+    LINENUMBER 95 L41
+    ALOAD 7
+    ILOAD 17
+    AALOAD
+    ILOAD 18
+    AALOAD
+    ILOAD 19
+    IALOAD
+    IFNE L40
+   L42
+    LINENUMBER 96 L42
+    ALOAD 8
+    ILOAD 17
+    AALOAD
+    ILOAD 18
+    AALOAD
+    ILOAD 19
+    ILOAD 14
+    IASTORE
+   L43
+    LINENUMBER 97 L43
+    ALOAD 9
+    ALOAD 16
+    INVOKEINTERFACE java/util/Deque.offer (Ljava/lang/Object;)Z (itf)
+    POP
+   L40
+    LINENUMBER 100 L40
+   FRAME FULL [original/Solution1728 [Ljava/util/List; [Ljava/util/List; I I I I [[[I [[[I java/util/ArrayDeque [I I I I I java/util/Iterator [I I I I] []
+    GOTO L31
+   L32
+    LINENUMBER 101 L32
+   FRAME FULL [original/Solution1728 [Ljava/util/List; [Ljava/util/List; I I I I [[[I [[[I java/util/ArrayDeque [I I I I I java/util/Iterator] []
+    GOTO L14
+   L24
+    LINENUMBER 103 L24
+   FRAME FULL [original/Solution1728 [Ljava/util/List; [Ljava/util/List; I I I I [[[I [[[I java/util/ArrayDeque] []
+    ALOAD 8
+    ILOAD 3
+    AALOAD
+    ILOAD 4
+    AALOAD
+    ICONST_0
+    IALOAD
+    IRETURN
+   L44
+    LOCALVARIABLE j I L8 L9 11
+    LOCALVARIABLE i I L5 L6 10
+    LOCALVARIABLE i I L13 L14 10
+    LOCALVARIABLE pm I L34 L40 17
+    LOCALVARIABLE pc I L35 L40 18
+    LOCALVARIABLE pt I L36 L40 19
+    LOCALVARIABLE prevState [I L33 L40 16
+    LOCALVARIABLE state [I L26 L32 10
+    LOCALVARIABLE m I L27 L32 11
+    LOCALVARIABLE c I L28 L32 12
+    LOCALVARIABLE t I L29 L32 13
+    LOCALVARIABLE result I L30 L32 14
+    LOCALVARIABLE this Loriginal/Solution1728; L0 L44 0
+    LOCALVARIABLE gMouse [Ljava/util/List; L0 L44 1
+    // signature [Ljava/util/List<Ljava/lang/Integer;>;
+    // declaration: gMouse extends java.util.List<java.lang.Integer>[]
+    LOCALVARIABLE gCat [Ljava/util/List; L0 L44 2
+    // signature [Ljava/util/List<Ljava/lang/Integer;>;
+    // declaration: gCat extends java.util.List<java.lang.Integer>[]
+    LOCALVARIABLE mouseStart I L0 L44 3
+    LOCALVARIABLE catStart I L0 L44 4
+    LOCALVARIABLE hole I L0 L44 5
+    LOCALVARIABLE n I L1 L44 6
+    LOCALVARIABLE degree [[[I L2 L44 7
+    LOCALVARIABLE ans [[[I L3 L44 8
+    LOCALVARIABLE q Ljava/util/Deque; L4 L44 9
+    // signature Ljava/util/Deque<[I>;
+    // declaration: q extends java.util.Deque<int[]>
+    MAXSTACK = 5
+    MAXLOCALS = 20
+
+  // access flags 0x2
+  // signature ([Ljava/util/List<Ljava/lang/Integer;>;[Ljava/util/List<Ljava/lang/Integer;>;[I[[[I)Ljava/util/List<[I>;
+  // declaration: java.util.List<int[]> getPrevStates(java.util.List<java.lang.Integer>[], java.util.List<java.lang.Integer>[], int[], int[][][])
+  private getPrevStates([Ljava/util/List;[Ljava/util/List;[I[[[I)Ljava/util/List;
+   L0
+    LINENUMBER 108 L0
+    ALOAD 3
+    ICONST_0
+    IALOAD
+    ISTORE 5
+   L1
+    ALOAD 3
+    ICONST_1
+    IALOAD
+    ISTORE 6
+   L2
+    ALOAD 3
+    ICONST_2
+    IALOAD
+    ISTORE 7
+   L3
+    LINENUMBER 109 L3
+    ILOAD 7
+    ICONST_1
+    IXOR
+    ISTORE 8
+   L4
+    LINENUMBER 110 L4
+    NEW java/util/ArrayList
+    DUP
+    INVOKESPECIAL java/util/ArrayList.<init> ()V
+    ASTORE 9
+   L5
+    LINENUMBER 111 L5
+    ILOAD 8
+    ICONST_1
+    IF_ICMPNE L6
+   L7
+    LINENUMBER 112 L7
+    ALOAD 2
+    ILOAD 6
+    AALOAD
+    INVOKEINTERFACE java/util/List.iterator ()Ljava/util/Iterator; (itf)
+    ASTORE 10
+   L8
+   FRAME FULL [original/Solution1728 [Ljava/util/List; [Ljava/util/List; [I [[[I I I I I java/util/ArrayList java/util/Iterator] []
+    ALOAD 10
+    INVOKEINTERFACE java/util/Iterator.hasNext ()Z (itf)
+    IFEQ L9
+    ALOAD 10
+    INVOKEINTERFACE java/util/Iterator.next ()Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/Integer
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    ISTORE 11
+   L10
+    LINENUMBER 113 L10
+    ALOAD 4
+    ILOAD 5
+    AALOAD
+    ILOAD 11
+    AALOAD
+    ICONST_1
+    IALOAD
+    IFNE L11
+   L12
+    LINENUMBER 114 L12
+    ALOAD 9
+    ICONST_3
+    NEWARRAY T_INT
+    DUP
+    ICONST_0
+    ILOAD 5
+    IASTORE
+    DUP
+    ICONST_1
+    ILOAD 11
+    IASTORE
+    DUP
+    ICONST_2
+    ILOAD 8
+    IASTORE
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+   L11
+    LINENUMBER 116 L11
+   FRAME FULL [original/Solution1728 [Ljava/util/List; [Ljava/util/List; [I [[[I I I I I java/util/ArrayList java/util/Iterator I] []
+    GOTO L8
+   L9
+   FRAME FULL [original/Solution1728 [Ljava/util/List; [Ljava/util/List; [I [[[I I I I I java/util/ArrayList java/util/Iterator] []
+    GOTO L13
+   L6
+    LINENUMBER 118 L6
+   FRAME FULL [original/Solution1728 [Ljava/util/List; [Ljava/util/List; [I [[[I I I I I java/util/ArrayList] []
+    ALOAD 1
+    ILOAD 5
+    AALOAD
+    INVOKEINTERFACE java/util/List.iterator ()Ljava/util/Iterator; (itf)
+    ASTORE 10
+   L14
+   FRAME FULL [original/Solution1728 [Ljava/util/List; [Ljava/util/List; [I [[[I I I I I java/util/ArrayList java/util/Iterator] []
+    ALOAD 10
+    INVOKEINTERFACE java/util/Iterator.hasNext ()Z (itf)
+    IFEQ L13
+    ALOAD 10
+    INVOKEINTERFACE java/util/Iterator.next ()Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/Integer
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    ISTORE 11
+   L15
+    LINENUMBER 119 L15
+    ALOAD 4
+    ILOAD 11
+    AALOAD
+    ILOAD 6
+    AALOAD
+    ICONST_0
+    IALOAD
+    IFNE L16
+   L17
+    LINENUMBER 120 L17
+    ALOAD 9
+    ICONST_3
+    NEWARRAY T_INT
+    DUP
+    ICONST_0
+    ILOAD 11
+    IASTORE
+    DUP
+    ICONST_1
+    ILOAD 6
+    IASTORE
+    DUP
+    ICONST_2
+    ICONST_0
+    IASTORE
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+   L16
+    LINENUMBER 122 L16
+   FRAME FULL [original/Solution1728 [Ljava/util/List; [Ljava/util/List; [I [[[I I I I I java/util/ArrayList java/util/Iterator I] []
+    GOTO L14
+   L13
+    LINENUMBER 124 L13
+   FRAME FULL [original/Solution1728 [Ljava/util/List; [Ljava/util/List; [I [[[I I I I I java/util/ArrayList java/util/Iterator] []
+    ALOAD 9
+    ARETURN
+   L18
+    LOCALVARIABLE pc I L10 L11 11
+    LOCALVARIABLE pm I L15 L16 11
+    LOCALVARIABLE this Loriginal/Solution1728; L0 L18 0
+    LOCALVARIABLE gMouse [Ljava/util/List; L0 L18 1
+    // signature [Ljava/util/List<Ljava/lang/Integer;>;
+    // declaration: gMouse extends java.util.List<java.lang.Integer>[]
+    LOCALVARIABLE gCat [Ljava/util/List; L0 L18 2
+    // signature [Ljava/util/List<Ljava/lang/Integer;>;
+    // declaration: gCat extends java.util.List<java.lang.Integer>[]
+    LOCALVARIABLE state [I L0 L18 3
+    LOCALVARIABLE ans [[[I L0 L18 4
+    LOCALVARIABLE m I L1 L18 5
+    LOCALVARIABLE c I L2 L18 6
+    LOCALVARIABLE t I L3 L18 7
+    LOCALVARIABLE pt I L4 L18 8
+    LOCALVARIABLE pre Ljava/util/List; L5 L18 9
+    // signature Ljava/util/List<[I>;
+    // declaration: pre extends java.util.List<int[]>
+    MAXSTACK = 5
+    MAXLOCALS = 12
+
+  // access flags 0x100A
+  private static synthetic lambda$canMouseWin$1(I)Ljava/util/List;
+   L0
+    LINENUMBER 18 L0
+    NEW java/util/ArrayList
+    DUP
+    INVOKESPECIAL java/util/ArrayList.<init> ()V
+    ARETURN
+   L1
+    LOCALVARIABLE i I L0 L1 0
+    MAXSTACK = 2
+    MAXLOCALS = 1
+
+  // access flags 0x100A
+  private static synthetic lambda$canMouseWin$0(I)Ljava/util/List;
+   L0
+    LINENUMBER 17 L0
+    NEW java/util/ArrayList
+    DUP
+    INVOKESPECIAL java/util/ArrayList.<init> ()V
+    ARETURN
+   L1
+    LOCALVARIABLE i I L0 L1 0
+    MAXSTACK = 2
+    MAXLOCALS = 1
+}
+

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_0943.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">leetcode</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_0943.java</span></div><h1>id_0943.java</h1><pre class="source lang-java linenums">package original;
+
+import java.util.Collections;
+import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+<span class="nc" id="L9">class Solution0943 {</span>
+    public String shortestSuperstring(String[] words) {
+  /**
+  Given an array of strings words, return the smallest string that contains each string in words as a substring. If there are multiple valid strings of the smallest length, return any of them. You may assume that no string in words is a substring of another string in words. &amp;nbsp; Example 1: Input: words = [&amp;quot;alex&amp;quot;,&amp;quot;loves&amp;quot;,&amp;quot;leetcode&amp;quot;] Output: &amp;quot;alexlovesleetcode&amp;quot; Explanation: All permutations of &amp;quot;alex&amp;quot;,&amp;quot;loves&amp;quot;,&amp;quot;leetcode&amp;quot; would also be accepted. Example 2: Input: words = [&amp;quot;catg&amp;quot;,&amp;quot;ctaagt&amp;quot;,&amp;quot;gcta&amp;quot;,&amp;quot;ttca&amp;quot;,&amp;quot;atgcatc&amp;quot;] Output: &amp;quot;gctaagttcatgcatc&amp;quot; &amp;nbsp; Constraints: 1 &amp;lt;= words.length &amp;lt;= 12 1 &amp;lt;= words[i].length &amp;lt;= 20 words[i] consists of lowercase English letters. All the strings of words are unique.
+  */
+<span class="nc" id="L14">        int n = words.length;</span>
+<span class="nc" id="L15">        int[][] g = new int[n][n];</span>
+<span class="nc bnc" id="L16" title="All 2 branches missed.">        for (int i = 0; i &lt; n; ++i) {</span>
+<span class="nc" id="L17">            String a = words[i];</span>
+<span class="nc bnc" id="L18" title="All 2 branches missed.">            for (int j = 0; j &lt; n; ++j) {</span>
+<span class="nc" id="L19">                String b = words[j];</span>
+<span class="nc bnc" id="L20" title="All 2 branches missed.">                if (i != j) {</span>
+<span class="nc bnc" id="L21" title="All 2 branches missed.">                    for (int k = Math.min(a.length(), b.length()); k &gt; 0; --k) {</span>
+<span class="nc bnc" id="L22" title="All 2 branches missed.">                        if (a.substring(a.length() - k).equals(b.substring(0, k))) {</span>
+<span class="nc" id="L23">                            g[i][j] = k;</span>
+<span class="nc" id="L24">                            break;</span>
+                        }
+                    }
+                }
+            }
+        }
+<span class="nc" id="L30">        int[][] dp = new int[1 &lt;&lt; n][n];</span>
+<span class="nc" id="L31">        int[][] p = new int[1 &lt;&lt; n][n];</span>
+<span class="nc bnc" id="L32" title="All 2 branches missed.">        for (int i = 0; i &lt; 1 &lt;&lt; n; ++i) {</span>
+<span class="nc" id="L33">            Arrays.fill(p[i], -1);</span>
+<span class="nc bnc" id="L34" title="All 2 branches missed.">            for (int j = 0; j &lt; n; ++j) {</span>
+<span class="nc bnc" id="L35" title="All 2 branches missed.">                if (((i &gt;&gt; j) &amp; 1) == 1) {</span>
+<span class="nc" id="L36">                    int pi = i ^ (1 &lt;&lt; j);</span>
+<span class="nc bnc" id="L37" title="All 2 branches missed.">                    for (int k = 0; k &lt; n; ++k) {</span>
+<span class="nc bnc" id="L38" title="All 2 branches missed.">                        if (((pi &gt;&gt; k) &amp; 1) == 1) {</span>
+<span class="nc" id="L39">                            int v = dp[pi][k] + g[k][j];</span>
+<span class="nc bnc" id="L40" title="All 2 branches missed.">                            if (v &gt; dp[i][j]) {</span>
+<span class="nc" id="L41">                                dp[i][j] = v;</span>
+<span class="nc" id="L42">                                p[i][j] = k;</span>
+                            }
+                        }
+                    }
+                }
+            }
+        }
+<span class="nc" id="L49">        int j = 0;</span>
+<span class="nc bnc" id="L50" title="All 2 branches missed.">        for (int i = 0; i &lt; n; ++i) {</span>
+<span class="nc bnc" id="L51" title="All 2 branches missed.">            if (dp[(1 &lt;&lt; n) - 1][i] &gt; dp[(1 &lt;&lt; n) - 1][j]) {</span>
+<span class="nc" id="L52">                j = i;</span>
+            }
+        }
+<span class="nc" id="L55">        List&lt;Integer&gt; arr = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L56">        arr.add(j);</span>
+<span class="nc bnc" id="L57" title="All 2 branches missed.">        for (int i = (1 &lt;&lt; n) - 1; p[i][j] != -1;) {</span>
+<span class="nc" id="L58">            int k = i;</span>
+<span class="nc" id="L59">            i ^= (1 &lt;&lt; j);</span>
+<span class="nc" id="L60">            j = p[k][j];</span>
+<span class="nc" id="L61">            arr.add(j);</span>
+<span class="nc" id="L62">        }</span>
+<span class="nc" id="L63">        Set&lt;Integer&gt; vis = new HashSet&lt;&gt;(arr);</span>
+<span class="nc bnc" id="L64" title="All 2 branches missed.">        for (int i = 0; i &lt; n; ++i) {</span>
+<span class="nc bnc" id="L65" title="All 2 branches missed.">            if (!vis.contains(i)) {</span>
+<span class="nc" id="L66">                arr.add(i);</span>
+            }
+        }
+<span class="nc" id="L69">        Collections.reverse(arr);</span>
+<span class="nc" id="L70">        StringBuilder ans = new StringBuilder(words[arr.get(0)]);</span>
+<span class="nc bnc" id="L71" title="All 2 branches missed.">        for (int i = 1; i &lt; n; ++i) {</span>
+<span class="nc" id="L72">            int k = g[arr.get(i - 1)][arr.get(i)];</span>
+<span class="nc" id="L73">            ans.append(words[arr.get(i)].substring(k));</span>
+        }
+<span class="nc" id="L75">        return ans.toString();</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

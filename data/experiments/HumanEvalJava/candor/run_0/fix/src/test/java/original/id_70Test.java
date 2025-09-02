@@ -1,0 +1,68 @@
+package original;
+
+import java.util.ArrayList;
+
+import java.util.Collections;
+
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of StrangeSortList.
+*/
+class StrangeSortListTest {
+
+    @Test
+    void testStrangeSortList_EmptyList_ReturnsEmptyList() {
+        List<Object> input = new ArrayList<>();
+        List<Object> expected = new ArrayList<>();
+        assertEquals(expected, StrangeSortList.strangeSortList(input));
+    }
+    
+    @Test
+        void testNothing(){
+            StrangeSortList s = new StrangeSortList();
+            }
+    @Test
+    public void Test_Empty_List() {
+        List<Object> input = new ArrayList<>();
+        assertEquals(Collections.emptyList(), StrangeSortList.strangeSortList(input));
+    }
+    @Test
+    public void Test_Single_Element_List() {
+        List<Object> input = List.of(1);
+        assertEquals(List.of(1), StrangeSortList.strangeSortList(input));
+    }
+    @Test
+    public void Test_List_With_Negative_Numbers() {
+        List<Object> input = List.of(-5, -2, 0, 2);
+        assertEquals(List.of(-5, 2, -2, 0), StrangeSortList.strangeSortList(input));
+    }
+    @Test
+    public void Test_List_With_Multiple_Swaps() {
+        List<Object> input = List.of(8, 6, 4, 2);
+        assertEquals(List.of(2, 8, 4, 6), StrangeSortList.strangeSortList(input));
+    }
+    @Test
+    public void Test_Null_Input() {
+        List<Object> input = null;
+        assertThrows(NullPointerException.class, () -> StrangeSortList.strangeSortList(input));
+    }
+    @Test
+    public void Test_List_With_Swaps() {
+        List<Object> input = List.of(2, 8);
+        assertEquals(List.of(2, 8), StrangeSortList.strangeSortList(input));
+    }
+    @Test
+    public void Test_List_With_Duplicate_Numbers() {
+        List<Object> input = List.of(2, 8, 2, 8);
+        assertEquals(List.of(2, 8, 2, 8), StrangeSortList.strangeSortList(input));
+    }
+    @Test
+    public void Test_Already_Sorted_List() {
+        List<Object> input = List.of(1, 2, 3, 4);
+        assertEquals(List.of(1, 4, 2, 3), StrangeSortList.strangeSortList(input));
+    }
+                                    
+}

@@ -1,0 +1,39 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of Solve.
+*/
+class SolveTest {
+    @Test
+    void testSolve_ReversesStringWhenNoLetters() {
+        // Arrange
+        String input = "1234";
+        String expected = "4321";
+        
+        // Act
+        String actual = Solve.solve(input);
+        
+        // Assert
+        assertEquals(expected, actual);
+    }
+    
+    @Test
+        public void testNothing(){
+            Solve s = new Solve();
+            }
+    @Test
+    public void testUpperCaseLetter() {
+        String input = "A";
+        String expected = "a";
+        assertEquals(expected, Solve.solve(input));
+    }
+    @Test
+    public void testLowerCaseLetter() {
+        String input = "a";
+        String expected = "A";
+        assertEquals(expected, Solve.solve(input));
+    }
+                                    
+}

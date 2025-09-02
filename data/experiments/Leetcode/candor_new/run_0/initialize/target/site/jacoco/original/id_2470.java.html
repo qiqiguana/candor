@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_2470.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">leetcode</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_2470.java</span></div><h1>id_2470.java</h1><pre class="source lang-java linenums">package original;
+
+<span class="fc" id="L3">class Solution2470 {</span>
+    public int subarrayLCM(int[] nums, int k) {
+  /**
+  Given an integer array nums and an integer k, return the number of subarrays of nums where the least common multiple of the subarray&amp;#39;s elements is k. A subarray is a contiguous non-empty sequence of elements within an array. The least common multiple of an array is the smallest positive integer that is divisible by all the array elements. &amp;nbsp; Example 1: Input: nums = [3,6,2,7,1], k = 6 Output: 4 Explanation: The subarrays of nums where 6 is the least common multiple of all the subarray&amp;#39;s elements are: - [3,6,2,7,1] - [3,6,2,7,1] - [3,6,2,7,1] - [3,6,2,7,1] Example 2: Input: nums = [3], k = 2 Output: 0 Explanation: There are no subarrays of nums where 2 is the least common multiple of all the subarray&amp;#39;s elements. &amp;nbsp; Constraints: 1 &amp;lt;= nums.length &amp;lt;= 1000 1 &amp;lt;= nums[i], k &amp;lt;= 1000
+  */
+<span class="fc" id="L8">        int n = nums.length;</span>
+<span class="fc" id="L9">        int ans = 0;</span>
+<span class="fc bfc" id="L10" title="All 2 branches covered.">        for (int i = 0; i &lt; n; ++i) {</span>
+<span class="fc" id="L11">            int a = nums[i];</span>
+<span class="fc bfc" id="L12" title="All 2 branches covered.">            for (int j = i; j &lt; n; ++j) {</span>
+<span class="fc" id="L13">                int b = nums[j];</span>
+<span class="fc" id="L14">                int x = lcm(a, b);</span>
+<span class="fc bfc" id="L15" title="All 2 branches covered.">                if (x == k) {</span>
+<span class="fc" id="L16">                    ++ans;</span>
+                }
+<span class="fc" id="L18">                a = x;</span>
+            }
+        }
+<span class="fc" id="L21">        return ans;</span>
+    }
+
+    private int lcm(int a, int b) {
+<span class="fc" id="L25">        return a * b / gcd(a, b);</span>
+    }
+
+    private int gcd(int a, int b) {
+<span class="fc bfc" id="L29" title="All 2 branches covered.">        return b == 0 ? a : gcd(b, a % b);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

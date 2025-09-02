@@ -1,0 +1,38 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of Iscube.
+*/
+class IscubeTest {
+    @Test
+    void testIscube_WhenInputIsCubeOfInteger_ReturnsTrue() {
+        // Arrange & Act
+        boolean result = Iscube.iscube(64);
+        // Assert
+        assertTrue(result);
+    }
+    
+    @Test
+        public void testNothing(){
+            Iscube s = new Iscube();
+            }
+    @Test
+    public void testIsCubeClassExistence() {
+        assertDoesNotThrow(() -> new Iscube());
+    }
+    @Test
+    public void testIsCubeNegativeInput() {
+        assertTrue(Iscube.iscube(-27));
+    }
+    @Test
+    public void testCubeRootOfPerfectCube() {
+        assertTrue(original.Iscube.iscube(27));
+    }
+    @Test
+    public void testNonPerfectCube() {
+        assertFalse(original.Iscube.iscube(180));
+    }
+                                    
+}

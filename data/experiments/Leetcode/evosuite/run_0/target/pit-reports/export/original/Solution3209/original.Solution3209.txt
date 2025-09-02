@@ -1,0 +1,176 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Solution3209 {
+
+  // compiled from: id_3209.java
+  // access flags 0x609
+  public static abstract INNERCLASS java/util/Map$Entry java/util/Map Entry
+  // access flags 0x19
+  public final static INNERCLASS java/lang/invoke/MethodHandles$Lookup java/lang/invoke/MethodHandles Lookup
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 6 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Solution3209; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public countSubarrays([II)J
+   L0
+    LINENUMBER 8 L0
+    LCONST_0
+    LSTORE 3
+   L1
+    LINENUMBER 9 L1
+    NEW java/util/HashMap
+    DUP
+    INVOKESPECIAL java/util/HashMap.<init> ()V
+    ASTORE 5
+   L2
+    LINENUMBER 10 L2
+    ALOAD 1
+    ASTORE 6
+    ALOAD 6
+    ARRAYLENGTH
+    ISTORE 7
+    ICONST_0
+    ISTORE 8
+   L3
+   FRAME FULL [original/Solution3209 [I I J java/util/Map [I I I] []
+    ILOAD 8
+    ILOAD 7
+    IF_ICMPGE L4
+    ALOAD 6
+    ILOAD 8
+    IALOAD
+    ISTORE 9
+   L5
+    LINENUMBER 11 L5
+    NEW java/util/HashMap
+    DUP
+    INVOKESPECIAL java/util/HashMap.<init> ()V
+    ASTORE 10
+   L6
+    LINENUMBER 12 L6
+    ALOAD 5
+    INVOKEINTERFACE java/util/Map.entrySet ()Ljava/util/Set; (itf)
+    INVOKEINTERFACE java/util/Set.iterator ()Ljava/util/Iterator; (itf)
+    ASTORE 11
+   L7
+   FRAME FULL [original/Solution3209 [I I J java/util/Map [I I I I java/util/Map java/util/Iterator] []
+    ALOAD 11
+    INVOKEINTERFACE java/util/Iterator.hasNext ()Z (itf)
+    IFEQ L8
+    ALOAD 11
+    INVOKEINTERFACE java/util/Iterator.next ()Ljava/lang/Object; (itf)
+    CHECKCAST java/util/Map$Entry
+    ASTORE 12
+   L9
+    LINENUMBER 13 L9
+    ALOAD 12
+    INVOKEINTERFACE java/util/Map$Entry.getKey ()Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/Integer
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    ISTORE 13
+   L10
+    ALOAD 12
+    INVOKEINTERFACE java/util/Map$Entry.getValue ()Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/Integer
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    ISTORE 14
+   L11
+    LINENUMBER 14 L11
+    ALOAD 10
+    ILOAD 9
+    ILOAD 13
+    IAND
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    ILOAD 14
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEDYNAMIC apply()Ljava/util/function/BiFunction; [
+      // handle kind 0x6 : INVOKESTATIC
+      java/lang/invoke/LambdaMetafactory.metafactory(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;
+      // arguments:
+      (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;, 
+      // handle kind 0x6 : INVOKESTATIC
+      java/lang/Integer.sum(II)I, 
+      (Ljava/lang/Integer;Ljava/lang/Integer;)Ljava/lang/Integer;
+    ]
+    INVOKEINTERFACE java/util/Map.merge (Ljava/lang/Object;Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object; (itf)
+    POP
+   L12
+    LINENUMBER 15 L12
+    GOTO L7
+   L8
+    LINENUMBER 16 L8
+   FRAME FULL [original/Solution3209 [I I J java/util/Map [I I I I java/util/Map] []
+    ALOAD 10
+    ILOAD 9
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    ICONST_1
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEDYNAMIC apply()Ljava/util/function/BiFunction; [
+      // handle kind 0x6 : INVOKESTATIC
+      java/lang/invoke/LambdaMetafactory.metafactory(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;
+      // arguments:
+      (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;, 
+      // handle kind 0x6 : INVOKESTATIC
+      java/lang/Integer.sum(II)I, 
+      (Ljava/lang/Integer;Ljava/lang/Integer;)Ljava/lang/Integer;
+    ]
+    INVOKEINTERFACE java/util/Map.merge (Ljava/lang/Object;Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object; (itf)
+    POP
+   L13
+    LINENUMBER 17 L13
+    LLOAD 3
+    ALOAD 10
+    ILOAD 2
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    ICONST_0
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEINTERFACE java/util/Map.getOrDefault (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/Integer
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    I2L
+    LADD
+    LSTORE 3
+   L14
+    LINENUMBER 18 L14
+    ALOAD 10
+    ASTORE 5
+   L15
+    LINENUMBER 10 L15
+    IINC 8 1
+    GOTO L3
+   L4
+    LINENUMBER 20 L4
+   FRAME FULL [original/Solution3209 [I I J java/util/Map] []
+    LLOAD 3
+    LRETURN
+   L16
+    LOCALVARIABLE y I L10 L12 13
+    LOCALVARIABLE v I L11 L12 14
+    LOCALVARIABLE e Ljava/util/Map$Entry; L9 L12 12
+    // signature Ljava/util/Map$Entry<Ljava/lang/Integer;Ljava/lang/Integer;>;
+    // declaration: e extends java.util.Map$Entry<java.lang.Integer, java.lang.Integer>
+    LOCALVARIABLE cur Ljava/util/Map; L6 L15 10
+    // signature Ljava/util/Map<Ljava/lang/Integer;Ljava/lang/Integer;>;
+    // declaration: cur extends java.util.Map<java.lang.Integer, java.lang.Integer>
+    LOCALVARIABLE x I L5 L15 9
+    LOCALVARIABLE this Loriginal/Solution3209; L0 L16 0
+    LOCALVARIABLE nums [I L0 L16 1
+    LOCALVARIABLE k I L0 L16 2
+    LOCALVARIABLE ans J L1 L16 3
+    LOCALVARIABLE pre Ljava/util/Map; L2 L16 5
+    // signature Ljava/util/Map<Ljava/lang/Integer;Ljava/lang/Integer;>;
+    // declaration: pre extends java.util.Map<java.lang.Integer, java.lang.Integer>
+    MAXSTACK = 5
+    MAXLOCALS = 15
+}
+

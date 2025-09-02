@@ -1,0 +1,116 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Solution2268 {
+
+  // compiled from: id_2268.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 4 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Solution2268; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public minimumKeypresses(Ljava/lang/String;)I
+   L0
+    LINENUMBER 6 L0
+    BIPUSH 26
+    NEWARRAY T_INT
+    ASTORE 2
+   L1
+    LINENUMBER 7 L1
+    ICONST_0
+    ISTORE 3
+   L2
+   FRAME FULL [original/Solution2268 java/lang/String [I I] []
+    ILOAD 3
+    ALOAD 1
+    INVOKEVIRTUAL java/lang/String.length ()I
+    IF_ICMPGE L3
+   L4
+    LINENUMBER 8 L4
+    ALOAD 2
+    ALOAD 1
+    ILOAD 3
+    INVOKEVIRTUAL java/lang/String.charAt (I)C
+    BIPUSH 97
+    ISUB
+    DUP2
+    IALOAD
+    ICONST_1
+    IADD
+    IASTORE
+   L5
+    LINENUMBER 7 L5
+    IINC 3 1
+    GOTO L2
+   L3
+    LINENUMBER 10 L3
+   FRAME FULL [original/Solution2268 java/lang/String [I I] []
+    ALOAD 2
+    INVOKESTATIC java/util/Arrays.sort ([I)V
+   L6
+    LINENUMBER 11 L6
+    ICONST_0
+    ISTORE 3
+   L7
+    ICONST_1
+    ISTORE 4
+   L8
+    LINENUMBER 12 L8
+    ICONST_1
+    ISTORE 5
+   L9
+   FRAME FULL [original/Solution2268 java/lang/String [I I I I] []
+    ILOAD 5
+    BIPUSH 26
+    IF_ICMPGT L10
+   L11
+    LINENUMBER 13 L11
+    ILOAD 3
+    ILOAD 4
+    ALOAD 2
+    BIPUSH 26
+    ILOAD 5
+    ISUB
+    IALOAD
+    IMUL
+    IADD
+    ISTORE 3
+   L12
+    LINENUMBER 14 L12
+    ILOAD 5
+    BIPUSH 9
+    IREM
+    IFEQ L13
+   L14
+    LINENUMBER 15 L14
+    IINC 4 1
+   L13
+    LINENUMBER 12 L13
+   FRAME FULL [original/Solution2268 java/lang/String [I I I I] []
+    IINC 5 1
+    GOTO L9
+   L10
+    LINENUMBER 18 L10
+   FRAME FULL [original/Solution2268 java/lang/String [I I I I] []
+    ILOAD 3
+    IRETURN
+   L15
+    LOCALVARIABLE i I L2 L3 3
+    LOCALVARIABLE i I L9 L10 5
+    LOCALVARIABLE this Loriginal/Solution2268; L0 L15 0
+    LOCALVARIABLE s Ljava/lang/String; L0 L15 1
+    LOCALVARIABLE cnt [I L1 L15 2
+    LOCALVARIABLE ans I L7 L15 3
+    LOCALVARIABLE k I L8 L15 4
+    MAXSTACK = 5
+    MAXLOCALS = 6
+}
+

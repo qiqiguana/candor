@@ -1,0 +1,30 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of TriangleArea1.
+*/
+class TriangleArea1Test {
+    @Test
+    void testTriangleArea2() {
+        assertEquals(-1, (int) TriangleArea1.triangleArea(3, 4, 12), "The area should be -1 for invalid triangle sides");
+    }
+    
+    @Test
+        public void testNothing(){
+            TriangleArea1 s = new TriangleArea1();
+            }
+    @Test
+    public void TriangleAreaTest_EdgeCase_Corrected_1() {
+        int[] sides = new int[] {2, 2, 2};
+        double expected = 1.732050807568877;
+        assertEquals(expected, (double) original.TriangleArea1.triangleArea(sides[0], sides[1], sides[2]), 0.01);
+    }
+    @Test
+    public void TestTriangleAreaInvalidInputSumOfTwoSidesLessThanThirdSide2() {
+    	Number result = TriangleArea1.triangleArea(10, 5, 2);
+    	assertEquals(-1.0, result.doubleValue(), 0.01);
+    }
+                                    
+}

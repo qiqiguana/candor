@@ -1,0 +1,40 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of Multiply.
+*/
+class MultiplyTest {
+    @Test
+    void testMultiply_UnitDigitsProduct() {
+        assertEquals(16, Multiply.multiply(148, 412));
+    }
+    
+    @Test
+        public void testNothing(){
+            Multiply s = new Multiply();
+            }
+    @Test
+    public void testMultiplyClassInitialization() {
+        // No exception should be thrown when initializing the Multiply class
+        assertDoesNotThrow(() -> new Object());
+    }
+    @Test
+    public void testNegativeNumberHandling() {
+        int a = -14;
+        int b = 15;
+        int expectedResult = 20;
+        int actualResult = original.Multiply.multiply(a, b);
+        assertEquals(expectedResult, actualResult);
+    }
+    @Test
+    public void testAnotherNegativeNumberHandling() {
+        int a = 19;
+        int b = -28;
+        int expectedResult = 72;
+        int actualResult = original.Multiply.multiply(a, b);
+        assertEquals(expectedResult, actualResult);
+    }
+                                    
+}

@@ -1,0 +1,130 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/WordsInSentence {
+
+  // compiled from: id_143.java
+  // access flags 0x19
+  public final static INNERCLASS java/lang/invoke/MethodHandles$Lookup java/lang/invoke/MethodHandles Lookup
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 4 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/WordsInSentence; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  public static wordsInSentence(Ljava/lang/String;)Ljava/lang/String;
+   L0
+    LINENUMBER 40 L0
+    ALOAD 0
+    LDC " "
+    INVOKEVIRTUAL java/lang/String.split (Ljava/lang/String;)[Ljava/lang/String;
+    ASTORE 1
+   L1
+    LINENUMBER 41 L1
+    LDC ""
+    ASTORE 2
+   L2
+    LINENUMBER 42 L2
+    ICONST_0
+    ISTORE 3
+   L3
+   FRAME FULL [java/lang/String [Ljava/lang/String; java/lang/String I] []
+    ILOAD 3
+    ALOAD 1
+    ARRAYLENGTH
+    IF_ICMPGE L4
+   L5
+    LINENUMBER 43 L5
+    ALOAD 1
+    ILOAD 3
+    AALOAD
+    INVOKEVIRTUAL java/lang/String.length ()I
+    INVOKESTATIC original/WordsInSentence.isPrime (I)Z
+    IFEQ L6
+   L7
+    LINENUMBER 44 L7
+    ALOAD 2
+    ALOAD 1
+    ILOAD 3
+    AALOAD
+    INVOKEDYNAMIC makeConcatWithConstants(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String; [
+      // handle kind 0x6 : INVOKESTATIC
+      java/lang/invoke/StringConcatFactory.makeConcatWithConstants(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;
+      // arguments:
+      "\u0001\u0001 "
+    ]
+    ASTORE 2
+   L6
+    LINENUMBER 42 L6
+   FRAME FULL [java/lang/String [Ljava/lang/String; java/lang/String I] []
+    IINC 3 1
+    GOTO L3
+   L4
+    LINENUMBER 47 L4
+   FRAME FULL [java/lang/String [Ljava/lang/String; java/lang/String I] []
+    ALOAD 2
+    INVOKEVIRTUAL java/lang/String.trim ()Ljava/lang/String;
+    ARETURN
+   L8
+    LOCALVARIABLE i I L3 L4 3
+    LOCALVARIABLE sentence Ljava/lang/String; L0 L8 0
+    LOCALVARIABLE words [Ljava/lang/String; L1 L8 1
+    LOCALVARIABLE result Ljava/lang/String; L2 L8 2
+    MAXSTACK = 3
+    MAXLOCALS = 4
+
+  // access flags 0xA
+  private static isPrime(I)Z
+   L0
+    LINENUMBER 51 L0
+    ILOAD 0
+    ICONST_1
+    IF_ICMPLE L1
+   L2
+    LINENUMBER 52 L2
+    ICONST_0
+    IRETURN
+   L1
+    LINENUMBER 54 L1
+   FRAME FULL [I] []
+    ICONST_2
+    ISTORE 1
+   L3
+   FRAME FULL [I I] []
+    ILOAD 1
+    ILOAD 0
+    IF_ICMPGE L4
+   L5
+    LINENUMBER 55 L5
+    ILOAD 0
+    ILOAD 1
+    IREM
+    IFNE L6
+   L7
+    LINENUMBER 56 L7
+    ICONST_0
+    IRETURN
+   L6
+    LINENUMBER 54 L6
+   FRAME FULL [I I] []
+    IINC 1 1
+    GOTO L3
+   L4
+    LINENUMBER 59 L4
+   FRAME FULL [I I] []
+    ICONST_1
+    IRETURN
+   L8
+    LOCALVARIABLE i I L3 L4 1
+    LOCALVARIABLE number I L0 L8 0
+    MAXSTACK = 2
+    MAXLOCALS = 2
+}
+

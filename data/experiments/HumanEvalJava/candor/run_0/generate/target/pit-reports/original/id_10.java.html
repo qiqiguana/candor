@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>id_10.java</h1>
+
+<table class="src">
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@9390526_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@9390526_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package original;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@9390526_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@9390526_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@9390526_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@9390526_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>class MakePalindrome {</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@9390526_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@9390526_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@9390526_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@9390526_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Find the shortest palindrome that begins with a supplied string.</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@9390526_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@9390526_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Algorithm idea is simple:</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@9390526_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@9390526_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * - Find the longest postfix of supplied string that is a palindrome.</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@9390526_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@9390526_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * - Append to the end of the string reverse of a string prefix that comes before the palindromic suffix.</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@9390526_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@9390526_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Examples:</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@9390526_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@9390526_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * &#62; makePalindrome(&#34;&#34;)</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@9390526_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@9390526_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * &#34;&#34;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@9390526_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@9390526_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * &#62; makePalindrome(&#34;cat&#34;)</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@9390526_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@9390526_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * &#34;catac&#34;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@9390526_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@9390526_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * &#62; makePalindrome(&#34;cata&#34;)</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@9390526_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@9390526_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * &#34;catac&#34;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@9390526_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@9390526_16'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * &#62; makePalindrome(&#34;&#34;)</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@9390526_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@9390526_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * &#34;&#34;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@9390526_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@9390526_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * &#62; makePalindrome(&#34;x&#34;)</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@9390526_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@9390526_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * &#34;x&#34;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@9390526_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@9390526_20'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * &#62; makePalindrome(&#34;xyz&#34;)</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@9390526_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@9390526_21'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * &#34;xyzyx&#34;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@9390526_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@9390526_22'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * &#62; makePalindrome(&#34;xyx&#34;)</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@9390526_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@9390526_23'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * &#34;xyx&#34;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@9390526_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@9390526_24'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * &#62; makePalindrome(&#34;jerry&#34;)</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@9390526_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@9390526_25'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * &#34;jerryrrej&#34;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@9390526_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@9390526_26'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@9390526_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@9390526_27'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public static String makePalindrome(String string) {</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@9390526_28'/>
+28
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@9390526_28'>1</a>
+<span>
+1. makePalindrome : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (string.length() == 0) {</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@9390526_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@9390526_29'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            return &#34;&#34;;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@9390526_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@9390526_30'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@9390526_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@9390526_31'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        String reversed = new StringBuilder(string).reverse().toString();</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@9390526_32'/>
+32
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@9390526_32'>2</a>
+<span>
+1. makePalindrome : changed conditional boundary &rarr; SURVIVED<br/>
+2. makePalindrome : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        for (int i = 0; i &#60; string.length(); i++) {</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@9390526_33'/>
+33
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@9390526_33'>2</a>
+<span>
+1. makePalindrome : negated conditional &rarr; KILLED<br/>
+2. makePalindrome : Replaced integer subtraction with addition &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            if (string.substring(i).equals(reversed.substring(0, string.length() - i))) {</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@9390526_34'/>
+34
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@9390526_34'>2</a>
+<span>
+1. makePalindrome : Replaced integer subtraction with addition &rarr; KILLED<br/>
+2. makePalindrome : replaced return value with &#34;&#34; for original/MakePalindrome::makePalindrome &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                return string + reversed.substring(string.length() - i);</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@9390526_35'/>
+35
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@9390526_35'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@9390526_36'/>
+36
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@9390526_36'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@9390526_37'/>
+37
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@9390526_37'>1</a>
+<span>
+1. makePalindrome : replaced return value with &#34;&#34; for original/MakePalindrome::makePalindrome &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        return null;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@9390526_38'/>
+38
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@9390526_38'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@9390526_39'/>
+39
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@9390526_39'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@9390526_40'/>
+40
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@9390526_40'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@9390526_41'/>
+41
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@9390526_41'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@9390526_28'>28</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@9390526_28'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>makePalindrome<br/><b>Killed by : </b>original.MakePalindromeTest.[engine:junit-jupiter]/[class:original.MakePalindromeTest]/[method:makePalindrome_EmptyString_ReturnsEmptyString()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@9390526_32'>32</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@9390526_32'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>makePalindrome<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=original.MakePalindrome,-method=makePalindrome,-methodDesc=(Ljava/lang/String;)Ljava/lang/String;],-indexes=[29],-mutator=org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=original.MakePalindrome,-method=makePalindrome,-methodDesc=(Ljava/lang/String;)Ljava/lang/String;],-indexes=[29],-mutator=org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=original.MakePalindrome,-method=makePalindrome,-methodDesc=(Ljava/lang/String;)Ljava/lang/String;],-indexes=[29],-mutator=org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>original.MakePalindromeTest.[engine:junit-jupiter]/[class:original.MakePalindromeTest]/[method:makePalindrome_SingleCharacter_ReturnsSameCharacter()]</li> <li>original.MakePalindromeTest.[engine:junit-jupiter]/[class:original.MakePalindromeTest]/[method:test_makePalindrome_longString()]</li> <li>original.MakePalindromeTest.[engine:junit-jupiter]/[class:original.MakePalindromeTest]/[method:testMakePalindrome_WithPalindromeString_ReturnsSameString()]</li> <li>original.MakePalindromeTest.[engine:junit-jupiter]/[class:original.MakePalindromeTest]/[method:testMakePalindrome_SingleCharacter_Duplicate()]</li> <li>original.MakePalindromeTest.[engine:junit-jupiter]/[class:original.MakePalindromeTest]/[method:test_makePalindrome_singleCharacter()]</li> <li>original.MakePalindromeTest.[engine:junit-jupiter]/[class:original.MakePalindromeTest]/[method:testMakePalindromeWithAlreadyPalindromeString()]</li> <li>original.MakePalindromeTest.[engine:junit-jupiter]/[class:original.MakePalindromeTest]/[method:makePalindrome_NonPalindromeString_ReturnsLongestPalindromicSuffixAppendedWithReversedPrefix()]</li> <li>original.MakePalindromeTest.[engine:junit-jupiter]/[class:original.MakePalindromeTest]/[method:testMakePalindrome_LongString_ReturnsShortestPalindrome()]</li> <li>original.MakePalindromeTest.[engine:junit-jupiter]/[class:original.MakePalindromeTest]/[method:test_makePalindrome_alreadyPalindrome()]</li> <li>original.MakePalindromeTest.[engine:junit-jupiter]/[class:original.MakePalindromeTest]/[method:testMakePalindromeWithSingleCharacter()]</li> <li>original.MakePalindromeTest.[engine:junit-jupiter]/[class:original.MakePalindromeTest]/[method:testMakePalindrome_SingleCharacter_ReturnsSameString()]</li> <li>original.MakePalindromeTest.[engine:junit-jupiter]/[class:original.MakePalindromeTest]/[method:Test_makePalindrome_LongestPostfixNotPalindrome_ReturnsNonNull()]</li> <li>original.MakePalindromeTest.[engine:junit-jupiter]/[class:original.MakePalindromeTest]/[method:testMakePalindrome_NonPalindrome()]</li> <li>original.MakePalindromeTest.[engine:junit-jupiter]/[class:original.MakePalindromeTest]/[method:testMakePalindrome_PalindromeString()]</li> <li>original.MakePalindromeTest.[engine:junit-jupiter]/[class:original.MakePalindromeTest]/[method:testSingleCharacter()]</li> <li>original.MakePalindromeTest.[engine:junit-jupiter]/[class:original.MakePalindromeTest]/[method:testMakePalindromeWithNoPalindromicSuffix()]</li> <li>original.MakePalindromeTest.[engine:junit-jupiter]/[class:original.MakePalindromeTest]/[method:testNonPalindrome()]</li> <li>original.MakePalindromeTest.[engine:junit-jupiter]/[class:original.MakePalindromeTest]/[method:testMakePalindrome_ShortPalindrome()]</li> <li>original.MakePalindromeTest.[engine:junit-jupiter]/[class:original.MakePalindromeTest]/[method:testMakePalindromeWithNonPalindromeString()]</li> <li>original.MakePalindromeTest.[engine:junit-jupiter]/[class:original.MakePalindromeTest]/[method:testMakePalindromeWithLongStringFixed()]</li> <li>original.MakePalindromeTest.[engine:junit-jupiter]/[class:original.MakePalindromeTest]/[method:testMakePalindrome_EdgeCase()]</li> <li>original.MakePalindromeTest.[engine:junit-jupiter]/[class:original.MakePalindromeTest]/[method:testMakePalindrome_NonPalindrome_Fixed()]</li> <li>original.MakePalindromeTest.[engine:junit-jupiter]/[class:original.MakePalindromeTest]/[method:testMakePalindrome_PalindromeString_ReturnsSameString()]</li> <li>original.MakePalindromeTest.[engine:junit-jupiter]/[class:original.MakePalindromeTest]/[method:testMakePalindrome_SingleCharacter()]</li> <li>original.MakePalindromeTest.[engine:junit-jupiter]/[class:original.MakePalindromeTest]/[method:testMakePalindrome_NonPalindromeString_ReturnsShortestPalindrome()]</li> <li>original.MakePalindromeTest.[engine:junit-jupiter]/[class:original.MakePalindromeTest]/[method:testMakePalindrome_WithSingleCharacter_ReturnsSameString()]</li> <li>original.MakePalindromeTest.[engine:junit-jupiter]/[class:original.MakePalindromeTest]/[method:testAlreadyPalindrome()]</li> <li>original.MakePalindromeTest.[engine:junit-jupiter]/[class:original.MakePalindromeTest]/[method:testMakePalindromeWithNonPalindromicString()]</li> <li>original.MakePalindromeTest.[engine:junit-jupiter]/[class:original.MakePalindromeTest]/[method:makePalindrome_PalindromeString_ReturnsSameString()]</li> <li>original.MakePalindromeTest.[engine:junit-jupiter]/[class:original.MakePalindromeTest]/[method:test_makePalindrome_notPalindrome()]</li> <li>original.MakePalindromeTest.[engine:junit-jupiter]/[class:original.MakePalindromeTest]/[method:testMakePalindrome_SimplePalindrome()]</li> <li>original.MakePalindromeTest.[engine:junit-jupiter]/[class:original.MakePalindromeTest]/[method:testMakePalindrome_LongPalindrome()]</li> <li>original.MakePalindromeTest.[engine:junit-jupiter]/[class:original.MakePalindromeTest]/[method:testMakePalindromeWithPalindromicString()]</li> <li>original.MakePalindromeTest.[engine:junit-jupiter]/[class:original.MakePalindromeTest]/[method:testMakePalindrome_WithNonPalindromString_ReturnsShortestPalindrome()]</li> 
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>makePalindrome<br/><b>Killed by : </b>original.MakePalindromeTest.[engine:junit-jupiter]/[class:original.MakePalindromeTest]/[method:makePalindrome_SingleCharacter_ReturnsSameCharacter()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@9390526_33'>33</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@9390526_33'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>makePalindrome<br/><b>Killed by : </b>original.MakePalindromeTest.[engine:junit-jupiter]/[class:original.MakePalindromeTest]/[method:makePalindrome_SingleCharacter_ReturnsSameCharacter()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>makePalindrome<br/><b>Killed by : </b>original.MakePalindromeTest.[engine:junit-jupiter]/[class:original.MakePalindromeTest]/[method:test_makePalindrome_longString()]</span></span> Replaced integer subtraction with addition &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@9390526_34'>34</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@9390526_34'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>makePalindrome<br/><b>Killed by : </b>original.MakePalindromeTest.[engine:junit-jupiter]/[class:original.MakePalindromeTest]/[method:test_makePalindrome_longString()]</span></span> Replaced integer subtraction with addition &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>makePalindrome<br/><b>Killed by : </b>original.MakePalindromeTest.[engine:junit-jupiter]/[class:original.MakePalindromeTest]/[method:makePalindrome_SingleCharacter_ReturnsSameCharacter()]</span></span> replaced return value with &#34;&#34; for original/MakePalindrome::makePalindrome &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@9390526_37'>37</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@9390526_37'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>makePalindrome<br/><b>Killed by : </b>none</span></span> replaced return value with &#34;&#34; for original/MakePalindrome::makePalindrome &rarr; NO_COVERAGE</span>
+</div> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+<li class='mutator'>CONDITIONALS_BOUNDARY</li>
+<li class='mutator'>EMPTY_RETURNS</li>
+<li class='mutator'>FALSE_RETURNS</li>
+<li class='mutator'>INCREMENTS</li>
+<li class='mutator'>INVERT_NEGS</li>
+<li class='mutator'>MATH</li>
+<li class='mutator'>NEGATE_CONDITIONALS</li>
+<li class='mutator'>NULL_RETURNS</li>
+<li class='mutator'>PRIMITIVE_RETURNS</li>
+<li class='mutator'>TRUE_RETURNS</li>
+<li class='mutator'>VOID_METHOD_CALLS</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>original.MakePalindromeTest.[engine:junit-jupiter]/[class:original.MakePalindromeTest]/[method:makePalindrome_SingleCharacter_ReturnsSameCharacter()] (0 ms)</li><li>original.MakePalindromeTest.[engine:junit-jupiter]/[class:original.MakePalindromeTest]/[method:test_makePalindrome_longString()] (0 ms)</li><li>original.MakePalindromeTest.[engine:junit-jupiter]/[class:original.MakePalindromeTest]/[method:testMakePalindrome_WithPalindromeString_ReturnsSameString()] (0 ms)</li><li>original.MakePalindromeTest.[engine:junit-jupiter]/[class:original.MakePalindromeTest]/[method:testMakePalindrome_SingleCharacter_Duplicate()] (0 ms)</li><li>original.MakePalindromeTest.[engine:junit-jupiter]/[class:original.MakePalindromeTest]/[method:test_makePalindrome_singleCharacter()] (0 ms)</li><li>original.MakePalindromeTest.[engine:junit-jupiter]/[class:original.MakePalindromeTest]/[method:testMakePalindromeWithAlreadyPalindromeString()] (0 ms)</li><li>original.MakePalindromeTest.[engine:junit-jupiter]/[class:original.MakePalindromeTest]/[method:makePalindrome_NonPalindromeString_ReturnsLongestPalindromicSuffixAppendedWithReversedPrefix()] (0 ms)</li><li>original.MakePalindromeTest.[engine:junit-jupiter]/[class:original.MakePalindromeTest]/[method:testMakePalindrome_LongString_ReturnsShortestPalindrome()] (0 ms)</li><li>original.MakePalindromeTest.[engine:junit-jupiter]/[class:original.MakePalindromeTest]/[method:test_makePalindrome_alreadyPalindrome()] (0 ms)</li><li>original.MakePalindromeTest.[engine:junit-jupiter]/[class:original.MakePalindromeTest]/[method:testMakePalindromeWithSingleCharacter()] (0 ms)</li><li>original.MakePalindromeTest.[engine:junit-jupiter]/[class:original.MakePalindromeTest]/[method:testMakePalindrome_SingleCharacter_ReturnsSameString()] (0 ms)</li><li>original.MakePalindromeTest.[engine:junit-jupiter]/[class:original.MakePalindromeTest]/[method:Test_makePalindrome_LongestPostfixNotPalindrome_ReturnsNonNull()] (0 ms)</li><li>original.MakePalindromeTest.[engine:junit-jupiter]/[class:original.MakePalindromeTest]/[method:testMakePalindrome_NonPalindrome()] (0 ms)</li><li>original.MakePalindromeTest.[engine:junit-jupiter]/[class:original.MakePalindromeTest]/[method:testMakePalindrome_PalindromeString()] (0 ms)</li><li>original.MakePalindromeTest.[engine:junit-jupiter]/[class:original.MakePalindromeTest]/[method:testSingleCharacter()] (0 ms)</li><li>original.MakePalindromeTest.[engine:junit-jupiter]/[class:original.MakePalindromeTest]/[method:testMakePalindromeWithNoPalindromicSuffix()] (0 ms)</li><li>original.MakePalindromeTest.[engine:junit-jupiter]/[class:original.MakePalindromeTest]/[method:testNonPalindrome()] (0 ms)</li><li>original.MakePalindromeTest.[engine:junit-jupiter]/[class:original.MakePalindromeTest]/[method:testMakePalindrome_ShortPalindrome()] (0 ms)</li><li>original.MakePalindromeTest.[engine:junit-jupiter]/[class:original.MakePalindromeTest]/[method:testMakePalindromeWithNonPalindromeString()] (0 ms)</li><li>original.MakePalindromeTest.[engine:junit-jupiter]/[class:original.MakePalindromeTest]/[method:testMakePalindromeWithLongStringFixed()] (0 ms)</li><li>original.MakePalindromeTest.[engine:junit-jupiter]/[class:original.MakePalindromeTest]/[method:testMakePalindrome_EdgeCase()] (0 ms)</li><li>original.MakePalindromeTest.[engine:junit-jupiter]/[class:original.MakePalindromeTest]/[method:testMakePalindrome_NonPalindrome_Fixed()] (0 ms)</li><li>original.MakePalindromeTest.[engine:junit-jupiter]/[class:original.MakePalindromeTest]/[method:testMakePalindrome_PalindromeString_ReturnsSameString()] (0 ms)</li><li>original.MakePalindromeTest.[engine:junit-jupiter]/[class:original.MakePalindromeTest]/[method:testMakePalindrome_SingleCharacter()] (0 ms)</li><li>original.MakePalindromeTest.[engine:junit-jupiter]/[class:original.MakePalindromeTest]/[method:testMakePalindrome_NonPalindromeString_ReturnsShortestPalindrome()] (0 ms)</li><li>original.MakePalindromeTest.[engine:junit-jupiter]/[class:original.MakePalindromeTest]/[method:testMakePalindrome_WithSingleCharacter_ReturnsSameString()] (0 ms)</li><li>original.MakePalindromeTest.[engine:junit-jupiter]/[class:original.MakePalindromeTest]/[method:testAlreadyPalindrome()] (0 ms)</li><li>original.MakePalindromeTest.[engine:junit-jupiter]/[class:original.MakePalindromeTest]/[method:testMakePalindromeWithNonPalindromicString()] (0 ms)</li><li>original.MakePalindromeTest.[engine:junit-jupiter]/[class:original.MakePalindromeTest]/[method:makePalindrome_PalindromeString_ReturnsSameString()] (0 ms)</li><li>original.MakePalindromeTest.[engine:junit-jupiter]/[class:original.MakePalindromeTest]/[method:test_makePalindrome_notPalindrome()] (0 ms)</li><li>original.MakePalindromeTest.[engine:junit-jupiter]/[class:original.MakePalindromeTest]/[method:testMakePalindrome_SimplePalindrome()] (0 ms)</li><li>original.MakePalindromeTest.[engine:junit-jupiter]/[class:original.MakePalindromeTest]/[method:testMakePalindrome_LongPalindrome()] (0 ms)</li><li>original.MakePalindromeTest.[engine:junit-jupiter]/[class:original.MakePalindromeTest]/[method:testMakePalindromeWithPalindromicString()] (0 ms)</li><li>original.MakePalindromeTest.[engine:junit-jupiter]/[class:original.MakePalindromeTest]/[method:testMakePalindrome_WithNonPalindromString_ReturnsShortestPalindrome()] (0 ms)</li><li>original.MakePalindromeTest.[engine:junit-jupiter]/[class:original.MakePalindromeTest]/[method:makePalindrome_EmptyString_ReturnsEmptyString()] (0 ms)</li><li>original.MakePalindromeTest.[engine:junit-jupiter]/[class:original.MakePalindromeTest]/[method:testMakePalindromeWithEmptyString()] (0 ms)</li><li>original.MakePalindromeTest.[engine:junit-jupiter]/[class:original.MakePalindromeTest]/[method:testMakePalindrome_EmptyString_ReturnsEmptyString()] (0 ms)</li><li>original.MakePalindromeTest.[engine:junit-jupiter]/[class:original.MakePalindromeTest]/[method:testMakePalindromeEmptyString()] (0 ms)</li><li>original.MakePalindromeTest.[engine:junit-jupiter]/[class:original.MakePalindromeTest]/[method:Test_makePalindrome_EmptyString_ReturnsEmptyString()] (0 ms)</li><li>original.MakePalindromeTest.[engine:junit-jupiter]/[class:original.MakePalindromeTest]/[method:testMakePalindromeEmptyStringCorrected()] (0 ms)</li><li>original.MakePalindromeTest.[engine:junit-jupiter]/[class:original.MakePalindromeTest]/[method:testMakePalindrome_EmptyString()] (0 ms)</li><li>original.MakePalindromeTest.[engine:junit-jupiter]/[class:original.MakePalindromeTest]/[method:testMakePalindromeWithEmptyStringAlternate()] (0 ms)</li><li>original.MakePalindromeTest.[engine:junit-jupiter]/[class:original.MakePalindromeTest]/[method:test_makePalindrome_emptyString()] (0 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='https://pitest.org'>PIT</a> 1.18.0
+
+</body>
+</html>

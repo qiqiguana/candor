@@ -1,0 +1,18 @@
+package original;
+
+import java.util.List;
+import java.util.ArrayList;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of Concatenate.
+*/
+class ConcatenateTest {
+    @Test
+    void testConcatenateEmptyList() {
+        List<Object> strings = new ArrayList<>();
+        String result = Concatenate.concatenate(strings);
+        assertEquals("", result);
+    }
+}

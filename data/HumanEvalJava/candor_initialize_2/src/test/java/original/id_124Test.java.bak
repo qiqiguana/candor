@@ -1,0 +1,96 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of ValidDate.
+*/
+class ValidDateTest {
+    @Test
+    void testValidDate() {
+        String date = "03-11-2000";
+        Boolean result = ValidDate.validDate(date);
+        assertTrue(result);
+    }
+    
+    @Test
+        public void testNothing(){
+            ValidDate s = new ValidDate();
+            }
+    @Test
+    public void testValidDateFebruaryDayGreaterThan29() {
+        assertFalse(ValidDate.validDate("02-30-2022"));
+    }
+    @Test
+    public void testValidDateMonthNotBetween1And12() {
+        assertFalse(ValidDate.validDate("13-01-2022"));
+    }
+    @Test
+    public void testValidDateDayNotBetween1And30ForMonths4_6_9_11() {
+        assertFalse(ValidDate.validDate("04-31-2022"));
+    }
+    @Test
+    public void testValidDateDayNotBetween1And31ForOtherMonths() {
+        assertFalse(ValidDate.validDate("01-32-2022"));
+    }
+    @Test
+    public void testValidDateEmptyInput() {
+        assertFalse(ValidDate.validDate(""));
+    }
+    @Test
+    void testDateFormatWithMissingHyphen() {
+        String[] input = {"04122003"};
+        assertFalse(ValidDate.validDate(input[0]));
+    }
+    @Test
+    void testDateFormatWithIncorrectOrder() {
+        String[] input = {"20030412"};
+        assertFalse(ValidDate.validDate(input[0]));
+    }
+    @Test
+    void testDateFormatWithMissingYear() {
+        String[] input = {"04-12"};
+        assertFalse(ValidDate.validDate(input[0]));
+    }
+    @Test
+    void testDateFormatWithMissingMonth() {
+        String[] input = {"2003-04-12"};
+        assertFalse(ValidDate.validDate(input[0]));
+    }
+    @Test
+    void testDateFormatWithIncorrectDayForFebruary() {
+        String[] input = {"02-30"};
+        assertFalse(ValidDate.validDate(input[0]));
+    }
+    @Test
+    void testDateFormatWithCorrectDayForApril() {
+        String[] input = {"04-12-2000"};
+        assertTrue(ValidDate.validDate(input[0]));
+    }
+    @Test
+    public void testDateWithInvalidMonthAndDayValues() {
+        String date = "13-32-2000";
+        assertFalse(ValidDate.validDate(date));
+    }
+    @Test
+    public void testDateWithOnlyTwoDigitsForYear() {
+        String date = "12-25-20";
+        assertFalse(ValidDate.validDate(date));
+    }
+    @Test
+    public void testDateWithMonthAndDayValuesAtBoundaryConditions() {
+        String date = "02-29-2000";
+        assertTrue(ValidDate.validDate(date));
+    }
+    @Test
+    public void testDateWithMonthAndDayValuesAtBoundaryConditionsForMonthsWithThirtyOneDays() {
+        String date = "01-31-2000";
+        assertTrue(ValidDate.validDate(date));
+    }
+    @Test
+    public void testDateWithMonthAndDayValuesAtBoundaryConditionsForMonthsWithThirtyDays() {
+        String date = "04-30-2000";
+        assertTrue(ValidDate.validDate(date));
+    }
+                                    
+}

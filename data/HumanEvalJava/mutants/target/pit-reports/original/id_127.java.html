@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>id_127.java</h1>
+
+<table class="src">
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52bdfe7b_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52bdfe7b_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package original;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52bdfe7b_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52bdfe7b_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52bdfe7b_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52bdfe7b_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.List;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52bdfe7b_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52bdfe7b_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52bdfe7b_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52bdfe7b_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52bdfe7b_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52bdfe7b_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>class Intersection {</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52bdfe7b_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52bdfe7b_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52bdfe7b_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52bdfe7b_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * You are given two intervals,</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52bdfe7b_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52bdfe7b_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * where each interval is a pair of integers. For example, interval = (start, end) = (1, 2).</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52bdfe7b_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52bdfe7b_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * The given intervals are closed which means that the interval (start, end)</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52bdfe7b_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52bdfe7b_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * includes both start and end.</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52bdfe7b_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52bdfe7b_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * For each given interval, it is assumed that its start is less or equal its end.</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52bdfe7b_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52bdfe7b_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Your task is to determine whether the length of intersection of these two</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52bdfe7b_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52bdfe7b_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * intervals is a prime number.</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52bdfe7b_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52bdfe7b_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Example, the intersection of the intervals (1, 3), (2, 4) is (2, 3)</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52bdfe7b_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52bdfe7b_16'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * which its length is 1, which not a prime number.</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52bdfe7b_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52bdfe7b_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * If the length of the intersection is a prime number, return &#34;YES&#34;,</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52bdfe7b_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52bdfe7b_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * otherwise, return &#34;NO&#34;.</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52bdfe7b_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52bdfe7b_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * If the two intervals don&#39;t intersect, return &#34;NO&#34;.</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52bdfe7b_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52bdfe7b_20'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     *</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52bdfe7b_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52bdfe7b_21'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Examples:</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52bdfe7b_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52bdfe7b_22'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * [input/output] samples:</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52bdfe7b_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52bdfe7b_23'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * intersection((1, 2), (2, 3)) ==&#62; &#34;NO&#34;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52bdfe7b_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52bdfe7b_24'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * intersection((-1, 1), (0, 4)) ==&#62; &#34;NO&#34;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52bdfe7b_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52bdfe7b_25'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * intersection((-3, -1), (-5, 5)) ==&#62; &#34;YES&#34;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52bdfe7b_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52bdfe7b_26'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     *</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52bdfe7b_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52bdfe7b_27'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * &#62; intersection([1, 2], [2, 3])</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52bdfe7b_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52bdfe7b_28'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * &#34;NO&#34;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52bdfe7b_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52bdfe7b_29'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * &#62; intersection([-1, 1], [0, 4])</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52bdfe7b_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52bdfe7b_30'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * &#34;NO&#34;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52bdfe7b_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52bdfe7b_31'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * &#62; intersection([-3, -1], [-5, 5])</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52bdfe7b_32'/>
+32
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52bdfe7b_32'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * &#34;YES&#34;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52bdfe7b_33'/>
+33
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52bdfe7b_33'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * &#62; intersection([-2, 2], [-4, 0])</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52bdfe7b_34'/>
+34
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52bdfe7b_34'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * &#34;YES&#34;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52bdfe7b_35'/>
+35
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52bdfe7b_35'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * &#62; intersection([-11, 2], [-1, -1])</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52bdfe7b_36'/>
+36
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52bdfe7b_36'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * &#34;NO&#34;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52bdfe7b_37'/>
+37
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52bdfe7b_37'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * &#62; intersection([1, 2], [3, 5])</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52bdfe7b_38'/>
+38
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52bdfe7b_38'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * &#34;NO&#34;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52bdfe7b_39'/>
+39
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52bdfe7b_39'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * &#62; intersection([1, 2], [1, 2])</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52bdfe7b_40'/>
+40
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52bdfe7b_40'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * &#34;NO&#34;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52bdfe7b_41'/>
+41
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52bdfe7b_41'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * &#62; intersection([-2, -2], [-3, -2])</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52bdfe7b_42'/>
+42
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52bdfe7b_42'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * &#34;NO&#34;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52bdfe7b_43'/>
+43
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52bdfe7b_43'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52bdfe7b_44'/>
+44
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52bdfe7b_44'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public static String intersection(List&#60;Integer&#62; interval1, List&#60;Integer&#62; interval2) {</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52bdfe7b_45'/>
+45
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52bdfe7b_45'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52bdfe7b_46'/>
+46
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52bdfe7b_46'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        int start = Math.max(interval1.get(0), interval2.get(0));</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52bdfe7b_47'/>
+47
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52bdfe7b_47'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        int end = Math.min(interval1.get(1), interval2.get(1));</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52bdfe7b_48'/>
+48
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52bdfe7b_48'>2</a>
+<span>
+1. intersection : changed conditional boundary &rarr; SURVIVED<br/>
+2. intersection : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        if (start &#62; end) {</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52bdfe7b_49'/>
+49
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52bdfe7b_49'>1</a>
+<span>
+1. intersection : replaced return value with &#34;&#34; for original/Intersection::intersection &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            return &#34;NO&#34;;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52bdfe7b_50'/>
+50
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52bdfe7b_50'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52bdfe7b_51'/>
+51
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52bdfe7b_51'>2</a>
+<span>
+1. intersection : Replaced integer subtraction with addition &rarr; KILLED<br/>
+2. intersection : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (isPrime(end - start)) {</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52bdfe7b_52'/>
+52
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52bdfe7b_52'>1</a>
+<span>
+1. intersection : replaced return value with &#34;&#34; for original/Intersection::intersection &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            return &#34;YES&#34;;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52bdfe7b_53'/>
+53
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52bdfe7b_53'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52bdfe7b_54'/>
+54
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52bdfe7b_54'>1</a>
+<span>
+1. intersection : replaced return value with &#34;&#34; for original/Intersection::intersection &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return &#34;NO&#34;;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52bdfe7b_55'/>
+55
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52bdfe7b_55'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52bdfe7b_56'/>
+56
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52bdfe7b_56'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52bdfe7b_57'/>
+57
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52bdfe7b_57'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private static boolean isPrime(int n) {</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52bdfe7b_58'/>
+58
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52bdfe7b_58'>2</a>
+<span>
+1. isPrime : changed conditional boundary &rarr; KILLED<br/>
+2. isPrime : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (n &#60; 2) {</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52bdfe7b_59'/>
+59
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52bdfe7b_59'>1</a>
+<span>
+1. isPrime : replaced boolean return with true for original/Intersection::isPrime &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            return false;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52bdfe7b_60'/>
+60
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52bdfe7b_60'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52bdfe7b_61'/>
+61
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52bdfe7b_61'>2</a>
+<span>
+1. isPrime : changed conditional boundary &rarr; SURVIVED<br/>
+2. isPrime : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        for (int i = 2; i &#60;= Math.sqrt(n); i++) {</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52bdfe7b_62'/>
+62
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52bdfe7b_62'>2</a>
+<span>
+1. isPrime : negated conditional &rarr; KILLED<br/>
+2. isPrime : Replaced integer modulus with multiplication &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            if (n % i == 0) {</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52bdfe7b_63'/>
+63
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52bdfe7b_63'>1</a>
+<span>
+1. isPrime : replaced boolean return with true for original/Intersection::isPrime &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                return false;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52bdfe7b_64'/>
+64
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52bdfe7b_64'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52bdfe7b_65'/>
+65
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52bdfe7b_65'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52bdfe7b_66'/>
+66
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52bdfe7b_66'>1</a>
+<span>
+1. isPrime : replaced boolean return with false for original/Intersection::isPrime &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return true;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52bdfe7b_67'/>
+67
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52bdfe7b_67'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52bdfe7b_68'/>
+68
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52bdfe7b_68'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52bdfe7b_69'/>
+69
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52bdfe7b_69'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@52bdfe7b_70'/>
+70
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@52bdfe7b_70'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@52bdfe7b_48'>48</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@52bdfe7b_48'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>intersection<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=original.Intersection,-method=intersection,-methodDesc=(Ljava/util/List;Ljava/util/List;)Ljava/lang/String;],-indexes=[33],-mutator=org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=original.Intersection,-method=intersection,-methodDesc=(Ljava/util/List;Ljava/util/List;)Ljava/lang/String;],-indexes=[33],-mutator=org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=original.Intersection,-method=intersection,-methodDesc=(Ljava/util/List;Ljava/util/List;)Ljava/lang/String;],-indexes=[33],-mutator=org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>original.IntersectionTest.[engine:junit-jupiter]/[class:original.IntersectionTest]/[method:test_Intersection_Zero()]</li> <li>original.IntersectionTest.[engine:junit-jupiter]/[class:original.IntersectionTest]/[method:testIsPrimeNonPrimeNumber()]</li> <li>original.IntersectionTest.[engine:junit-jupiter]/[class:original.IntersectionTest]/[method:test_Intersection_NonOperlappingIntervals()]</li> <li>original.IntersectionTest.[engine:junit-jupiter]/[class:original.IntersectionTest]/[method:testIntersectionWithNegativeIntervals()]</li> <li>original.IntersectionTest.[engine:junit-jupiter]/[class:original.IntersectionTest]/[method:testNonIntersectingIntervals()]</li> <li>original.IntersectionTest.[engine:junit-jupiter]/[class:original.IntersectionTest]/[method:testIntersectionWithValidIntervals()]</li> <li>original.IntersectionTest.[engine:junit-jupiter]/[class:original.IntersectionTest]/[method:TestNegativeNumbers1()]</li> <li>original.IntersectionTest.[engine:junit-jupiter]/[class:original.IntersectionTest]/[method:testSingleElementIntervals()]</li> <li>original.IntersectionTest.[engine:junit-jupiter]/[class:original.IntersectionTest]/[method:testNonIntersectingIntervals1()]</li> <li>original.IntersectionTest.[engine:junit-jupiter]/[class:original.IntersectionTest]/[method:testIdenticalIntervals_1()]</li> <li>original.IntersectionTest.[engine:junit-jupiter]/[class:original.IntersectionTest]/[method:testIntersectionWithNoOverlap()]</li> <li>original.IntersectionTest.[engine:junit-jupiter]/[class:original.IntersectionTest]/[method:testZeroLengthIntervals()]</li> <li>original.IntersectionTest.[engine:junit-jupiter]/[class:original.IntersectionTest]/[method:testZeroLengthInterval()]</li> <li>original.IntersectionTest.[engine:junit-jupiter]/[class:original.IntersectionTest]/[method:test_Intersection_AdjacentIntervals()]</li> <li>original.IntersectionTest.[engine:junit-jupiter]/[class:original.IntersectionTest]/[method:testIdenticalIntervals()]</li> <li>original.IntersectionTest.[engine:junit-jupiter]/[class:original.IntersectionTest]/[method:TestNoIntersection1()]</li> <li>original.IntersectionTest.[engine:junit-jupiter]/[class:original.IntersectionTest]/[method:TestOnePointIntervals1()]</li> <li>original.IntersectionTest.[engine:junit-jupiter]/[class:original.IntersectionTest]/[method:test_Intersection_NegativeNumbers_Fixed()]</li> <li>original.IntersectionTest.[engine:junit-jupiter]/[class:original.IntersectionTest]/[method:TestIntersectionWithNonPrimeLength1()]</li> <li>original.IntersectionTest.[engine:junit-jupiter]/[class:original.IntersectionTest]/[method:testIntersectionWithInvalidIntervals()]</li> <li>original.IntersectionTest.[engine:junit-jupiter]/[class:original.IntersectionTest]/[method:testIntersectionWithSinglePoint()]</li> <li>original.IntersectionTest.[engine:junit-jupiter]/[class:original.IntersectionTest]/[method:testNegativeNumbers()]</li> <li>original.IntersectionTest.[engine:junit-jupiter]/[class:original.IntersectionTest]/[method:testIntersectingIntervals()]</li> <li>original.IntersectionTest.[engine:junit-jupiter]/[class:original.IntersectionTest]/[method:test_Intersection_OperlappingIntervals()]</li> <li>original.IntersectionTest.[engine:junit-jupiter]/[class:original.IntersectionTest]/[method:TestEqualIntervals12()]</li> <li>original.IntersectionTest.[engine:junit-jupiter]/[class:original.IntersectionTest]/[method:TestIntersectionWithPrimeLength1()]</li> <li>original.IntersectionTest.[engine:junit-jupiter]/[class:original.IntersectionTest]/[method:testIsPrimePrimeNumber1()]</li> <li>original.IntersectionTest.[engine:junit-jupiter]/[class:original.IntersectionTest]/[method:testIntersection()]</li> <li>original.IntersectionTest.[engine:junit-jupiter]/[class:original.IntersectionTest]/[method:test_Intersection_LargeNumbers_Fixed()]</li> 
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>intersection<br/><b>Killed by : </b>original.IntersectionTest.[engine:junit-jupiter]/[class:original.IntersectionTest]/[method:testIntersectingIntervals()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@52bdfe7b_49'>49</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@52bdfe7b_49'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>intersection<br/><b>Killed by : </b>original.IntersectionTest.[engine:junit-jupiter]/[class:original.IntersectionTest]/[method:test_Intersection_NonOperlappingIntervals()]</span></span> replaced return value with &#34;&#34; for original/Intersection::intersection &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@52bdfe7b_51'>51</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@52bdfe7b_51'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>intersection<br/><b>Killed by : </b>original.IntersectionTest.[engine:junit-jupiter]/[class:original.IntersectionTest]/[method:testIdenticalIntervals()]</span></span> Replaced integer subtraction with addition &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>intersection<br/><b>Killed by : </b>original.IntersectionTest.[engine:junit-jupiter]/[class:original.IntersectionTest]/[method:testIdenticalIntervals()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@52bdfe7b_52'>52</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@52bdfe7b_52'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>intersection<br/><b>Killed by : </b>original.IntersectionTest.[engine:junit-jupiter]/[class:original.IntersectionTest]/[method:testIntersection()]</span></span> replaced return value with &#34;&#34; for original/Intersection::intersection &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@52bdfe7b_54'>54</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@52bdfe7b_54'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>intersection<br/><b>Killed by : </b>original.IntersectionTest.[engine:junit-jupiter]/[class:original.IntersectionTest]/[method:testIdenticalIntervals()]</span></span> replaced return value with &#34;&#34; for original/Intersection::intersection &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@52bdfe7b_58'>58</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@52bdfe7b_58'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isPrime<br/><b>Killed by : </b>original.IntersectionTest.[engine:junit-jupiter]/[class:original.IntersectionTest]/[method:testIntersectingIntervals()]</span></span> changed conditional boundary &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isPrime<br/><b>Killed by : </b>original.IntersectionTest.[engine:junit-jupiter]/[class:original.IntersectionTest]/[method:testIdenticalIntervals()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@52bdfe7b_59'>59</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@52bdfe7b_59'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isPrime<br/><b>Killed by : </b>original.IntersectionTest.[engine:junit-jupiter]/[class:original.IntersectionTest]/[method:testIdenticalIntervals()]</span></span> replaced boolean return with true for original/Intersection::isPrime &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@52bdfe7b_61'>61</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@52bdfe7b_61'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isPrime<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=original.Intersection,-method=isPrime,-methodDesc=(I)Z],-indexes=[23],-mutator=org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=original.Intersection,-method=isPrime,-methodDesc=(I)Z],-indexes=[23],-mutator=org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=original.Intersection,-method=isPrime,-methodDesc=(I)Z],-indexes=[23],-mutator=org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>original.IntersectionTest.[engine:junit-jupiter]/[class:original.IntersectionTest]/[method:testIntersection()]</li> <li>original.IntersectionTest.[engine:junit-jupiter]/[class:original.IntersectionTest]/[method:testIntersectingIntervals()]</li> <li>original.IntersectionTest.[engine:junit-jupiter]/[class:original.IntersectionTest]/[method:TestIntersectionWithPrimeLength1()]</li> <li>original.IntersectionTest.[engine:junit-jupiter]/[class:original.IntersectionTest]/[method:test_Intersection_OperlappingIntervals()]</li> <li>original.IntersectionTest.[engine:junit-jupiter]/[class:original.IntersectionTest]/[method:testIsPrimePrimeNumber1()]</li> <li>original.IntersectionTest.[engine:junit-jupiter]/[class:original.IntersectionTest]/[method:TestEqualIntervals12()]</li> <li>original.IntersectionTest.[engine:junit-jupiter]/[class:original.IntersectionTest]/[method:test_Intersection_LargeNumbers_Fixed()]</li> 
+</ul>
+</div></div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isPrime<br/><b>Killed by : </b>original.IntersectionTest.[engine:junit-jupiter]/[class:original.IntersectionTest]/[method:testIntersection()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@52bdfe7b_62'>62</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@52bdfe7b_62'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isPrime<br/><b>Killed by : </b>original.IntersectionTest.[engine:junit-jupiter]/[class:original.IntersectionTest]/[method:TestEqualIntervals12()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isPrime<br/><b>Killed by : </b>original.IntersectionTest.[engine:junit-jupiter]/[class:original.IntersectionTest]/[method:test_Intersection_LargeNumbers_Fixed()]</span></span> Replaced integer modulus with multiplication &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@52bdfe7b_63'>63</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@52bdfe7b_63'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isPrime<br/><b>Killed by : </b>original.IntersectionTest.[engine:junit-jupiter]/[class:original.IntersectionTest]/[method:test_Intersection_LargeNumbers_Fixed()]</span></span> replaced boolean return with true for original/Intersection::isPrime &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@52bdfe7b_66'>66</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@52bdfe7b_66'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isPrime<br/><b>Killed by : </b>original.IntersectionTest.[engine:junit-jupiter]/[class:original.IntersectionTest]/[method:testIntersection()]</span></span> replaced boolean return with false for original/Intersection::isPrime &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+<li class='mutator'>CONDITIONALS_BOUNDARY</li>
+<li class='mutator'>EMPTY_RETURNS</li>
+<li class='mutator'>FALSE_RETURNS</li>
+<li class='mutator'>INCREMENTS</li>
+<li class='mutator'>INVERT_NEGS</li>
+<li class='mutator'>MATH</li>
+<li class='mutator'>NEGATE_CONDITIONALS</li>
+<li class='mutator'>NULL_RETURNS</li>
+<li class='mutator'>PRIMITIVE_RETURNS</li>
+<li class='mutator'>TRUE_RETURNS</li>
+<li class='mutator'>VOID_METHOD_CALLS</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>original.IntersectionTest.[engine:junit-jupiter]/[class:original.IntersectionTest]/[method:testIdenticalIntervals()] (0 ms)</li><li>original.IntersectionTest.[engine:junit-jupiter]/[class:original.IntersectionTest]/[method:test_Intersection_Zero()] (0 ms)</li><li>original.IntersectionTest.[engine:junit-jupiter]/[class:original.IntersectionTest]/[method:testIsPrimeNonPrimeNumber()] (0 ms)</li><li>original.IntersectionTest.[engine:junit-jupiter]/[class:original.IntersectionTest]/[method:testIntersectionWithNegativeIntervals()] (0 ms)</li><li>original.IntersectionTest.[engine:junit-jupiter]/[class:original.IntersectionTest]/[method:TestOnePointIntervals1()] (0 ms)</li><li>original.IntersectionTest.[engine:junit-jupiter]/[class:original.IntersectionTest]/[method:test_Intersection_NegativeNumbers_Fixed()] (0 ms)</li><li>original.IntersectionTest.[engine:junit-jupiter]/[class:original.IntersectionTest]/[method:TestIntersectionWithNonPrimeLength1()] (0 ms)</li><li>original.IntersectionTest.[engine:junit-jupiter]/[class:original.IntersectionTest]/[method:testIntersectionWithValidIntervals()] (0 ms)</li><li>original.IntersectionTest.[engine:junit-jupiter]/[class:original.IntersectionTest]/[method:TestNegativeNumbers1()] (0 ms)</li><li>original.IntersectionTest.[engine:junit-jupiter]/[class:original.IntersectionTest]/[method:testIntersectionWithSinglePoint()] (0 ms)</li><li>original.IntersectionTest.[engine:junit-jupiter]/[class:original.IntersectionTest]/[method:testIdenticalIntervals_1()] (0 ms)</li><li>original.IntersectionTest.[engine:junit-jupiter]/[class:original.IntersectionTest]/[method:testZeroLengthInterval()] (0 ms)</li><li>original.IntersectionTest.[engine:junit-jupiter]/[class:original.IntersectionTest]/[method:testNegativeNumbers()] (0 ms)</li><li>original.IntersectionTest.[engine:junit-jupiter]/[class:original.IntersectionTest]/[method:test_Intersection_AdjacentIntervals()] (0 ms)</li><li>original.IntersectionTest.[engine:junit-jupiter]/[class:original.IntersectionTest]/[method:testIntersection()] (0 ms)</li><li>original.IntersectionTest.[engine:junit-jupiter]/[class:original.IntersectionTest]/[method:testIntersectingIntervals()] (0 ms)</li><li>original.IntersectionTest.[engine:junit-jupiter]/[class:original.IntersectionTest]/[method:TestIntersectionWithPrimeLength1()] (0 ms)</li><li>original.IntersectionTest.[engine:junit-jupiter]/[class:original.IntersectionTest]/[method:test_Intersection_OperlappingIntervals()] (0 ms)</li><li>original.IntersectionTest.[engine:junit-jupiter]/[class:original.IntersectionTest]/[method:testIsPrimePrimeNumber1()] (0 ms)</li><li>original.IntersectionTest.[engine:junit-jupiter]/[class:original.IntersectionTest]/[method:TestEqualIntervals12()] (0 ms)</li><li>original.IntersectionTest.[engine:junit-jupiter]/[class:original.IntersectionTest]/[method:test_Intersection_LargeNumbers_Fixed()] (0 ms)</li><li>original.IntersectionTest.[engine:junit-jupiter]/[class:original.IntersectionTest]/[method:test_Intersection_NonOperlappingIntervals()] (0 ms)</li><li>original.IntersectionTest.[engine:junit-jupiter]/[class:original.IntersectionTest]/[method:testNonIntersectingIntervals()] (0 ms)</li><li>original.IntersectionTest.[engine:junit-jupiter]/[class:original.IntersectionTest]/[method:testSingleElementIntervals()] (0 ms)</li><li>original.IntersectionTest.[engine:junit-jupiter]/[class:original.IntersectionTest]/[method:testNonIntersectingIntervals1()] (0 ms)</li><li>original.IntersectionTest.[engine:junit-jupiter]/[class:original.IntersectionTest]/[method:testIntersectionWithNoOverlap()] (0 ms)</li><li>original.IntersectionTest.[engine:junit-jupiter]/[class:original.IntersectionTest]/[method:testZeroLengthIntervals()] (0 ms)</li><li>original.IntersectionTest.[engine:junit-jupiter]/[class:original.IntersectionTest]/[method:TestNoIntersection1()] (0 ms)</li><li>original.IntersectionTest.[engine:junit-jupiter]/[class:original.IntersectionTest]/[method:testIntersectionWithInvalidIntervals()] (0 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='https://pitest.org'>PIT</a> 1.18.0
+
+</body>
+</html>

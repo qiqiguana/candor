@@ -1,0 +1,111 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Solution0941 {
+
+  // compiled from: id_0941.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 3 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Solution0941; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public validMountainArray([I)Z
+   L0
+    LINENUMBER 5 L0
+    ALOAD 1
+    ARRAYLENGTH
+    ISTORE 2
+   L1
+    LINENUMBER 6 L1
+    ILOAD 2
+    ICONST_3
+    IF_ICMPGE L2
+   L3
+    LINENUMBER 7 L3
+    ICONST_0
+    IRETURN
+   L2
+    LINENUMBER 9 L2
+   FRAME FULL [original/Solution0941 [I I] []
+    ICONST_0
+    ISTORE 3
+   L4
+    ILOAD 2
+    ICONST_1
+    ISUB
+    ISTORE 4
+   L5
+    LINENUMBER 10 L5
+   FRAME FULL [original/Solution0941 [I I I I] []
+    ILOAD 3
+    ICONST_1
+    IADD
+    ILOAD 2
+    ICONST_1
+    ISUB
+    IF_ICMPLT L6
+    ALOAD 1
+    ILOAD 3
+    IALOAD
+    ALOAD 1
+    ILOAD 3
+    ICONST_1
+    IADD
+    IALOAD
+    IF_ICMPGE L6
+   L7
+    LINENUMBER 11 L7
+    IINC 3 1
+    GOTO L5
+   L6
+    LINENUMBER 13 L6
+   FRAME FULL [original/Solution0941 [I I I I] []
+    ILOAD 4
+    ICONST_1
+    ISUB
+    IFLE L8
+    ALOAD 1
+    ILOAD 4
+    ICONST_1
+    ISUB
+    IALOAD
+    ALOAD 1
+    ILOAD 4
+    IALOAD
+    IF_ICMPLE L8
+   L9
+    LINENUMBER 14 L9
+    IINC 4 -1
+    GOTO L6
+   L8
+    LINENUMBER 16 L8
+   FRAME FULL [original/Solution0941 [I I I I] []
+    ILOAD 3
+    ILOAD 4
+    IF_ICMPNE L10
+    ICONST_1
+    GOTO L11
+   L10
+   FRAME FULL [original/Solution0941 [I I I I] []
+    ICONST_0
+   L11
+   FRAME FULL [original/Solution0941 [I I I I] [I]
+    IRETURN
+   L12
+    LOCALVARIABLE this Loriginal/Solution0941; L0 L12 0
+    LOCALVARIABLE arr [I L0 L12 1
+    LOCALVARIABLE n I L1 L12 2
+    LOCALVARIABLE i I L4 L12 3
+    LOCALVARIABLE j I L5 L12 4
+    MAXSTACK = 4
+    MAXLOCALS = 5
+}
+

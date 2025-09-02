@@ -1,0 +1,37 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of CorrectBracketing.
+*/
+class CorrectBracketingTest {
+    @Test
+    void testCorrectBracketing() {
+        String brackets = "<<><>>";
+        Boolean expected = true;
+        Boolean actual = CorrectBracketing.correctBracketing(brackets);
+        assertEquals(expected, actual);
+    }
+    
+    @Test
+        public void testNothing(){
+            CorrectBracketing s = new CorrectBracketing();
+            }
+    @Test
+    public void TestCorrectBracketing_InvalidInput() {
+        String[] input = new String[]{"<<<><>>>>"};
+        assertFalse(CorrectBracketing.correctBracketing(input[0]));
+    }
+    @Test
+    public void TestCorrectBracketing_EmptyString() {
+        String[] input = new String[]{""};
+        assertTrue(CorrectBracketing.correctBracketing(input[0]));
+    }
+    @Test
+    public void TestCorrectBracketing_UnbalancedBrackets() {
+        String[] input = new String[]{"<<><>"};
+        assertFalse(CorrectBracketing.correctBracketing(input[0]));
+    }
+                                    
+}

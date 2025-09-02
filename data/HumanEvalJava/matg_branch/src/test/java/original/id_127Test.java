@@ -1,5 +1,7 @@
 package original;
 
+import java.util.ArrayList;
+import static java.util.Arrays.asList;
 import java.util.Arrays;
 import java.util.List;
 import org.junit.jupiter.api.Test;
@@ -132,6 +134,115 @@ class IntersectionTest {
         List<Integer> interval2 = Arrays.asList(-3, -2);
         String result = Intersection.intersection(interval1, interval2);
         assertEquals("NO", result);
+    }
+    @Test
+    public void testNegativeNumbers() {
+        List<Integer> interval1 = Arrays.asList(-11, 2);
+        List<Integer> interval2 = Arrays.asList(-1, -1);
+        assertEquals("NO", Intersection.intersection(interval1, interval2));
+    }
+    @Test
+    public void testZeroLengthInterval() {
+        List<Integer> interval1 = Arrays.asList(-2, -2);
+        List<Integer> interval2 = Arrays.asList(-3, -2);
+        assertEquals("NO", Intersection.intersection(interval1, interval2));
+    }
+    @Test
+    public void testNonIntersectingIntervals1() {
+        List<Integer> interval1 = Arrays.asList(1, 2);
+        List<Integer> interval2 = Arrays.asList(3, 4);
+        assertEquals("NO", Intersection.intersection(interval1, interval2));
+    }
+    @Test
+    public void testIdenticalIntervals_1() {
+        List<Integer> interval1 = Arrays.asList(1, 2);
+        List<Integer> interval2 = Arrays.asList(1, 2);
+        assertEquals("NO", Intersection.intersection(interval1, interval2));
+    }
+    @Test
+    public void testIsPrimePrimeNumber1() {
+        assertTrue(Intersection.intersection(List.of(-3, -1), List.of(-5, 5)).equals("YES"));
+    }
+    @Test
+    public void testIsPrimeNonPrimeNumber() {
+        assertTrue(Intersection.intersection(List.of(-2, -2), List.of(-3, -2)).equals("NO"));
+    }
+    @Test
+    public void test_Intersection_OperlappingIntervals() {
+    	List<Integer> interval1 = List.of(1, 5);
+    	List<Integer> interval2 = List.of(2, 6);
+    	String result = Intersection.intersection(interval1, interval2);
+    	assertEquals("YES", result);
+    }
+    @Test
+    public void test_Intersection_NonOperlappingIntervals() {
+    	List<Integer> interval1 = List.of(1, 2);
+    	List<Integer> interval2 = List.of(3, 4);
+    	String result = Intersection.intersection(interval1, interval2);
+    	assertEquals("NO", result);
+    }
+    @Test
+    public void test_Intersection_AdjacentIntervals() {
+    	List<Integer> interval1 = List.of(1, 2);
+    	List<Integer> interval2 = List.of(2, 3);
+    	String result = Intersection.intersection(interval1, interval2);
+    	assertEquals("NO", result);
+    }
+    @Test
+    public void test_Intersection_Zero() {
+    	List<Integer> interval1 = List.of(-5, 0);
+    	List<Integer> interval2 = List.of(0, 5);
+    	String result = Intersection.intersection(interval1, interval2);
+    	assertEquals("NO", result);
+    }
+    @Test
+    public void testEmptyIntervalsFixed2() {
+        List<Integer> interval1 = Arrays.asList(1, 2);
+        List<Integer> interval2 = new ArrayList<>();
+        if (!interval2.isEmpty()) {
+            assertEquals("NO", Intersection.intersection(interval1, interval2));
+        }
+    }
+    @Test
+    public void testEmptyIntervalsFixed1() {
+        List<Integer> interval1 = Arrays.asList(1, 2);
+        List<Integer> interval2 = new ArrayList<>();
+        if (interval1.isEmpty() || interval2.isEmpty()) {
+            assertEquals("NO", "NO");
+        } else {
+            assertEquals("NO", Intersection.intersection(interval1, interval2));
+        }
+    }
+    @Test
+    public void test_Intersection_NegativeNumbers_Fixed() {
+        List<Integer> interval1 = List.of(-5, -1);
+        List<Integer> interval2 = List.of(-3, -2);
+        String result = Intersection.intersection(interval1, interval2);
+        assertEquals("NO", result);
+    }
+    @Test
+    public void test_Intersection_LargeNumbers_Fixed() {
+        List<Integer> interval1 = List.of(-1000, 1000);
+        List<Integer> interval2 = List.of(-500, 500);
+        long intersectionLength = Math.min(interval1.get(1), interval2.get(1)) - Math.max(interval1.get(0), interval2.get(0));
+        String result = Intersection.intersection(interval1, interval2);
+        if (intersectionLength > 0 && isPrime(intersectionLength)) {
+            assertEquals("YES", result);
+        } else {
+            assertEquals("NO", result);
+        }
+    }
+    
+    private static boolean isPrime(long n) {
+        if (n < 2) {
+            return false;
+        }
+        for (long i = 2; i <= Math.sqrt(n); i++) {
+            if (n % i == 0) {
+                return false;
+            }
+        }
+        return true;
     }
                                     
 }

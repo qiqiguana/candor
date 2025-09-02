@@ -1,0 +1,281 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Solution2115 {
+
+  // compiled from: id_2115.java
+  // access flags 0x19
+  public final static INNERCLASS java/lang/invoke/MethodHandles$Lookup java/lang/invoke/MethodHandles Lookup
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 10 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Solution2115; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  // signature ([Ljava/lang/String;Ljava/util/List<Ljava/util/List<Ljava/lang/String;>;>;[Ljava/lang/String;)Ljava/util/List<Ljava/lang/String;>;
+  // declaration: java.util.List<java.lang.String> findAllRecipes(java.lang.String[], java.util.List<java.util.List<java.lang.String>>, java.lang.String[])
+  public findAllRecipes([Ljava/lang/String;Ljava/util/List;[Ljava/lang/String;)Ljava/util/List;
+   L0
+    LINENUMBER 13 L0
+    NEW java/util/HashMap
+    DUP
+    INVOKESPECIAL java/util/HashMap.<init> ()V
+    ASTORE 4
+   L1
+    LINENUMBER 14 L1
+    NEW java/util/HashMap
+    DUP
+    INVOKESPECIAL java/util/HashMap.<init> ()V
+    ASTORE 5
+   L2
+    LINENUMBER 15 L2
+    ICONST_0
+    ISTORE 6
+   L3
+   FRAME FULL [original/Solution2115 [Ljava/lang/String; java/util/List [Ljava/lang/String; java/util/HashMap java/util/HashMap I] []
+    ILOAD 6
+    ALOAD 1
+    ARRAYLENGTH
+    IF_ICMPGE L4
+   L5
+    LINENUMBER 16 L5
+    ALOAD 2
+    ILOAD 6
+    INVOKEINTERFACE java/util/List.get (I)Ljava/lang/Object; (itf)
+    CHECKCAST java/util/List
+    INVOKEINTERFACE java/util/List.iterator ()Ljava/util/Iterator; (itf)
+    ASTORE 7
+   L6
+   FRAME FULL [original/Solution2115 [Ljava/lang/String; java/util/List [Ljava/lang/String; java/util/HashMap java/util/HashMap I java/util/Iterator] []
+    ALOAD 7
+    INVOKEINTERFACE java/util/Iterator.hasNext ()Z (itf)
+    IFEQ L7
+    ALOAD 7
+    INVOKEINTERFACE java/util/Iterator.next ()Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/String
+    ASTORE 8
+   L8
+    LINENUMBER 17 L8
+    ALOAD 4
+    ALOAD 8
+    INVOKEDYNAMIC apply()Ljava/util/function/Function; [
+      // handle kind 0x6 : INVOKESTATIC
+      java/lang/invoke/LambdaMetafactory.metafactory(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;
+      // arguments:
+      (Ljava/lang/Object;)Ljava/lang/Object;, 
+      // handle kind 0x6 : INVOKESTATIC
+      original/Solution2115.lambda$findAllRecipes$0(Ljava/lang/String;)Ljava/util/List;, 
+      (Ljava/lang/String;)Ljava/util/List;
+    ]
+    INVOKEINTERFACE java/util/Map.computeIfAbsent (Ljava/lang/Object;Ljava/util/function/Function;)Ljava/lang/Object; (itf)
+    CHECKCAST java/util/List
+    ALOAD 1
+    ILOAD 6
+    AALOAD
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+   L9
+    LINENUMBER 18 L9
+    GOTO L6
+   L7
+    LINENUMBER 19 L7
+   FRAME FULL [original/Solution2115 [Ljava/lang/String; java/util/List [Ljava/lang/String; java/util/HashMap java/util/HashMap I java/util/Iterator] []
+    ALOAD 5
+    ALOAD 1
+    ILOAD 6
+    AALOAD
+    ALOAD 2
+    ILOAD 6
+    INVOKEINTERFACE java/util/List.get (I)Ljava/lang/Object; (itf)
+    CHECKCAST java/util/List
+    INVOKEINTERFACE java/util/List.size ()I (itf)
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEINTERFACE java/util/Map.put (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object; (itf)
+    POP
+   L10
+    LINENUMBER 15 L10
+    IINC 6 1
+    GOTO L3
+   L4
+    LINENUMBER 21 L4
+   FRAME FULL [original/Solution2115 [Ljava/lang/String; java/util/List [Ljava/lang/String; java/util/HashMap java/util/HashMap I] []
+    NEW java/util/ArrayDeque
+    DUP
+    INVOKESPECIAL java/util/ArrayDeque.<init> ()V
+    ASTORE 6
+   L11
+    LINENUMBER 22 L11
+    ALOAD 3
+    ASTORE 7
+    ALOAD 7
+    ARRAYLENGTH
+    ISTORE 8
+    ICONST_0
+    ISTORE 9
+   L12
+   FRAME FULL [original/Solution2115 [Ljava/lang/String; java/util/List [Ljava/lang/String; java/util/HashMap java/util/HashMap java/util/ArrayDeque [Ljava/lang/String; I I] []
+    ILOAD 9
+    ILOAD 8
+    IF_ICMPGE L13
+    ALOAD 7
+    ILOAD 9
+    AALOAD
+    ASTORE 10
+   L14
+    LINENUMBER 23 L14
+    ALOAD 6
+    ALOAD 10
+    INVOKEINTERFACE java/util/Deque.offer (Ljava/lang/Object;)Z (itf)
+    POP
+   L15
+    LINENUMBER 22 L15
+    IINC 9 1
+    GOTO L12
+   L13
+    LINENUMBER 25 L13
+   FRAME FULL [original/Solution2115 [Ljava/lang/String; java/util/List [Ljava/lang/String; java/util/HashMap java/util/HashMap java/util/ArrayDeque [Ljava/lang/String; I I] []
+    NEW java/util/ArrayList
+    DUP
+    INVOKESPECIAL java/util/ArrayList.<init> ()V
+    ASTORE 7
+   L16
+    LINENUMBER 26 L16
+   FRAME FULL [original/Solution2115 [Ljava/lang/String; java/util/List [Ljava/lang/String; java/util/HashMap java/util/HashMap java/util/ArrayDeque java/util/ArrayList I] []
+    ALOAD 6
+    INVOKEINTERFACE java/util/Deque.isEmpty ()Z (itf)
+    IFNE L17
+   L18
+    LINENUMBER 27 L18
+    ALOAD 6
+    INVOKEINTERFACE java/util/Deque.size ()I (itf)
+    ISTORE 8
+   L19
+   FRAME FULL [original/Solution2115 [Ljava/lang/String; java/util/List [Ljava/lang/String; java/util/HashMap java/util/HashMap java/util/ArrayDeque java/util/ArrayList I] []
+    ILOAD 8
+    IFLE L20
+   L21
+    LINENUMBER 28 L21
+    ALOAD 6
+    INVOKEINTERFACE java/util/Deque.pollFirst ()Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/String
+    ASTORE 9
+   L22
+    LINENUMBER 29 L22
+    ALOAD 4
+    ALOAD 9
+    INVOKESTATIC java/util/Collections.emptyList ()Ljava/util/List;
+    INVOKEINTERFACE java/util/Map.getOrDefault (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object; (itf)
+    CHECKCAST java/util/List
+    INVOKEINTERFACE java/util/List.iterator ()Ljava/util/Iterator; (itf)
+    ASTORE 10
+   L23
+   FRAME FULL [original/Solution2115 [Ljava/lang/String; java/util/List [Ljava/lang/String; java/util/HashMap java/util/HashMap java/util/ArrayDeque java/util/ArrayList I java/lang/String java/util/Iterator] []
+    ALOAD 10
+    INVOKEINTERFACE java/util/Iterator.hasNext ()Z (itf)
+    IFEQ L24
+    ALOAD 10
+    INVOKEINTERFACE java/util/Iterator.next ()Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/String
+    ASTORE 11
+   L25
+    LINENUMBER 30 L25
+    ALOAD 5
+    ALOAD 11
+    ALOAD 5
+    ALOAD 11
+    INVOKEINTERFACE java/util/Map.get (Ljava/lang/Object;)Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/Integer
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    ICONST_1
+    ISUB
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEINTERFACE java/util/Map.put (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object; (itf)
+    POP
+   L26
+    LINENUMBER 31 L26
+    ALOAD 5
+    ALOAD 11
+    INVOKEINTERFACE java/util/Map.get (Ljava/lang/Object;)Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/Integer
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    IFNE L27
+   L28
+    LINENUMBER 32 L28
+    ALOAD 7
+    ALOAD 11
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+   L29
+    LINENUMBER 33 L29
+    ALOAD 6
+    ALOAD 11
+    INVOKEINTERFACE java/util/Deque.offer (Ljava/lang/Object;)Z (itf)
+    POP
+   L27
+    LINENUMBER 35 L27
+   FRAME FULL [original/Solution2115 [Ljava/lang/String; java/util/List [Ljava/lang/String; java/util/HashMap java/util/HashMap java/util/ArrayDeque java/util/ArrayList I java/lang/String java/util/Iterator java/lang/String] []
+    GOTO L23
+   L24
+    LINENUMBER 27 L24
+   FRAME FULL [original/Solution2115 [Ljava/lang/String; java/util/List [Ljava/lang/String; java/util/HashMap java/util/HashMap java/util/ArrayDeque java/util/ArrayList I java/lang/String java/util/Iterator] []
+    IINC 8 -1
+    GOTO L19
+   L20
+   FRAME FULL [original/Solution2115 [Ljava/lang/String; java/util/List [Ljava/lang/String; java/util/HashMap java/util/HashMap java/util/ArrayDeque java/util/ArrayList I] []
+    GOTO L16
+   L17
+    LINENUMBER 38 L17
+   FRAME FULL [original/Solution2115 [Ljava/lang/String; java/util/List [Ljava/lang/String; java/util/HashMap java/util/HashMap java/util/ArrayDeque java/util/ArrayList I] []
+    ALOAD 7
+    ARETURN
+   L30
+    LOCALVARIABLE v Ljava/lang/String; L8 L9 8
+    LOCALVARIABLE i I L3 L4 6
+    LOCALVARIABLE s Ljava/lang/String; L14 L15 10
+    LOCALVARIABLE j Ljava/lang/String; L25 L27 11
+    LOCALVARIABLE i Ljava/lang/String; L22 L24 9
+    LOCALVARIABLE n I L19 L20 8
+    LOCALVARIABLE this Loriginal/Solution2115; L0 L30 0
+    LOCALVARIABLE recipes [Ljava/lang/String; L0 L30 1
+    LOCALVARIABLE ingredients Ljava/util/List; L0 L30 2
+    // signature Ljava/util/List<Ljava/util/List<Ljava/lang/String;>;>;
+    // declaration: ingredients extends java.util.List<java.util.List<java.lang.String>>
+    LOCALVARIABLE supplies [Ljava/lang/String; L0 L30 3
+    LOCALVARIABLE g Ljava/util/Map; L1 L30 4
+    // signature Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;
+    // declaration: g extends java.util.Map<java.lang.String, java.util.List<java.lang.String>>
+    LOCALVARIABLE indeg Ljava/util/Map; L2 L30 5
+    // signature Ljava/util/Map<Ljava/lang/String;Ljava/lang/Integer;>;
+    // declaration: indeg extends java.util.Map<java.lang.String, java.lang.Integer>
+    LOCALVARIABLE q Ljava/util/Deque; L11 L30 6
+    // signature Ljava/util/Deque<Ljava/lang/String;>;
+    // declaration: q extends java.util.Deque<java.lang.String>
+    LOCALVARIABLE ans Ljava/util/List; L16 L30 7
+    // signature Ljava/util/List<Ljava/lang/String;>;
+    // declaration: ans extends java.util.List<java.lang.String>
+    MAXSTACK = 4
+    MAXLOCALS = 12
+
+  // access flags 0x100A
+  private static synthetic lambda$findAllRecipes$0(Ljava/lang/String;)Ljava/util/List;
+   L0
+    LINENUMBER 17 L0
+    NEW java/util/ArrayList
+    DUP
+    INVOKESPECIAL java/util/ArrayList.<init> ()V
+    POP
+    INVOKESTATIC java/util/Collections.emptyList ()Ljava/util/List;
+    ARETURN
+   L1
+    LOCALVARIABLE k Ljava/lang/String; L0 L1 0
+    MAXSTACK = 2
+    MAXLOCALS = 1
+}
+

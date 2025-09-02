@@ -1,0 +1,98 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Solution1021 {
+
+  // compiled from: id_1021.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 3 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Solution1021; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public removeOuterParentheses(Ljava/lang/String;)Ljava/lang/String;
+   L0
+    LINENUMBER 5 L0
+    NEW java/lang/StringBuilder
+    DUP
+    INVOKESPECIAL java/lang/StringBuilder.<init> ()V
+    ASTORE 2
+   L1
+    LINENUMBER 6 L1
+    ICONST_0
+    ISTORE 3
+   L2
+    LINENUMBER 7 L2
+    ICONST_0
+    ISTORE 4
+   L3
+   FRAME FULL [original/Solution1021 java/lang/String java/lang/StringBuilder I I] []
+    ILOAD 4
+    ALOAD 1
+    INVOKEVIRTUAL java/lang/String.length ()I
+    IF_ICMPGT L4
+   L5
+    LINENUMBER 8 L5
+    ALOAD 1
+    ILOAD 4
+    INVOKEVIRTUAL java/lang/String.charAt (I)C
+    ISTORE 5
+   L6
+    LINENUMBER 9 L6
+    ILOAD 5
+    BIPUSH 40
+    IF_ICMPNE L7
+   L8
+    LINENUMBER 10 L8
+    IINC 3 1
+    ILOAD 3
+    ICONST_1
+    IF_ICMPLE L9
+   L10
+    LINENUMBER 11 L10
+    ALOAD 2
+    ILOAD 5
+    INVOKEVIRTUAL java/lang/StringBuilder.append (C)Ljava/lang/StringBuilder;
+    POP
+    GOTO L9
+   L7
+    LINENUMBER 14 L7
+   FRAME FULL [original/Solution1021 java/lang/String java/lang/StringBuilder I I I] []
+    IINC 3 -1
+    ILOAD 3
+    IFLE L9
+   L11
+    LINENUMBER 15 L11
+    ALOAD 2
+    ILOAD 5
+    INVOKEVIRTUAL java/lang/StringBuilder.append (C)Ljava/lang/StringBuilder;
+    POP
+   L9
+    LINENUMBER 7 L9
+   FRAME FULL [original/Solution1021 java/lang/String java/lang/StringBuilder I I I] []
+    IINC 4 1
+    GOTO L3
+   L4
+    LINENUMBER 19 L4
+   FRAME FULL [original/Solution1021 java/lang/String java/lang/StringBuilder I I] []
+    ALOAD 2
+    INVOKEVIRTUAL java/lang/StringBuilder.toString ()Ljava/lang/String;
+    ARETURN
+   L12
+    LOCALVARIABLE c C L6 L9 5
+    LOCALVARIABLE i I L3 L4 4
+    LOCALVARIABLE this Loriginal/Solution1021; L0 L12 0
+    LOCALVARIABLE s Ljava/lang/String; L0 L12 1
+    LOCALVARIABLE ans Ljava/lang/StringBuilder; L1 L12 2
+    LOCALVARIABLE cnt I L2 L12 3
+    MAXSTACK = 2
+    MAXLOCALS = 6
+}
+

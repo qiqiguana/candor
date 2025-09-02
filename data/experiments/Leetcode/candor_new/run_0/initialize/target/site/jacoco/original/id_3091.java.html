@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_3091.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">leetcode</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_3091.java</span></div><h1>id_3091.java</h1><pre class="source lang-java linenums">package original;
+
+<span class="fc" id="L3">class Solution3091 {</span>
+    public int minOperations(int k) {
+  /**
+  You are given a positive integer k. Initially, you have an array nums = [1]. You can perform any of the following operations on the array any number of times (possibly zero): Choose any element in the array and increase its value by 1. Duplicate any element in the array and add it to the end of the array. Return the minimum number of operations required to make the sum of elements of the final array greater than or equal to k. &amp;nbsp; Example 1: Input: k = 11 Output: 5 Explanation: We can do the following operations on the array nums = [1]: Increase the element by 1 three times. The resulting array is nums = [4]. Duplicate the element two times. The resulting array is nums = [4,4,4]. The sum of the final array is 4 + 4 + 4 = 12 which is greater than or equal to k = 11. The total number of operations performed is 3 + 2 = 5. Example 2: Input: k = 1 Output: 0 Explanation: The sum of the original array is already greater than or equal to 1, so no operations are needed. &amp;nbsp; Constraints: 1 &amp;lt;= k &amp;lt;= 105
+  */
+<span class="fc" id="L8">        int ans = k;</span>
+<span class="fc bfc" id="L9" title="All 2 branches covered.">        for (int a = 0; a &lt; k; ++a) {</span>
+<span class="fc" id="L10">            int x = a + 1;</span>
+<span class="fc" id="L11">            int b = (k + x - 1) / x - 1;</span>
+<span class="fc" id="L12">            ans = Math.min(ans, a + b);</span>
+        }
+<span class="fc" id="L14">        return ans;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

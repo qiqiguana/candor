@@ -52,5 +52,35 @@ class CanArrangeTest {
         List<Object> arr = Arrays.asList(1, 2, 3, 4, 3, 2);
         assertEquals(5, CanArrange.canArrange(arr));
     }
+    @Test
+    public void TestSingleElementArray() {
+        List<Object> arr = Arrays.asList(1);
+        assertEquals(-1, CanArrange.canArrange(arr));
+    }
+    @Test
+    public void TestNoDecreasingElements() {
+        List<Object> arr = Arrays.asList(1, 2, 3, 4, 5);
+        assertEquals(-1, CanArrange.canArrange(arr));
+    }
+    @Test
+    public void TestOneDecreasingElement() {
+        List<Object> arr = Arrays.asList(1, 2, 3, 2, 4);
+        assertEquals(3, CanArrange.canArrange(arr));
+    }
+    @Test
+    public void TestMultipleDecreasingElements() {
+        List<Object> arr = Arrays.asList(1, 2, 4, 3, 5, 4);
+        assertEquals(5, CanArrange.canArrange(arr));
+    }
+    @Test
+    public void TestNullPointerExceptionHandledCorrectly() {
+        List<Object> arr = Arrays.asList(1, 2, 3);
+        assertDoesNotThrow(() -> CanArrange.canArrange(arr));
+    }
+    @Test
+    public void TestNullPointerExceptionHandledCorrectly_ThrowsException() {
+        List<Object> arr = Arrays.asList(1, null, 3);
+        assertThrows(NullPointerException.class, () -> CanArrange.canArrange(arr));
+    }
                                     
 }

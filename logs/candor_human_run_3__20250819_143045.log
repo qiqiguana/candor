@@ -1,0 +1,18 @@
+nohup: ignoring input
+2025-08-19 14:30:45,692   INFO : 
+
+ Processing file 1/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_2/generate/src/main/java/original/id_150.java
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/qinghua/projects/matg/main.py", line 3, in <module>
+    from .fix_oracle import OracleFixer
+  File "/home/qinghua/projects/matg/fix_oracle.py", line 5, in <module>
+    from langchain_ollama import ChatOllama
+ModuleNotFoundError: No module named 'langchain_ollama'
+Traceback (most recent call last):
+  File "/home/qinghua/projects/matg/run_experiments.py", line 86, in <module>
+    subprocess.run(command, check=True)
+  File "/home/qinghua/anaconda3/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['python', '-m', 'matg.main', 'generate', '--data-path', '/home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_2/generate', '--relative-source-file-path', 'src/main/java/original/id_150.java', '--relative-test-file-path', 'src/test/java/original/id_150Test.java', '--coverage-report-path', '/home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_2/generate/target/site/jacoco', '--test-command', 'mvn -f /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_2/generate/pom.xml clean -Dtest=XOrY test jacoco:report', '--generator', 'matg', '--max-attempts', '3']' returned non-zero exit status 1.

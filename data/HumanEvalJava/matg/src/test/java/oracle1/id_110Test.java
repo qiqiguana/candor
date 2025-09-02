@@ -35,13 +35,7 @@ class ExchangeTest {
         String result = oracle1.Exchange.exchange(lst1, lst2);
         assertEquals("YES", result);
     }
-    @Test
-    public void test_exchange_even_numbers_in_both_lists_1() {
-        List<Integer> lst1 = Arrays.asList(100, 200);
-        List<Integer> lst2 = Arrays.asList(200, 200);
-        String result = Exchange.exchange(lst1, lst2);
-        assertEquals("YES", result);
-    }
+    @Test public void test_exchange_even_numbers_in_both_lists_1() { List<Integer> lst1 = Arrays.asList(100, 200); List<Integer> lst2 = Arrays.asList(200, 200); String result = Exchange.exchange(lst1, lst2); assertEquals("YES", result); }
     @Test
     public void test_exchange_odd_number_in_list1_no_even_numbers_in_list2() {
         List<Integer> lst1 = Arrays.asList(3, 4);

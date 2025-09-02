@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_1316.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">leetcode</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_1316.java</span></div><h1>id_1316.java</h1><pre class="source lang-java linenums">package original;
+
+import java.util.HashSet;
+import java.util.Set;
+<span class="nc" id="L5">class Solution1316 {</span>
+    private long[] h;
+    private long[] p;
+
+    public int distinctEchoSubstrings(String text) {
+  /**
+  Return the number of distinct non-empty substrings of text&amp;nbsp;that can be written as the concatenation of some string with itself (i.e. it can be written as a + a&amp;nbsp;where a is some string). &amp;nbsp; Example 1: Input: text = &amp;quot;abcabcabc&amp;quot; Output: 3 Explanation: The 3 substrings are &amp;quot;abcabc&amp;quot;, &amp;quot;bcabca&amp;quot; and &amp;quot;cabcab&amp;quot;. Example 2: Input: text = &amp;quot;leetcodeleetcode&amp;quot; Output: 2 Explanation: The 2 substrings are &amp;quot;ee&amp;quot; and &amp;quot;leetcodeleetcode&amp;quot;. &amp;nbsp; Constraints: 1 &amp;lt;= text.length &amp;lt;= 2000 text&amp;nbsp;has only lowercase English letters.
+  */
+<span class="nc" id="L13">        int n = text.length();</span>
+<span class="nc" id="L14">        int base = 131;</span>
+<span class="nc" id="L15">        h = new long[n + 10];</span>
+<span class="nc" id="L16">        p = new long[n + 10];</span>
+<span class="nc" id="L17">        p[0] = 1;</span>
+<span class="nc bnc" id="L18" title="All 2 branches missed.">        for (int i = 0; i &lt; n; ++i) {</span>
+<span class="nc" id="L19">            int t = text.charAt(i) - 'a' + 1;</span>
+<span class="nc" id="L20">            h[i + 1] = h[i] * base + t;</span>
+<span class="nc" id="L21">            p[i + 1] = p[i] * base;</span>
+        }
+<span class="nc" id="L23">        Set&lt;Long&gt; vis = new HashSet&lt;&gt;();</span>
+<span class="nc bnc" id="L24" title="All 2 branches missed.">        for (int i = 0; i &lt; n - 1; ++i) {</span>
+<span class="nc bnc" id="L25" title="All 2 branches missed.">            for (int j = i + 1; j &lt; n; j += 2) {</span>
+<span class="nc" id="L26">                int k = (i + j) &gt;&gt; 1;</span>
+<span class="nc" id="L27">                long a = get(i + 1, k + 1);</span>
+<span class="nc" id="L28">                long b = get(k + 2, j + 1);</span>
+<span class="nc bnc" id="L29" title="All 2 branches missed.">                if (a == b) {</span>
+<span class="nc" id="L30">                    vis.add(a);</span>
+                }
+            }
+        }
+<span class="nc" id="L34">        return vis.size();</span>
+    }
+
+    private long get(int i, int j) {
+<span class="nc" id="L38">        return h[j] - h[i - 1] * p[j - i + 1];</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

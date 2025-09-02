@@ -1,0 +1,42 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of Solve1.
+*/
+class Solve1Test {
+    @Test
+    void testSolve_SumOfDigitsInBinary() {
+        int n = 1000;
+        String expected = "1";
+        String actual = Solve1.solve(n);
+        assertEquals(expected, actual);
+    }
+    
+    @Test
+        public void testNothing(){
+            Solve1 s = new Solve1();
+            }
+    @Test
+    public void test_solve_zero_input() {
+        String result = Solve1.solve(0);
+        assertEquals("0", result);
+    }
+    @Test
+    public void test_solve_single_digit_input() {
+        String result = Solve1.solve(5);
+        assertEquals("101", result);
+    }
+    @Test
+    public void test_solve_sum_of_digits_is_not_power_of_2() {
+        String result = Solve1.solve(333);
+        assertEquals("1001", result);
+    }
+    @Test
+    public void test_solve_multi_digit_input_corrected() {
+        String result = Solve1.solve(123);
+        assertEquals("110", result);
+    }
+                                    
+}

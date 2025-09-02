@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_1895.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">leetcode</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_1895.java</span></div><h1>id_1895.java</h1><pre class="source lang-java linenums">package original;
+
+<span class="nc" id="L3">class Solution1895 {</span>
+    private int[][] rowsum;
+    private int[][] colsum;
+
+    public int largestMagicSquare(int[][] grid) {
+  /**
+  A k x k magic square is a k x k grid filled with integers such that every row sum, every column sum, and both diagonal sums are all equal. The integers in the magic square do not have to be distinct. Every 1 x 1 grid is trivially a magic square. Given an m x n integer grid, return the size (i.e., the side length k) of the largest magic square that can be found within this grid. &amp;nbsp; Example 1: Input: grid = [[7,1,4,5,6],[2,5,1,6,4],[1,5,4,3,2],[1,2,7,3,4]] Output: 3 Explanation: The largest magic square has a size of 3. Every row sum, column sum, and diagonal sum of this magic square is equal to 12. - Row sums: 5+1+6 = 5+4+3 = 2+7+3 = 12 - Column sums: 5+5+2 = 1+4+7 = 6+3+3 = 12 - Diagonal sums: 5+4+3 = 6+4+2 = 12 Example 2: Input: grid = [[5,1,3,1],[9,3,3,1],[1,3,3,8]] Output: 2 &amp;nbsp; Constraints: m == grid.length n == grid[i].length 1 &amp;lt;= m, n &amp;lt;= 50 1 &amp;lt;= grid[i][j] &amp;lt;= 106
+  */
+<span class="nc" id="L11">        int m = grid.length, n = grid[0].length;</span>
+<span class="nc" id="L12">        rowsum = new int[m + 1][n + 1];</span>
+<span class="nc" id="L13">        colsum = new int[m + 1][n + 1];</span>
+<span class="nc bnc" id="L14" title="All 2 branches missed.">        for (int i = 1; i &lt;= m; ++i) {</span>
+<span class="nc bnc" id="L15" title="All 2 branches missed.">            for (int j = 1; j &lt;= n; ++j) {</span>
+<span class="nc" id="L16">                rowsum[i][j] = rowsum[i][j - 1] + grid[i - 1][j - 1];</span>
+<span class="nc" id="L17">                colsum[i][j] = colsum[i - 1][j] + grid[i - 1][j - 1];</span>
+            }
+        }
+<span class="nc bnc" id="L20" title="All 2 branches missed.">        for (int k = Math.min(m, n); k &gt; 1; --k) {</span>
+<span class="nc bnc" id="L21" title="All 2 branches missed.">            for (int i = 0; i + k - 1 &lt; m; ++i) {</span>
+<span class="nc bnc" id="L22" title="All 2 branches missed.">                for (int j = 0; j + k - 1 &lt; n; ++j) {</span>
+<span class="nc" id="L23">                    int i2 = i + k - 1, j2 = j + k - 1;</span>
+<span class="nc bnc" id="L24" title="All 2 branches missed.">                    if (check(grid, i, j, i2, j2)) {</span>
+<span class="nc" id="L25">                        return k;</span>
+                    }
+                }
+            }
+        }
+<span class="nc" id="L30">        return 1;</span>
+    }
+
+    private boolean check(int[][] grid, int x1, int y1, int x2, int y2) {
+<span class="nc" id="L34">        int val = rowsum[x1 + 1][y2 + 1] - rowsum[x1 + 1][y1];</span>
+<span class="nc bnc" id="L35" title="All 2 branches missed.">        for (int i = x1 + 1; i &lt;= x2; ++i) {</span>
+<span class="nc bnc" id="L36" title="All 2 branches missed.">            if (rowsum[i + 1][y2 + 1] - rowsum[i + 1][y1] != val) {</span>
+<span class="nc" id="L37">                return false;</span>
+            }
+        }
+<span class="nc bnc" id="L40" title="All 2 branches missed.">        for (int j = y1; j &lt;= y2; ++j) {</span>
+<span class="nc bnc" id="L41" title="All 2 branches missed.">            if (colsum[x2 + 1][j + 1] - colsum[x1][j + 1] != val) {</span>
+<span class="nc" id="L42">                return false;</span>
+            }
+        }
+<span class="nc" id="L45">        int s = 0;</span>
+<span class="nc bnc" id="L46" title="All 2 branches missed.">        for (int i = x1, j = y1; i &lt;= x2; ++i, ++j) {</span>
+<span class="nc" id="L47">            s += grid[i][j];</span>
+        }
+<span class="nc bnc" id="L49" title="All 2 branches missed.">        if (s != val) {</span>
+<span class="nc" id="L50">            return false;</span>
+        }
+<span class="nc" id="L52">        s = 0;</span>
+<span class="nc bnc" id="L53" title="All 2 branches missed.">        for (int i = x1, j = y2; i &lt;= x2; ++i, --j) {</span>
+<span class="nc" id="L54">            s += grid[i][j];</span>
+        }
+<span class="nc bnc" id="L56" title="All 2 branches missed.">        if (s != val) {</span>
+<span class="nc" id="L57">            return false;</span>
+        }
+<span class="nc" id="L59">        return true;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

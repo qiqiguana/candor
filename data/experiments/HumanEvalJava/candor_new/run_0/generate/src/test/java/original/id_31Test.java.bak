@@ -1,0 +1,26 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of IsPrime.
+*/
+class IsPrimeTest {
+    @Test
+    void testIsPrime_withNumber11_ReturnTrue() {
+        // Arrange and Act
+        Boolean result = IsPrime.isPrime(11);
+        // Assert
+        assertTrue(result);
+    }
+    
+    @Test
+        public void testNothing(){
+            IsPrime s = new IsPrime();
+            }
+    @Test
+    public void Test_Prime_Number_Less_Than_or_Equal_to_1() {
+        assertEquals(false, IsPrime.isPrime(Integer.valueOf(0)));
+    }
+                                    
+}

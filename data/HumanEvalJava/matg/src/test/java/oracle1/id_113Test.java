@@ -14,7 +14,7 @@ class OddCountTest {
         List<String> input = new ArrayList<>();
         input.add("1234567");
         List<String> expected = new ArrayList<>();
-        expected.add("the number of odd elements 4n the str4ng 4 of the 4nput.");
+        expected.add("the number of odd elements in the string of the input.");
         assertEquals(expected, OddCount.oddCount(input));
     }
     

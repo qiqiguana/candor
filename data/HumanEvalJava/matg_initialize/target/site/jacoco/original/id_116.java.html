@@ -32,8 +32,8 @@ import java.util.List;
      * [2, 4, 8, 16, 32]
      */
     public static List&lt;Object&gt; sortArray(List&lt;Object&gt; arr) {
-<span class="nc" id="L35">        List&lt;Object&gt; sorted = new ArrayList&lt;Object&gt;();</span>
-<span class="nc bnc" id="L36" title="All 2 branches missed.">        for (int i = 0; i &lt; arr.size(); i++) {</span>
+<span class="fc" id="L35">        List&lt;Object&gt; sorted = new ArrayList&lt;Object&gt;();</span>
+<span class="pc bpc" id="L36" title="1 of 2 branches missed.">        for (int i = 0; i &lt; arr.size(); i++) {</span>
 <span class="nc" id="L37">            int num = ((Number) arr.get(i)).intValue();</span>
 <span class="nc" id="L38">            int ones = 0;</span>
 <span class="nc bnc" id="L39" title="All 2 branches missed.">            while (num &gt; 0) {</span>
@@ -42,7 +42,7 @@ import java.util.List;
             }
 <span class="nc" id="L43">            sorted.add(new int[]{ones, ((Number) arr.get(i)).intValue()});</span>
         }
-<span class="nc" id="L45">        Collections.sort(sorted, new Comparator&lt;Object&gt;() {</span>
+<span class="fc" id="L45">        Collections.sort(sorted, new Comparator&lt;Object&gt;() {</span>
             public int compare(Object o1, Object o2) {
 <span class="nc" id="L47">                int[] a1 = (int[]) o1;</span>
 <span class="nc" id="L48">                int[] a2 = (int[]) o2;</span>
@@ -52,11 +52,11 @@ import java.util.List;
 <span class="nc" id="L52">                return a1[0] - a2[0];</span>
             }
         });
-<span class="nc" id="L55">        List&lt;Object&gt; result = new ArrayList&lt;Object&gt;();</span>
-<span class="nc bnc" id="L56" title="All 2 branches missed.">        for (int i = 0; i &lt; sorted.size(); i++) {</span>
+<span class="fc" id="L55">        List&lt;Object&gt; result = new ArrayList&lt;Object&gt;();</span>
+<span class="pc bpc" id="L56" title="1 of 2 branches missed.">        for (int i = 0; i &lt; sorted.size(); i++) {</span>
 <span class="nc" id="L57">            result.add(((int[]) sorted.get(i))[1]);</span>
         }
-<span class="nc" id="L59">        return result;</span>
+<span class="fc" id="L59">        return result;</span>
     }
 
 

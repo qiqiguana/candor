@@ -19,12 +19,12 @@
      * &quot;11&quot;
      */
     public static String circularShift(int x, int shift) {
-<span class="nc" id="L22">        String result = &quot;&quot;;</span>
-<span class="nc" id="L23">        String xString = Integer.toString(x);</span>
-<span class="nc" id="L24">        int xLength = xString.length();</span>
-<span class="nc bnc" id="L25" title="All 2 branches missed.">        if (shift &gt; xLength) {</span>
-<span class="nc bnc" id="L26" title="All 2 branches missed.">            for (int i = xLength - 1; i &gt;= 0; i--) {</span>
-<span class="nc" id="L27">                result += xString.charAt(i);</span>
+<span class="fc" id="L22">        String result = &quot;&quot;;</span>
+<span class="fc" id="L23">        String xString = Integer.toString(x);</span>
+<span class="fc" id="L24">        int xLength = xString.length();</span>
+<span class="pc bpc" id="L25" title="1 of 2 branches missed.">        if (shift &gt; xLength) {</span>
+<span class="fc bfc" id="L26" title="All 2 branches covered.">            for (int i = xLength - 1; i &gt;= 0; i--) {</span>
+<span class="fc" id="L27">                result += xString.charAt(i);</span>
             }
         } else {
 <span class="nc bnc" id="L30" title="All 2 branches missed.">            for (int i = xLength - shift; i &lt; xLength; i++) {</span>
@@ -34,7 +34,7 @@
 <span class="nc" id="L34">                result += xString.charAt(i);</span>
             }
         }
-<span class="nc" id="L37">        return result;</span>
+<span class="fc" id="L37">        return result;</span>
     }
 
 

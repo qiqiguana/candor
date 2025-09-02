@@ -1,0 +1,97 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of ValidDate.
+*/
+class ValidDateTest {
+    @Test
+    void testValidDateFormat() {
+        String date = "03-11-2000";
+        assertTrue(ValidDate.validDate(date));
+    }
+    
+    @Test
+        public void testNothing(){
+            ValidDate s = new ValidDate();
+            }
+    @Test
+    public void testValidDate_EmptyString() {
+        String date = "";
+        assertFalse(ValidDate.validDate(date));
+    }
+    @Test
+    public void testValidDate_InvalidMonth() {
+        String date = "13-01-2020";
+        assertFalse(ValidDate.validDate(date));
+    }
+    @Test
+    public void testValidDate_InvalidDayForFebruary() {
+        String date = "02-30-2020";
+        assertFalse(ValidDate.validDate(date));
+    }
+    @Test
+    public void testValidDate_InvalidDayForMonthsWith31Days() {
+        String date = "01-32-2020";
+        assertFalse(ValidDate.validDate(date));
+    }
+    @Test
+    public void testValidDate_InvalidDayForMonthsWith30Days() {
+        String date = "04-31-2020";
+        assertFalse(ValidDate.validDate(date));
+    }
+    @Test
+    public void test_valid_date_with_month_having_30_days() {
+        String date = "04-15-2020";
+        assertEquals(true, ValidDate.validDate(date));
+    }
+    @Test
+    public void test_valid_date_with_month_february() {
+        String date = "02-14-2020";
+        assertEquals(true, ValidDate.validDate(date));
+    }
+    @Test
+    public void testInvalidDateFormat() {
+        String date = "02/30/2020";
+        assertFalse(ValidDate.validDate(date));
+    }
+    @Test
+    public void testFebruaryDayOutOfRange() {
+        String date = "02-00-2020";
+        assertFalse(ValidDate.validDate(date));
+    }
+    @Test
+    public void testFebruaryDayOutOfRange2() {
+        String date = "02-30-2020";
+        assertFalse(ValidDate.validDate(date));
+    }
+    @Test
+    public void testDayOutOfRangeForMonths30Days1() {
+        String date = "04-00-2020";
+        assertFalse(ValidDate.validDate(date));
+    }
+    @Test
+    public void testDaysOutOfRangeForSpecificMonths() {
+        String date = "01-00-2020";
+        assertFalse(ValidDate.validDate(date));
+    }
+    @Test
+    public void testInvalidMonth2() {
+        String date = "00-01-2020";
+        assertFalse(ValidDate.validDate(date));
+    }
+    @Test
+    public void testInvalidMonth3() {
+        String date = "13-01-2020";
+        assertFalse(ValidDate.validDate(date));
+    }
+    @Test
+    public void testValidDateWithMonthsHaving30Days() {
+        String[] dates = {"04-30-2020", "06-30-2020", "09-30-2020", "11-30-2020"};
+        for (String date : dates) {
+            assertTrue(ValidDate.validDate(date));
+        }
+    }
+                                    
+}

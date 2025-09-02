@@ -1,0 +1,54 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/WordsString {
+
+  // compiled from: id_101.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 9 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/WordsString; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  // signature (Ljava/lang/String;)Ljava/util/List<Ljava/lang/Object;>;
+  // declaration: java.util.List<java.lang.Object> wordsString(java.lang.String)
+  public static wordsString(Ljava/lang/String;)Ljava/util/List;
+   L0
+    LINENUMBER 32 L0
+    ALOAD 0
+    INVOKEVIRTUAL java/lang/String.length ()I
+    IFNE L1
+   L2
+    LINENUMBER 33 L2
+    NEW java/util/ArrayList
+    DUP
+    INVOKESPECIAL java/util/ArrayList.<init> ()V
+    ARETURN
+   L1
+    LINENUMBER 34 L1
+   FRAME FULL [java/lang/String] []
+    ALOAD 0
+    LDC "[, ]+"
+    INVOKEVIRTUAL java/lang/String.split (Ljava/lang/String;)[Ljava/lang/String;
+    ASTORE 1
+   L3
+    LINENUMBER 35 L3
+    ALOAD 1
+    INVOKESTATIC java/util/Arrays.asList ([Ljava/lang/Object;)Ljava/util/List;
+    POP
+    INVOKESTATIC java/util/Collections.emptyList ()Ljava/util/List;
+    ARETURN
+   L4
+    LOCALVARIABLE s Ljava/lang/String; L0 L4 0
+    LOCALVARIABLE words [Ljava/lang/String; L3 L4 1
+    MAXSTACK = 2
+    MAXLOCALS = 2
+}
+

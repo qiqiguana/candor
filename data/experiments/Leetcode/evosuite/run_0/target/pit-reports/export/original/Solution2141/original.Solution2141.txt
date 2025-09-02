@@ -1,0 +1,153 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Solution2141 {
+
+  // compiled from: id_2141.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 3 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Solution2141; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public maxRunTime(I[I)J
+   L0
+    LINENUMBER 5 L0
+    LCONST_0
+    LSTORE 3
+   L1
+    LCONST_0
+    LSTORE 5
+   L2
+    LINENUMBER 6 L2
+    ALOAD 2
+    ASTORE 7
+    ALOAD 7
+    ARRAYLENGTH
+    ISTORE 8
+    ICONST_0
+    ISTORE 9
+   L3
+   FRAME FULL [original/Solution2141 I [I J J [I I I] []
+    ILOAD 9
+    ILOAD 8
+    IF_ICMPGE L4
+    ALOAD 7
+    ILOAD 9
+    IALOAD
+    ISTORE 10
+   L5
+    LINENUMBER 7 L5
+    LLOAD 5
+    ILOAD 10
+    I2L
+    LADD
+    LSTORE 5
+   L6
+    LINENUMBER 6 L6
+    IINC 9 1
+    GOTO L3
+   L4
+    LINENUMBER 9 L4
+   FRAME FULL [original/Solution2141 I [I J J] []
+    LLOAD 3
+    LLOAD 5
+    LCMP
+    IFGE L7
+   L8
+    LINENUMBER 10 L8
+    LLOAD 3
+    LLOAD 5
+    LADD
+    LCONST_1
+    LADD
+    ICONST_1
+    LSHR
+    LSTORE 7
+   L9
+    LINENUMBER 11 L9
+    LCONST_0
+    LSTORE 9
+   L10
+    LINENUMBER 12 L10
+    ALOAD 2
+    ASTORE 11
+    ALOAD 11
+    ARRAYLENGTH
+    ISTORE 12
+    ICONST_0
+    ISTORE 13
+   L11
+   FRAME FULL [original/Solution2141 I [I J J J J [I I I] []
+    ILOAD 13
+    ILOAD 12
+    IF_ICMPGE L12
+    ALOAD 11
+    ILOAD 13
+    IALOAD
+    ISTORE 14
+   L13
+    LINENUMBER 13 L13
+    LLOAD 9
+    LLOAD 7
+    ILOAD 14
+    I2L
+    INVOKESTATIC java/lang/Math.min (JJ)J
+    LADD
+    LSTORE 9
+   L14
+    LINENUMBER 12 L14
+    IINC 13 1
+    GOTO L11
+   L12
+    LINENUMBER 15 L12
+   FRAME FULL [original/Solution2141 I [I J J J J] []
+    LLOAD 9
+    ILOAD 1
+    I2L
+    LLOAD 7
+    LMUL
+    LCMP
+    IFLT L15
+   L16
+    LINENUMBER 16 L16
+    LLOAD 7
+    LSTORE 3
+    GOTO L17
+   L15
+    LINENUMBER 18 L15
+   FRAME FULL [original/Solution2141 I [I J J J J] []
+    LLOAD 7
+    LCONST_1
+    LSUB
+    LSTORE 5
+   L17
+    LINENUMBER 20 L17
+   FRAME FULL [original/Solution2141 I [I J J] []
+    GOTO L4
+   L7
+    LINENUMBER 21 L7
+   FRAME FULL [original/Solution2141 I [I J J] []
+    LLOAD 3
+    LRETURN
+   L18
+    LOCALVARIABLE x I L5 L6 10
+    LOCALVARIABLE x I L13 L14 14
+    LOCALVARIABLE mid J L9 L17 7
+    LOCALVARIABLE s J L10 L17 9
+    LOCALVARIABLE this Loriginal/Solution2141; L0 L18 0
+    LOCALVARIABLE n I L0 L18 1
+    LOCALVARIABLE batteries [I L0 L18 2
+    LOCALVARIABLE l J L1 L18 3
+    LOCALVARIABLE r J L2 L18 5
+    MAXSTACK = 6
+    MAXLOCALS = 15
+}
+

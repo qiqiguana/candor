@@ -1,0 +1,31 @@
+package original;
+
+import java.util.List;
+import java.util.ArrayList;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of Longest.
+*/
+class LongestTest {
+
+    @Test
+    void testLongest_ReturnsFirstElement_WhenListHasMultipleElementsOfSameLength() {
+        List<Object> input = new ArrayList<>();
+        input.add("abc");
+        input.add("def");
+        String expected = "abc";
+        assertEquals(expected, Longest.longest(input));
+    }
+    
+    @Test
+        public void testNothing(){
+            Longest s = new Longest();
+            }
+    @Test
+    public void testEmptyList() {
+        List<Object> input = new ArrayList<>();
+        assertNull(Longest.longest(input));
+    }
+                                    
+}

@@ -1,0 +1,20 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of IntToMiniRoman.
+*/
+class IntToMiniRomanTest {
+    @Test
+    void intToMiniRoman_Converts_1_To_I() {
+        String result = IntToMiniRoman.intToMiniRoman(1);
+        assertEquals("i", result);
+    }
+    
+    @Test
+        public void testNothing(){
+            IntToMiniRoman s = new IntToMiniRoman();
+            }
+                                    
+}

@@ -1,0 +1,84 @@
+package original;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+/**
+* Test class of MyCircularDeque.
+*/
+class MyCircularDequeTest {
+    @Test
+    void testInsertFront() {
+        // Arrange
+        int k = 3;
+        MyCircularDeque myCircularDeque = new MyCircularDeque(k);
+        int value = 1;
+        
+        // Act
+        boolean result = myCircularDeque.insertFront(value);
+        
+        // Assert
+        assertTrue(result);
+    }
+    @Test
+    public void testInsertFrontCorrected() {
+        MyCircularDeque deque = new MyCircularDeque(10);
+        deque.insertFront(5);
+        deque.insertFront(10);
+        assertEquals(deque.getFront(), 10);
+        assertEquals(deque.getRear(), 5);
+    }
+    @Test
+    public void testInsertLast() {
+        MyCircularDeque deque = new MyCircularDeque(10);
+        deque.insertFront(5);
+        deque.insertLast(10);
+        deque.insertLast(20);
+        assertEquals(deque.getFront(), 5);
+        assertEquals(deque.getRear(), 20);
+    }
+    @Test
+    public void testDeleteFront() {
+        MyCircularDeque deque = new MyCircularDeque(3);
+        deque.insertLast(20);
+        deque.insertLast(25);
+        deque.deleteFront();
+        assertEquals(deque.getFront(), 25);
+    }
+    @Test
+    public void testDeleteRearFixed1() {
+        MyCircularDeque deque = new MyCircularDeque(5);
+        deque.insertFront(5);
+        deque.deleteLast();
+        assertEquals(deque.getFront(), -1);
+    }
+    @Test
+    public void test_insertFront_full_deque_1() {
+        MyCircularDeque obj = new MyCircularDeque(2);
+        obj.insertLast(1);
+        obj.insertLast(2);
+        boolean result = obj.insertFront(3);
+        assertFalse(result);
+    }
+    @Test
+    public void test_insertLast_with_full_deque_2() {
+        MyCircularDeque obj = new MyCircularDeque(1);
+        boolean result1 = obj.insertLast(1);
+        boolean result2 = obj.insertLast(2);
+        assertTrue(result1);
+        assertFalse(result2);
+    }
+    @Test
+    public void test_deleteFront_with_empty_deque() {
+        MyCircularDeque obj = new MyCircularDeque(1);
+        boolean result = obj.deleteFront();
+        assertFalse(result);
+    }
+    @Test
+    public void test_deleteLast_with_empty_deque() {
+        MyCircularDeque obj = new MyCircularDeque(1);
+        boolean result = obj.deleteLast();
+        assertFalse(result);
+    }
+}

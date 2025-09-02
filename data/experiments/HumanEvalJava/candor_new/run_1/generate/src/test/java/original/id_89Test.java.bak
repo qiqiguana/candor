@@ -1,0 +1,40 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of Encrypt.
+*/
+class EncryptTest {
+    @Test
+    void testEncrypt() {
+        String input = "hi";
+        String expectedOutput = "lm";
+        String actualOutput = Encrypt.encrypt(input);
+        assertEquals(expectedOutput, actualOutput);
+    }
+    
+    @Test
+        public void testNothing(){
+            Encrypt s = new Encrypt();
+            }
+    @Test
+    public void testEncryptWithInputContainingYZ() {
+        String s = "yz";
+        int shift = 2 * 2;
+        char expectedShift = (char)((int)'y' + shift);
+        if(expectedShift > 'z'){
+            expectedShift -= 26;
+        }
+        assertEquals(String.valueOf(expectedShift), Encrypt.encrypt(s).substring(0,1));
+    }
+    @Test
+    public void encrypt_Special_Characters() {
+        String[] inputs = {"!", "@", "#"};
+        String[] expectedResults = {"!", "@", "#"};
+        for (int i = 0; i < inputs.length; i++) {
+            assertEquals(expectedResults[i], Encrypt.encrypt(inputs[i]));
+        }
+    }
+                                    
+}

@@ -1,0 +1,143 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Solution1909 {
+
+  // compiled from: id_1909.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 3 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Solution1909; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public canBeIncreasing([I)Z
+   L0
+    LINENUMBER 5 L0
+    ICONST_0
+    ISTORE 2
+   L1
+    LINENUMBER 6 L1
+   FRAME FULL [original/Solution1909 [I I] []
+    ILOAD 2
+    ICONST_1
+    IADD
+    ALOAD 1
+    ARRAYLENGTH
+    IF_ICMPGE L2
+    ALOAD 1
+    ILOAD 2
+    IALOAD
+    ALOAD 1
+    ILOAD 2
+    ICONST_1
+    IADD
+    IALOAD
+    IF_ICMPGE L2
+   L3
+    LINENUMBER 7 L3
+    IINC 2 1
+    GOTO L1
+   L2
+    LINENUMBER 9 L2
+   FRAME FULL [original/Solution1909 [I I] []
+    ALOAD 0
+    ALOAD 1
+    ILOAD 2
+    INVOKEVIRTUAL original/Solution1909.check ([II)Z
+    IFNE L4
+    ALOAD 0
+    ALOAD 1
+    ILOAD 2
+    ICONST_1
+    IADD
+    INVOKEVIRTUAL original/Solution1909.check ([II)Z
+    IFEQ L5
+   L4
+   FRAME FULL [original/Solution1909 [I I] []
+    ICONST_1
+    GOTO L6
+   L5
+   FRAME FULL [original/Solution1909 [I I] []
+    ICONST_0
+   L6
+   FRAME FULL [original/Solution1909 [I I] [I]
+    POP
+    ICONST_1
+    IRETURN
+   L7
+    LOCALVARIABLE this Loriginal/Solution1909; L0 L7 0
+    LOCALVARIABLE nums [I L0 L7 1
+    LOCALVARIABLE i I L1 L7 2
+    MAXSTACK = 4
+    MAXLOCALS = 3
+
+  // access flags 0x2
+  private check([II)Z
+   L0
+    LINENUMBER 13 L0
+    ICONST_0
+    ISTORE 3
+   L1
+    LINENUMBER 14 L1
+    ICONST_0
+    ISTORE 4
+   L2
+   FRAME FULL [original/Solution1909 [I I I I] []
+    ILOAD 4
+    ALOAD 1
+    ARRAYLENGTH
+    IF_ICMPGE L3
+   L4
+    LINENUMBER 15 L4
+    ILOAD 4
+    ILOAD 2
+    IF_ICMPNE L5
+   L6
+    LINENUMBER 16 L6
+    GOTO L7
+   L5
+    LINENUMBER 18 L5
+   FRAME FULL [original/Solution1909 [I I I I] []
+    ILOAD 3
+    ALOAD 1
+    ILOAD 4
+    IALOAD
+    IF_ICMPLT L8
+   L9
+    LINENUMBER 19 L9
+    ICONST_0
+    IRETURN
+   L8
+    LINENUMBER 21 L8
+   FRAME FULL [original/Solution1909 [I I I I] []
+    ALOAD 1
+    ILOAD 4
+    IALOAD
+    ISTORE 3
+   L7
+    LINENUMBER 14 L7
+   FRAME FULL [original/Solution1909 [I I I I] []
+    IINC 4 1
+    GOTO L2
+   L3
+    LINENUMBER 23 L3
+   FRAME FULL [original/Solution1909 [I I I I] []
+    ICONST_1
+    IRETURN
+   L10
+    LOCALVARIABLE i I L2 L3 4
+    LOCALVARIABLE this Loriginal/Solution1909; L0 L10 0
+    LOCALVARIABLE nums [I L0 L10 1
+    LOCALVARIABLE k I L0 L10 2
+    LOCALVARIABLE pre I L1 L10 3
+    MAXSTACK = 3
+    MAXLOCALS = 5
+}
+

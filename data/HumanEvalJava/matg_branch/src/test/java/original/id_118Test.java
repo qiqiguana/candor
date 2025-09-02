@@ -47,5 +47,47 @@ class GetClosestVowelTest {
     public void testGetClosestVowelNegativeNullPointerException() {
         assertThrows(NullPointerException.class, () -> GetClosestVowel.getClosestVowel(null));
     }
+    @Test
+    public void testNoVowelBetweenConsonants() {
+    	String word = "quick";
+    	String expected = "";
+    	assertEquals(expected, GetClosestVowel.getClosestVowel(word));
+    }
+    @Test
+    public void testVowelAtBeginning() {
+    	String word = "easy";
+    	String expected = "";
+    	assertEquals(expected, GetClosestVowel.getClosestVowel(word));
+    }
+    @Test
+    public void testVowelAtEnd() {
+    	String word = "abu";
+    	String expected = "";
+    	assertEquals(expected, GetClosestVowel.getClosestVowel(word));
+    }
+    @Test
+    public void testSingleCharacterInput() {
+    	String word = "a";
+    	String expected = "";
+    	assertEquals(expected, GetClosestVowel.getClosestVowel(word));
+    }
+    @Test
+    public void testUppercaseVowelBetweenConsonants3() {
+        String word = "YOGURT";
+        String expected = "U";
+        assertEquals(expected, GetClosestVowel.getClosestVowel(word));
+    }
+    @Test
+    public void testVowelBetweenConsonants1() {
+    	String word = "hello";
+    	String expected = "e";
+    	assertEquals(expected, GetClosestVowel.getClosestVowel(word));
+    }
+    @Test
+    public void testVowelBetweenConsonants2() {
+    	String word = "world";
+    	String expected = "o";
+    	assertEquals(expected, GetClosestVowel.getClosestVowel(word));
+    }
                                     
 }

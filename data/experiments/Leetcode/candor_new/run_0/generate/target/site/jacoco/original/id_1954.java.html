@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_1954.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">leetcode</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_1954.java</span></div><h1>id_1954.java</h1><pre class="source lang-java linenums">package original;
+
+<span class="nc" id="L3">class Solution1954 {</span>
+    public long minimumPerimeter(long neededApples) {
+  /**
+  In a garden represented as an infinite 2D grid, there is an apple tree planted at every integer coordinate. The apple tree planted at an integer coordinate (i, j) has |i| + |j| apples growing on it. You will buy an axis-aligned square plot of land that is centered at (0, 0). Given an integer neededApples, return the minimum perimeter of a plot such that at least neededApples apples are inside or on the perimeter of that plot. The value of |x| is defined as: x if x &amp;gt;= 0 -x if x &amp;lt; 0 &amp;nbsp; Example 1: Input: neededApples = 1 Output: 8 Explanation: A square plot of side length 1 does not contain any apples. However, a square plot of side length 2 has 12 apples inside (as depicted in the image above). The perimeter is 2 * 4 = 8. Example 2: Input: neededApples = 13 Output: 16 Example 3: Input: neededApples = 1000000000 Output: 5040 &amp;nbsp; Constraints: 1 &amp;lt;= neededApples &amp;lt;= 1015
+  */
+<span class="nc" id="L8">        long x = 1;</span>
+<span class="nc bnc" id="L9" title="All 2 branches missed.">        while (2 * x * (x + 1) * (2 * x + 1) &lt; neededApples) {</span>
+<span class="nc" id="L10">            ++x;</span>
+        }
+<span class="nc" id="L12">        return 8 * x;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

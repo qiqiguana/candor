@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_3398.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">leetcode</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_3398.java</span></div><h1>id_3398.java</h1><pre class="source lang-java linenums">package original;
+
+<span class="nc" id="L3">class Solution3398 {</span>
+    private char[] s;
+    private int numOps;
+
+    public int minLength(String s, int numOps) {
+  /**
+  You are given a binary string s of length n and an integer numOps. You are allowed to perform the following operation on s at most numOps times: Select any index i (where 0 &amp;lt;= i &amp;lt; n) and flip s[i]. If s[i] == &amp;#39;1&amp;#39;, change s[i] to &amp;#39;0&amp;#39; and vice versa. You need to minimize the length of the longest substring of s such that all the characters in the substring are identical. Return the minimum length after the operations. &amp;nbsp; Example 1: Input: s = &amp;quot;000001&amp;quot;, numOps = 1 Output: 2 Explanation:&amp;nbsp; By changing s[2] to &amp;#39;1&amp;#39;, s becomes &amp;quot;001001&amp;quot;. The longest substrings with identical characters are s[0..1] and s[3..4]. Example 2: Input: s = &amp;quot;0000&amp;quot;, numOps = 2 Output: 1 Explanation:&amp;nbsp; By changing s[0] and s[2] to &amp;#39;1&amp;#39;, s becomes &amp;quot;1010&amp;quot;. Example 3: Input: s = &amp;quot;0101&amp;quot;, numOps = 0 Output: 1 &amp;nbsp; Constraints: 1 &amp;lt;= n == s.length &amp;lt;= 1000 s consists only of &amp;#39;0&amp;#39; and &amp;#39;1&amp;#39;. 0 &amp;lt;= numOps &amp;lt;= n
+  */
+<span class="nc" id="L11">        this.numOps = numOps;</span>
+<span class="nc" id="L12">        this.s = s.toCharArray();</span>
+<span class="nc" id="L13">        int l = 1, r = s.length();</span>
+<span class="nc bnc" id="L14" title="All 2 branches missed.">        while (l &lt; r) {</span>
+<span class="nc" id="L15">            int mid = (l + r) &gt;&gt; 1;</span>
+<span class="nc bnc" id="L16" title="All 2 branches missed.">            if (check(mid)) {</span>
+<span class="nc" id="L17">                r = mid;</span>
+            } else {
+<span class="nc" id="L19">                l = mid + 1;</span>
+            }
+<span class="nc" id="L21">        }</span>
+<span class="nc" id="L22">        return l;</span>
+    }
+
+    private boolean check(int m) {
+<span class="nc" id="L26">        int cnt = 0;</span>
+<span class="nc bnc" id="L27" title="All 2 branches missed.">        if (m == 1) {</span>
+<span class="nc" id="L28">            char[] t = {'0', '1'};</span>
+<span class="nc bnc" id="L29" title="All 2 branches missed.">            for (int i = 0; i &lt; s.length; ++i) {</span>
+<span class="nc bnc" id="L30" title="All 2 branches missed.">                if (s[i] == t[i &amp; 1]) {</span>
+<span class="nc" id="L31">                    ++cnt;</span>
+                }
+            }
+<span class="nc" id="L34">            cnt = Math.min(cnt, s.length - cnt);</span>
+<span class="nc" id="L35">        } else {</span>
+<span class="nc" id="L36">            int k = 0;</span>
+<span class="nc bnc" id="L37" title="All 2 branches missed.">            for (int i = 0; i &lt; s.length; ++i) {</span>
+<span class="nc" id="L38">                ++k;</span>
+<span class="nc bnc" id="L39" title="All 4 branches missed.">                if (i == s.length - 1 || s[i] != s[i + 1]) {</span>
+<span class="nc" id="L40">                    cnt += k / (m + 1);</span>
+<span class="nc" id="L41">                    k = 0;</span>
+                }
+            }
+        }
+<span class="nc bnc" id="L45" title="All 2 branches missed.">        return cnt &lt;= numOps;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

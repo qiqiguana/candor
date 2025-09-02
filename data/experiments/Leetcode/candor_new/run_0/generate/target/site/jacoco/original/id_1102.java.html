@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_1102.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">leetcode</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_1102.java</span></div><h1>id_1102.java</h1><pre class="source lang-java linenums">package original;
+
+import java.util.ArrayList;
+import java.util.List;
+<span class="nc" id="L5">class Solution1102 {</span>
+    private int[] p;
+
+    public int maximumMinimumPath(int[][] grid) {
+  /**
+  Given an m x n integer matrix grid, return the maximum score of a path starting at (0, 0) and ending at (m - 1, n - 1) moving in the 4 cardinal directions. The score of a path is the minimum value in that path. For example, the score of the path 8 &amp;rarr; 4 &amp;rarr; 5 &amp;rarr; 9 is 4. &amp;nbsp; Example 1: Input: grid = [[5,4,5],[1,2,6],[7,4,6]] Output: 4 Explanation: The path with the maximum score is highlighted in yellow. Example 2: Input: grid = [[2,2,1,2,2,2],[1,2,2,2,1,2]] Output: 2 Example 3: Input: grid = [[3,4,6,3,4],[0,2,1,1,7],[8,8,3,2,7],[3,2,4,9,8],[4,1,2,0,0],[4,6,5,4,3]] Output: 3 &amp;nbsp; Constraints: m == grid.length n == grid[i].length 1 &amp;lt;= m, n &amp;lt;= 100 0 &amp;lt;= grid[i][j] &amp;lt;= 109
+  */
+<span class="nc" id="L12">        int m = grid.length, n = grid[0].length;</span>
+<span class="nc" id="L13">        p = new int[m * n];</span>
+<span class="nc" id="L14">        List&lt;int[]&gt; q = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L15" title="All 2 branches missed.">        for (int i = 0; i &lt; m; ++i) {</span>
+<span class="nc bnc" id="L16" title="All 2 branches missed.">            for (int j = 0; j &lt; n; ++j) {</span>
+<span class="nc" id="L17">                q.add(new int[] {grid[i][j], i, j});</span>
+<span class="nc" id="L18">                p[i * n + j] = i * n + j;</span>
+            }
+        }
+<span class="nc" id="L21">        q.sort((a, b) -&gt; b[0] - a[0]);</span>
+<span class="nc" id="L22">        boolean[][] vis = new boolean[m][n];</span>
+<span class="nc" id="L23">        int[] dirs = {-1, 0, 1, 0, -1};</span>
+<span class="nc" id="L24">        int ans = 0;</span>
+<span class="nc bnc" id="L25" title="All 2 branches missed.">        for (int i = 0; find(0) != find(m * n - 1); ++i) {</span>
+<span class="nc" id="L26">            int[] t = q.get(i);</span>
+<span class="nc" id="L27">            vis[t[1]][t[2]] = true;</span>
+<span class="nc" id="L28">            ans = t[0];</span>
+<span class="nc bnc" id="L29" title="All 2 branches missed.">            for (int k = 0; k &lt; 4; ++k) {</span>
+<span class="nc" id="L30">                int x = t[1] + dirs[k], y = t[2] + dirs[k + 1];</span>
+<span class="nc bnc" id="L31" title="All 10 branches missed.">                if (x &gt;= 0 &amp;&amp; x &lt; m &amp;&amp; y &gt;= 0 &amp;&amp; y &lt; n &amp;&amp; vis[x][y]) {</span>
+<span class="nc" id="L32">                    p[find(x * n + y)] = find(t[1] * n + t[2]);</span>
+                }
+            }
+        }
+<span class="nc" id="L36">        return ans;</span>
+    }
+
+    private int find(int x) {
+<span class="nc bnc" id="L40" title="All 2 branches missed.">        if (p[x] != x) {</span>
+<span class="nc" id="L41">            p[x] = find(p[x]);</span>
+        }
+<span class="nc" id="L43">        return p[x];</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

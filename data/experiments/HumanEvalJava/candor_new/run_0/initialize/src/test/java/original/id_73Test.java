@@ -1,0 +1,16 @@
+package original;
+
+import java.util.List;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of SmallestChange.
+*/
+class SmallestChangeTest {
+    @Test
+    void testSmallestChange_SimplePalindrome_ReturnsZero() {
+        List<Integer> arr = List.of(1, 2, 3, 2, 1);
+        int result = SmallestChange.smallestChange(arr);
+        assertEquals(0, result);
+    }
+}

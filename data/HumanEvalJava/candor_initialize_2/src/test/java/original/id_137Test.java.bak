@@ -1,0 +1,95 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of CompareOne.
+*/
+class CompareOneTest {
+    @Test
+    void testCompareOne_DifferentTypes_ReturnsNull() {
+        Object result = CompareOne.compareOne("1", 1);
+        assertNull(result);
+    }
+    
+    @Test
+        public void testNothing(){
+            CompareOne s = new CompareOne();
+            }
+    @Test
+    public void testCompareOneWithTwoDifferentNumbers() {
+       assertEquals(2, original.CompareOne.compareOne(1, 2));
+    }
+    @Test
+    public void testCompareOneWithTwoEqualNumbersAsString() {
+       assertNull(original.CompareOne.compareOne("1", "1"));
+    }
+    @Test
+    public void testCompareOneWithNumberAndStringRepresentation() {
+       assertNull(original.CompareOne.compareOne(1, "1"));
+    }
+    @Test
+    public void testCompareOneWithTwoNumbersAsStringsWithDifferentDecimalSeparators() {
+       assertEquals("1,3", original.CompareOne.compareOne("1.2", "1,3"));
+    }
+    @Test
+    public void testCompareOneWithNumberAndStringRepresentationUsingCommaAsDecimalSeparator() {
+       assertNull(original.CompareOne.compareOne(1.0, "1,0"));
+    }
+    @Test
+    public void testCompareOneWithTwoNumbers() {
+       assertEquals(2.0, original.CompareOne.compareOne(1.0, 2.0));
+    }
+    @Test
+    public void testCompareOneWithTwoEqualNumbers2() {
+       Object result = original.CompareOne.compareOne(1.0, 1.0);
+       assertNull(result);
+    }
+    @Test
+    public void test_compare_equal_floats() {
+    	Float a = 1.0f;
+    	Float b = 1.0f;
+    	assertNull(original.CompareOne.compareOne(a, b));
+    }
+    @Test
+    public void test_compare_unequal_floats() {
+    	Float a = 1.0f;
+    	Float b = 2.0f;
+    	assertEquals(b, original.CompareOne.compareOne(a, b));
+    }
+    @Test
+    public void test_compare_equal_integers() {
+    	Integer a = 1;
+    	Integer b = 1;
+    	assertNull(original.CompareOne.compareOne(a, b));
+    }
+    @Test
+    public void test_compare_unequal_integers() {
+    	Integer a = 1;
+    	Integer b = 2;
+    	assertEquals(b, original.CompareOne.compareOne(a, b));
+    }
+    @Test
+    public void test_compare_equal_strings() {
+    	String a = "1.0";
+    	String b = "1.0";
+    	assertNull(original.CompareOne.compareOne(a, b));
+    }
+    @Test
+    public void test_compare_unequal_strings() {
+    	String a = "1.0";
+    	String b = "2.0";
+    	assertEquals(b, original.CompareOne.compareOne(a, b));
+    }
+    @Test
+    public void testCompareOne_EqualIntegers() {
+        Object result = CompareOne.compareOne(1, 1);
+        assertNull(result);
+    }
+    @Test
+    public void testCompareOne_EqualFloats() {
+        Object result = CompareOne.compareOne(1.0f, 1.0f);
+        assertNull(result);
+    }
+                                    
+}

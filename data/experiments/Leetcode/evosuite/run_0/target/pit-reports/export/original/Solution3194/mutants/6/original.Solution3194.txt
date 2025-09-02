@@ -1,0 +1,82 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Solution3194 {
+
+  // compiled from: id_3194.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 4 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Solution3194; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public minimumAverage([I)D
+   L0
+    LINENUMBER 6 L0
+    ALOAD 1
+    INVOKESTATIC java/util/Arrays.sort ([I)V
+   L1
+    LINENUMBER 7 L1
+    ALOAD 1
+    ARRAYLENGTH
+    ISTORE 2
+   L2
+    LINENUMBER 8 L2
+    LDC 1073741824
+    ISTORE 3
+   L3
+    LINENUMBER 9 L3
+    ICONST_0
+    ISTORE 4
+   L4
+   FRAME FULL [original/Solution3194 [I I I I] []
+    ILOAD 4
+    ILOAD 2
+    ICONST_2
+    IDIV
+    IF_ICMPGE L5
+   L6
+    LINENUMBER 10 L6
+    ILOAD 3
+    ALOAD 1
+    ILOAD 4
+    IALOAD
+    ALOAD 1
+    ILOAD 2
+    ILOAD 4
+    ISUB
+    ICONST_1
+    IADD
+    IALOAD
+    IADD
+    INVOKESTATIC java/lang/Math.min (II)I
+    ISTORE 3
+   L7
+    LINENUMBER 9 L7
+    IINC 4 1
+    GOTO L4
+   L5
+    LINENUMBER 12 L5
+   FRAME FULL [original/Solution3194 [I I I I] []
+    ILOAD 3
+    I2D
+    LDC 2.0D
+    DDIV
+    DRETURN
+   L8
+    LOCALVARIABLE i I L4 L5 4
+    LOCALVARIABLE this Loriginal/Solution3194; L0 L8 0
+    LOCALVARIABLE nums [I L0 L8 1
+    LOCALVARIABLE n I L2 L8 2
+    LOCALVARIABLE ans I L3 L8 3
+    MAXSTACK = 5
+    MAXLOCALS = 5
+}
+

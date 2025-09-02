@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_9.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HumanEvalJava</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_9.java</span></div><h1>id_9.java</h1><pre class="source lang-java linenums">package original;
+
+import java.util.ArrayList;
+import java.util.List;
+
+
+<span class="nc" id="L7">class RollingMax {</span>
+    /**
+     * From a given list of integers, generate a list of rolling maximum element found until given moment
+     * in the sequence.
+     *
+     * &gt; rollingMax([1, 2, 3, 2, 3, 4, 2])
+     * [1, 2, 3, 3, 3, 4, 4]
+     * &gt; rollingMax([])
+     * []
+     * &gt; rollingMax([1, 2, 3, 4])
+     * [1, 2, 3, 4]
+     * &gt; rollingMax([4, 3, 2, 1])
+     * [4, 4, 4, 4]
+     * &gt; rollingMax([3, 2, 3, 100, 3])
+     * [3, 3, 3, 100, 100]
+     */
+    public static List&lt;Object&gt; rollingMax(List&lt;Object&gt; numbers) {
+<span class="fc" id="L24">        List&lt;Object&gt; result = new ArrayList&lt;Object&gt;();</span>
+<span class="fc" id="L25">        Integer max = null;</span>
+<span class="fc bfc" id="L26" title="All 2 branches covered.">        for (Object number : numbers) {</span>
+<span class="pc bpc" id="L27" title="1 of 2 branches missed.">            if (number instanceof Integer) {</span>
+<span class="pc bpc" id="L28" title="3 of 4 branches missed.">                if (max == null || (Integer) number &gt; max) {</span>
+<span class="fc" id="L29">                    max = (Integer) number;</span>
+                }
+<span class="fc" id="L31">                result.add(max);</span>
+            } else {
+<span class="nc" id="L33">                throw new IllegalArgumentException(&quot;Invalid number type&quot;);</span>
+            }
+<span class="fc" id="L35">        }</span>
+<span class="fc" id="L36">        return result;</span>
+    }
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

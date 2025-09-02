@@ -38,22 +38,22 @@ import java.util.List;
      * []
      */
     public static List&lt;Object&gt; totalMatch(List&lt;Object&gt; lst1, List&lt;Object&gt; lst2) {
-<span class="nc" id="L41">        int sum1 = 0;</span>
-<span class="nc" id="L42">        int sum2 = 0;</span>
-<span class="nc bnc" id="L43" title="All 2 branches missed.">        for (Object value : lst1) {</span>
-<span class="nc bnc" id="L44" title="All 2 branches missed.">            if (value instanceof String) {</span>
-<span class="nc" id="L45">                sum1 += ((String) value).length();</span>
+<span class="fc" id="L41">        int sum1 = 0;</span>
+<span class="fc" id="L42">        int sum2 = 0;</span>
+<span class="fc bfc" id="L43" title="All 2 branches covered.">        for (Object value : lst1) {</span>
+<span class="pc bpc" id="L44" title="1 of 2 branches missed.">            if (value instanceof String) {</span>
+<span class="fc" id="L45">                sum1 += ((String) value).length();</span>
             }
-<span class="nc" id="L47">        }</span>
-<span class="nc bnc" id="L48" title="All 2 branches missed.">        for (Object value : lst2) {</span>
-<span class="nc bnc" id="L49" title="All 2 branches missed.">            if (value instanceof String) {</span>
-<span class="nc" id="L50">                sum2 += ((String) value).length();</span>
+<span class="fc" id="L47">        }</span>
+<span class="fc bfc" id="L48" title="All 2 branches covered.">        for (Object value : lst2) {</span>
+<span class="pc bpc" id="L49" title="1 of 2 branches missed.">            if (value instanceof String) {</span>
+<span class="fc" id="L50">                sum2 += ((String) value).length();</span>
             }
-<span class="nc" id="L52">        }</span>
-<span class="nc bnc" id="L53" title="All 2 branches missed.">        if (sum1 &lt;= sum2) {</span>
+<span class="fc" id="L52">        }</span>
+<span class="pc bpc" id="L53" title="1 of 2 branches missed.">        if (sum1 &lt;= sum2) {</span>
 <span class="nc" id="L54">            return lst1;</span>
         } else {
-<span class="nc" id="L56">            return lst2;</span>
+<span class="fc" id="L56">            return lst2;</span>
         }
     }
 

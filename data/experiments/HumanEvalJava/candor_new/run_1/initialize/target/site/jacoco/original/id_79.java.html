@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_79.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HumanEvalJava</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_79.java</span></div><h1>id_79.java</h1><pre class="source lang-java linenums">package original;
+
+
+<span class="nc" id="L4">class DecimalToBinary {</span>
+    /**
+     * You will be given a number in decimal form and your task is to convert it to
+     * binary format. The function should return a string, with each character representing a binary
+     * number. Each character in the string will be '0' or '1'.
+     *
+     * There will be an extra couple of characters 'db' at the beginning and at the end of the string.
+     * The extra characters are there to help with the format.
+     *
+     * Examples:
+     * - decimalToBinary(15)   # returns &quot;db1111db&quot;
+     * - decimalToBinary(32)   # returns &quot;db100000db&quot;
+     *
+     * &gt; decimalToBinary(0)
+     * &quot;db0db&quot;
+     * &gt; decimalToBinary(32)
+     * &quot;db100000db&quot;
+     * &gt; decimalToBinary(103)
+     * &quot;db1100111db&quot;
+     * &gt; decimalToBinary(15)
+     * &quot;db1111db&quot;
+     */
+    public static String decimalToBinary(int decimal) {
+<span class="nc" id="L27">        String binary = &quot;&quot;;</span>
+<span class="nc bnc" id="L28" title="All 2 branches missed.">        if (decimal == 0) {</span>
+<span class="nc" id="L29">            return &quot;db0db&quot;;</span>
+        }
+<span class="nc bnc" id="L31" title="All 2 branches missed.">        while (decimal &gt; 0) {</span>
+<span class="nc" id="L32">            binary = (decimal % 2) + binary;</span>
+<span class="nc" id="L33">            decimal = decimal / 2;</span>
+        }
+<span class="nc" id="L35">        return &quot;db&quot; + binary + &quot;db&quot;;</span>
+    }
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

@@ -1,0 +1,32 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of ChooseNum.
+*/
+class ChooseNumTest {
+    @Test
+    void testChooseNum_SwapInput_ReturnsNegativeOne() {
+        int result = ChooseNum.chooseNum(13, 12);
+        assertEquals(-1, result);
+    }
+    
+    @Test
+        public void testNothing(){
+            ChooseNum s = new ChooseNum();
+            }
+    @Test
+    public void testChooseNumWithXLessThanY_EvenNumberInRange() {
+        int result = ChooseNum.chooseNum(12, 15);
+        assertEquals(14, result);
+    }
+    @Test
+    public void testNegativeNumbersInRange() {
+        int x = -10;
+        int y = 15;
+        int expectedResult = -1;
+        assertEquals(expectedResult, ChooseNum.chooseNum(x, y));
+    }
+                                    
+}

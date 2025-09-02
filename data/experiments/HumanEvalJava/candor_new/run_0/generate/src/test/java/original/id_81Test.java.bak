@@ -1,0 +1,115 @@
+package original;
+
+import original.NumericalLetterGrade;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of NumericalLetterGrade.
+*/
+class NumericalLetterGradeTest {
+    @Test
+    void testNumericalLetterGrade_4Point0() {
+        List<Number> grades = new ArrayList<>();
+        grades.add(4.0);
+        List<String> expected = new ArrayList<>();
+        expected.add("A+");
+        assertEquals(expected, NumericalLetterGrade.numericalLetterGrade(grades));
+    }
+    
+    @Test
+        public void testNothing(){
+            NumericalLetterGrade s = new NumericalLetterGrade();
+            }
+    @Test
+    public void testNumericalLetterGrade_B() {
+        List<Number> grades = new ArrayList<>();
+        grades.add(2.8);
+        List<String> expected = new ArrayList<>();
+        expected.add("B");
+        assertEquals(expected, NumericalLetterGrade.numericalLetterGrade(grades));
+    }
+    @Test
+    public void testGetGrade_CPlus_Converted_1() {
+        List<Number> grades = new ArrayList<>();
+        grades.add(2.07);
+        assertEquals("C+", ((List<String>) NumericalLetterGrade.numericalLetterGrade(grades)).get(0));
+    }
+    @Test
+    public void testNumericalLetterGrade_D_2_Fixed() {
+        List<Number> grades = new ArrayList<>();
+        grades.add(1.0);
+        List<String> expected = new ArrayList<>();
+        expected.add("D");
+        assertEquals(expected, NumericalLetterGrade.numericalLetterGrade(grades));
+    }
+    @Test
+    public void testNumericalLetterGrade_2() {
+        List<Number> grades = new ArrayList<>();
+        grades.add(3.5);
+        List<String> expected = new ArrayList<>();
+        expected.add("A-");
+        assertEquals(expected, NumericalLetterGrade.numericalLetterGrade(grades));
+    }
+    @Test
+    public void testNumericalLetterGrade_GPA_0() {
+        List<Number> grades = new ArrayList<>();
+        grades.add(0.0);
+        assertEquals(List.of("E"), NumericalLetterGrade.numericalLetterGrade(grades));
+    }
+    @Test
+    public void NumericalLetterGrade_test_6_fixed() {
+        List<Number> grades = new ArrayList<>();
+        grades.add(3.8);
+        grades.add(2.3);
+        List<String> expected = new ArrayList<>();
+        expected.add("A");
+        expected.add("B-");
+        List<String> result = NumericalLetterGrade.numericalLetterGrade(grades);
+        assertEquals(expected.get(0), result.get(0));
+    }
+    @Test
+    public void testNumericalLetterGrade_BPlus_2() {
+        List<Number> grades = new ArrayList<>();
+        grades.add(3.1);
+        List<String> expected = new ArrayList<>();
+        expected.add("B+");
+        assertEquals(expected, NumericalLetterGrade.numericalLetterGrade(grades));
+    }
+    @Test
+    public void testNumericalLetterGrade_BMinus() {
+    	List<Number> grades = new ArrayList<>();
+    	grades.add(2.7);
+    	List<String> expected = new ArrayList<>();
+    	expected.add("B-");
+    	assertEquals(expected, NumericalLetterGrade.numericalLetterGrade(grades));
+    }
+    @Test
+    public void testNumericalLetterGrade_DPlus_4_fixed() {
+        List<Number> grades = new ArrayList<>();
+        grades.add(1.1);
+        List<String> expected = new ArrayList<>();
+        expected.add("D+");
+        List<String> result = NumericalLetterGrade.numericalLetterGrade(grades);
+        assertEquals("D+", result.get(0));
+    }
+    @Test
+    public void testNumericalLetterGrade_F() {
+        List<Number> grades = new ArrayList<>();
+        grades.add(0.5);
+        List<String> expected = new ArrayList<>();
+        expected.add("D-");
+        assertEquals(expected, NumericalLetterGrade.numericalLetterGrade(grades));
+    }
+    @Test
+    public void test_C_grade_boundary() {
+        List<Number> grades = new ArrayList<>();
+        grades.add(new Double(1.7));
+        List<String> expected_result = new ArrayList<>();
+        expected_result.add("C-");
+        assertEquals(expected_result, NumericalLetterGrade.numericalLetterGrade(grades));
+    }
+                                    
+}

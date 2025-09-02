@@ -1,5 +1,6 @@
 package original;
 
+import java.util.Arrays;
 import java.util.ArrayList;
 
 import java.util.List;
@@ -25,4 +26,22 @@ class DerivativeTest {
         expected.add(20);
         assertEquals(expected, Derivative.derivative(xs));
     }
+    
+    @Test
+        public void testNothing(){
+            Derivative s = new Derivative();
+            }
+    @Test
+    public void testEdgeCaseWithEmptyList() {
+        List<Integer> input = new ArrayList<>();
+        List<Object> expected = new ArrayList<>();
+        assertEquals(expected, Derivative.derivative(input));
+    }
+    @Test
+    public void testDerivativeOfSimplePolynomial() {
+        List<Integer> input = Arrays.asList(1, 2, 3);
+        List<Object> expected = Arrays.asList(2, 6);
+        assertEquals(expected, Derivative.derivative(input));
+    }
+                                    
 }

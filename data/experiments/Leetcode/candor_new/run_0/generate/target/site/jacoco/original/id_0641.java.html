@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_0641.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">leetcode</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_0641.java</span></div><h1>id_0641.java</h1><pre class="source lang-java linenums">package original;
+
+import java.util.Deque;
+import java.util.Set;
+class MyCircularDeque {
+    private int[] q;
+    private int front;
+    private int size;
+    private int capacity;
+
+    /** Initialize your data structure here. Set the size of the deque to be k. */
+<span class="nc" id="L12">    public MyCircularDeque(int k) {</span>
+<span class="nc" id="L13">        q = new int[k];</span>
+<span class="nc" id="L14">        capacity = k;</span>
+<span class="nc" id="L15">    }</span>
+
+    /** Adds an item at the front of Deque. Return true if the operation is successful. */
+    public boolean insertFront(int value) {
+  /**
+  Design your implementation of the circular double-ended queue (deque). Implement the MyCircularDeque class: MyCircularDeque(int k) Initializes the deque with a maximum size of k. boolean insertFront() Adds an item at the front of Deque. Returns true if the operation is successful, or false otherwise. boolean insertLast() Adds an item at the rear of Deque. Returns true if the operation is successful, or false otherwise. boolean deleteFront() Deletes an item from the front of Deque. Returns true if the operation is successful, or false otherwise. boolean deleteLast() Deletes an item from the rear of Deque. Returns true if the operation is successful, or false otherwise. int getFront() Returns the front item from the Deque. Returns -1 if the deque is empty. int getRear() Returns the last item from Deque. Returns -1 if the deque is empty. boolean isEmpty() Returns true if the deque is empty, or false otherwise. boolean isFull() Returns true if the deque is full, or false otherwise. &amp;nbsp; Example 1: Input [&amp;quot;MyCircularDeque&amp;quot;, &amp;quot;insertLast&amp;quot;, &amp;quot;insertLast&amp;quot;, &amp;quot;insertFront&amp;quot;, &amp;quot;insertFront&amp;quot;, &amp;quot;getRear&amp;quot;, &amp;quot;isFull&amp;quot;, &amp;quot;deleteLast&amp;quot;, &amp;quot;insertFront&amp;quot;, &amp;quot;getFront&amp;quot;] [[3], [1], [2], [3], [4], [], [], [], [4], []] Output [null, true, true, true, false, 2, true, true, true, 4] Explanation MyCircularDeque myCircularDeque = new MyCircularDeque(3); myCircularDeque.insertLast(1); // return True myCircularDeque.insertLast(2); // return True myCircularDeque.insertFront(3); // return True myCircularDeque.insertFront(4); // return False, the queue is full. myCircularDeque.getRear(); // return 2 myCircularDeque.isFull(); // return True myCircularDeque.deleteLast(); // return True myCircularDeque.insertFront(4); // return True myCircularDeque.getFront(); // return 4 &amp;nbsp; Constraints: 1 &amp;lt;= k &amp;lt;= 1000 0 &amp;lt;= value &amp;lt;= 1000 At most 2000 calls will be made to insertFront, insertLast, deleteFront, deleteLast, getFront, getRear, isEmpty, isFull.
+  */
+<span class="nc bnc" id="L22" title="All 2 branches missed.">        if (isFull()) {</span>
+<span class="nc" id="L23">            return false;</span>
+        }
+<span class="nc bnc" id="L25" title="All 2 branches missed.">        if (!isEmpty()) {</span>
+<span class="nc" id="L26">            front = (front - 1 + capacity) % capacity;</span>
+        }
+<span class="nc" id="L28">        q[front] = value;</span>
+<span class="nc" id="L29">        ++size;</span>
+<span class="nc" id="L30">        return true;</span>
+    }
+
+    /** Adds an item at the rear of Deque. Return true if the operation is successful. */
+    public boolean insertLast(int value) {
+<span class="nc bnc" id="L35" title="All 2 branches missed.">        if (isFull()) {</span>
+<span class="nc" id="L36">            return false;</span>
+        }
+<span class="nc" id="L38">        int idx = (front + size) % capacity;</span>
+<span class="nc" id="L39">        q[idx] = value;</span>
+<span class="nc" id="L40">        ++size;</span>
+<span class="nc" id="L41">        return true;</span>
+    }
+
+    /** Deletes an item from the front of Deque. Return true if the operation is successful. */
+    public boolean deleteFront() {
+<span class="nc bnc" id="L46" title="All 2 branches missed.">        if (isEmpty()) {</span>
+<span class="nc" id="L47">            return false;</span>
+        }
+<span class="nc" id="L49">        front = (front + 1) % capacity;</span>
+<span class="nc" id="L50">        --size;</span>
+<span class="nc" id="L51">        return true;</span>
+    }
+
+    /** Deletes an item from the rear of Deque. Return true if the operation is successful. */
+    public boolean deleteLast() {
+<span class="nc bnc" id="L56" title="All 2 branches missed.">        if (isEmpty()) {</span>
+<span class="nc" id="L57">            return false;</span>
+        }
+<span class="nc" id="L59">        --size;</span>
+<span class="nc" id="L60">        return true;</span>
+    }
+
+    /** Get the front item from the deque. */
+    public int getFront() {
+<span class="nc bnc" id="L65" title="All 2 branches missed.">        if (isEmpty()) {</span>
+<span class="nc" id="L66">            return -1;</span>
+        }
+<span class="nc" id="L68">        return q[front];</span>
+    }
+
+    /** Get the last item from the deque. */
+    public int getRear() {
+<span class="nc bnc" id="L73" title="All 2 branches missed.">        if (isEmpty()) {</span>
+<span class="nc" id="L74">            return -1;</span>
+        }
+<span class="nc" id="L76">        int idx = (front + size - 1) % capacity;</span>
+<span class="nc" id="L77">        return q[idx];</span>
+    }
+
+    /** Checks whether the circular deque is empty or not. */
+    public boolean isEmpty() {
+<span class="nc bnc" id="L82" title="All 2 branches missed.">        return size == 0;</span>
+    }
+
+    /** Checks whether the circular deque is full or not. */
+    public boolean isFull() {
+<span class="nc bnc" id="L87" title="All 2 branches missed.">        return size == capacity;</span>
+    }
+}
+
+/**
+ * Your MyCircularDeque object will be instantiated and called as such:
+ * MyCircularDeque obj = new MyCircularDeque(k);
+ * boolean param_1 = obj.insertFront(value);
+ * boolean param_2 = obj.insertLast(value);
+ * boolean param_3 = obj.deleteFront();
+ * boolean param_4 = obj.deleteLast();
+ * int param_5 = obj.getFront();
+ * int param_6 = obj.getRear();
+ * boolean param_7 = obj.isEmpty();
+ * boolean param_8 = obj.isFull();
+ */
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

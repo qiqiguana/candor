@@ -1,0 +1,99 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Solution0942 {
+
+  // compiled from: id_0942.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 3 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Solution0942; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public diStringMatch(Ljava/lang/String;)[I
+   L0
+    LINENUMBER 5 L0
+    ALOAD 1
+    INVOKEVIRTUAL java/lang/String.length ()I
+    ISTORE 2
+   L1
+    LINENUMBER 6 L1
+    ICONST_0
+    ISTORE 3
+   L2
+    ILOAD 2
+    ISTORE 4
+   L3
+    LINENUMBER 7 L3
+    ILOAD 2
+    ICONST_1
+    IADD
+    NEWARRAY T_INT
+    ASTORE 5
+   L4
+    LINENUMBER 8 L4
+    ICONST_0
+    ISTORE 6
+   L5
+   FRAME FULL [original/Solution0942 java/lang/String I I I [I I] []
+    ILOAD 6
+    ILOAD 2
+    IF_ICMPGT L6
+   L7
+    LINENUMBER 9 L7
+    ALOAD 1
+    ILOAD 6
+    INVOKEVIRTUAL java/lang/String.charAt (I)C
+    BIPUSH 73
+    IF_ICMPNE L8
+   L9
+    LINENUMBER 10 L9
+    ALOAD 5
+    ILOAD 6
+    ILOAD 3
+    IINC 3 1
+    IASTORE
+    GOTO L10
+   L8
+    LINENUMBER 12 L8
+   FRAME FULL [original/Solution0942 java/lang/String I I I [I I] []
+    ALOAD 5
+    ILOAD 6
+    ILOAD 4
+    IINC 4 -1
+    IASTORE
+   L10
+    LINENUMBER 8 L10
+   FRAME FULL [original/Solution0942 java/lang/String I I I [I I] []
+    IINC 6 1
+    GOTO L5
+   L6
+    LINENUMBER 15 L6
+   FRAME FULL [original/Solution0942 java/lang/String I I I [I I] []
+    ALOAD 5
+    ILOAD 2
+    ILOAD 3
+    IASTORE
+   L11
+    LINENUMBER 16 L11
+    ALOAD 5
+    ARETURN
+   L12
+    LOCALVARIABLE i I L5 L6 6
+    LOCALVARIABLE this Loriginal/Solution0942; L0 L12 0
+    LOCALVARIABLE s Ljava/lang/String; L0 L12 1
+    LOCALVARIABLE n I L1 L12 2
+    LOCALVARIABLE low I L2 L12 3
+    LOCALVARIABLE high I L3 L12 4
+    LOCALVARIABLE ans [I L4 L12 5
+    MAXSTACK = 3
+    MAXLOCALS = 7
+}
+

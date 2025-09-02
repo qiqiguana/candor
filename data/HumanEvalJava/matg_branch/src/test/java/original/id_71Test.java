@@ -45,5 +45,261 @@ class TriangleArea1Test {
     	Number result = TriangleArea1.triangleArea(1000000, 2000000, 3000000);
     	assertEquals(-1, result.intValue(), 0.01);
     }
+    @Test
+    public void Positive_Test_Valid_Triangle() {
+        assertEquals(6.00, (double)TriangleArea1.triangleArea(3, 4, 5), 0.01);
+    }
+    @Test
+    public void Edge_Case_Test_Equilateral_Triangle() {
+        assertEquals(1.73, (double)TriangleArea1.triangleArea(2, 2, 2), 0.01);
+    }
+    @Test
+    public void Positive_Test_Isosceles_Triangle() {
+        assertEquals(8.18, (double)TriangleArea1.triangleArea(4, 8, 5), 0.01);
+    }
+    @Test
+    public void triangleArea_ValidInput_Test1() {
+        int a = 3;
+        int b = 4;
+        int c = 5;
+        Number expected = 6.00;
+        Number actual = TriangleArea1.triangleArea(a, b, c);
+        assertEquals(expected, actual);
+    }
+    @Test
+    public void Negative_Test_Two_Sides_Equal_to_Third_Side_Fixed() {
+        assertEquals(-1, (int)TriangleArea1.triangleArea(2, 6, 8));
+    }
+    @Test
+    public void Edge_Case_Test_All_Sides_Equal_to_1() {
+        assertEquals(0.43, (double)TriangleArea1.triangleArea(1, 1, 1), 0.01);
+    }
+    @Test
+    public void Positive_Test_Valid_Triangle2() {
+        assertEquals(30.00, (double) TriangleArea1.triangleArea(5, 12, 13), 0.01);
+    }
+    @Test
+    public void Negative_Test_Invalid_Triangle_sum_of_two_sides_equals_third_side() {
+    	int a = 3;
+    	int b = 4;
+    	int c = 7;
+    	Number result = TriangleArea1.triangleArea(a, b, c);
+    	assertEquals(-1, result.intValue());
+    }
+    @Test
+    public void Negative_Test_Invalid_Triangle_sum_of_two_sides_less_than_third_side() {
+    	int a = 1;
+    	int b = 2;
+    	int c = 10;
+    	Number result = TriangleArea1.triangleArea(a, b, c);
+    	assertEquals(-1, result.intValue());
+    }
+    @Test
+    public void Edge_Case_Test_Equilateral_Triangle2() {
+    	int a = 1;
+    	int b = 1;
+    	int c = 1;
+    	Number result = TriangleArea1.triangleArea(a, b, c);
+    	assertEquals(0.43, result.doubleValue(), 0.01);
+    }
+    @Test
+    public void positiveTestValidTriangle1() {
+    	int a = 3;
+    	int b = 4;
+    	int c = 5;
+    	Number result = TriangleArea1.triangleArea(a, b, c);
+    	assertEquals(6.0, result.doubleValue(), 0.01);
+    }
+    @Test
+    public void PositiveTest_HappyPath_TriangleArea1() {
+        assertEquals(6.00, TriangleArea1.triangleArea(3, 4, 5));
+    }
+    @Test
+    public void NegativeTest_SadPath_TriangleArea2() {
+        assertEquals(-1, TriangleArea1.triangleArea(1, 2, 10));
+    }
+    @Test
+    public void EdgeCaseTest_BoundaryConditions_TriangleArea3() {
+        assertEquals(30.00, TriangleArea1.triangleArea(5, 12, 13));
+    }
+    @Test
+    public void PositiveTest_HappyPath_TriangleArea4() {
+        assertEquals(16.25, TriangleArea1.triangleArea(10, 5, 7));
+    }
+    @Test
+    public void NegativeTest_SadPath_TriangleArea5() {
+        assertEquals(-1, TriangleArea1.triangleArea(2, 2, 10));
+    }
+    @Test
+    public void EdgeCaseTest_CornerCondition_TriangleArea6() {
+        assertEquals(-1, TriangleArea1.triangleArea(0, 0, 5));
+    }
+    @Test
+    public void EdgeCaseTest_SingleSideLengthZero_TriangleArea7() {
+        assertEquals(-1, TriangleArea1.triangleArea(0, 5, 10));
+    }
+    @Test
+    public void EdgeCaseTest_NegativeInputValues_TriangleArea8() {
+        assertEquals(-1, TriangleArea1.triangleArea(-5, -10, 15));
+    }
+    @Test
+    public void testTriangleArea_ValidTriangle() {
+        Number result = TriangleArea1.triangleArea(3, 4, 5);
+        assertEquals(6.0, result.doubleValue(), 0.01);
+    }
+    @Test
+    public void testTriangleArea_InvalidTriangle() {
+        Number result = TriangleArea1.triangleArea(1, 2, 10);
+        assertEquals(-1, result.intValue());
+    }
+    @Test
+    public void testTriangleArea_EqualSides() {
+        Number result = TriangleArea1.triangleArea(2, 2, 2);
+        assertEquals(1.73, result.doubleValue(), 0.01);
+    }
+    @Test
+    public void testTriangleArea_ZeroSides() {
+        Number result = TriangleArea1.triangleArea(0, 0, 0);
+        assertEquals(-1, result.intValue());
+    }
+    @Test
+    public void testTriangleArea_NegativeNumbers() {
+        Number result = TriangleArea1.triangleArea(-1, -2, -3);
+        assertEquals(-1, result.intValue());
+    }
+    @Test
+    public void testTriangleArea_LargeNumbers_2() {
+        Number result = TriangleArea1.triangleArea(20, 30, 10);
+        assertEquals(-1, result.intValue());
+    }
+    @Test
+    public void triangleAreaValidSidesTest1() {
+        Number result = TriangleArea1.triangleArea(3, 4, 5);
+        assertEquals(6.00, result.doubleValue(), 0.01);
+    }
+    @Test public void testMyMethod1() { String a = "hello"; assertThrows(NumberFormatException.class, () -> TriangleArea1.triangleArea(1, Integer.parseInt(a), 3)); }
+    @Test
+    public void triangleArea_ValidInput_1() {
+        Number result = TriangleArea1.triangleArea(3, 4, 5);
+        assertEquals(6.0, result.doubleValue(), 0.01);
+    }
+    @Test
+    public void triangleAreaTest1() {
+        Number result = TriangleArea1.triangleArea(3, 4, 5);
+        assertEquals(6.00, result.doubleValue(), 0.01);
+    }
+    @Test
+    public void triangleAreaValidSidesTest2() {
+        Number actual = TriangleArea1.triangleArea(3, 4, 5);
+        double expected = 6.00;
+        assertEquals(expected, actual.doubleValue(), 0.01);
+    }
+    @Test
+    public void testValidTriangle1() {
+        Number result = TriangleArea1.triangleArea(3, 4, 5);
+        assertEquals(6.00, result.doubleValue(), 0.001);
+    }
+    @Test
+    public void testInvalidTriangleFixed() {
+        Number result = TriangleArea1.triangleArea(1, 2, 10);
+        assertEquals(-1.0, result.doubleValue(), 0);
+    }
+    @Test
+    public void testEquilateralTriangle() {
+    	Number result = TriangleArea1.triangleArea(2, 2, 2);
+    	assertEquals(1.73, result.doubleValue(), 0.01);
+    }
+    @Test
+    public void testRightAngledTriangle() {
+    	Number result = TriangleArea1.triangleArea(3, 4, 5);
+    	assertEquals(6.0, result.doubleValue(), 0.01);
+    }
+    @Test
+    public void testIsoscelesTriangle() {
+    	Number result = TriangleArea1.triangleArea(4, 8, 5);
+    	assertEquals(8.18, result.doubleValue(), 0.01);
+    }
+    @Test
+    public void testInvalidSideLengths() {
+    	Number result = TriangleArea1.triangleArea(1, 2, 3);
+    	assertEquals(-1, result.intValue());
+    }
+    @Test
+    public void testTriangleArea_ValidTriangle_Delta() {
+        assertEquals(6.0, (double) TriangleArea1.triangleArea(3, 4, 5), 0.01);
+    }
+    @Test
+    public void testTriangleArea_InvalidTriangle_Fixed() {
+        Object result = TriangleArea1.triangleArea(1, 2, 10);
+        assertTrue(result instanceof Integer && (int)result == -1);
+    }
+    @Test
+    public void testTriangleArea_EqualSides_1() {
+        assertEquals(1.73, (double) TriangleArea1.triangleArea(2, 2, 2), 0.1);
+    }
+    @Test
+    public void testTriangleArea_ValidTriangleWithDecimals() {
+        assertEquals(6.0, (double) TriangleArea1.triangleArea(3, 4, 5), 0.01);
+    }
+    @Test
+    public void testTriangleArea_InvalidTriangle_Fixed_2() {
+        Number result = TriangleArea1.triangleArea(1, 2, 10);
+        assertEquals(-1, result.intValue(), "triangleArea(1, 2, 10) should return -1");
+    }
+    @Test
+    public void testTriangleArea_EquilateralTriangle() {
+    	Number result = TriangleArea1.triangleArea(2, 2, 2);
+    	assertEquals(1.73, result.doubleValue(), 0.01);
+    }
+    @Test
+    public void testTriangleArea_IsoscelesTriangle() {
+    	Number result = TriangleArea1.triangleArea(4, 8, 5);
+    	assertEquals(8.18, result.doubleValue(), 0.01);
+    }
+    @Test
+    public void testTriangleArea_RightTriangle() {
+    	Number result = TriangleArea1.triangleArea(3, 4, 5);
+    	assertEquals(6.0, result.doubleValue(), 0.01);
+    }
+    @Test
+    public void testTriangleArea_NegativeSideLength() {
+    	Number result = TriangleArea1.triangleArea(-3, 4, 5);
+    	assertEquals(-1, result);
+    }
+    @Test
+    public void testTriangleArea_ZeroSideLength_Fixed() {
+        Number result = TriangleArea1.triangleArea(0, 4, 5);
+        assertEquals(-1.0, result.doubleValue(), 0.01);
+    }
+    @Test
+    public void testTriangleAreaWithInvalidSides() {
+        Number result = TriangleArea1.triangleArea(1, 2, 10);
+        assertEquals(-1, result.intValue());
+    }
+    @Test
+    public void testTriangleAreaWithEqualSides() {
+        Number result = TriangleArea1.triangleArea(4, 4, 4);
+        assertEquals(6.928203230275508, result.doubleValue(), 0.01);
+    }
+    @Test
+    public void testTriangleAreaWithSmallValues1() {
+        Number result = TriangleArea1.triangleArea(3, 4, 5);
+        assertEquals(6.00, result.doubleValue(), 0.01);
+    }
+    @Test
+    public void testTriangleArea_BoundaryCondition() {
+    	Number result = TriangleArea1.triangleArea(1, 1, 1);
+    	assertEquals(0.43, result.doubleValue(), 0.01);
+    }
+    @Test
+    public void testTriangleArea_ValidTriangle_DifferentOrder() {
+    	Number result = TriangleArea1.triangleArea(5, 3, 4);
+    	assertEquals(6.0, result.doubleValue(), 0.01);
+    }
+    @Test
+    public void testTriangleArea_InvalidTriangle_DifferentOrder() {
+    	Number result = TriangleArea1.triangleArea(10, 2, 1);
+    	assertEquals(-1.0, result.doubleValue(), 0.01);
+    }
                                     
 }

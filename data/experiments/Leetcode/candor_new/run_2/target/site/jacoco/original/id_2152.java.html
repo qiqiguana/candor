@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_2152.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">leetcode</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_2152.java</span></div><h1>id_2152.java</h1><pre class="source lang-java linenums">package original;
+
+<span class="nc" id="L3">class Solution2152 {</span>
+    private int[] f;
+    private int[][] points;
+    private int n;
+
+    public int minimumLines(int[][] points) {
+<span class="nc" id="L9">        n = points.length;</span>
+<span class="nc" id="L10">        this.points = points;</span>
+<span class="nc" id="L11">        f = new int[1 &lt;&lt; n];</span>
+<span class="nc" id="L12">        return dfs(0);</span>
+    }
+
+    private int dfs(int state) {
+<span class="nc bnc" id="L16" title="All 2 branches missed.">        if (state == (1 &lt;&lt; n) - 1) {</span>
+<span class="nc" id="L17">            return 0;</span>
+        }
+<span class="nc bnc" id="L19" title="All 2 branches missed.">        if (f[state] != 0) {</span>
+<span class="nc" id="L20">            return f[state];</span>
+        }
+<span class="nc" id="L22">        int ans = 1 &lt;&lt; 30;</span>
+<span class="nc bnc" id="L23" title="All 2 branches missed.">        for (int i = 0; i &lt; n; ++i) {</span>
+<span class="nc bnc" id="L24" title="All 2 branches missed.">            if (((state &gt;&gt; i) &amp; 1) == 0) {</span>
+<span class="nc bnc" id="L25" title="All 2 branches missed.">                for (int j = i + 1; j &lt; n; ++j) {</span>
+<span class="nc" id="L26">                    int nxt = state | 1 &lt;&lt; i | 1 &lt;&lt; j;</span>
+<span class="nc bnc" id="L27" title="All 2 branches missed.">                    for (int k = j + 1; k &lt; n; ++k) {</span>
+<span class="nc bnc" id="L28" title="All 4 branches missed.">                        if (((state &gt;&gt; k) &amp; 1) == 0 &amp;&amp; check(i, j, k)) {</span>
+<span class="nc" id="L29">                            nxt |= 1 &lt;&lt; k;</span>
+                        }
+                    }
+<span class="nc" id="L32">                    ans = Math.min(ans, dfs(nxt) + 1);</span>
+                }
+<span class="nc bnc" id="L34" title="All 2 branches missed.">                if (i == n - 1) {</span>
+<span class="nc" id="L35">                    ans = Math.min(ans, dfs(state | 1 &lt;&lt; i) + 1);</span>
+                }
+            }
+        }
+<span class="nc" id="L39">        return f[state] = ans;</span>
+    }
+
+    private boolean check(int i, int j, int k) {
+<span class="nc" id="L43">        int x1 = points[i][0], y1 = points[i][1];</span>
+<span class="nc" id="L44">        int x2 = points[j][0], y2 = points[j][1];</span>
+<span class="nc" id="L45">        int x3 = points[k][0], y3 = points[k][1];</span>
+<span class="nc bnc" id="L46" title="All 2 branches missed.">        return (x2 - x1) * (y3 - y1) == (x3 - x1) * (y2 - y1);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

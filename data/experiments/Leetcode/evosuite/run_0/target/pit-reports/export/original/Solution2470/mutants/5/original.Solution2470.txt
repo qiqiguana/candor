@@ -1,0 +1,154 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Solution2470 {
+
+  // compiled from: id_2470.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 3 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Solution2470; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public subarrayLCM([II)I
+   L0
+    LINENUMBER 5 L0
+    ALOAD 1
+    ARRAYLENGTH
+    ISTORE 3
+   L1
+    LINENUMBER 6 L1
+    ICONST_0
+    ISTORE 4
+   L2
+    LINENUMBER 7 L2
+    ICONST_0
+    ISTORE 5
+   L3
+   FRAME FULL [original/Solution2470 [I I I I I] []
+    ILOAD 5
+    ILOAD 3
+    IF_ICMPGE L4
+   L5
+    LINENUMBER 8 L5
+    ALOAD 1
+    ILOAD 5
+    IALOAD
+    ISTORE 6
+   L6
+    LINENUMBER 9 L6
+    ILOAD 5
+    ISTORE 7
+   L7
+   FRAME FULL [original/Solution2470 [I I I I I I I] []
+    ILOAD 7
+    ILOAD 3
+    IF_ICMPGE L8
+   L9
+    LINENUMBER 10 L9
+    ALOAD 1
+    ILOAD 7
+    IALOAD
+    ISTORE 8
+   L10
+    LINENUMBER 11 L10
+    ALOAD 0
+    ILOAD 6
+    ILOAD 8
+    INVOKEVIRTUAL original/Solution2470.lcm (II)I
+    ISTORE 9
+   L11
+    LINENUMBER 12 L11
+    ILOAD 9
+    ILOAD 2
+    IF_ICMPNE L12
+   L13
+    LINENUMBER 13 L13
+    IINC 4 -1
+   L12
+    LINENUMBER 15 L12
+   FRAME FULL [original/Solution2470 [I I I I I I I I I] []
+    ILOAD 9
+    ISTORE 6
+   L14
+    LINENUMBER 9 L14
+    IINC 7 1
+    GOTO L7
+   L8
+    LINENUMBER 7 L8
+   FRAME FULL [original/Solution2470 [I I I I I I I] []
+    IINC 5 1
+    GOTO L3
+   L4
+    LINENUMBER 18 L4
+   FRAME FULL [original/Solution2470 [I I I I I] []
+    ILOAD 4
+    IRETURN
+   L15
+    LOCALVARIABLE b I L10 L14 8
+    LOCALVARIABLE x I L11 L14 9
+    LOCALVARIABLE j I L7 L8 7
+    LOCALVARIABLE a I L6 L8 6
+    LOCALVARIABLE i I L3 L4 5
+    LOCALVARIABLE this Loriginal/Solution2470; L0 L15 0
+    LOCALVARIABLE nums [I L0 L15 1
+    LOCALVARIABLE k I L0 L15 2
+    LOCALVARIABLE n I L1 L15 3
+    LOCALVARIABLE ans I L2 L15 4
+    MAXSTACK = 3
+    MAXLOCALS = 10
+
+  // access flags 0x2
+  private lcm(II)I
+   L0
+    LINENUMBER 22 L0
+    ILOAD 1
+    ILOAD 2
+    IMUL
+    ALOAD 0
+    ILOAD 1
+    ILOAD 2
+    INVOKEVIRTUAL original/Solution2470.gcd (II)I
+    IDIV
+    IRETURN
+   L1
+    LOCALVARIABLE this Loriginal/Solution2470; L0 L1 0
+    LOCALVARIABLE a I L0 L1 1
+    LOCALVARIABLE b I L0 L1 2
+    MAXSTACK = 4
+    MAXLOCALS = 3
+
+  // access flags 0x2
+  private gcd(II)I
+   L0
+    LINENUMBER 26 L0
+    ILOAD 2
+    IFNE L1
+    ILOAD 1
+    GOTO L2
+   L1
+   FRAME FULL [original/Solution2470 I I] []
+    ALOAD 0
+    ILOAD 2
+    ILOAD 1
+    ILOAD 2
+    IREM
+    INVOKEVIRTUAL original/Solution2470.gcd (II)I
+   L2
+   FRAME FULL [original/Solution2470 I I] [I]
+    IRETURN
+   L3
+    LOCALVARIABLE this Loriginal/Solution2470; L0 L3 0
+    LOCALVARIABLE a I L0 L3 1
+    LOCALVARIABLE b I L0 L3 2
+    MAXSTACK = 4
+    MAXLOCALS = 3
+}
+

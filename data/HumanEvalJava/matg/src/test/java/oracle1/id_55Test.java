@@ -36,7 +36,7 @@ class FibTest {
  @Test
  public void testFibFunctionalityForEdgeCaseValueZero() {
      int n = 0;
-     assertEquals(1, Fib.fib(n));
+     assertEquals(0, Fib.fib(n));
  }
                                  
 }

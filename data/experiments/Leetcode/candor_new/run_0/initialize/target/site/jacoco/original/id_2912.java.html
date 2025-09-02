@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_2912.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">leetcode</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_2912.java</span></div><h1>id_2912.java</h1><pre class="source lang-java linenums">package original;
+
+<span class="fc" id="L3">class Solution2912 {</span>
+    public int numberOfWays(int n, int m, int k, int[] source, int[] dest) {
+  /**
+  You are given two integers n and m which represent the size of a 1-indexed grid. You are also given an integer k, a 1-indexed integer array source and a 1-indexed integer array dest, where source and dest are in the form [x, y] representing a cell on the given grid. You can move through the grid in the following way: You can go from cell [x1, y1] to cell [x2, y2] if either x1 == x2 or y1 == y2. Note that you can&amp;#39;t move to the cell you are already in e.g. x1 == x2 and y1 == y2. Return the number of ways you can reach dest from source by moving through the grid exactly k times. Since the answer may be very large, return it modulo 109 + 7. &amp;nbsp; Example 1: Input: n = 3, m = 2, k = 2, source = [1,1], dest = [2,2] Output: 2 Explanation: There are 2 possible sequences of reaching [2,2] from [1,1]: - [1,1] -&amp;gt; [1,2] -&amp;gt; [2,2] - [1,1] -&amp;gt; [2,1] -&amp;gt; [2,2] Example 2: Input: n = 3, m = 4, k = 3, source = [1,2], dest = [2,3] Output: 9 Explanation: There are 9 possible sequences of reaching [2,3] from [1,2]: - [1,2] -&amp;gt; [1,1] -&amp;gt; [1,3] -&amp;gt; [2,3] - [1,2] -&amp;gt; [1,1] -&amp;gt; [2,1] -&amp;gt; [2,3] - [1,2] -&amp;gt; [1,3] -&amp;gt; [3,3] -&amp;gt; [2,3] - [1,2] -&amp;gt; [1,4] -&amp;gt; [1,3] -&amp;gt; [2,3] - [1,2] -&amp;gt; [1,4] -&amp;gt; [2,4] -&amp;gt; [2,3] - [1,2] -&amp;gt; [2,2] -&amp;gt; [2,1] -&amp;gt; [2,3] - [1,2] -&amp;gt; [2,2] -&amp;gt; [2,4] -&amp;gt; [2,3] - [1,2] -&amp;gt; [3,2] -&amp;gt; [2,2] -&amp;gt; [2,3] - [1,2] -&amp;gt; [3,2] -&amp;gt; [3,3] -&amp;gt; [2,3] &amp;nbsp; Constraints: 2 &amp;lt;= n, m &amp;lt;= 109 1 &amp;lt;= k&amp;nbsp;&amp;lt;= 105 source.length == dest.length == 2 1 &amp;lt;= source[1], dest[1] &amp;lt;= n 1 &amp;lt;= source[2], dest[2] &amp;lt;= m
+  */
+<span class="fc" id="L8">        final int mod = 1000000007;</span>
+<span class="fc" id="L9">        long[] f = new long[4];</span>
+<span class="fc" id="L10">        f[0] = 1;</span>
+<span class="fc bfc" id="L11" title="All 2 branches covered.">        while (k-- &gt; 0) {</span>
+<span class="fc" id="L12">            long[] g = new long[4];</span>
+<span class="fc" id="L13">            g[0] = ((n - 1) * f[1] + (m - 1) * f[2]) % mod;</span>
+<span class="fc" id="L14">            g[1] = (f[0] + (n - 2) * f[1] + (m - 1) * f[3]) % mod;</span>
+<span class="fc" id="L15">            g[2] = (f[0] + (m - 2) * f[2] + (n - 1) * f[3]) % mod;</span>
+<span class="fc" id="L16">            g[3] = (f[1] + f[2] + (n - 2) * f[3] + (m - 2) * f[3]) % mod;</span>
+<span class="fc" id="L17">            f = g;</span>
+<span class="fc" id="L18">        }</span>
+<span class="pc bpc" id="L19" title="1 of 2 branches missed.">        if (source[0] == dest[0]) {</span>
+<span class="pc bpc" id="L20" title="1 of 2 branches missed.">            return source[1] == dest[1] ? (int) f[0] : (int) f[2];</span>
+        }
+<span class="nc bnc" id="L22" title="All 2 branches missed.">        return source[1] == dest[1] ? (int) f[1] : (int) f[3];</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

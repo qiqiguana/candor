@@ -1,0 +1,100 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/MoveOneBall {
+
+  // compiled from: id_109.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 6 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/MoveOneBall; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  // signature (Ljava/util/List<Ljava/lang/Object;>;)Ljava/lang/Boolean;
+  // declaration: java.lang.Boolean moveOneBall(java.util.List<java.lang.Object>)
+  public static moveOneBall(Ljava/util/List;)Ljava/lang/Boolean;
+   L0
+    LINENUMBER 46 L0
+    ALOAD 0
+    INVOKEINTERFACE java/util/List.size ()I (itf)
+    IFNE L1
+   L2
+    LINENUMBER 47 L2
+    ICONST_1
+    INVOKESTATIC java/lang/Boolean.valueOf (Z)Ljava/lang/Boolean;
+    ARETURN
+   L1
+    LINENUMBER 49 L1
+   FRAME FULL [java/util/List] []
+    ICONST_0
+    ISTORE 1
+   L3
+    LINENUMBER 50 L3
+    ICONST_0
+    ISTORE 2
+   L4
+   FRAME FULL [java/util/List I I] []
+    ILOAD 2
+    ALOAD 0
+    INVOKEINTERFACE java/util/List.size ()I (itf)
+    IF_ICMPGE L5
+   L6
+    LINENUMBER 51 L6
+    ALOAD 0
+    ILOAD 2
+    INVOKEINTERFACE java/util/List.get (I)Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/Integer
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    ALOAD 0
+    ILOAD 2
+    ICONST_1
+    ISUB
+    ALOAD 0
+    INVOKEINTERFACE java/util/List.size ()I (itf)
+    IREM
+    INVOKEINTERFACE java/util/List.get (I)Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/Integer
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    IF_ICMPLE L7
+   L8
+    LINENUMBER 52 L8
+    IINC 1 1
+   L7
+    LINENUMBER 50 L7
+   FRAME FULL [java/util/List I I] []
+    IINC 2 1
+    GOTO L4
+   L5
+    LINENUMBER 55 L5
+   FRAME FULL [java/util/List I I] []
+    ILOAD 1
+    ICONST_1
+    IF_ICMPGT L9
+   L10
+    LINENUMBER 56 L10
+    ICONST_1
+    INVOKESTATIC java/lang/Boolean.valueOf (Z)Ljava/lang/Boolean;
+    ARETURN
+   L9
+    LINENUMBER 58 L9
+   FRAME FULL [java/util/List I I] []
+    ICONST_0
+    INVOKESTATIC java/lang/Boolean.valueOf (Z)Ljava/lang/Boolean;
+    ARETURN
+   L11
+    LOCALVARIABLE i I L4 L5 2
+    LOCALVARIABLE arr Ljava/util/List; L0 L11 0
+    // signature Ljava/util/List<Ljava/lang/Object;>;
+    // declaration: arr extends java.util.List<java.lang.Object>
+    LOCALVARIABLE count I L3 L11 1
+    MAXSTACK = 4
+    MAXLOCALS = 3
+}
+

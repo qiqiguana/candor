@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_0593.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">leetcode</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_0593.java</span></div><h1>id_0593.java</h1><pre class="source lang-java linenums">package original;
+
+<span class="fc" id="L3">class Solution0593 {</span>
+    public boolean validSquare(int[] p1, int[] p2, int[] p3, int[] p4) {
+  /**
+  Given the coordinates of four points in 2D space p1, p2, p3 and p4, return true if the four points construct a square. The coordinate of a point pi is represented as [xi, yi]. The input is not given in any order. A valid square has four equal sides with positive length and four equal angles (90-degree angles). &amp;nbsp; Example 1: Input: p1 = [0,0], p2 = [1,1], p3 = [1,0], p4 = [0,1] Output: true Example 2: Input: p1 = [0,0], p2 = [1,1], p3 = [1,0], p4 = [0,12] Output: false Example 3: Input: p1 = [1,0], p2 = [-1,0], p3 = [0,1], p4 = [0,-1] Output: true &amp;nbsp; Constraints: p1.length == p2.length == p3.length == p4.length == 2 -104 &amp;lt;= xi, yi &amp;lt;= 104
+  */
+<span class="pc bpc" id="L8" title="4 of 8 branches missed.">        return check(p1, p2, p3) &amp;&amp; check(p1, p3, p4) &amp;&amp; check(p1, p2, p4) &amp;&amp; check(p2, p3, p4);</span>
+    }
+
+    private boolean check(int[] a, int[] b, int[] c) {
+<span class="fc" id="L12">        int x1 = a[0], y1 = a[1];</span>
+<span class="fc" id="L13">        int x2 = b[0], y2 = b[1];</span>
+<span class="fc" id="L14">        int x3 = c[0], y3 = c[1];</span>
+<span class="fc" id="L15">        int d1 = (x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2);</span>
+<span class="fc" id="L16">        int d2 = (x1 - x3) * (x1 - x3) + (y1 - y3) * (y1 - y3);</span>
+<span class="fc" id="L17">        int d3 = (x2 - x3) * (x2 - x3) + (y2 - y3) * (y2 - y3);</span>
+<span class="pc bpc" id="L18" title="2 of 6 branches missed.">        if (d1 == d2 &amp;&amp; d1 + d2 == d3 &amp;&amp; d1 &gt; 0) {</span>
+<span class="fc" id="L19">            return true;</span>
+        }
+<span class="pc bpc" id="L21" title="2 of 6 branches missed.">        if (d1 == d3 &amp;&amp; d1 + d3 == d2 &amp;&amp; d1 &gt; 0) {</span>
+<span class="fc" id="L22">            return true;</span>
+        }
+<span class="pc bpc" id="L24" title="3 of 6 branches missed.">        if (d2 == d3 &amp;&amp; d2 + d3 == d1 &amp;&amp; d2 &gt; 0) {</span>
+<span class="fc" id="L25">            return true;</span>
+        }
+<span class="nc" id="L27">        return false;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

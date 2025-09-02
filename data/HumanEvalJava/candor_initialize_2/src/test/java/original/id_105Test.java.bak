@@ -1,0 +1,178 @@
+package original;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of ByLength.
+*/
+class ByLengthTest {
+    @Test
+    void testByLength_SimpleCase() {
+        List<Object> input = new ArrayList<>();
+        input.add(2);
+        input.add(1);
+        input.add(1);
+        input.add(4);
+        input.add(5);
+        input.add(8);
+        input.add(2);
+        input.add(3);
+        List<Object> expected = new ArrayList<>();
+        expected.add("Eight");
+        expected.add("Five");
+        expected.add("Four");
+        expected.add("Three");
+        expected.add("Two");
+        expected.add("Two");
+        expected.add("One");
+        expected.add("One");
+        assertEquals(expected, ByLength.byLength(input));
+    }
+    
+    @Test
+        public void testNothing(){
+            ByLength s = new ByLength();
+            }
+    @Test
+    public void testByLength_with_Six() {
+        List<Object> input = new ArrayList<>();
+        input.add(6);
+        List<Object> expected = new ArrayList<>();
+        expected.add("Six");
+        assertEquals(expected, ByLength.byLength(input));
+    }
+    @Test
+    public void testByLength_with_Seven() {
+        List<Object> input = new ArrayList<>();
+        input.add(7);
+        List<Object> expected = new ArrayList<>();
+        expected.add("Seven");
+        assertEquals(expected, ByLength.byLength(input));
+    }
+    @Test
+    public void testByLength_with_Nine() {
+        List<Object> input = new ArrayList<>();
+        input.add(9);
+        List<Object> expected = new ArrayList<>();
+        expected.add("Nine");
+        assertEquals(expected, ByLength.byLength(input));
+    }
+    @Test
+    public void testByLength_with_NonInteger_Values() {
+        List<Object> input = new ArrayList<>();
+        input.add(1.5);
+        input.add(2);
+        input.add('a');
+        input.add(null);
+        List<Object> expected = new ArrayList<>();
+        expected.add("Two");
+        assertEquals(expected, ByLength.byLength(input));
+    }
+    @Test
+    public void testByLength_with_Integer_Outside_Range() {
+        List<Object> input = new ArrayList<>();
+        input.add(0);
+        input.add(10);
+        input.add(-5);
+        List<Object> expected = new ArrayList<>();
+        assertEquals(expected, ByLength.byLength(input));
+    }
+    @Test
+    public void testByLengthWithNumbersOutsideRange() {
+        List<Object> input = new ArrayList<>();
+        input.add(10);
+        input.add(1);
+        input.add(-1);
+        input.add(5);
+        List<Object> expected = new ArrayList<>();
+        expected.add("Five");
+        expected.add("One");
+        assertEquals(expected, ByLength.byLength(input));
+    }
+    @Test
+    public void testByLengthWithDuplicateNumbers() {
+        List<Object> input = new ArrayList<>();
+        input.add(2);
+        input.add(2);
+        input.add(4);
+        input.add(5);
+        List<Object> expected = new ArrayList<>();
+        expected.add("Five");
+        expected.add("Four");
+        expected.add("Two");
+        expected.add("Two");
+        assertEquals(expected, ByLength.byLength(input));
+    }
+    @Test
+    public void testByLengthWithNumbersInsideAndOutsideRange() {
+        List<Object> input = new ArrayList<>();
+        input.add(1);
+        input.add(-1);
+        input.add(55);
+        input.add(3);
+        List<Object> expected = new ArrayList<>();
+        expected.add("Three");
+        expected.add("One");
+        assertEquals(expected, ByLength.byLength(input));
+    }
+    @Test
+    public void testByLength_One() {
+        List<Object> input = new ArrayList<>();
+        input.add(1);
+        List<Object> expected = new ArrayList<>();
+        expected.add("One");
+        assertEquals(expected, ByLength.byLength(input));
+    }
+    @Test
+    public void testByLength_Two() {
+        List<Object> input = new ArrayList<>();
+        input.add(2);
+        List<Object> expected = new ArrayList<>();
+        expected.add("Two");
+        assertEquals(expected, ByLength.byLength(input));
+    }
+    @Test
+    public void testByLength_Three() {
+        List<Object> input = new ArrayList<>();
+        input.add(3);
+        List<Object> expected = new ArrayList<>();
+        expected.add("Three");
+        assertEquals(expected, ByLength.byLength(input));
+    }
+    @Test
+    public void testByLength_Four() {
+        List<Object> input = new ArrayList<>();
+        input.add(4);
+        List<Object> expected = new ArrayList<>();
+        expected.add("Four");
+        assertEquals(expected, ByLength.byLength(input));
+    }
+    @Test
+    public void testByLength_Five() {
+        List<Object> input = new ArrayList<>();
+        input.add(5);
+        List<Object> expected = new ArrayList<>();
+        expected.add("Five");
+        assertEquals(expected, ByLength.byLength(input));
+    }
+    @Test
+    public void testByLength_Six() {
+        List<Object> input = new ArrayList<>();
+        input.add(6);
+        List<Object> expected = new ArrayList<>();
+        expected.add("Six");
+        assertEquals(expected, ByLength.byLength(input));
+    }
+    @Test
+    public void testByLength_Seven() {
+        List<Object> input = new ArrayList<>();
+        input.add(7);
+        List<Object> expected = new ArrayList<>();
+        expected.add("Seven");
+        assertEquals(expected, ByLength.byLength(input));
+    }
+                                    
+}

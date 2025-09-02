@@ -21,20 +21,21 @@ class TestCaseGenerator:
         self.data_path=config.data_path
         self.source_file_path=self.config.data_path/self.config.relative_source_file_path
         self.test_file_path=self.config.data_path/self.config.relative_test_file_path
-        
+       
         # set up analyzer
         self.analyzer=Analyzer(self.config)
         # analyse source code
         self.source_code=FileUtils.read_file(self.source_file_path)
         self.package_name,self.imports,self.class_name=extract_source_metadata(self.source_code)
         self.source_file_numbered=FileUtils.number_lines(self.source_code)
-        
+        self.config.test_command=self.config.test_command.replace("jacoco:report",f"-Dtest={self.class_name}Test jacoco:report") # test only one test file to save time
+         
         # set up coverage processor
         self.coverage_processor=CoverageProcessor("jacoco",str(self.config.coverage_report_path/"jacoco.xml"),self.data_path)
  
         # set up LLMs 
         self.llama70b=ChatOllama(model="llama3.1:70b",callbacks=[StreamingStdOutCallbackHandler()],num_predict=10000)            
-        self.deepseek=ChatOllama(model="deepseek:70b",callbacks=[StreamingStdOutCallbackHandler()],num_predict=10000)
+        self.deepseek=ChatOllama(model="deepseek-r1:70b",callbacks=[StreamingStdOutCallbackHandler()],num_predict=10000)
         
         """set up agents  -- planner, (requirement engineer,competitor, plan_fixer), tester, inspector, """
         max_parsing_attempts=5
@@ -42,6 +43,7 @@ class TestCaseGenerator:
         ## planner
         self.planner_parser=PydanticOutputParser(pydantic_object=TestPlan)
         self.planner= (self.llama70b | self.planner_parser).with_retry(stop_after_attempt=max_parsing_attempts)
+        # self.planner= (self.deepseek | self.planner_parser).with_retry(stop_after_attempt=max_parsing_attempts)
         self.planner_system_prompt=jinja_env.get_template("planner_system.jinja")
         self.planner_user_prompt=jinja_env.get_template("planner_user.jinja")
         ## tester
@@ -94,6 +96,12 @@ class TestCaseGenerator:
         Generate unit tests for a given source file. 
         """
         try:
+            subprocess.run(
+                self.config.test_command.split(),
+                capture_output=True,
+                text=True,
+                cwd=os.getcwd(),
+            )
             self.coverage_processor.parse_coverage_report()
             self.iteration=0
             self.line_coverage = self.coverage_processor.calculate_line_coverage_rate_for_file(self.config.relative_source_file_path)
@@ -102,14 +110,14 @@ class TestCaseGenerator:
             self._log2tensorboard()
             # improve coverage
             logger.info(f"Improving coverage for test file {self.test_file_path}")
-            while self.line_coverage<self.config.target_line_coverage and self.iteration<self.config.max_attempts:
+            while (self.line_coverage<self.config.target_line_coverage or self.branch_coverage<self.config.target_branch_coverage) and self.iteration<self.config.max_attempts+1:
                 self.iteration+=1
                 
                 try:
                     test_plan=self._generate_test_plan()
                     # test_plan=self._fix_plan(test_plan)
                     self._generate_test_with_plan(test_plan)
-                    self._check_coverage_increase()
+                    # self._check_coverage_increase()
                     self._log2tensorboard()
                 except Exception as e:
                     logger.error(f"Error generating test cases: {e}")
@@ -117,27 +125,29 @@ class TestCaseGenerator:
                 logger.info(f"Current line coverage: {self.line_coverage}\nCurrent branch coverage: {self.branch_coverage}")
         except Exception as e:
             logger.error(f"Error generating test cases: {e}")
-        finally:
-            self.writer.close()
-            logger.info(f"Final line coverage: {self.line_coverage}")
-            logger.info(f"Final branch coverage: {self.branch_coverage}")
-            logger.info(f"Test generation process completed. Check the test file at {self.test_file_path}")
-            logger.info(f"Tensorboard logs saved at {self.writer.log_dir}")
             subprocess.run(
                 self.config.test_command.split(),
                 capture_output=True,
                 text=True,
                 cwd=os.getcwd(),
             )
+        finally:
+            self.writer.close()
+            logger.info(f"Final line coverage: {self.line_coverage}")
+            logger.info(f"Final branch coverage: {self.branch_coverage}")
+            logger.info(f"Test generation process completed. Check the test file at {self.test_file_path}")
+            logger.info(f"Tensorboard logs saved at {self.writer.log_dir}")
+            
     def _generate_test_plan(self):
         """
         Generate a test plan using the planner agent.
         """
 
 
-        lines_to_cover=self.coverage_processor.file_lines_not_executed.get(self.config.relative_source_file_path,[])
-        lines_with_missing_branches=self.coverage_processor.file_lines_with_missing_branch.get(self.config.relative_source_file_path,[])
-        
+        lines_to_cover=self.coverage_processor.file_lines_not_executed.get(str(self.config.relative_source_file_path),[])
+        lines_with_missing_branches=self.coverage_processor.file_lines_with_missing_branch.get(str(self.config.relative_source_file_path),[])
+        print(f"Lines to cover: {lines_to_cover}")
+        print(f"Lines with missing branches: {lines_with_missing_branches}")
         test_code=FileUtils.read_file(self.test_file_path)
         
         # render prompts
@@ -183,17 +193,27 @@ class TestCaseGenerator:
         
         #### validate all test cases
         for new_test in new_tests:
-            self._validate_and_serialize_test_code(new_test)
-        if len(self.failed_tests)==0:
-                return
-
-        # fix the failed test cases
-        all_failed_tests=self.failed_tests.copy()
-        for failed_test in all_failed_tests:
+            
+            validation_result=self._validate_and_serialize_test_code(new_test)
+            if validation_result:
+                new_line_coverage,new_branch_coverage=self._check_coverage_increase()
+                if new_line_coverage>self.config.target_line_coverage and new_branch_coverage>self.config.target_line_coverage:
+                    logger.info(f"Target coverage reached: \n Line coverage: {new_line_coverage*100:.2f}%\n Branch coverage: {new_branch_coverage*100:.2f}%")
+                    self.writer.close()
+                    return
+                else:
+                    continue
+            failed_test=new_test
             attempt=0
             feedback=None
-            self.failed_tests=[]
             while attempt<self.config.max_attempts:
+                # print("not executed lines:")
+                # print(self.coverage_processor.file_lines_not_executed)
+                # print("executed lines:")
+                # print(self.coverage_processor.file_lines_executed)
+                # print("missing branches:")
+                # print(self.coverage_processor.file_lines_with_missing_branch)
+                # print(self.config.relative_source_file_path)
                 attempt+=1
                 # inspect failed tests
                 logger.info(f"🚨🚨🚨 🚀 🚀 🚀 ----- 🤖 AGENT INSPECTOR: Inspecting failed test ----- 🚀 🚀 🚀 🚨🚨🚨 ")
@@ -213,71 +233,23 @@ class TestCaseGenerator:
                     "source_code":self.source_code,
                 })
                 new_test=self.single_case_fixer.invoke([("system", single_case_fixer_system_prompt), ("user", single_case_fixer_user_prompt)])
-                valid=self._validate_and_serialize_test_code(new_test)
-                if valid:
+                validation_result=self._validate_and_serialize_test_code(new_test)
+                if validation_result:
                     # break if pass
-                    new_line_coverage,new_branch_coverage=self._check_coverage_increase()
-                    if new_line_coverage>self.config.target_line_coverage and new_branch_coverage>self.config.target_line_coverage:
-                        logger.info(f"Target line coverage reached: {new_line_coverage}")
+                    # new_line_coverage,new_branch_coverage=self._check_coverage_increase()
+                    if self.line_coverage>self.config.target_line_coverage and self.branch_coverage>self.config.target_line_coverage:
+                        logger.info(f"Target coverage reached: \n Line coverage: {new_line_coverage*100:.2f}%\n Branch coverage: {new_branch_coverage*100:.2f}%")
                         self.writer.close()
                         return
                     else:
                         break
                 else:
                     # otherwise, clean up failed test and continue
-                    failed_test=self.failed_tests[-1]
+                    failed_test=new_test
                     
             
           
-    # def _generate_test_with_plan(self,plan):
-    #     attempt=0
-    #     feedbacks=None
-    #     test_code=FileUtils.read_file(self.test_file_path)
-    #     while attempt<self.config.max_attempts:
-    #         attempt+=1
-    #         # tester generate tests
-    #         tester_system_prompt=self.tester_system_prompt.render()
-    #         tester_user_prompt=self.tester_user_prompt.render({
-    #             "source_code":self.source_code,
-    #             "test_code":test_code,
-    #             "test_plan":plan,
-    #             "feedbacks":feedbacks,
-    #             "format_instructions":self.tester_parser.get_format_instructions(),
-    #         })
-    #         logger.info(f"🚨🚨🚨 🚀 🚀 🚀 ----- 🤖 AGENT TESTER: Generating test cases ----- 🚀 🚀 🚀 🚨🚨🚨 ")
-    #         response=self.tester.invoke([("system", tester_system_prompt), ("user", tester_user_prompt)])
-    #         new_tests=response.test_cases
-    #         for new_test in new_tests:
-    #             self._validate_and_serialize_test_code(new_test)
-                
-    #         # inspector inspect tests
-    #         if len(self.failed_tests)==0:
-    #             break
-            
-    #         feedbacks=[]
-    #         for failed_test in self.failed_tests:
-    #             # inspect failed tests
-    #             logger.info(f"🚨🚨🚨 🚀 🚀 🚀 ----- 🤖 AGENT INSPECTOR: Inspecting failed test ----- 🚀 🚀 🚀 🚨🚨🚨 ")
-    #             inspector_system_prompt=self.inspector_system_prompt.render()
-    #             inspector_user_prompt=self.inspector_user_prompt.render({
-    #                 "failed_tests":failed_test,
-    #                 "format_instructions":self.inspector_parser.get_format_instructions(),
-    #                 "source_code":self.source_code,
-    #             })
-    #             feedback=self.inspector.invoke([("system", inspector_system_prompt), ("user", inspector_user_prompt)])
-                
-    #         inspector_system_prompt=self.inspector_system_prompt.render()
-    #         inspector_user_prompt=self.inspector_user_prompt.render({
-    #             "failed_tests":self.failed_tests,
-    #             "format_instructions":self.inspector_parser.get_format_instructions(),
-    #             "source_code":self.source_code,
-    #         })
-    #         print("$"*100)
-    #         print(inspector_user_prompt)
-    #         feedback=self.inspector.invoke([("system", inspector_system_prompt), ("user", inspector_user_prompt)])
-    #         # clean up failed tests
-    #         self.failed_tests=[]
-    
+
     def _log2tensorboard(self):
         jacoco_pdf=parse_jacoco_csv(self.config.coverage_report_path/"jacoco.csv", self.id_class_mapping)
         self.line_coverage,self.branch_coverage=jacoco_pdf.loc[self.id]["line_coverage"], jacoco_pdf.loc[self.id]["branch_coverage"]
@@ -298,21 +270,21 @@ class TestCaseGenerator:
             )
         )
         new_branch_coverage = (self.coverage_processor.calculate_branch_coverage_rate_for_file(self.config.relative_source_file_path))
-
+        if new_line_coverage>self.line_coverage or new_branch_coverage>self.branch_coverage:
+            banner=f"🚀📈 Coverage Improved! 📈🚀 "
+        else:
+            banner=f"🙃📉Coverage Status: No Improvement📉🙃"
         if new_line_coverage>self.line_coverage:
             self.line_coverage=new_line_coverage
             line_output=f"➡️  Line coverage increased from 🔴  {self.line_coverage*100:.2f}% to 🟢 {new_line_coverage*100:.2f}% 🎯"
         else:
             line_output=f"🔁 No Change: Line coverage remains at 🔵 {self.line_coverage*100:.2f}%"
         if new_branch_coverage>self.branch_coverage:
-            self.branch_coverage=new_branch_coverage
             branch_output=f"➡️  Branch coverage increased from 🔴  {self.branch_coverage*100:.2f}% to 🟢 {new_branch_coverage*100:.2f}% 🎯"   
+            self.branch_coverage=new_branch_coverage
         else:
             branch_output=f"🔁 No Change: Branch coverage remains at 🔵 {self.branch_coverage*100:.2f}%"
-        if new_line_coverage>self.line_coverage or new_branch_coverage>self.branch_coverage:
-            banner=f"🚀📈 Coverage Improved! 📈🚀 "
-        else:
-            banner=f"🙃📉Coverage Status: No Improvement📉🙃"
+        
         logger.info(
             f"""
                 {"#"*70}
@@ -398,30 +370,76 @@ class TestCaseGenerator:
                 )
                 if result.returncode == 0:
                     logger.info(f"Test passed for\n{new_test_code}")
+                    self.coverage_processor.parse_coverage_report()
+                    # check coverage improvement --- only executable test cases with coverage improvement will be considered valid
+                    new_line_coverage = (
+                        self.coverage_processor.calculate_line_coverage_rate_for_file(
+                            self.config.relative_source_file_path
+                        )
+                    )
+                    new_branch_coverage = (self.coverage_processor.calculate_branch_coverage_rate_for_file(self.config.relative_source_file_path))
+                    if new_line_coverage>self.line_coverage or new_branch_coverage>self.branch_coverage:
+                        banner=f"🚀📈 Coverage Improved! 📈🚀 "
+                    else:
+                        # executable but not improvement -> revert and continue
+                        banner=f"🙃📉Coverage Status: No Improvement📉🙃"
+                        self._revert_test_file()
+                        return False
+                    if new_line_coverage>self.line_coverage:
+                        line_output=f"➡️  Line coverage increased from 🔴  {self.line_coverage*100:.2f}% to 🟢 {new_line_coverage*100:.2f}% 🎯"
+                        self.line_coverage=new_line_coverage
+                    else:
+                        line_output=f"🔁 No Change: Line coverage remains at 🔵 {self.line_coverage*100:.2f}%"
+                    if new_branch_coverage>self.branch_coverage:
+                        branch_output=f"➡️  Branch coverage increased from 🔴  {self.branch_coverage*100:.2f}% to 🟢 {new_branch_coverage*100:.2f}% 🎯"   
+                        self.branch_coverage=new_branch_coverage
+                    else:
+                        branch_output=f"🔁 No Change: Branch coverage remains at 🔵 {self.branch_coverage*100:.2f}%"
+                    
+                    logger.info(
+                        f"""
+                            {"#"*70}
+                            {banner}
+                            {line_output}
+                            {branch_output}
+                            {"#"*70}
+                        """
+                    )
                     return True
                 else: # return only CalledProcessError
-                    execution_errors = extract_error_message( "java", result.stdout + result.stderr)
+                    execution_errors  = extract_error_message( "java", result.stdout + result.stderr)
                     self._revert_test_file(new_test_code, execution_errors)
+                    subprocess.run(
+                    self.config.test_command.split(),
+                    capture_output=True,
+                    text=True,
+                    timeout=300, 
+                    cwd=os.getcwd(),
+                )
                     return False
             except Exception as e:      # catch timeout error mostly
                 self._revert_test_file(new_test_code, str(e))
+                
                 return False
                 
         # if there are errors, add to failed tests
 
         return False
     
-    def _revert_test_file(self,new_test_code,error_message):
+    def _revert_test_file(self,new_test_code=None,error_message=None):
         """
         Revert the test file to the last version.
         """
-        logger.info(f"Test failed for\n{new_test_code}")
-        lang = "java"
-        self.failed_tests.append({"test_code": new_test_code, "error": error_message})
+        if error_message:
+            logger.info(f"Test failed for\n{new_test_code}")
+            lang = "java"
+            self.failed_tests.append({"test_code": new_test_code, "error": error_message})
+        logger.info(f"Reverting test file {self.test_file_path} to the last version")
         FileUtils.revert(self.test_file_path)
-        subprocess.run(
-        self.config.test_command.split(),
-        capture_output=True,
-        text=True,
-        cwd=os.getcwd(),
-        )
+        if error_message:
+            subprocess.run(
+            self.config.test_command.split(),
+            capture_output=True,
+            text=True,
+            cwd=os.getcwd(),
+            )

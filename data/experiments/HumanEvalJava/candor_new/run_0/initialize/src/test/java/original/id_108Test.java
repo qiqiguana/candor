@@ -1,0 +1,21 @@
+package original;
+
+import java.util.List;
+import java.util.ArrayList;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of CountNums.
+*/
+class CountNumsTest {
+	@Test
+    void testCountNumsWithSumOfDigitsGreaterThanZero() {
+        List<Object> arr = new ArrayList<>();
+        arr.add(1);
+        arr.add(-2);
+        arr.add(3);
+        int expected = 2;
+        assertEquals(expected, CountNums.countNums(arr));
+    }
+}

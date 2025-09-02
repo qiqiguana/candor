@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_90.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HumanEvalJava</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_90.java</span></div><h1>id_90.java</h1><pre class="source lang-java linenums">package original;
+
+
+import java.util.List;
+
+
+<span class="nc" id="L7">class NextSmallest {</span>
+    /**
+     * * You are given a list of integers.
+     * Write a function next_smallest() that returns the 2nd smallest element of the list.
+     * Return null if there is no such element.
+     * Examples:
+     * nextSmallest([1, 2, 3, 4, 5]) == 2
+     * nextSmallest([5, 1, 4, 3, 2]) == 2
+     * nextSmallest([]) == None
+     * nextSmallest([1, 1]) == None
+     *
+     * &gt; nextSmallest([1, 2, 3, 4, 5])
+     * 2
+     * &gt; nextSmallest([5, 1, 4, 3, 2])
+     * 2
+     * &gt; nextSmallest([])
+     * null
+     * &gt; nextSmallest([1, 1])
+     * null
+     * &gt; nextSmallest([1, 1, 1, 1, 0])
+     * 1
+     * &gt; nextSmallest([1, 1])
+     * null
+     * &gt; nextSmallest([-35, 34, 12, -45])
+     * -35
+     */
+    public static Integer nextSmallest(List&lt;Object&gt; lst) {
+<span class="nc bnc" id="L34" title="All 2 branches missed.">        if (lst.size() &lt;= 1) {</span>
+<span class="nc" id="L35">            return null;</span>
+        }
+<span class="nc" id="L37">        Integer smallest = (Integer) lst.get(0);</span>
+<span class="nc" id="L38">        Integer nextSmallest = null;</span>
+<span class="nc bnc" id="L39" title="All 2 branches missed.">        for (int i = 1; i &lt; lst.size(); i++) {</span>
+<span class="nc" id="L40">            Integer current = (Integer) lst.get(i);</span>
+<span class="nc bnc" id="L41" title="All 2 branches missed.">            if (current &lt; smallest) {</span>
+<span class="nc" id="L42">                nextSmallest = smallest;</span>
+<span class="nc" id="L43">                smallest = current;</span>
+<span class="nc bnc" id="L44" title="All 4 branches missed.">            } else if (nextSmallest == null || current &lt; nextSmallest) {</span>
+<span class="nc bnc" id="L45" title="All 2 branches missed.">                if (current != smallest)</span>
+<span class="nc" id="L46">                    nextSmallest = current;</span>
+            }
+        }
+<span class="nc" id="L49">        return nextSmallest;</span>
+    }
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

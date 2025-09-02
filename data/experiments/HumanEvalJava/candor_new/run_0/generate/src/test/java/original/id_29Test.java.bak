@@ -1,0 +1,41 @@
+package original;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of FilterByPrefix.
+*/
+class FilterByPrefixTest {
+    @Test
+    void testFilterByPrefix_EmptyList_ReturnsEmptyList() {
+        List<Object> strings = new ArrayList<>();
+        String prefix = "a";
+        List<Object> result = FilterByPrefix.filterByPrefix(strings, prefix);
+        assertTrue(result.isEmpty());
+    }
+    
+    @Test
+        public void testNothing(){
+            FilterByPrefix s = new FilterByPrefix();
+            }
+    @Test
+    public void testFilterByPrefix_with_null_string() {
+        List<Object> strings = new ArrayList<>();
+        strings.add(null);
+        String prefix = "a";
+        assertThrows(NullPointerException.class, () -> FilterByPrefix.filterByPrefix(strings, prefix));
+    }
+    @Test
+    public void testFilterByPrefix_with_prefix_not_found() {
+        List<Object> strings = new ArrayList<>();
+        strings.add("abc");
+        strings.add("bcd");
+        strings.add("cde");
+        String prefix = "e";
+        assertEquals(new ArrayList<>(), FilterByPrefix.filterByPrefix(strings, prefix));
+    }
+                                    
+}

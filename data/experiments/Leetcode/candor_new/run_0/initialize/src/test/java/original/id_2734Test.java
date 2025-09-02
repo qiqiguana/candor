@@ -1,0 +1,22 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of Solution2734.
+*/
+class Solution2734Test {
+    @Test
+    void smallestString_allA_ReturnsZLast() {
+        // Arrange
+        String s = "aaaa";
+        String expected = "aaaz";
+        Solution2734 solution = new Solution2734();
+
+        // Act
+        String actual = solution.smallestString(s);
+
+        // Assert
+        assertEquals(expected, actual);
+    }
+}

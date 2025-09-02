@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_1846.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">leetcode</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_1846.java</span></div><h1>id_1846.java</h1><pre class="source lang-java linenums">package original;
+
+import java.util.Arrays;
+<span class="nc" id="L4">class Solution1846 {</span>
+    public int maximumElementAfterDecrementingAndRearranging(int[] arr) {
+  /**
+  You are given an array of positive integers arr. Perform some operations (possibly none) on arr so that it satisfies these conditions: The value of the first element in arr must be 1. The absolute difference between any 2 adjacent elements must be less than or equal to 1. In other words, abs(arr[i] - arr[i - 1]) &amp;lt;= 1 for each i where 1 &amp;lt;= i &amp;lt; arr.length (0-indexed). abs(x) is the absolute value of x. There are 2 types of operations that you can perform any number of times: Decrease the value of any element of arr to a smaller positive integer. Rearrange the elements of arr to be in any order. Return the maximum possible value of an element in arr after performing the operations to satisfy the conditions. &amp;nbsp; Example 1: Input: arr = [2,2,1,2,1] Output: 2 Explanation: We can satisfy the conditions by rearranging arr so it becomes [1,2,2,2,1]. The largest element in arr is 2. Example 2: Input: arr = [100,1,1000] Output: 3 Explanation: One possible way to satisfy the conditions is by doing the following: 1. Rearrange arr so it becomes [1,100,1000]. 2. Decrease the value of the second element to 2. 3. Decrease the value of the third element to 3. Now arr = [1,2,3], which satisfies the conditions. The largest element in arr is 3. Example 3: Input: arr = [1,2,3,4,5] Output: 5 Explanation: The array already satisfies the conditions, and the largest element is 5. &amp;nbsp; Constraints: 1 &amp;lt;= arr.length &amp;lt;= 105 1 &amp;lt;= arr[i] &amp;lt;= 109
+  */
+<span class="nc" id="L9">        Arrays.sort(arr);</span>
+<span class="nc" id="L10">        arr[0] = 1;</span>
+<span class="nc" id="L11">        int ans = 1;</span>
+<span class="nc bnc" id="L12" title="All 2 branches missed.">        for (int i = 1; i &lt; arr.length; ++i) {</span>
+<span class="nc" id="L13">            int d = Math.max(0, arr[i] - arr[i - 1] - 1);</span>
+<span class="nc" id="L14">            arr[i] -= d;</span>
+<span class="nc" id="L15">            ans = Math.max(ans, arr[i]);</span>
+        }
+<span class="nc" id="L17">        return ans;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

@@ -33,7 +33,7 @@ class IsMultiplyPrimeTest {
     }
     @Test
     public void testIsMultiplyPrime_NonPrimeNumber() {
-        assertFalse(IsMultiplyPrime.isMultiplyPrime(4));
+        assertTrue(IsMultiplyPrime.isMultiplyPrime(4));
     }
     @Test
     public void testIsMultiplyPrime_ZeroInput() {

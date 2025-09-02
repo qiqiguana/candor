@@ -14,13 +14,13 @@ import java.util.*;
      * [0, 2, 3, 5, 9, 123]
      */
     public static List&lt;Integer&gt; unique(List&lt;Integer&gt; l) {
-<span class="nc" id="L17">        Set&lt;Integer&gt; set = new HashSet&lt;Integer&gt;();</span>
-<span class="nc bnc" id="L18" title="All 2 branches missed.">        for (Integer i : l) {</span>
-<span class="nc" id="L19">            set.add(i);</span>
-<span class="nc" id="L20">        }</span>
-<span class="nc" id="L21">        List&lt;Integer&gt; result = new ArrayList&lt;Integer&gt;(set);</span>
-<span class="nc" id="L22">        Collections.sort(result);</span>
-<span class="nc" id="L23">        return result;</span>
+<span class="fc" id="L17">        Set&lt;Integer&gt; set = new HashSet&lt;Integer&gt;();</span>
+<span class="fc bfc" id="L18" title="All 2 branches covered.">        for (Integer i : l) {</span>
+<span class="fc" id="L19">            set.add(i);</span>
+<span class="fc" id="L20">        }</span>
+<span class="fc" id="L21">        List&lt;Integer&gt; result = new ArrayList&lt;Integer&gt;(set);</span>
+<span class="fc" id="L22">        Collections.sort(result);</span>
+<span class="fc" id="L23">        return result;</span>
     }
 
 }

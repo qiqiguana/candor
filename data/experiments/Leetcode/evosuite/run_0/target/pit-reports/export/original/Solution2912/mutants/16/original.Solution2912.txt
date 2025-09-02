@@ -1,0 +1,236 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Solution2912 {
+
+  // compiled from: id_2912.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 3 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Solution2912; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public numberOfWays(III[I[I)I
+   L0
+    LINENUMBER 5 L0
+    LDC 1000000007
+    ISTORE 6
+   L1
+    LINENUMBER 6 L1
+    ICONST_4
+    NEWARRAY T_LONG
+    ASTORE 7
+   L2
+    LINENUMBER 7 L2
+    ALOAD 7
+    ICONST_0
+    LCONST_1
+    LASTORE
+   L3
+    LINENUMBER 8 L3
+   FRAME FULL [original/Solution2912 I I I [I [I I [J] []
+    ILOAD 3
+    IINC 3 -1
+    IFLE L4
+   L5
+    LINENUMBER 9 L5
+    ICONST_4
+    NEWARRAY T_LONG
+    ASTORE 8
+   L6
+    LINENUMBER 10 L6
+    ALOAD 8
+    ICONST_0
+    ILOAD 1
+    ICONST_1
+    ISUB
+    I2L
+    ALOAD 7
+    ICONST_1
+    LALOAD
+    LMUL
+    ILOAD 2
+    ICONST_1
+    ISUB
+    I2L
+    ALOAD 7
+    ICONST_2
+    LALOAD
+    LMUL
+    LADD
+    LDC 1000000007L
+    LREM
+    LASTORE
+   L7
+    LINENUMBER 11 L7
+    ALOAD 8
+    ICONST_1
+    ALOAD 7
+    ICONST_0
+    LALOAD
+    ILOAD 1
+    ICONST_2
+    ISUB
+    I2L
+    ALOAD 7
+    ICONST_1
+    LALOAD
+    LMUL
+    LADD
+    ILOAD 2
+    ICONST_1
+    ISUB
+    I2L
+    ALOAD 7
+    ICONST_3
+    LALOAD
+    LMUL
+    LADD
+    LDC 1000000007L
+    LREM
+    LASTORE
+   L8
+    LINENUMBER 12 L8
+    ALOAD 8
+    ICONST_2
+    ALOAD 7
+    ICONST_0
+    LALOAD
+    ILOAD 2
+    ICONST_2
+    ISUB
+    I2L
+    ALOAD 7
+    ICONST_2
+    LALOAD
+    LMUL
+    LADD
+    ILOAD 1
+    ICONST_1
+    ISUB
+    I2L
+    ALOAD 7
+    ICONST_3
+    LALOAD
+    LMUL
+    LADD
+    LDC 1000000007L
+    LMUL
+    LASTORE
+   L9
+    LINENUMBER 13 L9
+    ALOAD 8
+    ICONST_3
+    ALOAD 7
+    ICONST_1
+    LALOAD
+    ALOAD 7
+    ICONST_2
+    LALOAD
+    LADD
+    ILOAD 1
+    ICONST_2
+    ISUB
+    I2L
+    ALOAD 7
+    ICONST_3
+    LALOAD
+    LMUL
+    LADD
+    ILOAD 2
+    ICONST_2
+    ISUB
+    I2L
+    ALOAD 7
+    ICONST_3
+    LALOAD
+    LMUL
+    LADD
+    LDC 1000000007L
+    LREM
+    LASTORE
+   L10
+    LINENUMBER 14 L10
+    ALOAD 8
+    ASTORE 7
+   L11
+    LINENUMBER 15 L11
+    GOTO L3
+   L4
+    LINENUMBER 16 L4
+   FRAME FULL [original/Solution2912 I I I [I [I I [J] []
+    ALOAD 4
+    ICONST_0
+    IALOAD
+    ALOAD 5
+    ICONST_0
+    IALOAD
+    IF_ICMPNE L12
+   L13
+    LINENUMBER 17 L13
+    ALOAD 4
+    ICONST_1
+    IALOAD
+    ALOAD 5
+    ICONST_1
+    IALOAD
+    IF_ICMPNE L14
+    ALOAD 7
+    ICONST_0
+    LALOAD
+    L2I
+    GOTO L15
+   L14
+   FRAME FULL [original/Solution2912 I I I [I [I I [J] []
+    ALOAD 7
+    ICONST_2
+    LALOAD
+    L2I
+   L15
+   FRAME FULL [original/Solution2912 I I I [I [I I [J] [I]
+    IRETURN
+   L12
+    LINENUMBER 19 L12
+   FRAME FULL [original/Solution2912 I I I [I [I I [J] []
+    ALOAD 4
+    ICONST_1
+    IALOAD
+    ALOAD 5
+    ICONST_1
+    IALOAD
+    IF_ICMPNE L16
+    ALOAD 7
+    ICONST_1
+    LALOAD
+    L2I
+    GOTO L17
+   L16
+   FRAME FULL [original/Solution2912 I I I [I [I I [J] []
+    ALOAD 7
+    ICONST_3
+    LALOAD
+    L2I
+   L17
+   FRAME FULL [original/Solution2912 I I I [I [I I [J] [I]
+    IRETURN
+   L18
+    LOCALVARIABLE g [J L6 L11 8
+    LOCALVARIABLE this Loriginal/Solution2912; L0 L18 0
+    LOCALVARIABLE n I L0 L18 1
+    LOCALVARIABLE m I L0 L18 2
+    LOCALVARIABLE k I L0 L18 3
+    LOCALVARIABLE source [I L0 L18 4
+    LOCALVARIABLE dest [I L0 L18 5
+    LOCALVARIABLE mod I L1 L18 6
+    LOCALVARIABLE f [J L2 L18 7
+    MAXSTACK = 8
+    MAXLOCALS = 9
+}
+

@@ -1,0 +1,55 @@
+package original;
+
+import java.util.List;
+import java.util.ArrayList;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of DoubleTheDifference.
+*/
+class DoubleTheDifferenceTest {
+
+@Test
+void testDoubleTheDifference_SimpleList() {
+    List<Object> lst = new ArrayList<>();
+    lst.add(1);
+    lst.add(3);
+    lst.add(2);
+    lst.add(0);
+    int result = DoubleTheDifference.doubleTheDifference(lst);
+    assertEquals(10, result);
+}
+
+@Test
+    public void testNothing(){
+        DoubleTheDifference s = new DoubleTheDifference();
+        }
+@Test
+public void testDoubleTheDifferenceWithEmptyList() {
+    List<Object> input = List.of();
+    int expected = 0;
+    int actual = DoubleTheDifference.doubleTheDifference(input);
+    assertEquals(expected, actual);
+}
+@Test
+public void TestDoubleTheDifferenceWithNegativeOddIntegersInListFixed1() {
+    java.util.List<java.lang.Object> lst = java.util.Arrays.asList((java.lang.Object) (-1), (java.lang.Object) (-3), (java.lang.Object) (-5));
+    int result = original.DoubleTheDifference.doubleTheDifference(lst);
+    org.junit.jupiter.api.Assertions.assertEquals(0, result);
+}
+@Test
+public void TestDoubleTheDifferenceWithEmptyList() {
+    List<Object> lst = new ArrayList<>();
+    int result = DoubleTheDifference.doubleTheDifference(lst);
+    assertEquals(0, result);
+}
+@Test
+public void testInstanceCheckForInteger() {
+    List<Object> input = List.of(1, "a", 2.0);
+    int result = DoubleTheDifference.doubleTheDifference(input);
+    assertEquals(1, result);
+}
+                                
+
+}

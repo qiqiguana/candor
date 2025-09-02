@@ -1,0 +1,18 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of StringSequence.
+*/
+class StringSequenceTest {
+    @Test
+    void testStringSequenceZero() {
+        // given
+        int n = 0;
+        // when
+        String result = StringSequence.stringSequence(n);
+        // then
+        assertEquals("0", result);
+    }
+}

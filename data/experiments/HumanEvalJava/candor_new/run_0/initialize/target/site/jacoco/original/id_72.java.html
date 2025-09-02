@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_72.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HumanEvalJava</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_72.java</span></div><h1>id_72.java</h1><pre class="source lang-java linenums">package original;
+
+import java.util.List;
+
+
+<span class="nc" id="L6">class WillItFly {</span>
+    /**
+     * * Write a function that returns True if the object q will fly, and False otherwise.
+     * The object q will fly if it's balanced (it is a palindromic list) and the sum of its elements is less than or equal the maximum possible weight w.
+     *
+     * Example:
+     * willItFly([1, 2], 5) ➞ False
+     * # 1+2 is less than the maximum possible weight, but it's unbalanced.
+     *
+     * willItFly([3, 2, 3], 1) ➞ False
+     * # it's balanced, but 3+2+3 is more than the maximum possible weight.
+     *
+     * willItFly([3, 2, 3], 9) ➞ True
+     * # 3+2+3 is less than the maximum possible weight, and it's balanced.
+     *
+     * willItFly([3], 5) ➞ True
+     * # 3 is less than the maximum possible weight, and it's balanced.
+     *
+     * &gt; willItFly([3, 2, 3], 9)
+     * true
+     * &gt; willItFly([1, 2], 5)
+     * false
+     * &gt; willItFly([3], 5)
+     * true
+     * &gt; willItFly([3, 2, 3], 1)
+     * false
+     * &gt; willItFly([1, 2, 3], 6)
+     * false
+     * &gt; willItFly([5], 5)
+     * true
+     */
+    public static Boolean willItFly(List&lt;Integer&gt; q, int w) {
+<span class="fc" id="L38">        int sum = 0;</span>
+<span class="fc bfc" id="L39" title="All 2 branches covered.">        for (int i = 0; i &lt; q.size(); i++) {</span>
+<span class="fc" id="L40">            sum += q.get(i);</span>
+        }
+<span class="pc bpc" id="L42" title="1 of 2 branches missed.">        if (sum &gt; w) {</span>
+<span class="nc" id="L43">            return false;</span>
+        }
+<span class="fc bfc" id="L45" title="All 2 branches covered.">        for (int i = 0; i &lt; q.size() / 2; i++) {</span>
+<span class="pc bpc" id="L46" title="1 of 2 branches missed.">            if (q.get(i) != q.get(q.size() - i - 1)) {</span>
+<span class="nc" id="L47">                return false;</span>
+            }
+        }
+<span class="fc" id="L50">        return true;</span>
+    }
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

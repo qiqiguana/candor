@@ -1,0 +1,43 @@
+[MASTER] 01:18:59.687 [pool-2-thread-1] WARN  TestSuiteMinimizer - Minimization timeout. Roll back to original test suite
+[MASTER] 01:19:17.384 [pool-2-thread-1] WARN  SimpleMutationAssertionGenerator - Reached maximum time to generate assertions, aborting assertion generation
+[MASTER] 01:19:17.406 [pool-2-thread-1] WARN  TimeController - Phase ASSERTION_GENERATION lasted too long, 1 seconds more than allowed.
+[MASTER] 01:19:28.221 [pool-2-thread-1] WARN  JUnitAnalyzer - Found unstable test named test0 -> class java.lang.StackOverflowError: null
+[MASTER] 01:19:28.222 [pool-2-thread-1] WARN  JUnitAnalyzer - Failing test:
+ Solution0321 solution0321_0 = new Solution0321();
+int[] intArray0 = new int[4];
+intArray0[0] = 1989;
+int int0 = (-463);
+intArray0[1] = (-463);
+int int1 = 0;
+intArray0[2] = 0;
+int int2 = (-1822);
+intArray0[3] = (-1822);
+int[] intArray1 = new int[0];
+int int3 = 3437;
+int[] intArray2 = solution0321_0.maxNumber(intArray0, intArray1, 3437);
+int[] intArray3 = solution0321_0.maxNumber(intArray2, intArray1, int3);
+int[] intArray4 = solution0321_0.maxNumber(intArray2, intArray1, int2);
+solution0321_0.maxNumber(intArray2, intArray0, int0);
+solution0321_0.maxNumber(intArray0, intArray3, int0);
+int int4 = 0;
+int[] intArray5 = solution0321_0.maxNumber(intArray0, intArray4, int4);
+int[] intArray6 = solution0321_0.maxNumber(intArray3, intArray4, int4);
+int[] intArray7 = solution0321_0.maxNumber(intArray5, intArray1, int2);
+solution0321_0.maxNumber(intArray6, intArray0, int2);
+int int5 = (-1);
+int[] intArray8 = solution0321_0.maxNumber(intArray5, intArray7, int5);
+solution0321_0.maxNumber(intArray0, intArray0, intArray0[2]);
+int int6 = 0;
+solution0321_0.maxNumber(intArray8, intArray4, int6);
+solution0321_0.maxNumber(intArray8, intArray4, intArray0[0]);
+int[] intArray9 = new int[7];
+intArray9[0] = int6;
+intArray9[1] = int5;
+intArray9[2] = int3;
+intArray9[3] = int0;
+intArray9[4] = int0;
+intArray9[5] = int4;
+intArray9[6] = int1;
+int int7 = 1;
+solution0321_0.maxNumber(intArray0, intArray9, int7);
+

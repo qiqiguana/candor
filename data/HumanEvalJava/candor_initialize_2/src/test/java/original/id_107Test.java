@@ -1,0 +1,25 @@
+package original;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of EvenOddPalindrome.
+*/
+class EvenOddPalindromeTest {
+
+@Test
+void testEvenOddPalindrome() {
+    List<Integer> result = EvenOddPalindrome.evenOddPalindrome(123);
+    assertEquals(2, result.size());
+}
+
+@Test
+    public void testNothing(){
+        EvenOddPalindrome s = new EvenOddPalindrome();
+        }
+                                
+
+}

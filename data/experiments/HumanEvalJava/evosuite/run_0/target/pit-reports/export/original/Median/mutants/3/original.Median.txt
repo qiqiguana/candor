@@ -1,0 +1,80 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Median {
+
+  // compiled from: id_47.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 7 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Median; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  // signature (Ljava/util/List<Ljava/lang/Integer;>;)Ljava/lang/Number;
+  // declaration: java.lang.Number median(java.util.List<java.lang.Integer>)
+  public static median(Ljava/util/List;)Ljava/lang/Number;
+   L0
+    LINENUMBER 23 L0
+    ALOAD 0
+    INVOKESTATIC java/util/Collections.sort (Ljava/util/List;)V
+   L1
+    LINENUMBER 24 L1
+    ALOAD 0
+    INVOKEINTERFACE java/util/List.size ()I (itf)
+    ISTORE 1
+   L2
+    LINENUMBER 25 L2
+    ILOAD 1
+    ICONST_2
+    IREM
+    IFNE L3
+   L4
+    LINENUMBER 26 L4
+    ALOAD 0
+    ILOAD 1
+    ICONST_2
+    IMUL
+    INVOKEINTERFACE java/util/List.get (I)Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/Integer
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    ALOAD 0
+    ILOAD 1
+    ICONST_2
+    IDIV
+    ICONST_1
+    ISUB
+    INVOKEINTERFACE java/util/List.get (I)Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/Integer
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    IADD
+    I2D
+    LDC 2.0D
+    DDIV
+    INVOKESTATIC java/lang/Double.valueOf (D)Ljava/lang/Double;
+    ARETURN
+   L3
+    LINENUMBER 28 L3
+   FRAME FULL [java/util/List I] []
+    ALOAD 0
+    ILOAD 1
+    ICONST_2
+    IDIV
+    INVOKEINTERFACE java/util/List.get (I)Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/Number
+    ARETURN
+   L5
+    LOCALVARIABLE l Ljava/util/List; L0 L5 0
+    // signature Ljava/util/List<Ljava/lang/Integer;>;
+    // declaration: l extends java.util.List<java.lang.Integer>
+    LOCALVARIABLE size I L2 L5 1
+    MAXSTACK = 4
+    MAXLOCALS = 2
+}
+

@@ -1,0 +1,105 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/MaxFill {
+
+  // compiled from: id_115.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 7 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/MaxFill; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  // signature (Ljava/util/List<Ljava/util/List<Ljava/lang/Integer;>;>;I)I
+  // declaration: int maxFill(java.util.List<java.util.List<java.lang.Integer>>, int)
+  public static maxFill(Ljava/util/List;I)I
+   L0
+    LINENUMBER 53 L0
+    ICONST_0
+    ISTORE 2
+   L1
+    LINENUMBER 54 L1
+    ALOAD 0
+    INVOKEINTERFACE java/util/List.iterator ()Ljava/util/Iterator; (itf)
+    ASTORE 3
+   L2
+   FRAME FULL [java/util/List I I java/util/Iterator] []
+    ALOAD 3
+    INVOKEINTERFACE java/util/Iterator.hasNext ()Z (itf)
+    IFEQ L3
+    ALOAD 3
+    INVOKEINTERFACE java/util/Iterator.next ()Ljava/lang/Object; (itf)
+    CHECKCAST java/util/List
+    ASTORE 4
+   L4
+    LINENUMBER 55 L4
+    ICONST_0
+    ISTORE 5
+   L5
+    LINENUMBER 56 L5
+    ALOAD 4
+    INVOKEINTERFACE java/util/List.iterator ()Ljava/util/Iterator; (itf)
+    ASTORE 6
+   L6
+   FRAME FULL [java/util/List I I java/util/Iterator java/util/List I java/util/Iterator] []
+    ALOAD 6
+    INVOKEINTERFACE java/util/Iterator.hasNext ()Z (itf)
+    IFEQ L7
+    ALOAD 6
+    INVOKEINTERFACE java/util/Iterator.next ()Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/Integer
+    ASTORE 7
+   L8
+    LINENUMBER 57 L8
+    ILOAD 5
+    ALOAD 7
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    IADD
+    ISTORE 5
+   L9
+    LINENUMBER 58 L9
+    GOTO L6
+   L7
+    LINENUMBER 59 L7
+   FRAME FULL [java/util/List I I java/util/Iterator java/util/List I] []
+    ILOAD 2
+    I2D
+    ILOAD 5
+    I2D
+    ILOAD 1
+    I2D
+    DDIV
+    INVOKESTATIC java/lang/Math.ceil (D)D
+    DADD
+    D2I
+    ISTORE 2
+   L10
+    LINENUMBER 60 L10
+    GOTO L2
+   L3
+    LINENUMBER 61 L3
+   FRAME FULL [java/util/List I I] []
+    ILOAD 2
+    IRETURN
+   L11
+    LOCALVARIABLE i Ljava/lang/Integer; L8 L9 7
+    LOCALVARIABLE sumArr I L5 L10 5
+    LOCALVARIABLE arr Ljava/util/List; L4 L10 4
+    // signature Ljava/util/List<Ljava/lang/Integer;>;
+    // declaration: arr extends java.util.List<java.lang.Integer>
+    LOCALVARIABLE grid Ljava/util/List; L0 L11 0
+    // signature Ljava/util/List<Ljava/util/List<Ljava/lang/Integer;>;>;
+    // declaration: grid extends java.util.List<java.util.List<java.lang.Integer>>
+    LOCALVARIABLE capacity I L0 L11 1
+    LOCALVARIABLE sum I L1 L11 2
+    MAXSTACK = 6
+    MAXLOCALS = 8
+}
+

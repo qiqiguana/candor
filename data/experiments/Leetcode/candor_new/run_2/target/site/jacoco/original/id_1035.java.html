@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_1035.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">leetcode</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_1035.java</span></div><h1>id_1035.java</h1><pre class="source lang-java linenums">package original;
+
+<span class="nc" id="L3">class Solution1035 {</span>
+    public int maxUncrossedLines(int[] nums1, int[] nums2) {
+<span class="nc" id="L5">        int m = nums1.length, n = nums2.length;</span>
+<span class="nc" id="L6">        int[][] f = new int[m + 1][n + 1];</span>
+<span class="nc bnc" id="L7" title="All 2 branches missed.">        for (int i = 1; i &lt;= m; ++i) {</span>
+<span class="nc bnc" id="L8" title="All 2 branches missed.">            for (int j = 1; j &lt;= n; ++j) {</span>
+<span class="nc bnc" id="L9" title="All 2 branches missed.">                if (nums1[i - 1] == nums2[j - 1]) {</span>
+<span class="nc" id="L10">                    f[i][j] = f[i - 1][j - 1] + 1;</span>
+                } else {
+<span class="nc" id="L12">                    f[i][j] = Math.max(f[i - 1][j], f[i][j - 1]);</span>
+                }
+            }
+        }
+<span class="nc" id="L16">        return f[m][n];</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

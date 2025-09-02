@@ -1,0 +1,24 @@
+package original;
+
+import java.util.ArrayList;
+
+import java.util.Collections;
+
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of SortThird.
+*/
+class SortThirdTest {
+    @Test
+    void test_sortThird_SortedElementsAtDivisibleIndices() {
+        List<Integer> inputList = new ArrayList<>(List.of(5, 6, 3, 4, 8, 9, 2));
+        List<Integer> expectedList = new ArrayList<>(List.of(2, 6, 3, 4, 8, 9, 5));
+
+        List<Integer> actualList = SortThird.sortThird(inputList);
+
+        assertEquals(expectedList, actualList);
+    }
+}

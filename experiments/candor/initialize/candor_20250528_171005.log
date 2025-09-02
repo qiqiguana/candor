@@ -1,0 +1,14 @@
+nohup: ignoring input
+Running for candor0
+0it [00:00, ?it/s]0it [00:00, ?it/s]
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/qinghua/projects/matg/experiments/candor/initialize/run_leetcode.py", line 28, in <module>
+    for f in tqdm(source_file_path.iterdir()):
+  File "/home/qinghua/anaconda3/envs/llm4test/lib/python3.11/site-packages/tqdm/std.py", line 1181, in __iter__
+    for obj in iterable:
+  File "/home/qinghua/anaconda3/envs/llm4test/lib/python3.11/pathlib.py", line 931, in iterdir
+    for name in os.listdir(self):
+                ^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/home/qinghua/projects/matg/data/leetcode_dataset/candor0/src/main/java/original'

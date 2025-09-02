@@ -1,0 +1,87 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of TriangleArea1.
+*/
+class TriangleArea1Test {
+    @Test
+    void testTriangleArea_ValidTriangle_ReturnsArea() {
+        // Arrange
+        int a = 3;
+        int b = 4;
+        int c = 5;
+
+        // Act
+        Number result = TriangleArea1.triangleArea(a, b, c);
+
+        // Assert
+        assertEquals(6.00, result.doubleValue(), 0.01);
+    }
+    @Test
+    public void testValidTriangle() {
+        double result = (double) TriangleArea1.triangleArea(3, 4, 5);
+        assertEquals(6.00, result, 0.01);
+    }
+    @Test
+    public void testInvalidTriangleFixed2() {
+        int result = (int) TriangleArea1.triangleArea(1, 2, 10);
+        assertEquals(-1, result);
+    }
+    @Test
+    public void testValidTriangleWithDelta() {
+        Number result = TriangleArea1.triangleArea(3, 4, 5);
+        assertEquals(6.00, result.doubleValue(), 0.005);
+    }
+    @Test
+    public void testInvalidTriangle() {
+    	Number result = TriangleArea1.triangleArea(1, 2, 10);
+    	assertEquals(-1, result.doubleValue(), 0.01);
+    }
+    @Test
+    public void testEqualSides() {
+    	Number result = TriangleArea1.triangleArea(2, 2, 2);
+    	assertEquals(1.73, result.doubleValue(), 0.01);
+    }
+    @Test
+    public void testZeroSideLength() {
+    	Number result = TriangleArea1.triangleArea(0, 2, 3);
+    	assertEquals(-1, result.doubleValue(), 0.01);
+    }
+    @Test
+    public void testNegativeNumbers() {
+    	Number result = TriangleArea1.triangleArea(-1, 2, 3);
+    	assertEquals(-1, result.doubleValue(), 0.01);
+    }
+    @Test
+    public void testNonIntegerSideLengthsFixed2() {
+        Number result = TriangleArea1.triangleArea(3, 4, 6);
+        assertEquals(5.33, result.doubleValue(), 0.01);
+    }
+    @Test
+    public void testValidTriangleWithIntegerSides() {
+    	Number result = TriangleArea1.triangleArea(3, 4, 5);
+    	assertEquals(6.0, result.doubleValue(), 0.01);
+    }
+    @Test
+    public void testInvalidTriangleWithIntegerSides() {
+    	Number result = TriangleArea1.triangleArea(1, 2, 10);
+    	assertEquals(-1, result.intValue());
+    }
+    @Test
+    public void testEdgeCaseWithEqualSides() {
+    	Number result = TriangleArea1.triangleArea(2, 2, 2);
+    	assertEquals(1.73, result.doubleValue(), 0.01);
+    }
+    @Test
+    public void testEdgeCaseWithZeroSides() {
+    	Number result = TriangleArea1.triangleArea(0, 0, 0);
+    	assertEquals(-1, result.intValue());
+    }
+    @Test
+    public void testNegativeSides() {
+    	Number result = TriangleArea1.triangleArea(-1, -2, -3);
+    	assertEquals(-1, result.intValue());
+    }
+}

@@ -1,0 +1,140 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Solution1897 {
+
+  // compiled from: id_1897.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 3 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Solution1897; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public makeEqual([Ljava/lang/String;)Z
+   L0
+    LINENUMBER 5 L0
+    BIPUSH 26
+    NEWARRAY T_INT
+    ASTORE 2
+   L1
+    LINENUMBER 6 L1
+    ALOAD 1
+    ASTORE 3
+    ALOAD 3
+    ARRAYLENGTH
+    ISTORE 4
+    ICONST_0
+    ISTORE 5
+   L2
+   FRAME FULL [original/Solution1897 [Ljava/lang/String; [I [Ljava/lang/String; I I] []
+    ILOAD 5
+    ILOAD 4
+    IF_ICMPGE L3
+    ALOAD 3
+    ILOAD 5
+    AALOAD
+    ASTORE 6
+   L4
+    LINENUMBER 7 L4
+    ALOAD 6
+    INVOKEVIRTUAL java/lang/String.toCharArray ()[C
+    ASTORE 7
+    ALOAD 7
+    ARRAYLENGTH
+    ISTORE 8
+    ICONST_0
+    ISTORE 9
+   L5
+   FRAME FULL [original/Solution1897 [Ljava/lang/String; [I [Ljava/lang/String; I I java/lang/String [C I I] []
+    ILOAD 9
+    ILOAD 8
+    IF_ICMPGE L6
+    ALOAD 7
+    ILOAD 9
+    CALOAD
+    ISTORE 10
+   L7
+    LINENUMBER 8 L7
+    ALOAD 2
+    ILOAD 10
+    BIPUSH 97
+    ISUB
+    DUP2
+    IALOAD
+    ICONST_1
+    IADD
+    IASTORE
+   L8
+    LINENUMBER 7 L8
+    IINC 9 1
+    GOTO L5
+   L6
+    LINENUMBER 6 L6
+   FRAME FULL [original/Solution1897 [Ljava/lang/String; [I [Ljava/lang/String; I I java/lang/String [C I I] []
+    IINC 5 1
+    GOTO L2
+   L3
+    LINENUMBER 11 L3
+   FRAME FULL [original/Solution1897 [Ljava/lang/String; [I [Ljava/lang/String; I I] []
+    ALOAD 1
+    ARRAYLENGTH
+    ISTORE 3
+   L9
+    LINENUMBER 12 L9
+    ALOAD 2
+    ASTORE 4
+    ALOAD 4
+    ARRAYLENGTH
+    ISTORE 5
+    ICONST_0
+    ISTORE 6
+   L10
+   FRAME FULL [original/Solution1897 [Ljava/lang/String; [I I [I I I] []
+    ILOAD 6
+    ILOAD 5
+    IF_ICMPGE L11
+    ALOAD 4
+    ILOAD 6
+    IALOAD
+    ISTORE 7
+   L12
+    LINENUMBER 13 L12
+    ILOAD 7
+    ILOAD 3
+    IREM
+    IFEQ L13
+   L14
+    LINENUMBER 14 L14
+    ICONST_0
+    POP
+    ICONST_1
+    IRETURN
+   L13
+    LINENUMBER 12 L13
+   FRAME FULL [original/Solution1897 [Ljava/lang/String; [I I [I I I I] []
+    IINC 6 1
+    GOTO L10
+   L11
+    LINENUMBER 17 L11
+   FRAME FULL [original/Solution1897 [Ljava/lang/String; [I I [I I I] []
+    ICONST_1
+    IRETURN
+   L15
+    LOCALVARIABLE c C L7 L8 10
+    LOCALVARIABLE w Ljava/lang/String; L4 L6 6
+    LOCALVARIABLE v I L12 L13 7
+    LOCALVARIABLE this Loriginal/Solution1897; L0 L15 0
+    LOCALVARIABLE words [Ljava/lang/String; L0 L15 1
+    LOCALVARIABLE cnt [I L1 L15 2
+    LOCALVARIABLE n I L9 L15 3
+    MAXSTACK = 4
+    MAXLOCALS = 11
+}
+

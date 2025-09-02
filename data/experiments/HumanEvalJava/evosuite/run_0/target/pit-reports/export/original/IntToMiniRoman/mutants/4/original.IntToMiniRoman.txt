@@ -1,0 +1,200 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/IntToMiniRoman {
+
+  // compiled from: id_156.java
+  // access flags 0x19
+  public final static INNERCLASS java/lang/invoke/MethodHandles$Lookup java/lang/invoke/MethodHandles Lookup
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 3 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/IntToMiniRoman; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  public static intToMiniRoman(I)Ljava/lang/String;
+   L0
+    LINENUMBER 44 L0
+    LDC ""
+    ASTORE 1
+   L1
+    LINENUMBER 45 L1
+    BIPUSH 13
+    NEWARRAY T_INT
+    DUP
+    ICONST_0
+    SIPUSH 1000
+    IASTORE
+    DUP
+    ICONST_1
+    SIPUSH 900
+    IASTORE
+    DUP
+    ICONST_2
+    SIPUSH 500
+    IASTORE
+    DUP
+    ICONST_3
+    SIPUSH 400
+    IASTORE
+    DUP
+    ICONST_4
+    BIPUSH 100
+    IASTORE
+    DUP
+    ICONST_5
+    BIPUSH 90
+    IASTORE
+    DUP
+    BIPUSH 6
+    BIPUSH 50
+    IASTORE
+    DUP
+    BIPUSH 7
+    BIPUSH 40
+    IASTORE
+    DUP
+    BIPUSH 8
+    BIPUSH 10
+    IASTORE
+    DUP
+    BIPUSH 9
+    BIPUSH 9
+    IASTORE
+    DUP
+    BIPUSH 10
+    ICONST_5
+    IASTORE
+    DUP
+    BIPUSH 11
+    ICONST_4
+    IASTORE
+    DUP
+    BIPUSH 12
+    ICONST_1
+    IASTORE
+    ASTORE 2
+   L2
+    LINENUMBER 46 L2
+    BIPUSH 13
+    ANEWARRAY java/lang/String
+    DUP
+    ICONST_0
+    LDC "m"
+    AASTORE
+    DUP
+    ICONST_1
+    LDC "cm"
+    AASTORE
+    DUP
+    ICONST_2
+    LDC "d"
+    AASTORE
+    DUP
+    ICONST_3
+    LDC "cd"
+    AASTORE
+    DUP
+    ICONST_4
+    LDC "c"
+    AASTORE
+    DUP
+    ICONST_5
+    LDC "xc"
+    AASTORE
+    DUP
+    BIPUSH 6
+    LDC "l"
+    AASTORE
+    DUP
+    BIPUSH 7
+    LDC "xl"
+    AASTORE
+    DUP
+    BIPUSH 8
+    LDC "x"
+    AASTORE
+    DUP
+    BIPUSH 9
+    LDC "ix"
+    AASTORE
+    DUP
+    BIPUSH 10
+    LDC "v"
+    AASTORE
+    DUP
+    BIPUSH 11
+    LDC "iv"
+    AASTORE
+    DUP
+    BIPUSH 12
+    LDC "i"
+    AASTORE
+    ASTORE 3
+   L3
+    LINENUMBER 47 L3
+    ICONST_0
+    ISTORE 4
+   L4
+   FRAME FULL [I java/lang/String [I [Ljava/lang/String; I] []
+    ILOAD 4
+    ALOAD 2
+    ARRAYLENGTH
+    IF_ICMPGE L5
+   L6
+    LINENUMBER 48 L6
+   FRAME FULL [I java/lang/String [I [Ljava/lang/String; I] []
+    ILOAD 0
+    ALOAD 2
+    ILOAD 4
+    IALOAD
+    IF_ICMPLT L7
+   L8
+    LINENUMBER 49 L8
+    ILOAD 0
+    ALOAD 2
+    ILOAD 4
+    IALOAD
+    IADD
+    ISTORE 0
+   L9
+    LINENUMBER 50 L9
+    ALOAD 1
+    ALOAD 3
+    ILOAD 4
+    AALOAD
+    INVOKEDYNAMIC makeConcatWithConstants(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String; [
+      // handle kind 0x6 : INVOKESTATIC
+      java/lang/invoke/StringConcatFactory.makeConcatWithConstants(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;
+      // arguments:
+      "\u0001\u0001"
+    ]
+    ASTORE 1
+    GOTO L6
+   L7
+    LINENUMBER 47 L7
+   FRAME FULL [I java/lang/String [I [Ljava/lang/String; I] []
+    IINC 4 1
+    GOTO L4
+   L5
+    LINENUMBER 53 L5
+   FRAME FULL [I java/lang/String [I [Ljava/lang/String; I] []
+    ALOAD 1
+    ARETURN
+   L10
+    LOCALVARIABLE i I L4 L5 4
+    LOCALVARIABLE number I L0 L10 0
+    LOCALVARIABLE result Ljava/lang/String; L1 L10 1
+    LOCALVARIABLE values [I L2 L10 2
+    LOCALVARIABLE symbols [Ljava/lang/String; L3 L10 3
+    MAXSTACK = 4
+    MAXLOCALS = 5
+}
+

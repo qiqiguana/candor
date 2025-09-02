@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_1755.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">leetcode</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_1755.java</span></div><h1>id_1755.java</h1><pre class="source lang-java linenums">package original;
+
+import java.util.ArrayList;
+import java.util.List;
+<span class="fc" id="L5">class Solution1755 {</span>
+    public int minAbsDifference(int[] nums, int goal) {
+  /**
+  You are given an integer array nums and an integer goal. You want to choose a subsequence of nums such that the sum of its elements is the closest possible to goal. That is, if the sum of the subsequence&amp;#39;s elements is sum, then you want to minimize the absolute difference abs(sum - goal). Return the minimum possible value of abs(sum - goal). Note that a subsequence of an array is an array formed by removing some elements (possibly all or none) of the original array. &amp;nbsp; Example 1: Input: nums = [5,-7,3,5], goal = 6 Output: 0 Explanation: Choose the whole array as a subsequence, with a sum of 6. This is equal to the goal, so the absolute difference is 0. Example 2: Input: nums = [7,-9,15,-2], goal = -5 Output: 1 Explanation: Choose the subsequence [7,-9,-2], with a sum of -4. The absolute difference is abs(-4 - (-5)) = abs(1) = 1, which is the minimum. Example 3: Input: nums = [1,2,3], goal = -7 Output: 7 &amp;nbsp; Constraints: 1 &amp;lt;= nums.length &amp;lt;= 40 -107 &amp;lt;= nums[i] &amp;lt;= 107 -109 &amp;lt;= goal &amp;lt;= 109
+  */
+<span class="fc" id="L10">        int n = nums.length;</span>
+<span class="fc" id="L11">        List&lt;Integer&gt; lsum = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L12">        List&lt;Integer&gt; rsum = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L13">        dfs(nums, lsum, 0, n / 2, 0);</span>
+<span class="fc" id="L14">        dfs(nums, rsum, n / 2, n, 0);</span>
+
+<span class="fc" id="L16">        rsum.sort(Integer::compareTo);</span>
+<span class="fc" id="L17">        int res = Integer.MAX_VALUE;</span>
+
+<span class="fc bfc" id="L19" title="All 2 branches covered.">        for (Integer x : lsum) {</span>
+<span class="fc" id="L20">            int target = goal - x;</span>
+<span class="fc" id="L21">            int left = 0, right = rsum.size();</span>
+<span class="fc bfc" id="L22" title="All 2 branches covered.">            while (left &lt; right) {</span>
+<span class="fc" id="L23">                int mid = (left + right) &gt;&gt; 1;</span>
+<span class="fc bfc" id="L24" title="All 2 branches covered.">                if (rsum.get(mid) &lt; target) {</span>
+<span class="fc" id="L25">                    left = mid + 1;</span>
+                } else {
+<span class="fc" id="L27">                    right = mid;</span>
+                }
+<span class="fc" id="L29">            }</span>
+<span class="pc bpc" id="L30" title="1 of 2 branches missed.">            if (left &lt; rsum.size()) {</span>
+<span class="fc" id="L31">                res = Math.min(res, Math.abs(target - rsum.get(left)));</span>
+            }
+<span class="pc bpc" id="L33" title="1 of 2 branches missed.">            if (left &gt; 0) {</span>
+<span class="fc" id="L34">                res = Math.min(res, Math.abs(target - rsum.get(left - 1)));</span>
+            }
+<span class="fc" id="L36">        }</span>
+
+<span class="fc" id="L38">        return res;</span>
+    }
+
+    private void dfs(int[] nums, List&lt;Integer&gt; sum, int i, int n, int cur) {
+<span class="fc bfc" id="L42" title="All 2 branches covered.">        if (i == n) {</span>
+<span class="fc" id="L43">            sum.add(cur);</span>
+<span class="fc" id="L44">            return;</span>
+        }
+
+<span class="fc" id="L47">        dfs(nums, sum, i + 1, n, cur);</span>
+<span class="fc" id="L48">        dfs(nums, sum, i + 1, n, cur + nums[i]);</span>
+<span class="fc" id="L49">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

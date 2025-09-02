@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_1899.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">leetcode</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_1899.java</span></div><h1>id_1899.java</h1><pre class="source lang-java linenums">package original;
+
+<span class="nc" id="L3">class Solution1899 {</span>
+    public boolean mergeTriplets(int[][] triplets, int[] target) {
+<span class="nc" id="L5">        int x = target[0], y = target[1], z = target[2];</span>
+<span class="nc" id="L6">        int d = 0, e = 0, f = 0;</span>
+<span class="nc bnc" id="L7" title="All 2 branches missed.">        for (var t : triplets) {</span>
+<span class="nc" id="L8">            int a = t[0], b = t[1], c = t[2];</span>
+<span class="nc bnc" id="L9" title="All 6 branches missed.">            if (a &lt;= x &amp;&amp; b &lt;= y &amp;&amp; c &lt;= z) {</span>
+<span class="nc" id="L10">                d = Math.max(d, a);</span>
+<span class="nc" id="L11">                e = Math.max(e, b);</span>
+<span class="nc" id="L12">                f = Math.max(f, c);</span>
+            }
+        }
+<span class="nc bnc" id="L15" title="All 6 branches missed.">        return d == x &amp;&amp; e == y &amp;&amp; f == z;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

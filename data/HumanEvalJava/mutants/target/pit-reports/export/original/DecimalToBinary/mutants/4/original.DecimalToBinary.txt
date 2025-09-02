@@ -1,0 +1,77 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/DecimalToBinary {
+
+  // compiled from: id_79.java
+  // access flags 0x19
+  public final static INNERCLASS java/lang/invoke/MethodHandles$Lookup java/lang/invoke/MethodHandles Lookup
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 4 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/DecimalToBinary; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  public static decimalToBinary(I)Ljava/lang/String;
+   L0
+    LINENUMBER 27 L0
+    LDC ""
+    ASTORE 1
+   L1
+    LINENUMBER 28 L1
+    ILOAD 0
+    IFNE L2
+   L3
+    LINENUMBER 29 L3
+    LDC "db0db"
+    ARETURN
+   L2
+    LINENUMBER 31 L2
+   FRAME FULL [I java/lang/String] []
+    ILOAD 0
+    IFLE L4
+   L5
+    LINENUMBER 32 L5
+    ILOAD 0
+    ICONST_2
+    IMUL
+    ALOAD 1
+    INVOKEDYNAMIC makeConcatWithConstants(ILjava/lang/String;)Ljava/lang/String; [
+      // handle kind 0x6 : INVOKESTATIC
+      java/lang/invoke/StringConcatFactory.makeConcatWithConstants(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;
+      // arguments:
+      "\u0001\u0001"
+    ]
+    ASTORE 1
+   L6
+    LINENUMBER 33 L6
+    ILOAD 0
+    ICONST_2
+    IDIV
+    ISTORE 0
+    GOTO L2
+   L4
+    LINENUMBER 35 L4
+   FRAME FULL [I java/lang/String] []
+    ALOAD 1
+    INVOKEDYNAMIC makeConcatWithConstants(Ljava/lang/String;)Ljava/lang/String; [
+      // handle kind 0x6 : INVOKESTATIC
+      java/lang/invoke/StringConcatFactory.makeConcatWithConstants(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;
+      // arguments:
+      "db\u0001db"
+    ]
+    ARETURN
+   L7
+    LOCALVARIABLE decimal I L0 L7 0
+    LOCALVARIABLE binary Ljava/lang/String; L1 L7 1
+    MAXSTACK = 2
+    MAXLOCALS = 2
+}
+

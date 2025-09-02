@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_2115.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">leetcode</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_2115.java</span></div><h1>id_2115.java</h1><pre class="source lang-java linenums">package original;
+
+import java.util.Collections;
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Deque;
+import java.util.Map;
+import java.util.List;
+<span class="nc" id="L10">class Solution2115 {</span>
+    public List&lt;String&gt; findAllRecipes(
+  /**
+  You have information about n different recipes. You are given a string array recipes and a 2D string array ingredients. The ith recipe has the name recipes[i], and you can create it if you have all the needed ingredients from ingredients[i]. A recipe can also be an ingredient for other recipes, i.e., ingredients[i] may contain a string that is in recipes. You are also given a string array supplies containing all the ingredients that you initially have, and you have an infinite supply of all of them. Return a list of all the recipes that you can create. You may return the answer in any order. Note that two recipes may contain each other in their ingredients. &amp;nbsp; Example 1: Input: recipes = [&amp;quot;bread&amp;quot;], ingredients = [[&amp;quot;yeast&amp;quot;,&amp;quot;flour&amp;quot;]], supplies = [&amp;quot;yeast&amp;quot;,&amp;quot;flour&amp;quot;,&amp;quot;corn&amp;quot;] Output: [&amp;quot;bread&amp;quot;] Explanation: We can create &amp;quot;bread&amp;quot; since we have the ingredients &amp;quot;yeast&amp;quot; and &amp;quot;flour&amp;quot;. Example 2: Input: recipes = [&amp;quot;bread&amp;quot;,&amp;quot;sandwich&amp;quot;], ingredients = [[&amp;quot;yeast&amp;quot;,&amp;quot;flour&amp;quot;],[&amp;quot;bread&amp;quot;,&amp;quot;meat&amp;quot;]], supplies = [&amp;quot;yeast&amp;quot;,&amp;quot;flour&amp;quot;,&amp;quot;meat&amp;quot;] Output: [&amp;quot;bread&amp;quot;,&amp;quot;sandwich&amp;quot;] Explanation: We can create &amp;quot;bread&amp;quot; since we have the ingredients &amp;quot;yeast&amp;quot; and &amp;quot;flour&amp;quot;. We can create &amp;quot;sandwich&amp;quot; since we have the ingredient &amp;quot;meat&amp;quot; and can create the ingredient &amp;quot;bread&amp;quot;. Example 3: Input: recipes = [&amp;quot;bread&amp;quot;,&amp;quot;sandwich&amp;quot;,&amp;quot;burger&amp;quot;], ingredients = [[&amp;quot;yeast&amp;quot;,&amp;quot;flour&amp;quot;],[&amp;quot;bread&amp;quot;,&amp;quot;meat&amp;quot;],[&amp;quot;sandwich&amp;quot;,&amp;quot;meat&amp;quot;,&amp;quot;bread&amp;quot;]], supplies = [&amp;quot;yeast&amp;quot;,&amp;quot;flour&amp;quot;,&amp;quot;meat&amp;quot;] Output: [&amp;quot;bread&amp;quot;,&amp;quot;sandwich&amp;quot;,&amp;quot;burger&amp;quot;] Explanation: We can create &amp;quot;bread&amp;quot; since we have the ingredients &amp;quot;yeast&amp;quot; and &amp;quot;flour&amp;quot;. We can create &amp;quot;sandwich&amp;quot; since we have the ingredient &amp;quot;meat&amp;quot; and can create the ingredient &amp;quot;bread&amp;quot;. We can create &amp;quot;burger&amp;quot; since we have the ingredient &amp;quot;meat&amp;quot; and can create the ingredients &amp;quot;bread&amp;quot; and &amp;quot;sandwich&amp;quot;. &amp;nbsp; Constraints: n == recipes.length == ingredients.length 1 &amp;lt;= n &amp;lt;= 100 1 &amp;lt;= ingredients[i].length, supplies.length &amp;lt;= 100 1 &amp;lt;= recipes[i].length, ingredients[i][j].length, supplies[k].length &amp;lt;= 10 recipes[i], ingredients[i][j], and supplies[k] consist only of lowercase English letters. All the values of recipes and supplies&amp;nbsp;combined are unique. Each ingredients[i] does not contain any duplicate values.
+  */
+        String[] recipes, List&lt;List&lt;String&gt;&gt; ingredients, String[] supplies) {
+<span class="nc" id="L16">        Map&lt;String, List&lt;String&gt;&gt; g = new HashMap&lt;&gt;();</span>
+<span class="nc" id="L17">        Map&lt;String, Integer&gt; indeg = new HashMap&lt;&gt;();</span>
+<span class="nc bnc" id="L18" title="All 2 branches missed.">        for (int i = 0; i &lt; recipes.length; ++i) {</span>
+<span class="nc bnc" id="L19" title="All 2 branches missed.">            for (String v : ingredients.get(i)) {</span>
+<span class="nc" id="L20">                g.computeIfAbsent(v, k -&gt; new ArrayList&lt;&gt;()).add(recipes[i]);</span>
+<span class="nc" id="L21">            }</span>
+<span class="nc" id="L22">            indeg.put(recipes[i], ingredients.get(i).size());</span>
+        }
+<span class="nc" id="L24">        Deque&lt;String&gt; q = new ArrayDeque&lt;&gt;();</span>
+<span class="nc bnc" id="L25" title="All 2 branches missed.">        for (String s : supplies) {</span>
+<span class="nc" id="L26">            q.offer(s);</span>
+        }
+<span class="nc" id="L28">        List&lt;String&gt; ans = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L29" title="All 2 branches missed.">        while (!q.isEmpty()) {</span>
+<span class="nc bnc" id="L30" title="All 2 branches missed.">            for (int n = q.size(); n &gt; 0; --n) {</span>
+<span class="nc" id="L31">                String i = q.pollFirst();</span>
+<span class="nc bnc" id="L32" title="All 2 branches missed.">                for (String j : g.getOrDefault(i, Collections.emptyList())) {</span>
+<span class="nc" id="L33">                    indeg.put(j, indeg.get(j) - 1);</span>
+<span class="nc bnc" id="L34" title="All 2 branches missed.">                    if (indeg.get(j) == 0) {</span>
+<span class="nc" id="L35">                        ans.add(j);</span>
+<span class="nc" id="L36">                        q.offer(j);</span>
+                    }
+<span class="nc" id="L38">                }</span>
+            }
+        }
+<span class="nc" id="L41">        return ans;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

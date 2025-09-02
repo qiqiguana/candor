@@ -1,0 +1,147 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Skjkasdkd {
+
+  // compiled from: id_94.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 6 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Skjkasdkd; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  // signature (Ljava/util/List<Ljava/lang/Integer;>;)I
+  // declaration: int skjkasdkd(java.util.List<java.lang.Integer>)
+  public static skjkasdkd(Ljava/util/List;)I
+   L0
+    LINENUMBER 39 L0
+    ICONST_0
+    ISTORE 1
+   L1
+    LINENUMBER 40 L1
+    ALOAD 0
+    INVOKEINTERFACE java/util/List.iterator ()Ljava/util/Iterator; (itf)
+    ASTORE 2
+   L2
+   FRAME FULL [java/util/List I java/util/Iterator] []
+    ALOAD 2
+    INVOKEINTERFACE java/util/Iterator.hasNext ()Z (itf)
+    IFEQ L3
+    ALOAD 2
+    INVOKEINTERFACE java/util/Iterator.next ()Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/Integer
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    ISTORE 3
+   L4
+    LINENUMBER 41 L4
+    ILOAD 3
+    INVOKESTATIC original/Skjkasdkd.isPrime (I)Z
+    IFEQ L5
+    ILOAD 3
+    ILOAD 1
+    IF_ICMPGT L5
+   L6
+    LINENUMBER 42 L6
+    ILOAD 3
+    ISTORE 1
+   L5
+    LINENUMBER 44 L5
+   FRAME FULL [java/util/List I java/util/Iterator I] []
+    GOTO L2
+   L3
+    LINENUMBER 45 L3
+   FRAME FULL [java/util/List I java/util/Iterator] []
+    ICONST_0
+    ISTORE 2
+   L7
+    LINENUMBER 46 L7
+   FRAME FULL [java/util/List I I] []
+    ILOAD 1
+    IFLE L8
+   L9
+    LINENUMBER 47 L9
+    ILOAD 2
+    ILOAD 1
+    BIPUSH 10
+    IREM
+    IADD
+    ISTORE 2
+   L10
+    LINENUMBER 48 L10
+    ILOAD 1
+    BIPUSH 10
+    IDIV
+    ISTORE 1
+    GOTO L7
+   L8
+    LINENUMBER 50 L8
+   FRAME FULL [java/util/List I I] []
+    ILOAD 2
+    IRETURN
+   L11
+    LOCALVARIABLE value I L4 L5 3
+    LOCALVARIABLE lst Ljava/util/List; L0 L11 0
+    // signature Ljava/util/List<Ljava/lang/Integer;>;
+    // declaration: lst extends java.util.List<java.lang.Integer>
+    LOCALVARIABLE largestPrime I L1 L11 1
+    LOCALVARIABLE sum I L7 L11 2
+    MAXSTACK = 3
+    MAXLOCALS = 4
+
+  // access flags 0xA
+  private static isPrime(I)Z
+   L0
+    LINENUMBER 54 L0
+    ILOAD 0
+    ICONST_1
+    IF_ICMPGT L1
+   L2
+    LINENUMBER 55 L2
+    ICONST_0
+    IRETURN
+   L1
+    LINENUMBER 57 L1
+   FRAME FULL [I] []
+    ICONST_2
+    ISTORE 1
+   L3
+   FRAME FULL [I I] []
+    ILOAD 1
+    ILOAD 1
+    IMUL
+    ILOAD 0
+    IF_ICMPGT L4
+   L5
+    LINENUMBER 58 L5
+    ILOAD 0
+    ILOAD 1
+    IREM
+    IFNE L6
+   L7
+    LINENUMBER 59 L7
+    ICONST_0
+    IRETURN
+   L6
+    LINENUMBER 57 L6
+   FRAME FULL [I I] []
+    IINC 1 1
+    GOTO L3
+   L4
+    LINENUMBER 62 L4
+   FRAME FULL [I I] []
+    ICONST_1
+    IRETURN
+   L8
+    LOCALVARIABLE i I L3 L4 1
+    LOCALVARIABLE n I L0 L8 0
+    MAXSTACK = 2
+    MAXLOCALS = 2
+}
+

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_3070.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">leetcode</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_3070.java</span></div><h1>id_3070.java</h1><pre class="source lang-java linenums">package original;
+
+<span class="fc" id="L3">class Solution3070 {</span>
+    public int countSubmatrices(int[][] grid, int k) {
+  /**
+  You are given a 0-indexed integer matrix grid and an integer k. Return the number of submatrices that contain the top-left element of the grid, and have a sum less than or equal to k. &amp;nbsp; Example 1: Input: grid = [[7,6,3],[6,6,1]], k = 18 Output: 4 Explanation: There are only 4 submatrices, shown in the image above, that contain the top-left element of grid, and have a sum less than or equal to 18. Example 2: Input: grid = [[7,2,9],[1,5,0],[2,6,6]], k = 20 Output: 6 Explanation: There are only 6 submatrices, shown in the image above, that contain the top-left element of grid, and have a sum less than or equal to 20. &amp;nbsp; Constraints: m == grid.length n == grid[i].length 1 &amp;lt;= n, m &amp;lt;= 1000 0 &amp;lt;= grid[i][j] &amp;lt;= 1000 1 &amp;lt;= k &amp;lt;= 109
+  */
+<span class="fc" id="L8">        int m = grid.length, n = grid[0].length;</span>
+<span class="fc" id="L9">        int[][] s = new int[m + 1][n + 1];</span>
+<span class="fc" id="L10">        int ans = 0;</span>
+<span class="fc bfc" id="L11" title="All 2 branches covered.">        for (int i = 1; i &lt;= m; ++i) {</span>
+<span class="fc bfc" id="L12" title="All 2 branches covered.">            for (int j = 1; j &lt;= n; ++j) {</span>
+<span class="fc" id="L13">                s[i][j] = s[i - 1][j] + s[i][j - 1] - s[i - 1][j - 1] + grid[i - 1][j - 1];</span>
+<span class="fc bfc" id="L14" title="All 2 branches covered.">                if (s[i][j] &lt;= k) {</span>
+<span class="fc" id="L15">                    ++ans;</span>
+                }
+            }
+        }
+<span class="fc" id="L19">        return ans;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

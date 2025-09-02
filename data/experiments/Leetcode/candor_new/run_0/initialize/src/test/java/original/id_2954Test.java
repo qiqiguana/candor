@@ -1,0 +1,18 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of Solution2954.
+*/
+class Solution2954Test {
+    @Test
+    void testNumberOfSequence1() {
+        Solution2954 solution = new Solution2954();
+        int n = 10;
+        int[] sick = {2, 5};
+        int expected = 840;
+        int actual = solution.numberOfSequence(n, sick);
+        assertEquals(expected, actual);
+    }
+}

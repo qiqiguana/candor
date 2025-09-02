@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_154.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HumanEvalJava</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_154.java</span></div><h1>id_154.java</h1><pre class="source lang-java linenums">package original;
+
+
+<span class="nc" id="L4">class CycpatternCheck {</span>
+    /**
+     * You are given 2 words. You need to return True if the second word or any of its rotations is a substring in the first word
+     * cycpatternCheck(&quot;abcd&quot;,&quot;abd&quot;) =&gt; False
+     * cycpatternCheck(&quot;hello&quot;,&quot;ell&quot;) =&gt; True
+     * cycpatternCheck(&quot;whassup&quot;,&quot;psus&quot;) =&gt; False
+     * cycpatternCheck(&quot;abab&quot;,&quot;baa&quot;) =&gt; True
+     * cycpatternCheck(&quot;efef&quot;,&quot;eeff&quot;) =&gt; False
+     * cycpatternCheck(&quot;himenss&quot;,&quot;simen&quot;) =&gt; True
+     *
+     *
+     * &gt; cycpatternCheck(&quot;xyzw&quot;, &quot;xyw&quot;)
+     * false
+     * &gt; cycpatternCheck(&quot;yello&quot;, &quot;ell&quot;)
+     * true
+     * &gt; cycpatternCheck(&quot;whattup&quot;, &quot;ptut&quot;)
+     * false
+     * &gt; cycpatternCheck(&quot;efef&quot;, &quot;fee&quot;)
+     * true
+     * &gt; cycpatternCheck(&quot;abab&quot;, &quot;aabb&quot;)
+     * false
+     * &gt; cycpatternCheck(&quot;winemtt&quot;, &quot;tinem&quot;)
+     * true
+     */
+    public static Boolean cycpatternCheck(String a, String b) {
+<span class="fc" id="L29">        int l = b.length();</span>
+<span class="fc" id="L30">        String pat = b + b;</span>
+<span class="pc bpc" id="L31" title="1 of 2 branches missed.">        for (int i = 0; i &lt; a.length() - l + 1; i++) {</span>
+<span class="fc bfc" id="L32" title="All 2 branches covered.">            for (int j = 0; j &lt; l + 1; j++) {</span>
+<span class="fc bfc" id="L33" title="All 2 branches covered.">                if (a.substring(i, i + l).equals(pat.substring(j, j + l))) {</span>
+<span class="fc" id="L34">                    return true;</span>
+                }
+            }
+        }
+<span class="nc" id="L38">        return false;</span>
+    }
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

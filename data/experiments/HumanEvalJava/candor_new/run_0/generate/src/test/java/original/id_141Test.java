@@ -1,0 +1,56 @@
+package original;
+
+import java.util.Arrays;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of FileNameCheck.
+*/
+class FileNameCheckTest {
+    @Test
+    void testFileNameCheck_DoesNotContainThreeDigits_ReturnsYes() {
+        String result = FileNameCheck.fileNameCheck("example.txt");
+        assertEquals("Yes", result);
+    }
+    
+    @Test
+        public void testNothing(){
+            FileNameCheck s = new FileNameCheck();
+            }
+    @Test
+    public void testFileNameCheckValidFileName2() {
+        String fileName = "a1b2c.txt";
+        String result = FileNameCheck.fileNameCheck(fileName);
+        assertEquals("Yes", result);
+    }
+    @Test
+    public void testFileNameCheckInvalidFileNameNoDot() {
+        String fileName = "example";
+        String result = FileNameCheck.fileNameCheck(fileName);
+        assertEquals("No", result);
+    }
+    @Test
+    public void testFileNameCheckInvalidFileNameEmptyPrefix() {
+        String fileName = ".txt";
+        String result = FileNameCheck.fileNameCheck(fileName);
+        assertEquals("No", result);
+    }
+    @Test
+    public void testFileNameCheckInvalidFileNameNonLetterPrefix() {
+        String fileName = "1example.txt";
+        String result = FileNameCheck.fileNameCheck(fileName);
+        assertEquals("No", result);
+    }
+    @Test
+    public void testInvalidFileExtension() {
+        String fileName = "example.pdf";
+        assertEquals(FileNameCheck.fileNameCheck(fileName), "No");
+    }
+    @Test
+    public void testMoreThanThreeDigitsInFileNameCorrectly2() {
+        String fileName = "a1234b.txt";
+        assertEquals(FileNameCheck.fileNameCheck(fileName), "No");
+    }
+                                    
+}

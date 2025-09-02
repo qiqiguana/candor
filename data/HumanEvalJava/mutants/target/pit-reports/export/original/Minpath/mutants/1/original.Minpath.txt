@@ -1,0 +1,238 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Minpath {
+
+  // compiled from: id_129.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 9 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Minpath; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  // signature (Ljava/util/List<Ljava/util/List<Ljava/lang/Integer;>;>;I)Ljava/util/List<Ljava/lang/Integer;>;
+  // declaration: java.util.List<java.lang.Integer> minpath(java.util.List<java.util.List<java.lang.Integer>>, int)
+  public static minpath(Ljava/util/List;I)Ljava/util/List;
+   L0
+    LINENUMBER 64 L0
+    ALOAD 0
+    INVOKEINTERFACE java/util/List.size ()I (itf)
+    ISTORE 2
+   L1
+    LINENUMBER 65 L1
+    ILOAD 2
+    ILOAD 2
+    IDIV
+    ICONST_1
+    IADD
+    ISTORE 3
+   L2
+    LINENUMBER 66 L2
+    ICONST_0
+    ISTORE 4
+   L3
+   FRAME FULL [java/util/List I I I I] []
+    ILOAD 4
+    ILOAD 2
+    IF_ICMPGE L4
+   L5
+    LINENUMBER 67 L5
+    ICONST_0
+    ISTORE 5
+   L6
+   FRAME FULL [java/util/List I I I I I] []
+    ILOAD 5
+    ILOAD 2
+    IF_ICMPGE L7
+   L8
+    LINENUMBER 68 L8
+    ALOAD 0
+    ILOAD 4
+    INVOKEINTERFACE java/util/List.get (I)Ljava/lang/Object; (itf)
+    CHECKCAST java/util/List
+    ILOAD 5
+    INVOKEINTERFACE java/util/List.get (I)Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/Integer
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    ICONST_1
+    IF_ICMPNE L9
+   L10
+    LINENUMBER 69 L10
+    NEW java/util/ArrayList
+    DUP
+    INVOKESPECIAL java/util/ArrayList.<init> ()V
+    ASTORE 6
+   L11
+    LINENUMBER 70 L11
+    ILOAD 4
+    IFEQ L12
+   L13
+    LINENUMBER 71 L13
+    ALOAD 6
+    ALOAD 0
+    ILOAD 4
+    ICONST_1
+    ISUB
+    INVOKEINTERFACE java/util/List.get (I)Ljava/lang/Object; (itf)
+    CHECKCAST java/util/List
+    ILOAD 5
+    INVOKEINTERFACE java/util/List.get (I)Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/Integer
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+   L12
+    LINENUMBER 74 L12
+   FRAME FULL [java/util/List I I I I I java/util/ArrayList] []
+    ILOAD 5
+    IFEQ L14
+   L15
+    LINENUMBER 75 L15
+    ALOAD 6
+    ALOAD 0
+    ILOAD 4
+    INVOKEINTERFACE java/util/List.get (I)Ljava/lang/Object; (itf)
+    CHECKCAST java/util/List
+    ILOAD 5
+    ICONST_1
+    ISUB
+    INVOKEINTERFACE java/util/List.get (I)Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/Integer
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+   L14
+    LINENUMBER 78 L14
+   FRAME FULL [java/util/List I I I I I java/util/ArrayList] []
+    ILOAD 4
+    ILOAD 2
+    ICONST_1
+    ISUB
+    IF_ICMPEQ L16
+   L17
+    LINENUMBER 79 L17
+    ALOAD 6
+    ALOAD 0
+    ILOAD 4
+    ICONST_1
+    IADD
+    INVOKEINTERFACE java/util/List.get (I)Ljava/lang/Object; (itf)
+    CHECKCAST java/util/List
+    ILOAD 5
+    INVOKEINTERFACE java/util/List.get (I)Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/Integer
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+   L16
+    LINENUMBER 82 L16
+   FRAME FULL [java/util/List I I I I I java/util/ArrayList] []
+    ILOAD 5
+    ILOAD 2
+    ICONST_1
+    ISUB
+    IF_ICMPEQ L18
+   L19
+    LINENUMBER 83 L19
+    ALOAD 6
+    ALOAD 0
+    ILOAD 4
+    INVOKEINTERFACE java/util/List.get (I)Ljava/lang/Object; (itf)
+    CHECKCAST java/util/List
+    ILOAD 5
+    ICONST_1
+    IADD
+    INVOKEINTERFACE java/util/List.get (I)Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/Integer
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+   L18
+    LINENUMBER 86 L18
+   FRAME FULL [java/util/List I I I I I java/util/ArrayList] []
+    ALOAD 6
+    INVOKESTATIC java/util/Collections.min (Ljava/util/Collection;)Ljava/lang/Object;
+    CHECKCAST java/lang/Integer
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    ISTORE 3
+   L9
+    LINENUMBER 67 L9
+   FRAME FULL [java/util/List I I I I I] []
+    IINC 5 1
+    GOTO L6
+   L7
+    LINENUMBER 66 L7
+   FRAME FULL [java/util/List I I I I I] []
+    IINC 4 1
+    GOTO L3
+   L4
+    LINENUMBER 90 L4
+   FRAME FULL [java/util/List I I I I] []
+    NEW java/util/ArrayList
+    DUP
+    INVOKESPECIAL java/util/ArrayList.<init> ()V
+    ASTORE 4
+   L20
+    LINENUMBER 91 L20
+    ICONST_0
+    ISTORE 5
+   L21
+   FRAME FULL [java/util/List I I I java/util/ArrayList I] []
+    ILOAD 5
+    ILOAD 1
+    IF_ICMPGE L22
+   L23
+    LINENUMBER 92 L23
+    ILOAD 5
+    ICONST_2
+    IREM
+    IFNE L24
+   L25
+    LINENUMBER 93 L25
+    ALOAD 4
+    ICONST_1
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+    GOTO L26
+   L24
+    LINENUMBER 95 L24
+   FRAME FULL [java/util/List I I I java/util/ArrayList I] []
+    ALOAD 4
+    ILOAD 3
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+   L26
+    LINENUMBER 91 L26
+   FRAME FULL [java/util/List I I I java/util/ArrayList I] []
+    IINC 5 1
+    GOTO L21
+   L22
+    LINENUMBER 98 L22
+   FRAME FULL [java/util/List I I I java/util/ArrayList I] []
+    ALOAD 4
+    ARETURN
+   L27
+    LOCALVARIABLE temp Ljava/util/List; L11 L9 6
+    // signature Ljava/util/List<Ljava/lang/Integer;>;
+    // declaration: temp extends java.util.List<java.lang.Integer>
+    LOCALVARIABLE j I L6 L7 5
+    LOCALVARIABLE i I L3 L4 4
+    LOCALVARIABLE i I L21 L22 5
+    LOCALVARIABLE grid Ljava/util/List; L0 L27 0
+    // signature Ljava/util/List<Ljava/util/List<Ljava/lang/Integer;>;>;
+    // declaration: grid extends java.util.List<java.util.List<java.lang.Integer>>
+    LOCALVARIABLE k I L0 L27 1
+    LOCALVARIABLE n I L1 L27 2
+    LOCALVARIABLE val I L2 L27 3
+    LOCALVARIABLE ans Ljava/util/List; L20 L27 4
+    // signature Ljava/util/List<Ljava/lang/Integer;>;
+    // declaration: ans extends java.util.List<java.lang.Integer>
+    MAXSTACK = 4
+    MAXLOCALS = 7
+}
+

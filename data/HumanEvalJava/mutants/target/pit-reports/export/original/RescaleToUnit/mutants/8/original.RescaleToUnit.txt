@@ -1,0 +1,140 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/RescaleToUnit {
+
+  // compiled from: id_21.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 7 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/RescaleToUnit; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  // signature (Ljava/util/List<Ljava/lang/Double;>;)Ljava/util/List<Ljava/lang/Double;>;
+  // declaration: java.util.List<java.lang.Double> rescaleToUnit(java.util.List<java.lang.Double>)
+  public static rescaleToUnit(Ljava/util/List;)Ljava/util/List;
+   L0
+    LINENUMBER 26 L0
+    NEW java/util/ArrayList
+    DUP
+    INVOKESPECIAL java/util/ArrayList.<init> ()V
+    ASTORE 1
+   L1
+    LINENUMBER 27 L1
+    LDC 1.7976931348623157E308D
+    DSTORE 2
+   L2
+    LINENUMBER 28 L2
+    LDC 4.9E-324D
+    DSTORE 4
+   L3
+    LINENUMBER 29 L3
+    ICONST_0
+    ISTORE 6
+   L4
+   FRAME FULL [java/util/List java/util/ArrayList D D I] []
+    ILOAD 6
+    ALOAD 0
+    INVOKEINTERFACE java/util/List.size ()I (itf)
+    IF_ICMPGE L5
+   L6
+    LINENUMBER 30 L6
+    ALOAD 0
+    ILOAD 6
+    INVOKEINTERFACE java/util/List.get (I)Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/Double
+    INVOKEVIRTUAL java/lang/Double.doubleValue ()D
+    DLOAD 2
+    DCMPG
+    IFGE L7
+   L8
+    LINENUMBER 31 L8
+    ALOAD 0
+    ILOAD 6
+    INVOKEINTERFACE java/util/List.get (I)Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/Double
+    INVOKEVIRTUAL java/lang/Double.doubleValue ()D
+    DSTORE 2
+   L7
+    LINENUMBER 33 L7
+   FRAME FULL [java/util/List java/util/ArrayList D D I] []
+    ALOAD 0
+    ILOAD 6
+    INVOKEINTERFACE java/util/List.get (I)Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/Double
+    INVOKEVIRTUAL java/lang/Double.doubleValue ()D
+    DLOAD 4
+    DCMPL
+    IFLE L9
+   L10
+    LINENUMBER 34 L10
+    ALOAD 0
+    ILOAD 6
+    INVOKEINTERFACE java/util/List.get (I)Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/Double
+    INVOKEVIRTUAL java/lang/Double.doubleValue ()D
+    DSTORE 4
+   L9
+    LINENUMBER 29 L9
+   FRAME FULL [java/util/List java/util/ArrayList D D I] []
+    IINC 6 1
+    GOTO L4
+   L5
+    LINENUMBER 37 L5
+   FRAME FULL [java/util/List java/util/ArrayList D D I] []
+    ICONST_0
+    ISTORE 6
+   L11
+   FRAME FULL [java/util/List java/util/ArrayList D D I] []
+    ILOAD 6
+    ALOAD 0
+    INVOKEINTERFACE java/util/List.size ()I (itf)
+    IF_ICMPGE L12
+   L13
+    LINENUMBER 38 L13
+    ALOAD 1
+    ALOAD 0
+    ILOAD 6
+    INVOKEINTERFACE java/util/List.get (I)Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/Double
+    INVOKEVIRTUAL java/lang/Double.doubleValue ()D
+    DLOAD 2
+    DSUB
+    DLOAD 4
+    DLOAD 2
+    DSUB
+    DMUL
+    INVOKESTATIC java/lang/Double.valueOf (D)Ljava/lang/Double;
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+   L14
+    LINENUMBER 37 L14
+    IINC 6 1
+    GOTO L11
+   L12
+    LINENUMBER 40 L12
+   FRAME FULL [java/util/List java/util/ArrayList D D I] []
+    ALOAD 1
+    ARETURN
+   L15
+    LOCALVARIABLE i I L4 L5 6
+    LOCALVARIABLE i I L11 L12 6
+    LOCALVARIABLE numbers Ljava/util/List; L0 L15 0
+    // signature Ljava/util/List<Ljava/lang/Double;>;
+    // declaration: numbers extends java.util.List<java.lang.Double>
+    LOCALVARIABLE result Ljava/util/List; L1 L15 1
+    // signature Ljava/util/List<Ljava/lang/Double;>;
+    // declaration: result extends java.util.List<java.lang.Double>
+    LOCALVARIABLE min D L2 L15 2
+    LOCALVARIABLE max D L3 L15 4
+    MAXSTACK = 7
+    MAXLOCALS = 7
+}
+

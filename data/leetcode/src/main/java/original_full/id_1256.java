@@ -1,0 +1,7 @@
+package original;
+
+class Solution1256 {
+    public String encode(int num) {
+        return Integer.toBinaryString(num + 1).substring(1);
+    }
+}

@@ -1,0 +1,95 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/SpecialFactorial {
+
+  // compiled from: id_139.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 4 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/SpecialFactorial; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  public static specialFactorial(I)J
+   L0
+    LINENUMBER 27 L0
+    LCONST_1
+    LSTORE 1
+   L1
+    LINENUMBER 28 L1
+    ICONST_1
+    ISTORE 3
+   L2
+   FRAME FULL [I J I] []
+    ILOAD 3
+    ILOAD 0
+    IF_ICMPGE L3
+   L4
+    LINENUMBER 29 L4
+    LLOAD 1
+    ILOAD 3
+    INVOKESTATIC original/SpecialFactorial.factorial (I)J
+    LMUL
+    LSTORE 1
+   L5
+    LINENUMBER 28 L5
+    IINC 3 1
+    GOTO L2
+   L3
+    LINENUMBER 31 L3
+   FRAME FULL [I J I] []
+    LLOAD 1
+    LRETURN
+   L6
+    LOCALVARIABLE i I L2 L3 3
+    LOCALVARIABLE n I L0 L6 0
+    LOCALVARIABLE res J L1 L6 1
+    MAXSTACK = 4
+    MAXLOCALS = 4
+
+  // access flags 0xA
+  private static factorial(I)J
+   L0
+    LINENUMBER 35 L0
+    LCONST_1
+    LSTORE 1
+   L1
+    LINENUMBER 36 L1
+    ICONST_1
+    ISTORE 3
+   L2
+   FRAME FULL [I J I] []
+    ILOAD 3
+    ILOAD 0
+    IF_ICMPGT L3
+   L4
+    LINENUMBER 37 L4
+    LLOAD 1
+    ILOAD 3
+    I2L
+    LMUL
+    LSTORE 1
+   L5
+    LINENUMBER 36 L5
+    IINC 3 1
+    GOTO L2
+   L3
+    LINENUMBER 39 L3
+   FRAME FULL [I J I] []
+    LLOAD 1
+    LRETURN
+   L6
+    LOCALVARIABLE i I L2 L3 3
+    LOCALVARIABLE n I L0 L6 0
+    LOCALVARIABLE res J L1 L6 1
+    MAXSTACK = 4
+    MAXLOCALS = 4
+}
+

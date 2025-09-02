@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_117.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HumanEvalJava</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_117.java</span></div><h1>id_117.java</h1><pre class="source lang-java linenums">package original;
+
+import java.util.ArrayList;
+import java.util.List;
+
+
+<span class="fc" id="L7">class SelectWords {</span>
+    /**
+     * Given a string s and a natural number n, you have been tasked to implement
+     * a function that returns a list of all words from string s that contain exactly
+     * n consonants, in order these words appear in the string s.
+     * If the string s is empty then the function should return an empty list.
+     * Note: you may assume the input string contains only letters and spaces.
+     * Examples:
+     * selectWords(&quot;Mary had a little lamb&quot;, 4) ==&gt; [&quot;little&quot;]
+     * selectWords(&quot;Mary had a little lamb&quot;, 3) ==&gt; [&quot;Mary&quot;, &quot;lamb&quot;]
+     * selectWords(&quot;simple white space&quot;, 2) ==&gt; []
+     * selectWords(&quot;Hello world&quot;, 4) ==&gt; [&quot;world&quot;]
+     * selectWords(&quot;Uncle sam&quot;, 3) ==&gt; [&quot;Uncle&quot;]
+     *
+     * &gt; selectWords(&quot;Mary had a little lamb&quot;, 4)
+     * [&quot;little&quot;]
+     * &gt; selectWords(&quot;Mary had a little lamb&quot;, 3)
+     * [&quot;Mary&quot;, &quot;lamb&quot;]
+     * &gt; selectWords(&quot;simple white space&quot;, 2)
+     * []
+     * &gt; selectWords(&quot;Hello world&quot;, 4)
+     * [&quot;world&quot;]
+     * &gt; selectWords(&quot;Uncle sam&quot;, 3)
+     * [&quot;Uncle&quot;]
+     * &gt; selectWords(&quot;&quot;, 4)
+     * []
+     * &gt; selectWords(&quot;a b c d e f&quot;, 1)
+     * [&quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;f&quot;]
+     */
+    public static List&lt;Object&gt; selectWords(String s, int n) {
+<span class="fc" id="L37">        List&lt;Object&gt; result = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L38">        String[] words = s.split(&quot; &quot;);</span>
+<span class="fc bfc" id="L39" title="All 2 branches covered.">        for (String word : words) {</span>
+<span class="fc" id="L40">            int consonants = 0;</span>
+<span class="fc bfc" id="L41" title="All 2 branches covered.">            for (int i = 0; i &lt; word.length(); i++) {</span>
+<span class="fc" id="L42">                char c = word.charAt(i);</span>
+<span class="pc bpc" id="L43" title="4 of 20 branches missed.">                if (c != 'a' &amp;&amp; c != 'e' &amp;&amp; c != 'i' &amp;&amp; c != 'o' &amp;&amp; c != 'u' &amp;&amp; c != 'A' &amp;&amp; c != 'E' &amp;&amp; c != 'I' &amp;&amp; c != 'O' &amp;&amp; c != 'U') {</span>
+<span class="fc" id="L44">                    consonants++;</span>
+                }
+            }
+<span class="fc bfc" id="L47" title="All 2 branches covered.">            if (consonants == n) {</span>
+<span class="fc" id="L48">                result.add(word);</span>
+            }
+        }
+<span class="fc" id="L51">        return result;</span>
+    }
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

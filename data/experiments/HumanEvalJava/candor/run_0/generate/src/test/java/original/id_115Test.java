@@ -1,0 +1,44 @@
+package original;
+
+import java.util.Arrays;
+import java.util.List;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+/**
+* Test class of MaxFill.
+*/
+class MaxFillTest {
+    @Test
+    void testMaxFill_Example1() {
+        List<List<Integer>> grid = List.of(
+            List.of(0, 0, 1, 0), 
+            List.of(0, 1, 0, 0), 
+            List.of(1, 1, 1, 1)
+        );
+        int capacity = 1;
+        assertEquals(6, MaxFill.maxFill(grid, capacity));
+    }
+    
+    @Test
+        public void testNothing(){
+            MaxFill s = new MaxFill();
+            }
+    @Test
+    public void testMaxFill_NullGrid() {
+        List<List<Integer>> grid = null;
+        int capacity = 1;
+        assertThrows(NullPointerException.class, () -> MaxFill.maxFill(grid, capacity));
+    }
+    @Test
+    public void testMaxFillBucketCapacity() {
+        List<List<Integer>> grid = Arrays.asList(
+            Arrays.asList(1, 1, 1, 1),
+            Arrays.asList(1, 1, 1, 1)
+        );
+        int expected = 4;
+        int actual = MaxFill.maxFill(grid, 2);
+        assertEquals(expected, actual);
+    }
+                                    
+}

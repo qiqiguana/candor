@@ -1,0 +1,140 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Solution2457 {
+
+  // compiled from: id_2457.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 3 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Solution2457; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public makeIntegerBeautiful(JI)J
+   L0
+    LINENUMBER 5 L0
+    LCONST_0
+    LSTORE 4
+   L1
+    LINENUMBER 6 L1
+   FRAME FULL [original/Solution2457 J I J] []
+    ALOAD 0
+    LLOAD 1
+    LLOAD 4
+    LADD
+    INVOKEVIRTUAL original/Solution2457.f (J)I
+    ILOAD 3
+    IF_ICMPLE L2
+   L3
+    LINENUMBER 7 L3
+    LLOAD 1
+    LLOAD 4
+    LSUB
+    LSTORE 6
+   L4
+    LINENUMBER 8 L4
+    LDC 10L
+    LSTORE 8
+   L5
+    LINENUMBER 9 L5
+   FRAME FULL [original/Solution2457 J I J J J] []
+    LLOAD 6
+    LDC 10L
+    LREM
+    LCONST_0
+    LCMP
+    IFNE L6
+   L7
+    LINENUMBER 10 L7
+    LLOAD 6
+    LDC 10L
+    LDIV
+    LSTORE 6
+   L8
+    LINENUMBER 11 L8
+    LLOAD 8
+    LDC 10L
+    LMUL
+    LSTORE 8
+    GOTO L5
+   L6
+    LINENUMBER 13 L6
+   FRAME FULL [original/Solution2457 J I J J J] []
+    LLOAD 6
+    LDC 10L
+    LDIV
+    LCONST_1
+    LADD
+    LLOAD 8
+    LMUL
+    LLOAD 1
+    LSUB
+    LSTORE 4
+   L9
+    LINENUMBER 14 L9
+    GOTO L1
+   L2
+    LINENUMBER 15 L2
+   FRAME FULL [original/Solution2457 J I J] []
+    LLOAD 4
+    LRETURN
+   L10
+    LOCALVARIABLE y J L4 L9 6
+    LOCALVARIABLE p J L5 L9 8
+    LOCALVARIABLE this Loriginal/Solution2457; L0 L10 0
+    LOCALVARIABLE n J L0 L10 1
+    LOCALVARIABLE target I L0 L10 3
+    LOCALVARIABLE x J L1 L10 4
+    MAXSTACK = 5
+    MAXLOCALS = 10
+
+  // access flags 0x2
+  private f(J)I
+   L0
+    LINENUMBER 19 L0
+    ICONST_0
+    ISTORE 3
+   L1
+    LINENUMBER 20 L1
+   FRAME FULL [original/Solution2457 J I] []
+    LLOAD 1
+    LCONST_0
+    LCMP
+    IFLE L2
+   L3
+    LINENUMBER 21 L3
+    ILOAD 3
+    I2L
+    LLOAD 1
+    LDC 10L
+    LREM
+    LADD
+    L2I
+    ISTORE 3
+   L4
+    LINENUMBER 22 L4
+    LLOAD 1
+    LDC 10L
+    LDIV
+    LSTORE 1
+    GOTO L1
+   L2
+    LINENUMBER 24 L2
+   FRAME FULL [original/Solution2457 J I] []
+    ILOAD 3
+    IRETURN
+   L5
+    LOCALVARIABLE this Loriginal/Solution2457; L0 L5 0
+    LOCALVARIABLE x J L0 L5 1
+    LOCALVARIABLE y I L1 L5 3
+    MAXSTACK = 6
+    MAXLOCALS = 4
+}
+

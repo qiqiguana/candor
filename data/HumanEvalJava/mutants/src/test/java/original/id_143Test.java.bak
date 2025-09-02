@@ -1,0 +1,47 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of WordsInSentence.
+*/
+class WordsInSentenceTest {
+
+    @Test
+    void testWordsInSentence_withSinglePrimeWordLength_shouldReturnThatWord() {
+        // Arrange and Act
+        String result = WordsInSentence.wordsInSentence("is");
+
+        // Assert
+        assertEquals("is", result);
+    }
+    
+    @Test
+        public void testNothing(){
+            WordsInSentence s = new WordsInSentence();
+            }
+    @Test
+    public void testEmptySentence() {
+    String input = "";
+    String expectedOutput = "";
+    assertEquals(expectedOutput, WordsInSentence.wordsInSentence(input));
+    }
+    @Test
+    public void testNullInputSentence() {
+    String input = null;
+    assertThrows(NullPointerException.class, () -> WordsInSentence.wordsInSentence(input));
+    }
+    @Test
+    public void testSinglePrimeWordLengthFixed() {
+        String input = "a";
+        String expectedOutput = "";
+        assertEquals(expectedOutput, WordsInSentence.wordsInSentence(input));
+    }
+    @Test
+    public void testSingleCharacterWord() {
+        String input = "a";
+        String expectedOutput = "";
+        assertEquals(expectedOutput, WordsInSentence.wordsInSentence(input));
+    }
+                                    
+}

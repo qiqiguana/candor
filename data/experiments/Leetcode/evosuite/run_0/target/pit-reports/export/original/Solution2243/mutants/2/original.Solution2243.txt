@@ -1,0 +1,119 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Solution2243 {
+
+  // compiled from: id_2243.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 3 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Solution2243; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public digitSum(Ljava/lang/String;I)Ljava/lang/String;
+   L0
+    LINENUMBER 5 L0
+   FRAME FULL [original/Solution2243 java/lang/String I] []
+    ALOAD 1
+    INVOKEVIRTUAL java/lang/String.length ()I
+    ILOAD 2
+    IF_ICMPLE L1
+   L2
+    LINENUMBER 6 L2
+    ALOAD 1
+    INVOKEVIRTUAL java/lang/String.length ()I
+    ISTORE 3
+   L3
+    LINENUMBER 7 L3
+    NEW java/lang/StringBuilder
+    DUP
+    INVOKESPECIAL java/lang/StringBuilder.<init> ()V
+    ASTORE 4
+   L4
+    LINENUMBER 8 L4
+    ICONST_0
+    ISTORE 5
+   L5
+   FRAME FULL [original/Solution2243 java/lang/String I I java/lang/StringBuilder I] []
+    ILOAD 5
+    ILOAD 3
+    IF_ICMPLT L6
+   L7
+    LINENUMBER 9 L7
+    ICONST_0
+    ISTORE 6
+   L8
+    LINENUMBER 10 L8
+    ILOAD 5
+    ISTORE 7
+   L9
+   FRAME FULL [original/Solution2243 java/lang/String I I java/lang/StringBuilder I I I] []
+    ILOAD 7
+    ILOAD 5
+    ILOAD 2
+    IADD
+    ILOAD 3
+    INVOKESTATIC java/lang/Math.min (II)I
+    IF_ICMPGE L10
+   L11
+    LINENUMBER 11 L11
+    ILOAD 6
+    ALOAD 1
+    ILOAD 7
+    INVOKEVIRTUAL java/lang/String.charAt (I)C
+    BIPUSH 48
+    ISUB
+    IADD
+    ISTORE 6
+   L12
+    LINENUMBER 10 L12
+    IINC 7 1
+    GOTO L9
+   L10
+    LINENUMBER 13 L10
+   FRAME FULL [original/Solution2243 java/lang/String I I java/lang/StringBuilder I I I] []
+    ALOAD 4
+    ILOAD 6
+    INVOKEVIRTUAL java/lang/StringBuilder.append (I)Ljava/lang/StringBuilder;
+    POP
+   L13
+    LINENUMBER 8 L13
+    ILOAD 5
+    ILOAD 2
+    IADD
+    ISTORE 5
+    GOTO L5
+   L6
+    LINENUMBER 15 L6
+   FRAME FULL [original/Solution2243 java/lang/String I I java/lang/StringBuilder I] []
+    ALOAD 4
+    INVOKEVIRTUAL java/lang/StringBuilder.toString ()Ljava/lang/String;
+    ASTORE 1
+   L14
+    LINENUMBER 16 L14
+    GOTO L0
+   L1
+    LINENUMBER 17 L1
+   FRAME FULL [original/Solution2243 java/lang/String I] []
+    ALOAD 1
+    ARETURN
+   L15
+    LOCALVARIABLE j I L9 L10 7
+    LOCALVARIABLE x I L8 L13 6
+    LOCALVARIABLE i I L5 L6 5
+    LOCALVARIABLE n I L3 L14 3
+    LOCALVARIABLE t Ljava/lang/StringBuilder; L4 L14 4
+    LOCALVARIABLE this Loriginal/Solution2243; L0 L15 0
+    LOCALVARIABLE s Ljava/lang/String; L0 L15 1
+    LOCALVARIABLE k I L0 L15 2
+    MAXSTACK = 3
+    MAXLOCALS = 8
+}
+

@@ -1,0 +1,127 @@
+package original;
+
+import java.util.Arrays;
+
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of ReverseDelete.
+*/
+class ReverseDeleteTest {
+    @Test
+    void testReverseDelete_RemovesCharactersAndChecksPalindrome() {
+        String s = "abcdedcba";
+        String c = "ab";
+        List<Object> result = ReverseDelete.reverseDelete(s, c);
+        boolean isPalindrome = (boolean) result.get(1);
+        assertEquals(true, isPalindrome);
+    }
+    @Test
+    public void testReverseDeleteWithEmptyStrings() {
+        List<Object> result = ReverseDelete.reverseDelete("", "");
+        assertEquals(Arrays.asList("", true), result);
+    }
+    @Test
+    public void testReverseDeleteWithSingleCharacterStrings() {
+        List<Object> result = ReverseDelete.reverseDelete("a", "a");
+        assertEquals(Arrays.asList("", true), result);
+    }
+    @Test
+    public void testReverseDeleteWithPalindromeStringAndEmptyC() {
+        List<Object> result = ReverseDelete.reverseDelete("abcdedcba", "");
+        assertEquals(Arrays.asList("abcdedcba", true), result);
+    }
+    @Test
+    public void testReverseDeleteWithNonPalindromeStringAndSingleCharacterC() {
+        List<Object> result = ReverseDelete.reverseDelete("vabba", "v");
+        assertEquals(Arrays.asList("abba", true), result);
+    }
+    @Test
+    public void testReverseDeleteWithPalindromeStringAndSingleCharacterC() {
+        List<Object> result = ReverseDelete.reverseDelete("abcdedcba", "a");
+        assertEquals(Arrays.asList("bcdedcb", true), result);
+    }
+    @Test
+    public void testReverseDeleteWithEdgeCaseString() {
+        List<Object> result = ReverseDelete.reverseDelete("vabba", "v");
+        assertEquals(Arrays.asList("abba", true), result);
+    }
+    @Test
+    public void testReverseDeleteWithPalindromeStringAndMultipleCharacterC() {
+        List<Object> result = ReverseDelete.reverseDelete("abcdedcba", "ab");
+        assertEquals(Arrays.asList("cdedc", true), result);
+    }
+    @Test
+    public void testReverseDelete_HappyPath() {
+        String s = "abcde";
+        String c = "ae";
+        List<Object> result = ReverseDelete.reverseDelete(s, c);
+        assertEquals(Arrays.asList("bcd", false), result);
+    }
+    @Test
+    public void testReverseDelete_NullInputString_Fixed() {
+        String s = null;
+        String c = "a";
+        assertThrows(NullPointerException.class, () -> ReverseDelete.reverseDelete(s, c));
+    }
+    @Test
+    public void testReverseDelete_EmptyStrings() {
+        String s = "";
+        String c = "";
+        List<Object> result = ReverseDelete.reverseDelete(s, c);
+        assertEquals(Arrays.asList("", true), result);
+    }
+    @Test
+    public void testReverseDelete_PalindromeCheck() {
+        String s = "madam";
+        String c = "a";
+        List<Object> result = ReverseDelete.reverseDelete(s, c);
+        assertEquals(Arrays.asList("mdm", true), result);
+    }
+    @Test
+    public void testReverseDelete_SingleCharacterDeletion() {
+        String s = "hello";
+        String c = "l";
+        List<Object> result = ReverseDelete.reverseDelete(s, c);
+        assertEquals(Arrays.asList("heo", false), result);
+    }
+    @Test
+    public void testReverseDelete_MultipleCharacterDeletion() {
+        String s = "hello world";
+        String c = "lo";
+        List<Object> result = ReverseDelete.reverseDelete(s, c);
+        assertEquals(Arrays.asList("he wrd", false), result);
+    }
+    @Test
+    public void testReverseDelete_NoCharacterDeletion() {
+        String s = "hello world";
+        String c = "abc";
+        List<Object> result = ReverseDelete.reverseDelete(s, c);
+        assertEquals(Arrays.asList("hello world", false), result);
+    }
+    @Test
+    public void testReverseDeleteHappyPath() {
+        List<Object> result = (List<Object>) ReverseDelete.reverseDelete("abcde", "ae");
+        assertEquals(Arrays.asList("bcd", false), result);
+    }
+    @Test
+    public void testReverseDeleteSadPath() {
+        assertThrows(NullPointerException.class, () -> ReverseDelete.reverseDelete(null, "ae"));
+    }
+    @Test
+    public void testReverseDeleteEdgeCase2() {
+        String s = "a";
+        String c = "ae";
+        List<Object> result = ReverseDelete.reverseDelete(s, c);
+        assertEquals("", (String)result.get(0));
+        assertTrue((Boolean)result.get(1));
+    }
+    @Test
+    public void testReverseDeleteSpecificFunctionality() {
+        List<Object> resultList = ReverseDelete.reverseDelete("abcdedcba", "ab");
+        assertEquals("cdedc", resultList.get(0));
+        assertTrue((Boolean) resultList.get(1));
+    }
+}

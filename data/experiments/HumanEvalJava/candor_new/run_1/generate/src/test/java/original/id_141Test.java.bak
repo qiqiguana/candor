@@ -1,0 +1,58 @@
+package original;
+
+import java.util.Arrays;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of FileNameCheck.
+*/
+class FileNameCheckTest {
+	@Test
+	void testFileNameWithMoreThanThreeDigits() {
+	    String fileName = "example1234.txt";
+	    assertEquals("No", FileNameCheck.fileNameCheck(fileName));
+	}
+ 
+ @Test
+     public void testNothing(){
+         FileNameCheck s = new FileNameCheck();
+         }
+ @Test
+ public void TestFileNameCheck_Yes() {
+     String[] inputs = {"example.txt", "K.dll", "MY16FILE3.exe"};
+     String expectedOutput = "Yes";
+     for (String input : inputs) {
+         assertEquals(expectedOutput, FileNameCheck.fileNameCheck(input));
+     }
+ }
+ @Test
+ public void TestFileNameCheck_No_Suffix_1() {
+     String input = "example.txtx";
+     String expectedOutput = "No";
+     assertEquals(expectedOutput, original.FileNameCheck.fileNameCheck(input));
+ }
+ @Test
+ public void TestFileNameCheck_No_LeadingLetter_TotalDigits() {
+     String[] inputs = {"1example.txt", "2K.dll", "3MY16FILE3.exe"};
+     for (String input : inputs) {
+         int totalDigitCount = 0;
+         for (char c : input.toCharArray()) {
+             if (Character.isDigit(c)) {
+                 totalDigitCount++;
+             }
+         }
+         String expectedOutput = Character.isLetter(input.charAt(0)) && totalDigitCount <= 3 ? "Yes" : "No";
+         assertEquals(expectedOutput, original.FileNameCheck.fileNameCheck(input));
+     }
+ }
+ @Test
+ public void TestFileNameCheck_EmptyName_Fixed() {
+     String[] inputs = {"", " ", "txt", "exe", "dll"};
+     String expectedOutput = "No";
+     for (String input : inputs) {
+         assertEquals(expectedOutput, original.FileNameCheck.fileNameCheck(input));
+     }
+ }
+                                 
+}

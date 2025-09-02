@@ -1,0 +1,60 @@
+package original;
+
+import java.util.Arrays;
+import java.util.List;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.ArrayList;
+/**
+* Test class of TotalMatch.
+*/
+class TotalMatchTest {
+    @Test
+    void test_totalMatch_emptyLists() {
+        List<Object> list1 = new ArrayList<>();
+        List<Object> list2 = new ArrayList<>();
+        assertEquals(list1, TotalMatch.totalMatch(list1, list2));
+    }
+    
+    @Test
+        public void testNothing(){
+            TotalMatch s = new TotalMatch();
+            }
+    @Test
+    public void testTotalMatch_TwoEmptyLists() {
+        List<Object> lst1 = new ArrayList<>();
+        List<Object> lst2 = new ArrayList<>();
+        assertEquals(lst1, TotalMatch.totalMatch(lst1, lst2));
+    }
+    @Test
+    public void testTotalMatch_IgnoresNullElements() {
+        List<Object> lst1 = Arrays.asList("hi", null);
+        List<Object> lst2 = Arrays.asList("hI", "Hi");
+        assertEquals(lst1, TotalMatch.totalMatch(lst1, lst2));
+    }
+    @Test
+    public void testTotalMatch_NonStringElements() {
+        List<Object> lst1 = Arrays.asList("a", 1);
+        List<Object> lst2 = Arrays.asList(2, "b");
+        assertEquals(lst1, TotalMatch.totalMatch(lst1, lst2));
+    }
+    @Test
+    public void testTotalMatch_NullAndNonStringElements() {
+        List<Object> lst1 = Arrays.asList("a", null, 1);
+        List<Object> lst2 = Arrays.asList(2, "b", null);
+        assertEquals(lst1, TotalMatch.totalMatch(lst1, lst2));
+    }
+    @Test
+    public void testEmptyLists() {
+        List<Object> lst1 = new ArrayList<>();
+        List<Object> lst2 = new ArrayList<>();
+        assertEquals(lst1, TotalMatch.totalMatch(lst1, lst2));
+    }
+    @Test
+    public void testEqualLengths() {
+        List<Object> lst1 = Arrays.asList("hi", "admin");
+        List<Object> lst2 = Arrays.asList("hI", "Hi");
+        assertEquals(lst2, TotalMatch.totalMatch(lst1, lst2));
+    }
+                                    
+}

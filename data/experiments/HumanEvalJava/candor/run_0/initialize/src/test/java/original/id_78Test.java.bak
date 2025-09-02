@@ -1,0 +1,88 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of HexKey.
+*/
+class HexKeyTest {
+	@Test
+	void testHexKeyShouldReturnPrimeDigitsCount() {
+		// given
+		String input = "AB";
+		int expected = 1;
+
+		// when
+		int result = HexKey.hexKey(input);
+
+		// then
+		assertEquals(expected, result);
+	}
+ 
+ @Test
+     public void testNothing(){
+         HexKey s = new HexKey();
+         }
+ @Test
+ public void testHexKey_WithEmptyStringInput_ReturnsZero() {
+     Object num = "";
+     int result = HexKey.hexKey(num);
+     assertEquals(0, result);
+ }
+ @Test
+ public void testHexKey_WithNullInput_ThrowsNullPointerException() {
+     Object num = null;
+     assertThrows(NullPointerException.class, () -> HexKey.hexKey(num));
+ }
+ @Test
+ public void testHexKey_WithNonHexadecimalStringInput_ReturnsZero() {
+     Object num = "hello";
+     int result = HexKey.hexKey(num);
+     assertEquals(0, result);
+ }
+ @Test
+ public void testHexKey_WithSinglePrimeHexadecimalDigitInput_ReturnsOne() {
+     Object num = "2";
+     int result = HexKey.hexKey(num);
+     assertEquals(1, result);
+ }
+ @Test
+ public void testHexKey_WithMultiplePrimeHexadecimalDigitsInput_ReturnsCorrectCount() {
+     Object num = "23";
+     int result = HexKey.hexKey(num);
+     assertEquals(2, result);
+ }
+ @Test
+ void testHexKey_with_empty_string() {
+     assertEquals(0, HexKey.hexKey(""));
+ }
+ @Test
+ void testHexKey_with_single_prime_digit() {
+     assertEquals(1, HexKey.hexKey("2"));
+ }
+ @Test
+ void testHexKey_with_multiple_prime_digits() {
+     assertEquals(3, HexKey.hexKey("237"));
+ }
+ @Test
+ void testHexKey_with_non_prime_digits() {
+     assertEquals(0, HexKey.hexKey("0468"));
+ }
+ @Test
+ void testHexKey_with_uppercase_letters() {
+     assertEquals(1, HexKey.hexKey("AB"));
+ }
+ @Test
+ public void testHexKeyWithPrimeDigits() {
+ 	Object num = "2B";
+ 	int expected_result = 2;
+ 	assertEquals(expected_result, HexKey.hexKey(num));
+ }
+ @Test
+ public void testHexKeyWithNonPrimeDigits() {
+ 	Object num = "1A4E";
+ 	int expected_result = 0;
+ 	assertEquals(expected_result, HexKey.hexKey(num));
+ }
+                                 
+}

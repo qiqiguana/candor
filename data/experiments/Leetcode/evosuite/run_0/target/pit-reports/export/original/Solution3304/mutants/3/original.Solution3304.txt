@@ -1,0 +1,101 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Solution3304 {
+
+  // compiled from: id_3304.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 5 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Solution3304; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public kthCharacter(I)C
+   L0
+    LINENUMBER 7 L0
+    NEW java/util/ArrayList
+    DUP
+    INVOKESPECIAL java/util/ArrayList.<init> ()V
+    ASTORE 2
+   L1
+    LINENUMBER 8 L1
+    ALOAD 2
+    ICONST_0
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+   L2
+    LINENUMBER 9 L2
+   FRAME FULL [original/Solution3304 I java/util/ArrayList] []
+    ALOAD 2
+    INVOKEINTERFACE java/util/List.size ()I (itf)
+    ILOAD 1
+    IF_ICMPGE L3
+   L4
+    LINENUMBER 10 L4
+    ICONST_0
+    ISTORE 3
+   L5
+    ALOAD 2
+    INVOKEINTERFACE java/util/List.size ()I (itf)
+    ISTORE 4
+   L6
+   FRAME FULL [original/Solution3304 I java/util/ArrayList I I] []
+    ILOAD 3
+    ILOAD 4
+    IF_ICMPGT L7
+   L8
+    LINENUMBER 11 L8
+    ALOAD 2
+    ALOAD 2
+    ILOAD 3
+    INVOKEINTERFACE java/util/List.get (I)Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/Integer
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    ICONST_1
+    IADD
+    BIPUSH 26
+    IREM
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+   L9
+    LINENUMBER 10 L9
+    IINC 3 1
+    GOTO L6
+   L7
+   FRAME FULL [original/Solution3304 I java/util/ArrayList I I] []
+    GOTO L2
+   L3
+    LINENUMBER 14 L3
+   FRAME FULL [original/Solution3304 I java/util/ArrayList] []
+    BIPUSH 97
+    ALOAD 2
+    ILOAD 1
+    ICONST_1
+    ISUB
+    INVOKEINTERFACE java/util/List.get (I)Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/Integer
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    IADD
+    I2C
+    IRETURN
+   L10
+    LOCALVARIABLE i I L5 L7 3
+    LOCALVARIABLE m I L6 L7 4
+    LOCALVARIABLE this Loriginal/Solution3304; L0 L10 0
+    LOCALVARIABLE k I L0 L10 1
+    LOCALVARIABLE word Ljava/util/List; L1 L10 2
+    // signature Ljava/util/List<Ljava/lang/Integer;>;
+    // declaration: word extends java.util.List<java.lang.Integer>
+    MAXSTACK = 4
+    MAXLOCALS = 5
+}
+

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_54.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HumanEvalJava</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_54.java</span></div><h1>id_54.java</h1><pre class="source lang-java linenums">package original;
+
+
+<span class="nc" id="L4">class SameChars {</span>
+    /**
+     * Check if two words have the same characters.
+     *
+     * &gt; sameChars(&quot;abcd&quot;, &quot;dddddddabce&quot;)
+     * false
+     * &gt; sameChars(&quot;eabcdzzzz&quot;, &quot;dddzzzzzzzddeddabc&quot;)
+     * true
+     * &gt; sameChars(&quot;abcd&quot;, &quot;dddddddabc&quot;)
+     * true
+     * &gt; sameChars(&quot;dddddddabc&quot;, &quot;abcd&quot;)
+     * true
+     * &gt; sameChars(&quot;eabcd&quot;, &quot;dddddddabc&quot;)
+     * false
+     * &gt; sameChars(&quot;abcd&quot;, &quot;dddddddabcf&quot;)
+     * false
+     * &gt; sameChars(&quot;eabcdzzzz&quot;, &quot;dddzzzzzzzddddabc&quot;)
+     * false
+     * &gt; sameChars(&quot;aabb&quot;, &quot;aaccc&quot;)
+     * false
+     */
+    public static Boolean sameChars(String s0, String s1) {
+<span class="fc" id="L26">        int[] count0 = new int[26];</span>
+<span class="fc" id="L27">        int[] count1 = new int[26];</span>
+<span class="fc bfc" id="L28" title="All 2 branches covered.">        for (int i = 0; i &lt; s0.length(); i++) {</span>
+<span class="fc" id="L29">            count0[s0.charAt(i) - 'a'] = 1;</span>
+
+        }
+<span class="fc bfc" id="L32" title="All 2 branches covered.">        for (int i = 0; i &lt; s1.length(); i++) {</span>
+<span class="fc" id="L33">            count1[s1.charAt(i) - 'a'] = 1;</span>
+        }
+<span class="pc bpc" id="L35" title="1 of 2 branches missed.">        for (int i = 0; i &lt; 26; i++) {</span>
+<span class="fc bfc" id="L36" title="All 2 branches covered.">            if (count0[i] != count1[i]) {</span>
+<span class="fc" id="L37">                return false;</span>
+            }
+        }
+<span class="nc" id="L40">        return true;</span>
+    }
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

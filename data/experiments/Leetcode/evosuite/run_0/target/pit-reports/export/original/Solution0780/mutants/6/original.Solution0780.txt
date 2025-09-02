@@ -1,0 +1,130 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Solution0780 {
+
+  // compiled from: id_0780.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 3 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Solution0780; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public reachingPoints(IIII)Z
+   L0
+    LINENUMBER 5 L0
+   FRAME FULL [original/Solution0780 I I I I] []
+    ILOAD 3
+    ILOAD 1
+    IF_ICMPLE L1
+    ILOAD 4
+    ILOAD 2
+    IF_ICMPLE L1
+    ILOAD 3
+    ILOAD 4
+    IF_ICMPEQ L1
+   L2
+    LINENUMBER 6 L2
+    ILOAD 3
+    ILOAD 4
+    IF_ICMPGT L3
+   L4
+    LINENUMBER 7 L4
+    ILOAD 3
+    ILOAD 4
+    IREM
+    ISTORE 3
+    GOTO L0
+   L3
+    LINENUMBER 9 L3
+   FRAME FULL [original/Solution0780 I I I I] []
+    ILOAD 4
+    ILOAD 3
+    IREM
+    ISTORE 4
+    GOTO L0
+   L1
+    LINENUMBER 12 L1
+   FRAME FULL [original/Solution0780 I I I I] []
+    ILOAD 3
+    ILOAD 1
+    IF_ICMPNE L5
+    ILOAD 4
+    ILOAD 2
+    IF_ICMPNE L5
+   L6
+    LINENUMBER 13 L6
+    ICONST_1
+    IRETURN
+   L5
+    LINENUMBER 15 L5
+   FRAME FULL [original/Solution0780 I I I I] []
+    ILOAD 3
+    ILOAD 1
+    IF_ICMPNE L7
+   L8
+    LINENUMBER 16 L8
+    ILOAD 4
+    ILOAD 2
+    IF_ICMPLE L9
+    ILOAD 4
+    ILOAD 2
+    ISUB
+    ILOAD 3
+    IREM
+    IFNE L9
+    ICONST_1
+    GOTO L10
+   L9
+   FRAME FULL [original/Solution0780 I I I I] []
+    ICONST_0
+   L10
+   FRAME FULL [original/Solution0780 I I I I] [I]
+    IRETURN
+   L7
+    LINENUMBER 18 L7
+   FRAME FULL [original/Solution0780 I I I I] []
+    ILOAD 4
+    ILOAD 2
+    IF_ICMPNE L11
+   L12
+    LINENUMBER 19 L12
+    ILOAD 3
+    ILOAD 1
+    IF_ICMPLE L13
+    ILOAD 3
+    ILOAD 1
+    ISUB
+    ILOAD 4
+    IREM
+    IFNE L13
+    ICONST_1
+    GOTO L14
+   L13
+   FRAME FULL [original/Solution0780 I I I I] []
+    ICONST_0
+   L14
+   FRAME FULL [original/Solution0780 I I I I] [I]
+    IRETURN
+   L11
+    LINENUMBER 21 L11
+   FRAME FULL [original/Solution0780 I I I I] []
+    ICONST_0
+    IRETURN
+   L15
+    LOCALVARIABLE this Loriginal/Solution0780; L0 L15 0
+    LOCALVARIABLE sx I L0 L15 1
+    LOCALVARIABLE sy I L0 L15 2
+    LOCALVARIABLE tx I L0 L15 3
+    LOCALVARIABLE ty I L0 L15 4
+    MAXSTACK = 2
+    MAXLOCALS = 5
+}
+

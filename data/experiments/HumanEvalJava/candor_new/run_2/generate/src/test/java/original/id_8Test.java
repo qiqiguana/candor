@@ -1,0 +1,41 @@
+package original;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of SumProduct.
+*/
+class SumProductTest {
+    @Test
+    void testSumProduct_withEmptyList_returnsExpectedResult() {
+        List<Object> numbers = new ArrayList<>();
+        List<Integer> result = SumProduct.sumProduct(numbers);
+        assertEquals(0, (int) result.get(0)); // assert sum is 0
+    }
+    
+    @Test
+        public void testNothing(){
+            SumProduct s = new SumProduct();
+            }
+    @Test
+    public void testSumProductValidIntegerList() {
+    	List<Object> numbers = new ArrayList<>();
+    	numbers.add(1);
+    	numbers.add(2);
+    	numbers.add(3);
+    	numbers.add(4);
+    	List<Integer> result = SumProduct.sumProduct(numbers);
+    	assertEquals(result.get(0), 10);
+    	assertEquals(result.get(1), 24);
+    }
+    @Test
+    public void testSumProductNonIntegerInput() {
+    	List<Object> numbers = new ArrayList<>();
+    	numbers.add(1.5);
+    	assertThrows(IllegalArgumentException.class, () -> SumProduct.sumProduct(numbers));
+    }
+                                    
+}

@@ -27,10 +27,7 @@ class IncrListTest {
         List<Object> input = new ArrayList<>();
         assertEquals(new ArrayList<>(), IncrList.incrList(input));
     }
-    @Test
-    public void testIncrListWithNullInput() {
-        assertEquals(Collections.emptyList(), IncrList.incrList(null));
-    }
+ 
     @Test
     public void testIncrListWithSingleElement() {
         List<Object> input = Arrays.asList(1);

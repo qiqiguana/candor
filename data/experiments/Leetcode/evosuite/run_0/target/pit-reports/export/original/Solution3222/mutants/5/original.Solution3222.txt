@@ -1,0 +1,70 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Solution3222 {
+
+  // compiled from: id_3222.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 3 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Solution3222; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public losingPlayer(II)Ljava/lang/String;
+   L0
+    LINENUMBER 5 L0
+    ILOAD 1
+    ICONST_2
+    IDIV
+    ILOAD 2
+    BIPUSH 8
+    IDIV
+    INVOKESTATIC java/lang/Math.min (II)I
+    ISTORE 3
+   L1
+    LINENUMBER 6 L1
+    ILOAD 1
+    ILOAD 3
+    ICONST_2
+    IMUL
+    ISUB
+    ISTORE 1
+   L2
+    LINENUMBER 7 L2
+    ILOAD 2
+    ILOAD 3
+    BIPUSH 8
+    IDIV
+    ISUB
+    ISTORE 2
+   L3
+    LINENUMBER 8 L3
+    ILOAD 1
+    IFLE L4
+    ILOAD 2
+    ICONST_4
+    IF_ICMPLT L4
+    LDC "Alice"
+    GOTO L5
+   L4
+   FRAME FULL [original/Solution3222 I I I] []
+    LDC "Bob"
+   L5
+   FRAME FULL [original/Solution3222 I I I] [java/lang/String]
+    ARETURN
+   L6
+    LOCALVARIABLE this Loriginal/Solution3222; L0 L6 0
+    LOCALVARIABLE x I L0 L6 1
+    LOCALVARIABLE y I L0 L6 2
+    LOCALVARIABLE k I L1 L6 3
+    MAXSTACK = 3
+    MAXLOCALS = 4
+}
+

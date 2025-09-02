@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_1449.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">leetcode</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_1449.java</span></div><h1>id_1449.java</h1><pre class="source lang-java linenums">package original;
+
+import java.util.Arrays;
+<span class="nc" id="L4">class Solution1449 {</span>
+    public String largestNumber(int[] cost, int target) {
+  /**
+  Given an array of integers cost and an integer target, return the maximum integer you can paint under the following rules: The cost of painting a digit (i + 1) is given by cost[i] (0-indexed). The total cost used must be equal to target. The integer does not have 0 digits. Since the answer may be very large, return it as a string. If there is no way to paint any integer given the condition, return &amp;quot;0&amp;quot;. &amp;nbsp; Example 1: Input: cost = [4,3,2,5,6,7,2,5,5], target = 9 Output: &amp;quot;7772&amp;quot; Explanation: The cost to paint the digit &amp;#39;7&amp;#39; is 2, and the digit &amp;#39;2&amp;#39; is 3. Then cost(&amp;quot;7772&amp;quot;) = 2*3+ 3*1 = 9. You could also paint &amp;quot;977&amp;quot;, but &amp;quot;7772&amp;quot; is the largest number. Digit cost 1 -&amp;gt; 4 2 -&amp;gt; 3 3 -&amp;gt; 2 4 -&amp;gt; 5 5 -&amp;gt; 6 6 -&amp;gt; 7 7 -&amp;gt; 2 8 -&amp;gt; 5 9 -&amp;gt; 5 Example 2: Input: cost = [7,6,5,5,5,6,8,7,8], target = 12 Output: &amp;quot;85&amp;quot; Explanation: The cost to paint the digit &amp;#39;8&amp;#39; is 7, and the digit &amp;#39;5&amp;#39; is 5. Then cost(&amp;quot;85&amp;quot;) = 7 + 5 = 12. Example 3: Input: cost = [2,4,6,2,4,6,4,4,4], target = 5 Output: &amp;quot;0&amp;quot; Explanation: It is impossible to paint any integer with total cost equal to target. &amp;nbsp; Constraints: cost.length == 9 1 &amp;lt;= cost[i], target &amp;lt;= 5000
+  */
+<span class="nc" id="L9">        final int inf = 1 &lt;&lt; 30;</span>
+<span class="nc" id="L10">        int[][] f = new int[10][target + 1];</span>
+<span class="nc" id="L11">        int[][] g = new int[10][target + 1];</span>
+<span class="nc bnc" id="L12" title="All 2 branches missed.">        for (var e : f) {</span>
+<span class="nc" id="L13">            Arrays.fill(e, -inf);</span>
+        }
+<span class="nc" id="L15">        f[0][0] = 0;</span>
+<span class="nc bnc" id="L16" title="All 2 branches missed.">        for (int i = 1; i &lt;= 9; ++i) {</span>
+<span class="nc" id="L17">            int c = cost[i - 1];</span>
+<span class="nc bnc" id="L18" title="All 2 branches missed.">            for (int j = 0; j &lt;= target; ++j) {</span>
+<span class="nc bnc" id="L19" title="All 4 branches missed.">                if (j &lt; c || f[i][j - c] + 1 &lt; f[i - 1][j]) {</span>
+<span class="nc" id="L20">                    f[i][j] = f[i - 1][j];</span>
+<span class="nc" id="L21">                    g[i][j] = j;</span>
+                } else {
+<span class="nc" id="L23">                    f[i][j] = f[i][j - c] + 1;</span>
+<span class="nc" id="L24">                    g[i][j] = j - c;</span>
+                }
+            }
+        }
+<span class="nc bnc" id="L28" title="All 2 branches missed.">        if (f[9][target] &lt; 0) {</span>
+<span class="nc" id="L29">            return &quot;0&quot;;</span>
+        }
+<span class="nc" id="L31">        StringBuilder sb = new StringBuilder();</span>
+<span class="nc bnc" id="L32" title="All 2 branches missed.">        for (int i = 9, j = target; i &gt; 0;) {</span>
+<span class="nc bnc" id="L33" title="All 2 branches missed.">            if (j == g[i][j]) {</span>
+<span class="nc" id="L34">                --i;</span>
+            } else {
+<span class="nc" id="L36">                sb.append(i);</span>
+<span class="nc" id="L37">                j = g[i][j];</span>
+            }
+        }
+<span class="nc" id="L40">        return sb.toString();</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

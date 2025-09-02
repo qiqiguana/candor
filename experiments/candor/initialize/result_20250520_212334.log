@@ -1,0 +1,870 @@
+nohup: ignoring input
+2025-05-20 21:23:34,128   INFO : 
+
+ Processing file: /home/qinghua/projects/matg/data/HumanEvalJava/matg/src/main/java/branch/id_150.java
+2025-05-20 21:23:35.204520: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2025-05-20 21:23:35.217034: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1747772615.230457  202958 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1747772615.235096  202958 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+W0000 00:00:1747772615.246386  202958 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1747772615.246408  202958 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1747772615.246410  202958 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1747772615.246412  202958 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+2025-05-20 21:23:35.249534: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX512_FP16 AVX_VNNI AMX_TILE AMX_INT8 AMX_BF16 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-05-20 21:23:37,587   INFO : ======================================================================
+
+2025-05-20 21:23:37,587   INFO : 🚀 Starting MATG: Multi-Agent LLM-Based Test Generation Framework
+2025-05-20 21:23:37,587   INFO : 📘 Purpose : Automated test generation for Java using LLM agents
+2025-05-20 21:23:37,587   INFO : 🧠 Agents  : Planner, Generator, Executor, and Evaluator
+2025-05-20 21:23:37,587   INFO : 🛠️  Engine  : Powered by matg (Machine-Assisted Test Generation)
+2025-05-20 21:23:37,587   INFO : ======================================================================
+
+
+2025-05-20 21:23:37,741   INFO : 🚨🚨🚨 🚀 🚀 🚀 ----- 🤖 AGENT Initializer: Generating initial test file ----- 🚀 🚀 🚀 🚨🚨🚨 
+
+
+
+                                    ███    ███      █████     ███████       ██████  
+                                    ████  ████     ██   ██      ███      ██    
+                                    ██ ████ ██     ███████      ███      ██   ████
+                                    ██  ██  ██     ██   ██      ███      ██     ██ 
+                                    ██      ██     ██   ██      ███        ███████  
+
+{"properties": {"test_file_code": {"description": "The code of the test file", "title": "Test File Code", "type": "string"}}}
+ 
+{"test_file_code": "package branch;\n\nimport org.junit.jupiter.api.Test;\nimport static org.junit.jupiter.api.Assertions.*;\n/**\n* Test class of XOrY.\n*/\nclass XOrYTest {\n    @Test\n    void test_xOrY_with_prime_number() {\n        assertEquals(34, XOrY.xOrY(7, 34, 12));\n    }\n}\n"}{"test_file_code": "package branch;\n\nimport org.junit.jupiter.api.Test;\nimport static org.junit.jupiter.api.Assertions.*;\n/**\n* Test class of XOrY.\n*/\nclass XOrYTest {\n    @Test\n    void testXOrYNIsPrimeShouldReturnX() {\n        assertEquals(34, XOrY.xOrY(7, 34, 12));\n    }\n}\n"}2025-05-20 21:24:38,385   INFO : Test failed:  
+ [[1;34mINFO[m] Scanning for projects...
+[[1;33mWARNING[m] 
+[[1;33mWARNING[m] Some problems were encountered while building the effective model for mbxp:HumanEvalJava:jar:1.0
+[[1;33mWARNING[m] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-site-plugin is missing. @ line 58, column 21
+[[1;33mWARNING[m] 
+[[1;33mWARNING[m] It is highly recommended to fix these problems because they threaten the stability of your build.
+[[1;33mWARNING[m] 
+[[1;33mWARNING[m] For this reason, future Maven versions might no longer support building such malformed projects.
+[[1;33mWARNING[m] 
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m-------------------------< [0;36mmbxp:HumanEvalJava[0;1m >-------------------------[m
+[[1;34mINFO[m] [1mBuilding HumanEvalJava 1.0[m
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-clean-plugin:2.5:clean[m [1m(default-clean)[m @ [36mHumanEvalJava[0;1m ---[m
+[[1;34mINFO[m] Deleting /home/qinghua/projects/matg/data/HumanEvalJava/matg/target
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco-maven-plugin:0.8.8:prepare-agent[m [1m(default)[m @ [36mHumanEvalJava[0;1m ---[m
+[[1;34mINFO[m] argLine set to -javaagent:/home/qinghua/.m2/repository/org/jacoco/org.jacoco.agent/0.8.8/org.jacoco.agent-0.8.8-runtime.jar=destfile=/home/qinghua/projects/matg/data/HumanEvalJava/matg/target/jacoco.exec
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:2.6:resources[m [1m(default-resources)[m @ [36mHumanEvalJava[0;1m ---[m
+[[1;34mINFO[m] Using 'UTF-8' encoding to copy filtered resources.
+[[1;34mINFO[m] skip non existing resourceDirectory /home/qinghua/projects/matg/data/HumanEvalJava/matg/src/main/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.11.0:compile[m [1m(default-compile)[m @ [36mHumanEvalJava[0;1m ---[m
+[[1;34mINFO[m] Changes detected - recompiling the module! :source
+[[1;34mINFO[m] Compiling 640 source files with javac [debug target 11] to target/classes
+[[1;33mWARNING[m] /home/qinghua/projects/matg/data/HumanEvalJava/matg/src/main/java/branch/id_101.java:[35,30] non-varargs call of varargs method with inexact argument type for last parameter;
+  cast to java.lang.Object for a varargs call
+  cast to java.lang.Object[] for a non-varargs call and to suppress this warning
+[[1;33mWARNING[m] /home/qinghua/projects/matg/data/HumanEvalJava/matg/src/main/java/original/id_101.java:[35,30] non-varargs call of varargs method with inexact argument type for last parameter;
+  cast to java.lang.Object for a varargs call
+  cast to java.lang.Object[] for a non-varargs call and to suppress this warning
+[[1;33mWARNING[m] /home/qinghua/projects/matg/data/HumanEvalJava/matg/src/main/java/oracle1/id_101.java:[35,30] non-varargs call of varargs method with inexact argument type for last parameter;
+  cast to java.lang.Object for a varargs call
+  cast to java.lang.Object[] for a non-varargs call and to suppress this warning
+[[1;33mWARNING[m] /home/qinghua/projects/matg/data/HumanEvalJava/matg/src/main/java/initialize/id_101.java:[35,30] non-varargs call of varargs method with inexact argument type for last parameter;
+  cast to java.lang.Object for a varargs call
+  cast to java.lang.Object[] for a non-varargs call and to suppress this warning
+[[1;34mINFO[m] /home/qinghua/projects/matg/data/HumanEvalJava/matg/src/main/java/initialize/id_87.java: Some input files use unchecked or unsafe operations.
+[[1;34mINFO[m] /home/qinghua/projects/matg/data/HumanEvalJava/matg/src/main/java/initialize/id_87.java: Recompile with -Xlint:unchecked for details.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:2.6:testResources[m [1m(default-testResources)[m @ [36mHumanEvalJava[0;1m ---[m
+[[1;34mINFO[m] Using 'UTF-8' encoding to copy filtered resources.
+[[1;34mINFO[m] skip non existing resourceDirectory /home/qinghua/projects/matg/data/HumanEvalJava/matg/src/test/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.11.0:testCompile[m [1m(default-testCompile)[m @ [36mHumanEvalJava[0;1m ---[m
+[[1;34mINFO[m] Changes detected - recompiling the module! :dependency
+[[1;34mINFO[m] Compiling 321 source files with javac [debug target 11] to target/test-classes
+[[1;33mWARNING[m] /home/qinghua/projects/matg/data/HumanEvalJava/matg/src/test/java/original/id_115Test.java:[33,80] non-varargs call of varargs method with inexact argument type for last parameter;
+  cast to java.util.List<java.lang.Integer> for a varargs call
+  cast to java.util.List<java.lang.Integer>[] for a non-varargs call and to suppress this warning
+[[1;33mWARNING[m] /home/qinghua/projects/matg/data/HumanEvalJava/matg/src/test/java/oracle1/id_115Test.java:[33,80] non-varargs call of varargs method with inexact argument type for last parameter;
+  cast to java.util.List<java.lang.Integer> for a varargs call
+  cast to java.util.List<java.lang.Integer>[] for a non-varargs call and to suppress this warning
+[[1;34mINFO[m] /home/qinghua/projects/matg/data/HumanEvalJava/matg/src/test/java/original/id_111Test.java: Some input files use unchecked or unsafe operations.
+[[1;34mINFO[m] /home/qinghua/projects/matg/data/HumanEvalJava/matg/src/test/java/original/id_111Test.java: Recompile with -Xlint:unchecked for details.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-surefire-plugin:3.0.0:test[m [1m(default-test)[m @ [36mHumanEvalJava[0;1m ---[m
+[[1;34mINFO[m] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[[1;34mINFO[m] 
+[[1;34mINFO[m] -------------------------------------------------------
+[[1;34mINFO[m]  T E S T S
+[[1;34mINFO[m] -------------------------------------------------------
+[[1;34mINFO[m] Running original.[1mMonotonicTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m40[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.075 s - in original.[1mMonotonicTest[m
+[[1;34mINFO[m] Running original.[1mSolve1Test[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m7[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in original.[1mSolve1Test[m
+[[1;34mINFO[m] Running original.[1mConcatenateTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m6[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 s - in original.[1mConcatenateTest[m
+[[1;34mINFO[m] Running original.[1mDigitsTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m8[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in original.[1mDigitsTest[m
+[[1;34mINFO[m] Running original.[1mCountDistinctCharactersTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m8[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in original.[1mCountDistinctCharactersTest[m
+[[1;34mINFO[m] Running original.[1mPairsSumToZeroTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m6[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in original.[1mPairsSumToZeroTest[m
+[[1;34mINFO[m] Running original.[1mCommonTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m7[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in original.[1mCommonTest[m
+[[1;34mINFO[m] Running original.[1mFruitDistributionTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m9[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in original.[1mFruitDistributionTest[m
+[[1;34mINFO[m] Running original.[1mReverseDeleteTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m7[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in original.[1mReverseDeleteTest[m
+[[1;34mINFO[m] Running original.[1mCircularShiftTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m8[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in original.[1mCircularShiftTest[m
+[[1;34mINFO[m] Running original.[1mAddTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m2[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in original.[1mAddTest[m
+[[1;34mINFO[m] Running original.[1mIscubeTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m8[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in original.[1mIscubeTest[m
+[[1;34mINFO[m] Running original.[1mTotalMatchTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m4[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in original.[1mTotalMatchTest[m
+[[1;34mINFO[m] Running original.[1mIncrListTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m5[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in original.[1mIncrListTest[m
+[[1;34mINFO[m] Running original.[1mGetPositiveTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m8[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in original.[1mGetPositiveTest[m
+[[1;34mINFO[m] Running original.[1mMaxElementTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m7[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in original.[1mMaxElementTest[m
+[[1;34mINFO[m] Running original.[1mParseMusicTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m9[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in original.[1mParseMusicTest[m
+[[1;34mINFO[m] Running original.[1mCountUpToTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m5[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in original.[1mCountUpToTest[m
+[[1;34mINFO[m] Running original.[1mMinsubarraysumTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m4[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in original.[1mMinsubarraysumTest[m
+[[1;34mINFO[m] Running original.[1mSortArrayTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m5[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in original.[1mSortArrayTest[m
+[[1;34mINFO[m] Running original.[1mLargestSmallestIntegersTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m3[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in original.[1mLargestSmallestIntegersTest[m
+[[1;34mINFO[m] Running original.[1mMultiplyTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m7[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in original.[1mMultiplyTest[m
+[[1;34mINFO[m] Running original.[1mWordsStringTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m8[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in original.[1mWordsStringTest[m
+[[1;34mINFO[m] Running original.[1mCheckIfLastCharIsALetterTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m18[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in original.[1mCheckIfLastCharIsALetterTest[m
+[[1;34mINFO[m] Running original.[1mCorrectBracketingTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m5[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in original.[1mCorrectBracketingTest[m
+[[1;34mINFO[m] Running original.[1mMinpathTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m5[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in original.[1mMinpathTest[m
+[[1;34mINFO[m] Running original.[1mFindClosestElementsTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m4[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in original.[1mFindClosestElementsTest[m
+[[1;34mINFO[m] Running original.[1mWordsInSentenceTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m9[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in original.[1mWordsInSentenceTest[m
+[[1;34mINFO[m] Running original.[1mBfTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m24[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in original.[1mBfTest[m
+[[1;34mINFO[m] Running original.[1mSortThirdTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m5[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in original.[1mSortThirdTest[m
+[[1;34mINFO[m] Running original.[1mStringSequenceTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m7[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.127 s - in original.[1mStringSequenceTest[m
+[[1;34mINFO[m] Running original.[1mHexKeyTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m8[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in original.[1mHexKeyTest[m
+[[1;34mINFO[m] Running original.[1mHistogramTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m8[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in original.[1mHistogramTest[m
+[[1;34mINFO[m] Running original.[1mByLengthTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m71[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 s - in original.[1mByLengthTest[m
+[[1;34mINFO[m] Running original.[1mSeparateParenGroupsTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m4[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in original.[1mSeparateParenGroupsTest[m
+[[1;34mINFO[m] Running original.[1mRollingMaxTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m5[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in original.[1mRollingMaxTest[m
+[[1;34mINFO[m] Running original.[1mStrlenTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m6[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in original.[1mStrlenTest[m
+[[1;34mINFO[m] Running original.[1mEvenOddCountTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m7[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in original.[1mEvenOddCountTest[m
+[[1;34mINFO[m] Running original.[1mEvenOddPalindromeTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m11[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in original.[1mEvenOddPalindromeTest[m
+[[1;34mINFO[m] Running original.[1mFib4Test[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m7[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in original.[1mFib4Test[m
+[[1;34mINFO[m] Running original.[1mTriangleArea1Test[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m8[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in original.[1mTriangleArea1Test[m
+[[1;34mINFO[m] Running original.[1mEncodeTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m5[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in original.[1mEncodeTest[m
+[[1;34mINFO[m] Running original.[1mMedianTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m5[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in original.[1mMedianTest[m
+[[1;34mINFO[m] Running original.[1mAnyIntTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m9[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in original.[1mAnyIntTest[m
+[[1;34mINFO[m] Running original.[1mSameCharsTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m8[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in original.[1mSameCharsTest[m
+[[1;34mINFO[m] Running original.[1mMakeAPileTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m6[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in original.[1mMakeAPileTest[m
+[[1;34mINFO[m] Running original.[1mAdd1Test[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m3[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in original.[1mAdd1Test[m
+[[1;34mINFO[m] Running original.[1mModpTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m6[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in original.[1mModpTest[m
+[[1;34mINFO[m] Running original.[1mPrimeFibTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m55[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.946 s - in original.[1mPrimeFibTest[m
+[[1;34mINFO[m] Running original.[1mLargestDivisorTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m6[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in original.[1mLargestDivisorTest[m
+[[1;34mINFO[m] Running original.[1mFibTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m6[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in original.[1mFibTest[m
+[[1;34mINFO[m] Running original.[1mIntToMiniRomanTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m8[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in original.[1mIntToMiniRomanTest[m
+[[1;34mINFO[m] Running original.[1mSplitWordsTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m8[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in original.[1mSplitWordsTest[m
+[[1;34mINFO[m] Running original.[1mStringXorTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m7[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in original.[1mStringXorTest[m
+[[1;34mINFO[m] Running original.[1mOrderByPointsTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m4[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in original.[1mOrderByPointsTest[m
+[[1;34mINFO[m] Running original.[1mGetRowTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m3[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in original.[1mGetRowTest[m
+[[1;34mINFO[m] Running original.[1mSortArray1Test[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m21[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.053 s - in original.[1mSortArray1Test[m
+[[1;34mINFO[m] Running original.[1mRescaleToUnitTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m5[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in original.[1mRescaleToUnitTest[m
+[[1;34mINFO[m] Running original.[1mTriTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m4[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in original.[1mTriTest[m
+[[1;34mINFO[m] Running original.[1mUniqueDigitsTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m5[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in original.[1mUniqueDigitsTest[m
+[[1;34mINFO[m] Running original.[1mSmallestChangeTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m3[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in original.[1mSmallestChangeTest[m
+[[1;34mINFO[m] Running original.[1mGetClosestVowelTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m7[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in original.[1mGetClosestVowelTest[m
+[[1;34mINFO[m] Running original.[1mBelowThresholdTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m8[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in original.[1mBelowThresholdTest[m
+[[1;34mINFO[m] Running original.[1mStrangeSortListTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m10[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in original.[1mStrangeSortListTest[m
+[[1;34mINFO[m] Running original.[1mIsSimplePowerTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m25[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in original.[1mIsSimplePowerTest[m
+[[1;34mINFO[m] Running original.[1mEatTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m6[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in original.[1mEatTest[m
+[[1;34mINFO[m] Running original.[1mMoveOneBallTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m7[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in original.[1mMoveOneBallTest[m
+[[1;34mINFO[m] Running original.[1mFixSpacesTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m13[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in original.[1mFixSpacesTest[m
+[[1;34mINFO[m] Running original.[1mSpecialfilterTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m8[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in original.[1mSpecialfilterTest[m
+[[1;34mINFO[m] Running original.[1mGenerateIntegersTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m3[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in original.[1mGenerateIntegersTest[m
+[[1;34mINFO[m] Running original.[1mRoundedAvgTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m7[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in original.[1mRoundedAvgTest[m
+[[1;34mINFO[m] Running original.[1mRightAngleTriangleTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m57[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in original.[1mRightAngleTriangleTest[m
+[[1;34mINFO[m] Running original.[1mCompareOneTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m8[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in original.[1mCompareOneTest[m
+[[1;34mINFO[m] Running original.[1mCountUpperTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m9[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in original.[1mCountUpperTest[m
+[[1;34mINFO[m] Running original.[1mExchangeTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m6[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in original.[1mExchangeTest[m
+[[1;34mINFO[m] Running original.[1mSumToNTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m7[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in original.[1mSumToNTest[m
+[[1;34mINFO[m] Running original.[1mSortedListSumTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m8[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in original.[1mSortedListSumTest[m
+[[1;34mINFO[m] Running original.[1mCanArrangeTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m4[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in original.[1mCanArrangeTest[m
+[[1;34mINFO[m] Running original.[1mStartsOneEndsTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m4[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in original.[1mStartsOneEndsTest[m
+[[1;34mINFO[m] Running original.[1mGreatestCommonDivisorTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m9[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in original.[1mGreatestCommonDivisorTest[m
+[[1;34mINFO[m] Running original.[1mSelectWordsTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m6[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in original.[1mSelectWordsTest[m
+[[1;34mINFO[m] Running original.[1mAntiShuffleTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m7[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in original.[1mAntiShuffleTest[m
+[[1;34mINFO[m] Running original.[1mTriangleAreaTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m6[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in original.[1mTriangleAreaTest[m
+[[1;34mINFO[m] Running original.[1mLongestTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m4[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in original.[1mLongestTest[m
+[[1;34mINFO[m] Running original.[1mCheckDictCaseTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m17[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in original.[1mCheckDictCaseTest[m
+[[1;34mINFO[m] Running original.[1mSortNumbersTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m8[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in original.[1mSortNumbersTest[m
+[[1;34mINFO[m] Running original.[1mEncryptTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m8[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in original.[1mEncryptTest[m
+[[1;34mINFO[m] Running original.[1mSearchTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m5[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in original.[1mSearchTest[m
+[[1;34mINFO[m] Running original.[1mTruncateNumberTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m8[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in original.[1mTruncateNumberTest[m
+[[1;34mINFO[m] Running original.[1mAddElementsTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m3[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in original.[1mAddElementsTest[m
+[[1;34mINFO[m] Running original.[1mOddCountTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m4[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in original.[1mOddCountTest[m
+[[1;34mINFO[m] Running original.[1mSumSquaresTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m3[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in original.[1mSumSquaresTest[m
+[[1;34mINFO[m] Running original.[1mChangeBaseTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m7[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in original.[1mChangeBaseTest[m
+[[1;34mINFO[m] Running original.[1mMaximum1Test[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m7[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in original.[1mMaximum1Test[m
+[[1;34mINFO[m] Running original.[1mFibfibTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m6[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in original.[1mFibfibTest[m
+[[1;34mINFO[m] Running original.[1mAllPrefixesTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m9[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in original.[1mAllPrefixesTest[m
+[[1;34mINFO[m] Running original.[1mIntersperseTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m6[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in original.[1mIntersperseTest[m
+[[1;34mINFO[m] Running original.[1mFilterByPrefixTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m5[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in original.[1mFilterByPrefixTest[m
+[[1;34mINFO[m] Running original.[1mPrimeLengthTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m8[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in original.[1mPrimeLengthTest[m
+[[1;34mINFO[m] Running original.[1mCorrectBracketing1Test[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m9[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in original.[1mCorrectBracketing1Test[m
+[[1;34mINFO[m] Running original.[1mMeanAbsoluteDeviationTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m3[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in original.[1mMeanAbsoluteDeviationTest[m
+[[1;34mINFO[m] Running original.[1mHasCloseElementsTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m4[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in original.[1mHasCloseElementsTest[m
+[[1;34mINFO[m] Running original.[1mVowelsCountTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m7[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in original.[1mVowelsCountTest[m
+[[1;34mINFO[m] Running original.[1mGetOddCollatzTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m4[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in original.[1mGetOddCollatzTest[m
+[[1;34mINFO[m] Running original.[1mSortEvenTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m5[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in original.[1mSortEvenTest[m
+[[1;34mINFO[m] Running original.[1mIsEqualToSumEvenTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m8[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in original.[1mIsEqualToSumEvenTest[m
+[[1;34mINFO[m] Running original.[1mIntersectionTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m8[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in original.[1mIntersectionTest[m
+[[1;34mINFO[m] Running original.[1mCompareTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m6[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in original.[1mCompareTest[m
+[[1;34mINFO[m] Running original.[1mFileNameCheckTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m23[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in original.[1mFileNameCheckTest[m
+[[1;34mINFO[m] Running original.[1mFlipCaseTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m7[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in original.[1mFlipCaseTest[m
+[[1;34mINFO[m] Running original.[1mClosestIntegerTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m9[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in original.[1mClosestIntegerTest[m
+[[1;34mINFO[m] Running original.[1mSpecialFactorialTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m4[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in original.[1mSpecialFactorialTest[m
+[[1;34mINFO[m] Running original.[1mSolutionTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m4[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in original.[1mSolutionTest[m
+[[1;34mINFO[m] Running original.[1mIsPalindromeTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m8[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in original.[1mIsPalindromeTest[m
+[[1;34mINFO[m] Running original.[1mDoubleTheDifferenceTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m7[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in original.[1mDoubleTheDifferenceTest[m
+[[1;34mINFO[m] Running original.[1mFindMaxTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m20[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in original.[1mFindMaxTest[m
+[[1;34mINFO[m] Running original.[1mCarRaceCollisionTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m7[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in original.[1mCarRaceCollisionTest[m
+[[1;34mINFO[m] Running original.[1mIsNestedTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m9[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in original.[1mIsNestedTest[m
+[[1;34mINFO[m] Running original.[1mRemoveVowelsTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m8[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in original.[1mRemoveVowelsTest[m
+[[1;34mINFO[m] Running original.[1mProdSignsTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m15[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in original.[1mProdSignsTest[m
+[[1;34mINFO[m] Running original.[1mWillItFlyTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m5[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in original.[1mWillItFlyTest[m
+[[1;34mINFO[m] Running original.[1mSumSquares1Test[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m49[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in original.[1mSumSquares1Test[m
+[[1;34mINFO[m] Running original.[1mIsMultiplyPrimeTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m8[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in original.[1mIsMultiplyPrimeTest[m
+[[1;34mINFO[m] Running original.[1mRemoveDuplicatesTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m6[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in original.[1mRemoveDuplicatesTest[m
+[[1;34mINFO[m] Running original.[1mFizzBuzzTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m7[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in original.[1mFizzBuzzTest[m
+[[1;34mINFO[m] Running original.[1mStrongestExtensionTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m4[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in original.[1mStrongestExtensionTest[m
+[[1;34mINFO[m] Running original.[1mBelowZeroTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m8[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in original.[1mBelowZeroTest[m
+[[1;34mINFO[m] Running original.[1mParseNestedParensTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m5[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in original.[1mParseNestedParensTest[m
+[[1;34mINFO[m] Running original.[1mIsBoredTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m9[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in original.[1mIsBoredTest[m
+[[1;34mINFO[m] Running original.[1mSimplifyTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m7[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in original.[1mSimplifyTest[m
+[[1;34mINFO[m] Running original.[1mIsSortedTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m7[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in original.[1mIsSortedTest[m
+[[1;34mINFO[m] Running original.[1mCycpatternCheckTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m22[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in original.[1mCycpatternCheckTest[m
+[[1;34mINFO[m] Running original.[1mChooseNumTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m6[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in original.[1mChooseNumTest[m
+[[1;34mINFO[m] Running original.[1mSkjkasdkdTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m6[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in original.[1mSkjkasdkdTest[m
+[[1;34mINFO[m] Running original.[1mMaxFillTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m5[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in original.[1mMaxFillTest[m
+[[1;34mINFO[m] Running original.[1mNumericalLetterGradeTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m38[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in original.[1mNumericalLetterGradeTest[m
+[[1;34mINFO[m] Running original.[1mStringToMd5Test[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m49[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.04 s - in original.[1mStringToMd5Test[m
+[[1;34mINFO[m] Running original.[1mSolveTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m10[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in original.[1mSolveTest[m
+[[1;34mINFO[m] Running original.[1mDigitsumTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m6[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in original.[1mDigitsumTest[m
+[[1;34mINFO[m] Running original.[1mIsHappyTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m11[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in original.[1mIsHappyTest[m
+[[1;34mINFO[m] Running original.[1mUniqueTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m9[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in original.[1mUniqueTest[m
+[[1;34mINFO[m] Running original.[1mTriplesSumToZeroTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m8[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in original.[1mTriplesSumToZeroTest[m
+[[1;34mINFO[m] Running original.[1mDerivativeTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m3[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in original.[1mDerivativeTest[m
+[[1;34mINFO[m] Running original.[1mPluckTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m7[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in original.[1mPluckTest[m
+[[1;34mINFO[m] Running original.[1mFactorizeTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m7[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in original.[1mFactorizeTest[m
+[[1;34mINFO[m] Running original.[1mMatchParensTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m37[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in original.[1mMatchParensTest[m
+[[1;34mINFO[m] Running original.[1mCountNumsTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m8[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in original.[1mCountNumsTest[m
+[[1;34mINFO[m] Running original.[1mDecimalToBinaryTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m5[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in original.[1mDecimalToBinaryTest[m
+[[1;34mINFO[m] Running original.[1mFilterBySubstringTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m7[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in original.[1mFilterBySubstringTest[m
+[[1;34mINFO[m] Running original.[1mValidDateTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m40[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in original.[1mValidDateTest[m
+[[1;34mINFO[m] Running original.[1mSumProductTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m7[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in original.[1mSumProductTest[m
+[[1;34mINFO[m] Running original.[1mFTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m6[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in original.[1mFTest[m
+[[1;34mINFO[m] Running original.[1mMakePalindromeTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m59[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in original.[1mMakePalindromeTest[m
+[[1;34mINFO[m] Running original.[1mGetMaxTriplesTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m6[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in original.[1mGetMaxTriplesTest[m
+[[1;34mINFO[m] Running original.[1mFilterIntegersTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m4[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in original.[1mFilterIntegersTest[m
+[[1;34mINFO[m] Running original.[1mHowManyTimesTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m9[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in original.[1mHowManyTimesTest[m
+[[1;34mINFO[m] Running original.[1mLargestPrimeFactorTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m7[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in original.[1mLargestPrimeFactorTest[m
+[[1;34mINFO[m] Running original.[1mNextSmallestTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m7[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in original.[1mNextSmallestTest[m
+[[1;34mINFO[m] Running original.[1mIsPrimeTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m9[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in original.[1mIsPrimeTest[m
+[[1;34mINFO[m] Running original.[1mXOrYTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m7[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in original.[1mXOrYTest[m
+[[1;34mINFO[m] Running branch.[1mXOrYTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m1[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in branch.[1mXOrYTest[m
+[[1;34mINFO[m] Running oracle1.[1mMonotonicTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m40[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in oracle1.[1mMonotonicTest[m
+[[1;34mINFO[m] Running oracle1.[1mSolve1Test[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m7[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mSolve1Test[m
+[[1;34mINFO[m] Running oracle1.[1mConcatenateTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m6[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mConcatenateTest[m
+[[1;34mINFO[m] Running oracle1.[1mDigitsTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m8[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mDigitsTest[m
+[[1;34mINFO[m] Running oracle1.[1mCountDistinctCharactersTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m8[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in oracle1.[1mCountDistinctCharactersTest[m
+[[1;34mINFO[m] Running oracle1.[1mPairsSumToZeroTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m6[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mPairsSumToZeroTest[m
+[[1;34mINFO[m] Running oracle1.[1mCommonTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m7[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mCommonTest[m
+[[1;34mINFO[m] Running oracle1.[1mFruitDistributionTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m9[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in oracle1.[1mFruitDistributionTest[m
+[[1;34mINFO[m] Running oracle1.[1mReverseDeleteTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m7[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mReverseDeleteTest[m
+[[1;34mINFO[m] Running oracle1.[1mCircularShiftTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m8[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in oracle1.[1mCircularShiftTest[m
+[[1;34mINFO[m] Running oracle1.[1mAddTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m2[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in oracle1.[1mAddTest[m
+[[1;34mINFO[m] Running oracle1.[1mIscubeTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m8[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in oracle1.[1mIscubeTest[m
+[[1;34mINFO[m] Running oracle1.[1mTotalMatchTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m4[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in oracle1.[1mTotalMatchTest[m
+[[1;34mINFO[m] Running oracle1.[1mIncrListTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m5[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in oracle1.[1mIncrListTest[m
+[[1;34mINFO[m] Running oracle1.[1mGetPositiveTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m8[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in oracle1.[1mGetPositiveTest[m
+[[1;34mINFO[m] Running oracle1.[1mMaxElementTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m7[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mMaxElementTest[m
+[[1;34mINFO[m] Running oracle1.[1mParseMusicTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m9[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mParseMusicTest[m
+[[1;34mINFO[m] Running oracle1.[1mCountUpToTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m5[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mCountUpToTest[m
+[[1;34mINFO[m] Running oracle1.[1mMinsubarraysumTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m4[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mMinsubarraysumTest[m
+[[1;34mINFO[m] Running oracle1.[1mSortArrayTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m5[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in oracle1.[1mSortArrayTest[m
+[[1;34mINFO[m] Running oracle1.[1mLargestSmallestIntegersTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m3[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in oracle1.[1mLargestSmallestIntegersTest[m
+[[1;34mINFO[m] Running oracle1.[1mMultiplyTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m7[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in oracle1.[1mMultiplyTest[m
+[[1;34mINFO[m] Running oracle1.[1mWordsStringTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m8[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mWordsStringTest[m
+[[1;34mINFO[m] Running oracle1.[1mCheckIfLastCharIsALetterTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m18[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mCheckIfLastCharIsALetterTest[m
+[[1;34mINFO[m] Running oracle1.[1mCorrectBracketingTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m5[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in oracle1.[1mCorrectBracketingTest[m
+[[1;34mINFO[m] Running oracle1.[1mMinpathTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m5[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in oracle1.[1mMinpathTest[m
+[[1;34mINFO[m] Running oracle1.[1mFindClosestElementsTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m4[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in oracle1.[1mFindClosestElementsTest[m
+[[1;34mINFO[m] Running oracle1.[1mWordsInSentenceTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m9[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mWordsInSentenceTest[m
+[[1;34mINFO[m] Running oracle1.[1mBfTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m24[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in oracle1.[1mBfTest[m
+[[1;34mINFO[m] Running oracle1.[1mSortThirdTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m5[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in oracle1.[1mSortThirdTest[m
+[[1;34mINFO[m] Running oracle1.[1mStringSequenceTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m7[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.096 s - in oracle1.[1mStringSequenceTest[m
+[[1;34mINFO[m] Running oracle1.[1mHexKeyTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m8[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mHexKeyTest[m
+[[1;34mINFO[m] Running oracle1.[1mHistogramTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m8[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mHistogramTest[m
+[[1;34mINFO[m] Running oracle1.[1mByLengthTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m71[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in oracle1.[1mByLengthTest[m
+[[1;34mINFO[m] Running oracle1.[1mSeparateParenGroupsTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m4[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mSeparateParenGroupsTest[m
+[[1;34mINFO[m] Running oracle1.[1mRollingMaxTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m5[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mRollingMaxTest[m
+[[1;34mINFO[m] Running oracle1.[1mStrlenTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m6[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mStrlenTest[m
+[[1;34mINFO[m] Running oracle1.[1mEvenOddCountTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m7[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mEvenOddCountTest[m
+[[1;34mINFO[m] Running oracle1.[1mEvenOddPalindromeTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m11[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mEvenOddPalindromeTest[m
+[[1;34mINFO[m] Running oracle1.[1mFib4Test[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m7[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mFib4Test[m
+[[1;34mINFO[m] Running oracle1.[1mTriangleArea1Test[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m8[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mTriangleArea1Test[m
+[[1;34mINFO[m] Running oracle1.[1mEncodeTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m5[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mEncodeTest[m
+[[1;34mINFO[m] Running oracle1.[1mMedianTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m5[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mMedianTest[m
+[[1;34mINFO[m] Running oracle1.[1mAnyIntTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m9[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mAnyIntTest[m
+[[1;34mINFO[m] Running oracle1.[1mSameCharsTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m8[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mSameCharsTest[m
+[[1;34mINFO[m] Running oracle1.[1mMakeAPileTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m6[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mMakeAPileTest[m
+[[1;34mINFO[m] Running oracle1.[1mAdd1Test[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m3[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mAdd1Test[m
+[[1;34mINFO[m] Running oracle1.[1mModpTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m6[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mModpTest[m
+[[1;34mINFO[m] Running oracle1.[1mPrimeFibTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m55[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 7.078 s - in oracle1.[1mPrimeFibTest[m
+[[1;34mINFO[m] Running oracle1.[1mLargestDivisorTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m6[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mLargestDivisorTest[m
+[[1;34mINFO[m] Running oracle1.[1mFibTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m6[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mFibTest[m
+[[1;34mINFO[m] Running oracle1.[1mIntToMiniRomanTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m8[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mIntToMiniRomanTest[m
+[[1;34mINFO[m] Running oracle1.[1mSplitWordsTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m8[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mSplitWordsTest[m
+[[1;34mINFO[m] Running oracle1.[1mStringXorTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m7[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mStringXorTest[m
+[[1;34mINFO[m] Running oracle1.[1mOrderByPointsTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m4[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in oracle1.[1mOrderByPointsTest[m
+[[1;34mINFO[m] Running oracle1.[1mGetRowTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m3[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in oracle1.[1mGetRowTest[m
+[[1;34mINFO[m] Running oracle1.[1mSortArray1Test[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m21[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.033 s - in oracle1.[1mSortArray1Test[m
+[[1;34mINFO[m] Running oracle1.[1mRescaleToUnitTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m5[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mRescaleToUnitTest[m
+[[1;34mINFO[m] Running oracle1.[1mTriTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m4[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mTriTest[m
+[[1;34mINFO[m] Running oracle1.[1mUniqueDigitsTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m5[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mUniqueDigitsTest[m
+[[1;34mINFO[m] Running oracle1.[1mSmallestChangeTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m3[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in oracle1.[1mSmallestChangeTest[m
+[[1;34mINFO[m] Running oracle1.[1mGetClosestVowelTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m7[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mGetClosestVowelTest[m
+[[1;34mINFO[m] Running oracle1.[1mBelowThresholdTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m8[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mBelowThresholdTest[m
+[[1;34mINFO[m] Running oracle1.[1mStrangeSortListTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m10[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mStrangeSortListTest[m
+[[1;34mINFO[m] Running oracle1.[1mIsSimplePowerTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m25[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in oracle1.[1mIsSimplePowerTest[m
+[[1;34mINFO[m] Running oracle1.[1mEatTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m6[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mEatTest[m
+[[1;34mINFO[m] Running oracle1.[1mMoveOneBallTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m7[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mMoveOneBallTest[m
+[[1;34mINFO[m] Running oracle1.[1mFixSpacesTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m13[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in oracle1.[1mFixSpacesTest[m
+[[1;34mINFO[m] Running oracle1.[1mSpecialfilterTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m8[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mSpecialfilterTest[m
+[[1;34mINFO[m] Running oracle1.[1mGenerateIntegersTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m3[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mGenerateIntegersTest[m
+[[1;34mINFO[m] Running oracle1.[1mRoundedAvgTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m7[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mRoundedAvgTest[m
+[[1;34mINFO[m] Running oracle1.[1mRightAngleTriangleTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m57[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in oracle1.[1mRightAngleTriangleTest[m
+[[1;34mINFO[m] Running oracle1.[1mCompareOneTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m8[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mCompareOneTest[m
+[[1;34mINFO[m] Running oracle1.[1mCountUpperTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m9[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mCountUpperTest[m
+[[1;34mINFO[m] Running oracle1.[1mExchangeTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m6[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mExchangeTest[m
+[[1;34mINFO[m] Running oracle1.[1mSumToNTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m7[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mSumToNTest[m
+[[1;34mINFO[m] Running oracle1.[1mSortedListSumTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m8[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mSortedListSumTest[m
+[[1;34mINFO[m] Running oracle1.[1mCanArrangeTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m4[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mCanArrangeTest[m
+[[1;34mINFO[m] Running oracle1.[1mStartsOneEndsTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m4[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mStartsOneEndsTest[m
+[[1;34mINFO[m] Running oracle1.[1mGreatestCommonDivisorTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m9[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mGreatestCommonDivisorTest[m
+[[1;34mINFO[m] Running oracle1.[1mSelectWordsTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m6[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mSelectWordsTest[m
+[[1;34mINFO[m] Running oracle1.[1mAntiShuffleTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m7[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mAntiShuffleTest[m
+[[1;34mINFO[m] Running oracle1.[1mTriangleAreaTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m6[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mTriangleAreaTest[m
+[[1;34mINFO[m] Running oracle1.[1mLongestTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m4[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mLongestTest[m
+[[1;34mINFO[m] Running oracle1.[1mCheckDictCaseTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m17[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in oracle1.[1mCheckDictCaseTest[m
+[[1;34mINFO[m] Running oracle1.[1mSortNumbersTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m8[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mSortNumbersTest[m
+[[1;34mINFO[m] Running oracle1.[1mEncryptTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m8[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in oracle1.[1mEncryptTest[m
+[[1;34mINFO[m] Running oracle1.[1mSearchTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m5[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mSearchTest[m
+[[1;34mINFO[m] Running oracle1.[1mTruncateNumberTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m8[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mTruncateNumberTest[m
+[[1;34mINFO[m] Running oracle1.[1mAddElementsTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m3[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in oracle1.[1mAddElementsTest[m
+[[1;34mINFO[m] Running oracle1.[1mOddCountTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m4[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mOddCountTest[m
+[[1;34mINFO[m] Running oracle1.[1mSumSquaresTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m3[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in oracle1.[1mSumSquaresTest[m
+[[1;34mINFO[m] Running oracle1.[1mChangeBaseTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m7[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in oracle1.[1mChangeBaseTest[m
+[[1;34mINFO[m] Running oracle1.[1mMaximum1Test[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m7[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mMaximum1Test[m
+[[1;34mINFO[m] Running oracle1.[1mFibfibTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m6[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mFibfibTest[m
+[[1;34mINFO[m] Running oracle1.[1mAllPrefixesTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m9[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mAllPrefixesTest[m
+[[1;34mINFO[m] Running oracle1.[1mIntersperseTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m6[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mIntersperseTest[m
+[[1;34mINFO[m] Running oracle1.[1mFilterByPrefixTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m5[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mFilterByPrefixTest[m
+[[1;34mINFO[m] Running oracle1.[1mPrimeLengthTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m8[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mPrimeLengthTest[m
+[[1;34mINFO[m] Running oracle1.[1mCorrectBracketing1Test[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m9[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in oracle1.[1mCorrectBracketing1Test[m
+[[1;34mINFO[m] Running oracle1.[1mMeanAbsoluteDeviationTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m3[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in oracle1.[1mMeanAbsoluteDeviationTest[m
+[[1;34mINFO[m] Running oracle1.[1mHasCloseElementsTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m4[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mHasCloseElementsTest[m
+[[1;34mINFO[m] Running oracle1.[1mVowelsCountTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m7[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mVowelsCountTest[m
+[[1;34mINFO[m] Running oracle1.[1mGetOddCollatzTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m4[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mGetOddCollatzTest[m
+[[1;34mINFO[m] Running oracle1.[1mSortEvenTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m5[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in oracle1.[1mSortEvenTest[m
+[[1;34mINFO[m] Running oracle1.[1mIsEqualToSumEvenTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m8[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in oracle1.[1mIsEqualToSumEvenTest[m
+[[1;34mINFO[m] Running oracle1.[1mIntersectionTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m8[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mIntersectionTest[m
+[[1;34mINFO[m] Running oracle1.[1mCompareTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m6[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mCompareTest[m
+[[1;34mINFO[m] Running oracle1.[1mFileNameCheckTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m23[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in oracle1.[1mFileNameCheckTest[m
+[[1;34mINFO[m] Running oracle1.[1mFlipCaseTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m7[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mFlipCaseTest[m
+[[1;34mINFO[m] Running oracle1.[1mClosestIntegerTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m9[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mClosestIntegerTest[m
+[[1;34mINFO[m] Running oracle1.[1mSpecialFactorialTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m4[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in oracle1.[1mSpecialFactorialTest[m
+[[1;34mINFO[m] Running oracle1.[1mSolutionTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m4[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mSolutionTest[m
+[[1;34mINFO[m] Running oracle1.[1mIsPalindromeTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m8[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mIsPalindromeTest[m
+[[1;34mINFO[m] Running oracle1.[1mDoubleTheDifferenceTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m7[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mDoubleTheDifferenceTest[m
+[[1;34mINFO[m] Running oracle1.[1mFindMaxTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m20[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in oracle1.[1mFindMaxTest[m
+[[1;34mINFO[m] Running oracle1.[1mCarRaceCollisionTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m7[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in oracle1.[1mCarRaceCollisionTest[m
+[[1;34mINFO[m] Running oracle1.[1mIsNestedTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m9[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mIsNestedTest[m
+[[1;34mINFO[m] Running oracle1.[1mRemoveVowelsTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m8[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mRemoveVowelsTest[m
+[[1;34mINFO[m] Running oracle1.[1mProdSignsTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m15[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mProdSignsTest[m
+[[1;34mINFO[m] Running oracle1.[1mWillItFlyTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m5[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in oracle1.[1mWillItFlyTest[m
+[[1;34mINFO[m] Running oracle1.[1mSumSquares1Test[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m49[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in oracle1.[1mSumSquares1Test[m
+[[1;34mINFO[m] Running oracle1.[1mIsMultiplyPrimeTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m8[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in oracle1.[1mIsMultiplyPrimeTest[m
+[[1;34mINFO[m] Running oracle1.[1mRemoveDuplicatesTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m6[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mRemoveDuplicatesTest[m
+[[1;34mINFO[m] Running oracle1.[1mFizzBuzzTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m7[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mFizzBuzzTest[m
+[[1;34mINFO[m] Running oracle1.[1mStrongestExtensionTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m4[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mStrongestExtensionTest[m
+[[1;34mINFO[m] Running oracle1.[1mBelowZeroTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m8[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mBelowZeroTest[m
+[[1;34mINFO[m] Running oracle1.[1mParseNestedParensTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m5[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mParseNestedParensTest[m
+[[1;34mINFO[m] Running oracle1.[1mIsBoredTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m9[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mIsBoredTest[m
+[[1;34mINFO[m] Running oracle1.[1mSimplifyTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m7[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mSimplifyTest[m
+[[1;34mINFO[m] Running oracle1.[1mIsSortedTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m7[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mIsSortedTest[m
+[[1;34mINFO[m] Running oracle1.[1mCycpatternCheckTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m22[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in oracle1.[1mCycpatternCheckTest[m
+[[1;34mINFO[m] Running oracle1.[1mChooseNumTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m6[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mChooseNumTest[m
+[[1;34mINFO[m] Running oracle1.[1mSkjkasdkdTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m6[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mSkjkasdkdTest[m
+[[1;34mINFO[m] Running oracle1.[1mMaxFillTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m5[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mMaxFillTest[m
+[[1;34mINFO[m] Running oracle1.[1mNumericalLetterGradeTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m38[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in oracle1.[1mNumericalLetterGradeTest[m
+[[1;34mINFO[m] Running oracle1.[1mStringToMd5Test[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m49[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in oracle1.[1mStringToMd5Test[m
+[[1;34mINFO[m] Running oracle1.[1mSolveTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m10[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mSolveTest[m
+[[1;34mINFO[m] Running oracle1.[1mDigitsumTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m6[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mDigitsumTest[m
+[[1;34mINFO[m] Running oracle1.[1mIsHappyTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m11[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mIsHappyTest[m
+[[1;34mINFO[m] Running oracle1.[1mUniqueTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m9[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mUniqueTest[m
+[[1;34mINFO[m] Running oracle1.[1mTriplesSumToZeroTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m8[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mTriplesSumToZeroTest[m
+[[1;34mINFO[m] Running oracle1.[1mDerivativeTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m3[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mDerivativeTest[m
+[[1;34mINFO[m] Running oracle1.[1mPluckTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m7[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mPluckTest[m
+[[1;34mINFO[m] Running oracle1.[1mFactorizeTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m7[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mFactorizeTest[m
+[[1;34mINFO[m] Running oracle1.[1mMatchParensTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m37[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in oracle1.[1mMatchParensTest[m
+[[1;34mINFO[m] Running oracle1.[1mCountNumsTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m8[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mCountNumsTest[m
+[[1;34mINFO[m] Running oracle1.[1mDecimalToBinaryTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m5[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mDecimalToBinaryTest[m
+[[1;34mINFO[m] Running oracle1.[1mFilterBySubstringTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m7[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mFilterBySubstringTest[m
+[[1;34mINFO[m] Running oracle1.[1mValidDateTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m40[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in oracle1.[1mValidDateTest[m
+[[1;34mINFO[m] Running oracle1.[1mSumProductTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m7[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mSumProductTest[m
+[[1;34mINFO[m] Running oracle1.[1mFTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m6[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mFTest[m
+[[1;34mINFO[m] Running oracle1.[1mMakePalindromeTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m59[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in oracle1.[1mMakePalindromeTest[m
+[[1;34mINFO[m] Running oracle1.[1mGetMaxTriplesTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m6[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in oracle1.[1mGetMaxTriplesTest[m
+[[1;34mINFO[m] Running oracle1.[1mFilterIntegersTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m4[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mFilterIntegersTest[m
+[[1;34mINFO[m] Running oracle1.[1mHowManyTimesTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m9[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mHowManyTimesTest[m
+[[1;34mINFO[m] Running oracle1.[1mLargestPrimeFactorTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m7[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mLargestPrimeFactorTest[m
+[[1;34mINFO[m] Running oracle1.[1mNextSmallestTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m7[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in oracle1.[1mNextSmallestTest[m
+[[1;34mINFO[m] Running oracle1.[1mIsPrimeTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m9[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in oracle1.[1mIsPrimeTest[m
+[[1;34mINFO[m] Running oracle1.[1mXOrYTest[m
+[[1;31mERROR[m] [1;31mTests [0;1mrun: [0;1m7[m, [1;31mFailures: [0;1;31m1[m, Errors: 0, Skipped: 0, Time elapsed: 0.004 s[1;31m <<< FAILURE![m - in oracle1.[1mXOrYTest[m
+[[1;31mERROR[m] oracle1.XOrYTest.testNegativeNReturnsY  Time elapsed: 0.001 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <52> but was: <3>
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
+	at org.junit.jupiter.api.AssertionUtils.failNotEqual(AssertionUtils.java:62)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:150)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:145)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:527)
+	at oracle1.XOrYTest.testNegativeNReturnsY(id_150Test.java:39)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:725)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:149)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:140)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:84)
+	at org.junit.jupiter.engine.execution.ExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(ExecutableInvoker.java:115)
+	at org.junit.jupiter.engine.execution.ExecutableInvoker.lambda$invoke$0(ExecutableInvoker.java:105)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+	at org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:104)
+	at org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:98)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:214)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:210)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:135)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:66)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:147)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:127)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:90)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:55)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:102)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:54)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
+	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:50)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:184)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:148)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:122)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+
+[[1;34mINFO[m] 
+[[1;34mINFO[m] Results:
+[[1;34mINFO[m] 
+[[1;31mERROR[m] [1;31mFailures: [m
+[[1;31mERROR[m] [1;31m  XOrYTest.testNegativeNReturnsY:39 expected: <52> but was: <3>[m
+[[1;34mINFO[m] 
+[[1;31mERROR[m] [1;31mTests run: 3197, Failures: 1, Errors: 0, Skipped: 0[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] [1;31mBUILD FAILURE[m
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] Total time:  26.429 s
+[[1;34mINFO[m] Finished at: 2025-05-20T21:24:38+01:00
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;31mERROR[m] Failed to execute goal [32morg.apache.maven.plugins:maven-surefire-plugin:3.0.0:test[m [1m(default-test)[m on project [36mHumanEvalJava[m: [1;31mThere are test failures.[m
+[[1;31mERROR[m] [1;31m[m
+[[1;31mERROR[m] [1;31mPlease refer to /home/qinghua/projects/matg/data/HumanEvalJava/matg/target/surefire-reports for the individual test results.[m
+[[1;31mERROR[m] [1;31mPlease refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.[m
+[[1;31mERROR[m] -> [1m[Help 1][m
+[[1;31mERROR[m] 
+[[1;31mERROR[m] To see the full stack trace of the errors, re-run Maven with the [1m-e[m switch.
+[[1;31mERROR[m] Re-run Maven using the [1m-X[m switch to enable full debug logging.
+[[1;31mERROR[m] 
+[[1;31mERROR[m] For more information about the errors and possible solutions, please read the following articles:
+[[1;31mERROR[m] [1m[Help 1][m http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+2025-05-20 21:24:38,386   ERROR : Error creating test file: extract_error_message() missing 1 required positional argument: 'fail_message'
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/qinghua/projects/matg/main.py", line 87, in <module>
+    main()
+  File "/home/qinghua/projects/matg/main.py", line 75, in main
+    initializer.run()
+  File "/home/qinghua/projects/matg/initialize.py", line 55, in run
+    subprocess.run(self.config.test_command.split(),capture_output=True,text=True,cwd=os.getcwd(), check=True)
+  File "/home/qinghua/anaconda3/envs/llm4test/lib/python3.11/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['mvn', '-f', '/home/qinghua/projects/matg/data/HumanEvalJava/matg/pom.xml', 'clean', 'test', 'jacoco:report']' returned non-zero exit status 1.
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/qinghua/projects/matg/experiments/preliminary/initialize/run.py", line 37, in <module>
+    subprocess.run(command, check=True)
+  File "/home/qinghua/anaconda3/envs/llm4test/lib/python3.11/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['python', '-m', 'matg.main', 'initialize', '--data-path', '/home/qinghua/projects/matg/data/HumanEvalJava/matg', '--relative-source-file-path', 'src/main/java/branch/id_150.java', '--relative-test-file-path', 'src/test/java/branch/id_150Test.java', '--coverage-report-path', '/home/qinghua/projects/matg/data/HumanEvalJava/matg/target/site/jacoco', '--test-command', 'mvn -f /home/qinghua/projects/matg/data/HumanEvalJava/matg/pom.xml clean test jacoco:report', '--generator', 'matg', '--max-attempts', '1']' returned non-zero exit status 1.

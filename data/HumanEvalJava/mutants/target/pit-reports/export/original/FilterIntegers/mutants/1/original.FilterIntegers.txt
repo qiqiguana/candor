@@ -1,0 +1,75 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/FilterIntegers {
+
+  // compiled from: id_22.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 8 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/FilterIntegers; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  // signature (Ljava/util/List<Ljava/lang/Object;>;)Ljava/util/List<Ljava/lang/Object;>;
+  // declaration: java.util.List<java.lang.Object> filterIntegers(java.util.List<java.lang.Object>)
+  public static filterIntegers(Ljava/util/List;)Ljava/util/List;
+   L0
+    LINENUMBER 24 L0
+    NEW java/util/ArrayList
+    DUP
+    INVOKESPECIAL java/util/ArrayList.<init> ()V
+    ASTORE 1
+   L1
+    LINENUMBER 25 L1
+    ALOAD 0
+    INVOKEINTERFACE java/util/List.iterator ()Ljava/util/Iterator; (itf)
+    ASTORE 2
+   L2
+   FRAME FULL [java/util/List java/util/ArrayList java/util/Iterator] []
+    ALOAD 2
+    INVOKEINTERFACE java/util/Iterator.hasNext ()Z (itf)
+    IFEQ L3
+    ALOAD 2
+    INVOKEINTERFACE java/util/Iterator.next ()Ljava/lang/Object; (itf)
+    ASTORE 3
+   L4
+    LINENUMBER 26 L4
+    ALOAD 3
+    INSTANCEOF java/lang/Integer
+    IFEQ L5
+   L6
+    LINENUMBER 27 L6
+    ALOAD 1
+    ALOAD 3
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+   L5
+    LINENUMBER 29 L5
+   FRAME FULL [java/util/List java/util/ArrayList java/util/Iterator java/lang/Object] []
+    GOTO L2
+   L3
+    LINENUMBER 30 L3
+   FRAME FULL [java/util/List java/util/ArrayList java/util/Iterator] []
+    ALOAD 1
+    POP
+    INVOKESTATIC java/util/Collections.emptyList ()Ljava/util/List;
+    ARETURN
+   L7
+    LOCALVARIABLE value Ljava/lang/Object; L4 L5 3
+    LOCALVARIABLE values Ljava/util/List; L0 L7 0
+    // signature Ljava/util/List<Ljava/lang/Object;>;
+    // declaration: values extends java.util.List<java.lang.Object>
+    LOCALVARIABLE result Ljava/util/List; L1 L7 1
+    // signature Ljava/util/List<Ljava/lang/Object;>;
+    // declaration: result extends java.util.List<java.lang.Object>
+    MAXSTACK = 2
+    MAXLOCALS = 4
+}
+

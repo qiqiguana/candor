@@ -10,14 +10,14 @@ Generate only one unit test for the given source code.
 
 {% if failed_tests | length> 0 %}
 ## You have generated the test files several times, but all failed. Here are the tests and error messages:
-{% for fail_test in failed_tests %}
+{% for failed_test in failed_tests %}
 #### Failed test file version {{loop.index}}:
 {{ failed_test.code }}
 #### Error message:
 {{ failed_test.error }}
 {% endfor %}
 
-**Avoid these errors in the new test file.**
+**Fix this error. If it is the oracle error, just use the correct oracle suggested in the log.**
 
 {% endif%}
 

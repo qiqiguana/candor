@@ -1,5 +1,6 @@
 package original;
 
+import static org.junit.jupiter.api.Assertions.assertNull;
 import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.List;
@@ -45,6 +46,136 @@ class ProdSignsTest {
     public void testProdSignsWithMixedNumbers() {
         List<Object> arr = Arrays.asList(1, -2, 3);
         assertEquals((Integer) (-6), ProdSigns.prodSigns(arr));
+    }
+    @Test
+    public void testProdSignsWithZero() {
+        List<Object> arr = Arrays.asList(1, 0);
+        assertEquals((Integer) 0, ProdSigns.prodSigns(arr));
+    }
+    @Test
+    public void test_All_Positive_Numbers() {
+        List<Object> arr = new ArrayList<>(Arrays.asList(5, 10, 15));
+        Integer result = ProdSigns.prodSigns(arr);
+        assertEquals(30, (int) result);
+    }
+    @Test
+    public void test_All_Negative_Even_Count() {
+        List<Object> arr = new ArrayList<>(Arrays.asList(-2, -4, -6, -8));
+        Integer result = ProdSigns.prodSigns(arr);
+        assertEquals(20, (int) result);
+    }
+    @Test
+    public void test_All_Negative_Odd_Count() {
+        List<Object> arr = new ArrayList<>(Arrays.asList(-2, -4, -6));
+        Integer result = ProdSigns.prodSigns(arr);
+        assertEquals(-12, (int) result);
+    }
+    @Test
+    public void test_Single_Zero() {
+        List<Object> arr = new ArrayList<>(Arrays.asList(0));
+        Integer result = ProdSigns.prodSigns(arr);
+        assertEquals(0, (int) result);
+    }
+    @Test
+    public void test_Multiple_Zeros() {
+        List<Object> arr = new ArrayList<>(Arrays.asList(0, 1, 0));
+        Integer result = ProdSigns.prodSigns(arr);
+        assertEquals(0, (int) result);
+    }
+    @Test
+    public void test_Single_Negative() {
+        List<Object> arr = new ArrayList<>(Arrays.asList(-1));
+        Integer result = ProdSigns.prodSigns(arr);
+        assertEquals(-1, (int) result);
+    }
+    @Test
+    public void test_No_Input() {
+        List<Object> arr = new ArrayList<>();
+        Integer result = ProdSigns.prodSigns(arr);
+        assertNull(result);
+    }
+    @Test
+    public void test_Null_Input_Fixed() {
+        List<Object> arr = null;
+        try {
+            ProdSigns.prodSigns(arr);
+            fail("Expected NullPointerException");
+        } catch (NullPointerException e) {
+            // expected
+        }
+    }
+    @Test
+    public void testAllPositiveNumbers() {
+        List<Object> input = Arrays.asList(1, 2, 3);
+        Integer expected = 6;
+        assertEquals(expected, ProdSigns.prodSigns(input));
+    }
+    @Test
+    public void testSingleZeroElement() {
+        List<Object> input = Arrays.asList(0);
+        Integer expected = 0;
+        assertEquals(expected, ProdSigns.prodSigns(input));
+    }
+    @Test
+    public void testMixedPositivesAndNegativesEvenCount() {
+        List<Object> input = Arrays.asList(1, -2, 3);
+        Integer expected = -6;
+        assertEquals(expected, ProdSigns.prodSigns(input));
+    }
+    @Test
+    public void testAllNegativeNumbersEvenCount() {
+        List<Object> input = Arrays.asList(-1, -2);
+        Integer expected = 3;
+        assertEquals(expected, ProdSigns.prodSigns(input));
+    }
+    @Test
+    public void testAllNegativeNumbersOddCount() {
+        List<Object> input = Arrays.asList(-1, -2, -3);
+        Integer expected = -6;
+        assertEquals(expected, ProdSigns.prodSigns(input));
+    }
+    @Test
+    public void testEmptyList() {
+        java.util.List<java.lang.Object> input = new java.util.ArrayList<>();
+        org.junit.jupiter.api.Assertions.assertNull(original.ProdSigns.prodSigns(input));
+    }
+    @Test
+    public void testNonIntegerElementsIgnoredCorrected() {
+        java.util.List<java.lang.Object> input = new java.util.ArrayList<>();
+        input.add("a");
+        input.add(null);
+        input.add(5);
+        original.ProdSigns.prodSigns(input);
+        // If no exception is thrown, then the test passes
+    }
+    @Test
+    public void testSingleElement() {
+        java.util.List<java.lang.Object> input = new java.util.ArrayList<>();
+        input.add(5);
+        assertEquals(java.util.Optional.of(5), java.util.Optional.ofNullable(original.ProdSigns.prodSigns(input)));
+    }
+    @Test
+    public void testMultiplePositiveElements() {
+        java.util.List<java.lang.Object> input = new java.util.ArrayList<>();
+        input.add(1);
+        input.add(2);
+        input.add(3);
+        assertEquals(6, original.ProdSigns.prodSigns(input));
+    }
+    @Test
+    public void testSingleNonIntegerElementFixed() {
+        java.util.List<java.lang.Object> input = new java.util.ArrayList<>();
+        input.add("a");
+        input.add(1);
+        original.ProdSigns prodSigns = new original.ProdSigns();
+        assertEquals(Integer.valueOf(1), prodSigns.prodSigns(input));
+    }
+    @Test
+    public void testMultipleNonIntegerElementsIgnored() {
+        java.util.List<java.lang.Object> input = new java.util.ArrayList<>();
+        input.add("a");
+        input.add(null);
+        assertEquals(Integer.valueOf(0), original.ProdSigns.prodSigns(input));
     }
                                     
 }

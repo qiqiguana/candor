@@ -1,0 +1,39 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of CheckIfLastCharIsALetter.
+*/
+class CheckIfLastCharIsALetterTest {
+    @Test
+    void checkIfLastCharIsALetter_withMultipleWords_shouldReturnFalse() {
+        // Arrange & Act
+        boolean result = CheckIfLastCharIsALetter.checkIfLastCharIsALetter("apple pie");
+
+        // Assert
+        assertFalse(result);
+    }
+    
+    @Test
+        public void testNothing(){
+            CheckIfLastCharIsALetter s = new CheckIfLastCharIsALetter();
+            }
+    @Test
+    void testEmptyString() {
+        assertFalse(CheckIfLastCharIsALetter.checkIfLastCharIsALetter("").booleanValue());
+    }
+    @Test
+    void testSingleCharacter() {
+        assertTrue(CheckIfLastCharIsALetter.checkIfLastCharIsALetter("A").booleanValue());
+    }
+    @Test
+    void testLastCharIsLetterAndNotPartOfWord() {
+        assertTrue(CheckIfLastCharIsALetter.checkIfLastCharIsALetter("apple pi e").booleanValue());
+    }
+    @Test
+    void testLastCharIsNotLetter() {
+        assertFalse(CheckIfLastCharIsALetter.checkIfLastCharIsALetter("apple pie!").booleanValue());
+    }
+                                    
+}

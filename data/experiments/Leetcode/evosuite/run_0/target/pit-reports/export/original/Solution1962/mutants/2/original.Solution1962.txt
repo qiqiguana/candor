@@ -1,0 +1,149 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Solution1962 {
+
+  // compiled from: id_1962.java
+  // access flags 0x19
+  public final static INNERCLASS java/lang/invoke/MethodHandles$Lookup java/lang/invoke/MethodHandles Lookup
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 5 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Solution1962; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public minStoneSum([II)I
+   L0
+    LINENUMBER 7 L0
+    NEW java/util/PriorityQueue
+    DUP
+    INVOKEDYNAMIC compare()Ljava/util/Comparator; [
+      // handle kind 0x6 : INVOKESTATIC
+      java/lang/invoke/LambdaMetafactory.metafactory(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;
+      // arguments:
+      (Ljava/lang/Object;Ljava/lang/Object;)I, 
+      // handle kind 0x6 : INVOKESTATIC
+      original/Solution1962.lambda$minStoneSum$0(Ljava/lang/Integer;Ljava/lang/Integer;)I, 
+      (Ljava/lang/Integer;Ljava/lang/Integer;)I
+    ]
+    INVOKESPECIAL java/util/PriorityQueue.<init> (Ljava/util/Comparator;)V
+    ASTORE 3
+   L1
+    LINENUMBER 8 L1
+    ALOAD 1
+    ASTORE 4
+    ALOAD 4
+    ARRAYLENGTH
+    ISTORE 5
+    ICONST_0
+    ISTORE 6
+   L2
+   FRAME FULL [original/Solution1962 [I I java/util/PriorityQueue [I I I] []
+    ILOAD 6
+    ILOAD 5
+    IF_ICMPGE L3
+    ALOAD 4
+    ILOAD 6
+    IALOAD
+    ISTORE 7
+   L4
+    LINENUMBER 9 L4
+    ALOAD 3
+    ILOAD 7
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEVIRTUAL java/util/PriorityQueue.offer (Ljava/lang/Object;)Z
+    POP
+   L5
+    LINENUMBER 8 L5
+    IINC 6 1
+    GOTO L2
+   L3
+    LINENUMBER 11 L3
+   FRAME FULL [original/Solution1962 [I I java/util/PriorityQueue T I I] []
+    ILOAD 2
+    IINC 2 -1
+    IFGT L6
+   L7
+    LINENUMBER 12 L7
+    ALOAD 3
+    INVOKEVIRTUAL java/util/PriorityQueue.poll ()Ljava/lang/Object;
+    CHECKCAST java/lang/Integer
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    ISTORE 4
+   L8
+    LINENUMBER 13 L8
+    ALOAD 3
+    ILOAD 4
+    ILOAD 4
+    ICONST_2
+    IDIV
+    ISUB
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEVIRTUAL java/util/PriorityQueue.offer (Ljava/lang/Object;)Z
+    POP
+   L9
+    LINENUMBER 14 L9
+    GOTO L3
+   L6
+    LINENUMBER 15 L6
+   FRAME FULL [original/Solution1962 [I I java/util/PriorityQueue T I I] []
+    ICONST_0
+    ISTORE 4
+   L10
+    LINENUMBER 16 L10
+   FRAME FULL [original/Solution1962 [I I java/util/PriorityQueue I I I] []
+    ALOAD 3
+    INVOKEVIRTUAL java/util/PriorityQueue.isEmpty ()Z
+    IFNE L11
+   L12
+    LINENUMBER 17 L12
+    ILOAD 4
+    ALOAD 3
+    INVOKEVIRTUAL java/util/PriorityQueue.poll ()Ljava/lang/Object;
+    CHECKCAST java/lang/Integer
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    IADD
+    ISTORE 4
+    GOTO L10
+   L11
+    LINENUMBER 19 L11
+   FRAME FULL [original/Solution1962 [I I java/util/PriorityQueue I I I] []
+    ILOAD 4
+    IRETURN
+   L13
+    LOCALVARIABLE x I L4 L5 7
+    LOCALVARIABLE x I L8 L9 4
+    LOCALVARIABLE this Loriginal/Solution1962; L0 L13 0
+    LOCALVARIABLE piles [I L0 L13 1
+    LOCALVARIABLE k I L0 L13 2
+    LOCALVARIABLE pq Ljava/util/PriorityQueue; L1 L13 3
+    // signature Ljava/util/PriorityQueue<Ljava/lang/Integer;>;
+    // declaration: pq extends java.util.PriorityQueue<java.lang.Integer>
+    LOCALVARIABLE ans I L10 L13 4
+    MAXSTACK = 4
+    MAXLOCALS = 8
+
+  // access flags 0x100A
+  private static synthetic lambda$minStoneSum$0(Ljava/lang/Integer;Ljava/lang/Integer;)I
+   L0
+    LINENUMBER 7 L0
+    ALOAD 1
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    ALOAD 0
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    ISUB
+    IRETURN
+   L1
+    LOCALVARIABLE a Ljava/lang/Integer; L0 L1 0
+    LOCALVARIABLE b Ljava/lang/Integer; L0 L1 1
+    MAXSTACK = 2
+    MAXLOCALS = 2
+}
+

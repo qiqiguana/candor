@@ -1,0 +1,45 @@
+package original;
+
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+/**
+* Test class of Histogram.
+*/
+class HistogramTest {
+    @Test
+    void testHistogram_MultipleLettersWithSameMaxOccurrence_ReturnAll() {
+        Map<String, Integer> expected = new HashMap<>();
+        expected.put("a", 2);
+        expected.put("b", 2);
+        assertEquals(expected, Histogram.histogram("a b b a"));
+    }
+    
+    @Test
+        public void testNothing(){
+            Histogram s = new Histogram();
+            }
+    @Test
+    public void testNullInput() {
+        Object result = Histogram.histogram(null);
+        assertThrows(NullPointerException.class, () -> Histogram.histogram(null));
+    }
+    @Test
+    public void testEmptyStringInput() {
+        Object result = Histogram.histogram("");
+        assertEquals(Collections.emptyMap(), result);
+    }
+    @Test
+    public void testMultipleCharactersWithSameMaxFrequency() {
+        Object result = Histogram.histogram("a b c a b");
+        Map<String, Integer> expected = new HashMap<>();
+        expected.put("a", 2);
+        expected.put("b", 2);
+        assertEquals(expected, result);
+    }
+                                    
+}

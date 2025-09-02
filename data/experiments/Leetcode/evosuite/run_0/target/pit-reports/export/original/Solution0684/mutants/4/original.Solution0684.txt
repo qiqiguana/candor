@@ -1,0 +1,155 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Solution0684 {
+
+  // compiled from: id_0684.java
+
+  // access flags 0x2
+  private [I p
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 3 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Solution0684; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public findRedundantConnection([[I)[I
+   L0
+    LINENUMBER 7 L0
+    ALOAD 1
+    ARRAYLENGTH
+    ISTORE 2
+   L1
+    LINENUMBER 8 L1
+    ALOAD 0
+    ILOAD 2
+    NEWARRAY T_INT
+    PUTFIELD original/Solution0684.p : [I
+   L2
+    LINENUMBER 9 L2
+    ICONST_0
+    ISTORE 3
+   L3
+   FRAME FULL [original/Solution0684 [[I I I] []
+    ILOAD 3
+    ILOAD 2
+    IF_ICMPGE L4
+   L5
+    LINENUMBER 10 L5
+    ALOAD 0
+    GETFIELD original/Solution0684.p : [I
+    ILOAD 3
+    ILOAD 3
+    IASTORE
+   L6
+    LINENUMBER 9 L6
+    IINC 3 1
+    GOTO L3
+   L4
+    LINENUMBER 12 L4
+   FRAME FULL [original/Solution0684 [[I I I] []
+    ICONST_0
+    ISTORE 3
+   L7
+    LINENUMBER 13 L7
+   FRAME FULL [original/Solution0684 [[I I I] []
+    ALOAD 0
+    ALOAD 1
+    ILOAD 3
+    AALOAD
+    ICONST_0
+    IALOAD
+    ICONST_1
+    ISUB
+    INVOKEVIRTUAL original/Solution0684.find (I)I
+    ISTORE 4
+   L8
+    LINENUMBER 14 L8
+    ALOAD 0
+    ALOAD 1
+    ILOAD 3
+    AALOAD
+    ICONST_1
+    IALOAD
+    ICONST_1
+    IADD
+    INVOKEVIRTUAL original/Solution0684.find (I)I
+    ISTORE 5
+   L9
+    LINENUMBER 15 L9
+    ILOAD 4
+    ILOAD 5
+    IF_ICMPNE L10
+   L11
+    LINENUMBER 16 L11
+    ALOAD 1
+    ILOAD 3
+    AALOAD
+    ARETURN
+   L10
+    LINENUMBER 18 L10
+   FRAME FULL [original/Solution0684 [[I I I I I] []
+    ALOAD 0
+    GETFIELD original/Solution0684.p : [I
+    ILOAD 4
+    ILOAD 5
+    IASTORE
+   L12
+    LINENUMBER 12 L12
+    IINC 3 1
+    GOTO L7
+   L13
+    LOCALVARIABLE i I L3 L4 3
+    LOCALVARIABLE pa I L8 L12 4
+    LOCALVARIABLE pb I L9 L12 5
+    LOCALVARIABLE i I L7 L13 3
+    LOCALVARIABLE this Loriginal/Solution0684; L0 L13 0
+    LOCALVARIABLE edges [[I L0 L13 1
+    LOCALVARIABLE n I L1 L13 2
+    MAXSTACK = 3
+    MAXLOCALS = 6
+
+  // access flags 0x2
+  private find(I)I
+   L0
+    LINENUMBER 23 L0
+    ALOAD 0
+    GETFIELD original/Solution0684.p : [I
+    ILOAD 1
+    IALOAD
+    ILOAD 1
+    IF_ICMPEQ L1
+   L2
+    LINENUMBER 24 L2
+    ALOAD 0
+    GETFIELD original/Solution0684.p : [I
+    ILOAD 1
+    ALOAD 0
+    ALOAD 0
+    GETFIELD original/Solution0684.p : [I
+    ILOAD 1
+    IALOAD
+    INVOKEVIRTUAL original/Solution0684.find (I)I
+    IASTORE
+   L1
+    LINENUMBER 26 L1
+   FRAME FULL [original/Solution0684 I] []
+    ALOAD 0
+    GETFIELD original/Solution0684.p : [I
+    ILOAD 1
+    IALOAD
+    IRETURN
+   L3
+    LOCALVARIABLE this Loriginal/Solution0684; L0 L3 0
+    LOCALVARIABLE x I L0 L3 1
+    MAXSTACK = 5
+    MAXLOCALS = 2
+}
+

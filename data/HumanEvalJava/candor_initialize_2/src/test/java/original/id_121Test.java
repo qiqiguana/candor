@@ -1,0 +1,46 @@
+package original;
+
+import java.util.List;
+import java.util.ArrayList;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of Solution.
+*/
+class SolutionTest {
+    @Test
+    void test_solution_sum_of_odd_numbers_in_even_positions() {
+        List<Integer> lst = new ArrayList<>();
+        lst.add(5);
+        lst.add(8);
+        lst.add(7);
+        lst.add(1);
+        int result = Solution.solution(lst);
+        assertEquals(12, result);
+    }
+    
+    @Test
+        public void testNothing(){
+            Solution s = new Solution();
+            }
+    @Test
+    public void EvenPositionOddElementsSum() {
+        List<Integer> input = List.of(3, 2, 7, 4);
+        int result = Solution.solution(input);
+        assertEquals(10, result);
+    }
+    @Test
+    public void EmptyListHandling() {
+        List<Integer> input = List.of();
+        int result = Solution.solution(input);
+        assertEquals(0, result);
+    }
+    @Test
+    public void NoOddElementsInEvenPositions() {
+        List<Integer> input = List.of(2, 4, 6, 8);
+        int result = Solution.solution(input);
+        assertEquals(0, result);
+    }
+                                    
+}

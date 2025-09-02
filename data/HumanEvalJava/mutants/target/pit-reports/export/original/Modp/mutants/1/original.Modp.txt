@@ -1,0 +1,59 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Modp {
+
+  // compiled from: id_49.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 4 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Modp; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  public static modp(II)I
+   L0
+    LINENUMBER 34 L0
+    ICONST_1
+    ISTORE 2
+   L1
+    LINENUMBER 35 L1
+    ICONST_0
+    ISTORE 3
+   L2
+   FRAME FULL [I I I I] []
+    ILOAD 3
+    ILOAD 0
+    IF_ICMPLT L3
+   L4
+    LINENUMBER 36 L4
+    ILOAD 2
+    ICONST_2
+    IMUL
+    ILOAD 1
+    IREM
+    ISTORE 2
+   L5
+    LINENUMBER 35 L5
+    IINC 3 1
+    GOTO L2
+   L3
+    LINENUMBER 38 L3
+   FRAME FULL [I I I I] []
+    ILOAD 2
+    IRETURN
+   L6
+    LOCALVARIABLE i I L2 L3 3
+    LOCALVARIABLE n I L0 L6 0
+    LOCALVARIABLE p I L0 L6 1
+    LOCALVARIABLE result I L1 L6 2
+    MAXSTACK = 2
+    MAXLOCALS = 4
+}
+

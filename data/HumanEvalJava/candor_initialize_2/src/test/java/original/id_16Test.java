@@ -1,0 +1,26 @@
+package original;
+
+import java.util.HashSet;
+
+import java.util.Set;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of CountDistinctCharacters.
+*/
+class CountDistinctCharactersTest {
+	@Test
+    void testCountDistinctCharacters_1() {
+        String input = "xyzXYZ";
+        int expected = 3;
+        int actual = CountDistinctCharacters.countDistinctCharacters(input);
+        assertEquals(expected, actual);
+    }
+ 
+ @Test
+     public void testNothing(){
+         CountDistinctCharacters s = new CountDistinctCharacters();
+         }
+                                 
+}

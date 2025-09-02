@@ -1,0 +1,37 @@
+package original;
+
+import java.util.List;
+import java.util.ArrayList;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of CanArrange.
+*/
+class CanArrangeTest {
+
+    @Test
+    void testCanArrange_ReturnsThree_WhenArrayIsOneTwoFourThreeFive() {
+        List<Object> arr = new ArrayList<>();
+        arr.add(1);
+        arr.add(2);
+        arr.add(4);
+        arr.add(3);
+        arr.add(5);
+        int result = CanArrange.canArrange(arr);
+        assertEquals(3, result);
+    }
+    
+    @Test
+        public void testNothing(){
+            CanArrange s = new CanArrange();
+            }
+    @Test
+    public void TestCanArrangeWithNonIntegerValues() {
+        List<Object> input = List.of(1, 2, "a");
+        int expected = -1;
+        int actual = CanArrange.canArrange(input);
+        assertEquals(expected, actual);
+    }
+                                    
+}

@@ -1,0 +1,88 @@
+package original;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of CheckDictCase.
+*/
+class CheckDictCaseTest {
+    @Test
+    void test_checkDictCase_all_lower_case_keys() {
+        Map<String, String> dict = new HashMap<>();
+        dict.put("a", "apple");
+        dict.put("b", "banana");
+        assertTrue(CheckDictCase.checkDictCase(dict));
+    }
+    
+    @Test
+        public void testNothing(){
+            CheckDictCase s = new CheckDictCase();
+            }
+    @Test
+    public void testEmptyDictionary() {
+    	Map<String, String> dict = new HashMap<>();
+    	assertFalse(CheckDictCase.checkDictCase(dict));
+    }
+    @Test
+    public void testNonMapInput() {
+    	Object obj = new Object();
+    	assertFalse(CheckDictCase.checkDictCase(obj));
+    }
+    @Test
+    public void testDictionaryWithNonStringKey() {
+    	Map<Integer, String> dict = new HashMap<>();
+    	dict.put(1, "value");
+    	assertFalse(CheckDictCase.checkDictCase(dict));
+    }
+    @Test
+    public void testDictionaryWithStringKeys() {
+    	Map<String, String> dict = new HashMap<>();
+    	dict.put("key", "value");
+    	assertTrue(CheckDictCase.checkDictCase(dict));
+    }
+    @Test
+    public void testMixedCaseKeysWithNonStringKey() {
+        Map<Object, Object> map = new HashMap<>();
+        map.put("a", "apple");
+        map.put(5, "banana");
+        assertFalse(CheckDictCase.checkDictCase(map));
+    }
+    @Test
+    public void testAllUpperCaseKeysWithOneLowerCaseKey() {
+        Map<Object, Object> map = new HashMap<>();
+        map.put("STATE", "NC");
+        map.put("zip", "12345");
+        assertFalse(CheckDictCase.checkDictCase(map));
+    }
+    @Test
+    public void testAllLowerCaseKeysWithOneUpperCaseKey() {
+        Map<Object, Object> map = new HashMap<>();
+        map.put("state", "nc");
+        map.put("ZIP", "12345");
+        assertFalse(CheckDictCase.checkDictCase(map));
+    }
+    @Test
+    public void testEmptyMap() {
+        Map<Object, Object> map = new HashMap<>();
+        assertFalse(CheckDictCase.checkDictCase(map));
+    }
+    @Test
+    public void TestMixedCaseMapWithStringsAndNonStringsKeys() {
+        HashMap<Object, Object> map = new HashMap<>();
+        map.put("a", "apple");
+        map.put(5, "banana");
+        map.put("B", "orange");
+        assertFalse(CheckDictCase.checkDictCase(map));
+    }
+    @Test
+    public void TestMixedCaseMapWithOnlyNonStringKeys() {
+        HashMap<Object, Object> map = new HashMap<>();
+        map.put(1, "apple");
+        map.put(2, "banana");
+        assertFalse(CheckDictCase.checkDictCase(map));
+    }
+                                    
+}

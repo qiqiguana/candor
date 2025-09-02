@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_109.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HumanEvalJava</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_109.java</span></div><h1>id_109.java</h1><pre class="source lang-java linenums">package original;
+
+import java.util.List;
+
+
+<span class="fc" id="L6">class MoveOneBall {</span>
+    /**
+     * We have an array 'arr' of N integers arr[1], arr[2], ..., arr[N].The
+     * numbers in the array will be randomly ordered. Your task is to determine if
+     * it is possible to get an array sorted in non-decreasing order by performing
+     * the following operation on the given array:
+     * You are allowed to perform right shift operation any number of times.
+     *
+     * One right shift operation means shifting all elements of the array by one
+     * position in the right direction. The last element of the array will be moved to
+     * the starting position in the array i.e. 0th index.
+     *
+     * If it is possible to obtain the sorted array by performing the above operation
+     * then return True else return False.
+     * If the given array is empty then return True.
+     *
+     * Note: The given list is guaranteed to have unique elements.
+     *
+     *  Examples:
+     *
+     * move_one_ball([3, 4, 5, 1, 2])==&gt;True
+     * Explanation: By performing 2 right shift operations, non-decreasing order can
+     * be achieved for the given array.
+     * move_one_ball([3, 5, 4, 1, 2])==&gt;False
+     * Explanation:It is not possible to get non-decreasing order for the given
+     * array by performing any number of right shift operations.
+     *
+     *
+     * &gt; moveOneBall([3, 4, 5, 1, 2])
+     * true
+     * &gt; moveOneBall([3, 5, 10, 1, 2])
+     * true
+     * &gt; moveOneBall([4, 3, 1, 2])
+     * false
+     * &gt; moveOneBall([3, 5, 4, 1, 2])
+     * false
+     * &gt; moveOneBall([])
+     * true
+     */
+    public static Boolean moveOneBall(List&lt;Object&gt; arr) {
+<span class="fc bfc" id="L46" title="All 2 branches covered.">        if (arr.size() == 0) {</span>
+<span class="fc" id="L47">            return true;</span>
+        }
+<span class="fc" id="L49">        int count = 0;</span>
+<span class="fc bfc" id="L50" title="All 2 branches covered.">        for (int i = 0; i &lt; arr.size(); i++) {</span>
+<span class="fc bfc" id="L51" title="All 2 branches covered.">            if ((int) arr.get(i) &gt; (int) arr.get((i + 1) % arr.size())) {</span>
+<span class="fc" id="L52">                count++;</span>
+            }
+        }
+<span class="fc bfc" id="L55" title="All 2 branches covered.">        if (count &lt;= 1) {</span>
+<span class="fc" id="L56">            return true;</span>
+        }
+<span class="fc" id="L58">        return false;</span>
+    }
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_0005.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">leetcode</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_0005.java</span></div><h1>id_0005.java</h1><pre class="source lang-java linenums">package original;
+
+import java.util.Arrays;
+<span class="fc" id="L4">class Solution0005 {</span>
+    public String longestPalindrome(String s) {
+<span class="fc" id="L6">        int n = s.length();</span>
+<span class="fc" id="L7">        boolean[][] f = new boolean[n][n];</span>
+<span class="fc bfc" id="L8" title="All 2 branches covered.">        for (var g : f) {</span>
+<span class="fc" id="L9">            Arrays.fill(g, true);</span>
+        }
+<span class="fc" id="L11">        int k = 0, mx = 1;</span>
+<span class="fc bfc" id="L12" title="All 2 branches covered.">        for (int i = n - 2; i &gt;= 0; --i) {</span>
+<span class="fc bfc" id="L13" title="All 2 branches covered.">            for (int j = i + 1; j &lt; n; ++j) {</span>
+<span class="fc" id="L14">                f[i][j] = false;</span>
+<span class="fc bfc" id="L15" title="All 2 branches covered.">                if (s.charAt(i) == s.charAt(j)) {</span>
+<span class="fc" id="L16">                    f[i][j] = f[i + 1][j - 1];</span>
+<span class="pc bpc" id="L17" title="1 of 4 branches missed.">                    if (f[i][j] &amp;&amp; mx &lt; j - i + 1) {</span>
+<span class="fc" id="L18">                        mx = j - i + 1;</span>
+<span class="fc" id="L19">                        k = i;</span>
+                    }
+                }
+            }
+        }
+<span class="fc" id="L24">        return s.substring(k, k + mx);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

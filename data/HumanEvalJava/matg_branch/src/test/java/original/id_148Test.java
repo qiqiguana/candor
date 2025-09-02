@@ -79,5 +79,25 @@ class BfTest {
         List<Object> result = Bf.bf("Venus", "Earth");
         assertEquals(Arrays.asList(), result);
     }
+    @Test
+    public void testBf_PlanetsOutOfOrder() {
+        List<Object> result = Bf.bf("Neptune", "Mercury");
+        assertEquals("[Venus, Earth, Mars, Jupiter, Saturn, Uranus]", result.toString());
+    }
+    @Test
+    public void testBf_InvalidPlanetNames() {
+        List<Object> result = Bf.bf("Invalid1", "Invalid2");
+        assertEquals("[]", result.toString());
+    }
+    @Test
+    public void testBf_AdjacentPlanets_1() {
+        List<Object> result = Bf.bf("Earth", "Mars");
+        assertEquals("[]", result.toString());
+    }
+    @Test
+    public void testBf_SinglePlanet() {
+        List<Object> result = Bf.bf("Earth", "Earth");
+        assertEquals("[]", result.toString());
+    }
                                     
 }

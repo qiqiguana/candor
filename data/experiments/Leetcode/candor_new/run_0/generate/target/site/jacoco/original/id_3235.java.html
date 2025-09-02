@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_3235.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">leetcode</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_3235.java</span></div><h1>id_3235.java</h1><pre class="source lang-java linenums">package original;
+
+<span class="nc" id="L3">class Solution3235 {</span>
+    private int[][] circles;
+    private int xCorner, yCorner;
+    private boolean[] vis;
+
+    public boolean canReachCorner(int xCorner, int yCorner, int[][] circles) {
+  /**
+  You are given two positive integers xCorner and yCorner, and a 2D array circles, where circles[i] = [xi, yi, ri] denotes a circle with center at (xi, yi) and radius ri. There is a rectangle in the coordinate plane with its bottom left corner at the origin and top right corner at the coordinate (xCorner, yCorner). You need to check whether there is a path from the bottom left corner to the top right corner such that the entire path lies inside the rectangle, does not touch or lie inside any circle, and touches the rectangle only at the two corners. Return true if such a path exists, and false otherwise. &amp;nbsp; Example 1: Input: xCorner = 3, yCorner = 4, circles = [[2,1,1]] Output: true Explanation: The black curve shows a possible path between (0, 0) and (3, 4). Example 2: Input: xCorner = 3, yCorner = 3, circles = [[1,1,2]] Output: false Explanation: No path exists from (0, 0) to (3, 3). Example 3: Input: xCorner = 3, yCorner = 3, circles = [[2,1,1],[1,2,1]] Output: false Explanation: No path exists from (0, 0) to (3, 3). Example 4: Input: xCorner = 4, yCorner = 4, circles = [[5,5,1]] Output: true Explanation: &amp;nbsp; Constraints: 3 &amp;lt;= xCorner, yCorner &amp;lt;= 109 1 &amp;lt;= circles.length &amp;lt;= 1000 circles[i].length == 3 1 &amp;lt;= xi, yi, ri &amp;lt;= 109
+  */
+<span class="nc" id="L12">        int n = circles.length;</span>
+<span class="nc" id="L13">        this.circles = circles;</span>
+<span class="nc" id="L14">        this.xCorner = xCorner;</span>
+<span class="nc" id="L15">        this.yCorner = yCorner;</span>
+<span class="nc" id="L16">        vis = new boolean[n];</span>
+<span class="nc bnc" id="L17" title="All 2 branches missed.">        for (int i = 0; i &lt; n; ++i) {</span>
+<span class="nc" id="L18">            var c = circles[i];</span>
+<span class="nc" id="L19">            int x = c[0], y = c[1], r = c[2];</span>
+<span class="nc bnc" id="L20" title="All 4 branches missed.">            if (inCircle(0, 0, x, y, r) || inCircle(xCorner, yCorner, x, y, r)) {</span>
+<span class="nc" id="L21">                return false;</span>
+            }
+<span class="nc bnc" id="L23" title="All 6 branches missed.">            if (!vis[i] &amp;&amp; crossLeftTop(x, y, r) &amp;&amp; dfs(i)) {</span>
+<span class="nc" id="L24">                return false;</span>
+            }
+        }
+<span class="nc" id="L27">        return true;</span>
+    }
+
+    private boolean inCircle(long x, long y, long cx, long cy, long r) {
+<span class="nc bnc" id="L31" title="All 2 branches missed.">        return (x - cx) * (x - cx) + (y - cy) * (y - cy) &lt;= r * r;</span>
+    }
+
+    private boolean crossLeftTop(long cx, long cy, long r) {
+<span class="nc bnc" id="L35" title="All 6 branches missed.">        boolean a = Math.abs(cx) &lt;= r &amp;&amp; (cy &gt;= 0 &amp;&amp; cy &lt;= yCorner);</span>
+<span class="nc bnc" id="L36" title="All 6 branches missed.">        boolean b = Math.abs(cy - yCorner) &lt;= r &amp;&amp; (cx &gt;= 0 &amp;&amp; cx &lt;= xCorner);</span>
+<span class="nc bnc" id="L37" title="All 4 branches missed.">        return a || b;</span>
+    }
+
+    private boolean crossRightBottom(long cx, long cy, long r) {
+<span class="nc bnc" id="L41" title="All 6 branches missed.">        boolean a = Math.abs(cx - xCorner) &lt;= r &amp;&amp; (cy &gt;= 0 &amp;&amp; cy &lt;= yCorner);</span>
+<span class="nc bnc" id="L42" title="All 6 branches missed.">        boolean b = Math.abs(cy) &lt;= r &amp;&amp; (cx &gt;= 0 &amp;&amp; cx &lt;= xCorner);</span>
+<span class="nc bnc" id="L43" title="All 4 branches missed.">        return a || b;</span>
+    }
+
+    private boolean dfs(int i) {
+<span class="nc" id="L47">        var c = circles[i];</span>
+<span class="nc" id="L48">        long x1 = c[0], y1 = c[1], r1 = c[2];</span>
+<span class="nc bnc" id="L49" title="All 2 branches missed.">        if (crossRightBottom(x1, y1, r1)) {</span>
+<span class="nc" id="L50">            return true;</span>
+        }
+<span class="nc" id="L52">        vis[i] = true;</span>
+<span class="nc bnc" id="L53" title="All 2 branches missed.">        for (int j = 0; j &lt; circles.length; ++j) {</span>
+<span class="nc" id="L54">            var c2 = circles[j];</span>
+<span class="nc" id="L55">            long x2 = c2[0], y2 = c2[1], r2 = c2[2];</span>
+<span class="nc bnc" id="L56" title="All 2 branches missed.">            if (vis[j]) {</span>
+<span class="nc" id="L57">                continue;</span>
+            }
+<span class="nc bnc" id="L59" title="All 2 branches missed.">            if ((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2) &gt; (r1 + r2) * (r1 + r2)) {</span>
+<span class="nc" id="L60">                continue;</span>
+            }
+<span class="nc bnc" id="L62" title="All 4 branches missed.">            if (x1 * r2 + x2 * r1 &lt; (r1 + r2) * xCorner &amp;&amp; y1 * r2 + y2 * r1 &lt; (r1 + r2) * yCorner</span>
+<span class="nc bnc" id="L63" title="All 2 branches missed.">                &amp;&amp; dfs(j)) {</span>
+<span class="nc" id="L64">                return true;</span>
+            }
+        }
+<span class="nc" id="L67">        return false;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

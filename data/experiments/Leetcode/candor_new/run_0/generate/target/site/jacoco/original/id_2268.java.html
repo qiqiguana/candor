@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_2268.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">leetcode</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_2268.java</span></div><h1>id_2268.java</h1><pre class="source lang-java linenums">package original;
+
+import java.util.Arrays;
+<span class="nc" id="L4">class Solution2268 {</span>
+    public int minimumKeypresses(String s) {
+  /**
+  You have a keypad with 9 buttons, numbered from 1 to 9, each mapped to lowercase English letters. You can choose which characters each button is matched to as long as: All 26 lowercase English letters are mapped to. Each character is mapped to by exactly 1 button. Each button maps to at most 3 characters. To type the first character matched to a button, you press the button once. To type the second character, you press the button twice, and so on. Given a string s, return the minimum number of keypresses needed to type s using your keypad. Note that the characters mapped to by each button, and the order they are mapped in cannot be changed. &amp;nbsp; Example 1: Input: s = &amp;quot;apple&amp;quot; Output: 5 Explanation: One optimal way to setup your keypad is shown above. Type &amp;#39;a&amp;#39; by pressing button 1 once. Type &amp;#39;p&amp;#39; by pressing button 6 once. Type &amp;#39;p&amp;#39; by pressing button 6 once. Type &amp;#39;l&amp;#39; by pressing button 5 once. Type &amp;#39;e&amp;#39; by pressing button 3 once. A total of 5 button presses are needed, so return 5. Example 2: Input: s = &amp;quot;abcdefghijkl&amp;quot; Output: 15 Explanation: One optimal way to setup your keypad is shown above. The letters &amp;#39;a&amp;#39; to &amp;#39;i&amp;#39; can each be typed by pressing a button once. Type &amp;#39;j&amp;#39; by pressing button 1 twice. Type &amp;#39;k&amp;#39; by pressing button 2 twice. Type &amp;#39;l&amp;#39; by pressing button 3 twice. A total of 15 button presses are needed, so return 15. &amp;nbsp; Constraints: 1 &amp;lt;= s.length &amp;lt;= 105 s consists of lowercase English letters.
+  */
+<span class="nc" id="L9">        int[] cnt = new int[26];</span>
+<span class="nc bnc" id="L10" title="All 2 branches missed.">        for (int i = 0; i &lt; s.length(); ++i) {</span>
+<span class="nc" id="L11">            ++cnt[s.charAt(i) - 'a'];</span>
+        }
+<span class="nc" id="L13">        Arrays.sort(cnt);</span>
+<span class="nc" id="L14">        int ans = 0, k = 1;</span>
+<span class="nc bnc" id="L15" title="All 2 branches missed.">        for (int i = 1; i &lt;= 26; ++i) {</span>
+<span class="nc" id="L16">            ans += k * cnt[26 - i];</span>
+<span class="nc bnc" id="L17" title="All 2 branches missed.">            if (i % 9 == 0) {</span>
+<span class="nc" id="L18">                ++k;</span>
+            }
+        }
+<span class="nc" id="L21">        return ans;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

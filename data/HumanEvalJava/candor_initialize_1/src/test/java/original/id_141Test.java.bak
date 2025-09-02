@@ -1,0 +1,47 @@
+package original;
+
+import java.util.Arrays;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of FileNameCheck.
+*/
+class FileNameCheckTest {
+    @Test
+    void testFileNameCheck_DotInMiddle_ReturnsYes() {
+        String fileName = "example.txt";
+        String result = FileNameCheck.fileNameCheck(fileName);
+        assertEquals("Yes", result);
+    }
+    
+    @Test
+        public void testNothing(){
+            FileNameCheck s = new FileNameCheck();
+            }
+    @Test
+    public void fileNameCheck_EmptyFileName_ReturnsNo() {
+        String expected = "No";
+        String actual = FileNameCheck.fileNameCheck("");
+        assertEquals(expected, actual);
+    }
+    @Test
+    public void fileNameCheck_InvalidSuffix_ReturnsNo() {
+        String expected = "No";
+        String actual = FileNameCheck.fileNameCheck("example.pdf");
+        assertEquals(expected, actual);
+    }
+    @Test
+    public void fileNameCheck_EmptyPrefix_ReturnsNo() {
+        String expected = "No";
+        String actual = FileNameCheck.fileNameCheck(".txt");
+        assertEquals(expected, actual);
+    }
+    @Test
+    public void fileNameCheck_NonLetterPrefix_ReturnsNo() {
+        String expected = "No";
+        String actual = FileNameCheck.fileNameCheck("1.txt");
+        assertEquals(expected, actual);
+    }
+                                    
+}

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_64.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HumanEvalJava</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_64.java</span></div><h1>id_64.java</h1><pre class="source lang-java linenums">package original;
+
+<span class="nc" id="L3">class VowelsCount {</span>
+    /**
+     * Write a function vowels_count which takes a string representing
+     * a word as input and returns the number of vowels in the string.
+     * Vowels in this case are 'a', 'e', 'i', 'o', 'u'. Here, 'y' is also a
+     * vowel, but only when it is at the end of the given word.
+     *
+     * &gt; vowelsCount(&quot;abcde&quot;)
+     * 2
+     * &gt; vowelsCount(&quot;Alone&quot;)
+     * 3
+     * &gt; vowelsCount(&quot;key&quot;)
+     * 2
+     * &gt; vowelsCount(&quot;bye&quot;)
+     * 1
+     * &gt; vowelsCount(&quot;keY&quot;)
+     * 2
+     * &gt; vowelsCount(&quot;bYe&quot;)
+     * 1
+     * &gt; vowelsCount(&quot;ACEDY&quot;)
+     * 3
+     */
+    public static int vowelsCount(String s) {
+<span class="fc" id="L26">        int count = 0;</span>
+<span class="fc bfc" id="L27" title="All 2 branches covered.">        for (int i = 0; i &lt; s.length(); i++) {</span>
+<span class="fc" id="L28">            char c = s.charAt(i);</span>
+<span class="pc bpc" id="L29" title="8 of 20 branches missed.">            if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' || c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U') {</span>
+<span class="fc" id="L30">                count++;</span>
+            }
+        }
+<span class="pc bpc" id="L33" title="3 of 6 branches missed.">        if (s.length() &gt; 0 &amp;&amp; (s.charAt(s.length() - 1) == 'y' || s.charAt(s.length() - 1) == 'Y')) {</span>
+<span class="fc" id="L34">            count++;</span>
+        }
+<span class="fc" id="L36">        return count;</span>
+    }
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

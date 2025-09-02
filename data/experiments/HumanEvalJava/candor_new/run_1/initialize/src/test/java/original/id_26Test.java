@@ -1,0 +1,19 @@
+package original;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of RemoveDuplicates.
+*/
+class RemoveDuplicatesTest {
+
+    @Test
+    void testRemoveDuplicatesShouldReturnEmptyListWhenInputIsEmpty() {
+        List<Object> input = new ArrayList<>();
+        List<Object> expectedOutput = new ArrayList<>();
+        assertEquals(expectedOutput, RemoveDuplicates.removeDuplicates(input));
+    }
+}

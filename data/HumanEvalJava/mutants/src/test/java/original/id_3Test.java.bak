@@ -1,0 +1,102 @@
+package original;
+
+import java.util.Arrays;
+import java.util.List;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.ArrayList;
+/**
+* Test class of BelowZero.
+*/
+class BelowZeroTest {
+    @Test
+    void belowZero_DetectsNegativeBalance() {
+        List<Object> operations = new ArrayList<>();
+        operations.add(1);
+        operations.add(2);
+        operations.add(-4);
+        assertTrue(BelowZero.belowZero(operations));
+    }
+    
+    @Test
+        public void testNothing(){
+            BelowZero s = new BelowZero();
+            }
+    @Test
+    public void test_BelowZero_EmptyOperationsList() {
+        // Given
+        List<Object> operations = new ArrayList<>();
+        // When
+        Boolean result = BelowZero.belowZero(operations);
+        // Then
+        assertFalse(result);
+    }
+    @Test
+    public void test_BelowZero_SinglePositiveOperation() {
+        // Given
+        List<Object> operations = Arrays.asList(1.0);
+        // When
+        Boolean result = BelowZero.belowZero(operations);
+        // Then
+        assertFalse(result);
+    }
+    @Test
+    public void test_BelowZero_SingleNegativeOperation() {
+        // Given
+        List<Object> operations = Arrays.asList(-1.0);
+        // When
+        Boolean result = BelowZero.belowZero(operations);
+        // Then
+        assertTrue(result);
+    }
+    @Test
+    public void test_BelowZero_ZeroBalance_Fixed() {
+        // Given
+        List<Object> operations = Arrays.asList(1, -1);
+        // When
+        Boolean result = BelowZero.belowZero(operations);
+        // Then
+        assertFalse(result);
+    }
+    @Test
+    public void test_BelowZero_MultipleOperationsBelowZero() {
+        // Given
+        List<Object> operations = Arrays.asList(1.0, 2.0, -4.0);
+        // When
+        Boolean result = BelowZero.belowZero(operations);
+        // Then
+        assertTrue(result);
+    }
+    @Test
+    public void test_BelowZero_InvalidInputType_1() {
+        // Given
+        Object operations = "not a list";
+        // When and Then
+        assertThrows(ClassCastException.class, () -> BelowZero.belowZero((List<Object>) operations));
+    }
+    @Test
+    public void testValidOperations() {
+        List<Object> operations = Arrays.asList(1.0, 2.0, 3.0);
+        assertFalse(BelowZero.belowZero(operations));
+    }
+    @Test
+    public void testInvalidOperationType() {
+        List<Object> operations = Arrays.asList(1.0, "a", 3.0);
+        assertThrows(IllegalArgumentException.class, () -> BelowZero.belowZero(operations));
+    }
+    @Test
+    public void testBalanceFallsBelowZero() {
+        List<Object> operations = Arrays.asList(1.0, 2.0, -4.0, 5.0);
+        assertTrue(BelowZero.belowZero(operations));
+    }
+    @Test
+    public void testNullInput() {
+        assertThrows(NullPointerException.class, () -> BelowZero.belowZero(null));
+    }
+    @Test
+    public void testBalanceDoesNotFallBelowZero() {
+        List<Object> operations = Arrays.asList(1.0, 2.0, 3.0);
+        assertFalse(BelowZero.belowZero(operations));
+    }
+                                    
+}

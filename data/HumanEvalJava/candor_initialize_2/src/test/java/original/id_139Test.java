@@ -1,0 +1,20 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of SpecialFactorial.
+*/
+class SpecialFactorialTest {
+
+    @Test
+    void testSpecialFactorial_SimpleCase() {
+        assertEquals(34560, SpecialFactorial.specialFactorial(5));
+    }
+    
+    @Test
+        public void testNothing(){
+            SpecialFactorial s = new SpecialFactorial();
+            }
+                                    
+}

@@ -1,0 +1,164 @@
+package original;
+
+import original.ValidDate;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of ValidDate.
+*/
+class ValidDateTest {
+    @Test
+    void testValidDate() {
+        String date = "03-11-2000";
+        assertTrue(ValidDate.validDate(date));
+    }
+    
+    @Test
+        public void testNothing(){
+            ValidDate s = new ValidDate();
+            }
+    @Test
+    public void test_LeapYearTest1() {
+        boolean result = ValidDate.validDate("02-29-2020");
+        assertTrue(result);
+    }
+    @Test
+    public void test_LeapYearTest4() {
+        String date = "02-28-2019";
+        boolean result = ValidDate.validDate(date);
+        assertTrue(result);
+    }
+    @Test
+    public void test_LeapYearTest51() {
+    boolean result = ValidDate.validDate("01-31-2020");
+    assertTrue(result);
+    }
+    @Test
+    public void test_LeapYearTest6_Fixed() {
+        boolean result = ValidDate.validDate("01-31-2020");
+        assertTrue(result);
+    }
+    @Test
+    public void test_LeapYearTest8() {
+        boolean result = ValidDate.validDate("02-29-2020");
+        assertTrue(result);
+    }
+    @Test
+    public void test_LeapYearTest81() {
+    boolean result = ValidDate.validDate("04-29-2020");
+    assertTrue(result);
+    }
+    @Test
+    public void test_LeapYearTest10() {
+        boolean result = ValidDate.validDate("06-30-2020");
+        assertTrue(result);
+    }
+    @Test
+    public void test_LeapYearTest10_Fixed() {
+        boolean result = ValidDate.validDate("06-30-2020");
+        assertTrue(result);
+    }
+    @Test
+    public void test_LeapYearTest11() {
+    boolean result = ValidDate.validDate("12-31-2020");
+    assertTrue(result);
+    }
+    @Test
+    public void test_LeapYearTest12_Fixed() {
+        boolean result = ValidDate.validDate("12-32-2020");
+        assertFalse(result);
+    }
+    @Test
+    public void test_LeapYearTest13() {
+        boolean result = ValidDate.validDate("01-01-2020");
+        assertTrue(result);
+    }
+    @Test
+    public void test_LeapYearTest14() {
+        String date = "01-00-2020";
+        assertFalse(ValidDate.validDate(date));
+    }
+    @Test
+    public void test_LeapYearTest17() {
+        boolean result = ValidDate.validDate("02-29-2020");
+        assertTrue(result);
+    }
+    @Test
+    public void test_LeapYearTest16_Fixed() {
+        boolean result = ValidDate.validDate("1--12020");
+        assertFalse(result);
+    }
+    @Test
+    public void test_LeapYearTest18() {
+        boolean result = ValidDate.validDate("13-01-2020");
+        assertFalse(result);
+    }
+    @Test
+    public void LeapYearTest18() {
+        boolean result = ValidDate.validDate("02-30-2020");
+        assertFalse(result);
+    }
+    @Test
+    public void test_LeapYearTest19_Fixed() {
+        String date = "12-01--1000";
+        assertFalse(ValidDate.validDate(date));
+    }
+    @Test
+    public void LeapYearTest21Fixed() {
+        String date = "02-30-0000";
+        assertFalse(ValidDate.validDate(date));
+    }
+    @Test
+    public void test_LeapYearTest22() {
+        boolean result = ValidDate.validDate("12-01-10000");
+        assertFalse(result);
+    }
+    @Test
+    public void test_LeapYearTest26() {
+        boolean result = ValidDate.validDate("02-29-2000");
+        assertTrue(result);
+    }
+    @Test
+    public void test_LeapYearTestCorrected26() {
+        String date = "02-29-2004";
+        boolean result = ValidDate.validDate(date);
+        assertTrue(result);
+    }
+    @Test
+    public void testInvalidDateFormat() {
+        assertFalse(ValidDate.validDate("04-31"));
+    }
+    @Test
+    public void testInvalidDayInMonth() {
+        assertFalse(ValidDate.validDate("03-32-2011"));
+    }
+    @Test
+    public void testFebruaryWith29Days() {
+        assertTrue(ValidDate.validDate("02-29-2000"));
+    }
+    @Test
+    public void testMonthOutOfRange() {
+        assertFalse(ValidDate.validDate("13-01-2012"));
+    }
+    @Test
+    public void testDayOutOfRangeForAprilJuneSeptemberOrNovember() {
+        assertFalse(ValidDate.validDate("04-31-2012"));
+    }
+    @Test
+    public void testInvalidMonthValue() {
+        assertFalse(ValidDate.validDate("00-01-2022"));
+    }
+    @Test
+    public void testInvalidDayValue() {
+        assertFalse(ValidDate.validDate("01-32-2022"));
+    }
+    @Test
+    public void testMissingMonth() {
+        assertFalse(ValidDate.validDate("-01-2022"));
+    }
+    @Test
+    public void testMissingDay() {
+        assertFalse(ValidDate.validDate("01--2022"));
+    }
+                                    
+}

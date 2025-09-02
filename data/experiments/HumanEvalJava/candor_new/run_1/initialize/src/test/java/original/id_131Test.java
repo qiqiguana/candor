@@ -1,0 +1,15 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of Digits.
+*/
+class DigitsTest {
+    @Test
+    void testDigits_HasOddDigit_ReturnsProductOfOddDigits() {
+        int actual = Digits.digits(235);
+        int expected = 15;
+        assertEquals(expected, actual);
+    }
+}

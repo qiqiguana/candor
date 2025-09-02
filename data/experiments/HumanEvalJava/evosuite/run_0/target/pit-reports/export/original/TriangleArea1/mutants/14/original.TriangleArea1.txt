@@ -1,0 +1,91 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/TriangleArea1 {
+
+  // compiled from: id_71.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 3 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/TriangleArea1; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  public static triangleArea(III)Ljava/lang/Number;
+   L0
+    LINENUMBER 34 L0
+    ILOAD 0
+    ILOAD 1
+    IADD
+    ILOAD 2
+    IF_ICMPLE L1
+    ILOAD 0
+    ILOAD 2
+    IADD
+    ILOAD 1
+    IF_ICMPLE L1
+    ILOAD 1
+    ILOAD 2
+    IADD
+    ILOAD 0
+    IF_ICMPGT L2
+   L1
+    LINENUMBER 35 L1
+   FRAME FULL [I I I] []
+    ICONST_M1
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    ARETURN
+   L2
+    LINENUMBER 37 L2
+   FRAME FULL [I I I] []
+    ILOAD 0
+    ILOAD 1
+    IADD
+    ILOAD 2
+    IADD
+    I2D
+    LDC 2.0D
+    DDIV
+    DSTORE 3
+   L3
+    LINENUMBER 38 L3
+    DLOAD 3
+    DLOAD 3
+    ILOAD 0
+    I2D
+    DSUB
+    DMUL
+    DLOAD 3
+    ILOAD 1
+    I2D
+    DSUB
+    DMUL
+    DLOAD 3
+    ILOAD 2
+    I2D
+    DSUB
+    DMUL
+    INVOKESTATIC java/lang/Math.sqrt (D)D
+    LDC 100.0D
+    DMUL
+    INVOKESTATIC java/lang/Math.round (D)J
+    L2D
+    LDC 100.0D
+    DMUL
+    INVOKESTATIC java/lang/Double.valueOf (D)Ljava/lang/Double;
+    ARETURN
+   L4
+    LOCALVARIABLE a I L0 L4 0
+    LOCALVARIABLE b I L0 L4 1
+    LOCALVARIABLE c I L0 L4 2
+    LOCALVARIABLE p D L3 L4 3
+    MAXSTACK = 6
+    MAXLOCALS = 5
+}
+

@@ -1,0 +1,16 @@
+package original;
+
+import java.util.Set;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of Solution2513.
+*/
+class Solution2513Test {
+    @Test
+    void testMinimizeSet_0() {
+        Solution2513 solution = new Solution2513();
+        assertEquals(4, solution.minimizeSet(2, 7, 1, 3));
+    }
+}

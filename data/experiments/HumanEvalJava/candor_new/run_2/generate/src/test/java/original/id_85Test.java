@@ -1,0 +1,30 @@
+package original;
+
+import java.util.Arrays;
+import java.util.List;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import java.util.ArrayList;
+/**
+* Test class of Add1.
+*/
+class Add1Test {
+    @Test
+    void test_add_sum_of_even_numbers_at_odd_indices() {
+        List<Integer> numbers = new ArrayList<>();
+        numbers.add(4);
+        numbers.add(88);
+        assertEquals(88, Add1.add(numbers));
+    }
+    
+    @Test
+        public void testNothing(){
+            Add1 s = new Add1();
+            }
+    @Test
+    public void testAdd1EvenElementsAtOddIndices() {
+        List<Integer> list = Arrays.asList(4, 2, 6, 7);
+        assertEquals(2, Add1.add(list));
+    }
+                                    
+}

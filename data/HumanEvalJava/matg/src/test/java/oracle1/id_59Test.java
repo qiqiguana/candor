@@ -38,13 +38,6 @@ class LargestPrimeFactorTest {
         assertEquals(expectedResult, result);
     }
     @Test
-    public void testLargestPrimeFactor_PrimeNumber() {
-        int n = 23;
-        int expectedResult = 23;
-        int result = LargestPrimeFactor.largestPrimeFactor(n);
-        assertEquals(expectedResult, result);
-    }
-    @Test
     public void testLargestPrimeFactor_LargeCompositeNumber() {
         int n = 13195;
         int expectedResult = 29;

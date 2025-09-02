@@ -1,0 +1,62 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of Digits.
+*/
+class DigitsTest {
+    @Test
+    void testDigits_OddNumber_ReturnsProductOfOddDigits() {
+        int result = Digits.digits(235);
+        assertEquals(15, result);
+    }
+    
+    @Test
+        public void testNothing(){
+            Digits s = new Digits();
+            }
+    @Test
+    public void test_digits_single_odd_digit() {
+        int n = 5;
+        int expected = 5;
+        assertEquals(expected, Digits.digits(n));
+    }
+    @Test
+    public void test_digits_multiple_even_odd() {
+        int n = 54;
+        int expected = 5;
+        assertEquals(expected, Digits.digits(n));
+    }
+    @Test
+    public void test_digits_multiple_odd() {
+        int n = 235;
+        int expected = 15;
+        assertEquals(expected, Digits.digits(n));
+    }
+    @Test
+    public void test_digits_single_even_digit() {
+        int n = 4;
+        int expected = 0;
+        assertEquals(expected, Digits.digits(n));
+    }
+    @Test
+    public void test_digits_no_odd() {
+        int n = 2468;
+        int expected = 0;
+        assertEquals(expected, Digits.digits(n));
+    }
+    @Test
+    public void test_digits_large() {
+        int n = 5576543;
+        int expected = 2625;
+        assertEquals(expected, Digits.digits(n));
+    }
+    @Test
+    public void test_digits_zero_1() {
+        int n = 0;
+        int expected = 0;
+        assertEquals(expected, Digits.digits(n));
+    }
+                                    
+}

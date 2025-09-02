@@ -1,0 +1,17 @@
+package original;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of Factorize.
+*/
+class FactorizeTest {
+    @Test
+    void testFactorize() {
+        List<Integer> result = Factorize.factorize(8);
+        assertEquals(result, List.of(2, 2, 2));
+    }
+}

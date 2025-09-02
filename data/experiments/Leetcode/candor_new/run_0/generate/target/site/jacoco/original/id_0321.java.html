@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_0321.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">leetcode</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_0321.java</span></div><h1>id_0321.java</h1><pre class="source lang-java linenums">package original;
+
+<span class="nc" id="L3">class Solution0321 {</span>
+    public int[] maxNumber(int[] nums1, int[] nums2, int k) {
+  /**
+  You are given two integer arrays nums1 and nums2 of lengths m and n respectively. nums1 and nums2 represent the digits of two numbers. You are also given an integer k. Create the maximum number of length k &amp;lt;= m + n from digits of the two numbers. The relative order of the digits from the same array must be preserved. Return an array of the k digits representing the answer. &amp;nbsp; Example 1: Input: nums1 = [3,4,6,5], nums2 = [9,1,2,5,8,3], k = 5 Output: [9,8,6,5,3] Example 2: Input: nums1 = [6,7], nums2 = [6,0,4], k = 5 Output: [6,7,6,0,4] Example 3: Input: nums1 = [3,9], nums2 = [8,9], k = 3 Output: [9,8,9] &amp;nbsp; Constraints: m == nums1.length n == nums2.length 1 &amp;lt;= m, n &amp;lt;= 500 0 &amp;lt;= nums1[i], nums2[i] &amp;lt;= 9 1 &amp;lt;= k &amp;lt;= m + n nums1 and nums2 do not have leading zeros.
+  */
+<span class="nc" id="L8">        int m = nums1.length, n = nums2.length;</span>
+<span class="nc" id="L9">        int l = Math.max(0, k - n), r = Math.min(k, m);</span>
+<span class="nc" id="L10">        int[] ans = new int[k];</span>
+<span class="nc bnc" id="L11" title="All 2 branches missed.">        for (int x = l; x &lt;= r; ++x) {</span>
+<span class="nc" id="L12">            int[] arr1 = f(nums1, x);</span>
+<span class="nc" id="L13">            int[] arr2 = f(nums2, k - x);</span>
+<span class="nc" id="L14">            int[] arr = merge(arr1, arr2);</span>
+<span class="nc bnc" id="L15" title="All 2 branches missed.">            if (compare(arr, ans, 0, 0)) {</span>
+<span class="nc" id="L16">                ans = arr;</span>
+            }
+        }
+<span class="nc" id="L19">        return ans;</span>
+    }
+
+    private int[] f(int[] nums, int k) {
+<span class="nc" id="L23">        int n = nums.length;</span>
+<span class="nc" id="L24">        int[] stk = new int[k];</span>
+<span class="nc" id="L25">        int top = -1;</span>
+<span class="nc" id="L26">        int remain = n - k;</span>
+<span class="nc bnc" id="L27" title="All 2 branches missed.">        for (int x : nums) {</span>
+<span class="nc bnc" id="L28" title="All 6 branches missed.">            while (top &gt;= 0 &amp;&amp; stk[top] &lt; x &amp;&amp; remain &gt; 0) {</span>
+<span class="nc" id="L29">                --top;</span>
+<span class="nc" id="L30">                --remain;</span>
+            }
+<span class="nc bnc" id="L32" title="All 2 branches missed.">            if (top + 1 &lt; k) {</span>
+<span class="nc" id="L33">                stk[++top] = x;</span>
+            } else {
+<span class="nc" id="L35">                --remain;</span>
+            }
+        }
+<span class="nc" id="L38">        return stk;</span>
+    }
+
+    private int[] merge(int[] nums1, int[] nums2) {
+<span class="nc" id="L42">        int m = nums1.length, n = nums2.length;</span>
+<span class="nc" id="L43">        int i = 0, j = 0;</span>
+<span class="nc" id="L44">        int[] ans = new int[m + n];</span>
+<span class="nc bnc" id="L45" title="All 2 branches missed.">        for (int k = 0; k &lt; m + n; ++k) {</span>
+<span class="nc bnc" id="L46" title="All 2 branches missed.">            if (compare(nums1, nums2, i, j)) {</span>
+<span class="nc" id="L47">                ans[k] = nums1[i++];</span>
+            } else {
+<span class="nc" id="L49">                ans[k] = nums2[j++];</span>
+            }
+        }
+<span class="nc" id="L52">        return ans;</span>
+    }
+
+    private boolean compare(int[] nums1, int[] nums2, int i, int j) {
+<span class="nc bnc" id="L56" title="All 2 branches missed.">        if (i &gt;= nums1.length) {</span>
+<span class="nc" id="L57">            return false;</span>
+        }
+<span class="nc bnc" id="L59" title="All 2 branches missed.">        if (j &gt;= nums2.length) {</span>
+<span class="nc" id="L60">            return true;</span>
+        }
+<span class="nc bnc" id="L62" title="All 2 branches missed.">        if (nums1[i] &gt; nums2[j]) {</span>
+<span class="nc" id="L63">            return true;</span>
+        }
+<span class="nc bnc" id="L65" title="All 2 branches missed.">        if (nums1[i] &lt; nums2[j]) {</span>
+<span class="nc" id="L66">            return false;</span>
+        }
+<span class="nc" id="L68">        return compare(nums1, nums2, i + 1, j + 1);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

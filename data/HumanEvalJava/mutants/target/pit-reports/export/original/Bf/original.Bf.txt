@@ -1,0 +1,181 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Bf {
+
+  // compiled from: id_148.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 7 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Bf; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  // signature (Ljava/lang/String;Ljava/lang/String;)Ljava/util/List<Ljava/lang/Object;>;
+  // declaration: java.util.List<java.lang.Object> bf(java.lang.String, java.lang.String)
+  public static bf(Ljava/lang/String;Ljava/lang/String;)Ljava/util/List;
+   L0
+    LINENUMBER 39 L0
+    NEW java/util/ArrayList
+    DUP
+    INVOKESPECIAL java/util/ArrayList.<init> ()V
+    ASTORE 2
+   L1
+    LINENUMBER 40 L1
+    ALOAD 2
+    LDC "Mercury"
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+   L2
+    LINENUMBER 41 L2
+    ALOAD 2
+    LDC "Venus"
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+   L3
+    LINENUMBER 42 L3
+    ALOAD 2
+    LDC "Earth"
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+   L4
+    LINENUMBER 43 L4
+    ALOAD 2
+    LDC "Mars"
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+   L5
+    LINENUMBER 44 L5
+    ALOAD 2
+    LDC "Jupiter"
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+   L6
+    LINENUMBER 45 L6
+    ALOAD 2
+    LDC "Saturn"
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+   L7
+    LINENUMBER 46 L7
+    ALOAD 2
+    LDC "Uranus"
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+   L8
+    LINENUMBER 47 L8
+    ALOAD 2
+    LDC "Neptune"
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+   L9
+    LINENUMBER 48 L9
+    NEW java/util/ArrayList
+    DUP
+    INVOKESPECIAL java/util/ArrayList.<init> ()V
+    ASTORE 3
+   L10
+    LINENUMBER 49 L10
+    ALOAD 2
+    ALOAD 0
+    INVOKEINTERFACE java/util/List.contains (Ljava/lang/Object;)Z (itf)
+    IFEQ L11
+    ALOAD 2
+    ALOAD 1
+    INVOKEINTERFACE java/util/List.contains (Ljava/lang/Object;)Z (itf)
+    IFEQ L11
+   L12
+    LINENUMBER 50 L12
+    ALOAD 2
+    ALOAD 0
+    INVOKEINTERFACE java/util/List.indexOf (Ljava/lang/Object;)I (itf)
+    ISTORE 4
+   L13
+    LINENUMBER 51 L13
+    ALOAD 2
+    ALOAD 1
+    INVOKEINTERFACE java/util/List.indexOf (Ljava/lang/Object;)I (itf)
+    ISTORE 5
+   L14
+    LINENUMBER 52 L14
+    ILOAD 4
+    ILOAD 5
+    IF_ICMPGE L15
+   L16
+    LINENUMBER 53 L16
+    ILOAD 4
+    ICONST_1
+    IADD
+    ISTORE 6
+   L17
+   FRAME FULL [java/lang/String java/lang/String java/util/List java/util/List I I I] []
+    ILOAD 6
+    ILOAD 5
+    IF_ICMPGE L18
+   L19
+    LINENUMBER 54 L19
+    ALOAD 3
+    ALOAD 2
+    ILOAD 6
+    INVOKEINTERFACE java/util/List.get (I)Ljava/lang/Object; (itf)
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+   L20
+    LINENUMBER 53 L20
+    IINC 6 1
+    GOTO L17
+   L18
+   FRAME FULL [java/lang/String java/lang/String java/util/List java/util/List I I] []
+    GOTO L11
+   L15
+    LINENUMBER 57 L15
+   FRAME FULL [java/lang/String java/lang/String java/util/List java/util/List I I] []
+    ILOAD 5
+    ICONST_1
+    IADD
+    ISTORE 6
+   L21
+   FRAME FULL [java/lang/String java/lang/String java/util/List java/util/List I I I] []
+    ILOAD 6
+    ILOAD 4
+    IF_ICMPGE L11
+   L22
+    LINENUMBER 58 L22
+    ALOAD 3
+    ALOAD 2
+    ILOAD 6
+    INVOKEINTERFACE java/util/List.get (I)Ljava/lang/Object; (itf)
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+   L23
+    LINENUMBER 57 L23
+    IINC 6 1
+    GOTO L21
+   L11
+    LINENUMBER 62 L11
+   FRAME FULL [java/lang/String java/lang/String java/util/List java/util/List] []
+    ALOAD 3
+    ARETURN
+   L24
+    LOCALVARIABLE i I L17 L18 6
+    LOCALVARIABLE i I L21 L11 6
+    LOCALVARIABLE index1 I L13 L11 4
+    LOCALVARIABLE index2 I L14 L11 5
+    LOCALVARIABLE planet1 Ljava/lang/String; L0 L24 0
+    LOCALVARIABLE planet2 Ljava/lang/String; L0 L24 1
+    LOCALVARIABLE planets Ljava/util/List; L1 L24 2
+    // signature Ljava/util/List<Ljava/lang/Object;>;
+    // declaration: planets extends java.util.List<java.lang.Object>
+    LOCALVARIABLE result Ljava/util/List; L10 L24 3
+    // signature Ljava/util/List<Ljava/lang/Object;>;
+    // declaration: result extends java.util.List<java.lang.Object>
+    MAXSTACK = 3
+    MAXLOCALS = 7
+}
+

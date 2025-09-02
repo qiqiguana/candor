@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_3317.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">leetcode</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_3317.java</span></div><h1>id_3317.java</h1><pre class="source lang-java linenums">package original;
+
+<span class="fc" id="L3">class Solution3317 {</span>
+    public int numberOfWays(int n, int x, int y) {
+<span class="fc" id="L5">        final int mod = (int) 1e9 + 7;</span>
+<span class="fc" id="L6">        long[][] f = new long[n + 1][x + 1];</span>
+<span class="fc" id="L7">        f[0][0] = 1;</span>
+<span class="fc bfc" id="L8" title="All 2 branches covered.">        for (int i = 1; i &lt;= n; ++i) {</span>
+<span class="fc bfc" id="L9" title="All 2 branches covered.">            for (int j = 1; j &lt;= x; ++j) {</span>
+<span class="fc" id="L10">                f[i][j] = (f[i - 1][j] * j % mod + f[i - 1][j - 1] * (x - (j - 1) % mod)) % mod;</span>
+            }
+        }
+<span class="fc" id="L13">        long ans = 0, p = 1;</span>
+<span class="fc bfc" id="L14" title="All 2 branches covered.">        for (int j = 1; j &lt;= x; ++j) {</span>
+<span class="fc" id="L15">            p = p * y % mod;</span>
+<span class="fc" id="L16">            ans = (ans + f[n][j] * p) % mod;</span>
+        }
+<span class="fc" id="L18">        return (int) ans;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

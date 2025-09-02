@@ -1,0 +1,20 @@
+package original;
+
+import java.util.List;
+import java.util.ArrayList;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+/**
+* Test class of BelowThreshold.
+*/
+class BelowThresholdTest {
+    @Test
+    void testBelowThreshold_ReturnsTrue_WhenAllNumbersAreBelowThreshold() {
+        List<Integer> numbers = new ArrayList<>(List.of(1, 2, 4, 10));
+        int threshold = 100;
+        boolean result = BelowThreshold.belowThreshold(numbers, threshold);
+        assertTrue(result);
+    }
+}

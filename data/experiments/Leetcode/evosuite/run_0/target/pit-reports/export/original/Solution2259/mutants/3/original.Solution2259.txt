@@ -1,0 +1,101 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Solution2259 {
+
+  // compiled from: id_2259.java
+  // access flags 0x19
+  public final static INNERCLASS java/lang/invoke/MethodHandles$Lookup java/lang/invoke/MethodHandles Lookup
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 3 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Solution2259; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public removeDigit(Ljava/lang/String;C)Ljava/lang/String;
+   L0
+    LINENUMBER 5 L0
+    LDC "0"
+    ASTORE 3
+   L1
+    LINENUMBER 6 L1
+    ICONST_0
+    ISTORE 4
+   L2
+    ALOAD 1
+    INVOKEVIRTUAL java/lang/String.length ()I
+    ISTORE 5
+   L3
+   FRAME FULL [original/Solution2259 java/lang/String I java/lang/String I I] []
+    ILOAD 4
+    ILOAD 5
+    IF_ICMPGE L4
+   L5
+    LINENUMBER 7 L5
+    ALOAD 1
+    ILOAD 4
+    INVOKEVIRTUAL java/lang/String.charAt (I)C
+    ISTORE 6
+   L6
+    LINENUMBER 8 L6
+    ILOAD 6
+    ILOAD 2
+    IF_ICMPNE L7
+   L8
+    LINENUMBER 9 L8
+    ALOAD 1
+    ICONST_0
+    ILOAD 4
+    INVOKEVIRTUAL java/lang/String.substring (II)Ljava/lang/String;
+    ALOAD 1
+    ILOAD 4
+    ICONST_1
+    ISUB
+    INVOKEVIRTUAL java/lang/String.substring (I)Ljava/lang/String;
+    INVOKEDYNAMIC makeConcatWithConstants(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String; [
+      // handle kind 0x6 : INVOKESTATIC
+      java/lang/invoke/StringConcatFactory.makeConcatWithConstants(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;
+      // arguments:
+      "\u0001\u0001"
+    ]
+    ASTORE 7
+   L9
+    LINENUMBER 10 L9
+    ALOAD 3
+    ALOAD 7
+    INVOKEVIRTUAL java/lang/String.compareTo (Ljava/lang/String;)I
+    IFGE L7
+   L10
+    LINENUMBER 11 L10
+    ALOAD 7
+    ASTORE 3
+   L7
+    LINENUMBER 6 L7
+   FRAME FULL [original/Solution2259 java/lang/String I java/lang/String I I I] []
+    IINC 4 1
+    GOTO L3
+   L4
+    LINENUMBER 15 L4
+   FRAME FULL [original/Solution2259 java/lang/String I java/lang/String I I] []
+    ALOAD 3
+    ARETURN
+   L11
+    LOCALVARIABLE t Ljava/lang/String; L9 L7 7
+    LOCALVARIABLE d C L6 L7 6
+    LOCALVARIABLE i I L2 L4 4
+    LOCALVARIABLE n I L3 L4 5
+    LOCALVARIABLE this Loriginal/Solution2259; L0 L11 0
+    LOCALVARIABLE number Ljava/lang/String; L0 L11 1
+    LOCALVARIABLE digit C L0 L11 2
+    LOCALVARIABLE ans Ljava/lang/String; L1 L11 3
+    MAXSTACK = 4
+    MAXLOCALS = 8
+}
+

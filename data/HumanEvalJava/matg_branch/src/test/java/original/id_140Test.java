@@ -127,5 +127,49 @@ class FixSpacesTest {
     	String expectedOutput = "Example-";
     	assertEquals(expectedOutput, FixSpaces.fixSpaces(input));
     }
+    @Test
+    public void testFixSpaces_NormalConditions() {
+    String[] input = {"Example", "Example 1", " Example 2", " Example   3"};
+    String[] expectedResults = {"Example", "Example_1", "_Example_2", "_Example-3"};
+    for (int i = 0; i < input.length; i++) {
+    String result = FixSpaces.fixSpaces(input[i]);
+    assertEquals(expectedResults[i], result);
+    }
+    }
+    @Test
+    public void testFixSpaces_EmptyString() {
+    String input = "";
+    String expectedResult = "";
+    String result = FixSpaces.fixSpaces(input);
+    assertEquals(expectedResult, result);
+    }
+    @Test
+    public void testFixSpaces_SingleSpace() {
+    String input = " ";
+    String expectedResult = "_";
+    String result = FixSpaces.fixSpaces(input);
+    assertEquals(expectedResult, result);
+    }
+    @Test
+    public void testFixSpaces_MultipleConsecutiveSpaces() {
+    String input = "   Exa 1 2 2 mple";
+    String expectedResult = "-Exa_1_2_2_mple";
+    String result = FixSpaces.fixSpaces(input);
+    assertEquals(expectedResult, result);
+    }
+    @Test
+    public void testFixSpaces_MultipleWords() {
+    String input = "Hello World";
+    String expectedResult = "Hello_World";
+    String result = FixSpaces.fixSpaces(input);
+    assertEquals(expectedResult, result);
+    }
+    @Test
+    public void testFixSpaces_Trimmed() {
+    String input = "   Hello World   ";
+    String expectedResult = "-Hello_World-";
+    String result = FixSpaces.fixSpaces(input);
+    assertEquals(expectedResult, result);
+    }
                                     
 }

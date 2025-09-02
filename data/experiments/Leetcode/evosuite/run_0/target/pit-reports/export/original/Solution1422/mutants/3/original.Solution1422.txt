@@ -1,0 +1,124 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Solution1422 {
+
+  // compiled from: id_1422.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 3 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Solution1422; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public maxScore(Ljava/lang/String;)I
+   L0
+    LINENUMBER 5 L0
+    ICONST_0
+    ISTORE 2
+   L1
+    ICONST_0
+    ISTORE 3
+   L2
+    LINENUMBER 6 L2
+    ALOAD 1
+    INVOKEVIRTUAL java/lang/String.length ()I
+    ISTORE 4
+   L3
+    LINENUMBER 7 L3
+    ICONST_0
+    ISTORE 5
+   L4
+   FRAME FULL [original/Solution1422 java/lang/String I I I I] []
+    ILOAD 5
+    ILOAD 4
+    IF_ICMPGE L5
+   L6
+    LINENUMBER 8 L6
+    ALOAD 1
+    ILOAD 5
+    INVOKEVIRTUAL java/lang/String.charAt (I)C
+    BIPUSH 49
+    IF_ICMPNE L7
+   L8
+    LINENUMBER 9 L8
+    IINC 3 -1
+   L7
+    LINENUMBER 7 L7
+   FRAME FULL [original/Solution1422 java/lang/String I I I I] []
+    IINC 5 1
+    GOTO L4
+   L5
+    LINENUMBER 12 L5
+   FRAME FULL [original/Solution1422 java/lang/String I I I I] []
+    ICONST_0
+    ISTORE 5
+   L9
+    LINENUMBER 13 L9
+    ICONST_0
+    ISTORE 6
+   L10
+   FRAME FULL [original/Solution1422 java/lang/String I I I I I] []
+    ILOAD 6
+    ILOAD 4
+    ICONST_1
+    ISUB
+    IF_ICMPGE L11
+   L12
+    LINENUMBER 14 L12
+    ILOAD 2
+    ALOAD 1
+    ILOAD 6
+    INVOKEVIRTUAL java/lang/String.charAt (I)C
+    BIPUSH 48
+    ISUB
+    ICONST_1
+    IXOR
+    IADD
+    ISTORE 2
+   L13
+    LINENUMBER 15 L13
+    ILOAD 3
+    ALOAD 1
+    ILOAD 6
+    INVOKEVIRTUAL java/lang/String.charAt (I)C
+    BIPUSH 48
+    ISUB
+    ISUB
+    ISTORE 3
+   L14
+    LINENUMBER 16 L14
+    ILOAD 5
+    ILOAD 2
+    ILOAD 3
+    IADD
+    INVOKESTATIC java/lang/Math.max (II)I
+    ISTORE 5
+   L15
+    LINENUMBER 13 L15
+    IINC 6 1
+    GOTO L10
+   L11
+    LINENUMBER 18 L11
+   FRAME FULL [original/Solution1422 java/lang/String I I I I I] []
+    ILOAD 5
+    IRETURN
+   L16
+    LOCALVARIABLE i I L4 L5 5
+    LOCALVARIABLE i I L10 L11 6
+    LOCALVARIABLE this Loriginal/Solution1422; L0 L16 0
+    LOCALVARIABLE s Ljava/lang/String; L0 L16 1
+    LOCALVARIABLE l I L1 L16 2
+    LOCALVARIABLE r I L2 L16 3
+    LOCALVARIABLE n I L3 L16 4
+    LOCALVARIABLE ans I L9 L16 5
+    MAXSTACK = 3
+    MAXLOCALS = 7
+}
+

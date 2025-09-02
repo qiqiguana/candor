@@ -1,0 +1,30 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of Solution1901.
+*/
+class Solution1901Test {
+    @Test
+    void testFindPeakGrid()
+    {
+        Solution1901 solution = new Solution1901();
+        int[][] mat = {{1, 2}, {3, 4}};
+        assertArrayEquals(new int[] {1, 1}, solution.findPeakGrid(mat));
+    }
+    @Test
+    public void testFindPeakGrid_RightMiddle() {
+        Solution1901 solution = new Solution1901();
+        int[][] mat = {{1, 4}, {3, 2}};
+        int[] expected = {0, 1};
+        assertArrayEquals(expected, solution.findPeakGrid(mat));
+    }
+    @Test
+    public void testFindPeakGrid_LeftNextRow() {
+        Solution1901 solution = new Solution1901();
+        int[][] mat = {{10, 20, 15}, {21, 30, 14}, {7, 16, 32}};
+        int[] expected = {1, 1};
+        assertArrayEquals(expected, solution.findPeakGrid(mat));
+    }
+}

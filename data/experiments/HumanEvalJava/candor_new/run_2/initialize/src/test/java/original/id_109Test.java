@@ -1,0 +1,22 @@
+package original;
+
+import java.util.List;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.ArrayList;
+
+/**
+* Test class of MoveOneBall.
+*/
+class MoveOneBallTest {
+    @Test
+    void testMoveOneBallWithSortedArray() {
+        List<Object> arr = new ArrayList<>();
+        arr.add(3);
+        arr.add(4);
+        arr.add(5);
+        arr.add(1);
+        arr.add(2);
+        assertTrue(MoveOneBall.moveOneBall(arr));
+    }
+}

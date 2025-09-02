@@ -1,0 +1,107 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of CycpatternCheck.
+*/
+class CycpatternCheckTest {
+    @Test
+    void testCycpatternCheck_ReturnsTrue_WhenRotationOfSecondWordIsSubstringOfFirstWord() {
+        // Arrange
+        String a = "hello";
+        String b = "ell";
+
+        // Act
+        Boolean result = CycpatternCheck.cycpatternCheck(a, b);
+
+        // Assert
+        assertTrue(result);
+    }
+    @Test
+    public void testCycpatternCheck_MatchingPattern() {
+        String a = "hello";
+        String b = "ell";
+        assertTrue(CycpatternCheck.cycpatternCheck(a, b));
+    }
+    @Test
+    public void testCycpatternCheck_NonMatchingPattern() {
+        String a = "abcd";
+        String b = "abd";
+        assertFalse(CycpatternCheck.cycpatternCheck(a, b));
+    }
+    @Test
+    public void testCycpatternCheck_NullInput() {
+        String a = null;
+        String b = "abc";
+        assertThrows(NullPointerException.class, () -> CycpatternCheck.cycpatternCheck(a, b));
+    }
+    @Test
+    public void testCycpatternCheck_RotatedPattern() {
+        String a = "abab";
+        String b = "baa";
+        assertTrue(CycpatternCheck.cycpatternCheck(a, b));
+    }
+    @Test
+    public void testCycpatternCheck_PatternLongerThanString() {
+        String a = "abc";
+        String b = "abcd";
+        assertFalse(CycpatternCheck.cycpatternCheck(a, b));
+    }
+    @Test
+    public void test_cycpatternCheck_with_matching_substring() {
+        String str1 = "hello";
+        String str2 = "ell";
+        assertTrue(CycpatternCheck.cycpatternCheck(str1, str2));
+    }
+    @Test
+    public void test_cycpatternCheck_with_non_matching_substring() {
+        String str1 = "abcd";
+        String str2 = "abd";
+        assertFalse(CycpatternCheck.cycpatternCheck(str1, str2));
+    }
+    @Test
+    public void test_cycpatternCheck_with_empty_strings() {
+        String str1 = "";
+        String str2 = "hello";
+        assertFalse(CycpatternCheck.cycpatternCheck(str1, str2));
+    }
+    @Test
+    public void test_cycpatternCheck_with_null_input() {
+        String str1 = null;
+        String str2 = "hello";
+        assertThrows(NullPointerException.class, () -> CycpatternCheck.cycpatternCheck(str1, str2));
+    }
+    @Test
+    public void test_cycpatternCheck_with_same_strings() {
+        String str1 = "hello";
+        String str2 = "hello";
+        assertTrue(CycpatternCheck.cycpatternCheck(str1, str2));
+    }
+    @Test
+    public void test_cycpatternCheck_with_rotation_of_second_string() {
+        String str1 = "ab";
+        String str2 = "ba";
+        assertTrue(CycpatternCheck.cycpatternCheck(str1, str2));
+    }
+    @Test
+    public void testCycPatternCheck_SimpleMatch() {
+        assertTrue(CycpatternCheck.cycpatternCheck("hello", "ell"));
+    }
+    @Test
+    public void testCycPatternCheck_RotationMatch() {
+        assertTrue(CycpatternCheck.cycpatternCheck("abab", "baa"));
+    }
+    @Test
+    public void testCycPatternCheck_NoMatch() {
+        assertFalse(CycpatternCheck.cycpatternCheck("abcd", "abd"));
+    }
+    @Test
+    public void testCycPatternCheck_NullInput() {
+        assertThrows(NullPointerException.class, () -> CycpatternCheck.cycpatternCheck(null, ""));
+    }
+    @Test
+    public void testCycPatternCheck_LongString() {
+        assertTrue(CycpatternCheck.cycpatternCheck("winemtt", "tinem"));
+    }
+}

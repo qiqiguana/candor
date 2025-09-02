@@ -1,0 +1,200 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Solution0548 {
+
+  // compiled from: id_0548.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 5 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Solution0548; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public splitArray([I)Z
+   L0
+    LINENUMBER 7 L0
+    ALOAD 1
+    ARRAYLENGTH
+    ISTORE 2
+   L1
+    LINENUMBER 8 L1
+    ILOAD 2
+    ICONST_1
+    IADD
+    NEWARRAY T_INT
+    ASTORE 3
+   L2
+    LINENUMBER 9 L2
+    ICONST_0
+    ISTORE 4
+   L3
+   FRAME FULL [original/Solution0548 [I I [I I] []
+    ILOAD 4
+    ILOAD 2
+    IF_ICMPGE L4
+   L5
+    LINENUMBER 10 L5
+    ALOAD 3
+    ILOAD 4
+    ICONST_1
+    IADD
+    ALOAD 3
+    ILOAD 4
+    IALOAD
+    ALOAD 1
+    ILOAD 4
+    IALOAD
+    IADD
+    IASTORE
+   L6
+    LINENUMBER 9 L6
+    IINC 4 1
+    GOTO L3
+   L4
+    LINENUMBER 12 L4
+   FRAME FULL [original/Solution0548 [I I [I I] []
+    ICONST_3
+    ISTORE 4
+   L7
+   FRAME FULL [original/Solution0548 [I I [I I] []
+    ILOAD 4
+    ILOAD 2
+    ICONST_3
+    ISUB
+    IF_ICMPGE L8
+   L9
+    LINENUMBER 13 L9
+    NEW java/util/HashSet
+    DUP
+    INVOKESPECIAL java/util/HashSet.<init> ()V
+    ASTORE 5
+   L10
+    LINENUMBER 14 L10
+    ICONST_1
+    ISTORE 6
+   L11
+   FRAME FULL [original/Solution0548 [I I [I I java/util/HashSet I] []
+    ILOAD 6
+    ILOAD 4
+    ICONST_1
+    ISUB
+    IF_ICMPLT L12
+   L13
+    LINENUMBER 15 L13
+    ALOAD 3
+    ILOAD 6
+    IALOAD
+    ALOAD 3
+    ILOAD 4
+    IALOAD
+    ALOAD 3
+    ILOAD 6
+    ICONST_1
+    IADD
+    IALOAD
+    ISUB
+    IF_ICMPNE L14
+   L15
+    LINENUMBER 16 L15
+    ALOAD 5
+    ALOAD 3
+    ILOAD 6
+    IALOAD
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEINTERFACE java/util/Set.add (Ljava/lang/Object;)Z (itf)
+    POP
+   L14
+    LINENUMBER 14 L14
+   FRAME FULL [original/Solution0548 [I I [I I java/util/HashSet I] []
+    IINC 6 1
+    GOTO L11
+   L12
+    LINENUMBER 19 L12
+   FRAME FULL [original/Solution0548 [I I [I I java/util/HashSet I] []
+    ILOAD 4
+    ICONST_2
+    IADD
+    ISTORE 6
+   L16
+   FRAME FULL [original/Solution0548 [I I [I I java/util/HashSet I] []
+    ILOAD 6
+    ILOAD 2
+    ICONST_1
+    ISUB
+    IF_ICMPGE L17
+   L18
+    LINENUMBER 20 L18
+    ALOAD 3
+    ILOAD 2
+    IALOAD
+    ALOAD 3
+    ILOAD 6
+    ICONST_1
+    IADD
+    IALOAD
+    ISUB
+    ALOAD 3
+    ILOAD 6
+    IALOAD
+    ALOAD 3
+    ILOAD 4
+    ICONST_1
+    IADD
+    IALOAD
+    ISUB
+    IF_ICMPNE L19
+    ALOAD 5
+    ALOAD 3
+    ILOAD 2
+    IALOAD
+    ALOAD 3
+    ILOAD 6
+    ICONST_1
+    IADD
+    IALOAD
+    ISUB
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEINTERFACE java/util/Set.contains (Ljava/lang/Object;)Z (itf)
+    IFEQ L19
+   L20
+    LINENUMBER 21 L20
+    ICONST_1
+    IRETURN
+   L19
+    LINENUMBER 19 L19
+   FRAME FULL [original/Solution0548 [I I [I I java/util/HashSet I] []
+    IINC 6 1
+    GOTO L16
+   L17
+    LINENUMBER 12 L17
+   FRAME FULL [original/Solution0548 [I I [I I java/util/HashSet I] []
+    IINC 4 1
+    GOTO L7
+   L8
+    LINENUMBER 25 L8
+   FRAME FULL [original/Solution0548 [I I [I I] []
+    ICONST_0
+    IRETURN
+   L21
+    LOCALVARIABLE i I L3 L4 4
+    LOCALVARIABLE i I L11 L12 6
+    LOCALVARIABLE k I L16 L17 6
+    LOCALVARIABLE seen Ljava/util/Set; L10 L17 5
+    // signature Ljava/util/Set<Ljava/lang/Integer;>;
+    // declaration: seen extends java.util.Set<java.lang.Integer>
+    LOCALVARIABLE j I L7 L8 4
+    LOCALVARIABLE this Loriginal/Solution0548; L0 L21 0
+    LOCALVARIABLE nums [I L0 L21 1
+    LOCALVARIABLE n I L1 L21 2
+    LOCALVARIABLE s [I L2 L21 3
+    MAXSTACK = 5
+    MAXLOCALS = 7
+}
+

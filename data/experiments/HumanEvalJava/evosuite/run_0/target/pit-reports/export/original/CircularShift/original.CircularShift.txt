@@ -1,0 +1,147 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/CircularShift {
+
+  // compiled from: id_65.java
+  // access flags 0x19
+  public final static INNERCLASS java/lang/invoke/MethodHandles$Lookup java/lang/invoke/MethodHandles Lookup
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 4 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/CircularShift; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  public static circularShift(II)Ljava/lang/String;
+   L0
+    LINENUMBER 22 L0
+    LDC ""
+    ASTORE 2
+   L1
+    LINENUMBER 23 L1
+    ILOAD 0
+    INVOKESTATIC java/lang/Integer.toString (I)Ljava/lang/String;
+    ASTORE 3
+   L2
+    LINENUMBER 24 L2
+    ALOAD 3
+    INVOKEVIRTUAL java/lang/String.length ()I
+    ISTORE 4
+   L3
+    LINENUMBER 25 L3
+    ILOAD 1
+    ILOAD 4
+    IF_ICMPLE L4
+   L5
+    LINENUMBER 26 L5
+    ILOAD 4
+    ICONST_1
+    ISUB
+    ISTORE 5
+   L6
+   FRAME FULL [I I java/lang/String java/lang/String I I] []
+    ILOAD 5
+    IFLT L7
+   L8
+    LINENUMBER 27 L8
+    ALOAD 2
+    ALOAD 3
+    ILOAD 5
+    INVOKEVIRTUAL java/lang/String.charAt (I)C
+    INVOKEDYNAMIC makeConcatWithConstants(Ljava/lang/String;C)Ljava/lang/String; [
+      // handle kind 0x6 : INVOKESTATIC
+      java/lang/invoke/StringConcatFactory.makeConcatWithConstants(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;
+      // arguments:
+      "\u0001\u0001"
+    ]
+    ASTORE 2
+   L9
+    LINENUMBER 26 L9
+    IINC 5 -1
+    GOTO L6
+   L7
+   FRAME FULL [I I java/lang/String java/lang/String I] []
+    GOTO L10
+   L4
+    LINENUMBER 30 L4
+   FRAME FULL [I I java/lang/String java/lang/String I] []
+    ILOAD 4
+    ILOAD 1
+    ISUB
+    ISTORE 5
+   L11
+   FRAME FULL [I I java/lang/String java/lang/String I I] []
+    ILOAD 5
+    ILOAD 4
+    IF_ICMPGE L12
+   L13
+    LINENUMBER 31 L13
+    ALOAD 2
+    ALOAD 3
+    ILOAD 5
+    INVOKEVIRTUAL java/lang/String.charAt (I)C
+    INVOKEDYNAMIC makeConcatWithConstants(Ljava/lang/String;C)Ljava/lang/String; [
+      // handle kind 0x6 : INVOKESTATIC
+      java/lang/invoke/StringConcatFactory.makeConcatWithConstants(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;
+      // arguments:
+      "\u0001\u0001"
+    ]
+    ASTORE 2
+   L14
+    LINENUMBER 30 L14
+    IINC 5 1
+    GOTO L11
+   L12
+    LINENUMBER 33 L12
+   FRAME FULL [I I java/lang/String java/lang/String I] []
+    ICONST_0
+    ISTORE 5
+   L15
+   FRAME FULL [I I java/lang/String java/lang/String I I] []
+    ILOAD 5
+    ILOAD 4
+    ILOAD 1
+    ISUB
+    IF_ICMPGE L10
+   L16
+    LINENUMBER 34 L16
+    ALOAD 2
+    ALOAD 3
+    ILOAD 5
+    INVOKEVIRTUAL java/lang/String.charAt (I)C
+    INVOKEDYNAMIC makeConcatWithConstants(Ljava/lang/String;C)Ljava/lang/String; [
+      // handle kind 0x6 : INVOKESTATIC
+      java/lang/invoke/StringConcatFactory.makeConcatWithConstants(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;
+      // arguments:
+      "\u0001\u0001"
+    ]
+    ASTORE 2
+   L17
+    LINENUMBER 33 L17
+    IINC 5 1
+    GOTO L15
+   L10
+    LINENUMBER 37 L10
+   FRAME FULL [I I java/lang/String java/lang/String I] []
+    ALOAD 2
+    ARETURN
+   L18
+    LOCALVARIABLE i I L6 L7 5
+    LOCALVARIABLE i I L11 L12 5
+    LOCALVARIABLE i I L15 L10 5
+    LOCALVARIABLE x I L0 L18 0
+    LOCALVARIABLE shift I L0 L18 1
+    LOCALVARIABLE result Ljava/lang/String; L1 L18 2
+    LOCALVARIABLE xString Ljava/lang/String; L2 L18 3
+    LOCALVARIABLE xLength I L3 L18 4
+    MAXSTACK = 3
+    MAXLOCALS = 6
+}
+

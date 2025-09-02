@@ -1,0 +1,57 @@
+package original;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of FindMax.
+*/
+class FindMaxTest {
+
+    @Test
+    void testFindMax_EmptyList_ReturnsNull() {
+        // Arrange
+        List<String> words = new ArrayList<>();
+
+        // Act
+        String result = FindMax.findMax(words);
+
+        // Assert
+        assertNull(result);
+    }
+    
+    @Test
+        public void testNothing(){
+            FindMax s = new FindMax();
+            }
+    @Test
+    public void testFindMaxWithEmptyList() {
+        assertNull(FindMax.findMax(new ArrayList<>()));
+    }
+    @Test
+    public void testFindMaxWithNullList() {
+        assertNull(FindMax.findMax(null));
+    }
+    @Test
+    public void testFindMaxWithSingleElementList() {
+        List<String> words = new ArrayList<>();
+        words.add("word");
+        assertEquals("word", FindMax.findMax(words));
+    }
+    @Test
+    public void testFindMaxWithMultipleElementsAndUniqueCharactersCorrected() {
+        List<String> words = new ArrayList<>();
+        words.add("orange");
+        words.add("banana");
+        assertEquals("orange", FindMax.findMax(words));
+    }
+    @Test
+    public void testFindMaxWithEmptyListOfStrings() {
+        List<String> words = new ArrayList<>();
+        String result = FindMax.findMax(words);
+        assertNull(result);
+    }
+                                    
+}

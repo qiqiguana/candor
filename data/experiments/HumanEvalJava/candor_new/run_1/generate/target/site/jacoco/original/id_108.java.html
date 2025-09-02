@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_108.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HumanEvalJava</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_108.java</span></div><h1>id_108.java</h1><pre class="source lang-java linenums">package original;
+
+
+import java.util.List;
+
+
+<span class="fc" id="L7">class CountNums {</span>
+    /**
+     * * Write a function count_nums which takes an array of integers and returns
+     * the number of elements which has a sum of digits &gt; 0.
+     * If a number is negative, then its first signed digit will be negative:
+     * e.g. -123 has signed digits -1, 2, and 3.
+     * &gt;&gt;&gt; countNums([]) == 0
+     * &gt;&gt;&gt; countNums([-1, 11, -11]) == 1
+     * &gt;&gt;&gt; countNums([1, 1, 2]) == 3
+     *
+     * &gt; countNums([])
+     * 0
+     * &gt; countNums([-1, -2, 0])
+     * 0
+     * &gt; countNums([1, 1, 2, -2, 3, 4, 5])
+     * 6
+     * &gt; countNums([1, 6, 9, -6, 0, 1, 5])
+     * 5
+     * &gt; countNums([1, 100, 98, -7, 1, -1])
+     * 4
+     * &gt; countNums([12, 23, 34, -45, -56, 0])
+     * 5
+     * &gt; countNums([0, 1])
+     * 1
+     * &gt; countNums([1])
+     * 1
+     */
+    public static int countNums(List&lt;Object&gt; arr) {
+<span class="fc" id="L35">        int count = 0;</span>
+<span class="fc bfc" id="L36" title="All 2 branches covered.">        for (int i = 0; i &lt; arr.size(); i++) {</span>
+<span class="fc" id="L37">            int sum = 0;</span>
+<span class="fc" id="L38">            int num = (int) arr.get(i);</span>
+<span class="pc bpc" id="L39" title="1 of 2 branches missed.">            boolean isNegative = num &lt; 0;</span>
+<span class="pc bpc" id="L40" title="1 of 2 branches missed.">            if (isNegative) {</span>
+<span class="nc" id="L41">                num = -num;</span>
+            }
+<span class="fc bfc" id="L43" title="All 2 branches covered.">            while (num != 0) {</span>
+<span class="pc bpc" id="L44" title="3 of 4 branches missed.">                if (isNegative &amp;&amp; num / 10 == 0) {</span>
+<span class="nc" id="L45">                    sum -= num % 10;</span>
+                } else {
+<span class="fc" id="L47">                    sum += num % 10;</span>
+                }
+<span class="fc" id="L49">                num /= 10;</span>
+
+            }
+<span class="pc bpc" id="L52" title="1 of 2 branches missed.">            if (sum &gt; 0) {</span>
+<span class="fc" id="L53">                count++;</span>
+            }
+        }
+<span class="fc" id="L56">        return count;</span>
+    }
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

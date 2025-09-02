@@ -1,0 +1,90 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Solution2357 {
+
+  // compiled from: id_2357.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 3 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Solution2357; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public minimumOperations([I)I
+   L0
+    LINENUMBER 5 L0
+    BIPUSH 101
+    NEWARRAY T_BOOLEAN
+    ASTORE 2
+   L1
+    LINENUMBER 6 L1
+    ALOAD 2
+    ICONST_0
+    ICONST_1
+    BASTORE
+   L2
+    LINENUMBER 7 L2
+    ICONST_0
+    ISTORE 3
+   L3
+    LINENUMBER 8 L3
+    ALOAD 1
+    ASTORE 4
+    ALOAD 4
+    ARRAYLENGTH
+    ISTORE 5
+    ICONST_0
+    ISTORE 6
+   L4
+   FRAME FULL [original/Solution2357 [I [Z I [I I I] []
+    ILOAD 6
+    ILOAD 5
+    IF_ICMPGE L5
+    ALOAD 4
+    ILOAD 6
+    IALOAD
+    ISTORE 7
+   L6
+    LINENUMBER 9 L6
+    ALOAD 2
+    ILOAD 7
+    BALOAD
+    IFNE L7
+   L8
+    LINENUMBER 10 L8
+    IINC 3 1
+   L9
+    LINENUMBER 11 L9
+    ALOAD 2
+    ILOAD 7
+    ICONST_1
+    BASTORE
+   L7
+    LINENUMBER 8 L7
+   FRAME FULL [original/Solution2357 [I [Z I [I I I I] []
+    IINC 6 1
+    GOTO L4
+   L5
+    LINENUMBER 14 L5
+   FRAME FULL [original/Solution2357 [I [Z I [I I I] []
+    ILOAD 3
+    POP
+    ICONST_0
+    IRETURN
+   L10
+    LOCALVARIABLE x I L6 L7 7
+    LOCALVARIABLE this Loriginal/Solution2357; L0 L10 0
+    LOCALVARIABLE nums [I L0 L10 1
+    LOCALVARIABLE s [Z L1 L10 2
+    LOCALVARIABLE ans I L3 L10 3
+    MAXSTACK = 3
+    MAXLOCALS = 8
+}
+

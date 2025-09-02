@@ -1,0 +1,22 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of CircularShift.
+*/
+class CircularShiftTest {
+    @Test
+    void testCircularShift_RightShift() {
+        // Arrange and Act
+        String result = CircularShift.circularShift(12, 1);
+        // Assert
+        assertEquals("21", result);
+    }
+    
+    @Test
+        public void testNothing(){
+            CircularShift s = new CircularShift();
+            }
+                                    
+}

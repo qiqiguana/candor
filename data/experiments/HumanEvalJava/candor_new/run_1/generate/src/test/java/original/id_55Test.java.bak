@@ -1,0 +1,13 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of Fib.
+*/
+class FibTest {
+    @Test
+    void testFibonacciSequence() {
+        assertEquals(55, Fib.fib(10));
+    }
+}

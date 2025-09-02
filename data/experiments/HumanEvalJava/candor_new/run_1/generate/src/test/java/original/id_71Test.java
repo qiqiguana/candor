@@ -1,0 +1,35 @@
+package original;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of TriangleArea1.
+*/
+class TriangleArea1Test {
+    @Test
+    void testTriangleArea() {
+        assertEquals(-1, TriangleArea1.triangleArea(1, 2, 10));
+    }
+    
+    @Test
+        public void testNothing(){
+            TriangleArea1 s = new TriangleArea1();
+            }
+    @Test
+    public void TestTriangleAreaForValidInput() {
+        Number result = TriangleArea1.triangleArea(3, 4, 5);
+        assertEquals(6.00, result.doubleValue(), 0.01);
+    }
+    @Test
+    public void TestInvalidTriangle_SumOfTwoSidesLessThanThirdSide_Symmetric1() {
+    	Number result = TriangleArea1.triangleArea(2, 10, 2);
+    	assertEquals(-1.0, result.doubleValue(), 0.01);
+    }
+    @Test
+    public void TestInvalidTriangle_SumOfTwoSidesLessThanThirdSide_Symmetric2() {
+    	Number result = TriangleArea1.triangleArea(10, 2, 2);
+    	assertEquals(-1.0, result.doubleValue(), 0.01);
+    }
+                                    
+}

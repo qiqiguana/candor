@@ -1,0 +1,53 @@
+package original;
+
+import java.util.Set;
+import java.util.HashSet;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of PairsSumToZero.
+*/
+class PairsSumToZeroTest {
+    @Test
+    void pairsSumToZero_ListWithTwoElementsThatSumToZero_ReturnsTrue() {
+        List<Integer> list = new ArrayList<>();
+        list.add(2);
+        list.add(-2);
+        assertTrue(PairsSumToZero.pairsSumToZero(list));
+    }
+    
+    @Test
+        public void testNothing(){
+            PairsSumToZero s = new PairsSumToZero();
+            }
+    @Test
+    void testPairsSumToZero_with_empty_list() {
+        List<Integer> input = new ArrayList<>();
+        assertFalse(PairsSumToZero.pairsSumToZero(input));
+    }
+    @Test
+    void testPairsSumToZero_with_duplicate_elements() {
+        List<Integer> input = Arrays.asList(-3, 9, -1, 3, 2, 30);
+        Set<Integer> uniqueElements = new HashSet<>(input);
+        if (uniqueElements.size() != input.size()) {
+            assertFalse(PairsSumToZero.pairsSumToZero(input));
+        } else {
+            assertTrue(PairsSumToZero.pairsSumToZero(input));
+        }
+    }
+    @Test
+    void testPairsSumToZero_with_two_elements_summing_to_zero() {
+        List<Integer> input = Arrays.asList(2, -2);
+        assertTrue(PairsSumToZero.pairsSumToZero(input));
+    }
+    @Test
+    void testPairsSumToZero_with_multiple_elements_not_summing_to_zero() {
+        List<Integer> input = Arrays.asList(1, 2, 3, 4);
+        assertFalse(PairsSumToZero.pairsSumToZero(input));
+    }
+                                    
+}

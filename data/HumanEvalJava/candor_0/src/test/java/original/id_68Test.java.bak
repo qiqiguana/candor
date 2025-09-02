@@ -1,0 +1,226 @@
+package original;
+
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import java.util.Arrays;
+import java.util.ArrayList;
+
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of Pluck.
+*/
+class PluckTest {
+    @Test
+    void testPluckShouldReturnSmallestEvenValueAndItsIndex() {
+        List<Object> input = new ArrayList<>();
+        input.add(4);
+        input.add(2);
+        input.add(3);
+        List<Object> expected = new ArrayList<>();
+        expected.add(2);
+        expected.add(1);
+        assertEquals(expected, Pluck.pluck(input));
+    }
+    
+    @Test
+        public void testNothing(){
+            Pluck s = new Pluck();
+            }
+    @Test
+    public void positiveTestHappyPath() {
+        List<Object> input = Arrays.asList(4, 2, 3);
+        List<Object> expected = Arrays.asList(2, 1);
+        assertEquals(expected, Pluck.pluck(input));
+    }
+    @Test
+    void negativeTestSadPath() {
+        List<Object> input = Arrays.asList();
+        List<Object> expected = new ArrayList<>();
+        assertEquals(expected, Pluck.pluck(input));
+    }
+    @Test
+    void specificBehaviorTest_1() {
+        List<Object> input = Arrays.asList(7, 9, 7, 1);
+        List<Object> expected = new ArrayList<>();
+        assertEquals(expected, Pluck.pluck(input));
+    }
+    @Test
+    void noEvenValuesTest() {
+        List<Object> input = Arrays.asList(7, 9, 7, 1);
+        List<Object> expected = new ArrayList<>();
+        assertEquals(expected, Pluck.pluck(input));
+    }
+    @Test
+    void multipleSmallestEvenValueTest2() {
+        java.util.List<java.lang.Object> input = java.util.Arrays.asList(5, 4, 8, 4, 8);
+        java.util.List<java.lang.Object> expected = java.util.Arrays.asList(4, 1);
+        org.junit.jupiter.api.Assertions.assertEquals(expected, Pluck.pluck(input));
+    }
+    @Test
+    void emptyInputTest() {
+        List<Object> input = new ArrayList<>();
+        List<Object> expected = new ArrayList<>();
+        assertEquals(expected, Pluck.pluck(input));
+    }
+    @Test
+    void largeInputTest() {
+        List<Object> input = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+        List<Object> expected = Arrays.asList(2, 1);
+        assertEquals(expected, Pluck.pluck(input));
+    }
+    @Test
+    void inputWithOnlyOneElementTest() {
+        List<Object> input = Arrays.asList(5);
+        List<Object> expected = new ArrayList<>();
+        assertEquals(expected, Pluck.pluck(input));
+    }
+    @Test
+    public void testPluckWithOddNumbers() {
+        List<Object> input = new ArrayList<>(Arrays.asList(1, 3, 5));
+        List<Object> expectedOutput = new ArrayList<>();
+        assertEquals(expectedOutput, Pluck.pluck(input));
+    }
+    @Test
+    public void testPluckWithMixedNumbers() {
+        List<Object> input = new ArrayList<>(Arrays.asList(1, 2, 3, 4));
+        List<Object> expectedOutput = Arrays.asList(2, 1);
+        assertEquals(expectedOutput, Pluck.pluck(input));
+    }
+    @Test
+    public void testPluckWithEmptyList() {
+        List<Object> input = new ArrayList<>();
+        List<Object> expectedOutput = new ArrayList<>();
+        assertEquals(expectedOutput, Pluck.pluck(input));
+    }
+    @Test
+    public void testPluckWithSingleElement() {
+        List<Object> input = Arrays.asList(2);
+        assertEquals(Arrays.asList(2, 0), Pluck.pluck(input));
+    }
+    @Test
+    public void testPluckWithMultipleElements() {
+        List<Object> input = Arrays.asList(4, 2, 3);
+        assertEquals(Arrays.asList(2, 1), Pluck.pluck(input));
+    }
+    @Test
+    public void testPluckWithNoEvenElementsFixed1() {
+        List<Object> input = Arrays.asList(1, 3, 5);
+        assertTrue(Pluck.pluck(input).isEmpty());
+    }
+    @Test
+    public void testPluckWithDuplicateSmallestEvenElements() {
+        List<Object> input = Arrays.asList(4, 2, 2);
+        assertEquals(Arrays.asList(2, 1), Pluck.pluck(input));
+    }
+    @Test
+    public void testPluckWithZeroAsSmallestEvenElement() {
+        List<Object> input = Arrays.asList(5, 0, 3);
+        assertEquals(Arrays.asList(0, 1), Pluck.pluck(input));
+    }
+    @Test
+    public void testPluckWithSingleElementArray() {
+        List<Object> arr = Arrays.asList(2);
+        assertEquals(Arrays.asList(2, 0), Pluck.pluck(arr));
+    }
+    @Test
+    public void testPluckWithMultipleElementsArraySingleEvenValue() {
+        List<Object> arr = Arrays.asList(1, 2, 3);
+        assertEquals(Arrays.asList(2, 1), Pluck.pluck(arr));
+    }
+    @Test
+    public void testPluckWithMultipleElementsArrayMultipleEvenValues() {
+        List<Object> arr = Arrays.asList(4, 2, 3);
+        assertEquals(Arrays.asList(2, 1), Pluck.pluck(arr));
+    }
+    @Test
+    public void testPluckWithLargeInputArray() {
+        List<Object> arr = Arrays.asList(5, 0, 3, 0, 4, 2);
+        assertEquals(Arrays.asList(0, 1), Pluck.pluck(arr));
+    }
+    @Test
+    public void testPluckWithNullInput() {
+        List<Object> arr = null;
+        assertThrows(NullPointerException.class, () -> Pluck.pluck(arr));
+    }
+    @Test
+    public void testPluckSingleElementList() {
+        List<Object> input = new ArrayList<>();
+        input.add(2);
+        assertEquals(Pluck.pluck(input), Arrays.asList(2, 0));
+    }
+    @Test
+    public void testPluckMultipleElementsList() {
+        List<Object> input = new ArrayList<>();
+        input.add(4);
+        input.add(2);
+        input.add(3);
+        assertEquals(Pluck.pluck(input), Arrays.asList(2, 1));
+    }
+    @Test
+    public void testPluckNullList() {
+        assertThrows(NullPointerException.class, () -> Pluck.pluck(null));
+    }
+    @Test
+    public void testPluck_Negative_OddValuesOnly() {
+        List<Object> input = Arrays.asList(1, 3, 5);
+        List<Object> expectedOutput = new ArrayList<>();
+        assertEquals(expectedOutput, Pluck.pluck(input));
+    }
+    @Test
+    public void testPluck_EdgeCase_EmptyArray() {
+        List<Object> input = new ArrayList<>();
+        List<Object> expectedOutput = new ArrayList<>();
+        assertEquals(expectedOutput, Pluck.pluck(input));
+    }
+    @Test
+    public void testPluck_Positive_SingleElementArray() {
+        List<Object> input = Arrays.asList(2);
+        List<Object> expectedOutput = Arrays.asList(2, 0);
+        assertEquals(expectedOutput, Pluck.pluck(input));
+    }
+    @Test
+    public void testPluck_Negative_SingleElementArray_OddValue() {
+        List<Object> input = Arrays.asList(1);
+        List<Object> expectedOutput = new ArrayList<>();
+        assertEquals(expectedOutput, Pluck.pluck(input));
+    }
+    @Test
+    public void testPluck_Positive_MultipleElementsArray() {
+        List<Object> input = Arrays.asList(4, 2, 6);
+        List<Object> expectedOutput = Arrays.asList(2, 1);
+        assertEquals(expectedOutput, Pluck.pluck(input));
+    }
+    @Test
+    public void testPluckSingleElementArray() {
+        List<Object> input = Arrays.asList(2);
+        List<Object> expectedOutput = Arrays.asList(2, 0);
+        assertEquals(expectedOutput, Pluck.pluck(input));
+    }
+    @Test
+    public void testPluckNoEvenNumbers() {
+        List<Object> input = Arrays.asList(1, 3, 5);
+        List<Object> expectedOutput = new ArrayList<>();
+        assertEquals(expectedOutput, Pluck.pluck(input));
+    }
+    @Test
+    public void testPluckDuplicateSmallestEvenValues() {
+        List<Object> input = Arrays.asList(2, 4, 2);
+        List<Object> expectedOutput = Arrays.asList(2, 0);
+        assertEquals(expectedOutput, Pluck.pluck(input));
+    }
+    @Test
+    public void testPluckNegativeNumbers() {
+        List<Object> input = Arrays.asList(-4, -2, -3);
+        List<Object> expectedOutput = Arrays.asList(-4, 0);
+        assertEquals(expectedOutput, Pluck.pluck(input));
+    }
+    @Test
+    public void testPluckLargeInput() {
+        List<Object> input = Arrays.asList(10000, 20000, 30000);
+        List<Object> expectedOutput = Arrays.asList(10000, 0);
+        assertEquals(expectedOutput, Pluck.pluck(input));
+    }
+                                    
+}

@@ -37,20 +37,20 @@ import java.util.List;
      * [&quot;&quot;, true]
      */
     public static List&lt;Object&gt; reverseDelete(String s, String c) {
-<span class="nc" id="L40">        String result = &quot;&quot;;</span>
-<span class="nc bnc" id="L41" title="All 2 branches missed.">        for (int i = 0; i &lt; s.length(); i++) {</span>
-<span class="nc bnc" id="L42" title="All 2 branches missed.">            if (c.indexOf(s.charAt(i)) == -1) {</span>
+<span class="fc" id="L40">        String result = &quot;&quot;;</span>
+<span class="fc bfc" id="L41" title="All 2 branches covered.">        for (int i = 0; i &lt; s.length(); i++) {</span>
+<span class="pc bpc" id="L42" title="1 of 2 branches missed.">            if (c.indexOf(s.charAt(i)) == -1) {</span>
 <span class="nc" id="L43">                result += s.charAt(i);</span>
             }
         }
-<span class="nc" id="L46">        boolean isPalindrome = true;</span>
-<span class="nc bnc" id="L47" title="All 2 branches missed.">        for (int i = 0; i &lt; result.length() / 2; i++) {</span>
+<span class="fc" id="L46">        boolean isPalindrome = true;</span>
+<span class="pc bpc" id="L47" title="1 of 2 branches missed.">        for (int i = 0; i &lt; result.length() / 2; i++) {</span>
 <span class="nc bnc" id="L48" title="All 2 branches missed.">            if (result.charAt(i) != result.charAt(result.length() - i - 1)) {</span>
 <span class="nc" id="L49">                isPalindrome = false;</span>
 <span class="nc" id="L50">                break;</span>
             }
         }
-<span class="nc" id="L53">        return Arrays.asList(result, isPalindrome);</span>
+<span class="fc" id="L53">        return Arrays.asList(result, isPalindrome);</span>
     }
 
 

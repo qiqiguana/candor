@@ -1,0 +1,118 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Solution0422 {
+
+  // compiled from: id_0422.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 4 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Solution0422; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  // signature (Ljava/util/List<Ljava/lang/String;>;)Z
+  // declaration: boolean validWordSquare(java.util.List<java.lang.String>)
+  public validWordSquare(Ljava/util/List;)Z
+   L0
+    LINENUMBER 6 L0
+    ALOAD 1
+    INVOKEINTERFACE java/util/List.size ()I (itf)
+    ISTORE 2
+   L1
+    LINENUMBER 7 L1
+    ICONST_0
+    ISTORE 3
+   L2
+   FRAME FULL [original/Solution0422 java/util/List I I] []
+    ILOAD 3
+    ILOAD 2
+    IF_ICMPLT L3
+   L4
+    LINENUMBER 8 L4
+    ALOAD 1
+    ILOAD 3
+    INVOKEINTERFACE java/util/List.get (I)Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/String
+    INVOKEVIRTUAL java/lang/String.length ()I
+    ISTORE 4
+   L5
+    LINENUMBER 9 L5
+    ICONST_0
+    ISTORE 5
+   L6
+   FRAME FULL [original/Solution0422 java/util/List I I I I] []
+    ILOAD 5
+    ILOAD 4
+    IF_ICMPGE L7
+   L8
+    LINENUMBER 10 L8
+    ILOAD 5
+    ILOAD 2
+    IF_ICMPGE L9
+    ILOAD 3
+    ALOAD 1
+    ILOAD 5
+    INVOKEINTERFACE java/util/List.get (I)Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/String
+    INVOKEVIRTUAL java/lang/String.length ()I
+    IF_ICMPLT L10
+   L9
+    LINENUMBER 11 L9
+   FRAME FULL [original/Solution0422 java/util/List I I I I] []
+    ICONST_0
+    IRETURN
+   L10
+    LINENUMBER 13 L10
+   FRAME FULL [original/Solution0422 java/util/List I I I I] []
+    ALOAD 1
+    ILOAD 3
+    INVOKEINTERFACE java/util/List.get (I)Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/String
+    ILOAD 5
+    INVOKEVIRTUAL java/lang/String.charAt (I)C
+    ALOAD 1
+    ILOAD 5
+    INVOKEINTERFACE java/util/List.get (I)Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/String
+    ILOAD 3
+    INVOKEVIRTUAL java/lang/String.charAt (I)C
+    IF_ICMPEQ L11
+   L12
+    LINENUMBER 14 L12
+    ICONST_0
+    IRETURN
+   L11
+    LINENUMBER 9 L11
+   FRAME FULL [original/Solution0422 java/util/List I I I I] []
+    IINC 5 1
+    GOTO L6
+   L7
+    LINENUMBER 7 L7
+   FRAME FULL [original/Solution0422 java/util/List I I I I] []
+    IINC 3 1
+    GOTO L2
+   L3
+    LINENUMBER 18 L3
+   FRAME FULL [original/Solution0422 java/util/List I I] []
+    ICONST_1
+    IRETURN
+   L13
+    LOCALVARIABLE j I L6 L7 5
+    LOCALVARIABLE n I L5 L7 4
+    LOCALVARIABLE i I L2 L3 3
+    LOCALVARIABLE this Loriginal/Solution0422; L0 L13 0
+    LOCALVARIABLE words Ljava/util/List; L0 L13 1
+    // signature Ljava/util/List<Ljava/lang/String;>;
+    // declaration: words extends java.util.List<java.lang.String>
+    LOCALVARIABLE m I L1 L13 2
+    MAXSTACK = 3
+    MAXLOCALS = 6
+}
+

@@ -1,0 +1,37 @@
+package original;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of OddCount.
+*/
+class OddCountTest {
+
+@Test
+void testOddCount() {
+    List<String> input = new ArrayList<>();
+    input.add("1234567");
+    input.add("3");
+    input.add("11111111");
+    List<String> expected = new ArrayList<>();
+    expected.add("the number of odd elements 4n the str4ng 4 of the 4nput.");
+    expected.add("the number of odd elements 1n the str1ng 1 of the 1nput.");
+    expected.add("the number of odd elements 8n the str8ng 8 of the 8nput.");
+    assertEquals(expected, OddCount.oddCount(input));
+}
+
+@Test
+    public void testNothing(){
+        OddCount s = new OddCount();
+        }
+@Test
+public void test_oddCount_NullInput() {
+    List<String> input = null;
+    assertThrows(NullPointerException.class, () -> OddCount.oddCount(input));
+}
+                                
+
+}

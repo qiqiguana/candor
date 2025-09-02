@@ -1,0 +1,25 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.ArrayList;
+import java.util.List;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+/**
+* Test class of OrderByPoints.
+*/
+class OrderByPointsTest {
+    @Test
+    void testOrderByPoints_SortedList_ReturnsCorrectlySorted()
+    {
+        // Arrange
+        List<Object> numbers = new ArrayList<>(List.of(1, 11, -1, -11, -12));
+        List<Object> expected = new ArrayList<>(List.of(-1, -11, 1, -12, 11));
+
+        // Act
+        List<Object> sortedNumbers = OrderByPoints.orderByPoints(numbers);
+
+        // Assert
+        assertEquals(expected, sortedNumbers);
+    }
+}

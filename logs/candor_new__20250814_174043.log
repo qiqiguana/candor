@@ -1,0 +1,54 @@
+nohup: ignoring input
+2025-08-14 17:40:43,643   INFO : 
+
+ Processing file 1/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_0/fix/src/main/java/original/id_150.java
+2025-08-14 17:40:44.410906: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2025-08-14 17:40:44.420518: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1755189644.431649 1635358 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1755189644.434848 1635358 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+W0000 00:00:1755189644.443240 1635358 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1755189644.443260 1635358 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1755189644.443263 1635358 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1755189644.443264 1635358 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+2025-08-14 17:40:44.445847: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX512_FP16 AVX_VNNI AMX_TILE AMX_INT8 AMX_BF16 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-08-14 17:40:46,930   INFO : 
+
+
+
+                ▗▄▄▄▖  ▗▄▖  ▗▖  ▗▖ ▗▄▄▄    ▗▄▖  ▗▄▄▖ 
+                ▐▌    ▐▌ ▐▌ ▐▛▚▖▐▌ ▐▌  █  ▐▌ ▐▌ ▐▌ ▐▌
+                ▐▌    ▐▛▀▜▌ ▐▌ ▝▜▌ ▐▌  █  ▐▌ ▐▌ ▐▛▀▚▖
+                ▝▚▄▄▖ ▐▌ ▐▌ ▐▌  ▐▌ ▐▙▄▄▀  ▝▚▄▞▘ ▐▌ ▐▌
+
+2025-08-14 17:40:46,930   INFO : ======================================================================
+
+2025-08-14 17:40:46,930   INFO : 🚀 Starting MATG: Multi-Agent LLM-Based Test Generation Framework
+2025-08-14 17:40:46,930   INFO : 📘 Purpose : Automated test generation for Java using LLM agents
+2025-08-14 17:40:46,930   INFO : 🧠 Agents  : Planner, Generator, Executor, and Evaluator
+2025-08-14 17:40:46,930   INFO : 🛠️  Engine  : Powered by matg (Machine-Assisted Test Generation)
+2025-08-14 17:40:46,930   INFO : ======================================================================
+
+
+/home/qinghua/anaconda3/envs/llm4test/lib/python3.11/site-packages/tree_sitter/__init__.py:36: FutureWarning: Language(path, name) is deprecated. Use Language(ptr, name) instead.
+  warn("{} is deprecated. Use {} instead.".format(old, new), FutureWarning)
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/qinghua/projects/matg/main.py", line 87, in <module>
+    main()
+  File "/home/qinghua/projects/matg/main.py", line 84, in main
+    oracle_fixer=OracleFixer(config)
+                 ^^^^^^^^^^^^^^^^^^^
+  File "/home/qinghua/projects/matg/fix_oracle.py", line 84, in __init__
+    csv_file.writerow([ "test_file_path", "test_method_name", "judgement", "test_case_code" ])
+    ^^^^^^^^^^^^^^^^^
+AttributeError: '_io.TextIOWrapper' object has no attribute 'writerow'
+java
+Traceback (most recent call last):
+  File "/home/qinghua/projects/matg/run_experiments.py", line 116, in <module>
+    subprocess.run(command, check=True)
+  File "/home/qinghua/anaconda3/envs/llm4test/lib/python3.11/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['python', '-m', 'matg.main', 'oracle-fixer', '--data-path', '/home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_0/fix', '--relative-source-file-path', 'src/main/java/original/id_150.java', '--relative-test-file-path', 'src/test/java/original/id_150Test.java', '--test-command', 'mvn -f /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_0/fix/pom.xml clean -Dtest=XOrY test jacoco:report', '--generator', 'matg']' returned non-zero exit status 1.

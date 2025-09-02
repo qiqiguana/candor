@@ -1,0 +1,28 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of StartsOneEnds.
+*/
+class StartsOneEndsTest {
+    @Test
+    void testStartsOneEndsWithSmallInput() {
+        int result = StartsOneEnds.startsOneEnds(1);
+        assertEquals(1, result);
+    }
+    
+    @Test
+        public void testNothing(){
+            StartsOneEnds s = new StartsOneEnds();
+            }
+    @Test
+    public void startsOneEnds_SingleDigitNumber_Returns1() {
+        assertEquals(1, StartsOneEnds.startsOneEnds(1));
+    }
+    @Test
+    public void startsOneEnds_TwoDigitNumber_Returns18() {
+        assertEquals(18, StartsOneEnds.startsOneEnds(2));
+    }
+                                    
+}

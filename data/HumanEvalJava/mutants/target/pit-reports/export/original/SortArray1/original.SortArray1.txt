@@ -1,0 +1,94 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/SortArray1 {
+
+  // compiled from: id_88.java
+  NESTMEMBER original/SortArray1$1
+  // access flags 0x0
+  INNERCLASS original/SortArray1$1 null null
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 9 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/SortArray1; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  // signature (Ljava/util/List<Ljava/lang/Object;>;)Ljava/util/List<Ljava/lang/Object;>;
+  // declaration: java.util.List<java.lang.Object> sortArray(java.util.List<java.lang.Object>)
+  public static sortArray(Ljava/util/List;)Ljava/util/List;
+   L0
+    LINENUMBER 40 L0
+    ALOAD 0
+    INVOKEINTERFACE java/util/List.size ()I (itf)
+    ICONST_1
+    IF_ICMPGT L1
+   L2
+    LINENUMBER 41 L2
+    ALOAD 0
+    ARETURN
+   L1
+    LINENUMBER 43 L1
+   FRAME FULL [java/util/List] []
+    ALOAD 0
+    ICONST_0
+    INVOKEINTERFACE java/util/List.get (I)Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/Integer
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    ALOAD 0
+    ALOAD 0
+    INVOKEINTERFACE java/util/List.size ()I (itf)
+    ICONST_1
+    ISUB
+    INVOKEINTERFACE java/util/List.get (I)Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/Integer
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    IADD
+    ISTORE 1
+   L3
+    LINENUMBER 44 L3
+    NEW java/util/ArrayList
+    DUP
+    ALOAD 0
+    INVOKESPECIAL java/util/ArrayList.<init> (Ljava/util/Collection;)V
+    ASTORE 2
+   L4
+    LINENUMBER 45 L4
+    ALOAD 2
+    NEW original/SortArray1$1
+    DUP
+    INVOKESPECIAL original/SortArray1$1.<init> ()V
+    INVOKESTATIC java/util/Collections.sort (Ljava/util/List;Ljava/util/Comparator;)V
+   L5
+    LINENUMBER 51 L5
+    ILOAD 1
+    ICONST_2
+    IREM
+    IFNE L6
+   L7
+    LINENUMBER 52 L7
+    ALOAD 2
+    INVOKESTATIC java/util/Collections.reverse (Ljava/util/List;)V
+   L6
+    LINENUMBER 54 L6
+   FRAME FULL [java/util/List I java/util/List] []
+    ALOAD 2
+    ARETURN
+   L8
+    LOCALVARIABLE array Ljava/util/List; L0 L8 0
+    // signature Ljava/util/List<Ljava/lang/Object;>;
+    // declaration: array extends java.util.List<java.lang.Object>
+    LOCALVARIABLE sum I L3 L8 1
+    LOCALVARIABLE sortedArray Ljava/util/List; L4 L8 2
+    // signature Ljava/util/List<Ljava/lang/Object;>;
+    // declaration: sortedArray extends java.util.List<java.lang.Object>
+    MAXSTACK = 4
+    MAXLOCALS = 3
+}
+

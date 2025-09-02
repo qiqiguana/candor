@@ -1,0 +1,37 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of LargestPrimeFactor.
+*/
+class LargestPrimeFactorTest {
+    @Test
+    void testLargestPrimeFactor() {
+        assertEquals(2, LargestPrimeFactor.largestPrimeFactor(2048));
+    }
+    
+    @Test
+        public void testNothing(){
+            LargestPrimeFactor s = new LargestPrimeFactor();
+            }
+    @Test
+    void TestLargestPrimeFactorClassInitialization() {
+        assertDoesNotThrow(() -> new LargestPrimeFactor());
+    }
+    @Test
+    void TestLargestPrimeFactorMethodWithPositiveInput1() {
+        int input = 2048;
+        int expectedResult = 2;
+        int result = LargestPrimeFactor.largestPrimeFactor(input);
+        assertEquals(expectedResult, result);
+    }
+    @Test
+    public void test_largest_prime_factor_of_small_number() {
+        int input = 10;
+        int expectedResult = 5;
+        int actualResult = LargestPrimeFactor.largestPrimeFactor(input);
+        assertEquals(expectedResult, actualResult);
+    }
+                                    
+}

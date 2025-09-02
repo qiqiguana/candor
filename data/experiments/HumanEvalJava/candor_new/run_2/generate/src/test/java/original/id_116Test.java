@@ -1,0 +1,49 @@
+package original;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of SortArray.
+*/
+class SortArrayTest {
+    @Test
+    void testSortArrayOfEmptyList() {
+        List<Object> input = new ArrayList<>();
+        assertEquals(input, SortArray.sortArray(input));
+    }
+    @Test
+    public void testSortArrayWithSingleElement() {
+        List<Object> arr = new ArrayList<>();
+        arr.add(1);
+        List<Object> result = SortArray.sortArray(arr);
+        assertEquals(1, result.size());
+        assertEquals(1, result.get(0));
+    }
+    @Test
+    public void testSortArrayWithLargeNumbers() {
+        List<Object> arr = new ArrayList<>();
+        arr.add(77);
+        arr.add(32);
+        arr.add(44);
+        arr.add(12);
+        arr.add(6);
+        List<Object> result = SortArray.sortArray(arr);
+        assertEquals(5, result.size());
+        assertEquals(32, result.get(0));
+        assertEquals(6, result.get(1));
+        assertEquals(12, result.get(2));
+        assertEquals(44, result.get(3));
+        assertEquals(77, result.get(4));
+    }
+    
+    @Test
+        public void testNothing(){
+            SortArray s = new SortArray();
+            }
+                                    
+}

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_2617.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">leetcode</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_2617.java</span></div><h1>id_2617.java</h1><pre class="source lang-java linenums">package original;
+
+import java.util.PriorityQueue;
+import java.util.Arrays;
+import java.util.Queue;
+<span class="nc" id="L6">class Solution2617 {</span>
+    public int minimumVisitedCells(int[][] grid) {
+<span class="nc" id="L8">        int m = grid.length, n = grid[0].length;</span>
+<span class="nc" id="L9">        int[][] dist = new int[m][n];</span>
+<span class="nc" id="L10">        PriorityQueue&lt;int[]&gt;[] row = new PriorityQueue[m];</span>
+<span class="nc" id="L11">        PriorityQueue&lt;int[]&gt;[] col = new PriorityQueue[n];</span>
+<span class="nc bnc" id="L12" title="All 2 branches missed.">        for (int i = 0; i &lt; m; ++i) {</span>
+<span class="nc" id="L13">            Arrays.fill(dist[i], -1);</span>
+<span class="nc bnc" id="L14" title="All 2 branches missed.">            row[i] = new PriorityQueue&lt;&gt;((a, b) -&gt; a[0] == b[0] ? a[1] - b[1] : a[0] - b[0]);</span>
+        }
+<span class="nc bnc" id="L16" title="All 2 branches missed.">        for (int i = 0; i &lt; n; ++i) {</span>
+<span class="nc bnc" id="L17" title="All 2 branches missed.">            col[i] = new PriorityQueue&lt;&gt;((a, b) -&gt; a[0] == b[0] ? a[1] - b[1] : a[0] - b[0]);</span>
+        }
+<span class="nc" id="L19">        dist[0][0] = 1;</span>
+<span class="nc bnc" id="L20" title="All 2 branches missed.">        for (int i = 0; i &lt; m; ++i) {</span>
+<span class="nc bnc" id="L21" title="All 2 branches missed.">            for (int j = 0; j &lt; n; ++j) {</span>
+<span class="nc bnc" id="L22" title="All 4 branches missed.">                while (!row[i].isEmpty() &amp;&amp; grid[i][row[i].peek()[1]] + row[i].peek()[1] &lt; j) {</span>
+<span class="nc" id="L23">                    row[i].poll();</span>
+                }
+<span class="nc bnc" id="L25" title="All 6 branches missed.">                if (!row[i].isEmpty() &amp;&amp; (dist[i][j] == -1 || row[i].peek()[0] + 1 &lt; dist[i][j])) {</span>
+<span class="nc" id="L26">                    dist[i][j] = row[i].peek()[0] + 1;</span>
+                }
+<span class="nc bnc" id="L28" title="All 4 branches missed.">                while (!col[j].isEmpty() &amp;&amp; grid[col[j].peek()[1]][j] + col[j].peek()[1] &lt; i) {</span>
+<span class="nc" id="L29">                    col[j].poll();</span>
+                }
+<span class="nc bnc" id="L31" title="All 6 branches missed.">                if (!col[j].isEmpty() &amp;&amp; (dist[i][j] == -1 || col[j].peek()[0] + 1 &lt; dist[i][j])) {</span>
+<span class="nc" id="L32">                    dist[i][j] = col[j].peek()[0] + 1;</span>
+                }
+<span class="nc bnc" id="L34" title="All 2 branches missed.">                if (dist[i][j] != -1) {</span>
+<span class="nc" id="L35">                    row[i].offer(new int[] {dist[i][j], j});</span>
+<span class="nc" id="L36">                    col[j].offer(new int[] {dist[i][j], i});</span>
+                }
+            }
+        }
+<span class="nc" id="L40">        return dist[m - 1][n - 1];</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_2093.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">leetcode</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_2093.java</span></div><h1>id_2093.java</h1><pre class="source lang-java linenums">package original;
+
+import java.util.PriorityQueue;
+import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.Queue;
+import java.util.List;
+<span class="nc" id="L8">class Solution2093 {</span>
+    public int minimumCost(int n, int[][] highways, int discounts) {
+  /**
+  A series of highways connect n cities numbered from 0 to n - 1. You are given a 2D integer array highways where highways[i] = [city1i, city2i, tolli] indicates that there is a highway that connects city1i and city2i, allowing a car to go from city1i to city2i and vice versa for a cost of tolli. You are also given an integer discounts which represents the number of discounts you have. You can use a discount to travel across the ith highway for a cost of tolli / 2 (integer division). Each discount may only be used once, and you can only use at most one discount per highway. Return the minimum total cost to go from city 0 to city n - 1, or -1 if it is not possible to go from city 0 to city n - 1. &amp;nbsp; Example 1: Input: n = 5, highways = [[0,1,4],[2,1,3],[1,4,11],[3,2,3],[3,4,2]], discounts = 1 Output: 9 Explanation: Go from 0 to 1 for a cost of 4. Go from 1 to 4 and use a discount for a cost of 11 / 2 = 5. The minimum cost to go from 0 to 4 is 4 + 5 = 9. Example 2: Input: n = 4, highways = [[1,3,17],[1,2,7],[3,2,5],[0,1,6],[3,0,20]], discounts = 20 Output: 8 Explanation: Go from 0 to 1 and use a discount for a cost of 6 / 2 = 3. Go from 1 to 2 and use a discount for a cost of 7 / 2 = 3. Go from 2 to 3 and use a discount for a cost of 5 / 2 = 2. The minimum cost to go from 0 to 3 is 3 + 3 + 2 = 8. Example 3: Input: n = 4, highways = [[0,1,3],[2,3,2]], discounts = 0 Output: -1 Explanation: It is impossible to go from 0 to 3 so return -1. &amp;nbsp; Constraints: 2 &amp;lt;= n &amp;lt;= 1000 1 &amp;lt;= highways.length &amp;lt;= 1000 highways[i].length == 3 0 &amp;lt;= city1i, city2i &amp;lt;= n - 1 city1i != city2i 0 &amp;lt;= tolli &amp;lt;= 105 0 &amp;lt;= discounts &amp;lt;= 500 There are no duplicate highways.
+  */
+<span class="nc" id="L13">        List&lt;int[]&gt;[] g = new List[n];</span>
+<span class="nc bnc" id="L14" title="All 2 branches missed.">        for (int i = 0; i &lt; n; ++i) {</span>
+<span class="nc" id="L15">            g[i] = new ArrayList&lt;&gt;();</span>
+        }
+<span class="nc bnc" id="L17" title="All 2 branches missed.">        for (var e : highways) {</span>
+<span class="nc" id="L18">            int a = e[0], b = e[1], c = e[2];</span>
+<span class="nc" id="L19">            g[a].add(new int[] {b, c});</span>
+<span class="nc" id="L20">            g[b].add(new int[] {a, c});</span>
+        }
+<span class="nc" id="L22">        PriorityQueue&lt;int[]&gt; q = new PriorityQueue&lt;&gt;((a, b) -&gt; a[0] - b[0]);</span>
+<span class="nc" id="L23">        q.offer(new int[] {0, 0, 0});</span>
+<span class="nc" id="L24">        int[][] dist = new int[n][discounts + 1];</span>
+<span class="nc bnc" id="L25" title="All 2 branches missed.">        for (var e : dist) {</span>
+<span class="nc" id="L26">            Arrays.fill(e, Integer.MAX_VALUE);</span>
+        }
+<span class="nc bnc" id="L28" title="All 2 branches missed.">        while (!q.isEmpty()) {</span>
+<span class="nc" id="L29">            var p = q.poll();</span>
+<span class="nc" id="L30">            int cost = p[0], i = p[1], k = p[2];</span>
+<span class="nc bnc" id="L31" title="All 4 branches missed.">            if (k &gt; discounts || dist[i][k] &lt;= cost) {</span>
+<span class="nc" id="L32">                continue;</span>
+            }
+<span class="nc bnc" id="L34" title="All 2 branches missed.">            if (i == n - 1) {</span>
+<span class="nc" id="L35">                return cost;</span>
+            }
+<span class="nc" id="L37">            dist[i][k] = cost;</span>
+<span class="nc bnc" id="L38" title="All 2 branches missed.">            for (int[] nxt : g[i]) {</span>
+<span class="nc" id="L39">                int j = nxt[0], v = nxt[1];</span>
+<span class="nc" id="L40">                q.offer(new int[] {cost + v, j, k});</span>
+<span class="nc" id="L41">                q.offer(new int[] {cost + v / 2, j, k + 1});</span>
+<span class="nc" id="L42">            }</span>
+<span class="nc" id="L43">        }</span>
+<span class="nc" id="L44">        return -1;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

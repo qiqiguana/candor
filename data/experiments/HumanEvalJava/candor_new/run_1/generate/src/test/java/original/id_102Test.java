@@ -1,0 +1,37 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of ChooseNum.
+*/
+class ChooseNumTest {
+
+    @Test
+    void testChooseNum_SameInput_OutputIsNumber() {
+        // Arrange & Act
+        int result = ChooseNum.chooseNum(546, 546);
+        // Assert
+        assertEquals(546, result);
+    }
+    
+    @Test
+        public void testNothing(){
+            ChooseNum s = new ChooseNum();
+            }
+    @Test
+    public void testChooseNumWithEvenNumbers() {
+        int x = 10;
+        int y = 20;
+        int expectedResult = 20;
+        assertEquals(expectedResult, ChooseNum.chooseNum(x, y));
+    }
+    @Test
+    public void testChooseNumWithNegativeNumbers() {
+        int x = -10;
+        int y = 20;
+        int expectedResult = 20;
+        assertEquals(expectedResult, ChooseNum.chooseNum(x, y));
+    }
+                                    
+}

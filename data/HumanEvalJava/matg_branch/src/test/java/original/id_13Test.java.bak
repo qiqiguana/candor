@@ -1,0 +1,54 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of GreatestCommonDivisor.
+*/
+class GreatestCommonDivisorTest {
+    @Test
+    void test_GreatestCommonDivisor_1() {
+        assertEquals(5, GreatestCommonDivisor.greatestCommonDivisor(25, 15));
+    }
+    
+    @Test
+        public void testNothing(){
+            GreatestCommonDivisor s = new GreatestCommonDivisor();
+            }
+    @Test
+    public void testGreatestCommonDivisor_TwoPositiveNumbers() {
+        int result = GreatestCommonDivisor.greatestCommonDivisor(3, 5);
+        assertEquals(1, result);
+    }
+    @Test
+    public void testGreatestCommonDivisor_OnePositiveOneNegative() {
+        int result = GreatestCommonDivisor.greatestCommonDivisor(3, -5);
+        assertEquals(1, result);
+    }
+    @Test
+    public void testGreatestCommonDivisor_ZeroAsFirstArgument() {
+        int result = GreatestCommonDivisor.greatestCommonDivisor(0, 5);
+        assertEquals(5, result);
+    }
+    @Test
+    public void testGreatestCommonDivisor_ZeroAsSecondArgument() {
+        int result = GreatestCommonDivisor.greatestCommonDivisor(3, 0);
+        assertEquals(3, result);
+    }
+    @Test
+    public void testGreatestCommonDivisor_EqualNumbers() {
+        int result = GreatestCommonDivisor.greatestCommonDivisor(5, 5);
+        assertEquals(5, result);
+    }
+    @Test
+    public void testGreatestCommonDivisor_OneAsFirstArgument() {
+        int result = GreatestCommonDivisor.greatestCommonDivisor(1, 5);
+        assertEquals(1, result);
+    }
+    @Test
+    public void testGreatestCommonDivisor_LargeNumbers() {
+        int result = GreatestCommonDivisor.greatestCommonDivisor(12345, 67890);
+        assertEquals(15, result);
+    }
+                                    
+}

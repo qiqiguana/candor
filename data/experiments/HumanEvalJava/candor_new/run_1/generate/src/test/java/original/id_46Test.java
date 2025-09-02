@@ -1,0 +1,29 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of Fib4.
+*/
+class Fib4Test {
+    @Test
+    void test_fib4_base_case() {
+        assertEquals(0, Fib4.fib4(1));
+    }
+    
+    @Test
+        public void testNothing(){
+            Fib4 s = new Fib4();
+            }
+    @Test
+    public void test_Fib4_Test_Case_Positive_Scenario_n_2() {
+        int n = 2;
+        assertEquals(2, Fib4.fib4(n));
+    }
+    @Test
+    public void test_Fib4_Test_Case_Positive_Scenario_n_Greater_Than_2() {
+        int n = 10;
+        assertEquals(104, Fib4.fib4(n));
+    }
+                                    
+}

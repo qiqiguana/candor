@@ -55,8 +55,8 @@ class FileNameCheckTest {
     }
     @Test
     public void testFileNameCheck_NoDotInFileName_ReturnsNo_2() {
-        String input = "example.txt";
-        assertEquals("Yes", oracle1.FileNameCheck.fileNameCheck(input));
+    	String input = "example";
+    	assertEquals("Yes", oracle1.FileNameCheck.fileNameCheck(input));
     }
     @Test
     public void testFileNameCheck_NoDotInFileName_ReturnsNo_3() {

@@ -1,0 +1,52 @@
+package original;
+
+import java.util.ArrayList;
+
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of Pluck.
+*/
+class PluckTest {
+
+    @Test
+    void testpluck_Smallest_Even_Value() {
+        List<Object> input = new ArrayList<>();
+        input.add(4);
+        input.add(2);
+        input.add(3);
+        List<Object> expectedOutput = new ArrayList<>();
+        expectedOutput.add(2);
+        expectedOutput.add(1);
+
+        assertEquals(expectedOutput, Pluck.pluck(input));
+    }
+    
+    @Test
+        public void testNothing(){
+            Pluck s = new Pluck();
+            }
+    @Test
+    public void testPluckMethodWithEmptyList() {
+        List<Object> input = new ArrayList<>();
+        List<Object> expected = new ArrayList<>();
+        assertEquals(expected, Pluck.pluck(input));
+    }
+    @Test
+    public void testPluckMethodHandlesNonIntegerValuesInListCorrectly1() {
+        List<java.lang.Object> input = new java.util.ArrayList<>(java.util.Arrays.asList(1, "a", 3));
+        List<java.lang.Object> result = Pluck.pluck(input);
+        org.junit.jupiter.api.Assertions.assertTrue(result.isEmpty());
+    }
+    @Test
+    public void testEvenValuesWithSmallestIndex1() {
+        java.util.List<java.lang.Object> input = new java.util.ArrayList<>();
+        input.add(2);
+        input.add(4);
+        input.add(6);
+        assertEquals(java.util.Arrays.asList(new Object[]{2, 0}), original.Pluck.pluck(input));
+    }
+                                    
+}

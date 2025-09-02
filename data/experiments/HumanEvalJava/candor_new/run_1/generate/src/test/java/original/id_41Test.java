@@ -1,0 +1,23 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of CarRaceCollision.
+*/
+class CarRaceCollisionTest {
+    @Test
+    void testCarRaceCollision()
+    {
+        int n = 2;
+        int expected = 4;
+        int actual = CarRaceCollision.carRaceCollision(n);
+        assertEquals(expected,actual);
+    }
+    
+    @Test
+        public void testNothing(){
+            CarRaceCollision s = new CarRaceCollision();
+            }
+                                    
+}

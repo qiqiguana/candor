@@ -1,0 +1,78 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/FilterBySubstring {
+
+  // compiled from: id_7.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 8 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/FilterBySubstring; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  // signature (Ljava/util/List<Ljava/lang/Object;>;Ljava/lang/String;)Ljava/util/List<Ljava/lang/Object;>;
+  // declaration: java.util.List<java.lang.Object> filterBySubstring(java.util.List<java.lang.Object>, java.lang.String)
+  public static filterBySubstring(Ljava/util/List;Ljava/lang/String;)Ljava/util/List;
+   L0
+    LINENUMBER 26 L0
+    NEW java/util/ArrayList
+    DUP
+    INVOKESPECIAL java/util/ArrayList.<init> ()V
+    ASTORE 2
+   L1
+    LINENUMBER 27 L1
+    ICONST_0
+    ISTORE 3
+   L2
+   FRAME FULL [java/util/List java/lang/String java/util/ArrayList I] []
+    ILOAD 3
+    ALOAD 0
+    INVOKEINTERFACE java/util/List.size ()I (itf)
+    IF_ICMPLT L3
+   L4
+    LINENUMBER 28 L4
+    ALOAD 0
+    ILOAD 3
+    INVOKEINTERFACE java/util/List.get (I)Ljava/lang/Object; (itf)
+    INVOKEVIRTUAL java/lang/Object.toString ()Ljava/lang/String;
+    ALOAD 1
+    INVOKEVIRTUAL java/lang/String.contains (Ljava/lang/CharSequence;)Z
+    IFEQ L5
+   L6
+    LINENUMBER 29 L6
+    ALOAD 2
+    ALOAD 0
+    ILOAD 3
+    INVOKEINTERFACE java/util/List.get (I)Ljava/lang/Object; (itf)
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+   L5
+    LINENUMBER 27 L5
+   FRAME FULL [java/util/List java/lang/String java/util/ArrayList I] []
+    IINC 3 1
+    GOTO L2
+   L3
+    LINENUMBER 32 L3
+   FRAME FULL [java/util/List java/lang/String java/util/ArrayList I] []
+    ALOAD 2
+    ARETURN
+   L7
+    LOCALVARIABLE i I L2 L3 3
+    LOCALVARIABLE strings Ljava/util/List; L0 L7 0
+    // signature Ljava/util/List<Ljava/lang/Object;>;
+    // declaration: strings extends java.util.List<java.lang.Object>
+    LOCALVARIABLE substring Ljava/lang/String; L0 L7 1
+    LOCALVARIABLE result Ljava/util/List; L1 L7 2
+    // signature Ljava/util/List<Ljava/lang/Object;>;
+    // declaration: result extends java.util.List<java.lang.Object>
+    MAXSTACK = 3
+    MAXLOCALS = 4
+}
+

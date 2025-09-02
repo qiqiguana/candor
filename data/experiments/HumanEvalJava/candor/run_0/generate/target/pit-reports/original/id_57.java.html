@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>id_57.java</h1>
+
+<table class="src">
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@65810882_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@65810882_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package original;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@65810882_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@65810882_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@65810882_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@65810882_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.List;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@65810882_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@65810882_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@65810882_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@65810882_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@65810882_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@65810882_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>class Monotonic {</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@65810882_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@65810882_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@65810882_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@65810882_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Return True is list elements are monotonically increasing or decreasing.</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@65810882_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@65810882_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Examples:</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@65810882_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@65810882_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * &#62; monotonic([1, 2, 4, 10])</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@65810882_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@65810882_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * true</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@65810882_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@65810882_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * &#62; monotonic([1, 2, 4, 20])</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@65810882_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@65810882_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * true</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@65810882_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@65810882_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * &#62; monotonic([1, 20, 4, 10])</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@65810882_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@65810882_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * false</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@65810882_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@65810882_16'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * &#62; monotonic([4, 1, 0, -10])</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@65810882_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@65810882_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * true</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@65810882_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@65810882_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * &#62; monotonic([4, 1, 1, 0])</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@65810882_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@65810882_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * true</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@65810882_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@65810882_20'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * &#62; monotonic([1, 2, 3, 2, 5, 60])</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@65810882_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@65810882_21'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * false</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@65810882_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@65810882_22'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * &#62; monotonic([1, 2, 3, 4, 5, 60])</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@65810882_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@65810882_23'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * true</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@65810882_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@65810882_24'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * &#62; monotonic([9, 9, 9, 9])</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@65810882_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@65810882_25'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * true</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@65810882_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@65810882_26'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@65810882_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@65810882_27'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public static Boolean monotonic(List&#60;Integer&#62; l) {</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@65810882_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@65810882_28'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        int size = l.size();</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@65810882_29'/>
+29
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@65810882_29'>1</a>
+<span>
+1. monotonic : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (size == 1) {</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@65810882_30'/>
+30
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@65810882_30'>1</a>
+<span>
+1. monotonic : replaced Boolean return with False for original/Monotonic::monotonic &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            return true;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@65810882_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@65810882_31'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@65810882_32'/>
+32
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@65810882_32'>1</a>
+<span>
+1. monotonic : Replaced integer subtraction with addition &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        int direction = l.get(1) - l.get(0);</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@65810882_33'/>
+33
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@65810882_33'>3</a>
+<span>
+1. monotonic : changed conditional boundary &rarr; KILLED<br/>
+2. monotonic : Replaced integer subtraction with addition &rarr; KILLED<br/>
+3. monotonic : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        for (int i = 1; i &#60; size - 1; i++) {</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@65810882_34'/>
+34
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@65810882_34'>1</a>
+<span>
+1. monotonic : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            if (direction == 0) {</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@65810882_35'/>
+35
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@65810882_35'>2</a>
+<span>
+1. monotonic : Replaced integer subtraction with addition &rarr; SURVIVED<br/>
+2. monotonic : Replaced integer addition with subtraction &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>                direction = l.get(i + 1) - l.get(i);</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@65810882_36'/>
+36
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@65810882_36'>2</a>
+<span>
+1. monotonic : changed conditional boundary &rarr; SURVIVED<br/>
+2. monotonic : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>            } else if (direction &#62; 0) {</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@65810882_37'/>
+37
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@65810882_37'>3</a>
+<span>
+1. monotonic : changed conditional boundary &rarr; KILLED<br/>
+2. monotonic : Replaced integer addition with subtraction &rarr; KILLED<br/>
+3. monotonic : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                if (l.get(i + 1) &#60; l.get(i)) {</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@65810882_38'/>
+38
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@65810882_38'>1</a>
+<span>
+1. monotonic : replaced Boolean return with True for original/Monotonic::monotonic &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                    return false;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@65810882_39'/>
+39
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@65810882_39'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                }</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@65810882_40'/>
+40
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@65810882_40'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            } else {</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@65810882_41'/>
+41
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@65810882_41'>3</a>
+<span>
+1. monotonic : changed conditional boundary &rarr; KILLED<br/>
+2. monotonic : Replaced integer addition with subtraction &rarr; KILLED<br/>
+3. monotonic : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                if (l.get(i + 1) &#62; l.get(i)) {</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@65810882_42'/>
+42
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@65810882_42'>1</a>
+<span>
+1. monotonic : replaced Boolean return with True for original/Monotonic::monotonic &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                    return false;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@65810882_43'/>
+43
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@65810882_43'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                }</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@65810882_44'/>
+44
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@65810882_44'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@65810882_45'/>
+45
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@65810882_45'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@65810882_46'/>
+46
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@65810882_46'>1</a>
+<span>
+1. monotonic : replaced Boolean return with False for original/Monotonic::monotonic &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return true;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@65810882_47'/>
+47
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@65810882_47'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@65810882_48'/>
+48
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@65810882_48'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@65810882_49'/>
+49
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@65810882_49'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@65810882_50'/>
+50
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@65810882_50'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@65810882_29'>29</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@65810882_29'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>monotonic<br/><b>Killed by : </b>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:testEmptyList2()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@65810882_30'>30</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@65810882_30'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>monotonic<br/><b>Killed by : </b>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:testSingleElementList()]</span></span> replaced Boolean return with False for original/Monotonic::monotonic &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@65810882_32'>32</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@65810882_32'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>monotonic<br/><b>Killed by : </b>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:TestMonotonicDecreasingList()]</span></span> Replaced integer subtraction with addition &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@65810882_33'>33</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@65810882_33'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>monotonic<br/><b>Killed by : </b>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:test_equal_elements()]</span></span> changed conditional boundary &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>monotonic<br/><b>Killed by : </b>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:test_equal_elements()]</span></span> Replaced integer subtraction with addition &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>monotonic<br/><b>Killed by : </b>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:test_two_elements()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@65810882_34'>34</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@65810882_34'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>monotonic<br/><b>Killed by : </b>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:testNonMonotonicSequenceIncreasingThenDecreasing()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@65810882_35'>35</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@65810882_35'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>monotonic<br/><b>Killed by : </b>none</span></span> Replaced integer subtraction with addition &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=original.Monotonic,-method=monotonic,-methodDesc=(Ljava/util/List;)Ljava/lang/Boolean;],-indexes=[60],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=original.Monotonic,-method=monotonic,-methodDesc=(Ljava/util/List;)Ljava/lang/Boolean;],-indexes=[60],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=original.Monotonic,-method=monotonic,-methodDesc=(Ljava/util/List;)Ljava/lang/Boolean;],-indexes=[60],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:testMonotonicEqualElementsList()]</li> <li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:testDuplicateElementsList()]</li> <li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:test_equal_elements()]</li> <li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:TestMonotonicConstantList()]</li> <li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:testDuplicateElements()]</li> <li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:testListWithSameElements()]</li> <li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:testSequenceWithEqualElements()]</li> 
+</ul>
+</div></div> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>monotonic<br/><b>Killed by : </b>none</span></span> Replaced integer addition with subtraction &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=original.Monotonic,-method=monotonic,-methodDesc=(Ljava/util/List;)Ljava/lang/Boolean;],-indexes=[51],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=original.Monotonic,-method=monotonic,-methodDesc=(Ljava/util/List;)Ljava/lang/Boolean;],-indexes=[51],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=original.Monotonic,-method=monotonic,-methodDesc=(Ljava/util/List;)Ljava/lang/Boolean;],-indexes=[51],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:testMonotonicEqualElementsList()]</li> <li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:testDuplicateElementsList()]</li> <li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:test_equal_elements()]</li> <li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:TestMonotonicConstantList()]</li> <li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:testDuplicateElements()]</li> <li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:testListWithSameElements()]</li> <li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:testSequenceWithEqualElements()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@65810882_36'>36</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@65810882_36'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>monotonic<br/><b>Killed by : </b>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:TestMonotonicDecreasingList()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>monotonic<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=original.Monotonic,-method=monotonic,-methodDesc=(Ljava/util/List;)Ljava/lang/Boolean;],-indexes=[67],-mutator=org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=original.Monotonic,-method=monotonic,-methodDesc=(Ljava/util/List;)Ljava/lang/Boolean;],-indexes=[67],-mutator=org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=original.Monotonic,-method=monotonic,-methodDesc=(Ljava/util/List;)Ljava/lang/Boolean;],-indexes=[67],-mutator=org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:TestMonotonicDecreasingList()]</li> <li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:testMonotonicDecreasingList()]</li> <li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:testMonotonicIncreasingList2()]</li> <li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:testMonotonicIncreasingSequence2()]</li> <li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:testNonMonotonicSequenceIncreasingThenDecreasing()]</li> <li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:testNonMonotonicList2Fixed()]</li> <li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:testNonMonotonic()]</li> <li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:testMonotonicIncreasingList()]</li> <li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:testNonMonotonicList()]</li> <li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:testNonMonotonicList3()]</li> <li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:testMonotonicDecreasingWithDifferentValues()]</li> <li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:testNonMonotonicListWithDirectionChanges1()]</li> <li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:test_Duplicate_Elements_Test_5()]</li> <li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:testMonotonicIncreasingSequence()]</li> <li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:testMonotonicDecreasingList2()]</li> <li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:TestNonMonotonicList()]</li> <li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:TestMonotonicDecreasing()]</li> <li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:test_Negative_Numbers_Test_6()]</li> <li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:test_monotonic_decreasing()]</li> <li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:TestMonotonicNonMonotonicList()]</li> <li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:testDuplicateElementsDecreasing()]</li> <li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:testDuplicateElementsIncreasing()]</li> <li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:testMonotonicIncreasing()]</li> <li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:testNonMonotonicList2()]</li> <li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:testNonMonotonicListWithDirectionChange1()]</li> <li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:testMonotonicDecreasingListUnique()]</li> <li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:test_non_monotonic_increasing_decreasing()]</li> <li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:testMonotonicDecreasingSequence()]</li> <li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:testMonotonicDecreasingListWithEqualElements1()]</li> <li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:testMonotonicIncreasingList3()]</li> <li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:testMonotonicDecreasingListCorrected()]</li> <li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:test_monotonic_increasing_1()]</li> <li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:test_Monotonic_Increasing_Test_1()]</li> <li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:testDuplicateElementsListFixed2()]</li> <li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:testMonotonicDecreasing()]</li> <li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:testMonotonicDecreasing1()]</li> <li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:test_Monotonic_Decreasing_Test_2()]</li> <li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:test_Non_Monotonic_Test_3()]</li> <li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:testMonotonicDecreasing2()]</li> <li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:test_Monotonic_IncreasingList_ReturnsTrue()]</li> <li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:testMonotonicIncreasingListUnique()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@65810882_37'>37</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@65810882_37'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>monotonic<br/><b>Killed by : </b>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:test_Duplicate_Elements_Test_5()]</span></span> changed conditional boundary &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>monotonic<br/><b>Killed by : </b>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:testMonotonicIncreasingList2()]</span></span> Replaced integer addition with subtraction &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>monotonic<br/><b>Killed by : </b>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:testMonotonicIncreasingList2()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@65810882_38'>38</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@65810882_38'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>monotonic<br/><b>Killed by : </b>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:testNonMonotonicList()]</span></span> replaced Boolean return with True for original/Monotonic::monotonic &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@65810882_41'>41</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@65810882_41'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>monotonic<br/><b>Killed by : </b>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:testMonotonicDecreasingListWithEqualElements1()]</span></span> changed conditional boundary &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>monotonic<br/><b>Killed by : </b>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:TestMonotonicDecreasingList()]</span></span> Replaced integer addition with subtraction &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>monotonic<br/><b>Killed by : </b>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:TestMonotonicDecreasingList()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@65810882_42'>42</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@65810882_42'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>monotonic<br/><b>Killed by : </b>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:testMonotonicDecreasingWithDifferentValues()]</span></span> replaced Boolean return with True for original/Monotonic::monotonic &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@65810882_46'>46</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@65810882_46'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>monotonic<br/><b>Killed by : </b>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:testDuplicateElementsList()]</span></span> replaced Boolean return with False for original/Monotonic::monotonic &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+<li class='mutator'>CONDITIONALS_BOUNDARY</li>
+<li class='mutator'>EMPTY_RETURNS</li>
+<li class='mutator'>FALSE_RETURNS</li>
+<li class='mutator'>INCREMENTS</li>
+<li class='mutator'>INVERT_NEGS</li>
+<li class='mutator'>MATH</li>
+<li class='mutator'>NEGATE_CONDITIONALS</li>
+<li class='mutator'>NULL_RETURNS</li>
+<li class='mutator'>PRIMITIVE_RETURNS</li>
+<li class='mutator'>TRUE_RETURNS</li>
+<li class='mutator'>VOID_METHOD_CALLS</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:TestMonotonicDecreasingList()] (0 ms)</li><li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:testMonotonicDecreasingList()] (0 ms)</li><li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:testMonotonicIncreasingList2()] (0 ms)</li><li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:testMonotonicIncreasingSequence2()] (0 ms)</li><li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:testNonMonotonicSequenceIncreasingThenDecreasing()] (0 ms)</li><li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:testNonMonotonicList2Fixed()] (0 ms)</li><li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:testNonMonotonic()] (0 ms)</li><li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:testMonotonicIncreasingList()] (0 ms)</li><li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:testNonMonotonicList()] (0 ms)</li><li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:testNonMonotonicList3()] (0 ms)</li><li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:testMonotonicDecreasingWithDifferentValues()] (0 ms)</li><li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:testNonMonotonicListWithDirectionChanges1()] (0 ms)</li><li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:test_Duplicate_Elements_Test_5()] (0 ms)</li><li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:testMonotonicIncreasingSequence()] (0 ms)</li><li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:testMonotonicDecreasingList2()] (0 ms)</li><li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:TestNonMonotonicList()] (0 ms)</li><li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:TestMonotonicDecreasing()] (0 ms)</li><li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:test_Negative_Numbers_Test_6()] (0 ms)</li><li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:test_monotonic_decreasing()] (0 ms)</li><li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:TestMonotonicNonMonotonicList()] (0 ms)</li><li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:testDuplicateElementsDecreasing()] (0 ms)</li><li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:testDuplicateElementsIncreasing()] (0 ms)</li><li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:testMonotonicIncreasing()] (0 ms)</li><li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:testNonMonotonicList2()] (0 ms)</li><li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:testNonMonotonicListWithDirectionChange1()] (0 ms)</li><li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:testMonotonicDecreasingListUnique()] (0 ms)</li><li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:test_non_monotonic_increasing_decreasing()] (0 ms)</li><li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:testMonotonicDecreasingSequence()] (0 ms)</li><li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:testMonotonicDecreasingListWithEqualElements1()] (0 ms)</li><li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:testMonotonicIncreasingList3()] (0 ms)</li><li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:testMonotonicDecreasingListCorrected()] (0 ms)</li><li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:test_monotonic_increasing_1()] (0 ms)</li><li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:test_Monotonic_Increasing_Test_1()] (0 ms)</li><li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:testDuplicateElementsListFixed2()] (0 ms)</li><li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:testMonotonicDecreasing()] (0 ms)</li><li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:testMonotonicDecreasing1()] (0 ms)</li><li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:test_Monotonic_Decreasing_Test_2()] (0 ms)</li><li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:test_Non_Monotonic_Test_3()] (0 ms)</li><li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:testMonotonicDecreasing2()] (0 ms)</li><li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:test_Monotonic_IncreasingList_ReturnsTrue()] (0 ms)</li><li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:testMonotonicIncreasingListUnique()] (0 ms)</li><li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:testMonotonicEqualElementsList()] (0 ms)</li><li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:testDuplicateElementsList()] (0 ms)</li><li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:test_equal_elements()] (0 ms)</li><li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:TestMonotonicConstantList()] (0 ms)</li><li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:testDuplicateElements()] (0 ms)</li><li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:testListWithSameElements()] (0 ms)</li><li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:testSequenceWithEqualElements()] (0 ms)</li><li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:test_two_elements()] (0 ms)</li><li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:TestMonotonicIncreasing1()] (0 ms)</li><li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:TestNonMonotonicList1Fixed()] (0 ms)</li><li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:TestMonotonicDecreasing1()] (0 ms)</li><li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:testSingleElementList()] (0 ms)</li><li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:test_Single_Element_List_Test_4()] (0 ms)</li><li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:testSingleElementList_ReturnsTrue()] (0 ms)</li><li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:testSingleElementList1()] (0 ms)</li><li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:testListWithSingleElement()] (0 ms)</li><li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:testSingleElementListCorrected()] (0 ms)</li><li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:TestSingleElementList1()] (0 ms)</li><li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:test_single_element()] (0 ms)</li><li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:testSingleElementSequence()] (0 ms)</li><li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:TestMonotonicSingleElementList()] (0 ms)</li><li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:TestSingleElementList()] (0 ms)</li><li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:testSingleElementListUnique()] (0 ms)</li><li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:testEmptyList2()] (0 ms)</li><li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:testEmptyList()] (0 ms)</li><li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:TestEmptyList1()] (0 ms)</li><li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:TestMonotonicEmptyList()] (0 ms)</li><li>original.MonotonicTest.[engine:junit-jupiter]/[class:original.MonotonicTest]/[method:TestEmptyList()] (0 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='https://pitest.org'>PIT</a> 1.18.0
+
+</body>
+</html>

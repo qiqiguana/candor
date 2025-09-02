@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_2392.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">leetcode</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_2392.java</span></div><h1>id_2392.java</h1><pre class="source lang-java linenums">package original;
+
+import java.util.ArrayDeque;
+import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.Deque;
+import java.util.List;
+<span class="nc" id="L8">class Solution2392 {</span>
+    private int k;
+
+    public int[][] buildMatrix(int k, int[][] rowConditions, int[][] colConditions) {
+  /**
+  You are given a positive integer k. You are also given: a 2D integer array rowConditions of size n where rowConditions[i] = [abovei, belowi], and a 2D integer array colConditions of size m where colConditions[i] = [lefti, righti]. The two arrays contain integers from 1 to k. You have to build a k x k matrix that contains each of the numbers from 1 to k exactly once. The remaining cells should have the value 0. The matrix should also satisfy the following conditions: The number abovei should appear in a row that is strictly above the row at which the number belowi appears for all i from 0 to n - 1. The number lefti should appear in a column that is strictly left of the column at which the number righti appears for all i from 0 to m - 1. Return any matrix that satisfies the conditions. If no answer exists, return an empty matrix. &amp;nbsp; Example 1: Input: k = 3, rowConditions = [[1,2],[3,2]], colConditions = [[2,1],[3,2]] Output: [[3,0,0],[0,0,1],[0,2,0]] Explanation: The diagram above shows a valid example of a matrix that satisfies all the conditions. The row conditions are the following: - Number 1 is in row 1, and number 2 is in row 2, so 1 is above 2 in the matrix. - Number 3 is in row 0, and number 2 is in row 2, so 3 is above 2 in the matrix. The column conditions are the following: - Number 2 is in column 1, and number 1 is in column 2, so 2 is left of 1 in the matrix. - Number 3 is in column 0, and number 2 is in column 1, so 3 is left of 2 in the matrix. Note that there may be multiple correct answers. Example 2: Input: k = 3, rowConditions = [[1,2],[2,3],[3,1],[2,3]], colConditions = [[2,1]] Output: [] Explanation: From the first two conditions, 3 has to be below 1 but the third conditions needs 3 to be above 1 to be satisfied. No matrix can satisfy all the conditions, so we return the empty matrix. &amp;nbsp; Constraints: 2 &amp;lt;= k &amp;lt;= 400 1 &amp;lt;= rowConditions.length, colConditions.length &amp;lt;= 104 rowConditions[i].length == colConditions[i].length == 2 1 &amp;lt;= abovei, belowi, lefti, righti &amp;lt;= k abovei != belowi lefti != righti
+  */
+<span class="nc" id="L15">        this.k = k;</span>
+<span class="nc" id="L16">        List&lt;Integer&gt; row = f(rowConditions);</span>
+<span class="nc" id="L17">        List&lt;Integer&gt; col = f(colConditions);</span>
+<span class="nc bnc" id="L18" title="All 4 branches missed.">        if (row == null || col == null) {</span>
+<span class="nc" id="L19">            return new int[0][0];</span>
+        }
+<span class="nc" id="L21">        int[][] ans = new int[k][k];</span>
+<span class="nc" id="L22">        int[] m = new int[k + 1];</span>
+<span class="nc bnc" id="L23" title="All 2 branches missed.">        for (int i = 0; i &lt; k; ++i) {</span>
+<span class="nc" id="L24">            m[col.get(i)] = i;</span>
+        }
+<span class="nc bnc" id="L26" title="All 2 branches missed.">        for (int i = 0; i &lt; k; ++i) {</span>
+<span class="nc" id="L27">            ans[i][m[row.get(i)]] = row.get(i);</span>
+        }
+<span class="nc" id="L29">        return ans;</span>
+    }
+
+    private List&lt;Integer&gt; f(int[][] cond) {
+<span class="nc" id="L33">        List&lt;Integer&gt;[] g = new List[k + 1];</span>
+<span class="nc" id="L34">        Arrays.setAll(g, key -&gt; new ArrayList&lt;&gt;());</span>
+<span class="nc" id="L35">        int[] indeg = new int[k + 1];</span>
+<span class="nc bnc" id="L36" title="All 2 branches missed.">        for (var e : cond) {</span>
+<span class="nc" id="L37">            int a = e[0], b = e[1];</span>
+<span class="nc" id="L38">            g[a].add(b);</span>
+<span class="nc" id="L39">            ++indeg[b];</span>
+        }
+<span class="nc" id="L41">        Deque&lt;Integer&gt; q = new ArrayDeque&lt;&gt;();</span>
+<span class="nc bnc" id="L42" title="All 2 branches missed.">        for (int i = 1; i &lt; indeg.length; ++i) {</span>
+<span class="nc bnc" id="L43" title="All 2 branches missed.">            if (indeg[i] == 0) {</span>
+<span class="nc" id="L44">                q.offer(i);</span>
+            }
+        }
+<span class="nc" id="L47">        List&lt;Integer&gt; res = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L48" title="All 2 branches missed.">        while (!q.isEmpty()) {</span>
+<span class="nc bnc" id="L49" title="All 2 branches missed.">            for (int n = q.size(); n &gt; 0; --n) {</span>
+<span class="nc" id="L50">                int i = q.pollFirst();</span>
+<span class="nc" id="L51">                res.add(i);</span>
+<span class="nc bnc" id="L52" title="All 2 branches missed.">                for (int j : g[i]) {</span>
+<span class="nc bnc" id="L53" title="All 2 branches missed.">                    if (--indeg[j] == 0) {</span>
+<span class="nc" id="L54">                        q.offer(j);</span>
+                    }
+<span class="nc" id="L56">                }</span>
+            }
+        }
+<span class="nc bnc" id="L59" title="All 2 branches missed.">        return res.size() == k ? res : null;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

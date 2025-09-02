@@ -1,0 +1,264 @@
+nohup: ignoring input
+2025-08-14 17:41:31,494   INFO : 
+
+ Processing file 1/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_0/fix/src/main/java/original/id_150.java
+2025-08-14 17:41:32.301287: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2025-08-14 17:41:32.311108: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1755189692.322562 1635603 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1755189692.325723 1635603 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+W0000 00:00:1755189692.334272 1635603 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1755189692.334292 1635603 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1755189692.334294 1635603 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1755189692.334296 1635603 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+2025-08-14 17:41:32.336923: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX512_FP16 AVX_VNNI AMX_TILE AMX_INT8 AMX_BF16 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-08-14 17:41:34,800   INFO : 
+
+
+
+                ▗▄▄▄▖  ▗▄▖  ▗▖  ▗▖ ▗▄▄▄    ▗▄▖  ▗▄▄▖ 
+                ▐▌    ▐▌ ▐▌ ▐▛▚▖▐▌ ▐▌  █  ▐▌ ▐▌ ▐▌ ▐▌
+                ▐▌    ▐▛▀▜▌ ▐▌ ▝▜▌ ▐▌  █  ▐▌ ▐▌ ▐▛▀▚▖
+                ▝▚▄▄▖ ▐▌ ▐▌ ▐▌  ▐▌ ▐▙▄▄▀  ▝▚▄▞▘ ▐▌ ▐▌
+
+2025-08-14 17:41:34,800   INFO : ======================================================================
+
+2025-08-14 17:41:34,800   INFO : 🚀 Starting MATG: Multi-Agent LLM-Based Test Generation Framework
+2025-08-14 17:41:34,800   INFO : 📘 Purpose : Automated test generation for Java using LLM agents
+2025-08-14 17:41:34,800   INFO : 🧠 Agents  : Planner, Generator, Executor, and Evaluator
+2025-08-14 17:41:34,800   INFO : 🛠️  Engine  : Powered by matg (Machine-Assisted Test Generation)
+2025-08-14 17:41:34,800   INFO : ======================================================================
+
+
+/home/qinghua/anaconda3/envs/llm4test/lib/python3.11/site-packages/tree_sitter/__init__.py:36: FutureWarning: Language(path, name) is deprecated. Use Language(ptr, name) instead.
+  warn("{} is deprecated. Use {} instead.".format(old, new), FutureWarning)
+/home/qinghua/anaconda3/envs/llm4test/lib/python3.11/site-packages/tree_sitter/__init__.py:36: FutureWarning: Language(path, name) is deprecated. Use Language(ptr, name) instead.
+  warn("{} is deprecated. Use {} instead.".format(old, new), FutureWarning)
+2025-08-14 17:41:34,838   INFO : 🚨🚨🚨 🚀 🚀 🚀 ----- 🤖 AGENT REQUIREMENT ENGINEER: Generating Requirements ----- 🚀 🚀 🚀 🚨🚨🚨 
+java
+Here is the output in JSON format:
+
+```
+{
+  "requirements": "The function xOrY should return the value of y if n is not a prime number and return the value of x otherwise.",
+  "specifications": "(∀n, x, y ∈ ℤ) (isPrime(n) → xOrY(n, x, y) = x) ∧ (∼isPrime(n) → xOrY(n, x, y) = y)"
+}
+```
+
+Explanation:
+
+* In the requirements field, I have described the functionality of the `xOrY` function in natural language.
+* In the specifications field, I have written a formal specification using predicate logic. The specification states that for all integers n, x, and y:
+	+ If n is prime (isPrime(n)), then the result of xOrY(n, x, y) should be equal to x.
+	+ If n is not prime (∼isPrime(n)), then the result of xOrY(n, x, y) should be equal to y.
+
+Note: `ℤ` represents the set of integers, and `∀` is the universal quantifier ("for all"). `∧` represents conjunction ("and"), and `→` represents implication ("if-then"). `isPrime(n)` is a predicate that checks whether n is prime or not.2025-08-14 17:42:01,837   INFO : 🚨🚨🚨 🚀 🚀 🚀 ----- 🤖 AGENT TEST CASE PARSER: PARSING TEST CASE ----- 🚀 🚀 🚀 🚨🚨🚨 
+2025-08-14 17:42:01,838   ERROR : Error in oracle fixer: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_0/fix/src/test/java/original/id_150Test.java 
+'Analyzer' object has no attribute 'get_test_method_name_nodes'
+2025-08-14 17:42:02,577   INFO : 
+
+ Processing file 2/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_0/fix/src/main/java/original/id_130.java
+2025-08-14 17:42:03.370228: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2025-08-14 17:42:03.379630: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1755189723.390673 1635931 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1755189723.393874 1635931 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+W0000 00:00:1755189723.402283 1635931 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1755189723.402302 1635931 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1755189723.402304 1635931 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1755189723.402305 1635931 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+2025-08-14 17:42:03.404847: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX512_FP16 AVX_VNNI AMX_TILE AMX_INT8 AMX_BF16 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-08-14 17:42:05,933   INFO : 
+
+
+
+                ▗▄▄▄▖  ▗▄▖  ▗▖  ▗▖ ▗▄▄▄    ▗▄▖  ▗▄▄▖ 
+                ▐▌    ▐▌ ▐▌ ▐▛▚▖▐▌ ▐▌  █  ▐▌ ▐▌ ▐▌ ▐▌
+                ▐▌    ▐▛▀▜▌ ▐▌ ▝▜▌ ▐▌  █  ▐▌ ▐▌ ▐▛▀▚▖
+                ▝▚▄▄▖ ▐▌ ▐▌ ▐▌  ▐▌ ▐▙▄▄▀  ▝▚▄▞▘ ▐▌ ▐▌
+
+2025-08-14 17:42:05,933   INFO : ======================================================================
+
+2025-08-14 17:42:05,933   INFO : 🚀 Starting MATG: Multi-Agent LLM-Based Test Generation Framework
+2025-08-14 17:42:05,933   INFO : 📘 Purpose : Automated test generation for Java using LLM agents
+2025-08-14 17:42:05,933   INFO : 🧠 Agents  : Planner, Generator, Executor, and Evaluator
+2025-08-14 17:42:05,933   INFO : 🛠️  Engine  : Powered by matg (Machine-Assisted Test Generation)
+2025-08-14 17:42:05,933   INFO : ======================================================================
+
+
+/home/qinghua/anaconda3/envs/llm4test/lib/python3.11/site-packages/tree_sitter/__init__.py:36: FutureWarning: Language(path, name) is deprecated. Use Language(ptr, name) instead.
+  warn("{} is deprecated. Use {} instead.".format(old, new), FutureWarning)
+/home/qinghua/anaconda3/envs/llm4test/lib/python3.11/site-packages/tree_sitter/__init__.py:36: FutureWarning: Language(path, name) is deprecated. Use Language(ptr, name) instead.
+  warn("{} is deprecated. Use {} instead.".format(old, new), FutureWarning)
+2025-08-14 17:42:05,972   INFO : 🚨🚨🚨 🚀 🚀 🚀 ----- 🤖 AGENT REQUIREMENT ENGINEER: Generating Requirements ----- 🚀 🚀 🚀 🚨🚨🚨 
+java
+{
+  "requirements": "The source code generates a list of the first n + 1 numbers in the Tribonacci sequence, where the Tribonacci sequence is defined by the recurrence: tri(1) = 3, tri(n) = 1 + n / 2 if n is even, and tri(n) = tri(n - 1) + tri(n - 2) + tri(n + 1) if n is odd.",
+  "specifications": "(∀n ∈ ℕ)(∃seq ∈ ℝ^(n+1))(seq(0) = 1 ∧ seq(1) = 3 ∧ (∀i ∈ ℕ)(i < n → (iseven(i) → seq(i+1) = 1 + i/2) ∧ (isodd(i) → seq(i+1) = seq(i-1) + seq(i) + seq(i+2)))))"
+}2025-08-14 17:43:03,975   INFO : 🚨🚨🚨 🚀 🚀 🚀 ----- 🤖 AGENT TEST CASE PARSER: PARSING TEST CASE ----- 🚀 🚀 🚀 🚨🚨🚨 
+2025-08-14 17:43:03,976   ERROR : Error in oracle fixer: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_0/fix/src/test/java/original/id_130Test.java 
+'Analyzer' object has no attribute 'get_test_method_name_nodes'
+2025-08-14 17:43:04,694   INFO : 
+
+ Processing file 3/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_0/fix/src/main/java/original/id_146.java
+2025-08-14 17:43:05.506729: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2025-08-14 17:43:05.516590: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1755189785.527850 1636323 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1755189785.531080 1636323 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+W0000 00:00:1755189785.539511 1636323 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1755189785.539530 1636323 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1755189785.539532 1636323 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1755189785.539534 1636323 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+2025-08-14 17:43:05.542122: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX512_FP16 AVX_VNNI AMX_TILE AMX_INT8 AMX_BF16 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-08-14 17:43:08,092   INFO : 
+
+
+
+                ▗▄▄▄▖  ▗▄▖  ▗▖  ▗▖ ▗▄▄▄    ▗▄▖  ▗▄▄▖ 
+                ▐▌    ▐▌ ▐▌ ▐▛▚▖▐▌ ▐▌  █  ▐▌ ▐▌ ▐▌ ▐▌
+                ▐▌    ▐▛▀▜▌ ▐▌ ▝▜▌ ▐▌  █  ▐▌ ▐▌ ▐▛▀▚▖
+                ▝▚▄▄▖ ▐▌ ▐▌ ▐▌  ▐▌ ▐▙▄▄▀  ▝▚▄▞▘ ▐▌ ▐▌
+
+2025-08-14 17:43:08,092   INFO : ======================================================================
+
+2025-08-14 17:43:08,092   INFO : 🚀 Starting MATG: Multi-Agent LLM-Based Test Generation Framework
+2025-08-14 17:43:08,092   INFO : 📘 Purpose : Automated test generation for Java using LLM agents
+2025-08-14 17:43:08,092   INFO : 🧠 Agents  : Planner, Generator, Executor, and Evaluator
+2025-08-14 17:43:08,092   INFO : 🛠️  Engine  : Powered by matg (Machine-Assisted Test Generation)
+2025-08-14 17:43:08,092   INFO : ======================================================================
+
+
+/home/qinghua/anaconda3/envs/llm4test/lib/python3.11/site-packages/tree_sitter/__init__.py:36: FutureWarning: Language(path, name) is deprecated. Use Language(ptr, name) instead.
+  warn("{} is deprecated. Use {} instead.".format(old, new), FutureWarning)
+/home/qinghua/anaconda3/envs/llm4test/lib/python3.11/site-packages/tree_sitter/__init__.py:36: FutureWarning: Language(path, name) is deprecated. Use Language(ptr, name) instead.
+  warn("{} is deprecated. Use {} instead.".format(old, new), FutureWarning)
+2025-08-14 17:43:08,130   INFO : 🚨🚨🚨 🚀 🚀 🚀 ----- 🤖 AGENT REQUIREMENT ENGINEER: Generating Requirements ----- 🚀 🚀 🚀 🚨🚨🚨 
+java
+{
+  "requirements": "Create a function that filters an array of numbers and returns the count of elements that meet two conditions: the number is greater than 10 and both its first and last digits are odd.",
+  "specifications": "∀n ∈ Numbers, ∃Function specialFilter(N) = {Count | (Number > 10 ∧ FirstDigit(Number) ∈ [1,3,5,7,9] ∧ LastDigit(Number) ∈ [1,3,5,7,9])}"
+}2025-08-14 17:44:08,795   INFO : 🚨🚨🚨 🚀 🚀 🚀 ----- 🤖 AGENT TEST CASE PARSER: PARSING TEST CASE ----- 🚀 🚀 🚀 🚨🚨🚨 
+2025-08-14 17:44:08,795   ERROR : Error in oracle fixer: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_0/fix/src/test/java/original/id_146Test.java 
+'Analyzer' object has no attribute 'get_test_method_name_nodes'
+2025-08-14 17:44:09,497   INFO : 
+
+ Processing file 4/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_0/fix/src/main/java/original/id_39.java
+2025-08-14 17:44:10.307333: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2025-08-14 17:44:10.317434: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1755189850.329198 1636667 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1755189850.332445 1636667 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+W0000 00:00:1755189850.341180 1636667 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1755189850.341202 1636667 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1755189850.341205 1636667 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1755189850.341213 1636667 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+2025-08-14 17:44:10.343935: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX512_FP16 AVX_VNNI AMX_TILE AMX_INT8 AMX_BF16 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-08-14 17:44:12,938   INFO : 
+
+
+
+                ▗▄▄▄▖  ▗▄▖  ▗▖  ▗▖ ▗▄▄▄    ▗▄▖  ▗▄▄▖ 
+                ▐▌    ▐▌ ▐▌ ▐▛▚▖▐▌ ▐▌  █  ▐▌ ▐▌ ▐▌ ▐▌
+                ▐▌    ▐▛▀▜▌ ▐▌ ▝▜▌ ▐▌  █  ▐▌ ▐▌ ▐▛▀▚▖
+                ▝▚▄▄▖ ▐▌ ▐▌ ▐▌  ▐▌ ▐▙▄▄▀  ▝▚▄▞▘ ▐▌ ▐▌
+
+2025-08-14 17:44:12,938   INFO : ======================================================================
+
+2025-08-14 17:44:12,938   INFO : 🚀 Starting MATG: Multi-Agent LLM-Based Test Generation Framework
+2025-08-14 17:44:12,938   INFO : 📘 Purpose : Automated test generation for Java using LLM agents
+2025-08-14 17:44:12,938   INFO : 🧠 Agents  : Planner, Generator, Executor, and Evaluator
+2025-08-14 17:44:12,938   INFO : 🛠️  Engine  : Powered by matg (Machine-Assisted Test Generation)
+2025-08-14 17:44:12,938   INFO : ======================================================================
+
+
+/home/qinghua/anaconda3/envs/llm4test/lib/python3.11/site-packages/tree_sitter/__init__.py:36: FutureWarning: Language(path, name) is deprecated. Use Language(ptr, name) instead.
+  warn("{} is deprecated. Use {} instead.".format(old, new), FutureWarning)
+/home/qinghua/anaconda3/envs/llm4test/lib/python3.11/site-packages/tree_sitter/__init__.py:36: FutureWarning: Language(path, name) is deprecated. Use Language(ptr, name) instead.
+  warn("{} is deprecated. Use {} instead.".format(old, new), FutureWarning)
+2025-08-14 17:44:12,982   INFO : 🚨🚨🚨 🚀 🚀 🚀 ----- 🤖 AGENT REQUIREMENT ENGINEER: Generating Requirements ----- 🚀 🚀 🚀 🚨🚨🚨 
+java
+{"requirements": "The function primeFib(n) returns the n-th number that is both a Fibonacci number and a prime number.", "specifications": "\\forall n \\in \\mathbb{N} (primeFib(n) = x \\leftrightarrow (isFibonacci(x) \\land isPrime(x) \\land \\exists k \\in \\mathbb{N} (x = fib(k) \\land k \\geq n)))"}2025-08-14 17:44:59,845   INFO : 🚨🚨🚨 🚀 🚀 🚀 ----- 🤖 AGENT TEST CASE PARSER: PARSING TEST CASE ----- 🚀 🚀 🚀 🚨🚨🚨 
+2025-08-14 17:44:59,847   ERROR : Error in oracle fixer: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_0/fix/src/test/java/original/id_39Test.java 
+'Analyzer' object has no attribute 'get_test_method_name_nodes'
+2025-08-14 17:45:00,677   INFO : 
+
+ Processing file 5/160: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_0/fix/src/main/java/original/id_53.java
+2025-08-14 17:45:01.502736: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2025-08-14 17:45:01.512495: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1755189901.523694 1637463 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1755189901.526861 1637463 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+W0000 00:00:1755189901.535361 1637463 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1755189901.535382 1637463 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1755189901.535384 1637463 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1755189901.535385 1637463 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+2025-08-14 17:45:01.538000: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX512_FP16 AVX_VNNI AMX_TILE AMX_INT8 AMX_BF16 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-08-14 17:45:04,076   INFO : 
+
+
+
+                ▗▄▄▄▖  ▗▄▖  ▗▖  ▗▖ ▗▄▄▄    ▗▄▖  ▗▄▄▖ 
+                ▐▌    ▐▌ ▐▌ ▐▛▚▖▐▌ ▐▌  █  ▐▌ ▐▌ ▐▌ ▐▌
+                ▐▌    ▐▛▀▜▌ ▐▌ ▝▜▌ ▐▌  █  ▐▌ ▐▌ ▐▛▀▚▖
+                ▝▚▄▄▖ ▐▌ ▐▌ ▐▌  ▐▌ ▐▙▄▄▀  ▝▚▄▞▘ ▐▌ ▐▌
+
+2025-08-14 17:45:04,076   INFO : ======================================================================
+
+2025-08-14 17:45:04,076   INFO : 🚀 Starting MATG: Multi-Agent LLM-Based Test Generation Framework
+2025-08-14 17:45:04,076   INFO : 📘 Purpose : Automated test generation for Java using LLM agents
+2025-08-14 17:45:04,076   INFO : 🧠 Agents  : Planner, Generator, Executor, and Evaluator
+2025-08-14 17:45:04,076   INFO : 🛠️  Engine  : Powered by matg (Machine-Assisted Test Generation)
+2025-08-14 17:45:04,076   INFO : ======================================================================
+
+
+/home/qinghua/anaconda3/envs/llm4test/lib/python3.11/site-packages/tree_sitter/__init__.py:36: FutureWarning: Language(path, name) is deprecated. Use Language(ptr, name) instead.
+  warn("{} is deprecated. Use {} instead.".format(old, new), FutureWarning)
+/home/qinghua/anaconda3/envs/llm4test/lib/python3.11/site-packages/tree_sitter/__init__.py:36: FutureWarning: Language(path, name) is deprecated. Use Language(ptr, name) instead.
+  warn("{} is deprecated. Use {} instead.".format(old, new), FutureWarning)
+2025-08-14 17:45:04,113   INFO : 🚨🚨🚨 🚀 🚀 🚀 ----- 🤖 AGENT REQUIREMENT ENGINEER: Generating Requirements ----- 🚀 🚀 🚀 🚨🚨🚨 
+java
+{
+  "requirements": "A function that takes two numbers as input and returns their sum.",
+  "specifications": "\u2200x \u2200y (add(x, y) = x + y)"
+}2025-08-14 17:45:11,628   INFO : 🚨🚨🚨 🚀 🚀 🚀 ----- 🤖 AGENT TEST CASE PARSER: PARSING TEST CASE ----- 🚀 🚀 🚀 🚨🚨🚨 
+/home/qinghua/anaconda3/envs/llm4test/lib/python3.11/site-packages/tree_sitter/__init__.py:36: FutureWarning: Language(path, name) is deprecated. Use Language(ptr, name) instead.
+  warn("{} is deprecated. Use {} instead.".format(old, new), FutureWarning)
+2025-08-14 17:45:11,633   ERROR : Error in oracle fixer: /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_0/fix/src/test/java/original/id_53Test.java 
+list index out of range
+2025-08-14 17:45:11,633   INFO : No backup file found for /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_0/fix/src/test/java/original/id_53Test.java
+2025-08-14 17:45:11,633   INFO : Failed to revert file /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_0/fix/src/test/java/original/id_53Test.java: No backup file found for /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_0/fix/src/test/java/original/id_53Test.java
+Traceback (most recent call last):
+  File "/home/qinghua/projects/matg/fix_oracle.py", line 114, in run
+    test_prefix, assertORexception, oracle_text, test_prefix_wo_oracle,test_method_name=FileUtils.parse_test_method(self.test_file_path,test_code)
+                                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/qinghua/projects/matg/utils.py", line 139, in parse_test_method
+    start, end = test_method_name_nodes[0].start_point, test_method_name_nodes[0].end_point
+                 ~~~~~~~~~~~~~~~~~~~~~~^^^
+IndexError: list index out of range
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/qinghua/projects/matg/main.py", line 87, in <module>
+    main()
+  File "/home/qinghua/projects/matg/main.py", line 85, in main
+    oracle_fixer.run()
+  File "/home/qinghua/projects/matg/fix_oracle.py", line 177, in run
+    FileUtils.revert(self.test_file_path)
+  File "/home/qinghua/projects/matg/utils.py", line 48, in revert
+    raise FileNotFoundError(f"No backup file found for {file_path}")
+FileNotFoundError: No backup file found for /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_0/fix/src/test/java/original/id_53Test.java
+Traceback (most recent call last):
+  File "/home/qinghua/projects/matg/run_experiments.py", line 116, in <module>
+    subprocess.run(command, check=True)
+  File "/home/qinghua/anaconda3/envs/llm4test/lib/python3.11/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['python', '-m', 'matg.main', 'oracle-fixer', '--data-path', '/home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_0/fix', '--relative-source-file-path', 'src/main/java/original/id_53.java', '--relative-test-file-path', 'src/test/java/original/id_53Test.java', '--test-command', 'mvn -f /home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_0/fix/pom.xml clean -Dtest=Add test jacoco:report', '--generator', 'matg']' returned non-zero exit status 1.

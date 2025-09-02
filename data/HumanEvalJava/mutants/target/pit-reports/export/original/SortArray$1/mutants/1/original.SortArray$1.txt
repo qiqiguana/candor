@@ -1,0 +1,78 @@
+// class version 55.0 (55)
+// access flags 0x20
+// signature Ljava/lang/Object;Ljava/util/Comparator<Ljava/lang/Object;>;
+// declaration: original/SortArray$1 implements java.util.Comparator<java.lang.Object>
+class original/SortArray$1 implements java/util/Comparator {
+
+  // compiled from: id_116.java
+  NESTHOST original/SortArray
+  OUTERCLASS original/SortArray sortArray (Ljava/util/List;)Ljava/util/List;
+  // access flags 0x0
+  INNERCLASS original/SortArray$1 null null
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 45 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/SortArray$1; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public compare(Ljava/lang/Object;Ljava/lang/Object;)I
+   L0
+    LINENUMBER 47 L0
+    ALOAD 1
+    CHECKCAST [I
+    ASTORE 3
+   L1
+    LINENUMBER 48 L1
+    ALOAD 2
+    CHECKCAST [I
+    ASTORE 4
+   L2
+    LINENUMBER 49 L2
+    ALOAD 3
+    ICONST_0
+    IALOAD
+    ALOAD 4
+    ICONST_0
+    IALOAD
+    IF_ICMPNE L3
+   L4
+    LINENUMBER 50 L4
+    ALOAD 3
+    ICONST_1
+    IALOAD
+    ALOAD 4
+    ICONST_1
+    IALOAD
+    ISUB
+    POP
+    ICONST_0
+    IRETURN
+   L3
+    LINENUMBER 52 L3
+   FRAME FULL [original/SortArray$1 java/lang/Object java/lang/Object [I [I] []
+    ALOAD 3
+    ICONST_0
+    IALOAD
+    ALOAD 4
+    ICONST_0
+    IALOAD
+    ISUB
+    IRETURN
+   L5
+    LOCALVARIABLE this Loriginal/SortArray$1; L0 L5 0
+    LOCALVARIABLE o1 Ljava/lang/Object; L0 L5 1
+    LOCALVARIABLE o2 Ljava/lang/Object; L0 L5 2
+    LOCALVARIABLE a1 [I L1 L5 3
+    LOCALVARIABLE a2 [I L2 L5 4
+    MAXSTACK = 3
+    MAXLOCALS = 5
+}
+

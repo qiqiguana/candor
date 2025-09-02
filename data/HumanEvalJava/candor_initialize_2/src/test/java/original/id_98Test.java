@@ -1,0 +1,28 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of CountUpper.
+*/
+class CountUpperTest {
+    @Test
+    void countUpper_ReturnsZero_WhenInputStringIsEmpty() {
+        // Arrange & Act
+        int result = CountUpper.countUpper("");
+        // Assert
+        assertEquals(0, result);
+    }
+    
+    @Test
+        public void testNothing(){
+            CountUpper s = new CountUpper();
+            }
+    @Test
+    public void CountUpper_EvenIndexUppercaseVowel() {
+        String input = new String("aBCdEf");
+        int expected = 1;
+        assertEquals(expected, original.CountUpper.countUpper(input));
+    }
+                                    
+}

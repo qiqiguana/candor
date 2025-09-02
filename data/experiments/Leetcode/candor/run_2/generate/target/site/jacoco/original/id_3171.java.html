@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_3171.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">leetcode</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_3171.java</span></div><h1>id_3171.java</h1><pre class="source lang-java linenums">package original;
+
+<span class="fc" id="L3">class Solution3171 {</span>
+    public int minimumDifference(int[] nums, int k) {
+<span class="fc" id="L5">        int mx = 0;</span>
+<span class="fc bfc" id="L6" title="All 2 branches covered.">        for (int x : nums) {</span>
+<span class="fc" id="L7">            mx = Math.max(mx, x);</span>
+        }
+<span class="fc" id="L9">        int m = 32 - Integer.numberOfLeadingZeros(mx);</span>
+<span class="fc" id="L10">        int[] cnt = new int[m];</span>
+<span class="fc" id="L11">        int n = nums.length;</span>
+<span class="fc" id="L12">        int ans = Integer.MAX_VALUE;</span>
+<span class="fc bfc" id="L13" title="All 2 branches covered.">        for (int i = 0, j = 0, s = 0; j &lt; n; ++j) {</span>
+<span class="fc" id="L14">            s |= nums[j];</span>
+<span class="fc" id="L15">            ans = Math.min(ans, Math.abs(s - k));</span>
+<span class="fc bfc" id="L16" title="All 2 branches covered.">            for (int h = 0; h &lt; m; ++h) {</span>
+<span class="fc bfc" id="L17" title="All 2 branches covered.">                if ((nums[j] &gt;&gt; h &amp; 1) == 1) {</span>
+<span class="fc" id="L18">                    ++cnt[h];</span>
+                }
+            }
+<span class="fc bfc" id="L21" title="All 4 branches covered.">            while (i &lt; j &amp;&amp; s &gt; k) {</span>
+<span class="fc bfc" id="L22" title="All 2 branches covered.">                for (int h = 0; h &lt; m; ++h) {</span>
+<span class="fc bfc" id="L23" title="All 4 branches covered.">                    if ((nums[i] &gt;&gt; h &amp; 1) == 1 &amp;&amp; --cnt[h] == 0) {</span>
+<span class="fc" id="L24">                        s ^= 1 &lt;&lt; h;</span>
+                    }
+                }
+<span class="fc" id="L27">                ++i;</span>
+<span class="fc" id="L28">                ans = Math.min(ans, Math.abs(s - k));</span>
+            }
+        }
+<span class="fc" id="L31">        return ans;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

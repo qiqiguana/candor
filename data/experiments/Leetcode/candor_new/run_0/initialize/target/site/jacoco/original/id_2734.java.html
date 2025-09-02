@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_2734.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">leetcode</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_2734.java</span></div><h1>id_2734.java</h1><pre class="source lang-java linenums">package original;
+
+<span class="fc" id="L3">class Solution2734 {</span>
+    public String smallestString(String s) {
+  /**
+  Given a string s consisting of lowercase English letters. Perform the following operation: Select any non-empty substring then replace every letter of the substring with the preceding letter of the English alphabet. For example, &amp;#39;b&amp;#39; is converted to &amp;#39;a&amp;#39;, and &amp;#39;a&amp;#39; is converted to &amp;#39;z&amp;#39;. Return the lexicographically smallest string after performing the operation. &amp;nbsp; Example 1: Input: s = &amp;quot;cbabc&amp;quot; Output: &amp;quot;baabc&amp;quot; Explanation: Perform the operation on the substring starting at index 0, and ending at index 1 inclusive. Example 2: Input: s = &amp;quot;aa&amp;quot; Output: &amp;quot;az&amp;quot; Explanation: Perform the operation on the last letter. Example 3: Input: s = &amp;quot;acbbc&amp;quot; Output: &amp;quot;abaab&amp;quot; Explanation: Perform the operation on the substring starting at index 1, and ending at index 4 inclusive. Example 4: Input: s = &amp;quot;leetcode&amp;quot; Output: &amp;quot;kddsbncd&amp;quot; Explanation: Perform the operation on the entire string. &amp;nbsp; Constraints: 1 &amp;lt;= s.length &amp;lt;= 3 * 105 s consists of lowercase English letters
+  */
+<span class="fc" id="L8">        int n = s.length();</span>
+<span class="fc" id="L9">        int i = 0;</span>
+<span class="pc bpc" id="L10" title="1 of 4 branches missed.">        while (i &lt; n &amp;&amp; s.charAt(i) == 'a') {</span>
+<span class="fc" id="L11">            ++i;</span>
+        }
+<span class="pc bpc" id="L13" title="1 of 2 branches missed.">        if (i == n) {</span>
+<span class="fc" id="L14">            return s.substring(0, n - 1) + &quot;z&quot;;</span>
+        }
+<span class="nc" id="L16">        int j = i;</span>
+<span class="nc" id="L17">        char[] cs = s.toCharArray();</span>
+<span class="nc bnc" id="L18" title="All 4 branches missed.">        while (j &lt; n &amp;&amp; cs[j] != 'a') {</span>
+<span class="nc" id="L19">            cs[j] = (char) (cs[j] - 1);</span>
+<span class="nc" id="L20">            ++j;</span>
+        }
+<span class="nc" id="L22">        return String.valueOf(cs);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

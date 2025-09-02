@@ -1,0 +1,35 @@
+package original;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of Fibfib.
+*/
+class FibfibTest {
+    @Test
+    void testFibFibBaseCase() {
+        assertEquals(1, Fibfib.fibfib(2));
+    }
+    
+    @Test
+        public void testNothing(){
+            Fibfib s = new Fibfib();
+            }
+    @Test
+    public void FibfibBaseCaseTest() {
+        int result = original.Fibfib.fibfib(0);
+        assertEquals(0, result);
+    }
+    @Test
+    public void FibfibBaseCaseTest2() {
+        int result = original.Fibfib.fibfib(1);
+        assertEquals(0, result);
+    }
+    @Test
+    public void FibfibInitializationTest() {
+        int result = original.Fibfib.fibfib(3);
+        assertEquals(1, result);
+    }
+                                    
+}

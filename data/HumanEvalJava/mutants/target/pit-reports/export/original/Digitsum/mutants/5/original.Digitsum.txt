@@ -1,0 +1,73 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Digitsum {
+
+  // compiled from: id_66.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 4 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Digitsum; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  public static digitSum(Ljava/lang/String;)I
+   L0
+    LINENUMBER 34 L0
+    ICONST_0
+    ISTORE 1
+   L1
+    LINENUMBER 35 L1
+    ICONST_0
+    ISTORE 2
+   L2
+   FRAME FULL [java/lang/String I I] []
+    ILOAD 2
+    ALOAD 0
+    INVOKEVIRTUAL java/lang/String.length ()I
+    IF_ICMPGE L3
+   L4
+    LINENUMBER 36 L4
+    ALOAD 0
+    ILOAD 2
+    INVOKEVIRTUAL java/lang/String.charAt (I)C
+    ISTORE 3
+   L5
+    LINENUMBER 37 L5
+    ILOAD 3
+    BIPUSH 65
+    IF_ICMPLT L6
+    ILOAD 3
+    BIPUSH 90
+    IF_ICMPGE L6
+   L7
+    LINENUMBER 38 L7
+    ILOAD 1
+    ILOAD 3
+    IADD
+    ISTORE 1
+   L6
+    LINENUMBER 35 L6
+   FRAME FULL [java/lang/String I I I] []
+    IINC 2 1
+    GOTO L2
+   L3
+    LINENUMBER 41 L3
+   FRAME FULL [java/lang/String I I] []
+    ILOAD 1
+    IRETURN
+   L8
+    LOCALVARIABLE c C L5 L6 3
+    LOCALVARIABLE i I L2 L3 2
+    LOCALVARIABLE s Ljava/lang/String; L0 L8 0
+    LOCALVARIABLE sum I L1 L8 1
+    MAXSTACK = 2
+    MAXLOCALS = 4
+}
+

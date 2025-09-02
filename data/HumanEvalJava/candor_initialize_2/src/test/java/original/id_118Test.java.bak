@@ -1,0 +1,39 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of GetClosestVowel.
+*/
+class GetClosestVowelTest {
+    @Test
+    void testGetClosestVowel() {
+        assertEquals("u", GetClosestVowel.getClosestVowel("yogurt"));
+    }
+    
+    @Test
+        public void testNothing(){
+            GetClosestVowel s = new GetClosestVowel();
+            }
+    @Test
+    public void testGetClosestVowel_WithEmptyString() {
+        String word = "";
+        assertEquals("", GetClosestVowel.getClosestVowel(word));
+    }
+    @Test
+    public void testGetClosestVowel_WithSingleCharacter() {
+        String word = "a";
+        assertEquals("", GetClosestVowel.getClosestVowel(word));
+    }
+    @Test
+    public void testGetClosestVowel_WithTwoCharacters() {
+        String word = "ab";
+        assertEquals("", GetClosestVowel.getClosestVowel(word));
+    }
+    @Test
+    public void testGetClosestVowel_WithVowelInMiddle_Fixed() {
+        String word = "abcde";
+        assertEquals("", GetClosestVowel.getClosestVowel(word));
+    }
+                                    
+}

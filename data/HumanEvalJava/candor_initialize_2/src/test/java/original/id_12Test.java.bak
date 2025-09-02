@@ -1,0 +1,33 @@
+package original;
+
+import java.util.List;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+/**
+* Test class of Longest.
+*/
+class LongestTest {
+    @Test
+    void testLongest() {
+        List<Object> input = List.of("a", "b", "c");
+        String expected = "a";
+        assertEquals(expected, Longest.longest(input));
+    }
+    
+    @Test
+        public void testNothing(){
+            Longest s = new Longest();
+            }
+    @Test
+    public void testLongestWithEmptyList() {
+        List<Object> input = List.of();
+        assertNull(Longest.longest(input));
+    }
+    @Test
+    public void testLongestWithSingleElementList() {
+        List<Object> input = List.of("a");
+        assertEquals("a", Longest.longest(input));
+    }
+                                    
+}

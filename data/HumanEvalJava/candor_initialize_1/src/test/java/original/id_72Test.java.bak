@@ -1,0 +1,53 @@
+package original;
+
+import java.util.Arrays;
+import java.util.List;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of WillItFly.
+*/
+class WillItFlyTest {
+    @Test
+    void willItFly_BalancedAndWithinWeightLimit_ReturnsTrue() {
+        List<Integer> q = List.of(3, 2, 3);
+        int w = 9;
+        assertTrue(WillItFly.willItFly(q, w));
+    }
+    @Test
+    public void TestWillItFly_NullList() {
+        List<Integer> q = null;
+        int w = 5;
+        assertThrows(NullPointerException.class, () -> WillItFly.willItFly(q, w));
+    }
+    @Test
+    public void palindromicListWithSumLessThanWeight3() {
+        List<Integer> q = Arrays.asList(3, 2, 3);
+        int w = 9;
+        assertTrue(WillItFly.willItFly(q, w));
+    }
+    @Test
+    public void testNonPalindromicListWithSumLessThanWeight() {
+        List<Integer> q = Arrays.asList(1, 2);
+        int w = 5;
+        assertFalse(WillItFly.willItFly(q, w));
+    }
+    @Test
+    public void testPalindromicListWithSumGreaterThanWeight() {
+        List<Integer> q = Arrays.asList(3, 2, 3);
+        int w = 1;
+        assertFalse(WillItFly.willItFly(q, w));
+    }
+    @Test
+    public void testSingleElementListWithSumLessThanWeight() {
+        List<Integer> q = Arrays.asList(3);
+        int w = 5;
+        assertTrue(WillItFly.willItFly(q, w));
+    }
+    @Test
+    public void testEmptyList() {
+        List<Integer> q = Arrays.asList();
+        int w = 5;
+        assertTrue(WillItFly.willItFly(q, w));
+    }
+}

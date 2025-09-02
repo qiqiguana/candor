@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_128.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HumanEvalJava</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_128.java</span></div><h1>id_128.java</h1><pre class="source lang-java linenums">package original;
+
+
+import java.util.List;
+
+
+<span class="fc" id="L7">class ProdSigns {</span>
+    /**
+     * * You are given an array arr of integers and you need to return
+     * sum of magnitudes of integers multiplied by product of all signs
+     * of each number in the array, represented by 1, -1 or 0.
+     * Note: return null for empty arr.
+     *
+     * Example:
+     * &gt;&gt;&gt; prodSigns([1, 2, 2, -4]) == -9
+     * &gt;&gt;&gt; prodSigns([0, 1]) == 0
+     * &gt;&gt;&gt; prodSigns([]) == None
+     *
+     * &gt; prodSigns([1, 2, 2, -4])
+     * -9
+     * &gt; prodSigns([0, 1])
+     * 0
+     * &gt; prodSigns([1, 1, 1, 2, 3, -1, 1])
+     * -10
+     * &gt; prodSigns([])
+     * null
+     * &gt; prodSigns([2, 4, 1, 2, -1, -1, 9])
+     * 20
+     * &gt; prodSigns([-1, 1, -1, 1])
+     * 4
+     * &gt; prodSigns([-1, 1, 1, 1])
+     * -4
+     * &gt; prodSigns([-1, 1, 1, 0])
+     * 0
+     */
+    public static Integer prodSigns(List&lt;Object&gt; arr) {
+<span class="fc bfc" id="L37" title="All 2 branches covered.">        if (arr.isEmpty()) {</span>
+<span class="fc" id="L38">            return null;</span>
+        }
+<span class="fc" id="L40">        int prod = 1;</span>
+<span class="fc" id="L41">        int sum = 0;</span>
+<span class="fc bfc" id="L42" title="All 2 branches covered.">        for (Object value : arr) {</span>
+<span class="fc bfc" id="L43" title="All 2 branches covered.">            if (value instanceof Integer) {</span>
+<span class="fc" id="L44">                int num = (Integer) value;</span>
+<span class="fc bfc" id="L45" title="All 2 branches covered.">                if (num &gt; 0) {</span>
+<span class="fc" id="L46">                    prod *= 1;</span>
+<span class="fc bfc" id="L47" title="All 2 branches covered.">                } else if (num &lt; 0) {</span>
+<span class="fc" id="L48">                    prod *= -1;</span>
+                } else {
+<span class="fc" id="L50">                    prod *= 0;</span>
+                }
+<span class="fc" id="L52">                sum += Math.abs(num);</span>
+            }
+<span class="fc" id="L54">        }</span>
+<span class="fc" id="L55">        return sum * prod;</span>
+    }
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

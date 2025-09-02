@@ -1,0 +1,87 @@
+package original;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of Exchange.
+*/
+class ExchangeTest {
+    @Test
+    void testExchangeEvenNumbers() {
+        List<Integer> lst1 = new ArrayList<>();
+        lst1.add(1);
+        lst1.add(2);
+        lst1.add(3);
+        lst1.add(4);
+        List<Integer> lst2 = new ArrayList<>();
+        lst2.add(1);
+        lst2.add(2);
+        lst2.add(3);
+        lst2.add(4);
+        assertEquals("YES", Exchange.exchange(lst1, lst2));
+    }
+    
+    @Test
+        public void testNothing(){
+            Exchange s = new Exchange();
+            }
+    @Test
+    public void test_empty_lists() {
+        List<Integer> list1 = new ArrayList<>();
+        List<Integer> list2 = new ArrayList<>();
+        assertEquals("YES", Exchange.exchange(list1, list2));
+    }
+    @Test
+    public void test_exchange_null_first_list() {
+        List<Integer> list1 = null;
+        List<Integer> list2 = new ArrayList<>();
+        assertThrows(NullPointerException.class, () -> Exchange.exchange(list1, list2));
+    }
+    @Test
+    public void test_null_second_list() {
+        List<Integer> list1 = new ArrayList<>();
+        List<Integer> list2 = null;
+        assertThrows(NullPointerException.class, () -> Exchange.exchange(list1, list2));
+    }
+    @Test
+    public void test_mixed_parity_even_numbers_in_list2() {
+        List<Integer> list1 = Arrays.asList(1, 2, 3, 4);
+        List<Integer> list2 = Arrays.asList(5, 6, 7, 8);
+        assertEquals("YES", Exchange.exchange(list1, list2));
+    }
+    @Test
+    public void test_first_list_even_1() {
+        List<Integer> list1 = Arrays.asList(2, 4, 6, 8);
+        List<Integer> list2 = Arrays.asList(5, 6, 7, 8);
+        assertEquals("YES", Exchange.exchange(list1, list2));
+    }
+    @Test
+    public void test_second_list_even() {
+        List<Integer> list1 = Arrays.asList(1, 2, 3, 4);
+        List<Integer> list2 = Arrays.asList(6, 8, 10, 12);
+        assertEquals("YES", Exchange.exchange(list1, list2));
+    }
+    @Test
+    public void test_large_lists_1() {
+        List<Integer> list1 = new ArrayList<>();
+        for (int i = 0; i < 10000; i++) {
+            list1.add(i);
+        }
+        List<Integer> list2 = new ArrayList<>();
+        for (int i = 0; i < 10000; i++) {
+            list2.add(i*2);
+        }
+        assertEquals("YES", Exchange.exchange(list1, list2));
+    }
+    @Test
+    public void test_first_list_odd() {
+        List<Integer> list1 = Arrays.asList(1, 3, 5, 7);
+        List<Integer> list2 = Arrays.asList(5, 6, 7, 8);
+        assertEquals("NO", Exchange.exchange(list1, list2));
+    }
+                                    
+}

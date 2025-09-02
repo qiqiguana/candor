@@ -1,0 +1,31 @@
+package original;
+
+import java.util.Arrays;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of Minsubarraysum.
+*/
+class MinsubarraysumTest {
+    @Test
+    void testMinsubarraysum_SingleElementList_ReturnsValue() {
+        List<Object> list = List.of(-10);
+        long result = Minsubarraysum.minsubarraysum(list);
+        assertEquals(-10, result);
+    }
+    
+    @Test
+        public void testNothing(){
+            Minsubarraysum s = new Minsubarraysum();
+            }
+    @Test
+    public void testMinSubArraySumWithNegativeNumbers() {
+        List<Object> nums = Arrays.asList(new Long(-1), new Long(-2), new Long(-3));
+        long result = Minsubarraysum.minsubarraysum(nums);
+        assertEquals(-6, result);
+    }
+                                    
+}

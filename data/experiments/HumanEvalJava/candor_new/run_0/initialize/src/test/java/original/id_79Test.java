@@ -1,0 +1,14 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of DecimalToBinary.
+*/
+class DecimalToBinaryTest {
+    @Test
+    void testDecimalToBinaryZero() {
+        String result = DecimalToBinary.decimalToBinary(0);
+        assertEquals("db0db", result);
+    }
+}

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_140.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HumanEvalJava</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_140.java</span></div><h1>id_140.java</h1><pre class="source lang-java linenums">package original;
+
+<span class="nc" id="L3">class FixSpaces {</span>
+    /**
+     * * Given a string text, replace all spaces in it with underscores,
+     * and if a string has more than 2 consecutive spaces,
+     * then replace all consecutive spaces with -
+     *
+     * fixSpaces(&quot;Example&quot;) == &quot;Example&quot;
+     * fixSpaces(&quot;Example 1&quot;) == &quot;Example_1&quot;
+     * fixSpaces(&quot; Example 2&quot;) == &quot;_Example_2&quot;
+     * fixSpaces(&quot; Example   3&quot;) == &quot;_Example-3&quot;
+     *
+     * &gt; fixSpaces(&quot;Example&quot;)
+     * &quot;Example&quot;
+     * &gt; fixSpaces(&quot;Mudasir Hanif &quot;)
+     * &quot;Mudasir_Hanif_&quot;
+     * &gt; fixSpaces(&quot;Yellow Yellow  Dirty  Fellow&quot;)
+     * &quot;Yellow_Yellow__Dirty__Fellow&quot;
+     * &gt; fixSpaces(&quot;Exa   mple&quot;)
+     * &quot;Exa-mple&quot;
+     * &gt; fixSpaces(&quot;   Exa 1 2 2 mple&quot;)
+     * &quot;-Exa_1_2_2_mple&quot;
+     */
+    public static String fixSpaces(String text) {
+<span class="fc" id="L26">        String new_text = &quot;&quot;;</span>
+<span class="fc" id="L27">        int i = 0;</span>
+<span class="fc" id="L28">        int start = 0;</span>
+<span class="fc" id="L29">        int end = 0;</span>
+<span class="fc bfc" id="L30" title="All 2 branches covered.">        while (i &lt; text.length()) {</span>
+<span class="fc bfc" id="L31" title="All 2 branches covered.">            if (text.charAt(i) == ' ') {</span>
+<span class="fc" id="L32">                end += 1;</span>
+            } else {
+<span class="fc bfc" id="L34" title="All 2 branches covered.">                if (end - start &gt; 2) {</span>
+<span class="fc" id="L35">                    new_text += &quot;-&quot; + text.charAt(i);</span>
+<span class="fc bfc" id="L36" title="All 2 branches covered.">                } else if (end - start &gt; 0) {</span>
+<span class="fc" id="L37">                    new_text += &quot;_&quot;.repeat(end - start) + text.charAt(i);</span>
+                } else {
+<span class="fc" id="L39">                    new_text += text.charAt(i);</span>
+                }
+<span class="fc" id="L41">                start = i + 1;</span>
+<span class="fc" id="L42">                end = i + 1;</span>
+            }
+<span class="fc" id="L44">            i += 1;</span>
+        }
+<span class="pc bpc" id="L46" title="1 of 2 branches missed.">        if (end - start &gt; 2) {</span>
+<span class="nc" id="L47">            new_text += &quot;-&quot;;</span>
+<span class="fc bfc" id="L48" title="All 2 branches covered.">        } else if (end - start &gt; 0) {</span>
+<span class="fc" id="L49">            new_text += &quot;_&quot;;</span>
+        }
+<span class="fc" id="L51">        return new_text;</span>
+    }
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

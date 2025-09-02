@@ -1,0 +1,20 @@
+nohup: ignoring input
+2025-05-27 01:36:32,135   INFO : 
+
+ Processing file: /home/qinghua/projects/matg/data/HumanEvalJava/candor_initialize_1/src/main/java/original/id_150.java
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/qinghua/projects/matg/main.py", line 3, in <module>
+    from .fix_oracle import OracleFixer
+  File "/home/qinghua/projects/matg/fix_oracle.py", line 5, in <module>
+    from langchain_ollama import ChatOllama
+ModuleNotFoundError: No module named 'langchain_ollama'
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/qinghua/projects/matg/experiments/candor/generate/run_human.py", line 55, in <module>
+    subprocess.run(command, check=True)
+  File "/home/qinghua/anaconda3/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['python', '-m', 'matg.main', 'generate', '--data-path', '/home/qinghua/projects/matg/data/HumanEvalJava/candor_initialize_1', '--relative-source-file-path', 'src/main/java/original/id_150.java', '--relative-test-file-path', 'src/test/java/original/id_150Test.java', '--coverage-report-path', '/home/qinghua/projects/matg/data/HumanEvalJava/candor_initialize_1/target/site/jacoco', '--test-command', 'mvn -f /home/qinghua/projects/matg/data/HumanEvalJava/candor_initialize_1/pom.xml clean test jacoco:report', '--generator', 'matg', '--max-attempts', '2', '--target-line-coverage', '0.99']' returned non-zero exit status 1.

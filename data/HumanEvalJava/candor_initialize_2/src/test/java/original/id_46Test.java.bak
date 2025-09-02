@@ -1,0 +1,24 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of Fib4.
+*/
+class Fib4Test {
+    @Test
+    void testFib4() {
+        assertEquals(104, Fib4.fib4(10));
+    }
+    
+    @Test
+        public void testNothing(){
+            Fib4 s = new Fib4();
+            }
+    @Test
+    public void test_fib4_with_n_less_than_2() {
+        int result = Fib4.fib4(1);
+        assertEquals(0, result);
+    }
+                                    
+}

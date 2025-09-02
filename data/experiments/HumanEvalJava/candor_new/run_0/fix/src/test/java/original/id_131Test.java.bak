@@ -1,0 +1,26 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of Digits.
+*/
+class DigitsTest {
+    @Test
+    void testDigits_HasOddDigit_ReturnsProductOfOddDigits() {
+        int result = Digits.digits(235);
+        assertEquals(15, result);
+    }
+    
+    @Test
+        public void testNothing(){
+            Digits s = new Digits();
+            }
+    @Test
+    public void testProductOfOddDigitsWithEvenNumber() {
+        int n = 2468;
+        int result = Digits.digits(n);
+        assertEquals(0, result);
+    }
+                                    
+}

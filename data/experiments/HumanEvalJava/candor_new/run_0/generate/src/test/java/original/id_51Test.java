@@ -1,0 +1,37 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of RemoveVowels.
+*/
+class RemoveVowelsTest {
+    @Test
+    void testRemoveVowelsSingleVowel() {
+        String input = "a";
+        String expectedOutput = "";
+        assertEquals(expectedOutput, RemoveVowels.removeVowels(input));
+    }
+    
+    @Test
+        public void testNothing(){
+            RemoveVowels s = new RemoveVowels();
+            }
+    @Test
+    public void TestRemoveVowelsMethod() {
+        String input = "abcdef";
+        String expectedOutput = "bcdf";
+        assertEquals(expectedOutput, original.RemoveVowels.removeVowels(input));
+    }
+    @Test
+    public void TestRemoveVowelsLowerCase() {
+        String result = RemoveVowels.removeVowels("aeiou");
+        assertEquals("", result);
+    }
+    @Test
+    public void TestRemoveVowelsUpperCase() {
+        String result = RemoveVowels.removeVowels("AEIOU");
+        assertEquals("", result);
+    }
+                                    
+}

@@ -1,0 +1,42 @@
+package original;
+
+import java.util.List;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of TotalMatch.
+*/
+class TotalMatchTest {
+    @Test
+    void testTotalMatch() {
+        List<Object> lst1 = List.of("hi", "admin");
+        List<Object> lst2 = List.of("hI", "Hi");
+        assertEquals(lst2, TotalMatch.totalMatch(lst1, lst2));
+    }
+    
+    @Test
+        public void testNothing(){
+            TotalMatch s = new TotalMatch();
+            }
+    @Test
+    public void testTotalMatchEmptyLists1() {
+        java.util.List<java.lang.Object> lst1 = new java.util.ArrayList<>();
+        java.util.List<java.lang.Object> lst2 = new java.util.ArrayList<>();
+        Object expected = lst1;
+        assertEquals("[]", TotalMatch.totalMatch(lst1, lst2).toString());
+    }
+    @Test
+    public void totalMatchNonStringElementsIgnoredCorrected21() {
+    	List<java.lang.Object> lst1 = java.util.Arrays.asList("a", "b");
+    	List<java.lang.Object> lst2 = java.util.Arrays.asList((Object) "c", (Object) 3);
+    	assertEquals(lst1, TotalMatch.totalMatch(lst1, lst2));
+    }
+    @Test
+    public void Test_totalMatch_withNonStringElementInBothLists_IgnoringNonStringElements_02() {
+        List<java.lang.Object> lst1 = new java.util.ArrayList<>(java.util.Arrays.asList("hi", "admin", 123));
+        List<java.lang.Object> lst2 = new java.util.ArrayList<>(java.util.Arrays.asList(456, "hI"));
+        Object result = TotalMatch.totalMatch(lst1, lst2);
+        assertEquals(2, ((List)result).size());
+    }
+                                    
+}

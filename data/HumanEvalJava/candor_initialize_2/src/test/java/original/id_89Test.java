@@ -1,0 +1,66 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of Encrypt.
+*/
+class EncryptTest {
+    @Test
+    void testEncrypt() {
+        assertEquals("lm", Encrypt.encrypt("hi"));
+    }
+    
+    @Test
+        public void testNothing(){
+            Encrypt s = new Encrypt();
+            }
+    @Test
+    public void testEncryptClassInitialization() {
+    	// Test that the Encrypt class can be initialized without errors
+    	new original.Encrypt();
+    }
+    @Test
+    public void testEncryptEdgeCaseAlphabetRotation1() {
+        // Test that 'z' becomes 'b'
+        String input = "z";
+        char expectedOutputChar = (char) ((input.charAt(0) - 'a' + 4) % 26 + 'a');
+        String expectedOutput = String.valueOf(expectedOutputChar);
+        String actualOutput = original.Encrypt.encrypt(input);
+        assertEquals(expectedOutput, actualOutput);
+    }
+    @Test
+    public void testEncryptSadPathNonAlphabeticInput() {
+    	// Test that non-alphabetic input does not cause errors
+    	String input = "123";
+    	String expectedOutput = "123";
+    	String actualOutput = original.Encrypt.encrypt(input);
+    	assertEquals(expectedOutput, actualOutput);
+    }
+    @Test
+    public void testEncryptLowercaseLettersWithoutShift1() {
+    String result = Encrypt.encrypt("a");
+    assertEquals("e", result);
+    }
+    @Test
+    public void testEncryptNonAlphabetCharacters() {
+    String result = Encrypt.encrypt("1");
+    assertEquals("1", result);
+    }
+    @Test
+    public void test_encrypt_lowercase_letters() {
+    	String s = "abcdefghijklmnopqrstuvwxyz";
+    	assertEquals("efghijklmnopqrstuvwxyzabcd", Encrypt.encrypt(s));
+    }
+    @Test
+    public void test_encrypt_uppercase_letters() {
+    	String s = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    	assertEquals("ABCDEFGHIJKLMNOPQRSTUVWXYZ", Encrypt.encrypt(s));
+    }
+    @Test
+    public void test_encrypt_single_character_string() {
+    	String s = "a";
+    	assertEquals("e", Encrypt.encrypt(s));
+    }
+                                    
+}

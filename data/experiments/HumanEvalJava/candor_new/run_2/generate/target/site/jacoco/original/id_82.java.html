@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_82.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HumanEvalJava</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_82.java</span></div><h1>id_82.java</h1><pre class="source lang-java linenums">package original;
+
+<span class="nc" id="L3">class PrimeLength {</span>
+    /**
+     * Write a function that takes a string and returns True if the string
+     * length is a prime number or False otherwise
+     * Examples
+     * primeLength('Hello') == True
+     * primeLength('abcdcba') == True
+     * primeLength('kittens') == True
+     * primeLength('orange') == False
+     *
+     * &gt; primeLength(&quot;Hello&quot;)
+     * true
+     * &gt; primeLength(&quot;abcdcba&quot;)
+     * true
+     * &gt; primeLength(&quot;kittens&quot;)
+     * true
+     * &gt; primeLength(&quot;orange&quot;)
+     * false
+     * &gt; primeLength(&quot;wow&quot;)
+     * true
+     * &gt; primeLength(&quot;world&quot;)
+     * true
+     * &gt; primeLength(&quot;MadaM&quot;)
+     * true
+     * &gt; primeLength(&quot;Wow&quot;)
+     * true
+     * &gt; primeLength(&quot;&quot;)
+     * false
+     * &gt; primeLength(&quot;HI&quot;)
+     * true
+     * &gt; primeLength(&quot;go&quot;)
+     * true
+     * &gt; primeLength(&quot;gogo&quot;)
+     * false
+     * &gt; primeLength(&quot;aaaaaaaaaaaaaaa&quot;)
+     * false
+     * &gt; primeLength(&quot;Madam&quot;)
+     * true
+     * &gt; primeLength(&quot;M&quot;)
+     * false
+     * &gt; primeLength(&quot;0&quot;)
+     * false
+     */
+    public static Boolean primeLength(String string) {
+<span class="fc" id="L47">        int length = string.length();</span>
+<span class="pc bpc" id="L48" title="2 of 4 branches missed.">        if (length == 0 || length == 1) {</span>
+<span class="nc" id="L49">            return false;</span>
+        }
+<span class="fc bfc" id="L51" title="All 2 branches covered.">        for (int i = 2; i &lt; length; i++) {</span>
+<span class="pc bpc" id="L52" title="1 of 2 branches missed.">            if (length % i == 0) {</span>
+<span class="nc" id="L53">                return false;</span>
+            }
+        }
+<span class="fc" id="L56">        return true;</span>
+    }
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

@@ -1,0 +1,99 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/MakePalindrome {
+
+  // compiled from: id_10.java
+  // access flags 0x19
+  public final static INNERCLASS java/lang/invoke/MethodHandles$Lookup java/lang/invoke/MethodHandles Lookup
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 3 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/MakePalindrome; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  public static makePalindrome(Ljava/lang/String;)Ljava/lang/String;
+   L0
+    LINENUMBER 28 L0
+    ALOAD 0
+    INVOKEVIRTUAL java/lang/String.length ()I
+    IFNE L1
+   L2
+    LINENUMBER 29 L2
+    LDC ""
+    ARETURN
+   L1
+    LINENUMBER 31 L1
+   FRAME FULL [java/lang/String] []
+    NEW java/lang/StringBuilder
+    DUP
+    ALOAD 0
+    INVOKESPECIAL java/lang/StringBuilder.<init> (Ljava/lang/String;)V
+    INVOKEVIRTUAL java/lang/StringBuilder.reverse ()Ljava/lang/StringBuilder;
+    INVOKEVIRTUAL java/lang/StringBuilder.toString ()Ljava/lang/String;
+    ASTORE 1
+   L3
+    LINENUMBER 32 L3
+    ICONST_0
+    ISTORE 2
+   L4
+   FRAME FULL [java/lang/String java/lang/String I] []
+    ILOAD 2
+    ALOAD 0
+    INVOKEVIRTUAL java/lang/String.length ()I
+    IF_ICMPGE L5
+   L6
+    LINENUMBER 33 L6
+    ALOAD 0
+    ILOAD 2
+    INVOKEVIRTUAL java/lang/String.substring (I)Ljava/lang/String;
+    ALOAD 1
+    ICONST_0
+    ALOAD 0
+    INVOKEVIRTUAL java/lang/String.length ()I
+    ILOAD 2
+    ISUB
+    INVOKEVIRTUAL java/lang/String.substring (II)Ljava/lang/String;
+    INVOKEVIRTUAL java/lang/String.equals (Ljava/lang/Object;)Z
+    IFEQ L7
+   L8
+    LINENUMBER 34 L8
+    ALOAD 0
+    ALOAD 1
+    ALOAD 0
+    INVOKEVIRTUAL java/lang/String.length ()I
+    ILOAD 2
+    IADD
+    INVOKEVIRTUAL java/lang/String.substring (I)Ljava/lang/String;
+    INVOKEDYNAMIC makeConcatWithConstants(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String; [
+      // handle kind 0x6 : INVOKESTATIC
+      java/lang/invoke/StringConcatFactory.makeConcatWithConstants(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;
+      // arguments:
+      "\u0001\u0001"
+    ]
+    ARETURN
+   L7
+    LINENUMBER 32 L7
+   FRAME FULL [java/lang/String java/lang/String I] []
+    IINC 2 1
+    GOTO L4
+   L5
+    LINENUMBER 37 L5
+   FRAME FULL [java/lang/String java/lang/String I] []
+    ACONST_NULL
+    ARETURN
+   L9
+    LOCALVARIABLE i I L4 L5 2
+    LOCALVARIABLE string Ljava/lang/String; L0 L9 0
+    LOCALVARIABLE reversed Ljava/lang/String; L3 L9 1
+    MAXSTACK = 5
+    MAXLOCALS = 3
+}
+

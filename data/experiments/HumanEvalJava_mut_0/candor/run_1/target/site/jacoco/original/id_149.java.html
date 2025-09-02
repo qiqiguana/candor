@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_149.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HumanEvalJava</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_149.java</span></div><h1>id_149.java</h1><pre class="source lang-java linenums">package original;
+
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+
+<span class="fc" id="L10">class SortedListSum {</span>
+    /**
+     * Write a function that accepts a list of strings as a parameter,
+     * deletes the strings that have odd lengths from it,
+     * and returns the resulted list with a sorted order,
+     * The list is always a list of strings and never an array of numbers,
+     * and it may contain duplicates.
+     * The order of the list should be ascending by length of each word, and you
+     * should return the list sorted by that rule.
+     * If two words have the same length, sort the list alphabetically.
+     * The function should return a list of strings in sorted order.
+     * You may assume that all words will have the same length.
+     * For example:
+     * assert sortedListSum([&quot;aa&quot;, &quot;a&quot;, &quot;aaa&quot;]) =&gt; [&quot;aa&quot;]
+     * assert sortedListSum([&quot;ab&quot;, &quot;a&quot;, &quot;aaa&quot;, &quot;cd&quot;]) =&gt; [&quot;ab&quot;, &quot;cd&quot;]
+     *
+     * &gt; sortedListSum([&quot;aa&quot;, &quot;a&quot;, &quot;aaa&quot;])
+     * [&quot;aa&quot;]
+     * &gt; sortedListSum([&quot;school&quot;, &quot;AI&quot;, &quot;asdf&quot;, &quot;b&quot;])
+     * [&quot;AI&quot;, &quot;asdf&quot;, &quot;school&quot;]
+     * &gt; sortedListSum([&quot;d&quot;, &quot;b&quot;, &quot;c&quot;, &quot;a&quot;])
+     * []
+     * &gt; sortedListSum([&quot;d&quot;, &quot;dcba&quot;, &quot;abcd&quot;, &quot;a&quot;])
+     * [&quot;abcd&quot;, &quot;dcba&quot;]
+     * &gt; sortedListSum([&quot;AI&quot;, &quot;ai&quot;, &quot;au&quot;])
+     * [&quot;AI&quot;, &quot;ai&quot;, &quot;au&quot;]
+     * &gt; sortedListSum([&quot;a&quot;, &quot;b&quot;, &quot;b&quot;, &quot;c&quot;, &quot;c&quot;, &quot;a&quot;])
+     * []
+     * &gt; sortedListSum([&quot;aaaa&quot;, &quot;bbbb&quot;, &quot;dd&quot;, &quot;cc&quot;])
+     * [&quot;cc&quot;, &quot;dd&quot;, &quot;aaaa&quot;, &quot;bbbb&quot;]
+     */
+    public static List&lt;Object&gt; sortedListSum(List&lt;String&gt; lst) {
+<span class="fc" id="L42">        List&lt;Object&gt; result = new ArrayList&lt;Object&gt;();</span>
+<span class="fc bfc" id="L43" title="All 2 branches covered.">        for (int i = 0; i &lt; lst.size(); i++) {</span>
+<span class="fc bfc" id="L44" title="All 2 branches covered.">            if (lst.get(i).length() % 2 == 0) {</span>
+<span class="fc" id="L45">                result.add(lst.get(i));</span>
+            }
+        }
+<span class="fc" id="L48">        Collections.sort(result, new Comparator&lt;Object&gt;() {</span>
+            @Override
+            public int compare(Object o1, Object o2) {
+<span class="nc bnc" id="L51" title="All 2 branches missed.">                if (o1.toString().length() == o2.toString().length()) {</span>
+<span class="nc" id="L52">                    return o1.toString().compareTo(o2.toString());</span>
+                } else {
+<span class="nc" id="L54">                    return o1.toString().length() - o2.toString().length();</span>
+                }
+            }
+        });
+<span class="fc" id="L58">        return result;</span>
+    }
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

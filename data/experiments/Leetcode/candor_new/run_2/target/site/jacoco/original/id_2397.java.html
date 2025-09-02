@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_2397.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">leetcode</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_2397.java</span></div><h1>id_2397.java</h1><pre class="source lang-java linenums">package original;
+
+<span class="nc" id="L3">class Solution2397 {</span>
+    public int maximumRows(int[][] matrix, int numSelect) {
+<span class="nc" id="L5">        int m = matrix.length, n = matrix[0].length;</span>
+<span class="nc" id="L6">        int[] rows = new int[m];</span>
+<span class="nc bnc" id="L7" title="All 2 branches missed.">        for (int i = 0; i &lt; m; ++i) {</span>
+<span class="nc bnc" id="L8" title="All 2 branches missed.">            for (int j = 0; j &lt; n; ++j) {</span>
+<span class="nc bnc" id="L9" title="All 2 branches missed.">                if (matrix[i][j] == 1) {</span>
+<span class="nc" id="L10">                    rows[i] |= 1 &lt;&lt; j;</span>
+                }
+            }
+        }
+<span class="nc" id="L14">        int ans = 0;</span>
+<span class="nc bnc" id="L15" title="All 2 branches missed.">        for (int mask = 1; mask &lt; 1 &lt;&lt; n; ++mask) {</span>
+<span class="nc bnc" id="L16" title="All 2 branches missed.">            if (Integer.bitCount(mask) != numSelect) {</span>
+<span class="nc" id="L17">                continue;</span>
+            }
+<span class="nc" id="L19">            int t = 0;</span>
+<span class="nc bnc" id="L20" title="All 2 branches missed.">            for (int x : rows) {</span>
+<span class="nc bnc" id="L21" title="All 2 branches missed.">                if ((x &amp; mask) == x) {</span>
+<span class="nc" id="L22">                    ++t;</span>
+                }
+            }
+<span class="nc" id="L25">            ans = Math.max(ans, t);</span>
+        }
+<span class="nc" id="L27">        return ans;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

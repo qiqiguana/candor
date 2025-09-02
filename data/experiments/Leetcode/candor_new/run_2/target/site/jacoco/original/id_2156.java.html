@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_2156.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">leetcode</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_2156.java</span></div><h1>id_2156.java</h1><pre class="source lang-java linenums">package original;
+
+<span class="nc" id="L3">class Solution2156 {</span>
+    public String subStrHash(String s, int power, int modulo, int k, int hashValue) {
+<span class="nc" id="L5">        long h = 0, p = 1;</span>
+<span class="nc" id="L6">        int n = s.length();</span>
+<span class="nc bnc" id="L7" title="All 2 branches missed.">        for (int i = n - 1; i &gt;= n - k; --i) {</span>
+<span class="nc" id="L8">            int val = s.charAt(i) - 'a' + 1;</span>
+<span class="nc" id="L9">            h = ((h * power % modulo) + val) % modulo;</span>
+<span class="nc bnc" id="L10" title="All 2 branches missed.">            if (i != n - k) {</span>
+<span class="nc" id="L11">                p = p * power % modulo;</span>
+            }
+        }
+<span class="nc" id="L14">        int j = n - k;</span>
+<span class="nc bnc" id="L15" title="All 2 branches missed.">        for (int i = n - k - 1; i &gt;= 0; --i) {</span>
+<span class="nc" id="L16">            int pre = s.charAt(i + k) - 'a' + 1;</span>
+<span class="nc" id="L17">            int cur = s.charAt(i) - 'a' + 1;</span>
+<span class="nc" id="L18">            h = ((h - pre * p % modulo + modulo) * power % modulo + cur) % modulo;</span>
+<span class="nc bnc" id="L19" title="All 2 branches missed.">            if (h == hashValue) {</span>
+<span class="nc" id="L20">                j = i;</span>
+            }
+        }
+<span class="nc" id="L23">        return s.substring(j, j + k);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

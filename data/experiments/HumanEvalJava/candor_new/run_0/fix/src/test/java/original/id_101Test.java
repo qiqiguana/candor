@@ -1,0 +1,32 @@
+package original;
+
+import java.util.ArrayList;
+
+import java.util.Arrays;
+
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of WordsString.
+*/
+class WordsStringTest {
+    @Test
+void testWordsStringEmptyString() {
+        List<Object> result = WordsString.wordsString("");
+        assertTrue(result.isEmpty());
+    }
+    
+    @Test
+        public void testNothing(){
+            WordsString s = new WordsString();
+            }
+    @Test
+    public void testSingleWord() {
+        List<Object> result = WordsString.wordsString("hello");
+        assertEquals(1, result.size());
+        assertEquals("hello", result.get(0));
+    }
+                                    
+}

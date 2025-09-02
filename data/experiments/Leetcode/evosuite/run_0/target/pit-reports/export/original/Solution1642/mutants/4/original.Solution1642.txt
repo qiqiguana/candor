@@ -1,0 +1,124 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Solution1642 {
+
+  // compiled from: id_1642.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 5 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Solution1642; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public furthestBuilding([III)I
+   L0
+    LINENUMBER 7 L0
+    NEW java/util/PriorityQueue
+    DUP
+    INVOKESPECIAL java/util/PriorityQueue.<init> ()V
+    ASTORE 4
+   L1
+    LINENUMBER 8 L1
+    ALOAD 1
+    ARRAYLENGTH
+    ISTORE 5
+   L2
+    LINENUMBER 9 L2
+    ICONST_0
+    ISTORE 6
+   L3
+   FRAME FULL [original/Solution1642 [I I I java/util/PriorityQueue I I] []
+    ILOAD 6
+    ILOAD 5
+    ICONST_1
+    ISUB
+    IF_ICMPGE L4
+   L5
+    LINENUMBER 10 L5
+    ALOAD 1
+    ILOAD 6
+    IALOAD
+    ISTORE 7
+   L6
+    ALOAD 1
+    ILOAD 6
+    ICONST_1
+    IADD
+    IALOAD
+    ISTORE 8
+   L7
+    LINENUMBER 11 L7
+    ILOAD 8
+    ILOAD 7
+    IADD
+    ISTORE 9
+   L8
+    LINENUMBER 12 L8
+    ILOAD 9
+    IFLE L9
+   L10
+    LINENUMBER 13 L10
+    ALOAD 4
+    ILOAD 9
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEVIRTUAL java/util/PriorityQueue.offer (Ljava/lang/Object;)Z
+    POP
+   L11
+    LINENUMBER 14 L11
+    ALOAD 4
+    INVOKEVIRTUAL java/util/PriorityQueue.size ()I
+    ILOAD 3
+    IF_ICMPLE L9
+   L12
+    LINENUMBER 15 L12
+    ILOAD 2
+    ALOAD 4
+    INVOKEVIRTUAL java/util/PriorityQueue.poll ()Ljava/lang/Object;
+    CHECKCAST java/lang/Integer
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    ISUB
+    ISTORE 2
+   L13
+    LINENUMBER 16 L13
+    ILOAD 2
+    IFGE L9
+   L14
+    LINENUMBER 17 L14
+    ILOAD 6
+    IRETURN
+   L9
+    LINENUMBER 9 L9
+   FRAME FULL [original/Solution1642 [I I I java/util/PriorityQueue I I I I I] []
+    IINC 6 1
+    GOTO L3
+   L4
+    LINENUMBER 22 L4
+   FRAME FULL [original/Solution1642 [I I I java/util/PriorityQueue I I] []
+    ILOAD 5
+    ICONST_1
+    ISUB
+    IRETURN
+   L15
+    LOCALVARIABLE a I L6 L9 7
+    LOCALVARIABLE b I L7 L9 8
+    LOCALVARIABLE d I L8 L9 9
+    LOCALVARIABLE i I L3 L4 6
+    LOCALVARIABLE this Loriginal/Solution1642; L0 L15 0
+    LOCALVARIABLE heights [I L0 L15 1
+    LOCALVARIABLE bricks I L0 L15 2
+    LOCALVARIABLE ladders I L0 L15 3
+    LOCALVARIABLE q Ljava/util/PriorityQueue; L1 L15 4
+    // signature Ljava/util/PriorityQueue<Ljava/lang/Integer;>;
+    // declaration: q extends java.util.PriorityQueue<java.lang.Integer>
+    LOCALVARIABLE n I L2 L15 5
+    MAXSTACK = 3
+    MAXLOCALS = 10
+}
+

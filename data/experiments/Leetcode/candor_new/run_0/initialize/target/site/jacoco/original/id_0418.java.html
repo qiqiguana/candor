@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_0418.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">leetcode</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_0418.java</span></div><h1>id_0418.java</h1><pre class="source lang-java linenums">package original;
+
+<span class="fc" id="L3">class Solution0418 {</span>
+    public int wordsTyping(String[] sentence, int rows, int cols) {
+  /**
+  Given a&amp;nbsp;rows x cols screen and a sentence represented as a list of strings, return the number of&amp;nbsp;times the given sentence can be fitted on the screen. The order of words in the sentence must remain unchanged, and a word cannot be split into two lines. A single space must separate two consecutive words in a line. &amp;nbsp; Example 1: Input: sentence = [&amp;quot;hello&amp;quot;,&amp;quot;world&amp;quot;], rows = 2, cols = 8 Output: 1 Explanation: hello--- world--- The character &amp;#39;-&amp;#39; signifies an empty space on the screen. Example 2: Input: sentence = [&amp;quot;a&amp;quot;, &amp;quot;bcd&amp;quot;, &amp;quot;e&amp;quot;], rows = 3, cols = 6 Output: 2 Explanation: a-bcd- e-a--- bcd-e- The character &amp;#39;-&amp;#39; signifies an empty space on the screen. Example 3: Input: sentence = [&amp;quot;i&amp;quot;,&amp;quot;had&amp;quot;,&amp;quot;apple&amp;quot;,&amp;quot;pie&amp;quot;], rows = 4, cols = 5 Output: 1 Explanation: i-had apple pie-i had-- The character &amp;#39;-&amp;#39; signifies an empty space on the screen. &amp;nbsp; Constraints: 1 &amp;lt;= sentence.length &amp;lt;= 100 1 &amp;lt;= sentence[i].length &amp;lt;= 10 sentence[i] consists of lowercase English letters. 1 &amp;lt;= rows, cols &amp;lt;= 2 * 104
+  */
+<span class="fc" id="L8">        String s = String.join(&quot; &quot;, sentence) + &quot; &quot;;</span>
+<span class="fc" id="L9">        int m = s.length();</span>
+<span class="fc" id="L10">        int cur = 0;</span>
+<span class="fc bfc" id="L11" title="All 2 branches covered.">        while (rows-- &gt; 0) {</span>
+<span class="fc" id="L12">            cur += cols;</span>
+<span class="pc bpc" id="L13" title="1 of 2 branches missed.">            if (s.charAt(cur % m) == ' ') {</span>
+<span class="nc" id="L14">                ++cur;</span>
+            } else {
+<span class="pc bpc" id="L16" title="1 of 4 branches missed.">                while (cur &gt; 0 &amp;&amp; s.charAt((cur - 1) % m) != ' ') {</span>
+<span class="fc" id="L17">                    --cur;</span>
+                }
+            }
+        }
+<span class="fc" id="L21">        return cur / m;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

@@ -1,0 +1,175 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Solution3317 {
+
+  // compiled from: id_3317.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 3 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Solution3317; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public numberOfWays(III)I
+   L0
+    LINENUMBER 5 L0
+    LDC 1000000007
+    ISTORE 4
+   L1
+    LINENUMBER 6 L1
+    ILOAD 1
+    ICONST_1
+    IADD
+    ILOAD 2
+    ICONST_1
+    IADD
+    MULTIANEWARRAY [[J 2
+    ASTORE 5
+   L2
+    LINENUMBER 7 L2
+    ALOAD 5
+    ICONST_0
+    AALOAD
+    ICONST_0
+    LCONST_1
+    LASTORE
+   L3
+    LINENUMBER 8 L3
+    ICONST_1
+    ISTORE 6
+   L4
+   FRAME FULL [original/Solution3317 I I I I [[J I] []
+    ILOAD 6
+    ILOAD 1
+    IF_ICMPGT L5
+   L6
+    LINENUMBER 9 L6
+    ICONST_1
+    ISTORE 7
+   L7
+   FRAME FULL [original/Solution3317 I I I I [[J I I] []
+    ILOAD 7
+    ILOAD 2
+    IF_ICMPGT L8
+   L9
+    LINENUMBER 10 L9
+    ALOAD 5
+    ILOAD 6
+    AALOAD
+    ILOAD 7
+    ALOAD 5
+    ILOAD 6
+    ICONST_1
+    ISUB
+    AALOAD
+    ILOAD 7
+    LALOAD
+    ILOAD 7
+    I2L
+    LMUL
+    LDC 1000000007L
+    LREM
+    ALOAD 5
+    ILOAD 6
+    ICONST_1
+    ISUB
+    AALOAD
+    ILOAD 7
+    ICONST_1
+    ISUB
+    LALOAD
+    ILOAD 2
+    ILOAD 7
+    ICONST_1
+    ISUB
+    LDC 1000000007
+    IREM
+    ISUB
+    I2L
+    LMUL
+    LADD
+    LDC 1000000007L
+    LREM
+    LASTORE
+   L10
+    LINENUMBER 9 L10
+    IINC 7 1
+    GOTO L7
+   L8
+    LINENUMBER 8 L8
+   FRAME FULL [original/Solution3317 I I I I [[J I I] []
+    IINC 6 1
+    GOTO L4
+   L5
+    LINENUMBER 13 L5
+   FRAME FULL [original/Solution3317 I I I I [[J I] []
+    LCONST_0
+    LSTORE 6
+   L11
+    LCONST_1
+    LSTORE 8
+   L12
+    LINENUMBER 14 L12
+    ICONST_1
+    ISTORE 10
+   L13
+   FRAME FULL [original/Solution3317 I I I I [[J J J I] []
+    ILOAD 10
+    ILOAD 2
+    IF_ICMPGT L14
+   L15
+    LINENUMBER 15 L15
+    LLOAD 8
+    ILOAD 3
+    I2L
+    LMUL
+    LDC 1000000007L
+    LREM
+    LSTORE 8
+   L16
+    LINENUMBER 16 L16
+    LLOAD 6
+    ALOAD 5
+    ILOAD 1
+    AALOAD
+    ILOAD 10
+    LALOAD
+    LLOAD 8
+    LMUL
+    LADD
+    LDC 1000000007L
+    LMUL
+    LSTORE 6
+   L17
+    LINENUMBER 14 L17
+    IINC 10 1
+    GOTO L13
+   L14
+    LINENUMBER 18 L14
+   FRAME FULL [original/Solution3317 I I I I [[J J J I] []
+    LLOAD 6
+    L2I
+    IRETURN
+   L18
+    LOCALVARIABLE j I L7 L8 7
+    LOCALVARIABLE i I L4 L5 6
+    LOCALVARIABLE j I L13 L14 10
+    LOCALVARIABLE this Loriginal/Solution3317; L0 L18 0
+    LOCALVARIABLE n I L0 L18 1
+    LOCALVARIABLE x I L0 L18 2
+    LOCALVARIABLE y I L0 L18 3
+    LOCALVARIABLE mod I L1 L18 4
+    LOCALVARIABLE f [[J L2 L18 5
+    LOCALVARIABLE ans J L11 L18 6
+    LOCALVARIABLE p J L12 L18 8
+    MAXSTACK = 9
+    MAXLOCALS = 11
+}
+

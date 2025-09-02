@@ -1,0 +1,70 @@
+package original;
+
+import java.util.List;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.ArrayList;
+/**
+* Test class of Add1.
+*/
+class Add1Test {
+    @Test
+    void test_add_with_even_elements_at_odd_indices() {
+        List<Integer> list = new ArrayList<>();
+        list.add(4);
+        list.add(88);
+        assertEquals(88, Add1.add(list));
+    }
+    @Test
+    public void add_PositiveTest_EvenNumberAtOddIndex() {
+        List<Integer> lst = List.of(4, 2, 6, 7);
+        int result = Add1.add(lst);
+        assertEquals(2, result);
+    }
+    @Test
+    public void add_PositiveTest_MultipleEvenNumbersAtOddIndices() {
+        List<Integer> lst = List.of(4, 88, 6, 8);
+        int result = Add1.add(lst);
+        assertEquals(96, result);
+    }
+    @Test
+    public void add_NegativeTest_NoEvenNumbersAtOddIndices() {
+        List<Integer> lst = List.of(4, 5, 6, 9);
+        int result = Add1.add(lst);
+        assertEquals(0, result);
+    }
+    @Test
+    public void add_EdgeCaseTest_EmptyList() {
+        List<Integer> lst = List.of();
+        int result = Add1.add(lst);
+        assertEquals(0, result);
+    }
+    @Test
+    public void add_EdgeCaseTest_SingleElementList() {
+        List<Integer> lst = List.of(4);
+        int result = Add1.add(lst);
+        assertEquals(0, result);
+    }
+    @Test
+    public void add_SpecificFunctionalityTest_EvenNumbersAtBothOddAndEvenIndices() {
+        List<Integer> lst = List.of(4, 88, 6, 8);
+        int result = Add1.add(lst);
+        assertEquals(96, result);
+    }
+    @Test
+    public void testEdgeCaseWithEmptyList() {
+        List<Integer> lst = new ArrayList<>();
+        int expected_result = 0;
+        int result = Add1.add(lst);
+        assertEquals(expected_result, result);
+    }
+    @Test
+    public void testEmptyList() {
+        List<Integer> lst = new ArrayList<>();
+        assertEquals(0, Add1.add(lst));
+    }
+    @Test
+    public void testNullList() {
+        assertThrows(NullPointerException.class, () -> Add1.add(null));
+    }
+}

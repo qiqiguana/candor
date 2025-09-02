@@ -1,0 +1,155 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/F {
+
+  // compiled from: id_106.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 7 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/F; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  // signature (I)Ljava/util/List<Ljava/lang/Integer;>;
+  // declaration: java.util.List<java.lang.Integer> f(int)
+  public static f(I)Ljava/util/List;
+   L0
+    LINENUMBER 27 L0
+    NEW java/util/ArrayList
+    DUP
+    INVOKESPECIAL java/util/ArrayList.<init> ()V
+    ASTORE 1
+   L1
+    LINENUMBER 28 L1
+    ICONST_1
+    ISTORE 2
+   L2
+   FRAME FULL [I java/util/ArrayList I] []
+    ILOAD 2
+    ILOAD 0
+    IF_ICMPGT L3
+   L4
+    LINENUMBER 29 L4
+    ILOAD 2
+    ICONST_2
+    IREM
+    IFNE L5
+   L6
+    LINENUMBER 30 L6
+    ALOAD 1
+    ILOAD 2
+    INVOKESTATIC original/F.factorial (I)I
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+    GOTO L7
+   L5
+    LINENUMBER 32 L5
+   FRAME FULL [I java/util/ArrayList I] []
+    ALOAD 1
+    ILOAD 2
+    INVOKESTATIC original/F.sum (I)I
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+   L7
+    LINENUMBER 28 L7
+   FRAME FULL [I java/util/ArrayList I] []
+    IINC 2 1
+    GOTO L2
+   L3
+    LINENUMBER 35 L3
+   FRAME FULL [I java/util/ArrayList I] []
+    ALOAD 1
+    ARETURN
+   L8
+    LOCALVARIABLE i I L2 L3 2
+    LOCALVARIABLE n I L0 L8 0
+    LOCALVARIABLE result Ljava/util/List; L1 L8 1
+    // signature Ljava/util/List<Ljava/lang/Integer;>;
+    // declaration: result extends java.util.List<java.lang.Integer>
+    MAXSTACK = 2
+    MAXLOCALS = 3
+
+  // access flags 0xA
+  private static factorial(I)I
+   L0
+    LINENUMBER 39 L0
+    ICONST_1
+    ISTORE 1
+   L1
+    LINENUMBER 40 L1
+    ICONST_1
+    ISTORE 2
+   L2
+   FRAME FULL [I I I] []
+    ILOAD 2
+    ILOAD 0
+    IF_ICMPGT L3
+   L4
+    LINENUMBER 41 L4
+    ILOAD 1
+    ILOAD 2
+    IMUL
+    ISTORE 1
+   L5
+    LINENUMBER 40 L5
+    IINC 2 1
+    GOTO L2
+   L3
+    LINENUMBER 43 L3
+   FRAME FULL [I I I] []
+    ILOAD 1
+    IRETURN
+   L6
+    LOCALVARIABLE i I L2 L3 2
+    LOCALVARIABLE n I L0 L6 0
+    LOCALVARIABLE result I L1 L6 1
+    MAXSTACK = 2
+    MAXLOCALS = 3
+
+  // access flags 0xA
+  private static sum(I)I
+   L0
+    LINENUMBER 47 L0
+    ICONST_0
+    ISTORE 1
+   L1
+    LINENUMBER 48 L1
+    ICONST_1
+    ISTORE 2
+   L2
+   FRAME FULL [I I I] []
+    ILOAD 2
+    ILOAD 0
+    IF_ICMPLE L3
+   L4
+    LINENUMBER 49 L4
+    ILOAD 1
+    ILOAD 2
+    IADD
+    ISTORE 1
+   L5
+    LINENUMBER 48 L5
+    IINC 2 1
+    GOTO L2
+   L3
+    LINENUMBER 51 L3
+   FRAME FULL [I I I] []
+    ILOAD 1
+    IRETURN
+   L6
+    LOCALVARIABLE i I L2 L3 2
+    LOCALVARIABLE n I L0 L6 0
+    LOCALVARIABLE result I L1 L6 1
+    MAXSTACK = 2
+    MAXLOCALS = 3
+}
+

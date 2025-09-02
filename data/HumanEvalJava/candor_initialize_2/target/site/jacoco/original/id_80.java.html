@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_80.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HumanEvalJava</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_80.java</span></div><h1>id_80.java</h1><pre class="source lang-java linenums">package original;
+
+
+<span class="nc" id="L4">class IsHappy {</span>
+    /**
+     * You are given a string s.
+     * Your task is to check if the string is happy or not.
+     * A string is happy if its length is at least 3 and every 3 consecutive letters are distinct
+     * For example:
+     * isHappy(a) =&gt; False
+     * isHappy(aa) =&gt; False
+     * isHappy(abcd) =&gt; True
+     * isHappy(aabb) =&gt; False
+     * isHappy(adb) =&gt; True
+     * isHappy(xyy) =&gt; False
+     *
+     * &gt; isHappy(&quot;a&quot;)
+     * false
+     * &gt; isHappy(&quot;aa&quot;)
+     * false
+     * &gt; isHappy(&quot;abcd&quot;)
+     * true
+     * &gt; isHappy(&quot;aabb&quot;)
+     * false
+     * &gt; isHappy(&quot;adb&quot;)
+     * true
+     * &gt; isHappy(&quot;xyy&quot;)
+     * false
+     * &gt; isHappy(&quot;iopaxpoi&quot;)
+     * true
+     * &gt; isHappy(&quot;iopaxioi&quot;)
+     * false
+     */
+    public static Boolean isHappy(String s) {
+<span class="nc bnc" id="L35" title="All 2 branches missed.">        if (s.length() &lt; 3) {</span>
+<span class="nc" id="L36">            return false;</span>
+        }
+<span class="nc bnc" id="L38" title="All 2 branches missed.">        for (int i = 0; i &lt; s.length() - 2; i++) {</span>
+<span class="nc bnc" id="L39" title="All 6 branches missed.">            if (s.charAt(i) == s.charAt(i + 1) || s.charAt(i) == s.charAt(i + 2) || s.charAt(i + 1) == s.charAt(i + 2)) {</span>
+<span class="nc" id="L40">                return false;</span>
+            }
+        }
+<span class="nc" id="L43">        return true;</span>
+    }
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

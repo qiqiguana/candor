@@ -1,0 +1,99 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of AnyInt.
+*/
+class AnyIntTest {
+    @Test
+    void testAnyIntWithPositiveNumbers() {
+        assertTrue(AnyInt.anyInt(5, 2, 7));
+    }
+    @Test
+    public void testAnyInt_Positive_EqualToSumOfOtherTwo() {
+        assertTrue(AnyInt.anyInt(5, 2, 7));
+    }
+    @Test
+    public void testAnyInt_Negative_NotAllIntegers() {
+        assertFalse(AnyInt.anyInt(3.6, -2.2, 2));
+    }
+    @Test
+    public void testAnyInt_EdgeCase_ZeroValues() {
+        assertTrue(AnyInt.anyInt(0, 0, 0));
+    }
+    @Test
+    public void testAnyInt_SpecificFunctionality_NegativeNumbers() {
+        assertTrue(AnyInt.anyInt(-4, 6, 2));
+    }
+    @Test
+    public void testAnyInt_Positive_EqualToSumOfOtherTwo_Reordered() {
+        assertTrue(AnyInt.anyInt(7, 5, 2));
+    }
+    @Test
+    public void testAnyInt_DistinctAndEqualToSumOfOtherTwo() {
+        assertTrue(AnyInt.anyInt(1, 2, 3));
+    }
+    @Test
+    public void testAnyInt_Positive_AllIntegersOneEqualsSumOfOthers() {
+        Number x = new Integer(5);
+        Number y = new Integer(2);
+        Number z = new Integer(7);
+        assertTrue(original.AnyInt.anyInt(x, y, z));
+    }
+    @Test
+    public void testAnyInt_Negative_NonIntegerInput() {
+        Number x = new Double(3.6);
+        Number y = new Integer(-2);
+        Number z = new Integer(2);
+        assertFalse(original.AnyInt.anyInt(x, y, z));
+    }
+    @Test
+    public void testAnyInt_SpecificFunctionality_NegativeNumbers_Fixed() {
+        Number x = new Integer(-4);
+        Number y = new Integer(6);
+        Number z = new Integer(2);
+        assertTrue(original.AnyInt.anyInt(x, y, z) || original.AnyInt.anyInt(y, z, x) || original.AnyInt.anyInt(z, x, y));
+    }
+    @Test
+    public void testAnyInt_Positive_AllIntegersNoneEqualSumOfOthers() {
+        Number x = new Integer(1);
+        Number y = new Integer(2);
+        Number z = new Integer(4);
+        assertFalse(original.AnyInt.anyInt(x, y, z));
+    }
+    @Test
+    public void testAnyInt_Negative_NullInput() {
+        Number x = null;
+        Number y = new Integer(2);
+        Number z = new Integer(3);
+        assertFalse(original.AnyInt.anyInt(x, y, z));
+    }
+    @Test
+    public void testAnyInt_PositveScenario() {
+        Boolean result = AnyInt.anyInt(5, 2, 7);
+        assertTrue(result);
+    }
+    @Test
+    public void testAnyInt_NegativeScenario() {
+        Boolean result = AnyInt.anyInt(3.6, -2.2, 2);
+        assertFalse(result);
+    }
+    @Test
+    public void testAnyInt_EdgeCase() {
+        Boolean result = AnyInt.anyInt(Integer.MIN_VALUE, Integer.MAX_VALUE, 1);
+        assertTrue(result);
+    }
+    @Test
+    public void testAnyInt_SpecificFunctionality() {
+        Boolean result = AnyInt.anyInt(4, 2, 2);
+        assertTrue(result);
+    }
+    @Test
+    public void testAnyInt_MultipleScenarios_Corrected() {
+        Boolean result1 = AnyInt.anyInt(3, -2, 1);
+        Boolean result2 = AnyInt.anyInt(31, 62, -33);
+        assertTrue(result1);
+        assertFalse(result2);
+    }
+}

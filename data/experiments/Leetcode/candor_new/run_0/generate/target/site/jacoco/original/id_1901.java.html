@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_1901.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">leetcode</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_1901.java</span></div><h1>id_1901.java</h1><pre class="source lang-java linenums">package original;
+
+<span class="nc" id="L3">class Solution1901 {</span>
+    public int[] findPeakGrid(int[][] mat) {
+  /**
+  A peak element in a 2D grid is an element that is strictly greater than all of its adjacent neighbors to the left, right, top, and bottom. Given a 0-indexed m x n matrix mat where no two adjacent cells are equal, find any peak element mat[i][j] and return the length 2 array [i,j]. You may assume that the entire matrix is surrounded by an outer perimeter with the value -1 in each cell. You must write an algorithm that runs in O(m log(n)) or O(n log(m)) time. &amp;nbsp; Example 1: Input: mat = [[1,4],[3,2]] Output: [0,1] Explanation:&amp;nbsp;Both 3 and 4 are peak elements so [1,0] and [0,1] are both acceptable answers. Example 2: Input: mat = [[10,20,15],[21,30,14],[7,16,32]] Output: [1,1] Explanation:&amp;nbsp;Both 30 and 32 are peak elements so [1,1] and [2,2] are both acceptable answers. &amp;nbsp; Constraints: m == mat.length n == mat[i].length 1 &amp;lt;= m, n &amp;lt;= 500 1 &amp;lt;= mat[i][j] &amp;lt;= 105 No two adjacent cells are equal.
+  */
+<span class="nc" id="L8">        int l = 0, r = mat.length - 1;</span>
+<span class="nc" id="L9">        int n = mat[0].length;</span>
+<span class="nc bnc" id="L10" title="All 2 branches missed.">        while (l &lt; r) {</span>
+<span class="nc" id="L11">            int mid = (l + r) &gt;&gt; 1;</span>
+<span class="nc" id="L12">            int j = maxPos(mat[mid]);</span>
+<span class="nc bnc" id="L13" title="All 2 branches missed.">            if (mat[mid][j] &gt; mat[mid + 1][j]) {</span>
+<span class="nc" id="L14">                r = mid;</span>
+            } else {
+<span class="nc" id="L16">                l = mid + 1;</span>
+            }
+<span class="nc" id="L18">        }</span>
+<span class="nc" id="L19">        return new int[] {l, maxPos(mat[l])};</span>
+    }
+
+    private int maxPos(int[] arr) {
+<span class="nc" id="L23">        int j = 0;</span>
+<span class="nc bnc" id="L24" title="All 2 branches missed.">        for (int i = 1; i &lt; arr.length; ++i) {</span>
+<span class="nc bnc" id="L25" title="All 2 branches missed.">            if (arr[j] &lt; arr[i]) {</span>
+<span class="nc" id="L26">                j = i;</span>
+            }
+        }
+<span class="nc" id="L29">        return j;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

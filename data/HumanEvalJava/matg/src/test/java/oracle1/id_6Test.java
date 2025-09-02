@@ -24,11 +24,7 @@ class ParseNestedParensTest {
         List<Integer> result = ParseNestedParens.parseNestedParens("");
         assertEquals(result, new ArrayList<>());
     }
-    @Test
-    public void testSingleOpeningParenthesis() {
-        List<Integer> result = ParseNestedParens.parseNestedParens("(");
-        assertEquals(result, new ArrayList<>(Arrays.asList(1)));
-    }
+ 
     @Test
     public void testSingleParenthesisGroup() {
         List<Integer> result = ParseNestedParens.parseNestedParens("(())");

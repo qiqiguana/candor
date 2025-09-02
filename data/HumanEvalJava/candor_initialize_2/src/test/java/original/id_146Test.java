@@ -1,0 +1,118 @@
+package original;
+
+import java.util.ArrayList;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of Specialfilter.
+*/
+class SpecialfilterTest {
+    @Test
+    void test_specialfilter() {
+        List<Object> numbers = Arrays.asList(15, -73, 14, -15);
+        int result = Specialfilter.specialfilter(numbers);
+        assertEquals(1, result);
+    }
+    @Test
+    public void testSpecialFilterWithSingleElementLessThan10() {
+        List<Object> nums = Arrays.asList(5);
+        assertEquals(0, Specialfilter.specialfilter(nums));
+    }
+    @Test
+    public void testSpecialFilterWithMultipleElementsGreaterThanOrEqual10AndFirstAndLastDigitsOdd() {
+        List<Object> nums = Arrays.asList(15, -73, 14, -15);
+        assertEquals(1, Specialfilter.specialfilter(nums));
+    }
+    @Test
+    public void testSpecialFilterWithNegativeNumbers() {
+        List<Object> nums = Arrays.asList(-15, -73, -14, -15);
+        assertEquals(0, Specialfilter.specialfilter(nums));
+    }
+    @Test
+    public void testSpecialFilterWithSingleElementGreaterThanOrEqual10AndFirstAndLastDigitsOdd() {
+        List<Object> nums = Arrays.asList(15);
+        assertEquals(1, Specialfilter.specialfilter(nums));
+    }
+    @Test
+    public void testSpecialFilterWithNullInput() {
+        List<Object> nums = null;
+        assertThrows(NullPointerException.class, () -> Specialfilter.specialfilter(nums));
+    }
+    @Test
+    public void testSpecialFilterWithEmptyListInput() {
+        List<Object> nums = Arrays.asList();
+        assertDoesNotThrow(() -> Specialfilter.specialfilter(nums));
+    }
+    @Test
+    public void testSpecialFilterWithNonIntegerElement() {
+        List<Object> nums = Arrays.asList("non-integer");
+        assertThrows(ClassCastException.class, () -> Specialfilter.specialfilter(nums));
+    }
+    @Test
+    public void test_SingleElementGreaterthan10() {
+        List<Object> nums = Arrays.asList(15);
+        int result = Specialfilter.specialfilter(nums);
+        assertEquals(1, result);
+    }
+    @Test
+    public void test_EmptyListInput_NoNullPointerException() {
+        List<Object> nums = new ArrayList<>();
+        int result = Specialfilter.specialfilter(nums);
+        assertEquals(0, result);
+    }
+    @Test
+    public void test_SingleElementNotGreaterthan10() {
+        List<Object> nums = Arrays.asList(5);
+        int result = Specialfilter.specialfilter(nums);
+        assertEquals(0, result);
+    }
+    @Test
+    public void test_MultipleElementsGreaterthan10() {
+        List<Object> nums = Arrays.asList(33, 45, 109);
+        int result = Specialfilter.specialfilter(nums);
+        assertEquals(2, result);
+    }
+    @Test
+    public void test_NoOddFirstAndLastDigits() {
+        List<Object> nums = Arrays.asList(20);
+        int result = Specialfilter.specialfilter(nums);
+        assertEquals(0, result);
+    }
+    @Test
+    public void test_MultipleElements() {
+        List<Object> nums = Arrays.asList(33, 45, 109, 20, 15);
+        int result = Specialfilter.specialfilter(nums);
+        assertEquals(3, result);
+    }
+    @Test
+    public void testSingleDigitNumber() {
+        List<Object> input = Arrays.asList(1);
+        assertEquals(0, Specialfilter.specialfilter(input));
+    }
+    @Test
+    public void testEmptyList() {
+        List<Object> input = new ArrayList<>();
+        assertEquals(0, Specialfilter.specialfilter(input));
+    }
+    @Test
+    public void testNumberLessThan10() {
+        List<Object> input = Arrays.asList(5);
+        assertEquals(0, Specialfilter.specialfilter(input));
+    }
+    @Test
+    public void testFirstDigitEvenLastDigitOdd() {
+        List<Object> input = Arrays.asList(42);
+        assertEquals(0, Specialfilter.specialfilter(input));
+    }
+    @Test
+    public void testBothDigitsOdd() {
+        List<Object> input = Arrays.asList(15, 35, 75);
+        assertEquals(3, Specialfilter.specialfilter(input));
+    }
+}

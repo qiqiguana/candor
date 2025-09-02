@@ -1,0 +1,99 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Encrypt {
+
+  // compiled from: id_89.java
+  // access flags 0x19
+  public final static INNERCLASS java/lang/invoke/MethodHandles$Lookup java/lang/invoke/MethodHandles Lookup
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 3 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Encrypt; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  public static encrypt(Ljava/lang/String;)Ljava/lang/String;
+   L0
+    LINENUMBER 33 L0
+    LDC ""
+    ASTORE 1
+   L1
+    LINENUMBER 34 L1
+    ICONST_0
+    ISTORE 2
+   L2
+   FRAME FULL [java/lang/String java/lang/String I] []
+    ILOAD 2
+    ALOAD 0
+    INVOKEVIRTUAL java/lang/String.length ()I
+    IF_ICMPLT L3
+   L4
+    LINENUMBER 35 L4
+    ALOAD 0
+    ILOAD 2
+    INVOKEVIRTUAL java/lang/String.charAt (I)C
+    ISTORE 3
+   L5
+    LINENUMBER 36 L5
+    ILOAD 3
+    BIPUSH 97
+    IF_ICMPLT L6
+    ILOAD 3
+    BIPUSH 122
+    IF_ICMPGT L6
+   L7
+    LINENUMBER 37 L7
+    ILOAD 3
+    ICONST_4
+    IADD
+    I2C
+    ISTORE 3
+   L8
+    LINENUMBER 38 L8
+    ILOAD 3
+    BIPUSH 122
+    IF_ICMPLE L6
+   L9
+    LINENUMBER 39 L9
+    ILOAD 3
+    BIPUSH 26
+    ISUB
+    I2C
+    ISTORE 3
+   L6
+    LINENUMBER 42 L6
+   FRAME FULL [java/lang/String java/lang/String I I] []
+    ALOAD 1
+    ILOAD 3
+    INVOKEDYNAMIC makeConcatWithConstants(Ljava/lang/String;C)Ljava/lang/String; [
+      // handle kind 0x6 : INVOKESTATIC
+      java/lang/invoke/StringConcatFactory.makeConcatWithConstants(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;
+      // arguments:
+      "\u0001\u0001"
+    ]
+    ASTORE 1
+   L10
+    LINENUMBER 34 L10
+    IINC 2 1
+    GOTO L2
+   L3
+    LINENUMBER 44 L3
+   FRAME FULL [java/lang/String java/lang/String I] []
+    ALOAD 1
+    ARETURN
+   L11
+    LOCALVARIABLE c C L5 L10 3
+    LOCALVARIABLE i I L2 L3 2
+    LOCALVARIABLE s Ljava/lang/String; L0 L11 0
+    LOCALVARIABLE result Ljava/lang/String; L1 L11 1
+    MAXSTACK = 2
+    MAXLOCALS = 4
+}
+

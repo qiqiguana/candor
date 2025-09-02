@@ -1,0 +1,67 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/BelowThreshold {
+
+  // compiled from: id_52.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 7 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/BelowThreshold; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  // signature (Ljava/util/List<Ljava/lang/Integer;>;I)Ljava/lang/Boolean;
+  // declaration: java.lang.Boolean belowThreshold(java.util.List<java.lang.Integer>, int)
+  public static belowThreshold(Ljava/util/List;I)Ljava/lang/Boolean;
+   L0
+    LINENUMBER 25 L0
+    ICONST_0
+    ISTORE 2
+   L1
+   FRAME FULL [java/util/List I I] []
+    ILOAD 2
+    ALOAD 0
+    INVOKEINTERFACE java/util/List.size ()I (itf)
+    IF_ICMPGT L2
+   L3
+    LINENUMBER 26 L3
+    ALOAD 0
+    ILOAD 2
+    INVOKEINTERFACE java/util/List.get (I)Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/Integer
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    ILOAD 1
+    IF_ICMPLT L4
+   L5
+    LINENUMBER 27 L5
+    ICONST_0
+    INVOKESTATIC java/lang/Boolean.valueOf (Z)Ljava/lang/Boolean;
+    ARETURN
+   L4
+    LINENUMBER 25 L4
+   FRAME FULL [java/util/List I I] []
+    IINC 2 1
+    GOTO L1
+   L2
+    LINENUMBER 30 L2
+   FRAME FULL [java/util/List I I] []
+    ICONST_1
+    INVOKESTATIC java/lang/Boolean.valueOf (Z)Ljava/lang/Boolean;
+    ARETURN
+   L6
+    LOCALVARIABLE i I L1 L2 2
+    LOCALVARIABLE l Ljava/util/List; L0 L6 0
+    // signature Ljava/util/List<Ljava/lang/Integer;>;
+    // declaration: l extends java.util.List<java.lang.Integer>
+    LOCALVARIABLE t I L0 L6 1
+    MAXSTACK = 2
+    MAXLOCALS = 3
+}
+

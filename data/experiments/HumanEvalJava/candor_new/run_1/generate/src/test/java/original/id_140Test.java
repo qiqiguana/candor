@@ -1,0 +1,38 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of FixSpaces.
+*/
+class FixSpacesTest {
+    @Test
+    void testFixSpaces_ReplacesConsecutiveSpacesWithUnderscore() {
+        String input = "Hello  World";
+        String expectedOutput = "Hello__World";
+        assertEquals(expectedOutput, FixSpaces.fixSpaces(input));
+    }
+    
+    @Test
+        public void testNothing(){
+            FixSpaces s = new FixSpaces();
+            }
+    @Test
+    public void testFixSpacesWithConsecutiveSpaces() {
+    String input = "Exa   mple";
+    String expectedOutput = "Exa-mple";
+    String actualOutput = FixSpaces.fixSpaces(input);
+    assertEquals(expectedOutput, actualOutput);
+    }
+    @Test
+    public void test_fixSpaces_with_trailing_spaces() {
+        String text = "Example   ";
+        assertEquals("Example-", FixSpaces.fixSpaces(text));
+    }
+    @Test
+    public void test_fixSpaces_with_single_space_at_the_end() {
+        String text = "Example ";
+        assertEquals("Example_", FixSpaces.fixSpaces(text));
+    }
+                                    
+}

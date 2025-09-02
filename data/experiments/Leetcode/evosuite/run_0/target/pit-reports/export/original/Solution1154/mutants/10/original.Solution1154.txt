@@ -1,0 +1,168 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Solution1154 {
+
+  // compiled from: id_1154.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 3 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Solution1154; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public dayOfYear(Ljava/lang/String;)I
+   L0
+    LINENUMBER 5 L0
+    ALOAD 1
+    ICONST_0
+    ICONST_4
+    INVOKEVIRTUAL java/lang/String.substring (II)Ljava/lang/String;
+    INVOKESTATIC java/lang/Integer.parseInt (Ljava/lang/String;)I
+    ISTORE 2
+   L1
+    LINENUMBER 6 L1
+    ALOAD 1
+    ICONST_5
+    BIPUSH 7
+    INVOKEVIRTUAL java/lang/String.substring (II)Ljava/lang/String;
+    INVOKESTATIC java/lang/Integer.parseInt (Ljava/lang/String;)I
+    ISTORE 3
+   L2
+    LINENUMBER 7 L2
+    ALOAD 1
+    BIPUSH 8
+    INVOKEVIRTUAL java/lang/String.substring (I)Ljava/lang/String;
+    INVOKESTATIC java/lang/Integer.parseInt (Ljava/lang/String;)I
+    ISTORE 4
+   L3
+    LINENUMBER 8 L3
+    ILOAD 2
+    SIPUSH 400
+    IREM
+    IFEQ L4
+    ILOAD 2
+    ICONST_4
+    IREM
+    IFNE L5
+    ILOAD 2
+    BIPUSH 100
+    IREM
+    IFEQ L5
+   L4
+   FRAME FULL [original/Solution1154 java/lang/String I I I] []
+    BIPUSH 29
+    GOTO L6
+   L5
+   FRAME FULL [original/Solution1154 java/lang/String I I I] []
+    BIPUSH 28
+   L6
+   FRAME FULL [original/Solution1154 java/lang/String I I I] [I]
+    ISTORE 5
+   L7
+    LINENUMBER 9 L7
+    BIPUSH 12
+    NEWARRAY T_INT
+    DUP
+    ICONST_0
+    BIPUSH 31
+    IASTORE
+    DUP
+    ICONST_1
+    ILOAD 5
+    IASTORE
+    DUP
+    ICONST_2
+    BIPUSH 31
+    IASTORE
+    DUP
+    ICONST_3
+    BIPUSH 30
+    IASTORE
+    DUP
+    ICONST_4
+    BIPUSH 31
+    IASTORE
+    DUP
+    ICONST_5
+    BIPUSH 30
+    IASTORE
+    DUP
+    BIPUSH 6
+    BIPUSH 31
+    IASTORE
+    DUP
+    BIPUSH 7
+    BIPUSH 31
+    IASTORE
+    DUP
+    BIPUSH 8
+    BIPUSH 30
+    IASTORE
+    DUP
+    BIPUSH 9
+    BIPUSH 31
+    IASTORE
+    DUP
+    BIPUSH 10
+    BIPUSH 30
+    IASTORE
+    DUP
+    BIPUSH 11
+    BIPUSH 31
+    IASTORE
+    ASTORE 6
+   L8
+    LINENUMBER 10 L8
+    ILOAD 4
+    ISTORE 7
+   L9
+    LINENUMBER 11 L9
+    ICONST_0
+    ISTORE 8
+   L10
+   FRAME FULL [original/Solution1154 java/lang/String I I I I [I I I] []
+    ILOAD 8
+    ILOAD 3
+    ICONST_1
+    ISUB
+    IF_ICMPGE L11
+   L12
+    LINENUMBER 12 L12
+    ILOAD 7
+    ALOAD 6
+    ILOAD 8
+    IALOAD
+    IADD
+    ISTORE 7
+   L13
+    LINENUMBER 11 L13
+    IINC 8 1
+    GOTO L10
+   L11
+    LINENUMBER 14 L11
+   FRAME FULL [original/Solution1154 java/lang/String I I I I [I I I] []
+    ILOAD 7
+    POP
+    ICONST_0
+    IRETURN
+   L14
+    LOCALVARIABLE i I L10 L11 8
+    LOCALVARIABLE this Loriginal/Solution1154; L0 L14 0
+    LOCALVARIABLE date Ljava/lang/String; L0 L14 1
+    LOCALVARIABLE y I L1 L14 2
+    LOCALVARIABLE m I L2 L14 3
+    LOCALVARIABLE d I L3 L14 4
+    LOCALVARIABLE v I L7 L14 5
+    LOCALVARIABLE days [I L8 L14 6
+    LOCALVARIABLE ans I L9 L14 7
+    MAXSTACK = 4
+    MAXLOCALS = 9
+}
+

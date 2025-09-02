@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_1595.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">leetcode</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_1595.java</span></div><h1>id_1595.java</h1><pre class="source lang-java linenums">package original;
+
+import java.util.Arrays;
+import java.util.List;
+<span class="nc" id="L5">class Solution1595 {</span>
+    public int connectTwoGroups(List&lt;List&lt;Integer&gt;&gt; cost) {
+<span class="nc" id="L7">        int m = cost.size(), n = cost.get(0).size();</span>
+<span class="nc" id="L8">        final int inf = 1 &lt;&lt; 30;</span>
+<span class="nc" id="L9">        int[][] f = new int[m + 1][1 &lt;&lt; n];</span>
+<span class="nc bnc" id="L10" title="All 2 branches missed.">        for (int[] g : f) {</span>
+<span class="nc" id="L11">            Arrays.fill(g, inf);</span>
+        }
+<span class="nc" id="L13">        f[0][0] = 0;</span>
+<span class="nc bnc" id="L14" title="All 2 branches missed.">        for (int i = 1; i &lt;= m; ++i) {</span>
+<span class="nc bnc" id="L15" title="All 2 branches missed.">            for (int j = 0; j &lt; 1 &lt;&lt; n; ++j) {</span>
+<span class="nc bnc" id="L16" title="All 2 branches missed.">                for (int k = 0; k &lt; n; ++k) {</span>
+<span class="nc bnc" id="L17" title="All 2 branches missed.">                    if ((j &gt;&gt; k &amp; 1) == 1) {</span>
+<span class="nc" id="L18">                        int c = cost.get(i - 1).get(k);</span>
+<span class="nc" id="L19">                        f[i][j] = Math.min(f[i][j], f[i][j ^ (1 &lt;&lt; k)] + c);</span>
+<span class="nc" id="L20">                        f[i][j] = Math.min(f[i][j], f[i - 1][j] + c);</span>
+<span class="nc" id="L21">                        f[i][j] = Math.min(f[i][j], f[i - 1][j ^ (1 &lt;&lt; k)] + c);</span>
+                    }
+                }
+            }
+        }
+<span class="nc" id="L26">        return f[m][(1 &lt;&lt; n) - 1];</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

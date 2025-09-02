@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_92.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HumanEvalJava</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_92.java</span></div><h1>id_92.java</h1><pre class="source lang-java linenums">package original;
+
+<span class="nc" id="L3">class AnyInt {</span>
+    /**
+     * * Create a function that takes 3 numbers.
+     * Returns true if one of the numbers is equal to the sum of the other two, and all numbers are integers.
+     * Returns false in any other cases.
+     *
+     * Examples
+     * anyInt(5, 2, 7) ➞ True
+     *
+     * anyInt(3, 2, 2) ➞ False
+     *
+     * anyInt(3, -2, 1) ➞ True
+     *
+     * anyInt(3.6, -2.2, 2) ➞ False
+     *
+     * &gt; anyInt(2, 3, 1)
+     * true
+     * &gt; anyInt(2.5, 2, 3)
+     * false
+     * &gt; anyInt(1.5, 5, 3.5)
+     * false
+     * &gt; anyInt(2, 6, 2)
+     * false
+     * &gt; anyInt(4, 2, 2)
+     * true
+     * &gt; anyInt(2.2, 2.2, 2.2)
+     * false
+     * &gt; anyInt(-4, 6, 2)
+     * true
+     * &gt; anyInt(2, 1, 1)
+     * true
+     * &gt; anyInt(3, 4, 7)
+     * true
+     * &gt; anyInt(3.0, 4, 7)
+     * false
+     */
+    public static Boolean anyInt(Number x, Number y, Number z) {
+<span class="nc bnc" id="L40" title="All 6 branches missed.">        if (x instanceof Integer &amp;&amp; y instanceof Integer &amp;&amp; z instanceof Integer) {</span>
+<span class="nc bnc" id="L41" title="All 2 branches missed.">            if (x.intValue() == y.intValue() + z.intValue()) {</span>
+<span class="nc" id="L42">                return true;</span>
+            }
+<span class="nc bnc" id="L44" title="All 2 branches missed.">            if (y.intValue() == x.intValue() + z.intValue()) {</span>
+<span class="nc" id="L45">                return true;</span>
+            }
+<span class="nc bnc" id="L47" title="All 2 branches missed.">            if (z.intValue() == x.intValue() + y.intValue()) {</span>
+<span class="nc" id="L48">                return true;</span>
+            }
+        }
+<span class="nc" id="L51">        return false;</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

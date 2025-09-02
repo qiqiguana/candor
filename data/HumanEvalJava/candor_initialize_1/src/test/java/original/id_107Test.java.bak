@@ -1,0 +1,36 @@
+package original;
+
+import java.util.ArrayList;
+import java.util.List;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of EvenOddPalindrome.
+*/
+class EvenOddPalindromeTest {
+    @Test
+    void testEvenOddPalindrome_EdgeCase_One() {
+        List<Integer> expected = new ArrayList<>();
+        expected.add(0);
+        expected.add(1);
+        assertEquals(expected, EvenOddPalindrome.evenOddPalindrome(1));
+    }
+    
+    @Test
+        public void testNothing(){
+            EvenOddPalindrome s = new EvenOddPalindrome();
+            }
+    @Test
+    public void testEvenPalindromeCountSmallInput2() {
+        List<Integer> result = EvenOddPalindrome.evenOddPalindrome(4);
+        assertEquals(2, result.get(0));
+        assertEquals(2, result.get(1));
+    }
+    @Test
+    public void testOddPalindromeCountSmallInputFixed() {
+        List<Integer> result = EvenOddPalindrome.evenOddPalindrome(3);
+        assertEquals(1, result.get(0));
+        assertEquals(2, result.get(1));
+    }
+                                    
+}

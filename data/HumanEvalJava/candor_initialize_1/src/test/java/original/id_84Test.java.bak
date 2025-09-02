@@ -1,0 +1,107 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of Solve1.
+*/
+class Solve1Test {
+    @Test
+    void testSolve_ForPositiveInput_ReturnsSumOfDigitsInBinary() {
+        // Arrange and Act
+        String result = Solve1.solve(1000);
+
+        // Assert
+        assertEquals("1", result);
+    }
+    @Test
+    public void test_solve_zero_input() {
+        String result = Solve1.solve(0);
+        assertEquals("0", result);
+    }
+    @Test
+    public void test_solve_single_digit_input() {
+        String result = Solve1.solve(5);
+        assertEquals("101", result);
+    }
+    @Test
+    public void test_solve_multi_digit_input_corrected() {
+        int n = 1234;
+        int decimalSum = 0;
+        while (n > 0) {
+            decimalSum += n % 10;
+            n /= 10;
+        }
+        String binarySum = Integer.toBinaryString(decimalSum);
+        String result = Solve1.solve(1234);
+        assertEquals(binarySum, result);
+    }
+    @Test
+    public void test_solve_negative_input() {
+        String result = Solve1.solve(-1);
+        assertEquals("0", result);
+    }
+    @Test
+    public void test_solve_max_value_corrected() {
+        String result = Solve1.solve(10000);
+        assertEquals("1", result);
+    }
+    @Test
+    public void test_solve_sum_of_digits_power_of_2() {
+        String result = Solve1.solve(333);
+        assertEquals("1001", result);
+    }
+    @Test
+    public void test_Solve_SingleDigit() {
+    	String result = Solve1.solve(5);
+    	assertEquals("101", result);
+    }
+    @Test
+    public void test_Solve_MultipleDigits_Fixed() {
+        String result = Solve1.solve(123);
+        assertEquals("110", result);
+    }
+    @Test
+    public void test_Solve_ZeroInput() {
+    	String result = Solve1.solve(0);
+    	assertEquals("0", result);
+    }
+    @Test
+    public void test_Solve_MaxValue() {
+    	int n = 10000;
+    	int sum = 0;
+    	while (n > 0) {
+    		sum += n % 10;
+    		n /= 10;
+    	}
+    	String expected = Integer.toBinaryString(sum);
+    	String result = Solve1.solve(10000);
+    	assertEquals(expected, result);
+    }
+    @Test
+    public void test_Solve_RepeatedDigits() {
+    	String result = Solve1.solve(333);
+    	assertEquals("1001", result);
+    }
+    @Test
+    public void test_solve_small_positive_integer() {
+        int n = 1000;
+        String expected = "1";
+        String result = Solve1.solve(n);
+        assertEquals(expected, result);
+    }
+    @Test
+    public void test_solve_medium_positive_integer() {
+        int n = 150;
+        String expected = "110";
+        String result = Solve1.solve(n);
+        assertEquals(expected, result);
+    }
+    @Test
+    public void test_solve_large_positive_integer() {
+        int n = 147;
+        String expected = "1100";
+        String result = Solve1.solve(n);
+        assertEquals(expected, result);
+    }
+}

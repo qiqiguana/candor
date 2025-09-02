@@ -1,0 +1,36 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of FizzBuzz.
+*/
+class FizzBuzzTest {
+    @Test
+    void testFizzBuzz_For_50_Returns_0() {
+        assertEquals(0, FizzBuzz.fizzBuzz(50));
+    }
+    
+    @Test
+        public void testNothing(){
+            FizzBuzz s = new FizzBuzz();
+            }
+    @Test
+    public void testFizzBuzz_with_n_equals_7() {
+        int result = FizzBuzz.fizzBuzz(7);
+        assertEquals(0, result);
+    }
+    @Test
+    public void testFizzBuzz_with_n_equals_77_corrected() {
+        int result = FizzBuzz.fizzBuzz(77);
+        assertEquals(0, result);
+    }
+    @Test
+    public void testFizzBuzzWithMultipleOccurrencesOfDigit7() {
+        int n = 78;
+        int expectedResult = 2;
+        int actualResult = FizzBuzz.fizzBuzz(n);
+        assertEquals(expectedResult, actualResult);
+    }
+                                    
+}

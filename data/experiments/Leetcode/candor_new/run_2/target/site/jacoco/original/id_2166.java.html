@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_2166.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">leetcode</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_2166.java</span></div><h1>id_2166.java</h1><pre class="source lang-java linenums">package original;
+
+import java.util.Arrays;
+class Bitset {
+    private char[] a;
+    private char[] b;
+    private int cnt;
+
+<span class="nc" id="L9">    public Bitset(int size) {</span>
+<span class="nc" id="L10">        a = new char[size];</span>
+<span class="nc" id="L11">        b = new char[size];</span>
+<span class="nc" id="L12">        Arrays.fill(a, '0');</span>
+<span class="nc" id="L13">        Arrays.fill(b, '1');</span>
+<span class="nc" id="L14">    }</span>
+
+    public void fix(int idx) {
+<span class="nc bnc" id="L17" title="All 2 branches missed.">        if (a[idx] == '0') {</span>
+<span class="nc" id="L18">            a[idx] = '1';</span>
+<span class="nc" id="L19">            ++cnt;</span>
+        }
+<span class="nc" id="L21">        b[idx] = '0';</span>
+<span class="nc" id="L22">    }</span>
+
+    public void unfix(int idx) {
+<span class="nc bnc" id="L25" title="All 2 branches missed.">        if (a[idx] == '1') {</span>
+<span class="nc" id="L26">            a[idx] = '0';</span>
+<span class="nc" id="L27">            --cnt;</span>
+        }
+<span class="nc" id="L29">        b[idx] = '1';</span>
+<span class="nc" id="L30">    }</span>
+
+    public void flip() {
+<span class="nc" id="L33">        char[] t = a;</span>
+<span class="nc" id="L34">        a = b;</span>
+<span class="nc" id="L35">        b = t;</span>
+<span class="nc" id="L36">        cnt = a.length - cnt;</span>
+<span class="nc" id="L37">    }</span>
+
+    public boolean all() {
+<span class="nc bnc" id="L40" title="All 2 branches missed.">        return cnt == a.length;</span>
+    }
+
+    public boolean one() {
+<span class="nc bnc" id="L44" title="All 2 branches missed.">        return cnt &gt; 0;</span>
+    }
+
+    public int count() {
+<span class="nc" id="L48">        return cnt;</span>
+    }
+
+    public String toString() {
+<span class="nc" id="L52">        return String.valueOf(a);</span>
+    }
+}
+
+/**
+ * Your Bitset object will be instantiated and called as such:
+ * Bitset obj = new Bitset(size);
+ * obj.fix(idx);
+ * obj.unfix(idx);
+ * obj.flip();
+ * boolean param_4 = obj.all();
+ * boolean param_5 = obj.one();
+ * int param_6 = obj.count();
+ * String param_7 = obj.toString();
+ */
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

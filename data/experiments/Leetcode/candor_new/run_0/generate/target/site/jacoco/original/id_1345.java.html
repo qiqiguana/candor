@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_1345.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">leetcode</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_1345.java</span></div><h1>id_1345.java</h1><pre class="source lang-java linenums">package original;
+
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Deque;
+import java.util.Map;
+import java.util.List;
+<span class="nc" id="L9">class Solution1345 {</span>
+    public int minJumps(int[] arr) {
+  /**
+  Given an array of&amp;nbsp;integers arr, you are initially positioned at the first index of the array. In one step you can jump from index i to index: i + 1 where:&amp;nbsp;i + 1 &amp;lt; arr.length. i - 1 where:&amp;nbsp;i - 1 &amp;gt;= 0. j where: arr[i] == arr[j] and i != j. Return the minimum number of steps to reach the last index of the array. Notice that you can not jump outside of the array at any time. &amp;nbsp; Example 1: Input: arr = [100,-23,-23,404,100,23,23,23,3,404] Output: 3 Explanation: You need three jumps from index 0 --&amp;gt; 4 --&amp;gt; 3 --&amp;gt; 9. Note that index 9 is the last index of the array. Example 2: Input: arr = [7] Output: 0 Explanation: Start index is the last index. You do not need to jump. Example 3: Input: arr = [7,6,9,6,9,6,9,7] Output: 1 Explanation: You can jump directly from index 0 to index 7 which is last index of the array. &amp;nbsp; Constraints: 1 &amp;lt;= arr.length &amp;lt;= 5 * 104 -108 &amp;lt;= arr[i] &amp;lt;= 108
+  */
+<span class="nc" id="L14">        Map&lt;Integer, List&lt;Integer&gt;&gt; g = new HashMap&lt;&gt;();</span>
+<span class="nc" id="L15">        int n = arr.length;</span>
+<span class="nc bnc" id="L16" title="All 2 branches missed.">        for (int i = 0; i &lt; n; i++) {</span>
+<span class="nc" id="L17">            g.computeIfAbsent(arr[i], k -&gt; new ArrayList&lt;&gt;()).add(i);</span>
+        }
+<span class="nc" id="L19">        boolean[] vis = new boolean[n];</span>
+<span class="nc" id="L20">        Deque&lt;Integer&gt; q = new ArrayDeque&lt;&gt;();</span>
+<span class="nc" id="L21">        q.offer(0);</span>
+<span class="nc" id="L22">        vis[0] = true;</span>
+<span class="nc" id="L23">        for (int ans = 0;; ++ans) {</span>
+<span class="nc bnc" id="L24" title="All 2 branches missed.">            for (int k = q.size(); k &gt; 0; --k) {</span>
+<span class="nc" id="L25">                int i = q.poll();</span>
+<span class="nc bnc" id="L26" title="All 2 branches missed.">                if (i == n - 1) {</span>
+<span class="nc" id="L27">                    return ans;</span>
+                }
+<span class="nc bnc" id="L29" title="All 2 branches missed.">                for (int j : g.get(arr[i])) {</span>
+<span class="nc bnc" id="L30" title="All 2 branches missed.">                    if (!vis[j]) {</span>
+<span class="nc" id="L31">                        vis[j] = true;</span>
+<span class="nc" id="L32">                        q.offer(j);</span>
+                    }
+<span class="nc" id="L34">                }</span>
+<span class="nc" id="L35">                g.get(arr[i]).clear();</span>
+<span class="nc bnc" id="L36" title="All 2 branches missed.">                for (int j : new int[] {i - 1, i + 1}) {</span>
+<span class="nc bnc" id="L37" title="All 6 branches missed.">                    if (0 &lt;= j &amp;&amp; j &lt; n &amp;&amp; !vis[j]) {</span>
+<span class="nc" id="L38">                        vis[j] = true;</span>
+<span class="nc" id="L39">                        q.offer(j);</span>
+                    }
+                }
+            }
+        }
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

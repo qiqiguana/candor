@@ -1,0 +1,96 @@
+package original;
+
+import original.SortArray;
+import java.util.ArrayList;
+
+import java.util.Collections;
+
+import java.util.Comparator;
+
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of SortArray.
+*/
+class SortArrayTest {
+    @Test
+    void testSortArray_EmptyList_ReturnsEmptyList() {
+        // Arrange
+        List<Object> input = new ArrayList<>();
+        List<Object> expected = new ArrayList<>();
+        // Act
+        List<Object> result = SortArray.sortArray(input);
+        // Assert
+        assertEquals(expected, result);
+    }
+    @Test
+    public void testEmptyArray() {
+        List<Object> input = new ArrayList<>();
+        List<Object> expectedOutput = new ArrayList<>();
+        assertEquals(expectedOutput, SortArray.sortArray(input));
+    }
+    @Test
+    public void testNullInput() {
+        List<Object> input = null;
+        assertThrows(Exception.class, () -> SortArray.sortArray(input));
+    }
+    @Test
+    public void testSortArrayWithEvenNumbers() {
+        java.util.List<java.lang.Object> input = new java.util.ArrayList<>(java.util.Arrays.asList(2, 4, 6));
+        java.util.List<java.lang.Object> expectedOutput = new java.util.ArrayList<>(java.util.Arrays.asList(2, 4, 6));
+        org.junit.jupiter.api.Assertions.assertEquals(expectedOutput, original.SortArray.sortArray(input));
+    }
+    @Test
+    public void testSortEmptyArray() {
+    	List<Object> input = new ArrayList<>();
+    	List<Object> expectedOutput = new ArrayList<>();
+    	assertEquals(expectedOutput, SortArray.sortArray(input));
+    }
+    @Test
+    public void SortArray_EmptyArray_ReturnsEmptyArray() {
+        List<Object> input = new ArrayList<>();
+        List<Object> expected = new ArrayList<>();
+        assertEquals(expected, SortArray.sortArray(input));
+    }
+    @Test
+    public void SortArray_SingleElementArray_ReturnsSameArray() {
+        List<Object> input = new ArrayList<>();
+        input.add(1);
+        List<Object> expected = new ArrayList<>();
+        expected.add(1);
+        assertEquals(expected, SortArray.sortArray(input));
+    }
+    @Test
+    public void SortArray_MultipleElementsWithOnes_ReturnsSortedByNumberOfOnesThenDecimalValue() {
+        List<Object> input = new ArrayList<>();
+        input.add(5);
+        input.add(2);
+        input.add(3);
+        input.add(9);
+        List<Object> expected = new ArrayList<>();
+        expected.add(2);
+        expected.add(3);
+        expected.add(5);
+        expected.add(9);
+        assertEquals(expected, SortArray.sortArray(input));
+    }
+    @Test
+    public void SortArray_MultipleElementsWithSameNumberOfOnes_ReturnsSortedByDecimalValue2() {
+        List<Object> input = new ArrayList<>();
+        input.add(5);
+        input.add(10);
+        input.add(12);
+        List<Object> expected = new ArrayList<>();
+        expected.add(5);
+        expected.add(10);
+        expected.add(12);
+        assertEquals(expected, SortArray.sortArray(input));
+    }
+    @Test
+    public void SortArray_NullInput_ThrowsNullPointerException() {
+        List<Object> input = null;
+        assertThrows(NullPointerException.class, () -> SortArray.sortArray(input));
+    }
+}

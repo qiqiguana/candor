@@ -1,0 +1,443 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/SortNumbers {
+
+  // compiled from: id_19.java
+  // access flags 0x19
+  public final static INNERCLASS java/lang/invoke/MethodHandles$Lookup java/lang/invoke/MethodHandles Lookup
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 7 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/SortNumbers; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  public static sortNumbers(Ljava/lang/String;)Ljava/lang/String;
+   L0
+    LINENUMBER 27 L0
+    ALOAD 0
+    LDC " "
+    INVOKEVIRTUAL java/lang/String.split (Ljava/lang/String;)[Ljava/lang/String;
+    ASTORE 1
+   L1
+    LINENUMBER 29 L1
+    ALOAD 1
+    ARRAYLENGTH
+    NEWARRAY T_INT
+    ASTORE 2
+   L2
+    LINENUMBER 30 L2
+    ICONST_0
+    ISTORE 3
+   L3
+   FRAME FULL [java/lang/String [Ljava/lang/String; [I I] []
+    ILOAD 3
+    ALOAD 1
+    ARRAYLENGTH
+    IF_ICMPGE L4
+   L5
+    LINENUMBER 32 L5
+    ALOAD 1
+    ILOAD 3
+    AALOAD
+    LDC "zero"
+    INVOKEVIRTUAL java/lang/String.equals (Ljava/lang/Object;)Z
+    IFEQ L6
+   L7
+    LINENUMBER 33 L7
+    ALOAD 2
+    ILOAD 3
+    ICONST_0
+    IASTORE
+    GOTO L8
+   L6
+    LINENUMBER 34 L6
+   FRAME FULL [java/lang/String [Ljava/lang/String; [I I] []
+    ALOAD 1
+    ILOAD 3
+    AALOAD
+    LDC "one"
+    INVOKEVIRTUAL java/lang/String.equals (Ljava/lang/Object;)Z
+    IFEQ L9
+   L10
+    LINENUMBER 35 L10
+    ALOAD 2
+    ILOAD 3
+    ICONST_1
+    IASTORE
+    GOTO L8
+   L9
+    LINENUMBER 36 L9
+   FRAME FULL [java/lang/String [Ljava/lang/String; [I I] []
+    ALOAD 1
+    ILOAD 3
+    AALOAD
+    LDC "two"
+    INVOKEVIRTUAL java/lang/String.equals (Ljava/lang/Object;)Z
+    IFEQ L11
+   L12
+    LINENUMBER 37 L12
+    ALOAD 2
+    ILOAD 3
+    ICONST_2
+    IASTORE
+    GOTO L8
+   L11
+    LINENUMBER 38 L11
+   FRAME FULL [java/lang/String [Ljava/lang/String; [I I] []
+    ALOAD 1
+    ILOAD 3
+    AALOAD
+    LDC "three"
+    INVOKEVIRTUAL java/lang/String.equals (Ljava/lang/Object;)Z
+    IFEQ L13
+   L14
+    LINENUMBER 39 L14
+    ALOAD 2
+    ILOAD 3
+    ICONST_3
+    IASTORE
+    GOTO L8
+   L13
+    LINENUMBER 40 L13
+   FRAME FULL [java/lang/String [Ljava/lang/String; [I I] []
+    ALOAD 1
+    ILOAD 3
+    AALOAD
+    LDC "four"
+    INVOKEVIRTUAL java/lang/String.equals (Ljava/lang/Object;)Z
+    IFEQ L15
+   L16
+    LINENUMBER 41 L16
+    ALOAD 2
+    ILOAD 3
+    ICONST_4
+    IASTORE
+    GOTO L8
+   L15
+    LINENUMBER 42 L15
+   FRAME FULL [java/lang/String [Ljava/lang/String; [I I] []
+    ALOAD 1
+    ILOAD 3
+    AALOAD
+    LDC "five"
+    INVOKEVIRTUAL java/lang/String.equals (Ljava/lang/Object;)Z
+    IFEQ L17
+   L18
+    LINENUMBER 43 L18
+    ALOAD 2
+    ILOAD 3
+    ICONST_5
+    IASTORE
+    GOTO L8
+   L17
+    LINENUMBER 44 L17
+   FRAME FULL [java/lang/String [Ljava/lang/String; [I I] []
+    ALOAD 1
+    ILOAD 3
+    AALOAD
+    LDC "six"
+    INVOKEVIRTUAL java/lang/String.equals (Ljava/lang/Object;)Z
+    IFEQ L19
+   L20
+    LINENUMBER 45 L20
+    ALOAD 2
+    ILOAD 3
+    BIPUSH 6
+    IASTORE
+    GOTO L8
+   L19
+    LINENUMBER 46 L19
+   FRAME FULL [java/lang/String [Ljava/lang/String; [I I] []
+    ALOAD 1
+    ILOAD 3
+    AALOAD
+    LDC "seven"
+    INVOKEVIRTUAL java/lang/String.equals (Ljava/lang/Object;)Z
+    IFEQ L21
+   L22
+    LINENUMBER 47 L22
+    ALOAD 2
+    ILOAD 3
+    BIPUSH 7
+    IASTORE
+    GOTO L8
+   L21
+    LINENUMBER 48 L21
+   FRAME FULL [java/lang/String [Ljava/lang/String; [I I] []
+    ALOAD 1
+    ILOAD 3
+    AALOAD
+    LDC "eight"
+    INVOKEVIRTUAL java/lang/String.equals (Ljava/lang/Object;)Z
+    IFEQ L23
+   L24
+    LINENUMBER 49 L24
+    ALOAD 2
+    ILOAD 3
+    BIPUSH 8
+    IASTORE
+    GOTO L8
+   L23
+    LINENUMBER 50 L23
+   FRAME FULL [java/lang/String [Ljava/lang/String; [I I] []
+    ALOAD 1
+    ILOAD 3
+    AALOAD
+    LDC "nine"
+    INVOKEVIRTUAL java/lang/String.equals (Ljava/lang/Object;)Z
+    IFEQ L25
+   L26
+    LINENUMBER 51 L26
+    ALOAD 2
+    ILOAD 3
+    BIPUSH 9
+    IASTORE
+    GOTO L8
+   L25
+    LINENUMBER 53 L25
+   FRAME FULL [java/lang/String [Ljava/lang/String; [I I] []
+    ALOAD 2
+    ILOAD 3
+    ICONST_M1
+    IASTORE
+   L8
+    LINENUMBER 30 L8
+   FRAME FULL [java/lang/String [Ljava/lang/String; [I I] []
+    IINC 3 1
+    GOTO L3
+   L4
+    LINENUMBER 56 L4
+   FRAME FULL [java/lang/String [Ljava/lang/String; [I I] []
+    ALOAD 2
+    INVOKESTATIC java/util/Arrays.sort ([I)V
+   L27
+    LINENUMBER 57 L27
+    LDC ""
+    ASTORE 3
+   L28
+    LINENUMBER 58 L28
+    ICONST_0
+    ISTORE 4
+   L29
+   FRAME FULL [java/lang/String [Ljava/lang/String; [I java/lang/String I] []
+    ILOAD 4
+    ALOAD 2
+    ARRAYLENGTH
+    IF_ICMPGE L30
+   L31
+    LINENUMBER 59 L31
+    ALOAD 2
+    ILOAD 4
+    IALOAD
+    IFNE L32
+   L33
+    LINENUMBER 60 L33
+    ALOAD 3
+    INVOKEDYNAMIC makeConcatWithConstants(Ljava/lang/String;)Ljava/lang/String; [
+      // handle kind 0x6 : INVOKESTATIC
+      java/lang/invoke/StringConcatFactory.makeConcatWithConstants(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;
+      // arguments:
+      "\u0001zero "
+    ]
+    ASTORE 3
+    GOTO L34
+   L32
+    LINENUMBER 61 L32
+   FRAME FULL [java/lang/String [Ljava/lang/String; [I java/lang/String I] []
+    ALOAD 2
+    ILOAD 4
+    IALOAD
+    ICONST_1
+    IF_ICMPNE L35
+   L36
+    LINENUMBER 62 L36
+    ALOAD 3
+    INVOKEDYNAMIC makeConcatWithConstants(Ljava/lang/String;)Ljava/lang/String; [
+      // handle kind 0x6 : INVOKESTATIC
+      java/lang/invoke/StringConcatFactory.makeConcatWithConstants(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;
+      // arguments:
+      "\u0001one "
+    ]
+    ASTORE 3
+    GOTO L34
+   L35
+    LINENUMBER 63 L35
+   FRAME FULL [java/lang/String [Ljava/lang/String; [I java/lang/String I] []
+    ALOAD 2
+    ILOAD 4
+    IALOAD
+    ICONST_2
+    IF_ICMPNE L37
+   L38
+    LINENUMBER 64 L38
+    ALOAD 3
+    INVOKEDYNAMIC makeConcatWithConstants(Ljava/lang/String;)Ljava/lang/String; [
+      // handle kind 0x6 : INVOKESTATIC
+      java/lang/invoke/StringConcatFactory.makeConcatWithConstants(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;
+      // arguments:
+      "\u0001two "
+    ]
+    ASTORE 3
+    GOTO L34
+   L37
+    LINENUMBER 65 L37
+   FRAME FULL [java/lang/String [Ljava/lang/String; [I java/lang/String I] []
+    ALOAD 2
+    ILOAD 4
+    IALOAD
+    ICONST_3
+    IF_ICMPNE L39
+   L40
+    LINENUMBER 66 L40
+    ALOAD 3
+    INVOKEDYNAMIC makeConcatWithConstants(Ljava/lang/String;)Ljava/lang/String; [
+      // handle kind 0x6 : INVOKESTATIC
+      java/lang/invoke/StringConcatFactory.makeConcatWithConstants(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;
+      // arguments:
+      "\u0001three "
+    ]
+    ASTORE 3
+    GOTO L34
+   L39
+    LINENUMBER 67 L39
+   FRAME FULL [java/lang/String [Ljava/lang/String; [I java/lang/String I] []
+    ALOAD 2
+    ILOAD 4
+    IALOAD
+    ICONST_4
+    IF_ICMPNE L41
+   L42
+    LINENUMBER 68 L42
+    ALOAD 3
+    INVOKEDYNAMIC makeConcatWithConstants(Ljava/lang/String;)Ljava/lang/String; [
+      // handle kind 0x6 : INVOKESTATIC
+      java/lang/invoke/StringConcatFactory.makeConcatWithConstants(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;
+      // arguments:
+      "\u0001four "
+    ]
+    ASTORE 3
+    GOTO L34
+   L41
+    LINENUMBER 69 L41
+   FRAME FULL [java/lang/String [Ljava/lang/String; [I java/lang/String I] []
+    ALOAD 2
+    ILOAD 4
+    IALOAD
+    ICONST_5
+    IF_ICMPNE L43
+   L44
+    LINENUMBER 70 L44
+    ALOAD 3
+    INVOKEDYNAMIC makeConcatWithConstants(Ljava/lang/String;)Ljava/lang/String; [
+      // handle kind 0x6 : INVOKESTATIC
+      java/lang/invoke/StringConcatFactory.makeConcatWithConstants(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;
+      // arguments:
+      "\u0001five "
+    ]
+    ASTORE 3
+    GOTO L34
+   L43
+    LINENUMBER 71 L43
+   FRAME FULL [java/lang/String [Ljava/lang/String; [I java/lang/String I] []
+    ALOAD 2
+    ILOAD 4
+    IALOAD
+    BIPUSH 6
+    IF_ICMPNE L45
+   L46
+    LINENUMBER 72 L46
+    ALOAD 3
+    INVOKEDYNAMIC makeConcatWithConstants(Ljava/lang/String;)Ljava/lang/String; [
+      // handle kind 0x6 : INVOKESTATIC
+      java/lang/invoke/StringConcatFactory.makeConcatWithConstants(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;
+      // arguments:
+      "\u0001six "
+    ]
+    ASTORE 3
+    GOTO L34
+   L45
+    LINENUMBER 73 L45
+   FRAME FULL [java/lang/String [Ljava/lang/String; [I java/lang/String I] []
+    ALOAD 2
+    ILOAD 4
+    IALOAD
+    BIPUSH 7
+    IF_ICMPNE L47
+   L48
+    LINENUMBER 74 L48
+    ALOAD 3
+    INVOKEDYNAMIC makeConcatWithConstants(Ljava/lang/String;)Ljava/lang/String; [
+      // handle kind 0x6 : INVOKESTATIC
+      java/lang/invoke/StringConcatFactory.makeConcatWithConstants(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;
+      // arguments:
+      "\u0001seven "
+    ]
+    ASTORE 3
+    GOTO L34
+   L47
+    LINENUMBER 75 L47
+   FRAME FULL [java/lang/String [Ljava/lang/String; [I java/lang/String I] []
+    ALOAD 2
+    ILOAD 4
+    IALOAD
+    BIPUSH 8
+    IF_ICMPNE L49
+   L50
+    LINENUMBER 76 L50
+    ALOAD 3
+    INVOKEDYNAMIC makeConcatWithConstants(Ljava/lang/String;)Ljava/lang/String; [
+      // handle kind 0x6 : INVOKESTATIC
+      java/lang/invoke/StringConcatFactory.makeConcatWithConstants(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;
+      // arguments:
+      "\u0001eight "
+    ]
+    ASTORE 3
+    GOTO L34
+   L49
+    LINENUMBER 77 L49
+   FRAME FULL [java/lang/String [Ljava/lang/String; [I java/lang/String I] []
+    ALOAD 2
+    ILOAD 4
+    IALOAD
+    BIPUSH 9
+    IF_ICMPEQ L34
+   L51
+    LINENUMBER 78 L51
+    ALOAD 3
+    INVOKEDYNAMIC makeConcatWithConstants(Ljava/lang/String;)Ljava/lang/String; [
+      // handle kind 0x6 : INVOKESTATIC
+      java/lang/invoke/StringConcatFactory.makeConcatWithConstants(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;
+      // arguments:
+      "\u0001nine "
+    ]
+    ASTORE 3
+   L34
+    LINENUMBER 58 L34
+   FRAME FULL [java/lang/String [Ljava/lang/String; [I java/lang/String I] []
+    IINC 4 1
+    GOTO L29
+   L30
+    LINENUMBER 81 L30
+   FRAME FULL [java/lang/String [Ljava/lang/String; [I java/lang/String I] []
+    ALOAD 3
+    INVOKEVIRTUAL java/lang/String.trim ()Ljava/lang/String;
+    ARETURN
+   L52
+    LOCALVARIABLE i I L3 L4 3
+    LOCALVARIABLE i I L29 L30 4
+    LOCALVARIABLE numbers Ljava/lang/String; L0 L52 0
+    LOCALVARIABLE numbersArray [Ljava/lang/String; L1 L52 1
+    LOCALVARIABLE numbersInt [I L2 L52 2
+    LOCALVARIABLE result Ljava/lang/String; L28 L52 3
+    MAXSTACK = 3
+    MAXLOCALS = 5
+}
+

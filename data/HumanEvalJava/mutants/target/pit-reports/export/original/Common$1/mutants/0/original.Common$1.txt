@@ -1,0 +1,57 @@
+// class version 55.0 (55)
+// access flags 0x20
+// signature Ljava/lang/Object;Ljava/util/Comparator<Ljava/lang/Object;>;
+// declaration: original/Common$1 implements java.util.Comparator<java.lang.Object>
+class original/Common$1 implements java/util/Comparator {
+
+  // compiled from: id_58.java
+  NESTHOST original/Common
+  OUTERCLASS original/Common common (Ljava/util/List;Ljava/util/List;)Ljava/util/List;
+  // access flags 0x0
+  INNERCLASS original/Common$1 null null
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 34 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Common$1; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public compare(Ljava/lang/Object;Ljava/lang/Object;)I
+   L0
+    LINENUMBER 36 L0
+    ALOAD 1
+    INSTANCEOF java/lang/Integer
+    IFNE L1
+    ALOAD 2
+    INSTANCEOF java/lang/Integer
+    IFEQ L1
+   L2
+    LINENUMBER 37 L2
+    ALOAD 1
+    CHECKCAST java/lang/Integer
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    ALOAD 2
+    CHECKCAST java/lang/Integer
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    ISUB
+    IRETURN
+   L1
+    LINENUMBER 39 L1
+   FRAME FULL [original/Common$1 java/lang/Object java/lang/Object] []
+    ICONST_0
+    IRETURN
+   L3
+    LOCALVARIABLE this Loriginal/Common$1; L0 L3 0
+    LOCALVARIABLE o1 Ljava/lang/Object; L0 L3 1
+    LOCALVARIABLE o2 Ljava/lang/Object; L0 L3 2
+    MAXSTACK = 2
+    MAXLOCALS = 3
+}
+

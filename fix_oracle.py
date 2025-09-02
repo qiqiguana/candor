@@ -12,7 +12,7 @@ from .utils import Analyzer, CoverageProcessor, FileUtils, extract_error_message
 from langchain.callbacks.streaming_stdout import StreamingStdOutCallbackHandler
 import pickle
 import tensorflow as tf
-
+import csv
 from torch.utils.tensorboard import SummaryWriter
 
 # /home/qinghua/projects/matg/data/HumanEvalJava/matg/src/main/java/original/id_147.java
@@ -31,8 +31,17 @@ class OracleFixer:
         self.source_code=FileUtils.read_file(self.source_file_path)
         self.package_name,self.imports,self.class_name=extract_source_metadata(self.source_code)
         self.source_file_numbered=FileUtils.number_lines(self.source_code)
-        self.description=FileUtils.extract_description(self.source_code)
-
+        if self.config.doc_file: 
+            # load external doc file if any, e.g. for Leetcode
+            doc_file_path=self.config.data_path/self.config.doc_file
+            fname=Path(self.source_file_path).name
+            doc_file=pickle.load(doc_file_path.open("rb"))
+            docstring = doc_file[fname]["description"]
+        else:
+            # extract doctring from source file, e.g. for HumanEvalJava
+            focal_method,docstring=FileUtils.parse_source_file(self.source_file_path)
+        self.description=docstring
+        self.config.test_command=self.config.test_command.replace("jacoco:report",f"-Dtest={self.class_name}Test jacoco:report") # test only one test file to save time
         # set up LLMs
         self.llama70b=ChatOllama(model="llama3.1:70b",callbacks=[StreamingStdOutCallbackHandler()],num_predict=10000)            
         self.deepseek=ChatOllama(model="deepseek-r1:70b",callbacks=[StreamingStdOutCallbackHandler()],num_predict=2000)
@@ -66,7 +75,7 @@ class OracleFixer:
         self.curator_system_prompt=jinja_env.get_template("curator_system.jinja")
         self.curator_user_prompt=jinja_env.get_template("curator_user.jinja")
         
-        # id_class_mapping for HumanEvalJava
+        # id_class_mapping
         self.id_class_mapping=pickle.load((self.config.data_path/"class_id_mapping.pkl").open("rb"))
         self.id=self.id_class_mapping[self.class_name]
         
@@ -77,6 +86,12 @@ class OracleFixer:
         # set up team size
         self.team_size=3
         
+        # save curator report result
+        csv_file_path = self.config.data_path / "curator_report.csv"
+        self.csv_file= csv_file_path.open(mode="a", newline="",encoding="utf-8")
+        self.csv_writer=csv.writer(self.csv_file)
+        # csv_file.writerow([ "test_file_path", "test_method_name", "judgement", "test_case_code" ])
+
     def run(self):
         # backup the code
         FileUtils.backup_code(self.test_file_path)
@@ -104,6 +119,8 @@ class OracleFixer:
                     "test_code":test_code,
                     "format_instructions":self.test_case_parser_parser.get_format_instructions(),
                 })
+                test_prefix, assertORexception, oracle_text, test_prefix_wo_oracle,test_method_name=FileUtils.parse_test_method(self.test_file_path,test_code)
+                full_test_name=f'{self.package_name}.{self.class_name}::{test_method_name}'
                 test_case_parser_response=self.test_case_parser.invoke([("system", test_case_parser_system_prompt), ("user", test_case_parser_user_prompt)])
                 
                 logger.info(f"Discussing test case \n{test_code}")
@@ -150,6 +167,7 @@ class OracleFixer:
                     "oracle_analysis_reports":oracle_analysis_reports
                 })
                 curator_response=self.curator.invoke([("system", curator_system_prompt), ("user", curator_user_prompt)])
+                self.csv_writer.writerow([ self.test_file_path, full_test_name, curator_response.judgement, curator_response.test_case_code ])
                 # check if the oracle is correct
                 if curator_response.judgement:
                     logger.info(f"Oracle is correct for test case \n{test_code}")
@@ -161,6 +179,8 @@ class OracleFixer:
                     new_test_file=replace_code_block(self.test_file,new_test_code,indentation,start_line,end_line)
                     with open(self.test_file_path,"w") as f:
                         f.write(new_test_file)
+                
+            self.csv_file.close()
         except Exception as e:
             logger.error(f"Error in oracle fixer: {self.test_file_path} \n{e}")
             FileUtils.revert(self.test_file_path)

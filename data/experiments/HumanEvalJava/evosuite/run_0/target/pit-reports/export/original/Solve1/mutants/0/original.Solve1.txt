@@ -1,0 +1,57 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Solve1 {
+
+  // compiled from: id_84.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 3 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Solve1; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  public static solve(I)Ljava/lang/String;
+   L0
+    LINENUMBER 31 L0
+    ICONST_0
+    ISTORE 1
+   L1
+    LINENUMBER 32 L1
+   FRAME FULL [I I] []
+    ILOAD 0
+    IFLT L2
+   L3
+    LINENUMBER 33 L3
+    ILOAD 1
+    ILOAD 0
+    BIPUSH 10
+    IREM
+    IADD
+    ISTORE 1
+   L4
+    LINENUMBER 34 L4
+    ILOAD 0
+    BIPUSH 10
+    IDIV
+    ISTORE 0
+    GOTO L1
+   L2
+    LINENUMBER 36 L2
+   FRAME FULL [I I] []
+    ILOAD 1
+    INVOKESTATIC java/lang/Integer.toBinaryString (I)Ljava/lang/String;
+    ARETURN
+   L5
+    LOCALVARIABLE n I L0 L5 0
+    LOCALVARIABLE sum I L1 L5 1
+    MAXSTACK = 3
+    MAXLOCALS = 2
+}
+

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="original.SplitWordsTest" time="0.002" tests="8" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="original.SplitWordsTest" time="0.007" tests="62" errors="0" skipped="0" failures="0">
   <properties>
     <property name="awt.toolkit" value="sun.awt.X11.XToolkit"/>
     <property name="java.specification.version" value="11"/>
@@ -15,7 +15,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="US"/>
     <property name="sun.boot.library.path" value="/usr/lib/jvm/java-11-openjdk-amd64/lib"/>
-    <property name="sun.java.command" value="/home/qinghua/projects/matg/data/HumanEvalJava/matg_branch/target/surefire/surefirebooter-20250522172511446_3.jar /home/qinghua/projects/matg/data/HumanEvalJava/matg_branch/target/surefire 2025-05-22T17-25-11_391-jvmRun1 surefire-20250522172511446_1tmp surefire_0-20250522172511446_2tmp"/>
+    <property name="sun.java.command" value="/home/qinghua/projects/matg/data/HumanEvalJava/matg_branch/target/surefire/surefirebooter-20250528154242447_3.jar /home/qinghua/projects/matg/data/HumanEvalJava/matg_branch/target/surefire 2025-05-28T15-42-42_387-jvmRun1 surefire-20250528154242447_1tmp surefire_0-20250528154242447_2tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="/home/qinghua/projects/matg/data/HumanEvalJava/matg_branch/target/test-classes:/home/qinghua/projects/matg/data/HumanEvalJava/matg_branch/target/classes:/home/qinghua/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.8.1/junit-jupiter-engine-5.8.1.jar:/home/qinghua/.m2/repository/org/junit/platform/junit-platform-engine/1.8.1/junit-platform-engine-1.8.1.jar:/home/qinghua/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/home/qinghua/.m2/repository/org/junit/platform/junit-platform-commons/1.8.1/junit-platform-commons-1.8.1.jar:/home/qinghua/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.8.1/junit-jupiter-api-5.8.1.jar:/home/qinghua/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -31,7 +31,7 @@
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment"/>
-    <property name="surefire.real.class.path" value="/home/qinghua/projects/matg/data/HumanEvalJava/matg_branch/target/surefire/surefirebooter-20250522172511446_3.jar"/>
+    <property name="surefire.real.class.path" value="/home/qinghua/projects/matg/data/HumanEvalJava/matg_branch/target/surefire/surefirebooter-20250528154242447_3.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="11.0.26+4-post-Ubuntu-1ubuntu124.04"/>
     <property name="user.name" value="qinghua"/>
@@ -57,12 +57,66 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="55.0"/>
   </properties>
-  <testcase name="testWordWithOddNumberOfLetters1" classname="original.SplitWordsTest" time="0.001"/>
+  <testcase name="SplitWords_SplitOnComma2" classname="original.SplitWordsTest" time="0.001"/>
+  <testcase name="testWordWithOddNumberOfLetters1" classname="original.SplitWordsTest" time="0"/>
+  <testcase name="testNoWhitespaceOrCommaReturnsZeroForEmptyString" classname="original.SplitWordsTest" time="0"/>
+  <testcase name="test_Split_On_Comma" classname="original.SplitWordsTest" time="0"/>
+  <testcase name="SplitWords_Comma" classname="original.SplitWordsTest" time="0"/>
+  <testcase name="test_Empty_String" classname="original.SplitWordsTest" time="0"/>
+  <testcase name="SplitWordsWithEmptyString" classname="original.SplitWordsTest" time="0"/>
+  <testcase name="testNoLowercaseLetters" classname="original.SplitWordsTest" time="0"/>
+  <testcase name="testSplitWordsMultipleSpaces2" classname="original.SplitWordsTest" time="0"/>
+  <testcase name="SplitWords_SplitOnWhitespace" classname="original.SplitWordsTest" time="0"/>
+  <testcase name="SplitWordsWithWhitespace" classname="original.SplitWordsTest" time="0"/>
+  <testcase name="splitWords_with_commas" classname="original.SplitWordsTest" time="0"/>
+  <testcase name="testSplitWords_HappyPath_WithComma" classname="original.SplitWordsTest" time="0"/>
+  <testcase name="testSplitWordsCommaSeparated" classname="original.SplitWordsTest" time="0"/>
+  <testcase name="test_No_Whitespace_Or_Comma" classname="original.SplitWordsTest" time="0"/>
   <testcase name="testSingleWordWithNoWhitespaceOrComma_1" classname="original.SplitWordsTest" time="0"/>
+  <testcase name="SplitWords_SingleSpaceString_ReturnsEmptyList" classname="original.SplitWordsTest" time="0"/>
+  <testcase name="splitWords_with_spaces" classname="original.SplitWordsTest" time="0"/>
   <testcase name="testCountLowerCaseLettersWithOddOrder" classname="original.SplitWordsTest" time="0"/>
+  <testcase name="test_Odd_Lowercase_Letters" classname="original.SplitWordsTest" time="0"/>
+  <testcase name="SplitWords_NoWhitespaceOrComma_EvenLetters" classname="original.SplitWordsTest" time="0"/>
+  <testcase name="test_Multiple_Words_With_Commas" classname="original.SplitWordsTest" time="0"/>
   <testcase name="testSplitOnComma" classname="original.SplitWordsTest" time="0"/>
-  <testcase name="testSplitWords_CommaSeparator" classname="original.SplitWordsTest" time="0"/>
+  <testcase name="testSplitWords_CommaSeparator" classname="original.SplitWordsTest" time="0.001"/>
+  <testcase name="SplitWordsWithoutWhitespaceOrComma" classname="original.SplitWordsTest" time="0"/>
+  <testcase name="SplitWords_EmptyString_Fixed_2" classname="original.SplitWordsTest" time="0"/>
+  <testcase name="testSplitWordsWithSpaces2" classname="original.SplitWordsTest" time="0"/>
   <testcase name="testSplitOnWhitespace" classname="original.SplitWordsTest" time="0"/>
+  <testcase name="testNoWhitespaceOrCommaReturnsLowerCaseCount" classname="original.SplitWordsTest" time="0"/>
+  <testcase name="testSplitWordsWithEmptyString" classname="original.SplitWordsTest" time="0"/>
+  <testcase name="testSplitOnWhitespaceCorrected1" classname="original.SplitWordsTest" time="0"/>
+  <testcase name="test_Multiple_Words_With_Spaces" classname="original.SplitWordsTest" time="0"/>
+  <testcase name="SplitWords_Whitespace" classname="original.SplitWordsTest" time="0"/>
+  <testcase name="splitWords_without_spaces_or_commas_lowercase_letters" classname="original.SplitWordsTest" time="0.001"/>
+  <testcase name="test_Even_Lowercase_Letters" classname="original.SplitWordsTest" time="0"/>
+  <testcase name="splitWords_empty_string" classname="original.SplitWordsTest" time="0"/>
+  <testcase name="test_Split_On_Whitespace" classname="original.SplitWordsTest" time="0"/>
+  <testcase name="SplitWords_CountLowercaseLetters_OddOrder" classname="original.SplitWordsTest" time="0"/>
+  <testcase name="testSplitOnWhitespaceAndComma" classname="original.SplitWordsTest" time="0"/>
+  <testcase name="SplitWordsWithComma" classname="original.SplitWordsTest" time="0"/>
   <testcase name="testEmptyString" classname="original.SplitWordsTest" time="0"/>
-  <testcase name="testNothing" classname="original.SplitWordsTest" time="0.001"/>
+  <testcase name="SplitWordsWithMultipleConsecutiveWhitespaceFixed1" classname="original.SplitWordsTest" time="0"/>
+  <testcase name="SplitWordsWithMultipleConsecutiveWhitespace1" classname="original.SplitWordsTest" time="0.001"/>
+  <testcase name="SplitWords_MixedCase" classname="original.SplitWordsTest" time="0"/>
+  <testcase name="SplitWords_MixedCaseLetters" classname="original.SplitWordsTest" time="0"/>
+  <testcase name="testSplitWordsWithNoWhitespaceOrComma" classname="original.SplitWordsTest" time="0"/>
+  <testcase name="testNoLettersReturnsZero" classname="original.SplitWordsTest" time="0"/>
+  <testcase name="testSplitWordsWithWhitespaceAndComma" classname="original.SplitWordsTest" time="0"/>
+  <testcase name="testSplitWords_EdgeCase_WithNoWhitespaceOrComma" classname="original.SplitWordsTest" time="0"/>
+  <testcase name="test_Single_Word_With_Space" classname="original.SplitWordsTest" time="0"/>
+  <testcase name="testSplitWordsNoWhitespaceOrCommas" classname="original.SplitWordsTest" time="0"/>
+  <testcase name="splitWords_without_spaces_or_commas_mixed_case" classname="original.SplitWordsTest" time="0"/>
+  <testcase name="testSplitWords_HappyPath_WithWhitespace" classname="original.SplitWordsTest" time="0"/>
+  <testcase name="SplitWords_SplitOnComma" classname="original.SplitWordsTest" time="0"/>
+  <testcase name="test_Mixed_Case_Letters" classname="original.SplitWordsTest" time="0"/>
+  <testcase name="SplitWords_EmptyString" classname="original.SplitWordsTest" time="0"/>
+  <testcase name="testNothing" classname="original.SplitWordsTest" time="0"/>
+  <testcase name="testSplitWordsWithComma" classname="original.SplitWordsTest" time="0"/>
+  <testcase name="SplitWords_CountLowercaseLetters_EvenOrder" classname="original.SplitWordsTest" time="0"/>
+  <testcase name="testSplitWordsEmptyString" classname="original.SplitWordsTest" time="0"/>
+  <testcase name="splitWords_with_lowercase_letters_only_2" classname="original.SplitWordsTest" time="0"/>
+  <testcase name="SplitWords_NoWhitespaceOrComma_OddLetters" classname="original.SplitWordsTest" time="0"/>
 </testsuite>

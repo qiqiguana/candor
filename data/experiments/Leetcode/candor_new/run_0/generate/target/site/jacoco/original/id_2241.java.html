@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_2241.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">leetcode</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_2241.java</span></div><h1>id_2241.java</h1><pre class="source lang-java linenums">package original;
+
+class ATM {
+<span class="nc" id="L4">    private int[] d = {20, 50, 100, 200, 500};</span>
+<span class="nc" id="L5">    private int m = d.length;</span>
+<span class="nc" id="L6">    private long[] cnt = new long[5];</span>
+
+<span class="nc" id="L8">    public ATM() {</span>
+<span class="nc" id="L9">    }</span>
+
+    public void deposit(int[] banknotesCount) {
+  /**
+  There is an ATM machine that stores banknotes of 5 denominations: 20, 50, 100, 200, and 500 dollars. Initially the ATM is empty. The user can use the machine to deposit or withdraw any amount of money. When withdrawing, the machine prioritizes using banknotes of larger values. For example, if you want to withdraw $300 and there are 2 $50 banknotes, 1 $100 banknote, and 1 $200 banknote, then the machine will use the $100 and $200 banknotes. However, if you try to withdraw $600 and there are 3 $200 banknotes and 1 $500 banknote, then the withdraw request will be rejected because the machine will first try to use the $500 banknote and then be unable to use banknotes to complete the remaining $100. Note that the machine is not allowed to use the $200 banknotes instead of the $500 banknote. Implement the ATM class: ATM() Initializes the ATM object. void deposit(int[] banknotesCount) Deposits new banknotes in the order $20, $50, $100, $200, and $500. int[] withdraw(int amount) Returns an array of length 5 of the number of banknotes that will be handed to the user in the order $20, $50, $100, $200, and $500, and update the number of banknotes in the ATM after withdrawing. Returns [-1] if it is not possible (do not withdraw any banknotes in this case). &amp;nbsp; Example 1: Input [&amp;quot;ATM&amp;quot;, &amp;quot;deposit&amp;quot;, &amp;quot;withdraw&amp;quot;, &amp;quot;deposit&amp;quot;, &amp;quot;withdraw&amp;quot;, &amp;quot;withdraw&amp;quot;] [[], [[0,0,1,2,1]], [600], [[0,1,0,1,1]], [600], [550]] Output [null, null, [0,0,1,0,1], null, [-1], [0,1,0,0,1]] Explanation ATM atm = new ATM(); atm.deposit([0,0,1,2,1]); // Deposits 1 $100 banknote, 2 $200 banknotes, // and 1 $500 banknote. atm.withdraw(600); // Returns [0,0,1,0,1]. The machine uses 1 $100 banknote // and 1 $500 banknote. The banknotes left over in the // machine are [0,0,0,2,0]. atm.deposit([0,1,0,1,1]); // Deposits 1 $50, $200, and $500 banknote. // The banknotes in the machine are now [0,1,0,3,1]. atm.withdraw(600); // Returns [-1]. The machine will try to use a $500 banknote // and then be unable to complete the remaining $100, // so the withdraw request will be rejected. // Since the request is rejected, the number of banknotes // in the machine is not modified. atm.withdraw(550); // Returns [0,1,0,0,1]. The machine uses 1 $50 banknote // and 1 $500 banknote. &amp;nbsp; Constraints: banknotesCount.length == 5 0 &amp;lt;= banknotesCount[i] &amp;lt;= 109 1 &amp;lt;= amount &amp;lt;= 109 At most 5000 calls in total will be made to withdraw and deposit. At least one call will be made to each function withdraw and deposit. Sum of banknotesCount[i] in all deposits doesn&amp;#39;t exceed 109
+  */
+<span class="nc bnc" id="L15" title="All 2 branches missed.">        for (int i = 0; i &lt; banknotesCount.length; ++i) {</span>
+<span class="nc" id="L16">            cnt[i] += banknotesCount[i];</span>
+        }
+<span class="nc" id="L18">    }</span>
+
+    public int[] withdraw(int amount) {
+<span class="nc" id="L21">        int[] ans = new int[m];</span>
+<span class="nc bnc" id="L22" title="All 2 branches missed.">        for (int i = m - 1; i &gt;= 0; --i) {</span>
+<span class="nc" id="L23">            ans[i] = (int) Math.min(amount / d[i], cnt[i]);</span>
+<span class="nc" id="L24">            amount -= ans[i] * d[i];</span>
+        }
+<span class="nc bnc" id="L26" title="All 2 branches missed.">        if (amount &gt; 0) {</span>
+<span class="nc" id="L27">            return new int[] {-1};</span>
+        }
+<span class="nc bnc" id="L29" title="All 2 branches missed.">        for (int i = 0; i &lt; m; ++i) {</span>
+<span class="nc" id="L30">            cnt[i] -= ans[i];</span>
+        }
+<span class="nc" id="L32">        return ans;</span>
+    }
+}
+
+/**
+ * Your ATM object will be instantiated and called as such:
+ * ATM obj = new ATM();
+ * obj.deposit(banknotesCount);
+ * int[] param_2 = obj.withdraw(amount);
+ */
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

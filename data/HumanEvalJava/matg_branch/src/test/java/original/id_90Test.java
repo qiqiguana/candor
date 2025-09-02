@@ -48,5 +48,25 @@ class NextSmallestTest {
         List<Object> input = Arrays.asList(1, 1, 1, 0);
         assertEquals((Integer) 1, NextSmallest.nextSmallest(input));
     }
+    @Test
+    public void NextSmallest_SingleElementList_ReturnsNull() {
+        List<Object> lst = Arrays.asList(1);
+        assertEquals(null, NextSmallest.nextSmallest(lst));
+    }
+    @Test
+    public void NextSmallest_TwoEqualElements_ReturnsNull() {
+        List<Object> lst = Arrays.asList(1, 1);
+        assertEquals(null, NextSmallest.nextSmallest(lst));
+    }
+    @Test
+    public void NextSmallest_SimpleList_ReturnsSecondSmallest() {
+        List<Object> lst = Arrays.asList(1, 2, 3);
+        assertEquals(2, NextSmallest.nextSmallest(lst));
+    }
+    @Test
+    public void NextSmallest_SimpleList_ReturnsSecondSmallest_2() {
+        List<Object> lst = Arrays.asList(3, 1, 2);
+        assertEquals(2, NextSmallest.nextSmallest(lst));
+    }
                                     
 }

@@ -1,0 +1,32 @@
+package original;
+
+import java.util.List;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+/**
+* Test class of DoubleTheDifference.
+*/
+class DoubleTheDifferenceTest {
+    @Test
+    void testDoubleTheDifference() {
+        List<Object> lst = List.of(1, 3, 2, 0);
+        assertEquals(10, DoubleTheDifference.doubleTheDifference(lst));
+    }
+    
+    @Test
+        public void testNothing(){
+            DoubleTheDifference s = new DoubleTheDifference();
+            }
+    @Test
+    void test_non_instance_of_integer() {
+        List<Object> lst = List.of("a", "b", "c");
+        assertEquals(0, DoubleTheDifference.doubleTheDifference(lst));
+    }
+    @Test
+    void test_negative_numbers() {
+        List<Object> lst = List.of(-1, -2, -3);
+        assertEquals(0, DoubleTheDifference.doubleTheDifference(lst));
+    }
+                                    
+}

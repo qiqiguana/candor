@@ -22,6 +22,11 @@ class GetPositiveTest {
         numbers.add(6);
         List<Object> result = GetPositive.getPositive(numbers);
         assertEquals(3, result.size());
+        // Check each element is positive
+        for (Object num : result) {
+            assertTrue(num instanceof Integer);
+            assertTrue((Integer) num > 0);
+        }
     }
     
     @Test

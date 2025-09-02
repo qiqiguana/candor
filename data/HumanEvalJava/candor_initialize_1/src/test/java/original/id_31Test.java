@@ -1,0 +1,124 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of IsPrime.
+*/
+class IsPrimeTest {
+
+    @Test
+    void isPrime_ForNumberLessThanTwo_ReturnsFalse() {
+        // Arrange
+        int number = 1;
+
+        // Act
+        boolean result = IsPrime.isPrime(number);
+
+        // Assert
+        assertFalse(result);
+    }
+    @Test
+    public void testPrimeNumber() {
+        boolean result = IsPrime.isPrime(23);
+        assertTrue(result);
+    }
+    @Test
+    public void testNonPrimeNumber() {
+        boolean result = IsPrime.isPrime(34);
+        assertFalse(result);
+    }
+    @Test
+    public void testLessThan2() {
+        boolean result = IsPrime.isPrime(1);
+        assertFalse(result);
+    }
+    @Test
+    public void testNumber2() {
+        boolean result = IsPrime.isPrime(2);
+        assertTrue(result);
+    }
+    @Test
+    public void testLargePrimeNumber() {
+        boolean result = IsPrime.isPrime(997);
+        assertTrue(result);
+    }
+    @Test
+    public void testLargeNonPrimeNumber() {
+        boolean result = IsPrime.isPrime(998);
+        assertFalse(result);
+    }
+    @Test
+    public void testNegativeNumber() {
+        boolean result = IsPrime.isPrime(-23);
+        assertFalse(result);
+    }
+    @Test
+    public void testZero() {
+        boolean result = IsPrime.isPrime(0);
+        assertFalse(result);
+    }
+    @Test
+    public void testIsPrimeForPositiveNumbers() {
+        int[] inputs = {2, 3, 5, 7, 11, 13, 17, 19};
+        boolean[] expectedResults = {true, true, true, true, true, true, true, true};
+        for (int i = 0; i < inputs.length; i++) {
+            assertTrue(IsPrime.isPrime(inputs[i]) == expectedResults[i]);
+        }
+    }
+    @Test
+    public void testIsPrimeForNegativeNumbers1() {
+        int[] inputs = {-1, -2, -3, -4, -5};
+        boolean[] expectedResults = {false, false, false, false, false};
+        for (int i = 0; i < inputs.length; i++) {
+            assertFalse(IsPrime.isPrime(inputs[i]));
+        }
+    }
+    @Test public void testIsPrimeForZeroAndOne() { int[] inputs = {0, 1}; boolean[] expectedResults = {false, false}; for (int i = 0; i < inputs.length; i++) { assertEquals(expectedResults[i], IsPrime.isPrime(inputs[i])); } }
+    @Test
+    public void testIsPrimeForCompositeNumbersCorrected() {
+        int[] inputs = {4, 6, 8, 9, 10};
+        boolean[] expectedResults = {false, false, false, false, false};
+        for (int i = 0; i < inputs.length; i++) {
+            assertTrue(IsPrime.isPrime(inputs[i]) == expectedResults[i]);
+        }
+    }
+    @Test
+    public void testIsPrimeForLargePrimeNumbers() {
+        int[] inputs = {101, 103, 107, 109, 113};
+        boolean[] expectedResults = {true, true, true, true, true};
+        for (int i = 0; i < inputs.length; i++) {
+            assertTrue(IsPrime.isPrime(inputs[i]) == expectedResults[i]);
+        }
+    }
+    @Test
+    public void TestIsPrimeWithPositiveNumberThatIsNotPrime() {
+        int input = 6;
+        assertFalse(IsPrime.isPrime(input));
+    }
+    @Test
+    public void TestIsPrimeWithLargePrimeNumber() {
+        int input = 255379;
+        assertFalse(IsPrime.isPrime(input));
+    }
+    @Test
+    public void TestIsPrimeWithNegativeNumber() {
+        int input = -6;
+        assertFalse(IsPrime.isPrime(input));
+    }
+    @Test
+    public void TestIsPrimeWithZero() {
+        int input = 0;
+        assertFalse(IsPrime.isPrime(input));
+    }
+    @Test
+    public void TestIsPrimeWithOne() {
+        int input = 1;
+        assertFalse(IsPrime.isPrime(input));
+    }
+    @Test
+    public void TestIsPrimeWithSmallPrimeNumber() {
+        int input = 5;
+        assertTrue(IsPrime.isPrime(input));
+    }
+}

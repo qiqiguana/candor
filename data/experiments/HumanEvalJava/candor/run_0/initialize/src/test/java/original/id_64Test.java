@@ -1,0 +1,70 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of VowelsCount.
+*/
+class VowelsCountTest {
+    @Test
+    void testVowelsCountWithWordEndingWithY() {
+        String word = "key";
+        int expectedCount = 2;
+        int actualCount = VowelsCount.vowelsCount(word);
+        assertEquals(expectedCount, actualCount);
+    }
+    
+    @Test
+        public void testNothing(){
+            VowelsCount s = new VowelsCount();
+            }
+    @Test
+    void testClassInitialization() {
+        assertDoesNotThrow(() -> new VowelsCount());
+    }
+    @Test
+    void testVowelCountWithAllVowels() {
+        int result = VowelsCount.vowelsCount("aeiouAEIOU");
+        assertEquals(10, result);
+    }
+    @Test
+    void testVowelCountWithNoVowels() {
+        int result = VowelsCount.vowelsCount("bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ");
+        assertEquals(0, result);
+    }
+    @Test
+    void testVowelCountWithYAtTheEnd() {
+        int result = VowelsCount.vowelsCount("key");
+        assertEquals(2, result);
+    }
+    @Test
+    void testVowelCountWithYInTheMiddle() {
+        int result = VowelsCount.vowelsCount("myth");
+        assertEquals(0, result);
+    }
+    @Test
+    public void VowelsCount_with_y_at_end_lowercase() {
+        String s = "bye";
+        int expected_result = 1;
+        assertEquals(expected_result, original.VowelsCount.vowelsCount(s));
+    }
+    @Test
+    public void VowelsCount_with_y_at_end_uppercase_corrected() {
+        String s = "bYe";
+        int expected_result = 1;
+        assertEquals(expected_result, original.VowelsCount.vowelsCount(s));
+    }
+    @Test
+    public void vowelsCount_y_at_end_lower_case() {
+        String input = "my";
+        int expected_result = 1;
+        assertEquals(expected_result, VowelsCount.vowelsCount(input));
+    }
+    @Test
+    public void vowelsCount_y_at_end_upper_case() {
+        String input = "mY";
+        int expected_result = 1;
+        assertEquals(expected_result, VowelsCount.vowelsCount(input));
+    }
+                                    
+}

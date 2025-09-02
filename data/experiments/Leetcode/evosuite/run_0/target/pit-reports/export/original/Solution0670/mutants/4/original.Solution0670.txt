@@ -1,0 +1,169 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Solution0670 {
+
+  // compiled from: id_0670.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 3 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Solution0670; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public maximumSwap(I)I
+   L0
+    LINENUMBER 5 L0
+    ILOAD 1
+    INVOKESTATIC java/lang/String.valueOf (I)Ljava/lang/String;
+    INVOKEVIRTUAL java/lang/String.toCharArray ()[C
+    ASTORE 2
+   L1
+    LINENUMBER 6 L1
+    ALOAD 2
+    ARRAYLENGTH
+    ISTORE 3
+   L2
+    LINENUMBER 7 L2
+    ILOAD 3
+    NEWARRAY T_INT
+    ASTORE 4
+   L3
+    LINENUMBER 8 L3
+    ICONST_0
+    ISTORE 5
+   L4
+   FRAME FULL [original/Solution0670 I [C I [I I] []
+    ILOAD 5
+    ILOAD 3
+    IF_ICMPGE L5
+   L6
+    LINENUMBER 9 L6
+    ALOAD 4
+    ILOAD 5
+    ILOAD 5
+    IASTORE
+   L7
+    LINENUMBER 8 L7
+    IINC 5 1
+    GOTO L4
+   L5
+    LINENUMBER 11 L5
+   FRAME FULL [original/Solution0670 I [C I [I I] []
+    ILOAD 3
+    ICONST_2
+    ISUB
+    ISTORE 5
+   L8
+   FRAME FULL [original/Solution0670 I [C I [I I] []
+    ILOAD 5
+    IFLE L9
+   L10
+    LINENUMBER 12 L10
+    ALOAD 2
+    ILOAD 5
+    CALOAD
+    ALOAD 2
+    ALOAD 4
+    ILOAD 5
+    ICONST_1
+    IADD
+    IALOAD
+    CALOAD
+    IF_ICMPGT L11
+   L12
+    LINENUMBER 13 L12
+    ALOAD 4
+    ILOAD 5
+    ALOAD 4
+    ILOAD 5
+    ICONST_1
+    IADD
+    IALOAD
+    IASTORE
+   L11
+    LINENUMBER 11 L11
+   FRAME FULL [original/Solution0670 I [C I [I I] []
+    IINC 5 -1
+    GOTO L8
+   L9
+    LINENUMBER 16 L9
+   FRAME FULL [original/Solution0670 I [C I [I I] []
+    ICONST_0
+    ISTORE 5
+   L13
+   FRAME FULL [original/Solution0670 I [C I [I I] []
+    ILOAD 5
+    ILOAD 3
+    IF_ICMPGE L14
+   L15
+    LINENUMBER 17 L15
+    ALOAD 4
+    ILOAD 5
+    IALOAD
+    ISTORE 6
+   L16
+    LINENUMBER 18 L16
+    ALOAD 2
+    ILOAD 5
+    CALOAD
+    ALOAD 2
+    ILOAD 6
+    CALOAD
+    IF_ICMPGE L17
+   L18
+    LINENUMBER 19 L18
+    ALOAD 2
+    ILOAD 5
+    CALOAD
+    ISTORE 7
+   L19
+    LINENUMBER 20 L19
+    ALOAD 2
+    ILOAD 5
+    ALOAD 2
+    ILOAD 6
+    CALOAD
+    CASTORE
+   L20
+    LINENUMBER 21 L20
+    ALOAD 2
+    ILOAD 6
+    ILOAD 7
+    CASTORE
+   L21
+    LINENUMBER 22 L21
+    GOTO L14
+   L17
+    LINENUMBER 16 L17
+   FRAME FULL [original/Solution0670 I [C I [I I I] []
+    IINC 5 1
+    GOTO L13
+   L14
+    LINENUMBER 25 L14
+   FRAME FULL [original/Solution0670 I [C I [I I] []
+    ALOAD 2
+    INVOKESTATIC java/lang/String.valueOf ([C)Ljava/lang/String;
+    INVOKESTATIC java/lang/Integer.parseInt (Ljava/lang/String;)I
+    IRETURN
+   L22
+    LOCALVARIABLE i I L4 L5 5
+    LOCALVARIABLE i I L8 L9 5
+    LOCALVARIABLE t C L19 L17 7
+    LOCALVARIABLE j I L16 L17 6
+    LOCALVARIABLE i I L13 L14 5
+    LOCALVARIABLE this Loriginal/Solution0670; L0 L22 0
+    LOCALVARIABLE num I L0 L22 1
+    LOCALVARIABLE s [C L1 L22 2
+    LOCALVARIABLE n I L2 L22 3
+    LOCALVARIABLE d [I L3 L22 4
+    MAXSTACK = 5
+    MAXLOCALS = 8
+}
+

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_2409.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">leetcode</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_2409.java</span></div><h1>id_2409.java</h1><pre class="source lang-java linenums">package original;
+
+<span class="fc" id="L3">class Solution2409 {</span>
+<span class="fc" id="L4">    private int[] days = new int[] {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};</span>
+
+    public int countDaysTogether(
+        String arriveAlice, String leaveAlice, String arriveBob, String leaveBob) {
+<span class="fc bfc" id="L8" title="All 2 branches covered.">        String a = arriveAlice.compareTo(arriveBob) &lt; 0 ? arriveBob : arriveAlice;</span>
+<span class="fc bfc" id="L9" title="All 2 branches covered.">        String b = leaveAlice.compareTo(leaveBob) &lt; 0 ? leaveAlice : leaveBob;</span>
+<span class="fc" id="L10">        int x = f(a), y = f(b);</span>
+<span class="fc" id="L11">        return Math.max(y - x + 1, 0);</span>
+    }
+
+    private int f(String s) {
+<span class="fc" id="L15">        int i = Integer.parseInt(s.substring(0, 2)) - 1;</span>
+<span class="fc" id="L16">        int res = 0;</span>
+<span class="fc bfc" id="L17" title="All 2 branches covered.">        for (int j = 0; j &lt; i; ++j) {</span>
+<span class="fc" id="L18">            res += days[j];</span>
+        }
+<span class="fc" id="L20">        res += Integer.parseInt(s.substring(3));</span>
+<span class="fc" id="L21">        return res;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

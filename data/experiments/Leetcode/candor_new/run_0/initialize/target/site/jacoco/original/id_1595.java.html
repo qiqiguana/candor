@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_1595.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">leetcode</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_1595.java</span></div><h1>id_1595.java</h1><pre class="source lang-java linenums">package original;
+
+import java.util.Arrays;
+import java.util.List;
+<span class="fc" id="L5">class Solution1595 {</span>
+    public int connectTwoGroups(List&lt;List&lt;Integer&gt;&gt; cost) {
+  /**
+  You are given two groups of points where the first group has size1 points, the second group has size2 points, and size1 &amp;gt;= size2. The cost of the connection between any two points are given in an size1 x size2 matrix where cost[i][j] is the cost of connecting point i of the first group and point j of the second group. The groups are connected if each point in both groups is connected to one or more points in the opposite group. In other words, each point in the first group must be connected to at least one point in the second group, and each point in the second group must be connected to at least one point in the first group. Return the minimum cost it takes to connect the two groups. &amp;nbsp; Example 1: Input: cost = [[15, 96], [36, 2]] Output: 17 Explanation: The optimal way of connecting the groups is: 1--A 2--B This results in a total cost of 17. Example 2: Input: cost = [[1, 3, 5], [4, 1, 1], [1, 5, 3]] Output: 4 Explanation: The optimal way of connecting the groups is: 1--A 2--B 2--C 3--A This results in a total cost of 4. Note that there are multiple points connected to point 2 in the first group and point A in the second group. This does not matter as there is no limit to the number of points that can be connected. We only care about the minimum total cost. Example 3: Input: cost = [[2, 5, 1], [3, 4, 7], [8, 1, 2], [6, 2, 4], [3, 8, 8]] Output: 10 &amp;nbsp; Constraints: size1 == cost.length size2 == cost[i].length 1 &amp;lt;= size1, size2 &amp;lt;= 12 size1 &amp;gt;= size2 0 &amp;lt;= cost[i][j] &amp;lt;= 100
+  */
+<span class="fc" id="L10">        int m = cost.size(), n = cost.get(0).size();</span>
+<span class="fc" id="L11">        final int inf = 1 &lt;&lt; 30;</span>
+<span class="fc" id="L12">        int[][] f = new int[m + 1][1 &lt;&lt; n];</span>
+<span class="fc bfc" id="L13" title="All 2 branches covered.">        for (int[] g : f) {</span>
+<span class="fc" id="L14">            Arrays.fill(g, inf);</span>
+        }
+<span class="fc" id="L16">        f[0][0] = 0;</span>
+<span class="fc bfc" id="L17" title="All 2 branches covered.">        for (int i = 1; i &lt;= m; ++i) {</span>
+<span class="fc bfc" id="L18" title="All 2 branches covered.">            for (int j = 0; j &lt; 1 &lt;&lt; n; ++j) {</span>
+<span class="fc bfc" id="L19" title="All 2 branches covered.">                for (int k = 0; k &lt; n; ++k) {</span>
+<span class="fc bfc" id="L20" title="All 2 branches covered.">                    if ((j &gt;&gt; k &amp; 1) == 1) {</span>
+<span class="fc" id="L21">                        int c = cost.get(i - 1).get(k);</span>
+<span class="fc" id="L22">                        f[i][j] = Math.min(f[i][j], f[i][j ^ (1 &lt;&lt; k)] + c);</span>
+<span class="fc" id="L23">                        f[i][j] = Math.min(f[i][j], f[i - 1][j] + c);</span>
+<span class="fc" id="L24">                        f[i][j] = Math.min(f[i][j], f[i - 1][j ^ (1 &lt;&lt; k)] + c);</span>
+                    }
+                }
+            }
+        }
+<span class="fc" id="L29">        return f[m][(1 &lt;&lt; n) - 1];</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

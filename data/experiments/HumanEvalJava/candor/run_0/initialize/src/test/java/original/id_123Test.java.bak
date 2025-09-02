@@ -1,0 +1,27 @@
+package original;
+
+import java.util.ArrayList;
+
+import java.util.Collections;
+
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of GetOddCollatz.
+*/
+class GetOddCollatzTest {
+    @Test
+    void testGetOddCollatz_SimpleSequence() {
+        // Arrange
+        int input = 5;
+        List<Integer> expected = new ArrayList<>(List.of(1, 5));
+
+        // Act
+        List<Integer> result = GetOddCollatz.getOddCollatz(input);
+
+        // Assert
+        assertEquals(expected, result);
+    }
+}

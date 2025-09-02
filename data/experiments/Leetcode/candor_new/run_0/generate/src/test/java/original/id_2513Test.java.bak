@@ -1,0 +1,27 @@
+package original;
+
+import java.util.Set;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of Solution2513.
+*/
+class Solution2513Test {
+    @Test
+    void testMinimizeSet() {
+        Solution2513 solution = new Solution2513();
+        int result = solution.minimizeSet(2, 7, 1, 3);
+        assertEquals(4, result);
+    }
+    @Test
+    public void testMinimizeSet_divisor1_not_equal_divisor2_uniqueCnt1_less_than_uniqueCnt22_1() {
+        Solution2513 solution = new Solution2513();
+        int divisor1 = 4;
+        int divisor2 = 5;
+        int uniqueCnt1 = 2;
+        int uniqueCnt2 = 10;
+        int expected = 12;
+        assertEquals(expected, solution.minimizeSet(divisor1, divisor2, uniqueCnt1, uniqueCnt2));
+    }
+}

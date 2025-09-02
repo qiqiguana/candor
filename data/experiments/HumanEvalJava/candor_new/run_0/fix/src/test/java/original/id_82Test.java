@@ -1,0 +1,43 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of PrimeLength.
+*/
+class PrimeLengthTest {
+    @Test
+    void primeLength_should_Return_False_For_Empty_String() {
+        // Arrange and Act
+        boolean result = PrimeLength.primeLength("");
+        // Assert
+        assertFalse(result);
+    }
+    
+    @Test
+        public void testNothing(){
+            PrimeLength s = new PrimeLength();
+            }
+    @Test
+    public void testPrimeLength_WithSingleCharacterString_ReturnsFalse() {
+        String input = "a";
+        boolean expected = false;
+        boolean result = PrimeLength.primeLength(input);
+        assertEquals(expected, result);
+    }
+    @Test
+    public void testPrimeLength_WithPrimeLengthString_ReturnsTrue() {
+        String input = "Hello";
+        boolean expected = true;
+        boolean result = PrimeLength.primeLength(input);
+        assertEquals(expected, result);
+    }
+    @Test
+    public void testPrimeLength_WithNonPrimeLengthString_ReturnsFalse() {
+        String input = "orange";
+        boolean expected = false;
+        boolean result = PrimeLength.primeLength(input);
+        assertEquals(expected, result);
+    }
+                                    
+}

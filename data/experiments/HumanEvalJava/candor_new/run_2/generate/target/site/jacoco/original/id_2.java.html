@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_2.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HumanEvalJava</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_2.java</span></div><h1>id_2.java</h1><pre class="source lang-java linenums">package original;
+
+<span class="nc" id="L3">class TruncateNumber {</span>
+    /**
+     * Given a positive floating point number, it can be decomposed into and integer part
+     * (the largest integer smaller than given number) and decimals (leftover part always smaller than 1).
+     * Return the decimal part of the number.
+     *
+     * &gt; truncateNumber(3.5)
+     * 0.5
+     * &gt; truncateNumber(1.33)
+     * 0.33
+     * &gt; truncateNumber(123.456)
+     * 0.456
+     */
+    // write a code with solving floating point issue
+    public static Double truncateNumber(Double number) {
+        // return number - Math.floor(number);
+<span class="fc" id="L19">        return Math.round((number - Math.floor(number)) * 1000.0) / 1000.0;</span>
+    }
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

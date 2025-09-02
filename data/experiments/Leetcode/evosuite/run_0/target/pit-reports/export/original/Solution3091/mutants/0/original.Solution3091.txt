@@ -1,0 +1,79 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Solution3091 {
+
+  // compiled from: id_3091.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 3 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Solution3091; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public minOperations(I)I
+   L0
+    LINENUMBER 5 L0
+    ILOAD 1
+    ISTORE 2
+   L1
+    LINENUMBER 6 L1
+    ICONST_0
+    ISTORE 3
+   L2
+   FRAME FULL [original/Solution3091 I I I] []
+    ILOAD 3
+    ILOAD 1
+    IF_ICMPLT L3
+   L4
+    LINENUMBER 7 L4
+    ILOAD 3
+    ICONST_1
+    IADD
+    ISTORE 4
+   L5
+    LINENUMBER 8 L5
+    ILOAD 1
+    ILOAD 4
+    IADD
+    ICONST_1
+    ISUB
+    ILOAD 4
+    IDIV
+    ICONST_1
+    ISUB
+    ISTORE 5
+   L6
+    LINENUMBER 9 L6
+    ILOAD 2
+    ILOAD 3
+    ILOAD 5
+    IADD
+    INVOKESTATIC java/lang/Math.min (II)I
+    ISTORE 2
+   L7
+    LINENUMBER 6 L7
+    IINC 3 1
+    GOTO L2
+   L3
+    LINENUMBER 11 L3
+   FRAME FULL [original/Solution3091 I I I] []
+    ILOAD 2
+    IRETURN
+   L8
+    LOCALVARIABLE x I L5 L7 4
+    LOCALVARIABLE b I L6 L7 5
+    LOCALVARIABLE a I L2 L3 3
+    LOCALVARIABLE this Loriginal/Solution3091; L0 L8 0
+    LOCALVARIABLE k I L0 L8 1
+    LOCALVARIABLE ans I L1 L8 2
+    MAXSTACK = 3
+    MAXLOCALS = 6
+}
+

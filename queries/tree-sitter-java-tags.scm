@@ -28,6 +28,36 @@
 
 (method_declaration
   (modifiers
-    (marker_annotation
+    (annotation
       name: (identifier) @annotation.test
-      (#eq? @annotation.test "ParameterizedTest")))) @test.method
+      (#eq? @annotation.test "Test"))
+  )
+) @test.method
+
+(method_declaration
+  (modifiers
+    (annotation
+      name: (identifier) @annotation.test
+      (#eq? @annotation.test "ParameterizedTest"))
+  )
+) @test.method
+
+; Match methods annotated with @Test or @ParameterizedTest
+(method_declaration
+  (modifiers
+    [
+      (marker_annotation
+        name: (identifier) @annotation.name)
+      (annotation
+        name: (identifier) @annotation.name)
+    ]
+    (#match? @annotation.name "^(Test|ParameterizedTest)$")
+  )
+  name: (identifier) @name.test.method
+) @test.method
+
+
+; Match assertion method calls like assertEquals(), assertTrue(), etc.
+(method_invocation
+  name: (identifier) @assert.name
+  (#match? @assert.name "^assert.*$")) @assert.call

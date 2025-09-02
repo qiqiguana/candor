@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_96.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HumanEvalJava</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_96.java</span></div><h1>id_96.java</h1><pre class="source lang-java linenums">package original;
+
+
+import java.util.ArrayList;
+import java.util.List;
+
+
+<span class="fc" id="L8">class CountUpTo {</span>
+    /**
+     * Implement a function that takes an non-negative integer and returns an array of the first n
+     * integers that are prime numbers and less than n.
+     *  Examples:
+     * countUpTo(5) =&gt; [2,3]
+     * countUpTo(11) =&gt; [2,3,5,7]
+     * countUpTo(0) =&gt; []
+     * countUpTo(20) =&gt; [2,3,5,7,11,13,17,19]
+     * countUpTo(1) =&gt; []
+     * countUpTo(18) =&gt; [2,3,5,7,11,13,17]
+     *
+     * &gt; countUpTo(5)
+     * [2, 3]
+     * &gt; countUpTo(6)
+     * [2, 3, 5]
+     * &gt; countUpTo(7)
+     * [2, 3, 5]
+     * &gt; countUpTo(10)
+     * [2, 3, 5, 7]
+     * &gt; countUpTo(0)
+     * []
+     * &gt; countUpTo(22)
+     * [2, 3, 5, 7, 11, 13, 17, 19]
+     * &gt; countUpTo(1)
+     * []
+     * &gt; countUpTo(18)
+     * [2, 3, 5, 7, 11, 13, 17]
+     * &gt; countUpTo(47)
+     * [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43]
+     * &gt; countUpTo(101)
+     * [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97]
+     */
+    public static List&lt;Object&gt; countUpTo(int n) {
+<span class="fc" id="L42">        List&lt;Object&gt; result = new ArrayList&lt;Object&gt;();</span>
+<span class="fc" id="L43">        int i = 2;</span>
+<span class="fc bfc" id="L44" title="All 2 branches covered.">        while (i &lt; n) {</span>
+<span class="fc bfc" id="L45" title="All 2 branches covered.">            if (isPrime(i)) {</span>
+<span class="fc" id="L46">                result.add(i);</span>
+            }
+<span class="fc" id="L48">            i++;</span>
+        }
+<span class="fc" id="L50">        return result;</span>
+    }
+
+    private static boolean isPrime(int n) {
+<span class="fc" id="L54">        int i = 2;</span>
+<span class="fc bfc" id="L55" title="All 2 branches covered.">        while (i &lt; n) {</span>
+<span class="fc bfc" id="L56" title="All 2 branches covered.">            if (n % i == 0) {</span>
+<span class="fc" id="L57">                return false;</span>
+            }
+<span class="fc" id="L59">            i++;</span>
+        }
+<span class="fc" id="L61">        return true;</span>
+    }
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

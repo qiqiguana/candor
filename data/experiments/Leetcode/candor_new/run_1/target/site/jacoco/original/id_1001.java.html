@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_1001.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">leetcode</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_1001.java</span></div><h1>id_1001.java</h1><pre class="source lang-java linenums">package original;
+
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+<span class="fc" id="L7">class Solution1001 {</span>
+    private int n;
+    public int[] gridIllumination(int n, int[][] lamps, int[][] queries) {
+<span class="fc" id="L10">        this.n = n;</span>
+<span class="fc" id="L11">        Set&lt;Long&gt; s = new HashSet&lt;&gt;();</span>
+<span class="fc" id="L12">        Map&lt;Integer, Integer&gt; row = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L13">        Map&lt;Integer, Integer&gt; col = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L14">        Map&lt;Integer, Integer&gt; diag1 = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L15">        Map&lt;Integer, Integer&gt; diag2 = new HashMap&lt;&gt;();</span>
+<span class="pc bpc" id="L16" title="1 of 2 branches missed.">        for (var lamp : lamps) {</span>
+<span class="nc" id="L17">            int i = lamp[0], j = lamp[1];</span>
+<span class="nc bnc" id="L18" title="All 2 branches missed.">            if (s.add(f(i, j))) {</span>
+<span class="nc" id="L19">                merge(row, i, 1);</span>
+<span class="nc" id="L20">                merge(col, j, 1);</span>
+<span class="nc" id="L21">                merge(diag1, i - j, 1);</span>
+<span class="nc" id="L22">                merge(diag2, i + j, 1);</span>
+            }
+        }
+<span class="fc" id="L25">        int m = queries.length;</span>
+<span class="fc" id="L26">        int[] ans = new int[m];</span>
+<span class="fc bfc" id="L27" title="All 2 branches covered.">        for (int k = 0; k &lt; m; ++k) {</span>
+<span class="fc" id="L28">            int i = queries[k][0], j = queries[k][1];</span>
+<span class="pc bpc" id="L29" title="4 of 8 branches missed.">            if (exist(row, i) || exist(col, j) || exist(diag1, i - j) || exist(diag2, i + j)) {</span>
+<span class="nc" id="L30">                ans[k] = 1;</span>
+            }
+<span class="fc bfc" id="L32" title="All 2 branches covered.">            for (int x = i - 1; x &lt;= i + 1; ++x) {</span>
+<span class="fc bfc" id="L33" title="All 2 branches covered.">                for (int y = j - 1; y &lt;= j + 1; ++y) {</span>
+<span class="pc bpc" id="L34" title="1 of 10 branches missed.">                    if (x &lt; 0 || x &gt;= n || y &lt; 0 || y &gt;= n || !s.contains(f(x, y))) {</span>
+<span class="fc" id="L35">                        continue;</span>
+                    }
+<span class="nc" id="L37">                    s.remove(f(x, y));</span>
+<span class="nc" id="L38">                    merge(row, x, -1);</span>
+<span class="nc" id="L39">                    merge(col, y, -1);</span>
+<span class="nc" id="L40">                    merge(diag1, x - y, -1);</span>
+<span class="nc" id="L41">                    merge(diag2, x + y, -1);</span>
+                }
+            }
+        }
+<span class="fc" id="L45">        return ans;</span>
+    }
+
+    private void merge(Map&lt;Integer, Integer&gt; cnt, int x, int d) {
+<span class="nc bnc" id="L49" title="All 2 branches missed.">        if (cnt.merge(x, d, Integer::sum) == 0) {</span>
+<span class="nc" id="L50">            cnt.remove(x);</span>
+        }
+<span class="nc" id="L52">    }</span>
+
+    private boolean exist(Map&lt;Integer, Integer&gt; cnt, int x) {
+<span class="pc bpc" id="L55" title="1 of 2 branches missed.">        return cnt.getOrDefault(x, 0) &gt; 0;</span>
+    }
+
+    private long f(long i, long j) {
+<span class="fc" id="L59">        return i * n + j;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

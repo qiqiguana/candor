@@ -1,0 +1,16 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of IsSimplePower.
+*/
+class IsSimplePowerTest {
+    @Test
+    void testIsSimplePower_WhenXis1_ReturnTrue() {
+        // Arrange and Act
+        boolean result = IsSimplePower.isSimplePower(1, 4);
+        // Assert
+        assertTrue(result);
+    }
+}

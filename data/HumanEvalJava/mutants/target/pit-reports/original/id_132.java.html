@@ -1,0 +1,1198 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>id_132.java</h1>
+
+<table class="src">
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61521505_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61521505_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package original;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61521505_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61521505_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61521505_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61521505_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61521505_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61521505_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.ArrayList;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61521505_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61521505_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.Collections;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61521505_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61521505_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61521505_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61521505_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61521505_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61521505_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>class IsNested {</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61521505_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61521505_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61521505_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61521505_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * * Create a function that takes a string as input which contains only square brackets.</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61521505_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61521505_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * The function should return True if and only if there is a valid subsequence of brackets</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61521505_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61521505_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * where at least one bracket in the subsequence is nested.</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61521505_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61521505_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Examples:</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61521505_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61521505_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * isNested(&#39;[[]]&#39;) &#10142; True</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61521505_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61521505_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * isNested(&#39;[]]]]]]][[[[[]&#39;) &#10142; False</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61521505_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61521505_16'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * isNested(&#39;[][]&#39;) &#10142; False</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61521505_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61521505_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * isNested(&#39;[]&#39;) &#10142; False</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61521505_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61521505_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * isNested(&#39;[[][]]&#39;) &#10142; True</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61521505_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61521505_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * isNested(&#39;[[]][[&#39;) &#10142; True</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61521505_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61521505_20'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     *</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61521505_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61521505_21'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * &#62; isNested(&#34;[[]]&#34;)</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61521505_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61521505_22'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * true</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61521505_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61521505_23'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * &#62; isNested(&#34;[]]]]]]][[[[[]&#34;)</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61521505_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61521505_24'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * false</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61521505_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61521505_25'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * &#62; isNested(&#34;[][]&#34;)</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61521505_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61521505_26'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * false</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61521505_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61521505_27'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * &#62; isNested(&#34;[]&#34;)</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61521505_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61521505_28'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * false</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61521505_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61521505_29'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * &#62; isNested(&#34;[[[[]]]]&#34;)</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61521505_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61521505_30'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * true</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61521505_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61521505_31'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * &#62; isNested(&#34;[]]]]]]]]]]&#34;)</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61521505_32'/>
+32
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61521505_32'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * false</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61521505_33'/>
+33
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61521505_33'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * &#62; isNested(&#34;[][][[]]&#34;)</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61521505_34'/>
+34
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61521505_34'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * true</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61521505_35'/>
+35
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61521505_35'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * &#62; isNested(&#34;[[]&#34;)</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61521505_36'/>
+36
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61521505_36'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * false</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61521505_37'/>
+37
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61521505_37'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * &#62; isNested(&#34;[]]&#34;)</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61521505_38'/>
+38
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61521505_38'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * false</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61521505_39'/>
+39
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61521505_39'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * &#62; isNested(&#34;[[]][[&#34;)</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61521505_40'/>
+40
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61521505_40'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * true</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61521505_41'/>
+41
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61521505_41'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * &#62; isNested(&#34;[[][]]&#34;)</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61521505_42'/>
+42
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61521505_42'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * true</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61521505_43'/>
+43
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61521505_43'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * &#62; isNested(&#34;&#34;)</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61521505_44'/>
+44
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61521505_44'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * false</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61521505_45'/>
+45
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61521505_45'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * &#62; isNested(&#34;[[[[[[[[&#34;)</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61521505_46'/>
+46
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61521505_46'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * false</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61521505_47'/>
+47
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61521505_47'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * &#62; isNested(&#34;]]]]]]]]&#34;)</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61521505_48'/>
+48
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61521505_48'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * false</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61521505_49'/>
+49
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61521505_49'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61521505_50'/>
+50
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61521505_50'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public static Boolean isNested(String string) {</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61521505_51'/>
+51
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61521505_51'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        ArrayList&#60;Integer&#62; opening_bracket_index = new ArrayList&#60;Integer&#62;();</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61521505_52'/>
+52
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61521505_52'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        ArrayList&#60;Integer&#62; closing_bracket_index = new ArrayList&#60;Integer&#62;();</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61521505_53'/>
+53
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61521505_53'>2</a>
+<span>
+1. isNested : negated conditional &rarr; KILLED<br/>
+2. isNested : changed conditional boundary &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        for (int i = 0; i &#60; string.length(); i++) {</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61521505_54'/>
+54
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61521505_54'>1</a>
+<span>
+1. isNested : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            if (string.charAt(i) == &#39;[&#39;) {</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61521505_55'/>
+55
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61521505_55'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                opening_bracket_index.add(i);</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61521505_56'/>
+56
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61521505_56'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            } else {</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61521505_57'/>
+57
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61521505_57'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                closing_bracket_index.add(i);</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61521505_58'/>
+58
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61521505_58'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61521505_59'/>
+59
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61521505_59'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61521505_60'/>
+60
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61521505_60'>1</a>
+<span>
+1. isNested : removed call to java/util/Collections::reverse &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        Collections.reverse(closing_bracket_index);</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61521505_61'/>
+61
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61521505_61'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        int cnt = 0;</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61521505_62'/>
+62
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61521505_62'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        int i = 0;</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61521505_63'/>
+63
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61521505_63'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        int l = closing_bracket_index.size();</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61521505_64'/>
+64
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61521505_64'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        for (int idx : opening_bracket_index) {</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61521505_65'/>
+65
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61521505_65'>4</a>
+<span>
+1. isNested : changed conditional boundary &rarr; SURVIVED<br/>
+2. isNested : negated conditional &rarr; KILLED<br/>
+3. isNested : changed conditional boundary &rarr; KILLED<br/>
+4. isNested : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>            if (i &#60; l &#38;&#38; idx &#60; closing_bracket_index.get(i)) {</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61521505_66'/>
+66
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61521505_66'>1</a>
+<span>
+1. isNested : Changed increment from 1 to -1 &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                cnt += 1;</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61521505_67'/>
+67
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61521505_67'>1</a>
+<span>
+1. isNested : Changed increment from 1 to -1 &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                i += 1;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61521505_68'/>
+68
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61521505_68'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61521505_69'/>
+69
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61521505_69'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        }</span></pre></td></tr>
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61521505_70'/>
+70
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61521505_70'>3</a>
+<span>
+1. isNested : negated conditional &rarr; KILLED<br/>
+2. isNested : changed conditional boundary &rarr; KILLED<br/>
+3. isNested : replaced Boolean return with True for original/IsNested::isNested &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return cnt &#62;= 2;</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61521505_71'/>
+71
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61521505_71'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61521505_72'/>
+72
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61521505_72'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61521505_73'/>
+73
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61521505_73'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@61521505_74'/>
+74
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@61521505_74'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@61521505_53'>53</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@61521505_53'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isNested<br/><b>Killed by : </b>original.IsNestedTest.[engine:junit-jupiter]/[class:original.IsNestedTest]/[method:Test_EmptyString_ReturnsFalse()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isNested<br/><b>Killed by : </b>original.IsNestedTest.[engine:junit-jupiter]/[class:original.IsNestedTest]/[method:Test_OpeningAndClosingParenthesesNotNested()]</span></span> changed conditional boundary &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@61521505_54'>54</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@61521505_54'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isNested<br/><b>Killed by : </b>original.IsNestedTest.[engine:junit-jupiter]/[class:original.IsNestedTest]/[method:Test_OpeningAndClosingBracketsNested_ReturnsTrue_10()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@61521505_60'>60</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@61521505_60'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isNested<br/><b>Killed by : </b>none</span></span> removed call to java/util/Collections::reverse &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=original.IsNested,-method=isNested,-methodDesc=(Ljava/lang/String;)Ljava/lang/Boolean;],-indexes=[55],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=original.IsNested,-method=isNested,-methodDesc=(Ljava/lang/String;)Ljava/lang/Boolean;],-indexes=[55],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=original.IsNested,-method=isNested,-methodDesc=(Ljava/lang/String;)Ljava/lang/Boolean;],-indexes=[55],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>original.IsNestedTest.[engine:junit-jupiter]/[class:original.IsNestedTest]/[method:Test_OpeningAndClosingParenthesesNotNested()]</li> <li>original.IsNestedTest.[engine:junit-jupiter]/[class:original.IsNestedTest]/[method:Test_OpeningAndClosingAngleBracketsNotNested()]</li> <li>original.IsNestedTest.[engine:junit-jupiter]/[class:original.IsNestedTest]/[method:Test_ClosingButNotOpening()]</li> <li>original.IsNestedTest.[engine:junit-jupiter]/[class:original.IsNestedTest]/[method:Test_EmptyString_ReturnsFalse()]</li> <li>original.IsNestedTest.[engine:junit-jupiter]/[class:original.IsNestedTest]/[method:Test_NoOpeningOrClosing()]</li> <li>original.IsNestedTest.[engine:junit-jupiter]/[class:original.IsNestedTest]/[method:Test_MultipleConsecutiveClosing()]</li> <li>original.IsNestedTest.[engine:junit-jupiter]/[class:original.IsNestedTest]/[method:Test_SingleClosingBracket_ReturnsFalse()]</li> <li>original.IsNestedTest.[engine:junit-jupiter]/[class:original.IsNestedTest]/[method:Test_SingleOpeningBracket_ReturnsFalse()]</li> <li>original.IsNestedTest.[engine:junit-jupiter]/[class:original.IsNestedTest]/[method:Test_OpeningAndClosingParentheses_Fixed()]</li> <li>original.IsNestedTest.[engine:junit-jupiter]/[class:original.IsNestedTest]/[method:Test_OpeningAndClosingBracketsNestedButCountLessThan2_ReturnsTrue_1()]</li> <li>original.IsNestedTest.[engine:junit-jupiter]/[class:original.IsNestedTest]/[method:testIsNested()]</li> <li>original.IsNestedTest.[engine:junit-jupiter]/[class:original.IsNestedTest]/[method:Test_OpeningAndClosingBracketsNestedButCountLessThan2_ReturnsFalse_4()]</li> <li>original.IsNestedTest.[engine:junit-jupiter]/[class:original.IsNestedTest]/[method:Test_OpeningAndClosingBraces()]</li> <li>original.IsNestedTest.[engine:junit-jupiter]/[class:original.IsNestedTest]/[method:Test_OpeningAndClosingBracketsNotNested_ReturnsFalse()]</li> <li>original.IsNestedTest.[engine:junit-jupiter]/[class:original.IsNestedTest]/[method:test_OpeningAndClosingBracketsNestedButCountLessThan2_ReturnsFalse_5()]</li> <li>original.IsNestedTest.[engine:junit-jupiter]/[class:original.IsNestedTest]/[method:Test_NestedBrackets()]</li> <li>original.IsNestedTest.[engine:junit-jupiter]/[class:original.IsNestedTest]/[method:Test_OpeningAndClosingBracketsNestedButCountLessThan2_ReturnsFalse_5()]</li> <li>original.IsNestedTest.[engine:junit-jupiter]/[class:original.IsNestedTest]/[method:Test_OpeningAndClosingBracketsNested_ReturnsTrue_10()]</li> <li>original.IsNestedTest.[engine:junit-jupiter]/[class:original.IsNestedTest]/[method:Test_MultipleConsecutiveOpening()]</li> <li>original.IsNestedTest.[engine:junit-jupiter]/[class:original.IsNestedTest]/[method:Test_OpeningAndClosingBracketsNotNested()]</li> <li>original.IsNestedTest.[engine:junit-jupiter]/[class:original.IsNestedTest]/[method:Test_OpeningAndClosingBracketsNested()]</li> <li>original.IsNestedTest.[engine:junit-jupiter]/[class:original.IsNestedTest]/[method:Test_OpeningAndClosingBracketsNestedButCountLessThan2_ReturnsFalse_6()]</li> <li>original.IsNestedTest.[engine:junit-jupiter]/[class:original.IsNestedTest]/[method:Test_OpeningAndClosingBracketsNested_ReturnsTrue()]</li> <li>original.IsNestedTest.[engine:junit-jupiter]/[class:original.IsNestedTest]/[method:Test_OpeningButNotClosing()]</li> <li>original.IsNestedTest.[engine:junit-jupiter]/[class:original.IsNestedTest]/[method:Test_MultipleBrackets()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@61521505_65'>65</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@61521505_65'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isNested<br/><b>Killed by : </b>original.IsNestedTest.[engine:junit-jupiter]/[class:original.IsNestedTest]/[method:Test_SingleOpeningBracket_ReturnsFalse()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isNested<br/><b>Killed by : </b>original.IsNestedTest.[engine:junit-jupiter]/[class:original.IsNestedTest]/[method:Test_SingleOpeningBracket_ReturnsFalse()]</span></span> changed conditional boundary &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>isNested<br/><b>Killed by : </b>original.IsNestedTest.[engine:junit-jupiter]/[class:original.IsNestedTest]/[method:Test_OpeningAndClosingBracketsNested_ReturnsTrue_10()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>isNested<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=original.IsNested,-method=isNested,-methodDesc=(Ljava/lang/String;)Ljava/lang/Boolean;],-indexes=[95],-mutator=org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=original.IsNested,-method=isNested,-methodDesc=(Ljava/lang/String;)Ljava/lang/Boolean;],-indexes=[95],-mutator=org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=original.IsNested,-method=isNested,-methodDesc=(Ljava/lang/String;)Ljava/lang/Boolean;],-indexes=[95],-mutator=org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>original.IsNestedTest.[engine:junit-jupiter]/[class:original.IsNestedTest]/[method:Test_OpeningAndClosingBracketsNestedButCountLessThan2_ReturnsFalse_5()]</li> <li>original.IsNestedTest.[engine:junit-jupiter]/[class:original.IsNestedTest]/[method:Test_OpeningAndClosingBracketsNested_ReturnsTrue_10()]</li> <li>original.IsNestedTest.[engine:junit-jupiter]/[class:original.IsNestedTest]/[method:Test_OpeningAndClosingParentheses_Fixed()]</li> <li>original.IsNestedTest.[engine:junit-jupiter]/[class:original.IsNestedTest]/[method:Test_OpeningAndClosingBracketsNotNested()]</li> <li>original.IsNestedTest.[engine:junit-jupiter]/[class:original.IsNestedTest]/[method:Test_OpeningAndClosingBracketsNested()]</li> <li>original.IsNestedTest.[engine:junit-jupiter]/[class:original.IsNestedTest]/[method:Test_OpeningAndClosingBracketsNestedButCountLessThan2_ReturnsTrue_1()]</li> <li>original.IsNestedTest.[engine:junit-jupiter]/[class:original.IsNestedTest]/[method:Test_OpeningAndClosingBracketsNestedButCountLessThan2_ReturnsFalse_6()]</li> <li>original.IsNestedTest.[engine:junit-jupiter]/[class:original.IsNestedTest]/[method:testIsNested()]</li> <li>original.IsNestedTest.[engine:junit-jupiter]/[class:original.IsNestedTest]/[method:Test_OpeningAndClosingBracketsNestedButCountLessThan2_ReturnsFalse_4()]</li> <li>original.IsNestedTest.[engine:junit-jupiter]/[class:original.IsNestedTest]/[method:Test_OpeningAndClosingBraces()]</li> <li>original.IsNestedTest.[engine:junit-jupiter]/[class:original.IsNestedTest]/[method:Test_OpeningAndClosingBracketsNested_ReturnsTrue()]</li> <li>original.IsNestedTest.[engine:junit-jupiter]/[class:original.IsNestedTest]/[method:Test_OpeningAndClosingBracketsNotNested_ReturnsFalse()]</li> <li>original.IsNestedTest.[engine:junit-jupiter]/[class:original.IsNestedTest]/[method:test_OpeningAndClosingBracketsNestedButCountLessThan2_ReturnsFalse_5()]</li> <li>original.IsNestedTest.[engine:junit-jupiter]/[class:original.IsNestedTest]/[method:Test_MultipleBrackets()]</li> <li>original.IsNestedTest.[engine:junit-jupiter]/[class:original.IsNestedTest]/[method:Test_NestedBrackets()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@61521505_66'>66</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@61521505_66'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isNested<br/><b>Killed by : </b>original.IsNestedTest.[engine:junit-jupiter]/[class:original.IsNestedTest]/[method:Test_OpeningAndClosingBracketsNested_ReturnsTrue_10()]</span></span> Changed increment from 1 to -1 &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@61521505_67'>67</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@61521505_67'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isNested<br/><b>Killed by : </b>original.IsNestedTest.[engine:junit-jupiter]/[class:original.IsNestedTest]/[method:Test_OpeningAndClosingBracketsNestedButCountLessThan2_ReturnsFalse_5()]</span></span> Changed increment from 1 to -1 &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@61521505_70'>70</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@61521505_70'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isNested<br/><b>Killed by : </b>original.IsNestedTest.[engine:junit-jupiter]/[class:original.IsNestedTest]/[method:Test_OpeningAndClosingParenthesesNotNested()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isNested<br/><b>Killed by : </b>original.IsNestedTest.[engine:junit-jupiter]/[class:original.IsNestedTest]/[method:Test_OpeningAndClosingBracketsNestedButCountLessThan2_ReturnsTrue_1()]</span></span> changed conditional boundary &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>isNested<br/><b>Killed by : </b>original.IsNestedTest.[engine:junit-jupiter]/[class:original.IsNestedTest]/[method:Test_OpeningAndClosingParenthesesNotNested()]</span></span> replaced Boolean return with True for original/IsNested::isNested &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+<li class='mutator'>CONDITIONALS_BOUNDARY</li>
+<li class='mutator'>EMPTY_RETURNS</li>
+<li class='mutator'>FALSE_RETURNS</li>
+<li class='mutator'>INCREMENTS</li>
+<li class='mutator'>INVERT_NEGS</li>
+<li class='mutator'>MATH</li>
+<li class='mutator'>NEGATE_CONDITIONALS</li>
+<li class='mutator'>NULL_RETURNS</li>
+<li class='mutator'>PRIMITIVE_RETURNS</li>
+<li class='mutator'>TRUE_RETURNS</li>
+<li class='mutator'>VOID_METHOD_CALLS</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>original.IsNestedTest.[engine:junit-jupiter]/[class:original.IsNestedTest]/[method:Test_OpeningAndClosingBracketsNestedButCountLessThan2_ReturnsFalse_5()] (0 ms)</li><li>original.IsNestedTest.[engine:junit-jupiter]/[class:original.IsNestedTest]/[method:Test_OpeningAndClosingBracketsNested_ReturnsTrue_10()] (0 ms)</li><li>original.IsNestedTest.[engine:junit-jupiter]/[class:original.IsNestedTest]/[method:Test_OpeningAndClosingParentheses_Fixed()] (0 ms)</li><li>original.IsNestedTest.[engine:junit-jupiter]/[class:original.IsNestedTest]/[method:Test_OpeningAndClosingBracketsNotNested()] (0 ms)</li><li>original.IsNestedTest.[engine:junit-jupiter]/[class:original.IsNestedTest]/[method:Test_OpeningAndClosingBracketsNested()] (0 ms)</li><li>original.IsNestedTest.[engine:junit-jupiter]/[class:original.IsNestedTest]/[method:Test_OpeningAndClosingBracketsNestedButCountLessThan2_ReturnsTrue_1()] (0 ms)</li><li>original.IsNestedTest.[engine:junit-jupiter]/[class:original.IsNestedTest]/[method:Test_OpeningAndClosingBracketsNestedButCountLessThan2_ReturnsFalse_6()] (0 ms)</li><li>original.IsNestedTest.[engine:junit-jupiter]/[class:original.IsNestedTest]/[method:testIsNested()] (0 ms)</li><li>original.IsNestedTest.[engine:junit-jupiter]/[class:original.IsNestedTest]/[method:Test_OpeningAndClosingBracketsNestedButCountLessThan2_ReturnsFalse_4()] (0 ms)</li><li>original.IsNestedTest.[engine:junit-jupiter]/[class:original.IsNestedTest]/[method:Test_OpeningAndClosingBraces()] (0 ms)</li><li>original.IsNestedTest.[engine:junit-jupiter]/[class:original.IsNestedTest]/[method:Test_OpeningAndClosingBracketsNested_ReturnsTrue()] (0 ms)</li><li>original.IsNestedTest.[engine:junit-jupiter]/[class:original.IsNestedTest]/[method:Test_OpeningAndClosingBracketsNotNested_ReturnsFalse()] (0 ms)</li><li>original.IsNestedTest.[engine:junit-jupiter]/[class:original.IsNestedTest]/[method:test_OpeningAndClosingBracketsNestedButCountLessThan2_ReturnsFalse_5()] (0 ms)</li><li>original.IsNestedTest.[engine:junit-jupiter]/[class:original.IsNestedTest]/[method:Test_MultipleBrackets()] (0 ms)</li><li>original.IsNestedTest.[engine:junit-jupiter]/[class:original.IsNestedTest]/[method:Test_NestedBrackets()] (0 ms)</li><li>original.IsNestedTest.[engine:junit-jupiter]/[class:original.IsNestedTest]/[method:Test_OpeningAndClosingParenthesesNotNested()] (0 ms)</li><li>original.IsNestedTest.[engine:junit-jupiter]/[class:original.IsNestedTest]/[method:Test_OpeningAndClosingAngleBracketsNotNested()] (0 ms)</li><li>original.IsNestedTest.[engine:junit-jupiter]/[class:original.IsNestedTest]/[method:Test_ClosingButNotOpening()] (0 ms)</li><li>original.IsNestedTest.[engine:junit-jupiter]/[class:original.IsNestedTest]/[method:Test_EmptyString_ReturnsFalse()] (0 ms)</li><li>original.IsNestedTest.[engine:junit-jupiter]/[class:original.IsNestedTest]/[method:Test_NoOpeningOrClosing()] (0 ms)</li><li>original.IsNestedTest.[engine:junit-jupiter]/[class:original.IsNestedTest]/[method:Test_MultipleConsecutiveClosing()] (0 ms)</li><li>original.IsNestedTest.[engine:junit-jupiter]/[class:original.IsNestedTest]/[method:Test_SingleClosingBracket_ReturnsFalse()] (0 ms)</li><li>original.IsNestedTest.[engine:junit-jupiter]/[class:original.IsNestedTest]/[method:Test_SingleOpeningBracket_ReturnsFalse()] (0 ms)</li><li>original.IsNestedTest.[engine:junit-jupiter]/[class:original.IsNestedTest]/[method:Test_MultipleConsecutiveOpening()] (0 ms)</li><li>original.IsNestedTest.[engine:junit-jupiter]/[class:original.IsNestedTest]/[method:Test_OpeningButNotClosing()] (0 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='https://pitest.org'>PIT</a> 1.18.0
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_1272.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">leetcode</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_1272.java</span></div><h1>id_1272.java</h1><pre class="source lang-java linenums">package original;
+
+import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
+<span class="fc" id="L6">class Solution1272 {</span>
+    public List&lt;List&lt;Integer&gt;&gt; removeInterval(int[][] intervals, int[] toBeRemoved) {
+  /**
+  A set of real numbers can be represented as the union of several disjoint intervals, where each interval is in the form [a, b). A real number x is in the set if one of its intervals [a, b) contains x (i.e. a &amp;lt;= x &amp;lt; b). You are given a sorted list of disjoint intervals intervals representing a set of real numbers as described above, where intervals[i] = [ai, bi] represents the interval [ai, bi). You are also given another interval toBeRemoved. Return the set of real numbers with the interval toBeRemoved removed from intervals. In other words, return the set of real numbers such that every x in the set is in intervals but not in toBeRemoved. Your answer should be a sorted list of disjoint intervals as described above. &amp;nbsp; Example 1: Input: intervals = [[0,2],[3,4],[5,7]], toBeRemoved = [1,6] Output: [[0,1],[6,7]] Example 2: Input: intervals = [[0,5]], toBeRemoved = [2,3] Output: [[0,2],[3,5]] Example 3: Input: intervals = [[-5,-4],[-3,-2],[1,2],[3,5],[8,9]], toBeRemoved = [-1,4] Output: [[-5,-4],[-3,-2],[4,5],[8,9]] &amp;nbsp; Constraints: 1 &amp;lt;= intervals.length &amp;lt;= 104 -109 &amp;lt;= ai &amp;lt; bi &amp;lt;= 109
+  */
+<span class="fc" id="L11">        int x = toBeRemoved[0], y = toBeRemoved[1];</span>
+<span class="fc" id="L12">        List&lt;List&lt;Integer&gt;&gt; ans = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L13" title="All 2 branches covered.">        for (var e : intervals) {</span>
+<span class="fc" id="L14">            int a = e[0], b = e[1];</span>
+<span class="pc bpc" id="L15" title="2 of 4 branches missed.">            if (a &gt;= y || b &lt;= x) {</span>
+<span class="nc" id="L16">                ans.add(Arrays.asList(a, b));</span>
+            } else {
+<span class="fc bfc" id="L18" title="All 2 branches covered.">                if (a &lt; x) {</span>
+<span class="fc" id="L19">                    ans.add(Arrays.asList(a, x));</span>
+                }
+<span class="fc bfc" id="L21" title="All 2 branches covered.">                if (b &gt; y) {</span>
+<span class="fc" id="L22">                    ans.add(Arrays.asList(y, b));</span>
+                }
+            }
+        }
+<span class="fc" id="L26">        return ans;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

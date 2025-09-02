@@ -1,0 +1,54 @@
+nohup: ignoring input
+0it [00:00, ?it/s]2025-05-28 17:02:49,912   INFO : 
+
+ Processing file: /home/qinghua/projects/matg/data/leetcode_dataset/candor0/src/main/java/original/id_2392.java
+2025-05-28 17:02:50.777923: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2025-05-28 17:02:50.789296: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1748448170.801704 2407794 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1748448170.804887 2407794 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+W0000 00:00:1748448170.814696 2407794 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1748448170.814714 2407794 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1748448170.814716 2407794 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1748448170.814717 2407794 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+2025-05-28 17:02:50.817509: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX512_FP16 AVX_VNNI AMX_TILE AMX_INT8 AMX_BF16 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-05-28 17:02:53,065   INFO : 
+
+
+
+                ▗▄▄▄▖  ▗▄▖  ▗▖  ▗▖ ▗▄▄▄    ▗▄▖  ▗▄▄▖ 
+                ▐▌    ▐▌ ▐▌ ▐▛▚▖▐▌ ▐▌  █  ▐▌ ▐▌ ▐▌ ▐▌
+                ▐▌    ▐▛▀▜▌ ▐▌ ▝▜▌ ▐▌  █  ▐▌ ▐▌ ▐▛▀▚▖
+                ▝▚▄▄▖ ▐▌ ▐▌ ▐▌  ▐▌ ▐▙▄▄▀  ▝▚▄▞▘ ▐▌ ▐▌
+
+2025-05-28 17:02:53,065   INFO : ======================================================================
+
+2025-05-28 17:02:53,065   INFO : 🚀 Starting MATG: Multi-Agent LLM-Based Test Generation Framework
+2025-05-28 17:02:53,065   INFO : 📘 Purpose : Automated test generation for Java using LLM agents
+2025-05-28 17:02:53,065   INFO : 🧠 Agents  : Planner, Generator, Executor, and Evaluator
+2025-05-28 17:02:53,065   INFO : 🛠️  Engine  : Powered by matg (Machine-Assisted Test Generation)
+2025-05-28 17:02:53,065   INFO : ======================================================================
+
+
+2025-05-28 17:02:55,774   ERROR : Error generating test cases: File '/home/qinghua/projects/matg/data/leetcode_dataset/candor0/target/site/jacoco/jacoco.xml' not found.
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/qinghua/projects/matg/main.py", line 87, in <module>
+    main()
+  File "/home/qinghua/projects/matg/main.py", line 80, in main
+    test_generator.run()
+  File "/home/qinghua/projects/matg/generate.py", line 136, in run
+    logger.info(f"Final line coverage: {self.line_coverage}")
+                                        ^^^^^^^^^^^^^^^^^^
+AttributeError: 'TestCaseGenerator' object has no attribute 'line_coverage'
+0it [00:09, ?it/s]
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/qinghua/projects/matg/experiments/candor/generate/run_leetcode.py", line 56, in <module>
+    subprocess.run(command, check=True)
+  File "/home/qinghua/anaconda3/envs/llm4test/lib/python3.11/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['python', '-m', 'matg.main', 'generate', '--data-path', '/home/qinghua/projects/matg/data/leetcode_dataset/candor0', '--relative-source-file-path', 'src/main/java/original/id_2392.java', '--relative-test-file-path', 'src/test/java/original/id_2392Test.java', '--coverage-report-path', '/home/qinghua/projects/matg/data/leetcode_dataset/candor0/target/site/jacoco', '--test-command', 'mvn -f /home/qinghua/projects/matg/data/leetcode_dataset/candor0/pom.xml clean test jacoco:report', '--generator', 'matg', '--max-attempts', '2', '--target-line-coverage', '0.99']' returned non-zero exit status 1.

@@ -1,0 +1,37 @@
+package original;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of Derivative.
+*/
+class DerivativeTest {
+    @Test
+    void testDerivative_SingleElementList_ReturnsEmptyList() {
+        List<Integer> input = new ArrayList<>(List.of(1));
+        List<Object> result = Derivative.derivative(input);
+        assertEquals(0, result.size());
+    }
+    
+    @Test
+        public void testNothing(){
+            Derivative s = new Derivative();
+            }
+    @Test
+    public void testDerivative_EmptyInput() {
+        List<Integer> xs = new ArrayList<>();
+        List<Object> result = Derivative.derivative(xs);
+        assertTrue(result.isEmpty());
+    }
+    @Test
+    public void testDerivativeOfPolynomialWithMultipleTerms() {
+        List<Integer> input = new ArrayList<>(List.of(3, 2, 1));
+        List<Object> expectedOutput = new ArrayList<>(List.of(2, 2));
+        assertEquals(expectedOutput, Derivative.derivative(input));
+    }
+                                    
+}

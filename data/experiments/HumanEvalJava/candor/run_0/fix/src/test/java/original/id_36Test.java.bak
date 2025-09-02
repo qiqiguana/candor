@@ -1,0 +1,47 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of FizzBuzz.
+*/
+class FizzBuzzTest {
+    @Test
+    void testFizzBuzz() {
+        assertEquals(3, FizzBuzz.fizzBuzz(79));
+    }
+    
+    @Test
+        void testNothing(){
+            FizzBuzz s = new FizzBuzz();
+            }
+    @Test
+    public void testFizzBuzzSmallInput() {
+        int n = 50;
+        int expectedCount = 0;
+        int actualCount = FizzBuzz.fizzBuzz(n);
+        assertEquals(expectedCount, actualCount);
+    }
+    @Test
+    public void testFizzBuzzMediumInput() {
+        int n = 100;
+        int expectedCount = 3;
+        int actualCount = FizzBuzz.fizzBuzz(n);
+        assertEquals(expectedCount, actualCount);
+    }
+    @Test
+    public void testFizzBuzzLargeInput() {
+        int n = 10000;
+        int expectedCount = 639;
+        int actualCount = FizzBuzz.fizzBuzz(n);
+        assertEquals(expectedCount, actualCount);
+    }
+    @Test
+    public void testFizzBuzzZeroInput() {
+        int n = 0;
+        int expectedCount = 0;
+        int actualCount = FizzBuzz.fizzBuzz(n);
+        assertEquals(expectedCount, actualCount);
+    }
+                                    
+}

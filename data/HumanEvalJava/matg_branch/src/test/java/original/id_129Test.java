@@ -24,4 +24,10 @@ class MinpathTest {
 
         assertEquals(expected, result);
     }
+    
+    @Test
+        public void testNothing(){
+            Minpath s = new Minpath();
+            }
+                                    
 }

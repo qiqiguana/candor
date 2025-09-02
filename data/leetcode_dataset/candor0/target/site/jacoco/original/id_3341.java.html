@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_3341.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">leetcode</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_3341.java</span></div><h1>id_3341.java</h1><pre class="source lang-java linenums">package original;
+
+import java.util.PriorityQueue;
+import java.util.Arrays;
+import java.util.Queue;
+<span class="fc" id="L6">class Solution3341 {</span>
+    public int minTimeToReach(int[][] moveTime) {
+<span class="fc" id="L8">        int n = moveTime.length;</span>
+<span class="fc" id="L9">        int m = moveTime[0].length;</span>
+<span class="fc" id="L10">        int[][] dist = new int[n][m];</span>
+<span class="fc bfc" id="L11" title="All 2 branches covered.">        for (var row : dist) {</span>
+<span class="fc" id="L12">            Arrays.fill(row, Integer.MAX_VALUE);</span>
+        }
+<span class="fc" id="L14">        dist[0][0] = 0;</span>
+
+<span class="fc" id="L16">        PriorityQueue&lt;int[]&gt; pq = new PriorityQueue&lt;&gt;((a, b) -&gt; a[0] - b[0]);</span>
+<span class="fc" id="L17">        pq.offer(new int[] {0, 0, 0});</span>
+<span class="fc" id="L18">        int[] dirs = {-1, 0, 1, 0, -1};</span>
+        while (true) {
+<span class="fc" id="L20">            int[] p = pq.poll();</span>
+<span class="fc" id="L21">            int d = p[0], i = p[1], j = p[2];</span>
+
+<span class="fc bfc" id="L23" title="All 4 branches covered.">            if (i == n - 1 &amp;&amp; j == m - 1) {</span>
+<span class="fc" id="L24">                return d;</span>
+            }
+<span class="pc bpc" id="L26" title="1 of 2 branches missed.">            if (d &gt; dist[i][j]) {</span>
+<span class="nc" id="L27">                continue;</span>
+            }
+
+<span class="fc bfc" id="L30" title="All 2 branches covered.">            for (int k = 0; k &lt; 4; k++) {</span>
+<span class="fc" id="L31">                int x = i + dirs[k];</span>
+<span class="fc" id="L32">                int y = j + dirs[k + 1];</span>
+<span class="fc bfc" id="L33" title="All 8 branches covered.">                if (x &gt;= 0 &amp;&amp; x &lt; n &amp;&amp; y &gt;= 0 &amp;&amp; y &lt; m) {</span>
+<span class="fc" id="L34">                    int t = Math.max(moveTime[x][y], dist[i][j]) + 1;</span>
+<span class="fc bfc" id="L35" title="All 2 branches covered.">                    if (dist[x][y] &gt; t) {</span>
+<span class="fc" id="L36">                        dist[x][y] = t;</span>
+<span class="fc" id="L37">                        pq.offer(new int[] {t, x, y});</span>
+                    }
+                }
+            }
+<span class="fc" id="L41">        }</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

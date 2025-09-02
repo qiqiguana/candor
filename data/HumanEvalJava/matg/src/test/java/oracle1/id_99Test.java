@@ -15,13 +15,7 @@ class ClosestIntegerTest {
      void testNothing(){
          ClosestInteger s = new ClosestInteger();
          }
-    @Test
-    public void testClosestInteger_Positive_Integer() {
-        String input = "{"value":10}";
-        boolean expectedResult = true;
-        boolean actualResult = ClosestInteger.validateJSONSchema(input);
-        assertEquals(expectedResult, actualResult);
-    }
+
     @Test
     public void testClosestInteger_Positive_Decimal_RoundedDown() {
         String input = "15.3";

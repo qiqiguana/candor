@@ -1,0 +1,31 @@
+package original;
+
+import java.util.ArrayList;
+
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of SeparateParenGroups.
+*/
+class SeparateParenGroupsTest {
+    @Test
+    void test_separateParenGroups_SingleGroup_ReturnsSingleElementList() {
+        String input = "(()())";
+        List<String> expected = new ArrayList<>();
+        expected.add("(()())");
+        assertEquals(expected, SeparateParenGroups.separateParenGroups(input));
+    }
+    
+    @Test
+        public void testNothing(){
+            SeparateParenGroups s = new SeparateParenGroups();
+            }
+    @Test
+    public void testSeparateParenGroups_emptyInput() {
+        List<String> result = SeparateParenGroups.separateParenGroups(" ");
+        assertEquals(0, result.size());
+    }
+                                    
+}

@@ -1,0 +1,53 @@
+package original;
+
+import java.util.ArrayList;
+
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of LargestSmallestIntegers.
+*/
+class LargestSmallestIntegersTest {
+	@Test
+	void testLargestSmallestIntegers_NoNegativeOrPositive() {
+		List<Object> input = new ArrayList<>();
+		input.add(0);
+		List<Integer> result = LargestSmallestIntegers.largestSmallestIntegers(input);
+		assertEquals(null, result.get(0));
+		assertEquals(null, result.get(1));
+	}
+ 
+ @Test
+     public void testNothing(){
+         LargestSmallestIntegers s = new LargestSmallestIntegers();
+         }
+ @Test
+ public void test_larger_number_2(){
+ java.util.List<java.lang.Object> input = new java.util.ArrayList<>();
+ input.add(-5);
+ input.add(-6);
+ input.add(-7);
+ input.add(-8);
+ java.util.List<java.lang.Integer> expected_output = new java.util.ArrayList<>();
+ expected_output.add(-5);
+ expected_output.add(null);
+ org.junit.jupiter.api.Assertions.assertEquals(expected_output, original.LargestSmallestIntegers.largestSmallestIntegers(input));
+ }
+ @Test
+ public void test_largestSmallestIntegers_multiple_numbers_1() {
+     java.util.List<java.lang.Object> input = new java.util.ArrayList<>();
+     input.add(-6);
+     input.add(4);
+     input.add(5);
+     input.add(-3);
+     input.add(-100);
+     input.add(2);
+     java.util.List<java.lang.Integer> expected_output = new java.util.ArrayList<>();
+     expected_output.add(-3);
+     expected_output.add(2);
+     org.junit.jupiter.api.Assertions.assertEquals(expected_output, original.LargestSmallestIntegers.largestSmallestIntegers(input));
+ }
+                                 
+}

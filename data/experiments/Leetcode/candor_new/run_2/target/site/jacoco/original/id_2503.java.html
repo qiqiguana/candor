@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_2503.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">leetcode</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_2503.java</span></div><h1>id_2503.java</h1><pre class="source lang-java linenums">package original;
+
+import java.util.PriorityQueue;
+import java.util.Arrays;
+import java.util.Queue;
+<span class="nc" id="L6">class Solution2503 {</span>
+    public int[] maxPoints(int[][] grid, int[] queries) {
+<span class="nc" id="L8">        int k = queries.length;</span>
+<span class="nc" id="L9">        int[][] qs = new int[k][2];</span>
+<span class="nc bnc" id="L10" title="All 2 branches missed.">        for (int i = 0; i &lt; k; ++i) {</span>
+<span class="nc" id="L11">            qs[i] = new int[] {queries[i], i};</span>
+        }
+<span class="nc" id="L13">        Arrays.sort(qs, (a, b) -&gt; a[0] - b[0]);</span>
+<span class="nc" id="L14">        int[] ans = new int[k];</span>
+<span class="nc" id="L15">        int m = grid.length, n = grid[0].length;</span>
+<span class="nc" id="L16">        boolean[][] vis = new boolean[m][n];</span>
+<span class="nc" id="L17">        vis[0][0] = true;</span>
+<span class="nc" id="L18">        PriorityQueue&lt;int[]&gt; q = new PriorityQueue&lt;&gt;((a, b) -&gt; a[0] - b[0]);</span>
+<span class="nc" id="L19">        q.offer(new int[] {grid[0][0], 0, 0});</span>
+<span class="nc" id="L20">        int[] dirs = new int[] {-1, 0, 1, 0, -1};</span>
+<span class="nc" id="L21">        int cnt = 0;</span>
+<span class="nc bnc" id="L22" title="All 2 branches missed.">        for (var e : qs) {</span>
+<span class="nc" id="L23">            int v = e[0];</span>
+<span class="nc" id="L24">            k = e[1];</span>
+<span class="nc bnc" id="L25" title="All 4 branches missed.">            while (!q.isEmpty() &amp;&amp; q.peek()[0] &lt; v) {</span>
+<span class="nc" id="L26">                var p = q.poll();</span>
+<span class="nc" id="L27">                ++cnt;</span>
+<span class="nc bnc" id="L28" title="All 2 branches missed.">                for (int h = 0; h &lt; 4; ++h) {</span>
+<span class="nc" id="L29">                    int x = p[1] + dirs[h], y = p[2] + dirs[h + 1];</span>
+<span class="nc bnc" id="L30" title="All 10 branches missed.">                    if (x &gt;= 0 &amp;&amp; x &lt; m &amp;&amp; y &gt;= 0 &amp;&amp; y &lt; n &amp;&amp; !vis[x][y]) {</span>
+<span class="nc" id="L31">                        vis[x][y] = true;</span>
+<span class="nc" id="L32">                        q.offer(new int[] {grid[x][y], x, y});</span>
+                    }
+                }
+<span class="nc" id="L35">            }</span>
+<span class="nc" id="L36">            ans[k] = cnt;</span>
+        }
+<span class="nc" id="L38">        return ans;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

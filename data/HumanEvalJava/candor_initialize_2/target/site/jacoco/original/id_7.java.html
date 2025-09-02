@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_7.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HumanEvalJava</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_7.java</span></div><h1>id_7.java</h1><pre class="source lang-java linenums">package original;
+
+
+import java.util.ArrayList;
+import java.util.List;
+
+
+<span class="nc" id="L8">class FilterBySubstring {</span>
+    /**
+     * Filter an input list of strings only for ones that contain given substring
+     * &gt; filterBySubstring([], &quot;a&quot;)
+     * []
+     * &gt; filterBySubstring([&quot;abc&quot;, &quot;bacd&quot;, &quot;cde&quot;, &quot;array&quot;], &quot;a&quot;)
+     * [&quot;abc&quot;, &quot;bacd&quot;, &quot;array&quot;]
+     * &gt; filterBySubstring([], &quot;john&quot;)
+     * []
+     * &gt; filterBySubstring([&quot;xxx&quot;, &quot;asd&quot;, &quot;xxy&quot;, &quot;john doe&quot;, &quot;xxxAAA&quot;, &quot;xxx&quot;], &quot;xxx&quot;)
+     * [&quot;xxx&quot;, &quot;xxxAAA&quot;, &quot;xxx&quot;]
+     * &gt; filterBySubstring([&quot;xxx&quot;, &quot;asd&quot;, &quot;aaaxxy&quot;, &quot;john doe&quot;, &quot;xxxAAA&quot;, &quot;xxx&quot;], &quot;xx&quot;)
+     * [&quot;xxx&quot;, &quot;aaaxxy&quot;, &quot;xxxAAA&quot;, &quot;xxx&quot;]
+     * &gt; filterBySubstring([&quot;grunt&quot;, &quot;trumpet&quot;, &quot;prune&quot;, &quot;gruesome&quot;], &quot;run&quot;)
+     * [&quot;grunt&quot;, &quot;prune&quot;]
+     */
+    public static List&lt;Object&gt; filterBySubstring(List&lt;Object&gt; strings, String substring) {
+<span class="nc" id="L25">        List&lt;Object&gt; result = new ArrayList&lt;Object&gt;();</span>
+<span class="nc bnc" id="L26" title="All 2 branches missed.">        for (int i = 0; i &lt; strings.size(); i++) {</span>
+<span class="nc bnc" id="L27" title="All 2 branches missed.">            if (strings.get(i).toString().contains(substring)) {</span>
+<span class="nc" id="L28">                result.add(strings.get(i));</span>
+            }
+        }
+<span class="nc" id="L31">        return result;</span>
+    }
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

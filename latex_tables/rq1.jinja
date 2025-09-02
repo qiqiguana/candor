@@ -1,0 +1,38 @@
+{# \begin{table*}[hbt]
+    \centering
+    \caption{Experiment results of RQ1.}
+    \label{tab:rq1_results}
+    \begin{tabular}{ccccccccccc}
+    \toprule
+         & & \multicolumn{3}{c}{\empirical}  & \multicolumn{3}{c}{\evo} &\multicolumn{3}{c}{\method} \\
+         \cmidrule{3-11}
+         && Line & Branch & Mutation& Line & Branch & Mutation& Line & Branch & Mutation\\
+     \midrule
+         \multicolumn{2}{l}{HumanEvalJava} & {{result.empirical.human.line}}& {{result.empirical.human.branch}}& {{result.empirical.human.mutation}} & {{result.evosuite.human.line}}& {{result.evosuite.human.branch}}& {{result.evosuite.human.mutation}}& {{result.candor.human.line}}& {{result.candor.human.branch}}& {{result.candor.human.mutation}}\\
+     \midrule
+         \multirow{3}{*}{LeetcodeJava}  & Medium  & {{result.empirical.leetcode.medium.line}}& {{result.empirical.leetcode.medium.branch}}& {{result.empirical.leetcode.medium.mutation}}& {{result.evosuite.leetcode.medium.line}}& {{result.evosuite.leetcode.medium.branch}}& {{result.evosuite.leetcode.medium.mutation}}& {{result.candor.leetcode.medium.line}}& {{result.candor.leetcode.medium.branch}}& {{result.candor.leetcode.medium.mutation}}\\
+                                        & Hard & {{result.empirical.leetcode.hard.line}}& {{result.empirical.leetcode.hard.branch}}& {{result.empirical.leetcode.hard.mutation}}& {{result.evosuite.leetcode.hard.line}}& {{result.evosuite.leetcode.hard.branch}}& {{result.evosuite.leetcode.hard.mutation}}& {{result.candor.leetcode.hard.line}}& {{result.candor.leetcode.hard.branch}}& {{result.candor.leetcode.hard.mutation}}\\
+     \bottomrule
+    \end{tabular}
+\end{table*} #}
+\begin{table*}[hbt]
+    \centering
+    \caption{Experimental results of RQ1. ``Line'', ``Branch'', and ``Mutation'' represents line coverage, branch coverage, and mutation score metrics, respectively. ``Leetcode-Medium'' and ``Leetcode-Hard'' refer to the Leetcode Java dataset with medium and hard difficulty levels, respectively.}
+    \label{tab:rq1_results}
+    \begin{tabular}{@{\hspace{0.5\tabcolsep}}c@{\hspace{0.5\tabcolsep}}c@{\hspace{0.5\tabcolsep}}c@{\hspace{0.5\tabcolsep}}c@{\hspace{0.5\tabcolsep}}c@{\hspace{0.5\tabcolsep}}c@{\hspace{0.5\tabcolsep}}c@{\hspace{0.5\tabcolsep}}c@{\hspace{0.5\tabcolsep}}c@{\hspace{0.5\tabcolsep}}c@{\hspace{0.5\tabcolsep}}}
+    \toprule
+         &\multicolumn{3}{c}{HumanEvalJava}  & \multicolumn{3}{c}{Leetcode-Medium} & \multicolumn{3}{c}{Leetcode-Hard} \\
+         \cmidrule(lr){2-4}
+         \cmidrule(lr){5-7}
+         \cmidrule(lr){8-10}
+         & Line & Branch & Mutation& Line & Branch & Mutation& Line & Branch & Mutation\\
+         \midrule
+        \empirical & {{result.empirical.human.line}} & {{result.empirical.human.branch}} & {{result.empirical.human.mutation}}& {{result.empirical.leetcode.medium.line}} & {{result.empirical.leetcode.medium.branch}} & {{result.empirical.leetcode.medium.mutation}}& {{result.empirical.leetcode.hard.line}} & {{result.empirical.leetcode.hard.branch}} & {{result.empirical.leetcode.hard.mutation}}\\
+        \midrule
+        \evo &{{result.evosuite.human.line}} & {{result.evosuite.human.branch}} & {{result.evosuite.human.mutation}}& {{result.evosuite.leetcode.medium.line}} & {{result.evosuite.leetcode.medium.branch}} & {{result.evosuite.leetcode.medium.mutation}}& {{result.evosuite.leetcode.hard.line}} & {{result.evosuite.leetcode.hard.branch}} & {{result.evosuite.leetcode.hard.mutation}}\\
+        \midrule
+        \method &{{result.candor.human.line}} & {{result.candor.human.branch}} & {{result.candor.human.mutation}}& {{result.candor.leetcode.medium.line}} & {{result.candor.leetcode.medium.branch}} & {{result.candor.leetcode.medium.mutation}}& {{result.candor.leetcode.hard.line}} & {{result.candor.leetcode.hard.branch}} & {{result.candor.leetcode.hard.mutation}}\\
+        \bottomrule
+    \end{tabular}
+    
+\end{table*}

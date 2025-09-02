@@ -1,0 +1,45 @@
+package original;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of CanArrange.
+*/
+class CanArrangeTest {
+    @Test
+    void testCanArrange_EmptyList_ReturnsMinusOne() {
+        // Arrange
+        List<Object> list = new ArrayList<>();
+        // Act
+        int result = CanArrange.canArrange(list);
+        // Assert
+        assertEquals(-1, result);
+    }
+    
+    @Test
+        public void testNothing(){
+            CanArrange s = new CanArrange();
+            }
+    @Test
+    public void TestCanArrangeClassInstantiation() {
+    try {
+        Class.forName("original.CanArrange");
+    } catch (ClassNotFoundException e) {
+        assert false;
+    }
+    }
+    @Test
+    public void TestCanArrangeMethodWithIntegerValues() {
+        int result = CanArrange.canArrange(Arrays.asList(1, 2, 4, 3, 5));
+        assertEquals(3, result);
+    }
+    @Test
+    public void TestCanArrangeMethodWithNonIntegerValues() {
+        assertThrows(ClassCastException.class, () -> CanArrange.canArrange(Arrays.asList(1, 'a', 4, 3, 5)));
+    }
+                                    
+}

@@ -1,0 +1,30 @@
+package original;
+
+import java.math.BigDecimal;
+import java.util.List;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of BelowZero.
+*/
+class BelowZeroTest {
+    @Test
+    void testBelowZero_BalanceDoesNotFallBelowZero() {
+        List<Object> operations = List.of(1, 2, 3);
+        assertFalse(BelowZero.belowZero(operations));
+    }
+    
+    @Test
+        public void testNothing(){
+            BelowZero s = new BelowZero();
+            }
+    @Test
+    public void testBelowZero_BalanceBecomesNegativeWithDecimals_1() {
+        java.util.List<java.lang.Object> operations = new java.util.ArrayList<>();
+        operations.add(1);
+        operations.add(2);
+        operations.add(BigDecimal.valueOf(-4.0).doubleValue());
+        assertTrue(BelowZero.belowZero(operations));
+    }
+                                    
+}

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_1641.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">leetcode</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_1641.java</span></div><h1>id_1641.java</h1><pre class="source lang-java linenums">package original;
+
+<span class="nc" id="L3">class Solution1641 {</span>
+    private Integer[][] f;
+    private int n;
+
+    public int countVowelStrings(int n) {
+  /**
+  Given an integer n, return the number of strings of length n that consist only of vowels (a, e, i, o, u) and are lexicographically sorted. A string s is lexicographically sorted if for all valid i, s[i] is the same as or comes before s[i+1] in the alphabet. &amp;nbsp; Example 1: Input: n = 1 Output: 5 Explanation: The 5 sorted strings that consist of vowels only are [&amp;quot;a&amp;quot;,&amp;quot;e&amp;quot;,&amp;quot;i&amp;quot;,&amp;quot;o&amp;quot;,&amp;quot;u&amp;quot;]. Example 2: Input: n = 2 Output: 15 Explanation: The 15 sorted strings that consist of vowels only are [&amp;quot;aa&amp;quot;,&amp;quot;ae&amp;quot;,&amp;quot;ai&amp;quot;,&amp;quot;ao&amp;quot;,&amp;quot;au&amp;quot;,&amp;quot;ee&amp;quot;,&amp;quot;ei&amp;quot;,&amp;quot;eo&amp;quot;,&amp;quot;eu&amp;quot;,&amp;quot;ii&amp;quot;,&amp;quot;io&amp;quot;,&amp;quot;iu&amp;quot;,&amp;quot;oo&amp;quot;,&amp;quot;ou&amp;quot;,&amp;quot;uu&amp;quot;]. Note that &amp;quot;ea&amp;quot; is not a valid string since &amp;#39;e&amp;#39; comes after &amp;#39;a&amp;#39; in the alphabet. Example 3: Input: n = 33 Output: 66045 &amp;nbsp; Constraints: 1 &amp;lt;= n &amp;lt;= 50&amp;nbsp;
+  */
+<span class="nc" id="L11">        this.n = n;</span>
+<span class="nc" id="L12">        f = new Integer[n][5];</span>
+<span class="nc" id="L13">        return dfs(0, 0);</span>
+    }
+
+    private int dfs(int i, int j) {
+<span class="nc bnc" id="L17" title="All 2 branches missed.">        if (i &gt;= n) {</span>
+<span class="nc" id="L18">            return 1;</span>
+        }
+<span class="nc bnc" id="L20" title="All 2 branches missed.">        if (f[i][j] != null) {</span>
+<span class="nc" id="L21">            return f[i][j];</span>
+        }
+<span class="nc" id="L23">        int ans = 0;</span>
+<span class="nc bnc" id="L24" title="All 2 branches missed.">        for (int k = j; k &lt; 5; ++k) {</span>
+<span class="nc" id="L25">            ans += dfs(i + 1, k);</span>
+        }
+<span class="nc" id="L27">        return f[i][j] = ans;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

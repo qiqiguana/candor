@@ -1,0 +1,88 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/DoubleTheDifference {
+
+  // compiled from: id_151.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 6 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/DoubleTheDifference; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  // signature (Ljava/util/List<Ljava/lang/Object;>;)I
+  // declaration: int doubleTheDifference(java.util.List<java.lang.Object>)
+  public static doubleTheDifference(Ljava/util/List;)I
+   L0
+    LINENUMBER 34 L0
+    ICONST_0
+    ISTORE 1
+   L1
+    LINENUMBER 35 L1
+    ICONST_0
+    ISTORE 2
+   L2
+   FRAME FULL [java/util/List I I] []
+    ILOAD 2
+    ALOAD 0
+    INVOKEINTERFACE java/util/List.size ()I (itf)
+    IF_ICMPGE L3
+   L4
+    LINENUMBER 36 L4
+    ALOAD 0
+    ILOAD 2
+    INVOKEINTERFACE java/util/List.get (I)Ljava/lang/Object; (itf)
+    INSTANCEOF java/lang/Integer
+    IFEQ L5
+   L6
+    LINENUMBER 37 L6
+    ALOAD 0
+    ILOAD 2
+    INVOKEINTERFACE java/util/List.get (I)Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/Integer
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    ISTORE 3
+   L7
+    LINENUMBER 38 L7
+    ILOAD 3
+    ICONST_2
+    IREM
+    IFNE L5
+    ILOAD 3
+    IFLE L5
+   L8
+    LINENUMBER 39 L8
+    ILOAD 1
+    ILOAD 3
+    ILOAD 3
+    IMUL
+    IADD
+    ISTORE 1
+   L5
+    LINENUMBER 35 L5
+   FRAME FULL [java/util/List I I] []
+    IINC 2 1
+    GOTO L2
+   L3
+    LINENUMBER 43 L3
+   FRAME FULL [java/util/List I I] []
+    ILOAD 1
+    IRETURN
+   L9
+    LOCALVARIABLE num I L7 L5 3
+    LOCALVARIABLE i I L2 L3 2
+    LOCALVARIABLE lst Ljava/util/List; L0 L9 0
+    // signature Ljava/util/List<Ljava/lang/Object;>;
+    // declaration: lst extends java.util.List<java.lang.Object>
+    LOCALVARIABLE sum I L1 L9 1
+    MAXSTACK = 3
+    MAXLOCALS = 4
+}
+

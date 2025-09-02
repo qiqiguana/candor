@@ -1,0 +1,54 @@
+package original;
+
+import java.util.Arrays;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of IsSorted.
+*/
+class IsSortedTest {
+    @Test
+    void test_isSorted_EmptyList_ReturnsTrue() {
+        List<Object> list = new ArrayList<>();
+        assertTrue(IsSorted.isSorted(list));
+    }
+    
+    @Test
+        public void testNothing(){
+            IsSorted s = new IsSorted();
+            }
+    @Test
+    public void testEmptyList() {
+        List<Object> lst = new ArrayList<>();
+        assertTrue(IsSorted.isSorted(lst));
+    }
+    @Test
+    public void testListWithMoreThanOneDuplicates() {
+        List<Object> lst = Arrays.asList(1, 2, 2, 3);
+        assertTrue(IsSorted.isSorted(lst));
+    }
+    @Test
+    public void testListWithDecreasingElements() {
+        List<Object> lst = Arrays.asList(5, 4, 3, 2, 1);
+        assertFalse(IsSorted.isSorted(lst));
+    }
+    @Test
+    public void testNullInput() {
+        assertThrows(NullPointerException.class, () -> IsSorted.isSorted(null));
+    }
+    @Test
+    public void testMoreThanTwoDuplicates() {
+        List<Object> lst = new ArrayList<>();
+        lst.add(1);
+        lst.add(2);
+        lst.add(2);
+        lst.add(2);
+        lst.add(3);
+        assertFalse(IsSorted.isSorted(lst));
+    }
+                                    
+}

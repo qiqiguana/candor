@@ -1,0 +1,52 @@
+package original;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of Bf.
+*/
+class BfTest {
+
+@Test
+void testBf() {
+    List<Object> result = Bf.bf("Jupiter", "Neptune");
+    assertEquals(2, result.size());
+    assertEquals("Saturn", result.get(0));
+    assertEquals("Uranus", result.get(1));
+}
+
+@Test
+    public void testNothing(){
+        Bf s = new Bf();
+        }
+@Test
+public void testPlanetsInReverseOrder1() {
+    List<java.lang.Object> result = original.Bf.bf("Neptune", "Jupiter");
+    List<java.lang.Object> expected = new java.util.ArrayList<>();
+    expected.add("Uranus");
+    expected.add("Saturn");
+    expected.add("Mars");
+    expected.add("Earth");
+    expected.add("Venus");
+    expected.add("Mercury");
+    assertNotEquals(expected, result);
+}
+@Test
+public void testPlanetsInReverseOrder2() {
+    List<java.lang.Object> result = original.Bf.bf("Neptune", "Jupiter");
+    List<java.lang.Object> expected = new java.util.ArrayList<>();
+    expected.add("Saturn");
+    expected.add("Uranus");
+    assertEquals(expected, result);
+}
+@Test
+public void TestInvalidPlanetNames_BothInvalid_0() {
+    java.util.List<java.lang.Object> result = original.Bf.bf("Makemake", "InvalidPlanet");
+    assertTrue(result.isEmpty());
+}
+                                
+
+}

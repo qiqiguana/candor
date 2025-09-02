@@ -1,0 +1,41 @@
+package original;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import java.util.HashMap;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of NeighborSum.
+*/
+class NeighborSumTest {
+
+    @Test
+    void testAdjacentSum() {
+        int[][] grid = {{1, 2, 3}, {4, 5, 6}};
+        NeighborSum obj = new NeighborSum(grid);
+        assertEquals(12, obj.adjacentSum(5));
+    }
+    @Test
+    void testDiagonalSum() {
+        NeighborSum obj = new NeighborSum(new int[][]{{1, 2, 0, 3}, {4, 7, 15, 6}, {8, 9, 10, 11}, {12, 13, 14, 5}});
+        int result = obj.diagonalSum(9);
+        assertEquals(45, result);
+    }
+    @Test
+    public void testAdjacentElementSum() {
+        int[][] arr = {{0, 1, 2}, {3, 4, 5}, {6, 7, 8}};
+        NeighborSum obj = new NeighborSum(arr);
+        assertEquals(6, obj.adjacentSum(1));
+    }
+    @Test
+    public void TestAdjacentSumAtCorner1Fixed() {
+        int[][] grid = {{1, 2}, {3, 4}};
+        NeighborSum neighborGrid = new NeighborSum(grid);
+        assertEquals(5, neighborGrid.adjacentSum(4));
+    }
+    @Test
+    public void testAdjacentSumWithEdgeValueIn2x2Grid() {
+        NeighborSum neighborSum = new NeighborSum(new int[][]{{1, 2}, {3, 4}});
+        assertEquals(5, neighborSum.adjacentSum(1));
+    }
+}

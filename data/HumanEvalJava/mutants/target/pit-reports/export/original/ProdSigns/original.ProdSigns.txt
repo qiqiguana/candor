@@ -1,0 +1,126 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/ProdSigns {
+
+  // compiled from: id_128.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 7 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/ProdSigns; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  // signature (Ljava/util/List<Ljava/lang/Object;>;)Ljava/lang/Integer;
+  // declaration: java.lang.Integer prodSigns(java.util.List<java.lang.Object>)
+  public static prodSigns(Ljava/util/List;)Ljava/lang/Integer;
+   L0
+    LINENUMBER 37 L0
+    ALOAD 0
+    INVOKEINTERFACE java/util/List.isEmpty ()Z (itf)
+    IFEQ L1
+   L2
+    LINENUMBER 38 L2
+    ACONST_NULL
+    ARETURN
+   L1
+    LINENUMBER 40 L1
+   FRAME FULL [java/util/List] []
+    ICONST_1
+    ISTORE 1
+   L3
+    LINENUMBER 41 L3
+    ICONST_0
+    ISTORE 2
+   L4
+    LINENUMBER 42 L4
+    ALOAD 0
+    INVOKEINTERFACE java/util/List.iterator ()Ljava/util/Iterator; (itf)
+    ASTORE 3
+   L5
+   FRAME FULL [java/util/List I I java/util/Iterator] []
+    ALOAD 3
+    INVOKEINTERFACE java/util/Iterator.hasNext ()Z (itf)
+    IFEQ L6
+    ALOAD 3
+    INVOKEINTERFACE java/util/Iterator.next ()Ljava/lang/Object; (itf)
+    ASTORE 4
+   L7
+    LINENUMBER 43 L7
+    ALOAD 4
+    INSTANCEOF java/lang/Integer
+    IFEQ L8
+   L9
+    LINENUMBER 44 L9
+    ALOAD 4
+    CHECKCAST java/lang/Integer
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    ISTORE 5
+   L10
+    LINENUMBER 45 L10
+    ILOAD 5
+    IFLE L11
+   L12
+    LINENUMBER 46 L12
+    ILOAD 1
+    ICONST_1
+    IMUL
+    ISTORE 1
+    GOTO L13
+   L11
+    LINENUMBER 47 L11
+   FRAME FULL [java/util/List I I java/util/Iterator java/lang/Object I] []
+    ILOAD 5
+    IFGE L14
+   L15
+    LINENUMBER 48 L15
+    ILOAD 1
+    ICONST_M1
+    IMUL
+    ISTORE 1
+    GOTO L13
+   L14
+    LINENUMBER 50 L14
+   FRAME FULL [java/util/List I I java/util/Iterator java/lang/Object I] []
+    ILOAD 1
+    ICONST_0
+    IMUL
+    ISTORE 1
+   L13
+    LINENUMBER 52 L13
+   FRAME FULL [java/util/List I I java/util/Iterator java/lang/Object I] []
+    ILOAD 2
+    ILOAD 5
+    INVOKESTATIC java/lang/Math.abs (I)I
+    IADD
+    ISTORE 2
+   L8
+    LINENUMBER 54 L8
+   FRAME FULL [java/util/List I I java/util/Iterator] []
+    GOTO L5
+   L6
+    LINENUMBER 55 L6
+   FRAME FULL [java/util/List I I] []
+    ILOAD 2
+    ILOAD 1
+    IMUL
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    ARETURN
+   L16
+    LOCALVARIABLE num I L10 L8 5
+    LOCALVARIABLE value Ljava/lang/Object; L7 L8 4
+    LOCALVARIABLE arr Ljava/util/List; L0 L16 0
+    // signature Ljava/util/List<Ljava/lang/Object;>;
+    // declaration: arr extends java.util.List<java.lang.Object>
+    LOCALVARIABLE prod I L3 L16 1
+    LOCALVARIABLE sum I L4 L16 2
+    MAXSTACK = 2
+    MAXLOCALS = 6
+}
+

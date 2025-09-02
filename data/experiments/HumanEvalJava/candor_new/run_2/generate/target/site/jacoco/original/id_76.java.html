@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_76.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HumanEvalJava</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_76.java</span></div><h1>id_76.java</h1><pre class="source lang-java linenums">package original;
+
+<span class="nc" id="L3">class IsSimplePower {</span>
+    /**
+     * Your task is to write a function that returns true if a number x is a simple
+     * power of n and false in other cases.
+     * x is a simple power of n if n**int=x
+     * For example:
+     * isSimplePower(1, 4) =&gt; true
+     * isSimplePower(2, 2) =&gt; true
+     * isSimplePower(8, 2) =&gt; true
+     * isSimplePower(3, 2) =&gt; false
+     * isSimplePower(3, 1) =&gt; false
+     * isSimplePower(5, 3) =&gt; false
+     *
+     * &gt; isSimplePower(16, 2)
+     * true
+     * &gt; isSimplePower(143214, 16)
+     * false
+     * &gt; isSimplePower(4, 2)
+     * true
+     * &gt; isSimplePower(9, 3)
+     * true
+     * &gt; isSimplePower(16, 4)
+     * true
+     * &gt; isSimplePower(24, 2)
+     * false
+     * &gt; isSimplePower(128, 4)
+     * false
+     * &gt; isSimplePower(12, 6)
+     * false
+     * &gt; isSimplePower(1, 1)
+     * true
+     * &gt; isSimplePower(1, 12)
+     * true
+     */
+    public static Boolean isSimplePower(int x, int n) {
+<span class="pc bpc" id="L38" title="1 of 2 branches missed.">        if (x == 1) {</span>
+<span class="nc" id="L39">            return true;</span>
+        }
+<span class="pc bpc" id="L41" title="1 of 2 branches missed.">        if (n == 1) {</span>
+<span class="nc" id="L42">            return false;</span>
+        }
+<span class="fc" id="L44">        int y = n;</span>
+<span class="fc bfc" id="L45" title="All 2 branches covered.">        while (y &lt; x) {</span>
+<span class="fc" id="L46">            y *= n;</span>
+        }
+<span class="pc bpc" id="L48" title="1 of 2 branches missed.">        return y == x;</span>
+    }
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

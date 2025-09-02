@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_145.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HumanEvalJava</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_145.java</span></div><h1>id_145.java</h1><pre class="source lang-java linenums">package original;
+
+
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+
+<span class="fc" id="L9">class OrderByPoints {</span>
+    /**
+     * * Write a function which sorts the given list of integers
+     * in ascending order according to the sum of their digits.
+     * Note: if there are several items with similar sum of their digits,
+     * order them based on their index in original list.
+     *
+     * For example:
+     * &gt;&gt;&gt; order_by_points([1, 11, -1, -11, -12]) == [-1, -11, 1, -12, 11]
+     * &gt;&gt;&gt; order_by_points([]) == []
+     *
+     * &gt; orderByPoints([1, 11, -1, -11, -12])
+     * [-1, -11, 1, -12, 11]
+     * &gt; orderByPoints([1234, 423, 463, 145, 2, 423, 423, 53, 6, 37, 3457, 3, 56, 0, 46])
+     * [0, 2, 3, 6, 53, 423, 423, 423, 1234, 145, 37, 46, 56, 463, 3457]
+     * &gt; orderByPoints([])
+     * []
+     * &gt; orderByPoints([1, -11, -32, 43, 54, -98, 2, -3])
+     * [-3, -32, -98, -11, 1, 2, 43, 54]
+     * &gt; orderByPoints([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11])
+     * [1, 10, 2, 11, 3, 4, 5, 6, 7, 8, 9]
+     * &gt; orderByPoints([0, 6, 6, -76, -21, 23, 4])
+     * [-76, -21, 0, 4, 23, 6, 6]
+     */
+    public static List&lt;Object&gt; orderByPoints(List&lt;Object&gt; nums) {
+<span class="fc" id="L34">        Collections.sort(nums, new Comparator&lt;Object&gt;() {</span>
+            int digitsum(int n) {
+<span class="fc" id="L36">                boolean neg = false;</span>
+<span class="fc bfc" id="L37" title="All 2 branches covered.">                if (n &lt; 0) {</span>
+<span class="fc" id="L38">                    neg = true;</span>
+<span class="fc" id="L39">                    n = -n;</span>
+                }
+<span class="fc" id="L41">                int sum = 0;</span>
+<span class="fc bfc" id="L42" title="All 2 branches covered.">                while (n &gt; 0) {</span>
+<span class="fc bfc" id="L43" title="All 4 branches covered.">                    if (n / 10 == 0 &amp;&amp; neg)</span>
+<span class="fc" id="L44">                        sum -= n % 10;</span>
+                    else
+<span class="fc" id="L46">                        sum += n % 10;</span>
+<span class="fc" id="L47">                    n = n / 10;</span>
+                }
+<span class="fc" id="L49">                return sum;</span>
+            }
+
+            public int compare(Object o1, Object o2) {
+<span class="fc" id="L53">                return digitsum((int) o1) - digitsum((int) o2);</span>
+            }
+        });
+<span class="fc" id="L56">        return nums;</span>
+    }
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

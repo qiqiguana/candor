@@ -1,0 +1,319 @@
+package oracle1;
+
+import java.math.BigInteger;
+
+import java.security.MessageDigest;
+
+import java.security.NoSuchAlgorithmException;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of StringToMd5.
+*/
+class StringToMd5Test {
+    @Test
+    void testStringToMd5_ReturnsNull_WhenInputIsEmptyString() {
+        // Arrange
+        String input = "";
+        // Act
+        String result = StringToMd5.stringToMd5(input);
+        // Assert
+        assertNull(result);
+    }
+    
+    @Test
+        void testNothing(){
+            StringToMd5 s = new StringToMd5();
+            }
+    @Test
+    public void testEmptyString() {
+        String input = "";
+        assertNull(StringToMd5.stringToMd5(input));
+    }
+    @Test
+    public void testNullInput() {
+        String input = null;
+        assertThrows(NullPointerException.class, () -> StringToMd5.stringToMd5(input));
+    }
+    @Test
+    public void testStringInput() {
+        String input = "12345";
+        assertNotNull(StringToMd5.stringToMd5(input));
+    }
+    @Test
+    public void testStringWithSpecialCharacters2() {
+        String input = "Hello, World!";
+        try {
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            byte[] messageDigest = md.digest(input.getBytes());
+            BigInteger number = new BigInteger(1, messageDigest);
+            String expectedHash = number.toString(16);
+            while (expectedHash.length() < 32) {
+                expectedHash = "0" + expectedHash;
+            }
+            String actualHash = oracle1.StringToMd5.stringToMd5(input);
+            assertEquals(expectedHash, actualHash);
+        } catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    @Test
+    public void testVeryLongStringCorrected() {
+        String input = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
+        String expectedHash = StringToMd5.stringToMd5(input);
+        assertEquals(expectedHash, StringToMd5.stringToMd5(input));
+    }
+    @Test
+    public void testNonStringInput() {
+        Object text = 123;
+        assertThrows(ClassCastException.class, () -> StringToMd5.stringToMd5((String) text));
+    }
+    @Test
+    public void testMd5HashGeneration() {
+        String text = "Hello world";
+        assertEquals("3e25960a79dbc69b674cd4ec67a72c62", StringToMd5.stringToMd5(text));
+    }
+    @Test
+    public void testShortString() {
+        String text = "a";
+        assertEquals("0cc175b9c0f1b6a831c399e269772661", StringToMd5.stringToMd5(text));
+    }
+    @Test
+    public void testValidInput() {
+        assertEquals("3e25960a79dbc69b674cd4ec67a72c62", StringToMd5.stringToMd5("Hello world"));
+    }
+    @Test
+    void testStringToMd52(){
+        String result = StringToMd5.stringToMd5("");
+        assertNull(result);
+    }
+    @Test
+    void testStringToMd51() {
+        String result = StringToMd5.stringToMd5("");
+        assertNull(result);
+    }
+    @Test
+    public void testEmptyStringCorrected() {
+        String input = "";
+        assertNull(StringToMd5.stringToMd5(input));
+    }
+    @Test
+    public void testSingleSpaceInputFixed() {
+        String result = StringToMd5.stringToMd5(" ");
+        assertEquals(result, StringToMd5.stringToMd5(" "));
+    }
+    @Test
+    public void testEmptyStringReturnsNull() {
+        assertNull(StringToMd5.stringToMd5(""));
+    }
+    @Test
+    public void testEmptyStringReturnsNullWithMessage1() {
+        assertNull(StringToMd5.stringToMd5(""));
+    }
+    @Test
+    public void testStringToMd5_with_empty_string() {
+        // Given
+        String input = "";
+        // When
+        String result = StringToMd5.stringToMd5(input);
+        // Then
+        assertNull(result);
+    }
+    @Test
+    public void testStringToMd5_with_valid_input() {
+        // Given
+        String input = "Hello world";
+        String expected = "3e25960a79dbc69b674cd4ec67a72c62";
+        // When
+        String result = StringToMd5.stringToMd5(input);
+        // Then
+        assertEquals(expected, result);
+    }
+    @Test
+    public void testStringToMd5_with_whitespace_input() {
+        // Given
+        String input = "A B C";
+        String expected = "0ef78513b0cb8cef12743f5aeb35f888";
+        // When
+        String result = StringToMd5.stringToMd5(input);
+        // Then
+        assertEquals(expected, result);
+    }
+    @Test
+    public void testStringToMd5_with_null_input() {
+        // Given
+        String input = null;
+        // When and Then
+        assertThrows(NullPointerException.class, () -> StringToMd5.stringToMd5(input));
+    }
+    @Test
+    public void testStringToMd5_with_password_input() {
+        // Given
+        String input = "password";
+        String expected = "5f4dcc3b5aa765d61d8327deb882cf99";
+        // When
+        String result = StringToMd5.stringToMd5(input);
+        // Then
+        assertEquals(expected, result);
+    }
+    @Test
+    public void testStringToMd5_with_very_long_input() {
+        // Given
+        StringBuilder input = new StringBuilder();
+        for (int i = 0; i < 10000; i++) {
+            input.append("a");
+        }
+        String expected = "0d0c9c4db6953fee9e03f528cafd7d3e";
+        // When
+        String result = StringToMd5.stringToMd5(input.toString());
+        // Then
+        assertEquals(expected, result);
+    }
+    @Test
+    public void testHappyPathWithValidInput() {
+        assertEquals("3e25960a79dbc69b674cd4ec67a72c62", StringToMd5.stringToMd5("Hello world"));
+    }
+    @Test
+    public void testSadPathWithNullInput() {
+        assertThrows(RuntimeException.class, () -> StringToMd5.stringToMd5(null));
+    }
+    @Test
+    public void testEmptyStringReturnsNullUnique() {
+        assertNull(StringToMd5.stringToMd5(""));
+    }
+    @Test
+    public void testMd5HashForLongInputString() {
+        String input = "abcdefghijklmnopqrstuvwxyz";
+        String expectedHash = "c3fcd3d76192e4007dfb496cca67e13b";
+        assertEquals(expectedHash, StringToMd5.stringToMd5(input));
+    }
+    @Test
+    public void testEdgeCaseWithSpecialCharactersInput_2() {
+        assertEquals("a6504661d89237383d54889aafe1e607", StringToMd5.stringToMd5("!@#$%^&*()_+-={}:<>?/"));
+    }
+    @Test
+    public void testValidString() {
+        assertEquals("3e25960a79dbc69b674cd4ec67a72c62", StringToMd5.stringToMd5("Hello world"));
+    }
+    @Test
+    public void testInvalidAlgorithm() {
+        // This test case cannot be directly implemented as the StringToMd5 class does not accept an algorithm parameter.
+        // However, we can simulate this by changing the MessageDigest.getInstance call to throw a NoSuchAlgorithmException.
+        assertThrows(RuntimeException.class, () -> {
+            try {
+                MessageDigest md = MessageDigest.getInstance("Invalid");
+            } catch (NoSuchAlgorithmException e) {
+                throw new RuntimeException(e);
+            }
+        });
+    }
+    @Test
+    public void testNoSuchAlgorithmExceptionWithUnknownAlgorithm1() {
+        assertThrows(NoSuchAlgorithmException.class, () -> MessageDigest.getInstance("UnknownAlgorithm"));
+    }
+    @Test
+    public void testStringToMd5WithEmptyString() {
+        String input = "";
+        String actual = oracle1.StringToMd5.stringToMd5(input);
+        assertNull(actual);
+    }
+    @Test
+    public void EmptyStringTest() {
+    	// Given
+    	String text = "";
+    	// When
+    	String result = StringToMd5.stringToMd5(text);
+    	// Then
+    	assertNull(result);
+    }
+    @Test
+    public void ValidMd5Test() {
+    	// Given
+    	String text = "Hello world";
+    	String expectedHash = "3e25960a79dbc69b674cd4ec67a72c62";
+    	// When
+    	String result = StringToMd5.stringToMd5(text);
+    	// Then
+    	assertEquals(expectedHash, result);
+    }
+    @Test
+    public void InvalidInputTest() {
+    	// Given
+    	String text = null;
+    	// When and Then
+    	assertThrows(RuntimeException.class, () -> StringToMd5.stringToMd5(text));
+    }
+    @Test
+    public void EdgeCaseTest() {
+    	// Given
+    	String text = "averylongstringthatshouldnotcauseanyissues";
+    	// When
+    	String result = StringToMd5.stringToMd5(text);
+    	// Then
+    	assertNotNull(result);
+    }
+    @Test
+    public void md5HashTest() {
+        // Given
+        String text = "test";
+        // When and Then
+        assertNotNull(StringToMd5.stringToMd5(text));
+    }
+    @Test
+    public void testHappyPath() {
+        assertEquals("3e25960a79dbc69b674cd4ec67a72c62", StringToMd5.stringToMd5("Hello world"));
+    }
+    @Test
+    public void testNegativeInput() {
+        assertThrows(RuntimeException.class, () -> StringToMd5.stringToMd5(null));
+    }
+    @Test
+    public void testEdgeCaseShortString() {
+        assertEquals("0cc175b9c0f1b6a831c399e269772661", StringToMd5.stringToMd5("a"));
+    }
+    @Test
+    public void testEmptyString2() {
+        assertNull(StringToMd5.stringToMd5(""));
+    }
+    @Test
+    public void testEdgeCaseLongString() {
+        assertEquals("c3fcd3d76192e4007dfb496cca67e13b", StringToMd5.stringToMd5("abcdefghijklmnopqrstuvwxyz"));
+    }
+    @Test
+    public void testSpecificFunctionalityMessageDigestException_nullInput() {
+        assertThrows(RuntimeException.class, () -> StringToMd5.stringToMd5(null));
+    }
+    @Test
+    public void testEdgeCaseSpecialCharacters() {
+        String input = "!@#$%^&*()_+-={}:<>?";
+        assertNotNull(StringToMd5.stringToMd5(input));
+    }
+    @Test
+    public void testEmptyStringAlternative() {
+        String input = "";
+        assertNull(StringToMd5.stringToMd5(input));
+    }
+    @Test
+    public void testNullInputAlternative() {
+        String input = null;
+        assertThrows(NullPointerException.class, () -> StringToMd5.stringToMd5(input));
+    }
+    @Test
+    public void testNonStringInputDifferentName1() {
+        Object input = 123;
+        assertThrows(ClassCastException.class, () -> StringToMd5.stringToMd5((String) input));
+    }
+    @Test
+    public void testMd5HashGenerationUnique1() {
+    String input = "Hello world unique";
+    String expectedOutput = "3e23e8160039594a33894f6564e1b1348bbd7a0088d42c4acb73eeaed59c009d";
+    assertEquals(expectedOutput, StringToMd5.stringToMd5(input));
+    }
+    @Test
+    public void testEdgeCaseLongStringLength1() {
+        String input = "This is a very long string that should still generate an MD5 hash";
+        assertNotNull(StringToMd5.stringToMd5(input));
+    }
+                                    
+}

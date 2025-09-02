@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_3082.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">leetcode</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_3082.java</span></div><h1>id_3082.java</h1><pre class="source lang-java linenums">package original;
+
+<span class="fc" id="L3">class Solution3082 {</span>
+    public int sumOfPower(int[] nums, int k) {
+  /**
+  You are given an integer array nums of length n and a positive integer k. The power of an array of integers is defined as the number of subsequences with their sum equal to k. Return the sum of power of all subsequences of nums. Since the answer may be very large, return it modulo 109 + 7. &amp;nbsp; Example 1: Input: nums = [1,2,3], k = 3 Output: 6 Explanation: There are 5 subsequences of nums with non-zero power: The subsequence [1,2,3] has 2 subsequences with sum == 3: [1,2,3] and [1,2,3]. The subsequence [1,2,3] has 1 subsequence with sum == 3: [1,2,3]. The subsequence [1,2,3] has 1 subsequence with sum == 3: [1,2,3]. The subsequence [1,2,3] has 1 subsequence with sum == 3: [1,2,3]. The subsequence [1,2,3] has 1 subsequence with sum == 3: [1,2,3]. Hence the answer is 2 + 1 + 1 + 1 + 1 = 6. Example 2: Input: nums = [2,3,3], k = 5 Output: 4 Explanation: There are 3 subsequences of nums with non-zero power: The subsequence [2,3,3] has 2 subsequences with sum == 5: [2,3,3] and [2,3,3]. The subsequence [2,3,3] has 1 subsequence with sum == 5: [2,3,3]. The subsequence [2,3,3] has 1 subsequence with sum == 5: [2,3,3]. Hence the answer is 2 + 1 + 1 = 4. Example 3: Input: nums = [1,2,3], k = 7 Output: 0 Explanation:&amp;nbsp;There exists no subsequence with sum 7. Hence all subsequences of nums have power = 0. &amp;nbsp; Constraints: 1 &amp;lt;= n &amp;lt;= 100 1 &amp;lt;= nums[i] &amp;lt;= 104 1 &amp;lt;= k &amp;lt;= 100
+  */
+<span class="fc" id="L8">        final int mod = (int) 1e9 + 7;</span>
+<span class="fc" id="L9">        int n = nums.length;</span>
+<span class="fc" id="L10">        int[][] f = new int[n + 1][k + 1];</span>
+<span class="fc" id="L11">        f[0][0] = 1;</span>
+<span class="fc bfc" id="L12" title="All 2 branches covered.">        for (int i = 1; i &lt;= n; ++i) {</span>
+<span class="fc bfc" id="L13" title="All 2 branches covered.">            for (int j = 0; j &lt;= k; ++j) {</span>
+<span class="fc" id="L14">                f[i][j] = (f[i - 1][j] * 2) % mod;</span>
+<span class="fc bfc" id="L15" title="All 2 branches covered.">                if (j &gt;= nums[i - 1]) {</span>
+<span class="fc" id="L16">                    f[i][j] = (f[i][j] + f[i - 1][j - nums[i - 1]]) % mod;</span>
+                }
+            }
+        }
+<span class="fc" id="L20">        return f[n][k];</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

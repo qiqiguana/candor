@@ -1,0 +1,571 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Solution3235 {
+
+  // compiled from: id_3235.java
+
+  // access flags 0x2
+  private [[I circles
+
+  // access flags 0x2
+  private I xCorner
+
+  // access flags 0x2
+  private I yCorner
+
+  // access flags 0x2
+  private [Z vis
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 3 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Solution3235; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public canReachCorner(II[[I)Z
+   L0
+    LINENUMBER 9 L0
+    ALOAD 3
+    ARRAYLENGTH
+    ISTORE 4
+   L1
+    LINENUMBER 10 L1
+    ALOAD 0
+    ALOAD 3
+    PUTFIELD original/Solution3235.circles : [[I
+   L2
+    LINENUMBER 11 L2
+    ALOAD 0
+    ILOAD 1
+    PUTFIELD original/Solution3235.xCorner : I
+   L3
+    LINENUMBER 12 L3
+    ALOAD 0
+    ILOAD 2
+    PUTFIELD original/Solution3235.yCorner : I
+   L4
+    LINENUMBER 13 L4
+    ALOAD 0
+    ILOAD 4
+    NEWARRAY T_BOOLEAN
+    PUTFIELD original/Solution3235.vis : [Z
+   L5
+    LINENUMBER 14 L5
+    ICONST_0
+    ISTORE 5
+   L6
+   FRAME FULL [original/Solution3235 I I [[I I I] []
+    ILOAD 5
+    ILOAD 4
+    IF_ICMPGE L7
+   L8
+    LINENUMBER 15 L8
+    ALOAD 3
+    ILOAD 5
+    AALOAD
+    ASTORE 6
+   L9
+    LINENUMBER 16 L9
+    ALOAD 6
+    ICONST_0
+    IALOAD
+    ISTORE 7
+   L10
+    ALOAD 6
+    ICONST_1
+    IALOAD
+    ISTORE 8
+   L11
+    ALOAD 6
+    ICONST_2
+    IALOAD
+    ISTORE 9
+   L12
+    LINENUMBER 17 L12
+    ALOAD 0
+    LCONST_0
+    LCONST_0
+    ILOAD 7
+    I2L
+    ILOAD 8
+    I2L
+    ILOAD 9
+    I2L
+    INVOKEVIRTUAL original/Solution3235.inCircle (JJJJJ)Z
+    IFNE L13
+    ALOAD 0
+    ILOAD 1
+    I2L
+    ILOAD 2
+    I2L
+    ILOAD 7
+    I2L
+    ILOAD 8
+    I2L
+    ILOAD 9
+    I2L
+    INVOKEVIRTUAL original/Solution3235.inCircle (JJJJJ)Z
+    IFEQ L14
+   L13
+    LINENUMBER 18 L13
+   FRAME FULL [original/Solution3235 I I [[I I I [I I I I] []
+    ICONST_0
+    IRETURN
+   L14
+    LINENUMBER 20 L14
+   FRAME FULL [original/Solution3235 I I [[I I I [I I I I] []
+    ALOAD 0
+    GETFIELD original/Solution3235.vis : [Z
+    ILOAD 5
+    BALOAD
+    IFNE L15
+    ALOAD 0
+    ILOAD 7
+    I2L
+    ILOAD 8
+    I2L
+    ILOAD 9
+    I2L
+    INVOKEVIRTUAL original/Solution3235.crossLeftTop (JJJ)Z
+    IFEQ L15
+    ALOAD 0
+    ILOAD 5
+    INVOKEVIRTUAL original/Solution3235.dfs (I)Z
+    IFEQ L15
+   L16
+    LINENUMBER 21 L16
+    ICONST_0
+    IRETURN
+   L15
+    LINENUMBER 14 L15
+   FRAME FULL [original/Solution3235 I I [[I I I [I I I I] []
+    IINC 5 1
+    GOTO L6
+   L7
+    LINENUMBER 24 L7
+   FRAME FULL [original/Solution3235 I I [[I I I] []
+    ICONST_1
+    IRETURN
+   L17
+    LOCALVARIABLE c [I L9 L15 6
+    LOCALVARIABLE x I L10 L15 7
+    LOCALVARIABLE y I L11 L15 8
+    LOCALVARIABLE r I L12 L15 9
+    LOCALVARIABLE i I L6 L7 5
+    LOCALVARIABLE this Loriginal/Solution3235; L0 L17 0
+    LOCALVARIABLE xCorner I L0 L17 1
+    LOCALVARIABLE yCorner I L0 L17 2
+    LOCALVARIABLE circles [[I L0 L17 3
+    LOCALVARIABLE n I L1 L17 4
+    MAXSTACK = 11
+    MAXLOCALS = 10
+
+  // access flags 0x2
+  private inCircle(JJJJJ)Z
+   L0
+    LINENUMBER 28 L0
+    LLOAD 1
+    LLOAD 5
+    LSUB
+    LLOAD 1
+    LLOAD 5
+    LSUB
+    LMUL
+    LLOAD 3
+    LLOAD 7
+    LSUB
+    LLOAD 3
+    LLOAD 7
+    LSUB
+    LMUL
+    LADD
+    LLOAD 9
+    LLOAD 9
+    LMUL
+    LCMP
+    IFGT L1
+    ICONST_1
+    GOTO L2
+   L1
+   FRAME FULL [original/Solution3235 J J J J J] []
+    ICONST_0
+   L2
+   FRAME FULL [original/Solution3235 J J J J J] [I]
+    IRETURN
+   L3
+    LOCALVARIABLE this Loriginal/Solution3235; L0 L3 0
+    LOCALVARIABLE x J L0 L3 1
+    LOCALVARIABLE y J L0 L3 3
+    LOCALVARIABLE cx J L0 L3 5
+    LOCALVARIABLE cy J L0 L3 7
+    LOCALVARIABLE r J L0 L3 9
+    MAXSTACK = 8
+    MAXLOCALS = 11
+
+  // access flags 0x2
+  private crossLeftTop(JJJ)Z
+   L0
+    LINENUMBER 32 L0
+    LLOAD 1
+    INVOKESTATIC java/lang/Math.abs (J)J
+    LLOAD 5
+    LCMP
+    IFGT L1
+    LLOAD 3
+    LCONST_0
+    LCMP
+    IFLT L1
+    LLOAD 3
+    ALOAD 0
+    GETFIELD original/Solution3235.yCorner : I
+    I2L
+    LCMP
+    IFGT L1
+    ICONST_1
+    GOTO L2
+   L1
+   FRAME FULL [original/Solution3235 J J J] []
+    ICONST_0
+   L2
+   FRAME FULL [original/Solution3235 J J J] [I]
+    ISTORE 7
+   L3
+    LINENUMBER 33 L3
+    LLOAD 3
+    ALOAD 0
+    GETFIELD original/Solution3235.yCorner : I
+    I2L
+    LSUB
+    INVOKESTATIC java/lang/Math.abs (J)J
+    LLOAD 5
+    LCMP
+    IFGT L4
+    LLOAD 1
+    LCONST_0
+    LCMP
+    IFLT L4
+    LLOAD 1
+    ALOAD 0
+    GETFIELD original/Solution3235.xCorner : I
+    I2L
+    LCMP
+    IFGT L4
+    ICONST_1
+    GOTO L5
+   L4
+   FRAME FULL [original/Solution3235 J J J I] []
+    ICONST_0
+   L5
+   FRAME FULL [original/Solution3235 J J J I] [I]
+    ISTORE 8
+   L6
+    LINENUMBER 34 L6
+    ILOAD 7
+    IFNE L7
+    ILOAD 8
+    IFEQ L8
+   L7
+   FRAME FULL [original/Solution3235 J J J I I] []
+    ICONST_1
+    GOTO L9
+   L8
+   FRAME FULL [original/Solution3235 J J J I I] []
+    ICONST_0
+   L9
+   FRAME FULL [original/Solution3235 J J J I I] [I]
+    IRETURN
+   L10
+    LOCALVARIABLE this Loriginal/Solution3235; L0 L10 0
+    LOCALVARIABLE cx J L0 L10 1
+    LOCALVARIABLE cy J L0 L10 3
+    LOCALVARIABLE r J L0 L10 5
+    LOCALVARIABLE a Z L3 L10 7
+    LOCALVARIABLE b Z L6 L10 8
+    MAXSTACK = 4
+    MAXLOCALS = 9
+
+  // access flags 0x2
+  private crossRightBottom(JJJ)Z
+   L0
+    LINENUMBER 38 L0
+    LLOAD 1
+    ALOAD 0
+    GETFIELD original/Solution3235.xCorner : I
+    I2L
+    LSUB
+    INVOKESTATIC java/lang/Math.abs (J)J
+    LLOAD 5
+    LCMP
+    IFGT L1
+    LLOAD 3
+    LCONST_0
+    LCMP
+    IFLT L1
+    LLOAD 3
+    ALOAD 0
+    GETFIELD original/Solution3235.yCorner : I
+    I2L
+    LCMP
+    IFGT L1
+    ICONST_1
+    GOTO L2
+   L1
+   FRAME FULL [original/Solution3235 J J J] []
+    ICONST_0
+   L2
+   FRAME FULL [original/Solution3235 J J J] [I]
+    ISTORE 7
+   L3
+    LINENUMBER 39 L3
+    LLOAD 3
+    INVOKESTATIC java/lang/Math.abs (J)J
+    LLOAD 5
+    LCMP
+    IFGT L4
+    LLOAD 1
+    LCONST_0
+    LCMP
+    IFLT L4
+    LLOAD 1
+    ALOAD 0
+    GETFIELD original/Solution3235.xCorner : I
+    I2L
+    LCMP
+    IFGT L4
+    ICONST_1
+    GOTO L5
+   L4
+   FRAME FULL [original/Solution3235 J J J I] []
+    ICONST_0
+   L5
+   FRAME FULL [original/Solution3235 J J J I] [I]
+    ISTORE 8
+   L6
+    LINENUMBER 40 L6
+    ILOAD 7
+    IFNE L7
+    ILOAD 8
+    IFEQ L8
+   L7
+   FRAME FULL [original/Solution3235 J J J I I] []
+    ICONST_1
+    GOTO L9
+   L8
+   FRAME FULL [original/Solution3235 J J J I I] []
+    ICONST_0
+   L9
+   FRAME FULL [original/Solution3235 J J J I I] [I]
+    IRETURN
+   L10
+    LOCALVARIABLE this Loriginal/Solution3235; L0 L10 0
+    LOCALVARIABLE cx J L0 L10 1
+    LOCALVARIABLE cy J L0 L10 3
+    LOCALVARIABLE r J L0 L10 5
+    LOCALVARIABLE a Z L3 L10 7
+    LOCALVARIABLE b Z L6 L10 8
+    MAXSTACK = 4
+    MAXLOCALS = 9
+
+  // access flags 0x2
+  private dfs(I)Z
+   L0
+    LINENUMBER 44 L0
+    ALOAD 0
+    GETFIELD original/Solution3235.circles : [[I
+    ILOAD 1
+    AALOAD
+    ASTORE 2
+   L1
+    LINENUMBER 45 L1
+    ALOAD 2
+    ICONST_0
+    IALOAD
+    I2L
+    LSTORE 3
+   L2
+    ALOAD 2
+    ICONST_1
+    IALOAD
+    I2L
+    LSTORE 5
+   L3
+    ALOAD 2
+    ICONST_2
+    IALOAD
+    I2L
+    LSTORE 7
+   L4
+    LINENUMBER 46 L4
+    ALOAD 0
+    LLOAD 3
+    LLOAD 5
+    LLOAD 7
+    INVOKEVIRTUAL original/Solution3235.crossRightBottom (JJJ)Z
+    IFEQ L5
+   L6
+    LINENUMBER 47 L6
+    ICONST_1
+    IRETURN
+   L5
+    LINENUMBER 49 L5
+   FRAME FULL [original/Solution3235 I [I J J J] []
+    ALOAD 0
+    GETFIELD original/Solution3235.vis : [Z
+    ILOAD 1
+    ICONST_1
+    BASTORE
+   L7
+    LINENUMBER 50 L7
+    ICONST_0
+    ISTORE 9
+   L8
+   FRAME FULL [original/Solution3235 I [I J J J I] []
+    ILOAD 9
+    ALOAD 0
+    GETFIELD original/Solution3235.circles : [[I
+    ARRAYLENGTH
+    IF_ICMPGE L9
+   L10
+    LINENUMBER 51 L10
+    ALOAD 0
+    GETFIELD original/Solution3235.circles : [[I
+    ILOAD 9
+    AALOAD
+    ASTORE 10
+   L11
+    LINENUMBER 52 L11
+    ALOAD 10
+    ICONST_0
+    IALOAD
+    I2L
+    LSTORE 11
+   L12
+    ALOAD 10
+    ICONST_1
+    IALOAD
+    I2L
+    LSTORE 13
+   L13
+    ALOAD 10
+    ICONST_2
+    IALOAD
+    I2L
+    LSTORE 15
+   L14
+    LINENUMBER 53 L14
+    ALOAD 0
+    GETFIELD original/Solution3235.vis : [Z
+    ILOAD 9
+    BALOAD
+    IFEQ L15
+   L16
+    LINENUMBER 54 L16
+    GOTO L17
+   L15
+    LINENUMBER 56 L15
+   FRAME FULL [original/Solution3235 I [I J J J I [I J J J] []
+    LLOAD 3
+    LLOAD 11
+    LSUB
+    LLOAD 3
+    LLOAD 11
+    LSUB
+    LMUL
+    LLOAD 5
+    LLOAD 13
+    LSUB
+    LLOAD 5
+    LLOAD 13
+    LSUB
+    LMUL
+    LADD
+    LLOAD 7
+    LLOAD 15
+    LADD
+    LLOAD 7
+    LLOAD 15
+    LSUB
+    LMUL
+    LCMP
+    IFLE L18
+   L19
+    LINENUMBER 57 L19
+    GOTO L17
+   L18
+    LINENUMBER 59 L18
+   FRAME FULL [original/Solution3235 I [I J J J I [I J J J] []
+    LLOAD 3
+    LLOAD 15
+    LMUL
+    LLOAD 11
+    LLOAD 7
+    LMUL
+    LADD
+    LLOAD 7
+    LLOAD 15
+    LADD
+    ALOAD 0
+    GETFIELD original/Solution3235.xCorner : I
+    I2L
+    LMUL
+    LCMP
+    IFGE L17
+    LLOAD 5
+    LLOAD 15
+    LMUL
+    LLOAD 13
+    LLOAD 7
+    LMUL
+    LADD
+    LLOAD 7
+    LLOAD 15
+    LADD
+    ALOAD 0
+    GETFIELD original/Solution3235.yCorner : I
+    I2L
+    LMUL
+    LCMP
+    IFGE L17
+    ALOAD 0
+    ILOAD 9
+   L20
+    LINENUMBER 60 L20
+    INVOKEVIRTUAL original/Solution3235.dfs (I)Z
+    IFEQ L17
+   L21
+    LINENUMBER 61 L21
+    ICONST_1
+    IRETURN
+   L17
+    LINENUMBER 50 L17
+   FRAME FULL [original/Solution3235 I [I J J J I [I J J J] []
+    IINC 9 1
+    GOTO L8
+   L9
+    LINENUMBER 64 L9
+   FRAME FULL [original/Solution3235 I [I J J J I] []
+    ICONST_0
+    IRETURN
+   L22
+    LOCALVARIABLE c2 [I L11 L17 10
+    LOCALVARIABLE x2 J L12 L17 11
+    LOCALVARIABLE y2 J L13 L17 13
+    LOCALVARIABLE r2 J L14 L17 15
+    LOCALVARIABLE j I L8 L9 9
+    LOCALVARIABLE this Loriginal/Solution3235; L0 L22 0
+    LOCALVARIABLE i I L0 L22 1
+    LOCALVARIABLE c [I L1 L22 2
+    LOCALVARIABLE x1 J L2 L22 3
+    LOCALVARIABLE y1 J L3 L22 5
+    LOCALVARIABLE r1 J L4 L22 7
+    MAXSTACK = 8
+    MAXLOCALS = 17
+}
+

@@ -1,0 +1,21 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of SumToN.
+*/
+class SumToNTest {
+    @Test
+    void testSumToNSimpleCase() {
+        int n = 5;
+        int expectedResult = 15;
+        assertEquals(expectedResult, SumToN.sumToN(n));
+    }
+    
+    @Test
+        public void testNothing(){
+            SumToN s = new SumToN();
+            }
+                                    
+}

@@ -1,0 +1,81 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Solution {
+
+  // compiled from: id_121.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 6 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Solution; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  // signature (Ljava/util/List<Ljava/lang/Integer;>;)I
+  // declaration: int solution(java.util.List<java.lang.Integer>)
+  public static solution(Ljava/util/List;)I
+   L0
+    LINENUMBER 30 L0
+    ICONST_0
+    ISTORE 1
+   L1
+    LINENUMBER 31 L1
+    ICONST_0
+    ISTORE 2
+   L2
+   FRAME FULL [java/util/List I I] []
+    ILOAD 2
+    ALOAD 0
+    INVOKEINTERFACE java/util/List.size ()I (itf)
+    IF_ICMPGE L3
+   L4
+    LINENUMBER 32 L4
+    ILOAD 2
+    ICONST_2
+    IMUL
+    IFNE L5
+    ALOAD 0
+    ILOAD 2
+    INVOKEINTERFACE java/util/List.get (I)Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/Integer
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    ICONST_2
+    IREM
+    ICONST_1
+    IF_ICMPNE L5
+   L6
+    LINENUMBER 33 L6
+    ILOAD 1
+    ALOAD 0
+    ILOAD 2
+    INVOKEINTERFACE java/util/List.get (I)Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/Integer
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    IADD
+    ISTORE 1
+   L5
+    LINENUMBER 31 L5
+   FRAME FULL [java/util/List I I] []
+    IINC 2 1
+    GOTO L2
+   L3
+    LINENUMBER 36 L3
+   FRAME FULL [java/util/List I I] []
+    ILOAD 1
+    IRETURN
+   L7
+    LOCALVARIABLE i I L2 L3 2
+    LOCALVARIABLE lst Ljava/util/List; L0 L7 0
+    // signature Ljava/util/List<Ljava/lang/Integer;>;
+    // declaration: lst extends java.util.List<java.lang.Integer>
+    LOCALVARIABLE sum I L1 L7 1
+    MAXSTACK = 3
+    MAXLOCALS = 3
+}
+

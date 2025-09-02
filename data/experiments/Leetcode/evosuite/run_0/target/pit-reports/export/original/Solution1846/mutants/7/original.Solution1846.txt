@@ -1,0 +1,98 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Solution1846 {
+
+  // compiled from: id_1846.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 4 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Solution1846; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public maximumElementAfterDecrementingAndRearranging([I)I
+   L0
+    LINENUMBER 6 L0
+    ALOAD 1
+    INVOKESTATIC java/util/Arrays.sort ([I)V
+   L1
+    LINENUMBER 7 L1
+    ALOAD 1
+    ICONST_0
+    ICONST_1
+    IASTORE
+   L2
+    LINENUMBER 8 L2
+    ICONST_1
+    ISTORE 2
+   L3
+    LINENUMBER 9 L3
+    ICONST_1
+    ISTORE 3
+   L4
+   FRAME FULL [original/Solution1846 [I I I] []
+    ILOAD 3
+    ALOAD 1
+    ARRAYLENGTH
+    IF_ICMPGE L5
+   L6
+    LINENUMBER 10 L6
+    ICONST_0
+    ALOAD 1
+    ILOAD 3
+    IALOAD
+    ALOAD 1
+    ILOAD 3
+    ICONST_1
+    ISUB
+    IALOAD
+    ISUB
+    ICONST_1
+    ISUB
+    INVOKESTATIC java/lang/Math.max (II)I
+    ISTORE 4
+   L7
+    LINENUMBER 11 L7
+    ALOAD 1
+    ILOAD 3
+    DUP2
+    IALOAD
+    ILOAD 4
+    ISUB
+    IASTORE
+   L8
+    LINENUMBER 12 L8
+    ILOAD 2
+    ALOAD 1
+    ILOAD 3
+    IALOAD
+    INVOKESTATIC java/lang/Math.max (II)I
+    ISTORE 2
+   L9
+    LINENUMBER 9 L9
+    IINC 3 1
+    GOTO L4
+   L5
+    LINENUMBER 14 L5
+   FRAME FULL [original/Solution1846 [I I I] []
+    ILOAD 2
+    POP
+    ICONST_0
+    IRETURN
+   L10
+    LOCALVARIABLE d I L7 L9 4
+    LOCALVARIABLE i I L4 L5 3
+    LOCALVARIABLE this Loriginal/Solution1846; L0 L10 0
+    LOCALVARIABLE arr [I L0 L10 1
+    LOCALVARIABLE ans I L3 L10 2
+    MAXSTACK = 5
+    MAXLOCALS = 5
+}
+

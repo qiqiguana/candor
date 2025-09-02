@@ -1,0 +1,116 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of ChooseNum.
+*/
+class ChooseNumTest {
+    @Test
+    void testChooseNum_ReturnsBiggestEvenNumberInRange() {
+        int result = ChooseNum.chooseNum(12, 15);
+        assertEquals(14, result);
+    }
+    @Test
+    public void testChooseNum_EvenNumbersInRange() {
+    	int result = ChooseNum.chooseNum(10, 20);
+    	assertEquals(20, result);
+    }
+    @Test
+    public void testChooseNum_SingleNumberInRange() {
+    	int result = ChooseNum.chooseNum(10, 10);
+    	assertEquals(10, result);
+    }
+    @Test
+    public void testChooseNum_ReverseOrderOfInputNumbers() {
+    	int result = ChooseNum.chooseNum(20, 10);
+    	assertEquals(-1, result);
+    }
+    @Test
+    public void testChooseNum_LargeInputNumbers() {
+    	int result = ChooseNum.chooseNum(1000000, 2000000);
+    	assertEquals(2000000, result);
+    }
+    @Test
+    public void testChooseNum_NormalRange() {
+        int result = ChooseNum.chooseNum(12, 15);
+        assertEquals(14, result);
+    }
+    @Test
+    public void testChooseNum_ReversedRange() {
+        int result = ChooseNum.chooseNum(13, 12);
+        assertEquals(-1, result);
+    }
+    @Test
+    public void testChooseNum_LargeRange() {
+        int result = ChooseNum.chooseNum(33, 12354);
+        assertEquals(12354, result);
+    }
+    @Test
+    public void testChooseNum_SameValues() {
+        int result = ChooseNum.chooseNum(5234, 5233);
+        assertEquals(-1, result);
+    }
+    @Test
+    public void testChooseNum_EdgeCaseRange() {
+        int result = ChooseNum.chooseNum(6, 29);
+        assertEquals(28, result);
+    }
+    @Test
+    public void testChooseNum_InvalidRange() {
+        int result = ChooseNum.chooseNum(27, 10);
+        assertEquals(-1, result);
+    }
+    @Test
+    public void testChooseNum_SingleValueRange() {
+        int result = ChooseNum.chooseNum(7, 7);
+        assertEquals(-1, result);
+    }
+    @Test
+    public void testChooseNum_SameValueRange_Fixed() {
+        int result = ChooseNum.chooseNum(10, 10);
+        assertEquals(10, result);
+    }
+    @Test
+    public void testChooseNum_SameXAndY() {
+        int x = 546;
+        int y = 546;
+        int expected = 546;
+        assertEquals(expected, ChooseNum.chooseNum(x, y));
+    }
+    @Test
+    public void testChooseNum_LargeNumbers() {
+        int x = 33;
+        int y = 12354;
+        int expected = 12354;
+        assertEquals(expected, ChooseNum.chooseNum(x, y));
+    }
+    @Test
+    public void testChooseNum_NoEvenNumber() {
+        int x = 5234;
+        int y = 5233;
+        int expected = -1;
+        assertEquals(expected, ChooseNum.chooseNum(x, y));
+    }
+    @Test
+    public void testChooseNum_SmallRange() {
+        int x = 6;
+        int y = 29;
+        int expected = 28;
+        assertEquals(expected, ChooseNum.chooseNum(x, y));
+    }
+    @Test
+    public void testChooseNum_SameNumber() {
+        int x = 546;
+        int y = 546;
+        int expected = 546;
+        assertEquals(expected, ChooseNum.chooseNum(x, y));
+    }
+    @Test
+    public void testChooseNum_ValidInput() {
+        int x = 1;
+        int y = 12;
+        int expected = 12;
+        assertEquals(expected, ChooseNum.chooseNum(x, y));
+    }
+}

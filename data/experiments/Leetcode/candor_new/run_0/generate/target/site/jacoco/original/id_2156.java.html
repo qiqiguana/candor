@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_2156.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">leetcode</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_2156.java</span></div><h1>id_2156.java</h1><pre class="source lang-java linenums">package original;
+
+<span class="nc" id="L3">class Solution2156 {</span>
+    public String subStrHash(String s, int power, int modulo, int k, int hashValue) {
+  /**
+  The hash of a 0-indexed string s of length k, given integers p and m, is computed using the following function: hash(s, p, m) = (val(s[0]) * p0 + val(s[1]) * p1 + ... + val(s[k-1]) * pk-1) mod m. Where val(s[i]) represents the index of s[i] in the alphabet from val(&amp;#39;a&amp;#39;) = 1 to val(&amp;#39;z&amp;#39;) = 26. You are given a string s and the integers power, modulo, k, and hashValue. Return sub, the first substring of s of length k such that hash(sub, power, modulo) == hashValue. The test cases will be generated such that an answer always exists. A substring is a contiguous non-empty sequence of characters within a string. &amp;nbsp; Example 1: Input: s = &amp;quot;leetcode&amp;quot;, power = 7, modulo = 20, k = 2, hashValue = 0 Output: &amp;quot;ee&amp;quot; Explanation: The hash of &amp;quot;ee&amp;quot; can be computed to be hash(&amp;quot;ee&amp;quot;, 7, 20) = (5 * 1 + 5 * 7) mod 20 = 40 mod 20 = 0. &amp;quot;ee&amp;quot; is the first substring of length 2 with hashValue 0. Hence, we return &amp;quot;ee&amp;quot;. Example 2: Input: s = &amp;quot;fbxzaad&amp;quot;, power = 31, modulo = 100, k = 3, hashValue = 32 Output: &amp;quot;fbx&amp;quot; Explanation: The hash of &amp;quot;fbx&amp;quot; can be computed to be hash(&amp;quot;fbx&amp;quot;, 31, 100) = (6 * 1 + 2 * 31 + 24 * 312) mod 100 = 23132 mod 100 = 32. The hash of &amp;quot;bxz&amp;quot; can be computed to be hash(&amp;quot;bxz&amp;quot;, 31, 100) = (2 * 1 + 24 * 31 + 26 * 312) mod 100 = 25732 mod 100 = 32. &amp;quot;fbx&amp;quot; is the first substring of length 3 with hashValue 32. Hence, we return &amp;quot;fbx&amp;quot;. Note that &amp;quot;bxz&amp;quot; also has a hash of 32 but it appears later than &amp;quot;fbx&amp;quot;. &amp;nbsp; Constraints: 1 &amp;lt;= k &amp;lt;= s.length &amp;lt;= 2 * 104 1 &amp;lt;= power, modulo &amp;lt;= 109 0 &amp;lt;= hashValue &amp;lt; modulo s consists of lowercase English letters only. The test cases are generated such that an answer always exists.
+  */
+<span class="nc" id="L8">        long h = 0, p = 1;</span>
+<span class="nc" id="L9">        int n = s.length();</span>
+<span class="nc bnc" id="L10" title="All 2 branches missed.">        for (int i = n - 1; i &gt;= n - k; --i) {</span>
+<span class="nc" id="L11">            int val = s.charAt(i) - 'a' + 1;</span>
+<span class="nc" id="L12">            h = ((h * power % modulo) + val) % modulo;</span>
+<span class="nc bnc" id="L13" title="All 2 branches missed.">            if (i != n - k) {</span>
+<span class="nc" id="L14">                p = p * power % modulo;</span>
+            }
+        }
+<span class="nc" id="L17">        int j = n - k;</span>
+<span class="nc bnc" id="L18" title="All 2 branches missed.">        for (int i = n - k - 1; i &gt;= 0; --i) {</span>
+<span class="nc" id="L19">            int pre = s.charAt(i + k) - 'a' + 1;</span>
+<span class="nc" id="L20">            int cur = s.charAt(i) - 'a' + 1;</span>
+<span class="nc" id="L21">            h = ((h - pre * p % modulo + modulo) * power % modulo + cur) % modulo;</span>
+<span class="nc bnc" id="L22" title="All 2 branches missed.">            if (h == hashValue) {</span>
+<span class="nc" id="L23">                j = i;</span>
+            }
+        }
+<span class="nc" id="L26">        return s.substring(j, j + k);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

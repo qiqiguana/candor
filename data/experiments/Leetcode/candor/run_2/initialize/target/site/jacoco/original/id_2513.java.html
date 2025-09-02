@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_2513.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">leetcode</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_2513.java</span></div><h1>id_2513.java</h1><pre class="source lang-java linenums">package original;
+
+import java.util.Set;
+<span class="fc" id="L4">class Solution2513 {</span>
+    public int minimizeSet(int divisor1, int divisor2, int uniqueCnt1, int uniqueCnt2) {
+<span class="fc" id="L6">        long divisor = lcm(divisor1, divisor2);</span>
+<span class="fc" id="L7">        long left = 1, right = 10000000000L;</span>
+<span class="fc bfc" id="L8" title="All 2 branches covered.">        while (left &lt; right) {</span>
+<span class="fc" id="L9">            long mid = (left + right) &gt;&gt; 1;</span>
+<span class="fc" id="L10">            long cnt1 = mid / divisor1 * (divisor1 - 1) + mid % divisor1;</span>
+<span class="fc" id="L11">            long cnt2 = mid / divisor2 * (divisor2 - 1) + mid % divisor2;</span>
+<span class="fc" id="L12">            long cnt = mid / divisor * (divisor - 1) + mid % divisor;</span>
+<span class="pc bpc" id="L13" title="2 of 6 branches missed.">            if (cnt1 &gt;= uniqueCnt1 &amp;&amp; cnt2 &gt;= uniqueCnt2 &amp;&amp; cnt &gt;= uniqueCnt1 + uniqueCnt2) {</span>
+<span class="fc" id="L14">                right = mid;</span>
+            } else {
+<span class="fc" id="L16">                left = mid + 1;</span>
+            }
+<span class="fc" id="L18">        }</span>
+<span class="fc" id="L19">        return (int) left;</span>
+    }
+
+    private long lcm(int a, int b) {
+<span class="fc" id="L23">        return (long) a * b / gcd(a, b);</span>
+    }
+
+    private int gcd(int a, int b) {
+<span class="fc bfc" id="L27" title="All 2 branches covered.">        return b == 0 ? a : gcd(b, a % b);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

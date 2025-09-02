@@ -1,0 +1,157 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/IsNested {
+
+  // compiled from: id_132.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 8 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/IsNested; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  public static isNested(Ljava/lang/String;)Ljava/lang/Boolean;
+   L0
+    LINENUMBER 51 L0
+    NEW java/util/ArrayList
+    DUP
+    INVOKESPECIAL java/util/ArrayList.<init> ()V
+    ASTORE 1
+   L1
+    LINENUMBER 52 L1
+    NEW java/util/ArrayList
+    DUP
+    INVOKESPECIAL java/util/ArrayList.<init> ()V
+    ASTORE 2
+   L2
+    LINENUMBER 53 L2
+    ICONST_0
+    ISTORE 3
+   L3
+   FRAME FULL [java/lang/String java/util/ArrayList java/util/ArrayList I] []
+    ILOAD 3
+    ALOAD 0
+    INVOKEVIRTUAL java/lang/String.length ()I
+    IF_ICMPGE L4
+   L5
+    LINENUMBER 54 L5
+    ALOAD 0
+    ILOAD 3
+    INVOKEVIRTUAL java/lang/String.charAt (I)C
+    BIPUSH 91
+    IF_ICMPNE L6
+   L7
+    LINENUMBER 55 L7
+    ALOAD 1
+    ILOAD 3
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEVIRTUAL java/util/ArrayList.add (Ljava/lang/Object;)Z
+    POP
+    GOTO L8
+   L6
+    LINENUMBER 57 L6
+   FRAME FULL [java/lang/String java/util/ArrayList java/util/ArrayList I] []
+    ALOAD 2
+    ILOAD 3
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEVIRTUAL java/util/ArrayList.add (Ljava/lang/Object;)Z
+    POP
+   L8
+    LINENUMBER 53 L8
+   FRAME FULL [java/lang/String java/util/ArrayList java/util/ArrayList I] []
+    IINC 3 1
+    GOTO L3
+   L4
+    LINENUMBER 60 L4
+   FRAME FULL [java/lang/String java/util/ArrayList java/util/ArrayList I] []
+    ALOAD 2
+    INVOKESTATIC java/util/Collections.reverse (Ljava/util/List;)V
+   L9
+    LINENUMBER 61 L9
+    ICONST_0
+    ISTORE 3
+   L10
+    LINENUMBER 62 L10
+    ICONST_0
+    ISTORE 4
+   L11
+    LINENUMBER 63 L11
+    ALOAD 2
+    INVOKEVIRTUAL java/util/ArrayList.size ()I
+    ISTORE 5
+   L12
+    LINENUMBER 64 L12
+    ALOAD 1
+    INVOKEVIRTUAL java/util/ArrayList.iterator ()Ljava/util/Iterator;
+    ASTORE 6
+   L13
+   FRAME FULL [java/lang/String java/util/ArrayList java/util/ArrayList I I I java/util/Iterator] []
+    ALOAD 6
+    INVOKEINTERFACE java/util/Iterator.hasNext ()Z (itf)
+    IFEQ L14
+    ALOAD 6
+    INVOKEINTERFACE java/util/Iterator.next ()Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/Integer
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    ISTORE 7
+   L15
+    LINENUMBER 65 L15
+    ILOAD 4
+    ILOAD 5
+    IF_ICMPGE L16
+    ILOAD 7
+    ALOAD 2
+    ILOAD 4
+    INVOKEVIRTUAL java/util/ArrayList.get (I)Ljava/lang/Object;
+    CHECKCAST java/lang/Integer
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    IF_ICMPGE L16
+   L17
+    LINENUMBER 66 L17
+    IINC 3 -1
+   L18
+    LINENUMBER 67 L18
+    IINC 4 1
+   L16
+    LINENUMBER 69 L16
+   FRAME FULL [java/lang/String java/util/ArrayList java/util/ArrayList I I I java/util/Iterator I] []
+    GOTO L13
+   L14
+    LINENUMBER 70 L14
+   FRAME FULL [java/lang/String java/util/ArrayList java/util/ArrayList I I I java/util/Iterator] []
+    ILOAD 3
+    ICONST_2
+    IF_ICMPLT L19
+    ICONST_1
+    GOTO L20
+   L19
+   FRAME FULL [java/lang/String java/util/ArrayList java/util/ArrayList I I I java/util/Iterator] []
+    ICONST_0
+   L20
+   FRAME FULL [java/lang/String java/util/ArrayList java/util/ArrayList I I I java/util/Iterator] [I]
+    INVOKESTATIC java/lang/Boolean.valueOf (Z)Ljava/lang/Boolean;
+    ARETURN
+   L21
+    LOCALVARIABLE i I L3 L4 3
+    LOCALVARIABLE idx I L15 L16 7
+    LOCALVARIABLE string Ljava/lang/String; L0 L21 0
+    LOCALVARIABLE opening_bracket_index Ljava/util/ArrayList; L1 L21 1
+    // signature Ljava/util/ArrayList<Ljava/lang/Integer;>;
+    // declaration: opening_bracket_index extends java.util.ArrayList<java.lang.Integer>
+    LOCALVARIABLE closing_bracket_index Ljava/util/ArrayList; L2 L21 2
+    // signature Ljava/util/ArrayList<Ljava/lang/Integer;>;
+    // declaration: closing_bracket_index extends java.util.ArrayList<java.lang.Integer>
+    LOCALVARIABLE cnt I L10 L21 3
+    LOCALVARIABLE i I L11 L21 4
+    LOCALVARIABLE l I L12 L21 5
+    MAXSTACK = 3
+    MAXLOCALS = 8
+}
+

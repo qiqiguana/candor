@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_1392.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">leetcode</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_1392.java</span></div><h1>id_1392.java</h1><pre class="source lang-java linenums">package original;
+
+<span class="fc" id="L3">class Solution1392 {</span>
+    private long[] p;
+    private long[] h;
+
+    public String longestPrefix(String s) {
+  /**
+  A string is called a happy prefix if is a non-empty prefix which is also a suffix (excluding itself). Given a string s, return the longest happy prefix of s. Return an empty string &amp;quot;&amp;quot; if no such prefix exists. &amp;nbsp; Example 1: Input: s = &amp;quot;level&amp;quot; Output: &amp;quot;l&amp;quot; Explanation: s contains 4 prefix excluding itself (&amp;quot;l&amp;quot;, &amp;quot;le&amp;quot;, &amp;quot;lev&amp;quot;, &amp;quot;leve&amp;quot;), and suffix (&amp;quot;l&amp;quot;, &amp;quot;el&amp;quot;, &amp;quot;vel&amp;quot;, &amp;quot;evel&amp;quot;). The largest prefix which is also suffix is given by &amp;quot;l&amp;quot;. Example 2: Input: s = &amp;quot;ababab&amp;quot; Output: &amp;quot;abab&amp;quot; Explanation: &amp;quot;abab&amp;quot; is the largest prefix which is also suffix. They can overlap in the original string. &amp;nbsp; Constraints: 1 &amp;lt;= s.length &amp;lt;= 105 s contains only lowercase English letters.
+  */
+<span class="fc" id="L11">        int base = 131;</span>
+<span class="fc" id="L12">        int n = s.length();</span>
+<span class="fc" id="L13">        p = new long[n + 10];</span>
+<span class="fc" id="L14">        h = new long[n + 10];</span>
+<span class="fc" id="L15">        p[0] = 1;</span>
+<span class="fc bfc" id="L16" title="All 2 branches covered.">        for (int i = 0; i &lt; n; ++i) {</span>
+<span class="fc" id="L17">            p[i + 1] = p[i] * base;</span>
+<span class="fc" id="L18">            h[i + 1] = h[i] * base + s.charAt(i);</span>
+        }
+<span class="pc bpc" id="L20" title="1 of 2 branches missed.">        for (int l = n - 1; l &gt; 0; --l) {</span>
+<span class="fc bfc" id="L21" title="All 2 branches covered.">            if (get(1, l) == get(n - l + 1, n)) {</span>
+<span class="fc" id="L22">                return s.substring(0, l);</span>
+            }
+        }
+<span class="nc" id="L25">        return &quot;&quot;;</span>
+    }
+
+    private long get(int l, int r) {
+<span class="fc" id="L29">        return h[r] - h[l - 1] * p[r - l + 1];</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

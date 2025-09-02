@@ -1,0 +1,124 @@
+// class version 55.0 (55)
+// access flags 0x20
+// signature Ljava/lang/Object;Ljava/util/Comparator<Ljava/lang/Object;>;
+// declaration: original/OrderByPoints$1 implements java.util.Comparator<java.lang.Object>
+class original/OrderByPoints$1 implements java/util/Comparator {
+
+  // compiled from: id_145.java
+  NESTHOST original/OrderByPoints
+  OUTERCLASS original/OrderByPoints orderByPoints (Ljava/util/List;)Ljava/util/List;
+  // access flags 0x0
+  INNERCLASS original/OrderByPoints$1 null null
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 34 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/OrderByPoints$1; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x0
+  digitsum(I)I
+   L0
+    LINENUMBER 36 L0
+    ICONST_0
+    ISTORE 2
+   L1
+    LINENUMBER 37 L1
+    ILOAD 1
+    IFGE L2
+   L3
+    LINENUMBER 38 L3
+    ICONST_1
+    ISTORE 2
+   L4
+    LINENUMBER 39 L4
+    ILOAD 1
+    INEG
+    ISTORE 1
+   L2
+    LINENUMBER 41 L2
+   FRAME FULL [original/OrderByPoints$1 I I] []
+    ICONST_0
+    ISTORE 3
+   L5
+    LINENUMBER 42 L5
+   FRAME FULL [original/OrderByPoints$1 I I I] []
+    ILOAD 1
+    IFLT L6
+   L7
+    LINENUMBER 43 L7
+    ILOAD 1
+    BIPUSH 10
+    IDIV
+    IFNE L8
+    ILOAD 2
+    IFEQ L8
+   L9
+    LINENUMBER 44 L9
+    ILOAD 3
+    ILOAD 1
+    BIPUSH 10
+    IREM
+    ISUB
+    ISTORE 3
+    GOTO L10
+   L8
+    LINENUMBER 46 L8
+   FRAME FULL [original/OrderByPoints$1 I I I] []
+    ILOAD 3
+    ILOAD 1
+    BIPUSH 10
+    IREM
+    IADD
+    ISTORE 3
+   L10
+    LINENUMBER 47 L10
+   FRAME FULL [original/OrderByPoints$1 I I I] []
+    ILOAD 1
+    BIPUSH 10
+    IDIV
+    ISTORE 1
+    GOTO L5
+   L6
+    LINENUMBER 49 L6
+   FRAME FULL [original/OrderByPoints$1 I I I] []
+    ILOAD 3
+    IRETURN
+   L11
+    LOCALVARIABLE this Loriginal/OrderByPoints$1; L0 L11 0
+    LOCALVARIABLE n I L0 L11 1
+    LOCALVARIABLE neg Z L1 L11 2
+    LOCALVARIABLE sum I L5 L11 3
+    MAXSTACK = 3
+    MAXLOCALS = 4
+
+  // access flags 0x1
+  public compare(Ljava/lang/Object;Ljava/lang/Object;)I
+   L0
+    LINENUMBER 53 L0
+    ALOAD 0
+    ALOAD 1
+    CHECKCAST java/lang/Integer
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    INVOKEVIRTUAL original/OrderByPoints$1.digitsum (I)I
+    ALOAD 0
+    ALOAD 2
+    CHECKCAST java/lang/Integer
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    INVOKEVIRTUAL original/OrderByPoints$1.digitsum (I)I
+    ISUB
+    IRETURN
+   L1
+    LOCALVARIABLE this Loriginal/OrderByPoints$1; L0 L1 0
+    LOCALVARIABLE o1 Ljava/lang/Object; L0 L1 1
+    LOCALVARIABLE o2 Ljava/lang/Object; L0 L1 2
+    MAXSTACK = 3
+    MAXLOCALS = 3
+}
+

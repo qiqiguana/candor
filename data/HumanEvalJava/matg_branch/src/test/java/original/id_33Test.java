@@ -1,0 +1,45 @@
+package original;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+/**
+* Test class of SortThird.
+*/
+class SortThirdTest {
+    @Test
+    void testSortThird() {
+        List<Integer> l = new ArrayList<>();
+        l.add(5);
+        l.add(6);
+        l.add(3);
+        l.add(4);
+        l.add(8);
+        l.add(9);
+        l.add(2);
+
+        List<Integer> expected = new ArrayList<>();
+        expected.add(2);
+        expected.add(6);
+        expected.add(3);
+        expected.add(4);
+        expected.add(8);
+        expected.add(9);
+        expected.add(5);
+        assertEquals(expected, SortThird.sortThird(l));
+    }
+    
+    @Test
+        public void testNothing(){
+            SortThird s = new SortThird();
+            }
+    @Test
+    public void testEmptyList() {
+        List<Integer> list = new ArrayList<>();
+        assertEquals(list, SortThird.sortThird(list));
+    }
+                                    
+}

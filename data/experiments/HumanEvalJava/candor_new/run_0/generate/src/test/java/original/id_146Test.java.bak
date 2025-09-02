@@ -1,0 +1,27 @@
+package original;
+
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of Specialfilter.
+*/
+class SpecialfilterTest {
+
+    @Test
+    void testSpecialFilter() {
+        List<Object> nums = Arrays.asList(15, -73, 14, -15);
+        int result = Specialfilter.specialfilter(nums);
+        assertEquals(1, result);
+    }
+    
+    @Test
+        public void testNothing(){
+            Specialfilter s = new Specialfilter();
+            }
+                                    
+}

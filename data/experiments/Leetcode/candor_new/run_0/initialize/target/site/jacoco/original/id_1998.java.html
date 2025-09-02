@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_1998.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">leetcode</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_1998.java</span></div><h1>id_1998.java</h1><pre class="source lang-java linenums">package original;
+
+import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+<span class="fc" id="L8">class Solution1998 {</span>
+    private int[] p;
+
+    public boolean gcdSort(int[] nums) {
+  /**
+  You are given an integer array nums, and you can perform the following operation any number of times on nums: Swap the positions of two elements nums[i] and nums[j] if gcd(nums[i], nums[j]) &amp;gt; 1 where gcd(nums[i], nums[j]) is the greatest common divisor of nums[i] and nums[j]. Return true if it is possible to sort nums in non-decreasing order using the above swap method, or false otherwise. &amp;nbsp; Example 1: Input: nums = [7,21,3] Output: true Explanation: We can sort [7,21,3] by performing the following operations: - Swap 7 and 21 because gcd(7,21) = 7. nums = [21,7,3] - Swap 21 and 3 because gcd(21,3) = 3. nums = [3,7,21] Example 2: Input: nums = [5,2,6,2] Output: false Explanation: It is impossible to sort the array because 5 cannot be swapped with any other element. Example 3: Input: nums = [10,5,9,3,15] Output: true We can sort [10,5,9,3,15] by performing the following operations: - Swap 10 and 15 because gcd(10,15) = 5. nums = [15,5,9,3,10] - Swap 15 and 3 because gcd(15,3) = 3. nums = [3,5,9,15,10] - Swap 10 and 15 because gcd(10,15) = 5. nums = [3,5,9,10,15] &amp;nbsp; Constraints: 1 &amp;lt;= nums.length &amp;lt;= 3 * 104 2 &amp;lt;= nums[i] &amp;lt;= 105
+  */
+<span class="fc" id="L15">        int n = 100010;</span>
+<span class="fc" id="L16">        p = new int[n];</span>
+<span class="fc" id="L17">        Map&lt;Integer, List&lt;Integer&gt;&gt; f = new HashMap&lt;&gt;();</span>
+<span class="fc bfc" id="L18" title="All 2 branches covered.">        for (int i = 0; i &lt; n; ++i) {</span>
+<span class="fc" id="L19">            p[i] = i;</span>
+        }
+<span class="fc" id="L21">        int mx = 0;</span>
+<span class="fc bfc" id="L22" title="All 2 branches covered.">        for (int num : nums) {</span>
+<span class="fc" id="L23">            mx = Math.max(mx, num);</span>
+        }
+<span class="fc bfc" id="L25" title="All 2 branches covered.">        for (int i = 2; i &lt;= mx; ++i) {</span>
+<span class="fc bfc" id="L26" title="All 2 branches covered.">            if (f.containsKey(i)) {</span>
+<span class="fc" id="L27">                continue;</span>
+            }
+<span class="fc bfc" id="L29" title="All 2 branches covered.">            for (int j = i; j &lt;= mx; j += i) {</span>
+<span class="fc" id="L30">                f.computeIfAbsent(j, k -&gt; new ArrayList&lt;&gt;()).add(i);</span>
+            }
+        }
+<span class="fc bfc" id="L33" title="All 2 branches covered.">        for (int i : nums) {</span>
+<span class="fc bfc" id="L34" title="All 2 branches covered.">            for (int j : f.get(i)) {</span>
+<span class="fc" id="L35">                p[find(i)] = find(j);</span>
+<span class="fc" id="L36">            }</span>
+        }
+<span class="fc" id="L38">        int[] s = new int[nums.length];</span>
+<span class="fc" id="L39">        System.arraycopy(nums, 0, s, 0, nums.length);</span>
+<span class="fc" id="L40">        Arrays.sort(s);</span>
+<span class="fc bfc" id="L41" title="All 2 branches covered.">        for (int i = 0; i &lt; nums.length; ++i) {</span>
+<span class="pc bpc" id="L42" title="3 of 4 branches missed.">            if (s[i] != nums[i] &amp;&amp; find(nums[i]) != find(s[i])) {</span>
+<span class="nc" id="L43">                return false;</span>
+            }
+        }
+<span class="fc" id="L46">        return true;</span>
+    }
+
+    int find(int x) {
+<span class="fc bfc" id="L50" title="All 2 branches covered.">        if (p[x] != x) {</span>
+<span class="fc" id="L51">            p[x] = find(p[x]);</span>
+        }
+<span class="fc" id="L53">        return p[x];</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

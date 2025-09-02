@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_1067.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">leetcode</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_1067.java</span></div><h1>id_1067.java</h1><pre class="source lang-java linenums">package original;
+
+import java.util.Arrays;
+<span class="nc" id="L4">class Solution1067 {</span>
+    private int d;
+<span class="nc" id="L6">    private int[] a = new int[11];</span>
+<span class="nc" id="L7">    private int[][] dp = new int[11][11];</span>
+
+    public int digitsCount(int d, int low, int high) {
+<span class="nc" id="L10">        this.d = d;</span>
+<span class="nc" id="L11">        return f(high) - f(low - 1);</span>
+    }
+
+    private int f(int n) {
+<span class="nc bnc" id="L15" title="All 2 branches missed.">        for (var e : dp) {</span>
+<span class="nc" id="L16">            Arrays.fill(e, -1);</span>
+        }
+<span class="nc" id="L18">        int len = 0;</span>
+<span class="nc bnc" id="L19" title="All 2 branches missed.">        while (n &gt; 0) {</span>
+<span class="nc" id="L20">            a[++len] = n % 10;</span>
+<span class="nc" id="L21">            n /= 10;</span>
+        }
+<span class="nc" id="L23">        return dfs(len, 0, true, true);</span>
+    }
+
+    private int dfs(int pos, int cnt, boolean lead, boolean limit) {
+<span class="nc bnc" id="L27" title="All 2 branches missed.">        if (pos &lt;= 0) {</span>
+<span class="nc" id="L28">            return cnt;</span>
+        }
+<span class="nc bnc" id="L30" title="All 6 branches missed.">        if (!lead &amp;&amp; !limit &amp;&amp; dp[pos][cnt] != -1) {</span>
+<span class="nc" id="L31">            return dp[pos][cnt];</span>
+        }
+<span class="nc bnc" id="L33" title="All 2 branches missed.">        int up = limit ? a[pos] : 9;</span>
+<span class="nc" id="L34">        int ans = 0;</span>
+<span class="nc bnc" id="L35" title="All 2 branches missed.">        for (int i = 0; i &lt;= up; ++i) {</span>
+<span class="nc bnc" id="L36" title="All 4 branches missed.">            if (i == 0 &amp;&amp; lead) {</span>
+<span class="nc bnc" id="L37" title="All 4 branches missed.">                ans += dfs(pos - 1, cnt, lead, limit &amp;&amp; i == up);</span>
+            } else {
+<span class="nc bnc" id="L39" title="All 6 branches missed.">                ans += dfs(pos - 1, cnt + (i == d ? 1 : 0), false, limit &amp;&amp; i == up);</span>
+            }
+        }
+<span class="nc bnc" id="L42" title="All 4 branches missed.">        if (!lead &amp;&amp; !limit) {</span>
+<span class="nc" id="L43">            dp[pos][cnt] = ans;</span>
+        }
+<span class="nc" id="L45">        return ans;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

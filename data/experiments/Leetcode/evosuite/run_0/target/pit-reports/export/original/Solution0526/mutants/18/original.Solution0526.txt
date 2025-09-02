@@ -1,0 +1,252 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Solution0526 {
+
+  // compiled from: id_0526.java
+  // access flags 0x19
+  public final static INNERCLASS java/lang/invoke/MethodHandles$Lookup java/lang/invoke/MethodHandles Lookup
+
+  // access flags 0x2
+  private I n
+
+  // access flags 0x2
+  private I ans
+
+  // access flags 0x2
+  private [Z vis
+
+  // access flags 0x2
+  // signature Ljava/util/Map<Ljava/lang/Integer;Ljava/util/List<Ljava/lang/Integer;>;>;
+  // declaration: match extends java.util.Map<java.lang.Integer, java.util.List<java.lang.Integer>>
+  private Ljava/util/Map; match
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 7 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Solution0526; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public countArrangement(I)I
+   L0
+    LINENUMBER 14 L0
+    ALOAD 0
+    ILOAD 1
+    PUTFIELD original/Solution0526.n : I
+   L1
+    LINENUMBER 15 L1
+    ALOAD 0
+    ICONST_0
+    PUTFIELD original/Solution0526.ans : I
+   L2
+    LINENUMBER 16 L2
+    ALOAD 0
+    ILOAD 1
+    ICONST_1
+    IADD
+    NEWARRAY T_BOOLEAN
+    PUTFIELD original/Solution0526.vis : [Z
+   L3
+    LINENUMBER 17 L3
+    ALOAD 0
+    NEW java/util/HashMap
+    DUP
+    INVOKESPECIAL java/util/HashMap.<init> ()V
+    PUTFIELD original/Solution0526.match : Ljava/util/Map;
+   L4
+    LINENUMBER 18 L4
+    ICONST_1
+    ISTORE 2
+   L5
+   FRAME FULL [original/Solution0526 I I] []
+    ILOAD 2
+    ILOAD 1
+    IF_ICMPGT L6
+   L7
+    LINENUMBER 19 L7
+    ICONST_1
+    ISTORE 3
+   L8
+   FRAME FULL [original/Solution0526 I I I] []
+    ILOAD 3
+    ILOAD 1
+    IF_ICMPGT L9
+   L10
+    LINENUMBER 20 L10
+    ILOAD 2
+    ILOAD 3
+    IREM
+    IFEQ L11
+    ILOAD 3
+    ILOAD 2
+    IREM
+    IFNE L12
+   L11
+    LINENUMBER 21 L11
+   FRAME FULL [original/Solution0526 I I I] []
+    ALOAD 0
+    GETFIELD original/Solution0526.match : Ljava/util/Map;
+    ILOAD 2
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEDYNAMIC apply()Ljava/util/function/Function; [
+      // handle kind 0x6 : INVOKESTATIC
+      java/lang/invoke/LambdaMetafactory.metafactory(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;
+      // arguments:
+      (Ljava/lang/Object;)Ljava/lang/Object;, 
+      // handle kind 0x6 : INVOKESTATIC
+      original/Solution0526.lambda$countArrangement$0(Ljava/lang/Integer;)Ljava/util/List;, 
+      (Ljava/lang/Integer;)Ljava/util/List;
+    ]
+    INVOKEINTERFACE java/util/Map.computeIfAbsent (Ljava/lang/Object;Ljava/util/function/Function;)Ljava/lang/Object; (itf)
+    CHECKCAST java/util/List
+    ILOAD 3
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+   L12
+    LINENUMBER 19 L12
+   FRAME FULL [original/Solution0526 I I I] []
+    IINC 3 1
+    GOTO L8
+   L9
+    LINENUMBER 18 L9
+   FRAME FULL [original/Solution0526 I I I] []
+    IINC 2 1
+    GOTO L5
+   L6
+    LINENUMBER 25 L6
+   FRAME FULL [original/Solution0526 I I] []
+    ALOAD 0
+    ICONST_1
+    INVOKEVIRTUAL original/Solution0526.dfs (I)V
+   L13
+    LINENUMBER 26 L13
+    ALOAD 0
+    GETFIELD original/Solution0526.ans : I
+    IRETURN
+   L14
+    LOCALVARIABLE j I L8 L9 3
+    LOCALVARIABLE i I L5 L6 2
+    LOCALVARIABLE this Loriginal/Solution0526; L0 L14 0
+    LOCALVARIABLE n I L0 L14 1
+    MAXSTACK = 3
+    MAXLOCALS = 4
+
+  // access flags 0x2
+  private dfs(I)V
+   L0
+    LINENUMBER 30 L0
+    ILOAD 1
+    ALOAD 0
+    GETFIELD original/Solution0526.n : I
+    ICONST_1
+    IADD
+    IF_ICMPNE L1
+   L2
+    LINENUMBER 31 L2
+    ALOAD 0
+    DUP
+    GETFIELD original/Solution0526.ans : I
+    ICONST_1
+    IADD
+    PUTFIELD original/Solution0526.ans : I
+   L3
+    LINENUMBER 32 L3
+    RETURN
+   L1
+    LINENUMBER 34 L1
+   FRAME FULL [original/Solution0526 I] []
+    ALOAD 0
+    GETFIELD original/Solution0526.match : Ljava/util/Map;
+    ILOAD 1
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEINTERFACE java/util/Map.containsKey (Ljava/lang/Object;)Z (itf)
+    IFNE L4
+   L5
+    LINENUMBER 35 L5
+    RETURN
+   L4
+    LINENUMBER 37 L4
+   FRAME FULL [original/Solution0526 I] []
+    ALOAD 0
+    GETFIELD original/Solution0526.match : Ljava/util/Map;
+    ILOAD 1
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEINTERFACE java/util/Map.get (Ljava/lang/Object;)Ljava/lang/Object; (itf)
+    CHECKCAST java/util/List
+    INVOKEINTERFACE java/util/List.iterator ()Ljava/util/Iterator; (itf)
+    ASTORE 2
+   L6
+   FRAME FULL [original/Solution0526 I java/util/Iterator] []
+    ALOAD 2
+    INVOKEINTERFACE java/util/Iterator.hasNext ()Z (itf)
+    IFEQ L7
+    ALOAD 2
+    INVOKEINTERFACE java/util/Iterator.next ()Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/Integer
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    ISTORE 3
+   L8
+    LINENUMBER 38 L8
+    ALOAD 0
+    GETFIELD original/Solution0526.vis : [Z
+    ILOAD 3
+    BALOAD
+    IFNE L9
+   L10
+    LINENUMBER 39 L10
+    ALOAD 0
+    GETFIELD original/Solution0526.vis : [Z
+    ILOAD 3
+    ICONST_1
+    BASTORE
+   L11
+    LINENUMBER 40 L11
+    ALOAD 0
+    ILOAD 1
+    ICONST_1
+    IADD
+    POP
+    POP
+   L12
+    LINENUMBER 41 L12
+    ALOAD 0
+    GETFIELD original/Solution0526.vis : [Z
+    ILOAD 3
+    ICONST_0
+    BASTORE
+   L9
+    LINENUMBER 43 L9
+   FRAME FULL [original/Solution0526 I java/util/Iterator I] []
+    GOTO L6
+   L7
+    LINENUMBER 44 L7
+   FRAME FULL [original/Solution0526 I java/util/Iterator] []
+    RETURN
+   L13
+    LOCALVARIABLE j I L8 L9 3
+    LOCALVARIABLE this Loriginal/Solution0526; L0 L13 0
+    LOCALVARIABLE i I L0 L13 1
+    MAXSTACK = 3
+    MAXLOCALS = 4
+
+  // access flags 0x100A
+  private static synthetic lambda$countArrangement$0(Ljava/lang/Integer;)Ljava/util/List;
+   L0
+    LINENUMBER 21 L0
+    NEW java/util/ArrayList
+    DUP
+    INVOKESPECIAL java/util/ArrayList.<init> ()V
+    ARETURN
+   L1
+    LOCALVARIABLE k Ljava/lang/Integer; L0 L1 0
+    MAXSTACK = 2
+    MAXLOCALS = 1
+}
+

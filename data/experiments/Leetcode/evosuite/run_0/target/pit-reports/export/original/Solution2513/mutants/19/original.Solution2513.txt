@@ -1,0 +1,204 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Solution2513 {
+
+  // compiled from: id_2513.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 4 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Solution2513; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public minimizeSet(IIII)I
+   L0
+    LINENUMBER 6 L0
+    ALOAD 0
+    ILOAD 1
+    ILOAD 2
+    INVOKEVIRTUAL original/Solution2513.lcm (II)J
+    LSTORE 5
+   L1
+    LINENUMBER 7 L1
+    LCONST_1
+    LSTORE 7
+   L2
+    LDC 10000000000L
+    LSTORE 9
+   L3
+    LINENUMBER 8 L3
+   FRAME FULL [original/Solution2513 I I I I J J J] []
+    LLOAD 7
+    LLOAD 9
+    LCMP
+    IFGE L4
+   L5
+    LINENUMBER 9 L5
+    LLOAD 7
+    LLOAD 9
+    LADD
+    ICONST_1
+    LSHR
+    LSTORE 11
+   L6
+    LINENUMBER 10 L6
+    LLOAD 11
+    ILOAD 1
+    I2L
+    LDIV
+    ILOAD 1
+    ICONST_1
+    ISUB
+    I2L
+    LMUL
+    LLOAD 11
+    ILOAD 1
+    I2L
+    LREM
+    LADD
+    LSTORE 13
+   L7
+    LINENUMBER 11 L7
+    LLOAD 11
+    ILOAD 2
+    I2L
+    LDIV
+    ILOAD 2
+    ICONST_1
+    ISUB
+    I2L
+    LMUL
+    LLOAD 11
+    ILOAD 2
+    I2L
+    LREM
+    LADD
+    LSTORE 15
+   L8
+    LINENUMBER 12 L8
+    LLOAD 11
+    LLOAD 5
+    LDIV
+    LLOAD 5
+    LCONST_1
+    LSUB
+    LMUL
+    LLOAD 11
+    LLOAD 5
+    LREM
+    LADD
+    LSTORE 17
+   L9
+    LINENUMBER 13 L9
+    LLOAD 13
+    ILOAD 3
+    I2L
+    LCMP
+    IFGE L10
+    LLOAD 15
+    ILOAD 4
+    I2L
+    LCMP
+    IFLT L10
+    LLOAD 17
+    ILOAD 3
+    ILOAD 4
+    IADD
+    I2L
+    LCMP
+    IFLT L10
+   L11
+    LINENUMBER 14 L11
+    LLOAD 11
+    LSTORE 9
+    GOTO L12
+   L10
+    LINENUMBER 16 L10
+   FRAME FULL [original/Solution2513 I I I I J J J J J J J] []
+    LLOAD 11
+    LCONST_1
+    LADD
+    LSTORE 7
+   L12
+    LINENUMBER 18 L12
+   FRAME FULL [original/Solution2513 I I I I J J J J J J J] []
+    GOTO L3
+   L4
+    LINENUMBER 19 L4
+   FRAME FULL [original/Solution2513 I I I I J J J] []
+    LLOAD 7
+    L2I
+    IRETURN
+   L13
+    LOCALVARIABLE mid J L6 L12 11
+    LOCALVARIABLE cnt1 J L7 L12 13
+    LOCALVARIABLE cnt2 J L8 L12 15
+    LOCALVARIABLE cnt J L9 L12 17
+    LOCALVARIABLE this Loriginal/Solution2513; L0 L13 0
+    LOCALVARIABLE divisor1 I L0 L13 1
+    LOCALVARIABLE divisor2 I L0 L13 2
+    LOCALVARIABLE uniqueCnt1 I L0 L13 3
+    LOCALVARIABLE uniqueCnt2 I L0 L13 4
+    LOCALVARIABLE divisor J L1 L13 5
+    LOCALVARIABLE left J L2 L13 7
+    LOCALVARIABLE right J L3 L13 9
+    MAXSTACK = 6
+    MAXLOCALS = 19
+
+  // access flags 0x2
+  private lcm(II)J
+   L0
+    LINENUMBER 23 L0
+    ILOAD 1
+    I2L
+    ILOAD 2
+    I2L
+    LMUL
+    ALOAD 0
+    ILOAD 1
+    ILOAD 2
+    INVOKEVIRTUAL original/Solution2513.gcd (II)I
+    I2L
+    LDIV
+    LRETURN
+   L1
+    LOCALVARIABLE this Loriginal/Solution2513; L0 L1 0
+    LOCALVARIABLE a I L0 L1 1
+    LOCALVARIABLE b I L0 L1 2
+    MAXSTACK = 5
+    MAXLOCALS = 3
+
+  // access flags 0x2
+  private gcd(II)I
+   L0
+    LINENUMBER 27 L0
+    ILOAD 2
+    IFNE L1
+    ILOAD 1
+    GOTO L2
+   L1
+   FRAME FULL [original/Solution2513 I I] []
+    ALOAD 0
+    ILOAD 2
+    ILOAD 1
+    ILOAD 2
+    IREM
+    INVOKEVIRTUAL original/Solution2513.gcd (II)I
+   L2
+   FRAME FULL [original/Solution2513 I I] [I]
+    IRETURN
+   L3
+    LOCALVARIABLE this Loriginal/Solution2513; L0 L3 0
+    LOCALVARIABLE a I L0 L3 1
+    LOCALVARIABLE b I L0 L3 2
+    MAXSTACK = 4
+    MAXLOCALS = 3
+}
+

@@ -1,0 +1,89 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/GenerateIntegers {
+
+  // compiled from: id_163.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 8 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/GenerateIntegers; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  // signature (II)Ljava/util/List<Ljava/lang/Object;>;
+  // declaration: java.util.List<java.lang.Object> generateIntegers(int, int)
+  public static generateIntegers(II)Ljava/util/List;
+   L0
+    LINENUMBER 29 L0
+    ICONST_2
+    ILOAD 0
+    ILOAD 1
+    INVOKESTATIC java/lang/Math.min (II)I
+    INVOKESTATIC java/lang/Math.max (II)I
+    ISTORE 2
+   L1
+    LINENUMBER 30 L1
+    BIPUSH 8
+    ILOAD 0
+    ILOAD 1
+    INVOKESTATIC java/lang/Math.max (II)I
+    INVOKESTATIC java/lang/Math.min (II)I
+    ISTORE 3
+   L2
+    LINENUMBER 31 L2
+    NEW java/util/ArrayList
+    DUP
+    INVOKESPECIAL java/util/ArrayList.<init> ()V
+    ASTORE 4
+   L3
+    LINENUMBER 32 L3
+    ILOAD 2
+    ISTORE 5
+   L4
+   FRAME FULL [I I I I java/util/ArrayList I] []
+    ILOAD 5
+    ILOAD 3
+    IF_ICMPGE L5
+   L6
+    LINENUMBER 33 L6
+    ILOAD 5
+    ICONST_2
+    IREM
+    IFNE L7
+   L8
+    LINENUMBER 34 L8
+    ALOAD 4
+    ILOAD 5
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+   L7
+    LINENUMBER 32 L7
+   FRAME FULL [I I I I java/util/ArrayList I] []
+    IINC 5 1
+    GOTO L4
+   L5
+    LINENUMBER 37 L5
+   FRAME FULL [I I I I java/util/ArrayList I] []
+    ALOAD 4
+    ARETURN
+   L9
+    LOCALVARIABLE i I L4 L5 5
+    LOCALVARIABLE a I L0 L9 0
+    LOCALVARIABLE b I L0 L9 1
+    LOCALVARIABLE lower I L1 L9 2
+    LOCALVARIABLE upper I L2 L9 3
+    LOCALVARIABLE result Ljava/util/List; L3 L9 4
+    // signature Ljava/util/List<Ljava/lang/Object;>;
+    // declaration: result extends java.util.List<java.lang.Object>
+    MAXSTACK = 3
+    MAXLOCALS = 6
+}
+

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_0739.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">leetcode</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_0739.java</span></div><h1>id_0739.java</h1><pre class="source lang-java linenums">package original;
+
+import java.util.ArrayDeque;
+import java.util.Deque;
+<span class="nc" id="L5">class Solution0739 {</span>
+    public int[] dailyTemperatures(int[] temperatures) {
+  /**
+  Given an array of integers temperatures represents the daily temperatures, return an array answer such that answer[i] is the number of days you have to wait after the ith day to get a warmer temperature. If there is no future day for which this is possible, keep answer[i] == 0 instead. &amp;nbsp; Example 1: Input: temperatures = [73,74,75,71,69,72,76,73] Output: [1,1,4,2,1,1,0,0] Example 2: Input: temperatures = [30,40,50,60] Output: [1,1,1,0] Example 3: Input: temperatures = [30,60,90] Output: [1,1,0] &amp;nbsp; Constraints: 1 &amp;lt;=&amp;nbsp;temperatures.length &amp;lt;= 105 30 &amp;lt;=&amp;nbsp;temperatures[i] &amp;lt;= 100
+  */
+<span class="nc" id="L10">        int n = temperatures.length;</span>
+<span class="nc" id="L11">        Deque&lt;Integer&gt; stk = new ArrayDeque&lt;&gt;();</span>
+<span class="nc" id="L12">        int[] ans = new int[n];</span>
+<span class="nc bnc" id="L13" title="All 2 branches missed.">        for (int i = n - 1; i &gt;= 0; --i) {</span>
+<span class="nc bnc" id="L14" title="All 4 branches missed.">            while (!stk.isEmpty() &amp;&amp; temperatures[stk.peek()] &lt;= temperatures[i]) {</span>
+<span class="nc" id="L15">                stk.pop();</span>
+            }
+<span class="nc bnc" id="L17" title="All 2 branches missed.">            if (!stk.isEmpty()) {</span>
+<span class="nc" id="L18">                ans[i] = stk.peek() - i;</span>
+            }
+<span class="nc" id="L20">            stk.push(i);</span>
+        }
+<span class="nc" id="L22">        return ans;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

@@ -1,0 +1,32 @@
+package original;
+
+import java.util.List;
+import java.util.ArrayList;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of HasCloseElements.
+*/
+class HasCloseElementsTest {
+    @Test
+    void testHasCloseElements_DifferentNumbers_ThresholdLessThanDifference_ReturnsFalse() {
+        List<Double> numbers = new ArrayList<>();
+        numbers.add(1.0);
+        numbers.add(2.8);
+        numbers.add(3.9);
+        Double threshold = 0.05;
+        assertFalse(HasCloseElements.hasCloseElements(numbers, threshold));
+    }
+    
+    @Test
+        public void testNothing(){
+            HasCloseElements s = new HasCloseElements();
+            }
+    @Test
+    public void DuplicateElementsWithinThresholdFixed3() {
+        java.util.List<java.lang.Double> numbers = new java.util.ArrayList<>(java.util.Arrays.asList(1.0, 2.8, 3.0, 4.0, 5.0, 2.81));
+        java.lang.Double threshold = 0.31;
+        org.junit.jupiter.api.Assertions.assertTrue(original.HasCloseElements.hasCloseElements(numbers, threshold));
+    }
+                                    
+}

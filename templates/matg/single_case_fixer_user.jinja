@@ -31,7 +31,7 @@ You are also given a test plan, guiding the process of test
 9. Avoid duplicate test method definition. Append an increasing id number to the method name to avoid duplicate if necessary.
 10. Be extra careful with the data types. Use the same data types the requirement of the input and output. For example, use java.util.List<java.lang.Object> if the input data type is java.util.List<java.lang.Object>
 11. Test case must follow the conventions of JUnit5, starting with @Test, include only one assertion and add necessary imports..
-
+12. The potential fixes should be applied to the test case code, not the source code. We can NOT change the source code.
 
 ## Generate test case code following the Output Format. Output only valid JSON that conforms to the schema. Do not include explanations, markdown formatting (like ```), or any other content.
 ## Generate only JSON not anything else.

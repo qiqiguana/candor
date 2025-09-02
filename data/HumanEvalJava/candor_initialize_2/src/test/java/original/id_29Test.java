@@ -1,0 +1,32 @@
+package original;
+
+import java.util.ArrayList;
+
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of FilterByPrefix.
+*/
+class FilterByPrefixTest {
+    @Test
+    void testFilterByPrefix_PrefixFound() {
+        List<Object> input = new ArrayList<>();
+        input.add("abc");
+        input.add("bcd");
+        input.add("cde");
+        input.add("array");
+        String prefix = "a";
+        List<Object> expected = new ArrayList<>();
+        expected.add("abc");
+        expected.add("array");
+        assertEquals(expected, FilterByPrefix.filterByPrefix(input, prefix));
+    }
+    
+    @Test
+        public void testNothing(){
+            FilterByPrefix s = new FilterByPrefix();
+            }
+                                    
+}

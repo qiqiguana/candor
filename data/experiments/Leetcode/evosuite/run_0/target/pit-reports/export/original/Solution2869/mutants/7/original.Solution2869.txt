@@ -1,0 +1,111 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Solution2869 {
+
+  // compiled from: id_2869.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 4 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Solution2869; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  // signature (Ljava/util/List<Ljava/lang/Integer;>;I)I
+  // declaration: int minOperations(java.util.List<java.lang.Integer>, int)
+  public minOperations(Ljava/util/List;I)I
+   L0
+    LINENUMBER 6 L0
+    ILOAD 2
+    NEWARRAY T_BOOLEAN
+    ASTORE 3
+   L1
+    LINENUMBER 7 L1
+    ALOAD 1
+    INVOKEINTERFACE java/util/List.size ()I (itf)
+    ISTORE 4
+   L2
+    LINENUMBER 8 L2
+    ICONST_0
+    ISTORE 5
+   L3
+    LINENUMBER 9 L3
+    ILOAD 4
+    ICONST_1
+    ISUB
+    ISTORE 6
+   L4
+    LINENUMBER 10 L4
+   FRAME FULL [original/Solution2869 java/util/List I [Z I I I] []
+    ALOAD 1
+    ILOAD 6
+    INVOKEINTERFACE java/util/List.get (I)Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/Integer
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    ILOAD 2
+    IF_ICMPGT L5
+    ALOAD 3
+    ALOAD 1
+    ILOAD 6
+    INVOKEINTERFACE java/util/List.get (I)Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/Integer
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    ICONST_1
+    ISUB
+    BALOAD
+    IFEQ L6
+   L7
+    LINENUMBER 11 L7
+    GOTO L5
+   L6
+    LINENUMBER 13 L6
+   FRAME FULL [original/Solution2869 java/util/List I [Z I I I] []
+    ALOAD 3
+    ALOAD 1
+    ILOAD 6
+    INVOKEINTERFACE java/util/List.get (I)Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/Integer
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    ICONST_1
+    ISUB
+    ICONST_1
+    BASTORE
+   L8
+    LINENUMBER 14 L8
+    IINC 5 -1
+   L9
+    LINENUMBER 15 L9
+    ILOAD 5
+    ILOAD 2
+    IF_ICMPNE L5
+   L10
+    LINENUMBER 16 L10
+    ILOAD 4
+    ILOAD 6
+    ISUB
+    IRETURN
+   L5
+    LINENUMBER 9 L5
+   FRAME FULL [original/Solution2869 java/util/List I [Z I I I] []
+    IINC 6 -1
+    GOTO L4
+   L11
+    LOCALVARIABLE i I L4 L11 6
+    LOCALVARIABLE this Loriginal/Solution2869; L0 L11 0
+    LOCALVARIABLE nums Ljava/util/List; L0 L11 1
+    // signature Ljava/util/List<Ljava/lang/Integer;>;
+    // declaration: nums extends java.util.List<java.lang.Integer>
+    LOCALVARIABLE k I L0 L11 2
+    LOCALVARIABLE isAdded [Z L1 L11 3
+    LOCALVARIABLE n I L2 L11 4
+    LOCALVARIABLE count I L3 L11 5
+    MAXSTACK = 3
+    MAXLOCALS = 7
+}
+

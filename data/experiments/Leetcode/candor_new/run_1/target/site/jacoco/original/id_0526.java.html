@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_0526.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">leetcode</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_0526.java</span></div><h1>id_0526.java</h1><pre class="source lang-java linenums">package original;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+<span class="fc" id="L7">class Solution0526 {</span>
+    private int n;
+    private int ans;
+    private boolean[] vis;
+    private Map&lt;Integer, List&lt;Integer&gt;&gt; match;
+
+    public int countArrangement(int n) {
+<span class="fc" id="L14">        this.n = n;</span>
+<span class="fc" id="L15">        ans = 0;</span>
+<span class="fc" id="L16">        vis = new boolean[n + 1];</span>
+<span class="fc" id="L17">        match = new HashMap&lt;&gt;();</span>
+<span class="fc bfc" id="L18" title="All 2 branches covered.">        for (int i = 1; i &lt;= n; ++i) {</span>
+<span class="fc bfc" id="L19" title="All 2 branches covered.">            for (int j = 1; j &lt;= n; ++j) {</span>
+<span class="fc bfc" id="L20" title="All 4 branches covered.">                if (i % j == 0 || j % i == 0) {</span>
+<span class="fc" id="L21">                    match.computeIfAbsent(i, k -&gt; new ArrayList&lt;&gt;()).add(j);</span>
+                }
+            }
+        }
+<span class="fc" id="L25">        dfs(1);</span>
+<span class="fc" id="L26">        return ans;</span>
+    }
+
+    private void dfs(int i) {
+<span class="fc bfc" id="L30" title="All 2 branches covered.">        if (i == n + 1) {</span>
+<span class="fc" id="L31">            ++ans;</span>
+<span class="fc" id="L32">            return;</span>
+        }
+<span class="pc bpc" id="L34" title="1 of 2 branches missed.">        if (!match.containsKey(i)) {</span>
+<span class="nc" id="L35">            return;</span>
+        }
+<span class="fc bfc" id="L37" title="All 2 branches covered.">        for (int j : match.get(i)) {</span>
+<span class="fc bfc" id="L38" title="All 2 branches covered.">            if (!vis[j]) {</span>
+<span class="fc" id="L39">                vis[j] = true;</span>
+<span class="fc" id="L40">                dfs(i + 1);</span>
+<span class="fc" id="L41">                vis[j] = false;</span>
+            }
+<span class="fc" id="L43">        }</span>
+<span class="fc" id="L44">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

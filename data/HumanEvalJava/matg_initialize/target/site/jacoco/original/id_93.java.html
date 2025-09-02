@@ -26,20 +26,20 @@
      * &quot;k dQnT kNqW wHcT Tq wRkTg&quot;
      */
     public static String encode(String message) {
-<span class="nc" id="L29">        String result = &quot;&quot;;</span>
-<span class="nc bnc" id="L30" title="All 2 branches missed.">        for (int i = 0; i &lt; message.length(); i++) {</span>
-<span class="nc" id="L31">            char c = message.charAt(i);</span>
-<span class="nc bnc" id="L32" title="All 4 branches missed.">            if (c &gt;= 'a' &amp;&amp; c &lt;= 'z') {</span>
-<span class="nc" id="L33">                c -= 32;</span>
+<span class="fc" id="L29">        String result = &quot;&quot;;</span>
+<span class="fc bfc" id="L30" title="All 2 branches covered.">        for (int i = 0; i &lt; message.length(); i++) {</span>
+<span class="fc" id="L31">            char c = message.charAt(i);</span>
+<span class="pc bpc" id="L32" title="2 of 4 branches missed.">            if (c &gt;= 'a' &amp;&amp; c &lt;= 'z') {</span>
+<span class="fc" id="L33">                c -= 32;</span>
 <span class="nc bnc" id="L34" title="All 4 branches missed.">            } else if (c &gt;= 'A' &amp;&amp; c &lt;= 'Z') {</span>
 <span class="nc" id="L35">                c += 32;</span>
             }
-<span class="nc bnc" id="L37" title="All 20 branches missed.">            if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' || c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U') {</span>
-<span class="nc" id="L38">                c += 2;</span>
+<span class="pc bpc" id="L37" title="9 of 20 branches missed.">            if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' || c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U') {</span>
+<span class="fc" id="L38">                c += 2;</span>
             }
-<span class="nc" id="L40">            result += c;</span>
+<span class="fc" id="L40">            result += c;</span>
         }
-<span class="nc" id="L42">        return result;</span>
+<span class="fc" id="L42">        return result;</span>
     }
 
 

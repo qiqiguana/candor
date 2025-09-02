@@ -1,0 +1,32 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of Solution2409.
+*/
+class Solution2409Test {
+    @Test
+    void testCountDaysTogether1() {
+        Solution2409 solution = new Solution2409();
+        assertEquals(3, solution.countDaysTogether("08-15", "08-18", "08-16", "08-19"));
+    }
+    
+    @Test
+        public void testNothing(){
+            Solution2409 s = new Solution2409();
+            }
+    @Test
+    public void testCountDaysTogether_Feb29Overlap() {
+        Solution2409 solution = new Solution2409();
+        int result = solution.countDaysTogether("02-27", "03-01", "02-28", "03-01");
+        assertEquals(2, result);
+    }
+    @Test
+    public void testCountDaysTogether_SameArrivalDateDifferentDepartureDates() {
+        Solution2409 solution = new Solution2409();
+        int result = solution.countDaysTogether("01-01", "12-31", "01-01", "06-30");
+        assertEquals(181, result);
+    }
+                                    
+}

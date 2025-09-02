@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_0526.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">leetcode</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_0526.java</span></div><h1>id_0526.java</h1><pre class="source lang-java linenums">package original;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+<span class="nc" id="L7">class Solution0526 {</span>
+    private int n;
+    private int ans;
+    private boolean[] vis;
+    private Map&lt;Integer, List&lt;Integer&gt;&gt; match;
+
+    public int countArrangement(int n) {
+  /**
+  Suppose you have n integers labeled 1 through n. A permutation of those n integers perm (1-indexed) is considered a beautiful arrangement if for every i (1 &amp;lt;= i &amp;lt;= n), either of the following is true: perm[i] is divisible by i. i is divisible by perm[i]. Given an integer n, return the number of the beautiful arrangements that you can construct. &amp;nbsp; Example 1: Input: n = 2 Output: 2 Explanation: The first beautiful arrangement is [1,2]: - perm[1] = 1 is divisible by i = 1 - perm[2] = 2 is divisible by i = 2 The second beautiful arrangement is [2,1]: - perm[1] = 2 is divisible by i = 1 - i = 2 is divisible by perm[2] = 1 Example 2: Input: n = 1 Output: 1 &amp;nbsp; Constraints: 1 &amp;lt;= n &amp;lt;= 15
+  */
+<span class="nc" id="L17">        this.n = n;</span>
+<span class="nc" id="L18">        ans = 0;</span>
+<span class="nc" id="L19">        vis = new boolean[n + 1];</span>
+<span class="nc" id="L20">        match = new HashMap&lt;&gt;();</span>
+<span class="nc bnc" id="L21" title="All 2 branches missed.">        for (int i = 1; i &lt;= n; ++i) {</span>
+<span class="nc bnc" id="L22" title="All 2 branches missed.">            for (int j = 1; j &lt;= n; ++j) {</span>
+<span class="nc bnc" id="L23" title="All 4 branches missed.">                if (i % j == 0 || j % i == 0) {</span>
+<span class="nc" id="L24">                    match.computeIfAbsent(i, k -&gt; new ArrayList&lt;&gt;()).add(j);</span>
+                }
+            }
+        }
+<span class="nc" id="L28">        dfs(1);</span>
+<span class="nc" id="L29">        return ans;</span>
+    }
+
+    private void dfs(int i) {
+<span class="nc bnc" id="L33" title="All 2 branches missed.">        if (i == n + 1) {</span>
+<span class="nc" id="L34">            ++ans;</span>
+<span class="nc" id="L35">            return;</span>
+        }
+<span class="nc bnc" id="L37" title="All 2 branches missed.">        if (!match.containsKey(i)) {</span>
+<span class="nc" id="L38">            return;</span>
+        }
+<span class="nc bnc" id="L40" title="All 2 branches missed.">        for (int j : match.get(i)) {</span>
+<span class="nc bnc" id="L41" title="All 2 branches missed.">            if (!vis[j]) {</span>
+<span class="nc" id="L42">                vis[j] = true;</span>
+<span class="nc" id="L43">                dfs(i + 1);</span>
+<span class="nc" id="L44">                vis[j] = false;</span>
+            }
+<span class="nc" id="L46">        }</span>
+<span class="nc" id="L47">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

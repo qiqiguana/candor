@@ -1,0 +1,116 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/WillItFly {
+
+  // compiled from: id_72.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 6 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/WillItFly; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  // signature (Ljava/util/List<Ljava/lang/Integer;>;I)Ljava/lang/Boolean;
+  // declaration: java.lang.Boolean willItFly(java.util.List<java.lang.Integer>, int)
+  public static willItFly(Ljava/util/List;I)Ljava/lang/Boolean;
+   L0
+    LINENUMBER 38 L0
+    ICONST_0
+    ISTORE 2
+   L1
+    LINENUMBER 39 L1
+    ICONST_0
+    ISTORE 3
+   L2
+   FRAME FULL [java/util/List I I I] []
+    ILOAD 3
+    ALOAD 0
+    INVOKEINTERFACE java/util/List.size ()I (itf)
+    IF_ICMPGE L3
+   L4
+    LINENUMBER 40 L4
+    ILOAD 2
+    ALOAD 0
+    ILOAD 3
+    INVOKEINTERFACE java/util/List.get (I)Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/Integer
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    IADD
+    ISTORE 2
+   L5
+    LINENUMBER 39 L5
+    IINC 3 1
+    GOTO L2
+   L3
+    LINENUMBER 42 L3
+   FRAME FULL [java/util/List I I I] []
+    ILOAD 2
+    ILOAD 1
+    IF_ICMPLE L6
+   L7
+    LINENUMBER 43 L7
+    ICONST_0
+    INVOKESTATIC java/lang/Boolean.valueOf (Z)Ljava/lang/Boolean;
+    ARETURN
+   L6
+    LINENUMBER 45 L6
+   FRAME FULL [java/util/List I I I] []
+    ICONST_0
+    ISTORE 3
+   L8
+   FRAME FULL [java/util/List I I I] []
+    ILOAD 3
+    ALOAD 0
+    INVOKEINTERFACE java/util/List.size ()I (itf)
+    ICONST_2
+    IDIV
+    IF_ICMPGE L9
+   L10
+    LINENUMBER 46 L10
+    ALOAD 0
+    ILOAD 3
+    INVOKEINTERFACE java/util/List.get (I)Ljava/lang/Object; (itf)
+    ALOAD 0
+    ALOAD 0
+    INVOKEINTERFACE java/util/List.size ()I (itf)
+    ILOAD 3
+    IADD
+    ICONST_1
+    ISUB
+    INVOKEINTERFACE java/util/List.get (I)Ljava/lang/Object; (itf)
+    IF_ACMPEQ L11
+   L12
+    LINENUMBER 47 L12
+    ICONST_0
+    INVOKESTATIC java/lang/Boolean.valueOf (Z)Ljava/lang/Boolean;
+    ARETURN
+   L11
+    LINENUMBER 45 L11
+   FRAME FULL [java/util/List I I I] []
+    IINC 3 1
+    GOTO L8
+   L9
+    LINENUMBER 50 L9
+   FRAME FULL [java/util/List I I I] []
+    ICONST_1
+    INVOKESTATIC java/lang/Boolean.valueOf (Z)Ljava/lang/Boolean;
+    ARETURN
+   L13
+    LOCALVARIABLE i I L2 L3 3
+    LOCALVARIABLE i I L8 L9 3
+    LOCALVARIABLE q Ljava/util/List; L0 L13 0
+    // signature Ljava/util/List<Ljava/lang/Integer;>;
+    // declaration: q extends java.util.List<java.lang.Integer>
+    LOCALVARIABLE w I L0 L13 1
+    LOCALVARIABLE sum I L1 L13 2
+    MAXSTACK = 4
+    MAXLOCALS = 4
+}
+

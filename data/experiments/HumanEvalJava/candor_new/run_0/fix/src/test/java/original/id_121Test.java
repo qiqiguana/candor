@@ -1,0 +1,29 @@
+package original;
+
+import java.util.List;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+/**
+* Test class of Solution.
+*/
+class SolutionTest {
+
+    @Test
+    void testSolution_OddNumbersAtEvenPositions() {
+        List<Integer> numbers = List.of(5, 8, 7, 1);
+        assertEquals(12, Solution.solution(numbers));
+    }
+    
+    @Test
+        public void testNothing(){
+            Solution s = new Solution();
+            }
+    @Test
+    public void EvenPositionOddElementsSum() {
+        List<Integer> input = List.of(3, 13, 2, 9);
+        int expected = 3;
+        assertEquals(expected, Solution.solution(input));
+    }
+                                    
+}

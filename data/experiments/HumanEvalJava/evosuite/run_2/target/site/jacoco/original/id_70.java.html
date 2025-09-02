@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_70.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HumanEvalJava</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_70.java</span></div><h1>id_70.java</h1><pre class="source lang-java linenums">package original;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+
+<span class="fc" id="L8">class StrangeSortList {</span>
+    /**
+     * * Given list of integers, return list in strange order.
+     * Strange sorting, is when you start with the minimum value,
+     * then maximum of the remaining integers, then minimum and so on.
+     *
+     * Examples:
+     * strange_sort_list([1, 2, 3, 4]) == [1, 4, 2, 3]
+     * strange_sort_list([5, 5, 5, 5]) == [5, 5, 5, 5]
+     * strange_sort_list([]) == []
+     *
+     * &gt; strangeSortList([1, 2, 3, 4])
+     * [1, 4, 2, 3]
+     * &gt; strangeSortList([5, 6, 7, 8, 9])
+     * [5, 9, 6, 8, 7]
+     * &gt; strangeSortList([1, 2, 3, 4, 5])
+     * [1, 5, 2, 4, 3]
+     * &gt; strangeSortList([5, 6, 7, 8, 9, 1])
+     * [1, 9, 5, 8, 6, 7]
+     * &gt; strangeSortList([5, 5, 5, 5])
+     * [5, 5, 5, 5]
+     * &gt; strangeSortList([])
+     * []
+     * &gt; strangeSortList([1, 2, 3, 4, 5, 6, 7, 8])
+     * [1, 8, 2, 7, 3, 6, 4, 5]
+     * &gt; strangeSortList([0, 2, 2, 2, 5, 5, -5, -5])
+     * [-5, 5, -5, 5, 0, 2, 2, 2]
+     * &gt; strangeSortList([111111])
+     * [111111]
+     */
+    public static List&lt;Object&gt; strangeSortList(List&lt;Object&gt; lst) {
+<span class="fc" id="L39">        List&lt;Object&gt; result = new ArrayList&lt;Object&gt;();</span>
+<span class="fc" id="L40">        List&lt;Integer&gt; sorted = new ArrayList&lt;Integer&gt;();</span>
+<span class="fc bfc" id="L41" title="All 2 branches covered.">        for (Object value : lst) {</span>
+<span class="fc bfc" id="L42" title="All 2 branches covered.">            if (value instanceof Integer) {</span>
+<span class="fc" id="L43">                sorted.add((Integer) value);</span>
+            }
+<span class="fc" id="L45">        }</span>
+<span class="fc" id="L46">        Collections.sort(sorted);</span>
+<span class="fc" id="L47">        int i = 0;</span>
+<span class="fc" id="L48">        int j = sorted.size() - 1;</span>
+<span class="fc bfc" id="L49" title="All 2 branches covered.">        while (i &lt;= j) {</span>
+<span class="fc" id="L50">            result.add(sorted.get(i));</span>
+<span class="fc bfc" id="L51" title="All 2 branches covered.">            if (i != j) {</span>
+<span class="fc" id="L52">                result.add(sorted.get(j));</span>
+            }
+<span class="fc" id="L54">            i++;</span>
+<span class="fc" id="L55">            j--;</span>
+        }
+<span class="fc" id="L57">        return result;</span>
+    }
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

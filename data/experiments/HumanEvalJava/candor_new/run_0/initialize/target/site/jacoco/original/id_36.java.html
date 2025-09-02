@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_36.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HumanEvalJava</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_36.java</span></div><h1>id_36.java</h1><pre class="source lang-java linenums">package original;
+
+
+<span class="nc" id="L4">class FizzBuzz {</span>
+    /**
+     * Return the number of times the digit 7 appears in integers less than n which are divisible by 11 or 13.
+     *
+     * &gt; fizzBuzz(50)
+     * 0
+     * &gt; fizzBuzz(78)
+     * 2
+     * &gt; fizzBuzz(79)
+     * 3
+     * &gt; fizzBuzz(50)
+     * 0
+     * &gt; fizzBuzz(78)
+     * 2
+     * &gt; fizzBuzz(79)
+     * 3
+     * &gt; fizzBuzz(100)
+     * 3
+     * &gt; fizzBuzz(200)
+     * 6
+     * &gt; fizzBuzz(4000)
+     * 192
+     * &gt; fizzBuzz(10000)
+     * 639
+     * &gt; fizzBuzz(100000)
+     * 8026
+     */
+    public static int fizzBuzz(int n) {
+<span class="fc" id="L32">        int count = 0;</span>
+<span class="fc bfc" id="L33" title="All 2 branches covered.">        for (int i = 1; i &lt; n; i++) {</span>
+<span class="fc bfc" id="L34" title="All 4 branches covered.">            if (i % 11 == 0 || i % 13 == 0) {</span>
+<span class="fc" id="L35">                String s = Integer.toString(i);</span>
+<span class="fc bfc" id="L36" title="All 2 branches covered.">                for (int j = 0; j &lt; s.length(); j++) {</span>
+<span class="pc bpc" id="L37" title="1 of 2 branches missed.">                    if (s.charAt(j) == '7') {</span>
+<span class="nc" id="L38">                        count++;</span>
+                    }
+                }
+            }
+        }
+<span class="fc" id="L43">        return count;</span>
+    }
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

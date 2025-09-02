@@ -1,0 +1,74 @@
+package original;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of SelectWords.
+*/
+class SelectWordsTest {
+	@Test
+	void testSelectWords_WhenGivenStringAndN_ReturnsWordsWithExactlyNConsonants() {
+		// Arrange
+		String s = "Mary had a little lamb";
+		int n = 3;
+		List<String> expected = List.of("Mary", "lamb");
+		// Act
+		List<Object> result = SelectWords.selectWords(s, n);
+		// Assert
+		assertEquals(expected, result);
+	}
+ 
+ @Test
+     public void testNothing(){
+         SelectWords s = new SelectWords();
+         }
+ @Test
+ public void testSelectWordsInstantiation() {
+     // Given
+     SelectWords selectWords = new SelectWords();
+     // Then
+     assertNotNull(selectWords);
+ }
+ @Test
+ public void test_selectWords_with_empty_string_02() {
+     java.util.List result = SelectWords.selectWords("", 4);
+     assertEquals(java.util.Collections.emptyList(), result);
+ }
+ @Test
+ public void Test_selectWords_with_single_word_containing_only_vowels_2() {
+     List<Object> result = SelectWords.selectWords("aeiou", 1);
+     assertTrue(result.isEmpty());
+ }
+ @Test
+ public void TestConsonantCountingWithVowelsAndConsonants() {
+     String s = "hello world";
+     int n = 4;
+     List<Object> result = SelectWords.selectWords(s, n);
+     assertEquals("[world]", result.toString());
+ }
+ @Test
+ public void TestConsonantCountingWithOnlyVowels() {
+     String s = "aeiou";
+     int n = 1;
+     List<Object> result = SelectWords.selectWords(s, n);
+     assertEquals("[]", result.toString());
+ }
+ @Test
+ public void TestConsonantCountingWithMixedCase() {
+     String s = "Hello World";
+     int n = 4;
+     List<Object> result = SelectWords.selectWords(s, n);
+     assertEquals("[World]", result.toString());
+ }
+ @Test
+ public void TestConsonantCountingWithEmptyString() {
+     String s = "";
+     int n = 4;
+     List<Object> result = SelectWords.selectWords(s, n);
+     assertEquals("[]", result.toString());
+ }
+                                 
+}

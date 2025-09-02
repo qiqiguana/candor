@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_2024.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">leetcode</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_2024.java</span></div><h1>id_2024.java</h1><pre class="source lang-java linenums">package original;
+
+<span class="nc" id="L3">class Solution2024 {</span>
+    private char[] s;
+    private int k;
+
+    public int maxConsecutiveAnswers(String answerKey, int k) {
+  /**
+  A teacher is writing a test with n true/false questions, with &amp;#39;T&amp;#39; denoting true and &amp;#39;F&amp;#39; denoting false. He wants to confuse the students by maximizing the number of consecutive questions with the same answer (multiple trues or multiple falses in a row). You are given a string answerKey, where answerKey[i] is the original answer to the ith question. In addition, you are given an integer k, the maximum number of times you may perform the following operation: Change the answer key for any question to &amp;#39;T&amp;#39; or &amp;#39;F&amp;#39; (i.e., set answerKey[i] to &amp;#39;T&amp;#39; or &amp;#39;F&amp;#39;). Return the maximum number of consecutive &amp;#39;T&amp;#39;s or &amp;#39;F&amp;#39;s in the answer key after performing the operation at most k times. &amp;nbsp; Example 1: Input: answerKey = &amp;quot;TTFF&amp;quot;, k = 2 Output: 4 Explanation: We can replace both the &amp;#39;F&amp;#39;s with &amp;#39;T&amp;#39;s to make answerKey = &amp;quot;TTTT&amp;quot;. There are four consecutive &amp;#39;T&amp;#39;s. Example 2: Input: answerKey = &amp;quot;TFFT&amp;quot;, k = 1 Output: 3 Explanation: We can replace the first &amp;#39;T&amp;#39; with an &amp;#39;F&amp;#39; to make answerKey = &amp;quot;FFFT&amp;quot;. Alternatively, we can replace the second &amp;#39;T&amp;#39; with an &amp;#39;F&amp;#39; to make answerKey = &amp;quot;TFFF&amp;quot;. In both cases, there are three consecutive &amp;#39;F&amp;#39;s. Example 3: Input: answerKey = &amp;quot;TTFTTFTT&amp;quot;, k = 1 Output: 5 Explanation: We can replace the first &amp;#39;F&amp;#39; to make answerKey = &amp;quot;TTTTTFTT&amp;quot; Alternatively, we can replace the second &amp;#39;F&amp;#39; to make answerKey = &amp;quot;TTFTTTTT&amp;quot;. In both cases, there are five consecutive &amp;#39;T&amp;#39;s. &amp;nbsp; Constraints: n == answerKey.length 1 &amp;lt;= n &amp;lt;= 5 * 104 answerKey[i] is either &amp;#39;T&amp;#39; or &amp;#39;F&amp;#39; 1 &amp;lt;= k &amp;lt;= n
+  */
+<span class="nc" id="L11">        s = answerKey.toCharArray();</span>
+<span class="nc" id="L12">        this.k = k;</span>
+<span class="nc" id="L13">        return Math.max(f('T'), f('F'));</span>
+    }
+
+    private int f(char c) {
+<span class="nc" id="L17">        int l = 0, cnt = 0;</span>
+<span class="nc bnc" id="L18" title="All 2 branches missed.">        for (char ch : s) {</span>
+<span class="nc bnc" id="L19" title="All 2 branches missed.">            cnt += ch == c ? 1 : 0;</span>
+<span class="nc bnc" id="L20" title="All 2 branches missed.">            if (cnt &gt; k) {</span>
+<span class="nc bnc" id="L21" title="All 2 branches missed.">                cnt -= s[l++] == c ? 1 : 0;</span>
+            }
+        }
+<span class="nc" id="L24">        return s.length - l;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

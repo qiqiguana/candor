@@ -42,5 +42,24 @@ class FindMaxTest {
         String result = original.FindMax.findMax(words);
         assertEquals("hello", result);
     }
+    @Test
+    public void FindMax_HappyPath_SingleElementList_ReturnsSingleElement() {
+        List<String> words = new ArrayList<>();
+        words.add("hello");
+        assertEquals("hello", FindMax.findMax(words));
+    }
+    @Test
+    public void FindMax_HappyPath_MultipleElementsList_ReturnsWordWithMostUniqueCharacters() {
+        List<String> words = new ArrayList<>();
+        words.add("apple");
+        words.add("banana");
+        words.add("orange");
+        assertEquals("orange", FindMax.findMax(words));
+    }
+    @Test
+    public void FindMax_HappyPath_EmptyList_ReturnsNull1() {
+        List<String> words = new ArrayList<>();
+        assertNull(FindMax.findMax(words));
+    }
                                     
 }

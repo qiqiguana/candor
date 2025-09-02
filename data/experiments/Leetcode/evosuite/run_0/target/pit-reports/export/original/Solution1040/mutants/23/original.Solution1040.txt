@@ -1,0 +1,167 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Solution1040 {
+
+  // compiled from: id_1040.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 4 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Solution1040; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public numMovesStonesII([I)[I
+   L0
+    LINENUMBER 6 L0
+    ALOAD 1
+    INVOKESTATIC java/util/Arrays.sort ([I)V
+   L1
+    LINENUMBER 7 L1
+    ALOAD 1
+    ARRAYLENGTH
+    ISTORE 2
+   L2
+    LINENUMBER 8 L2
+    ILOAD 2
+    ISTORE 3
+   L3
+    LINENUMBER 9 L3
+    ALOAD 1
+    ILOAD 2
+    ICONST_1
+    ISUB
+    IALOAD
+    ALOAD 1
+    ICONST_1
+    IALOAD
+    ISUB
+    ICONST_1
+    IADD
+    ALOAD 1
+    ILOAD 2
+    ICONST_2
+    ISUB
+    IALOAD
+    ALOAD 1
+    ICONST_0
+    IALOAD
+    ISUB
+    ICONST_1
+    IADD
+    INVOKESTATIC java/lang/Math.max (II)I
+    ILOAD 2
+    ICONST_1
+    ISUB
+    ISUB
+    ISTORE 4
+   L4
+    LINENUMBER 10 L4
+    ICONST_0
+    ISTORE 5
+   L5
+    ICONST_0
+    ISTORE 6
+   L6
+   FRAME FULL [original/Solution1040 [I I I I I I] []
+    ILOAD 6
+    ILOAD 2
+    IF_ICMPGE L7
+   L8
+    LINENUMBER 11 L8
+   FRAME FULL [original/Solution1040 [I I I I I I] []
+    ALOAD 1
+    ILOAD 6
+    IALOAD
+    ALOAD 1
+    ILOAD 5
+    IALOAD
+    ISUB
+    ICONST_1
+    IADD
+    ILOAD 2
+    IF_ICMPLE L9
+   L10
+    LINENUMBER 12 L10
+    IINC 5 1
+    GOTO L8
+   L9
+    LINENUMBER 14 L9
+   FRAME FULL [original/Solution1040 [I I I I I I] []
+    ILOAD 6
+    ILOAD 5
+    ISUB
+    ICONST_1
+    IADD
+    ILOAD 2
+    ICONST_1
+    ISUB
+    IF_ICMPNE L11
+    ALOAD 1
+    ILOAD 6
+    IALOAD
+    ALOAD 1
+    ILOAD 5
+    IALOAD
+    ISUB
+    ILOAD 2
+    ICONST_2
+    ISUB
+    IF_ICMPNE L11
+   L12
+    LINENUMBER 15 L12
+    ILOAD 3
+    ICONST_2
+    INVOKESTATIC java/lang/Math.min (II)I
+    ISTORE 3
+    GOTO L13
+   L11
+    LINENUMBER 17 L11
+   FRAME FULL [original/Solution1040 [I I I I I I] []
+    ILOAD 3
+    ILOAD 2
+    ILOAD 6
+    ILOAD 5
+    ISUB
+    ICONST_1
+    ISUB
+    ISUB
+    INVOKESTATIC java/lang/Math.min (II)I
+    ISTORE 3
+   L13
+    LINENUMBER 10 L13
+   FRAME FULL [original/Solution1040 [I I I I I I] []
+    IINC 6 1
+    GOTO L6
+   L7
+    LINENUMBER 20 L7
+   FRAME FULL [original/Solution1040 [I I I I I I] []
+    ICONST_2
+    NEWARRAY T_INT
+    DUP
+    ICONST_0
+    ILOAD 3
+    IASTORE
+    DUP
+    ICONST_1
+    ILOAD 4
+    IASTORE
+    ARETURN
+   L14
+    LOCALVARIABLE i I L5 L7 5
+    LOCALVARIABLE j I L6 L7 6
+    LOCALVARIABLE this Loriginal/Solution1040; L0 L14 0
+    LOCALVARIABLE stones [I L0 L14 1
+    LOCALVARIABLE n I L2 L14 2
+    LOCALVARIABLE mi I L3 L14 3
+    LOCALVARIABLE mx I L4 L14 4
+    MAXSTACK = 4
+    MAXLOCALS = 7
+}
+

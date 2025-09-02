@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_134.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HumanEvalJava</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_134.java</span></div><h1>id_134.java</h1><pre class="source lang-java linenums">package original;
+
+
+<span class="nc" id="L4">class CheckIfLastCharIsALetter {</span>
+    /**
+     * * Create a function that returns True if the last character
+     * of a given string is an alphabetical character and is not
+     * a part of a word, and False otherwise.
+     * Note: &quot;word&quot; is a group of characters separated by space.
+     *
+     * Examples:
+     * checkIfLastCharIsALetter(&quot;apple pie&quot;) ➞ False
+     * checkIfLastCharIsALetter(&quot;apple pi e&quot;) ➞ True
+     * checkIfLastCharIsALetter(&quot;apple pi e &quot;) ➞ False
+     * checkIfLastCharIsALetter(&quot;&quot;) ➞ False
+     *
+     * &gt; checkIfLastCharIsALetter(&quot;apple&quot;)
+     * false
+     * &gt; checkIfLastCharIsALetter(&quot;apple pi e&quot;)
+     * true
+     * &gt; checkIfLastCharIsALetter(&quot;eeeee&quot;)
+     * false
+     * &gt; checkIfLastCharIsALetter(&quot;A&quot;)
+     * true
+     * &gt; checkIfLastCharIsALetter(&quot;Pumpkin pie &quot;)
+     * false
+     * &gt; checkIfLastCharIsALetter(&quot;Pumpkin pie 1&quot;)
+     * false
+     * &gt; checkIfLastCharIsALetter(&quot;&quot;)
+     * false
+     * &gt; checkIfLastCharIsALetter(&quot;eeeee e &quot;)
+     * false
+     * &gt; checkIfLastCharIsALetter(&quot;apple pie&quot;)
+     * false
+     * &gt; checkIfLastCharIsALetter(&quot;apple pi e &quot;)
+     * false
+     */
+    public static Boolean checkIfLastCharIsALetter(String txt) {
+<span class="fc bfc" id="L39" title="All 2 branches covered.">        if (txt.length() == 0) {</span>
+<span class="fc" id="L40">            return false;</span>
+        }
+<span class="fc" id="L42">        char lastChar = txt.charAt(txt.length() - 1);</span>
+<span class="fc bfc" id="L43" title="All 2 branches covered.">        if (Character.isLetter(lastChar)) {</span>
+<span class="fc bfc" id="L44" title="All 2 branches covered.">            if (txt.length() == 1) {</span>
+<span class="fc" id="L45">                return true;</span>
+            }
+<span class="fc" id="L47">            char secondLastChar = txt.charAt(txt.length() - 2);</span>
+<span class="fc bfc" id="L48" title="All 2 branches covered.">            if (Character.isLetter(secondLastChar)) {</span>
+<span class="fc" id="L49">                return false;</span>
+            }
+<span class="fc" id="L51">            return true;</span>
+        }
+<span class="fc" id="L53">        return false;</span>
+    }
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

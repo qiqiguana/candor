@@ -1,0 +1,46 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of IsHappy.
+*/
+class IsHappyTest {
+    @Test
+    void testIsHappyReturnsFalseForStringsWithLessThan3Characters() {
+        // Arrange and Act
+        Boolean result = IsHappy.isHappy("a");
+        // Assert
+        assertFalse(result);
+    }
+    
+    @Test
+        public void testNothing(){
+            IsHappy s = new IsHappy();
+            }
+    @Test
+    public void testIsHappy_with_string_length_less_than_3() {
+        String input = "abc";
+        Boolean expected = true;
+        assertEquals(expected, IsHappy.isHappy(input));
+    }
+    @Test
+    public void testIsHappy_with_non_distinct_consecutive_letters_at_the_beginning() {
+        String input = "aabbc";
+        Boolean expected = false;
+        assertEquals(expected, IsHappy.isHappy(input));
+    }
+    @Test
+    public void testIsHappy_with_non_distinct_consecutive_letters_in_the_middle() {
+        String input = "abbbc";
+        Boolean expected = false;
+        assertEquals(expected, IsHappy.isHappy(input));
+    }
+    @Test
+    public void testHappyStringWithAlternatingRepeatingCharacters() {
+        String input = "ababab";
+        Boolean expectedResult = false;
+        assertEquals(expectedResult, IsHappy.isHappy(input));
+    }
+                                    
+}

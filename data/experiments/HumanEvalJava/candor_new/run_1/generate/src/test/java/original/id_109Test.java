@@ -1,0 +1,39 @@
+package original;
+
+import java.util.List;
+import java.util.ArrayList;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of MoveOneBall.
+*/
+class MoveOneBallTest {
+    @Test
+    void testMoveOneBall_EmptyArray_ReturnsTrue() {
+        // Arrange
+        List<Object> arr = new ArrayList<>();
+
+        // Act
+        Boolean result = MoveOneBall.moveOneBall(arr);
+
+        // Assert
+        assertTrue(result);
+    }
+    
+    @Test
+        public void testNothing(){
+            MoveOneBall s = new MoveOneBall();
+            }
+    @Test
+    public void testCountIncrement() {
+        List<Object> input = List.of(3, 5, 4, 1, 2);
+        assertFalse(MoveOneBall.moveOneBall(input));
+    }
+    @Test
+    public void testAlreadySortedArray() {
+        List<Object> input = List.of(1, 2, 3, 4, 5);
+        assertTrue(MoveOneBall.moveOneBall(input));
+    }
+                                    
+}

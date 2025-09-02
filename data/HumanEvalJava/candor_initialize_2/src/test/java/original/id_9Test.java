@@ -1,0 +1,98 @@
+package original;
+
+import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of RollingMax.
+*/
+class RollingMaxTest {
+    @Test
+    void testRollingMax_EmptyList_ReturnsEmptyList() {
+        // Arrange
+        List<Object> numbers = new ArrayList<>();
+
+        // Act
+        List<Object> result = RollingMax.rollingMax(numbers);
+
+        // Assert
+        assertTrue(result.isEmpty());
+    }
+    
+    @Test
+        public void testNothing(){
+            RollingMax s = new RollingMax();
+            }
+    @Test
+    public void testRollingMaxWithEmptyInput() {
+        List<Object> input = new ArrayList<>();
+        List<Object> expectedOutput = new ArrayList<>();
+        assertEquals(expectedOutput, RollingMax.rollingMax(input));
+    }
+    @Test
+    public void testRollingMaxWithSingleElementInput() {
+        java.util.List<java.lang.Object> input = new java.util.ArrayList<>(java.util.Arrays.asList((java.lang.Object) (java.lang.Integer) 5));
+        java.util.List<java.lang.Object> expectedOutput = new java.util.ArrayList<>(java.util.Arrays.asList((java.lang.Object) (java.lang.Integer) 5));
+        org.junit.jupiter.api.Assertions.assertEquals(expectedOutput, original.RollingMax.rollingMax(input));
+    }
+    @Test
+    void test_RollingMax_EmptyList_ReturnsEmptyList() {
+        List<Object> numbers = new ArrayList<>();
+        assertEquals(new ArrayList<>(), RollingMax.rollingMax(numbers));
+    }
+    @Test
+    void test_RollingMax_IncreasingOrder_ReturnsIncreasingOrderList() {
+        java.util.List<java.lang.Object> numbers = java.util.Arrays.asList(1, 2, 3, 4);
+        assertEquals(java.util.Arrays.asList((java.lang.Object)1, (java.lang.Object)2, (java.lang.Object)3, (java.lang.Object)4), original.RollingMax.rollingMax(numbers));
+    }
+    @Test
+    void test_RollingMax_NullInput_ThrowsNullPointerException() {
+        List<Object> numbers = null;
+        assertThrows(NullPointerException.class, () -> RollingMax.rollingMax(numbers));
+    }
+    @Test
+    public void testRollingMaxWithPositiveNumbers() {
+        List<Object> input = Arrays.asList(1, 2, 3, 4);
+        List<Object> expected = Arrays.asList(1, 2, 3, 4);
+        assertEquals(expected, RollingMax.rollingMax(input));
+    }
+    @Test
+    public void testRollingMaxWithNegativeNumbers1() {
+        List<Object> input = Arrays.asList(-1, -2, -3, -4);
+        List<Object> expected = Arrays.asList(-1, -1, -1, -1);
+        assertEquals(expected, RollingMax.rollingMax(input));
+    }
+    @Test
+    public void testRollingMaxWithMixedNumbers() {
+        List<Object> input = Arrays.asList(1, -2, 3, -4);
+        List<Object> expected = Arrays.asList(1, 1, 3, 3);
+        assertEquals(expected, RollingMax.rollingMax(input));
+    }
+    @Test
+    public void testRollingMaxWithEmptyList() {
+        List<Object> input = new ArrayList<>();
+        List<Object> expected = new ArrayList<>();
+        assertEquals(expected, RollingMax.rollingMax(input));
+    }
+    @Test
+    public void testRollingMaxWithSingleElementList() {
+        List<Object> input = Arrays.asList(1);
+        List<Object> expected = Arrays.asList(1);
+        assertEquals(expected, RollingMax.rollingMax(input));
+    }
+    @Test
+    public void testRollingMaxWithDuplicateElements() {
+        List<Object> input = Arrays.asList(1, 2, 2, 3);
+        List<Object> expected = Arrays.asList(1, 2, 2, 3);
+        assertEquals(expected, RollingMax.rollingMax(input));
+    }
+    @Test
+    public void testRollingMaxWithNonNumericElements() {
+        List<Object> input = Arrays.asList(1, 'a', 3);
+        assertThrows(IllegalArgumentException.class, () -> RollingMax.rollingMax(input));
+    }
+                                    
+}

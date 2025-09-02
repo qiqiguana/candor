@@ -1,0 +1,77 @@
+package original;
+
+import static org.junit.jupiter.api.Assertions.assertNull;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of CompareOne.
+*/
+class CompareOneTest {
+
+    @Test
+    void test_compareOne_DifferentTypes_ReturnsLarger1() {
+        Object a = "5,1";
+        Object b = 6;
+        Object expected = 6;
+        Object actual = CompareOne.compareOne(a, b);
+        assertEquals(expected, actual);
+    }
+    
+    @Test
+        public void testNothing(){
+            CompareOne s = new CompareOne();
+            }
+    @Test
+    public void testCompareOne_EqualIntegers() {
+        assertEquals(null, CompareOne.compareOne(1, 1));
+    }
+    @Test
+    public void testCompareOne_DifferentIntegers() {
+        assertEquals(3, CompareOne.compareOne(2, 3));
+    }
+    @Test
+    public void testCompareOne_StringComma() {
+        assertEquals("6", CompareOne.compareOne("5,1", "6"));
+    }
+    @Test
+    public void testCompareOne_StringNoComma() {
+        assertEquals("6", CompareOne.compareOne("5.1", "6"));
+    }
+    @Test
+    public void testCompareOne_IntegerAndFloat() {
+        assertEquals(3.5f, CompareOne.compareOne(2, 3.5f));
+    }
+    @Test
+    public void testCompareOne_EqualStringRepresentations() {
+        assertEquals(null, CompareOne.compareOne("1.0", "1,0"));
+    }
+    @Test
+    public void compareFloatValuesWithCommaAsDecimalSeparator() {
+        Object result = CompareOne.compareOne("1,5", "2.3");
+        assertEquals("2.3", result);
+    }
+    @Test
+    public void compareFloatValuesWithDifferentDecimalSeparators() {
+        Object result = CompareOne.compareOne(1.5f, "2,3");
+        assertEquals("2,3", result);
+    }
+    @Test
+    public void compareEqualFloatValuesWithCommaAsDecimalSeparator() {
+        Object result = CompareOne.compareOne("1,5", "1.5");
+        assertNull(result);
+    }
+    @Test
+    public void compareEqualFloatValuesWithDifferentDecimalSeparators() {
+        Object result = CompareOne.compareOne(1.5f, "1,5");
+        assertNull(result);
+    }
+    @Test
+    void compareOne_equal_numbers() {
+        assertNull(CompareOne.compareOne(1, "1"));
+    }
+    @Test
+    void compareOne_unequal_numbers() {
+        assertEquals(3, CompareOne.compareOne(2, 3));
+    }
+                                    
+}

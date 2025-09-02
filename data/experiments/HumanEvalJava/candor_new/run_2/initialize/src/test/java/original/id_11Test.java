@@ -1,0 +1,13 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of StringXor.
+*/
+class StringXorTest {
+    @Test
+    void testStringXor_DifferentLength_ThrowsIndexOutOfBoundsException() {
+        assertThrows(StringIndexOutOfBoundsException.class, () -> StringXor.stringXor("1010", "1"));
+    }
+}

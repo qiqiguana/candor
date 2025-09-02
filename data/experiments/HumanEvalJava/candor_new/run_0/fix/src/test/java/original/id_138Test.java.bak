@@ -1,0 +1,31 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of IsEqualToSumEven.
+*/
+class IsEqualToSumEvenTest {
+    @Test
+    void isEqualToSumEven_nLessThan8_ReturnsFalse() {
+        assertFalse(IsEqualToSumEven.isEqualToSumEven(4));
+    }
+    
+    @Test
+        public void testNothing(){
+            IsEqualToSumEven s = new IsEqualToSumEven();
+            }
+    @Test
+    public void testIsEqualToSumEven_EvenNumberGreaterThan8() {
+        int input = 10;
+        boolean expectedResult = true;
+        assertEquals(expectedResult, IsEqualToSumEven.isEqualToSumEven(input));
+    }
+    @Test
+    public void testIsEqualToSumEven_OddNumberGreaterThan8() {
+        int input = 11;
+        boolean expectedResult = false;
+        assertEquals(expectedResult, IsEqualToSumEven.isEqualToSumEven(input));
+    }
+                                    
+}

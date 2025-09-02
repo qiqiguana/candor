@@ -1,0 +1,46 @@
+package original;
+
+import java.util.*;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of Unique.
+*/
+class UniqueTest {
+    @Test
+    void uniqueShouldReturnEmptyListForEmptyInput() {
+        List<Integer> input = new ArrayList<>();
+        assertTrue(Unique.unique(input).isEmpty());
+    }
+    
+    @Test
+        public void testNothing(){
+            Unique s = new Unique();
+            }
+    @Test
+    public void testUniqueWithEmptyList() {
+        List<Integer> input = new ArrayList<>();
+        List<Integer> expected = new ArrayList<>();
+        assertEquals(expected, Unique.unique(input));
+    }
+    @Test
+    public void testUniqueWithSingleElementList() {
+        List<Integer> input = Arrays.asList(5);
+        List<Integer> expected = Arrays.asList(5);
+        assertEquals(expected, Unique.unique(input));
+    }
+    @Test
+    public void testUniqueWithDuplicateElements() {
+        List<Integer> input = Arrays.asList(5, 3, 5, 2, 3, 3, 9, 0, 123);
+        List<Integer> expected = Arrays.asList(0, 2, 3, 5, 9, 123);
+        assertEquals(expected, Unique.unique(input));
+    }
+    @Test
+    public void testUniqueWithNegativeNumbers() {
+        List<Integer> input = Arrays.asList(-1, -2, -3, -4, -5);
+        List<Integer> expected = Arrays.asList(-5, -4, -3, -2, -1);
+        assertEquals(expected, Unique.unique(input));
+    }
+                                    
+}

@@ -1,0 +1,16 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of Solution3082.
+*/
+class Solution3082Test {
+    @Test
+    void testSumOfPower_0() {
+        Solution3082 solution = new Solution3082();
+        int[] nums = {1, 2};
+        int k = 3;
+        assertEquals(1, solution.sumOfPower(nums, k));
+    }
+}

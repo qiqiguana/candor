@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_3209.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">leetcode</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_3209.java</span></div><h1>id_3209.java</h1><pre class="source lang-java linenums">package original;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+<span class="nc" id="L6">class Solution3209 {</span>
+    public long countSubarrays(int[] nums, int k) {
+  /**
+  Given an array of integers nums and an integer k, return the number of subarrays of nums where the bitwise AND of the elements of the subarray equals k. &amp;nbsp; Example 1: Input: nums = [1,1,1], k = 1 Output: 6 Explanation: All subarrays contain only 1&amp;#39;s. Example 2: Input: nums = [1,1,2], k = 1 Output: 3 Explanation: Subarrays having an AND value of 1 are: [1,1,2], [1,1,2], [1,1,2]. Example 3: Input: nums = [1,2,3], k = 2 Output: 2 Explanation: Subarrays having an AND value of 2 are: [1,2,3], [1,2,3]. &amp;nbsp; Constraints: 1 &amp;lt;= nums.length &amp;lt;= 105 0 &amp;lt;= nums[i], k &amp;lt;= 109
+  */
+<span class="nc" id="L11">        long ans = 0;</span>
+<span class="nc" id="L12">        Map&lt;Integer, Integer&gt; pre = new HashMap&lt;&gt;();</span>
+<span class="nc bnc" id="L13" title="All 2 branches missed.">        for (int x : nums) {</span>
+<span class="nc" id="L14">            Map&lt;Integer, Integer&gt; cur = new HashMap&lt;&gt;();</span>
+<span class="nc bnc" id="L15" title="All 2 branches missed.">            for (var e : pre.entrySet()) {</span>
+<span class="nc" id="L16">                int y = e.getKey(), v = e.getValue();</span>
+<span class="nc" id="L17">                cur.merge(x &amp; y, v, Integer::sum);</span>
+<span class="nc" id="L18">            }</span>
+<span class="nc" id="L19">            cur.merge(x, 1, Integer::sum);</span>
+<span class="nc" id="L20">            ans += cur.getOrDefault(k, 0);</span>
+<span class="nc" id="L21">            pre = cur;</span>
+        }
+<span class="nc" id="L23">        return ans;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

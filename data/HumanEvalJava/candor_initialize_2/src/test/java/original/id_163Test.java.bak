@@ -1,0 +1,18 @@
+package original;
+
+import java.util.ArrayList;
+
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of GenerateIntegers.
+*/
+class GenerateIntegersTest {
+    @Test
+    void test_generateIntegers_should_ReturnEvenDigitsBetweenTwoPositiveNumbersInAscendingOrder() {
+        List<Object> result = GenerateIntegers.generateIntegers(2, 10);
+        assertEquals(true, result.get(0).equals(2) && result.get(1).equals(4) && result.get(2).equals(6) && result.get(3).equals(8));
+    }
+}

@@ -1,0 +1,84 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Solution0283 {
+
+  // compiled from: id_0283.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 3 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Solution0283; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public moveZeroes([I)V
+   L0
+    LINENUMBER 5 L0
+    ICONST_0
+    ISTORE 2
+   L1
+    ALOAD 1
+    ARRAYLENGTH
+    ISTORE 3
+   L2
+    LINENUMBER 6 L2
+    ICONST_0
+    ISTORE 4
+   L3
+   FRAME FULL [original/Solution0283 [I I I I] []
+    ILOAD 4
+    ILOAD 3
+    IF_ICMPGE L4
+   L5
+    LINENUMBER 7 L5
+    ALOAD 1
+    ILOAD 4
+    IALOAD
+    IFEQ L6
+   L7
+    LINENUMBER 8 L7
+    ALOAD 1
+    ILOAD 4
+    IALOAD
+    ISTORE 5
+   L8
+    LINENUMBER 9 L8
+    ALOAD 1
+    ILOAD 4
+    ALOAD 1
+    ILOAD 2
+    IALOAD
+    IASTORE
+   L9
+    LINENUMBER 10 L9
+    ALOAD 1
+    ILOAD 2
+    IINC 2 -1
+    ILOAD 5
+    IASTORE
+   L6
+    LINENUMBER 6 L6
+   FRAME FULL [original/Solution0283 [I I I I] []
+    IINC 4 1
+    GOTO L3
+   L4
+    LINENUMBER 13 L4
+   FRAME FULL [original/Solution0283 [I I I I] []
+    RETURN
+   L10
+    LOCALVARIABLE t I L8 L6 5
+    LOCALVARIABLE i I L3 L4 4
+    LOCALVARIABLE this Loriginal/Solution0283; L0 L10 0
+    LOCALVARIABLE nums [I L0 L10 1
+    LOCALVARIABLE k I L1 L10 2
+    LOCALVARIABLE n I L2 L10 3
+    MAXSTACK = 4
+    MAXLOCALS = 6
+}
+

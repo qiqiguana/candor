@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_1040.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">leetcode</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_1040.java</span></div><h1>id_1040.java</h1><pre class="source lang-java linenums">package original;
+
+import java.util.Arrays;
+<span class="fc" id="L4">class Solution1040 {</span>
+    public int[] numMovesStonesII(int[] stones) {
+  /**
+  There are some stones in different positions on the X-axis. You are given an integer array stones, the positions of the stones. Call a stone an endpoint stone if it has the smallest or largest position. In one move, you pick up an endpoint stone and move it to an unoccupied position so that it is no longer an endpoint stone. In particular, if the stones are at say, stones = [1,2,5], you cannot move the endpoint stone at position 5, since moving it to any position (such as 0, or 3) will still keep that stone as an endpoint stone. The game ends when you cannot make any more moves (i.e., the stones are in three consecutive positions). Return an integer array answer of length 2 where: answer[0] is the minimum number of moves you can play, and answer[1] is the maximum number of moves you can play. &amp;nbsp; Example 1: Input: stones = [7,4,9] Output: [1,2] Explanation: We can move 4 -&amp;gt; 8 for one move to finish the game. Or, we can move 9 -&amp;gt; 5, 4 -&amp;gt; 6 for two moves to finish the game. Example 2: Input: stones = [6,5,4,3,10] Output: [2,3] Explanation: We can move 3 -&amp;gt; 8 then 10 -&amp;gt; 7 to finish the game. Or, we can move 3 -&amp;gt; 7, 4 -&amp;gt; 8, 5 -&amp;gt; 9 to finish the game. Notice we cannot move 10 -&amp;gt; 2 to finish the game, because that would be an illegal move. &amp;nbsp; Constraints: 3 &amp;lt;= stones.length &amp;lt;= 104 1 &amp;lt;= stones[i] &amp;lt;= 109 All the values of stones are unique.
+  */
+<span class="fc" id="L9">        Arrays.sort(stones);</span>
+<span class="fc" id="L10">        int n = stones.length;</span>
+<span class="fc" id="L11">        int mi = n;</span>
+<span class="fc" id="L12">        int mx = Math.max(stones[n - 1] - stones[1] + 1, stones[n - 2] - stones[0] + 1) - (n - 1);</span>
+<span class="fc bfc" id="L13" title="All 2 branches covered.">        for (int i = 0, j = 0; j &lt; n; ++j) {</span>
+<span class="pc bpc" id="L14" title="1 of 2 branches missed.">            while (stones[j] - stones[i] + 1 &gt; n) {</span>
+<span class="nc" id="L15">                ++i;</span>
+            }
+<span class="pc bpc" id="L17" title="1 of 4 branches missed.">            if (j - i + 1 == n - 1 &amp;&amp; stones[j] - stones[i] == n - 2) {</span>
+<span class="fc" id="L18">                mi = Math.min(mi, 2);</span>
+            } else {
+<span class="fc" id="L20">                mi = Math.min(mi, n - (j - i + 1));</span>
+            }
+        }
+<span class="fc" id="L23">        return new int[] {mi, mx};</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

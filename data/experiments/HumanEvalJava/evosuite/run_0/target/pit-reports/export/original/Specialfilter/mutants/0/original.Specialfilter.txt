@@ -1,0 +1,133 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Specialfilter {
+
+  // compiled from: id_146.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 9 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Specialfilter; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  // signature (Ljava/util/List<Ljava/lang/Object;>;)I
+  // declaration: int specialfilter(java.util.List<java.lang.Object>)
+  public static specialfilter(Ljava/util/List;)I
+   L0
+    LINENUMBER 34 L0
+    ICONST_0
+    ISTORE 1
+   L1
+    LINENUMBER 35 L1
+    ALOAD 0
+    INVOKEINTERFACE java/util/List.iterator ()Ljava/util/Iterator; (itf)
+    ASTORE 2
+   L2
+   FRAME FULL [java/util/List I java/util/Iterator] []
+    ALOAD 2
+    INVOKEINTERFACE java/util/Iterator.hasNext ()Z (itf)
+    IFEQ L3
+    ALOAD 2
+    INVOKEINTERFACE java/util/Iterator.next ()Ljava/lang/Object; (itf)
+    ASTORE 3
+   L4
+    LINENUMBER 36 L4
+    ALOAD 3
+    CHECKCAST java/lang/Integer
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    BIPUSH 10
+    IF_ICMPGT L5
+   L6
+    LINENUMBER 38 L6
+    NEW java/util/HashSet
+    DUP
+    ICONST_5
+    ANEWARRAY java/lang/Integer
+    DUP
+    ICONST_0
+    ICONST_1
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    AASTORE
+    DUP
+    ICONST_1
+    ICONST_3
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    AASTORE
+    DUP
+    ICONST_2
+    ICONST_5
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    AASTORE
+    DUP
+    ICONST_3
+    BIPUSH 7
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    AASTORE
+    DUP
+    ICONST_4
+    BIPUSH 9
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    AASTORE
+    INVOKESTATIC java/util/Arrays.asList ([Ljava/lang/Object;)Ljava/util/List;
+    INVOKESPECIAL java/util/HashSet.<init> (Ljava/util/Collection;)V
+    ASTORE 4
+   L7
+    LINENUMBER 39 L7
+    ALOAD 3
+    CHECKCAST java/lang/Integer
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    INVOKESTATIC java/lang/Integer.toString (I)Ljava/lang/String;
+    ASTORE 5
+   L8
+    LINENUMBER 40 L8
+    ALOAD 4
+    ALOAD 5
+    ICONST_0
+    ICONST_1
+    INVOKEVIRTUAL java/lang/String.substring (II)Ljava/lang/String;
+    INVOKESTATIC java/lang/Integer.parseInt (Ljava/lang/String;)I
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEINTERFACE java/util/Set.contains (Ljava/lang/Object;)Z (itf)
+    IFEQ L5
+    ALOAD 4
+    ALOAD 5
+    ALOAD 5
+    INVOKEVIRTUAL java/lang/String.length ()I
+    ICONST_1
+    ISUB
+    INVOKEVIRTUAL java/lang/String.substring (I)Ljava/lang/String;
+    INVOKESTATIC java/lang/Integer.parseInt (Ljava/lang/String;)I
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEINTERFACE java/util/Set.contains (Ljava/lang/Object;)Z (itf)
+    IFEQ L5
+   L9
+    LINENUMBER 41 L9
+    IINC 1 1
+   L5
+    LINENUMBER 44 L5
+   FRAME FULL [java/util/List I java/util/Iterator java/lang/Object] []
+    GOTO L2
+   L3
+    LINENUMBER 45 L3
+   FRAME FULL [java/util/List I java/util/Iterator] []
+    ILOAD 1
+    IRETURN
+   L10
+    LOCALVARIABLE odd_digits Ljava/util/Set; L7 L5 4
+    LOCALVARIABLE number_as_string Ljava/lang/String; L8 L5 5
+    LOCALVARIABLE num Ljava/lang/Object; L4 L5 3
+    LOCALVARIABLE nums Ljava/util/List; L0 L10 0
+    // signature Ljava/util/List<Ljava/lang/Object;>;
+    // declaration: nums extends java.util.List<java.lang.Object>
+    LOCALVARIABLE count I L1 L10 1
+    MAXSTACK = 6
+    MAXLOCALS = 6
+}
+

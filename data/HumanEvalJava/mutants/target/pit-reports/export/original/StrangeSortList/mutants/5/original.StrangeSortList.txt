@@ -1,0 +1,136 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/StrangeSortList {
+
+  // compiled from: id_70.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 8 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/StrangeSortList; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  // signature (Ljava/util/List<Ljava/lang/Object;>;)Ljava/util/List<Ljava/lang/Object;>;
+  // declaration: java.util.List<java.lang.Object> strangeSortList(java.util.List<java.lang.Object>)
+  public static strangeSortList(Ljava/util/List;)Ljava/util/List;
+   L0
+    LINENUMBER 39 L0
+    NEW java/util/ArrayList
+    DUP
+    INVOKESPECIAL java/util/ArrayList.<init> ()V
+    ASTORE 1
+   L1
+    LINENUMBER 40 L1
+    NEW java/util/ArrayList
+    DUP
+    INVOKESPECIAL java/util/ArrayList.<init> ()V
+    ASTORE 2
+   L2
+    LINENUMBER 41 L2
+    ALOAD 0
+    INVOKEINTERFACE java/util/List.iterator ()Ljava/util/Iterator; (itf)
+    ASTORE 3
+   L3
+   FRAME FULL [java/util/List java/util/ArrayList java/util/ArrayList java/util/Iterator] []
+    ALOAD 3
+    INVOKEINTERFACE java/util/Iterator.hasNext ()Z (itf)
+    IFEQ L4
+    ALOAD 3
+    INVOKEINTERFACE java/util/Iterator.next ()Ljava/lang/Object; (itf)
+    ASTORE 4
+   L5
+    LINENUMBER 42 L5
+    ALOAD 4
+    INSTANCEOF java/lang/Integer
+    IFEQ L6
+   L7
+    LINENUMBER 43 L7
+    ALOAD 2
+    ALOAD 4
+    CHECKCAST java/lang/Integer
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+   L6
+    LINENUMBER 45 L6
+   FRAME FULL [java/util/List java/util/ArrayList java/util/ArrayList java/util/Iterator java/lang/Object] []
+    GOTO L3
+   L4
+    LINENUMBER 46 L4
+   FRAME FULL [java/util/List java/util/ArrayList java/util/ArrayList java/util/Iterator] []
+    ALOAD 2
+    INVOKESTATIC java/util/Collections.sort (Ljava/util/List;)V
+   L8
+    LINENUMBER 47 L8
+    ICONST_0
+    ISTORE 3
+   L9
+    LINENUMBER 48 L9
+    ALOAD 2
+    INVOKEINTERFACE java/util/List.size ()I (itf)
+    ICONST_1
+    ISUB
+    ISTORE 4
+   L10
+    LINENUMBER 49 L10
+   FRAME FULL [java/util/List java/util/ArrayList java/util/ArrayList I I] []
+    ILOAD 3
+    ILOAD 4
+    IF_ICMPGT L11
+   L12
+    LINENUMBER 50 L12
+    ALOAD 1
+    ALOAD 2
+    ILOAD 3
+    INVOKEINTERFACE java/util/List.get (I)Ljava/lang/Object; (itf)
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+   L13
+    LINENUMBER 51 L13
+    ILOAD 3
+    ILOAD 4
+    IF_ICMPNE L14
+   L15
+    LINENUMBER 52 L15
+    ALOAD 1
+    ALOAD 2
+    ILOAD 4
+    INVOKEINTERFACE java/util/List.get (I)Ljava/lang/Object; (itf)
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+   L14
+    LINENUMBER 54 L14
+   FRAME FULL [java/util/List java/util/ArrayList java/util/ArrayList I I] []
+    IINC 3 1
+   L16
+    LINENUMBER 55 L16
+    IINC 4 -1
+    GOTO L10
+   L11
+    LINENUMBER 57 L11
+   FRAME FULL [java/util/List java/util/ArrayList java/util/ArrayList I I] []
+    ALOAD 1
+    ARETURN
+   L17
+    LOCALVARIABLE value Ljava/lang/Object; L5 L6 4
+    LOCALVARIABLE lst Ljava/util/List; L0 L17 0
+    // signature Ljava/util/List<Ljava/lang/Object;>;
+    // declaration: lst extends java.util.List<java.lang.Object>
+    LOCALVARIABLE result Ljava/util/List; L1 L17 1
+    // signature Ljava/util/List<Ljava/lang/Object;>;
+    // declaration: result extends java.util.List<java.lang.Object>
+    LOCALVARIABLE sorted Ljava/util/List; L2 L17 2
+    // signature Ljava/util/List<Ljava/lang/Integer;>;
+    // declaration: sorted extends java.util.List<java.lang.Integer>
+    LOCALVARIABLE i I L9 L17 3
+    LOCALVARIABLE j I L10 L17 4
+    MAXSTACK = 3
+    MAXLOCALS = 5
+}
+

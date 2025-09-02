@@ -50,5 +50,124 @@ class IsHappyTest {
     public void test_Happy_String_with_Repeating_Characters() {
         assertFalse(IsHappy.isHappy("aaaaaa"));
     }
+    @Test
+    public void testIsHappyWithRepeatingCharacters() {
+        String s = "aa";
+        assertFalse(IsHappy.isHappy(s));
+    }
+    @Test
+    public void testIsHappyWithDistinctCharacters() {
+        String s = "abcd";
+        assertTrue(IsHappy.isHappy(s));
+    }
+    @Test
+    public void testIsHappyWithAlternatingRepeatingCharacters() {
+        String s = "aabb";
+        assertFalse(IsHappy.isHappy(s));
+    }
+    @Test
+    public void testIsHappyWithNonRepeatingCharactersAndLength3() {
+        String s = "adb";
+        assertTrue(IsHappy.isHappy(s));
+    }
+    @Test
+    public void testIsHappyWithRepeatingCharactersAtTheEnd() {
+        String s = "xyy";
+        assertFalse(IsHappy.isHappy(s));
+    }
+    @Test
+    public void testIsHappyWithLongString() {
+        String s = "abcdefghijj";
+        assertFalse(IsHappy.isHappy(s));
+    }
+    @Test
+    public void testIsHappyWithLongStringAndNoRepeatingCharacters() {
+        String s = "abcdefghi";
+        assertTrue(IsHappy.isHappy(s));
+    }
+    @Test
+    public void testIsHappy_ConsecutiveLetters() {
+        assertFalse(IsHappy.isHappy("aa"));
+    }
+    @Test
+    public void testIsHappy_DistinctLetters() {
+        assertTrue(IsHappy.isHappy("abcd"));
+    }
+    @Test
+    public void testIsHappy_RepeatingLettersAtEnd() {
+        assertFalse(IsHappy.isHappy("aabb"));
+    }
+    @Test
+    public void testIsHappy_DistinctLettersInMiddle() {
+        assertTrue(IsHappy.isHappy("adb"));
+    }
+    @Test
+    public void testIsHappy_RepeatingLettersAtStart() {
+        assertFalse(IsHappy.isHappy("xyy"));
+    }
+    @Test
+    public void testIsHappy_LongSequenceOfDistinctLetters() {
+        assertTrue(IsHappy.isHappy("abcdefgh"));
+    }
+    @Test
+    public void testIsHappy_LongSequenceOfDistinctLetters2() {
+        assertTrue(IsHappy.isHappy("iopasdfghjkl"));
+    }
+    @Test
+    public void test_Unhappy_String_With_Repeating_Characters() {
+        assertFalse(IsHappy.isHappy("aab"));
+    }
+    @Test
+    public void test_Happy_String_With_No_Repeating_Characters() {
+        assertTrue(IsHappy.isHappy("abcd"));
+    }
+    @Test
+    public void test_Edge_Case_Empty_String() {
+        assertFalse(IsHappy.isHappy(""));
+    }
+    @Test
+    public void test_Happy_String_With_Length_3() {
+        assertTrue(IsHappy.isHappy("abc"));
+    }
+    @Test
+    public void testIsHappy_withLessThan3Characters() {
+        String input = "a";
+        assertFalse(IsHappy.isHappy(input));
+    }
+    @Test
+    public void testIsHappy_withRepeatingCharactersAtBeginning() {
+        String input = "aab";
+        assertFalse(IsHappy.isHappy(input));
+    }
+    @Test
+    public void testIsHappy_withRepeatingCharactersInMiddle() {
+        String input = "abbc";
+        assertFalse(IsHappy.isHappy(input));
+    }
+    @Test
+    public void testIsHappy_withRepeatingCharactersAtEnd() {
+        String input = "abcdd";
+        assertFalse(IsHappy.isHappy(input));
+    }
+    @Test
+    public void testIsHappy_DistinctConsecutiveLetters() {
+        String s = "abcd";
+        assertTrue(IsHappy.isHappy(s));
+    }
+    @Test
+    public void testIsHappy_SameFirstAndSecondLetter() {
+        String s = "aabb";
+        assertFalse(IsHappy.isHappy(s));
+    }
+    @Test
+    public void testIsHappy_SameFirstAndThirdLetter() {
+        String s = "xyy";
+        assertFalse(IsHappy.isHappy(s));
+    }
+    @Test
+    public void testIsHappy_SameSecondAndThirdLetter() {
+        String s = "iopaxioi";
+        assertFalse(IsHappy.isHappy(s));
+    }
                                     
 }

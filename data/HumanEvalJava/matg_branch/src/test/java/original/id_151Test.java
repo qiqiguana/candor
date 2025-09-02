@@ -1,5 +1,6 @@
 package original;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -16,4 +17,101 @@ class DoubleTheDifferenceTest {
         int result = DoubleTheDifference.doubleTheDifference(lst);
         assertEquals(25, result);
     }
+    
+    @Test
+        public void testNothing(){
+            DoubleTheDifference s = new DoubleTheDifference();
+            }
+    @Test
+    public void EmptyListTest() {
+        List<Object> lst = new ArrayList<>();
+        assertEquals(0, DoubleTheDifference.doubleTheDifference(lst));
+    }
+    @Test
+    public void SingleOddIntegerTest() {
+        List<Object> lst = java.util.Arrays.asList(3);
+        assertEquals(9, DoubleTheDifference.doubleTheDifference(lst));
+    }
+    @Test
+    public void MultipleOddIntegersTest2() {
+        List<Object> lst = Arrays.asList(1, 3, 5);
+        assertEquals(35, DoubleTheDifference.doubleTheDifference(lst));
+    }
+    @Test
+    public void testDoubleTheDifference_SingleOddPositive() {
+        List<Object> lst = Arrays.asList(3);
+        int result = DoubleTheDifference.doubleTheDifference(lst);
+        assertEquals(9, result);
+    }
+    @Test
+    public void testDoubleTheDifference_SingleEvenPositive() {
+        List<Object> lst = Arrays.asList(2);
+        int result = DoubleTheDifference.doubleTheDifference(lst);
+        assertEquals(0, result);
+    }
+    @Test
+    public void testDoubleTheDifference_MultipleOddPositive() {
+        List<Object> lst = Arrays.asList(1, 3, 5);
+        int result = DoubleTheDifference.doubleTheDifference(lst);
+        assertEquals(35, result);
+    }
+    @Test
+    public void testDoubleTheDifference_MultipleEvenPositive() {
+        List<Object> lst = Arrays.asList(2, 4, 6);
+        int result = DoubleTheDifference.doubleTheDifference(lst);
+        assertEquals(0, result);
+    }
+    @Test
+    public void testDoubleTheDifference_MixedElements() {
+        List<Object> lst = Arrays.asList(1, 2, 3, 4, 5);
+        int result = DoubleTheDifference.doubleTheDifference(lst);
+        assertEquals(35, result);
+    }
+    @Test
+    public void testDoubleTheDifference_NonIntegerElements() {
+        List<Object> lst = Arrays.asList(0.5, 1.5, 2.5);
+        int result = DoubleTheDifference.doubleTheDifference(lst);
+        assertEquals(0, result);
+    }
+    @Test
+    void testSinglePositiveOddInteger() {
+        List<Object> lst = Arrays.asList(1);
+        assertEquals(1, DoubleTheDifference.doubleTheDifference(lst));
+    }
+    @Test
+    void testSingleNegativeOddInteger() {
+        List<Object> lst = Arrays.asList(-1);
+        assertEquals(0, DoubleTheDifference.doubleTheDifference(lst));
+    }
+    @Test
+    void testSinglePositiveEvenInteger() {
+        List<Object> lst = Arrays.asList(2);
+        assertEquals(0, DoubleTheDifference.doubleTheDifference(lst));
+    }
+    @Test
+    void testSingleNegativeEvenInteger() {
+        List<Object> lst = Arrays.asList(-2);
+        assertEquals(0, DoubleTheDifference.doubleTheDifference(lst));
+    }
+    @Test
+    void testSinglePositiveOddDouble() {
+        List<Object> lst = Arrays.asList(1.5);
+        assertEquals(0, DoubleTheDifference.doubleTheDifference(lst));
+    }
+    @Test
+    void testMultiplePositiveOddIntegers() {
+        List<Object> lst = Arrays.asList(1, 3, 5);
+        assertEquals(35, DoubleTheDifference.doubleTheDifference(lst));
+    }
+    @Test
+    void testMultipleNegativeOddIntegers() {
+        List<Object> lst = Arrays.asList(-1, -3, -5);
+        assertEquals(0, DoubleTheDifference.doubleTheDifference(lst));
+    }
+    @Test
+    void testMixedPositiveAndNegativeOddIntegers() {
+        List<Object> lst = Arrays.asList(1, -3, 5);
+        assertEquals(26, DoubleTheDifference.doubleTheDifference(lst));
+    }
+                                    
 }

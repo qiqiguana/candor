@@ -1,0 +1,46 @@
+package original;
+
+import java.util.stream.Collectors;
+import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of RollingMax.
+*/
+class RollingMaxTest {
+    @Test
+    void testRollingMaxWithEmptyList() {
+        List<Object> numbers = new ArrayList<>();
+        assertEquals(new ArrayList<>(), RollingMax.rollingMax(numbers));
+    }
+    
+    @Test
+        public void testNothing(){
+            RollingMax s = new RollingMax();
+            }
+    @Test
+    public void RollingMax_MultipleElements() {
+        List<Object> input = Arrays.asList(1, 2, 3, 4, 5);
+        List<Integer> expectedOutput = Arrays.asList(1, 2, 3, 4, 5);
+        assertEquals(expectedOutput.stream().map(o -> (Object) o).collect(Collectors.toList()), RollingMax.rollingMax(input));
+    }
+    @Test
+    public void RollingMax_NonIntegerElement() {
+        List<Object> input = Arrays.asList("a", 2, 3, 4, 5);
+        assertThrows(IllegalArgumentException.class, () -> RollingMax.rollingMax(input));
+    }
+    @Test
+    void test_RollingMax_DuplicateElements() {
+        List<Object> numbers = new ArrayList<>();
+        numbers.add(1);
+        numbers.add(2);
+        numbers.add(2);
+        numbers.add(3);
+        numbers.add(3);
+        numbers.add(4);
+        assertEquals(Arrays.asList(1, 2, 2, 3, 3, 4), RollingMax.rollingMax(numbers));
+    }
+                                    
+}

@@ -1,0 +1,168 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Solution2862 {
+
+  // compiled from: id_2862.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 4 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Solution2862; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  // signature (Ljava/util/List<Ljava/lang/Integer;>;)J
+  // declaration: long maximumSum(java.util.List<java.lang.Integer>)
+  public maximumSum(Ljava/util/List;)J
+   L0
+    LINENUMBER 6 L0
+    LCONST_0
+    LSTORE 2
+   L1
+    LINENUMBER 7 L1
+    ALOAD 1
+    INVOKEINTERFACE java/util/List.size ()I (itf)
+    ISTORE 4
+   L2
+    LINENUMBER 8 L2
+    ILOAD 4
+    ICONST_1
+    ISUB
+    NEWARRAY T_BOOLEAN
+    ASTORE 5
+   L3
+    LINENUMBER 9 L3
+    ILOAD 4
+    I2D
+    INVOKESTATIC java/lang/Math.sqrt (D)D
+    INVOKESTATIC java/lang/Math.floor (D)D
+    D2I
+    ISTORE 6
+   L4
+    LINENUMBER 10 L4
+    ILOAD 6
+    ICONST_1
+    IADD
+    NEWARRAY T_INT
+    ASTORE 7
+   L5
+    LINENUMBER 11 L5
+    ICONST_1
+    ISTORE 8
+   L6
+   FRAME FULL [original/Solution2862 java/util/List J I [Z I [I I] []
+    ILOAD 8
+    ILOAD 6
+    ICONST_1
+    IADD
+    IF_ICMPGT L7
+   L8
+    LINENUMBER 12 L8
+    ALOAD 7
+    ILOAD 8
+    ICONST_1
+    ISUB
+    ILOAD 8
+    ILOAD 8
+    IMUL
+    IASTORE
+   L9
+    LINENUMBER 11 L9
+    IINC 8 1
+    GOTO L6
+   L7
+    LINENUMBER 14 L7
+   FRAME FULL [original/Solution2862 java/util/List J I [Z I [I I] []
+    ICONST_1
+    ISTORE 8
+   L10
+   FRAME FULL [original/Solution2862 java/util/List J I [Z I [I I] []
+    ILOAD 8
+    ILOAD 4
+    IF_ICMPGT L11
+   L12
+    LINENUMBER 15 L12
+    LCONST_0
+    LSTORE 9
+   L13
+    LINENUMBER 16 L13
+    ICONST_0
+    ISTORE 11
+   L14
+    LINENUMBER 17 L14
+    ILOAD 8
+    ALOAD 7
+    ILOAD 11
+    IALOAD
+    IMUL
+    ISTORE 12
+   L15
+    LINENUMBER 18 L15
+   FRAME FULL [original/Solution2862 java/util/List J I [Z I [I I J I I] []
+    ILOAD 12
+    ILOAD 4
+    IF_ICMPGT L16
+   L17
+    LINENUMBER 19 L17
+    LLOAD 9
+    ALOAD 1
+    ILOAD 12
+    ICONST_1
+    ISUB
+    INVOKEINTERFACE java/util/List.get (I)Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/Integer
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    I2L
+    LADD
+    LSTORE 9
+   L18
+    LINENUMBER 20 L18
+    ILOAD 8
+    ALOAD 7
+    IINC 11 1
+    ILOAD 11
+    IALOAD
+    IMUL
+    ISTORE 12
+    GOTO L15
+   L16
+    LINENUMBER 22 L16
+   FRAME FULL [original/Solution2862 java/util/List J I [Z I [I I J I I] []
+    LLOAD 2
+    LLOAD 9
+    INVOKESTATIC java/lang/Math.max (JJ)J
+    LSTORE 2
+   L19
+    LINENUMBER 14 L19
+    IINC 8 1
+    GOTO L10
+   L11
+    LINENUMBER 24 L11
+   FRAME FULL [original/Solution2862 java/util/List J I [Z I [I I] []
+    LLOAD 2
+    LRETURN
+   L20
+    LOCALVARIABLE i I L6 L7 8
+    LOCALVARIABLE res J L13 L19 9
+    LOCALVARIABLE idx I L14 L19 11
+    LOCALVARIABLE curr I L15 L19 12
+    LOCALVARIABLE i I L10 L11 8
+    LOCALVARIABLE this Loriginal/Solution2862; L0 L20 0
+    LOCALVARIABLE nums Ljava/util/List; L0 L20 1
+    // signature Ljava/util/List<Ljava/lang/Integer;>;
+    // declaration: nums extends java.util.List<java.lang.Integer>
+    LOCALVARIABLE ans J L1 L20 2
+    LOCALVARIABLE n I L2 L20 4
+    LOCALVARIABLE used [Z L3 L20 5
+    LOCALVARIABLE bound I L4 L20 6
+    LOCALVARIABLE squares [I L5 L20 7
+    MAXSTACK = 5
+    MAXLOCALS = 13
+}
+

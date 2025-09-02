@@ -1,0 +1,68 @@
+package original;
+
+import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of SumProduct.
+*/
+class SumProductTest {
+    @Test
+    void testSumProductNonEmptyList() {
+        List<Object> numbers = new ArrayList<>();
+        numbers.add(1);
+        numbers.add(2);
+        numbers.add(3);
+        numbers.add(4);
+        List<Integer> result = SumProduct.sumProduct(numbers);
+        assertEquals(10, (int)result.get(0)); // assert sum is correct
+    }
+    
+    @Test
+        public void testNothing(){
+            SumProduct s = new SumProduct();
+            }
+    @Test
+    public void testSumProductEmptyList() {
+        List<Object> numbers = new ArrayList<>();
+        List<Integer> result = SumProduct.sumProduct(numbers);
+        assertEquals(0, (int)result.get(0));
+        assertEquals(1, (int)result.get(1));
+    }
+    @Test
+    public void testSumProductSingleElementListCorrected() {
+        List<Object> numbers = Arrays.asList(10);
+        List<Integer> result = SumProduct.sumProduct(numbers);
+        assertEquals(10, (int)result.get(0));
+        assertEquals(10, (int)result.get(1));
+    }
+    @Test
+    public void testSumProductMultipleElementsList() {
+        List<Object> numbers = Arrays.asList(1, 2, 3, 4);
+        List<Integer> result = SumProduct.sumProduct(numbers);
+        assertEquals(10, (int)result.get(0));
+    }
+    @Test
+    public void testSumProductInvalidNumberType() {
+        List<Object> numbers = Arrays.asList("a");
+        assertThrows(IllegalArgumentException.class, () -> SumProduct.sumProduct(numbers));
+    }
+    @Test
+    public void testSumProductZeroProduct() {
+        List<Object> numbers = Arrays.asList(100, 0);
+        List<Integer> result = SumProduct.sumProduct(numbers);
+        assertEquals(100, (int)result.get(0));
+        assertEquals(0, (int)result.get(1));
+    }
+    @Test
+    public void testSumProductNegativeNumbers() {
+        List<Object> numbers = Arrays.asList(-1, -2, -3, -4);
+        List<Integer> result = SumProduct.sumProduct(numbers);
+        assertEquals(-10, (int)result.get(0));
+        assertEquals(24, (int)result.get(1));
+    }
+                                    
+}

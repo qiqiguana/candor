@@ -1,0 +1,29 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of IsMultiplyPrime.
+*/
+class IsMultiplyPrimeTest {
+    @Test
+    void testIsMultiplyPrime() {
+        assertTrue(IsMultiplyPrime.isMultiplyPrime(30)); // 2 * 3 * 5 = 30
+    }
+    
+    @Test
+        public void testNothing(){
+            IsMultiplyPrime s = new IsMultiplyPrime();
+            }
+    @Test
+    public void testIsMultiplyPrimeInstantiation() {
+        assertDoesNotThrow(() -> new IsMultiplyPrime());
+    }
+    @Test
+    public void testIsMultiplyPrimeWithPrimeNumberInputFixed() {
+        Integer input = Integer.valueOf(7);
+        Boolean expected_result = Boolean.FALSE;
+        assertEquals(expected_result, IsMultiplyPrime.isMultiplyPrime(input));
+    }
+                                    
+}

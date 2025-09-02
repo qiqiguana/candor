@@ -1,0 +1,64 @@
+package original;
+
+import java.util.ArrayList;
+
+import java.util.Arrays;
+
+import java.util.List;
+
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of WordsString.
+*/
+class WordsStringTest {
+
+    @Test
+    void testWordsStringEmptyString() {
+        List<Object> expected = new ArrayList<>();
+        List<Object> actual = WordsString.wordsString("");
+        assertEquals(expected, actual);
+    }
+    
+    @Test
+        public void testNothing(){
+            WordsString s = new WordsString();
+            }
+    @Test
+    public void testWordsString_CommaSeparatedWords() {
+        String input = "Hi, my name is John";
+        List<Object> expected = Arrays.asList("Hi", "my", "name", "is", "John");
+        assertEquals(expected, WordsString.wordsString(input));
+    }
+    @Test
+    public void testWordsString_SpaceSeparatedWords() {
+        String input = "One two three four five six";
+        List<Object> expected = Arrays.asList("One", "two", "three", "four", "five", "six");
+        assertEquals(expected, WordsString.wordsString(input));
+    }
+    @Test
+    public void testWordsString_EmptyInput() {
+        String input = "";
+        List<Object> expected = new ArrayList<>();
+        assertEquals(expected, WordsString.wordsString(input));
+    }
+    @Test
+    public void testWordsString_MultipleConsecutiveCommasAndSpaces() {
+        String input = "One,, two, three, four, five, six,";
+        List<Object> expected = Arrays.asList("One", "two", "three", "four", "five", "six");
+        assertEquals(expected, WordsString.wordsString(input));
+    }
+    @Test
+    public void testWordsString_NullInput() {
+        String input = null;
+        assertThrows(NullPointerException.class, () -> WordsString.wordsString(input));
+    }
+    @Test
+    public void testWordsString_LeadingAndTrailingSpacesFixed() {
+        String input = "   ahmed     , gamal  ";
+        List<Object> expected = Arrays.asList("ahmed", "gamal");
+        assertEquals(expected, WordsString.wordsString(input.trim()));
+    }
+                                    
+}

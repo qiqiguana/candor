@@ -1,0 +1,241 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Solution3250 {
+
+  // compiled from: id_3250.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 4 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Solution3250; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public countOfPairs([I)I
+   L0
+    LINENUMBER 6 L0
+    LDC 1000000007
+    ISTORE 2
+   L1
+    LINENUMBER 7 L1
+    ALOAD 1
+    ARRAYLENGTH
+    ISTORE 3
+   L2
+    LINENUMBER 8 L2
+    ALOAD 1
+    INVOKESTATIC java/util/Arrays.stream ([I)Ljava/util/stream/IntStream;
+    INVOKEINTERFACE java/util/stream/IntStream.max ()Ljava/util/OptionalInt; (itf)
+    INVOKEVIRTUAL java/util/OptionalInt.getAsInt ()I
+    ISTORE 4
+   L3
+    LINENUMBER 9 L3
+    ILOAD 3
+    ILOAD 4
+    ICONST_1
+    IADD
+    MULTIANEWARRAY [[I 2
+    ASTORE 5
+   L4
+    LINENUMBER 10 L4
+    ICONST_0
+    ISTORE 6
+   L5
+   FRAME FULL [original/Solution3250 [I I I I [[I I] []
+    ILOAD 6
+    ALOAD 1
+    ICONST_0
+    IALOAD
+    IF_ICMPGT L6
+   L7
+    LINENUMBER 11 L7
+    ALOAD 5
+    ICONST_0
+    AALOAD
+    ILOAD 6
+    ICONST_1
+    IASTORE
+   L8
+    LINENUMBER 10 L8
+    IINC 6 1
+    GOTO L5
+   L6
+    LINENUMBER 13 L6
+   FRAME FULL [original/Solution3250 [I I I I [[I I] []
+    ILOAD 4
+    ICONST_1
+    IADD
+    NEWARRAY T_INT
+    ASTORE 6
+   L9
+    LINENUMBER 14 L9
+    ICONST_1
+    ISTORE 7
+   L10
+   FRAME FULL [original/Solution3250 [I I I I [[I [I I] []
+    ILOAD 7
+    ILOAD 3
+    IF_ICMPGE L11
+   L12
+    LINENUMBER 15 L12
+    ALOAD 6
+    ICONST_0
+    ALOAD 5
+    ILOAD 7
+    ICONST_1
+    ISUB
+    AALOAD
+    ICONST_0
+    IALOAD
+    IASTORE
+   L13
+    LINENUMBER 16 L13
+    ICONST_1
+    ISTORE 8
+   L14
+   FRAME FULL [original/Solution3250 [I I I I [[I [I I I] []
+    ILOAD 8
+    ILOAD 4
+    IF_ICMPGT L15
+   L16
+    LINENUMBER 17 L16
+    ALOAD 6
+    ILOAD 8
+    ALOAD 6
+    ILOAD 8
+    ICONST_1
+    ISUB
+    IALOAD
+    ALOAD 5
+    ILOAD 7
+    ICONST_1
+    ISUB
+    AALOAD
+    ILOAD 8
+    IALOAD
+    IADD
+    LDC 1000000007
+    IREM
+    IASTORE
+   L17
+    LINENUMBER 16 L17
+    IINC 8 1
+    GOTO L14
+   L15
+    LINENUMBER 19 L15
+   FRAME FULL [original/Solution3250 [I I I I [[I [I I I] []
+    ICONST_0
+    ISTORE 8
+   L18
+   FRAME FULL [original/Solution3250 [I I I I [[I [I I I] []
+    ILOAD 8
+    ALOAD 1
+    ILOAD 7
+    IALOAD
+    IF_ICMPGT L19
+   L20
+    LINENUMBER 20 L20
+    ILOAD 8
+    ILOAD 8
+    ALOAD 1
+    ILOAD 7
+    ICONST_1
+    ISUB
+    IALOAD
+    IADD
+    ALOAD 1
+    ILOAD 7
+    IALOAD
+    ISUB
+    INVOKESTATIC java/lang/Math.min (II)I
+    ISTORE 9
+   L21
+    LINENUMBER 21 L21
+    ILOAD 9
+    IFLT L22
+   L23
+    LINENUMBER 22 L23
+    ALOAD 5
+    ILOAD 7
+    AALOAD
+    ILOAD 8
+    ALOAD 6
+    ILOAD 9
+    IALOAD
+    IASTORE
+   L22
+    LINENUMBER 19 L22
+   FRAME FULL [original/Solution3250 [I I I I [[I [I I I I] []
+    IINC 8 1
+    GOTO L18
+   L19
+    LINENUMBER 14 L19
+   FRAME FULL [original/Solution3250 [I I I I [[I [I I I] []
+    IINC 7 1
+    GOTO L10
+   L11
+    LINENUMBER 26 L11
+   FRAME FULL [original/Solution3250 [I I I I [[I [I I] []
+    ICONST_0
+    ISTORE 7
+   L24
+    LINENUMBER 27 L24
+    ICONST_0
+    ISTORE 8
+   L25
+   FRAME FULL [original/Solution3250 [I I I I [[I [I I I] []
+    ILOAD 8
+    ALOAD 1
+    ILOAD 3
+    ICONST_1
+    ISUB
+    IALOAD
+    IF_ICMPGT L26
+   L27
+    LINENUMBER 28 L27
+    ILOAD 7
+    ALOAD 5
+    ILOAD 3
+    ICONST_1
+    ISUB
+    AALOAD
+    ILOAD 8
+    IALOAD
+    ISUB
+    LDC 1000000007
+    IREM
+    ISTORE 7
+   L28
+    LINENUMBER 27 L28
+    IINC 8 1
+    GOTO L25
+   L26
+    LINENUMBER 30 L26
+   FRAME FULL [original/Solution3250 [I I I I [[I [I I I] []
+    ILOAD 7
+    IRETURN
+   L29
+    LOCALVARIABLE j I L5 L6 6
+    LOCALVARIABLE j I L14 L15 8
+    LOCALVARIABLE k I L21 L22 9
+    LOCALVARIABLE j I L18 L19 8
+    LOCALVARIABLE i I L10 L11 7
+    LOCALVARIABLE j I L25 L26 8
+    LOCALVARIABLE this Loriginal/Solution3250; L0 L29 0
+    LOCALVARIABLE nums [I L0 L29 1
+    LOCALVARIABLE mod I L1 L29 2
+    LOCALVARIABLE n I L2 L29 3
+    LOCALVARIABLE m I L3 L29 4
+    LOCALVARIABLE f [[I L4 L29 5
+    LOCALVARIABLE g [I L9 L29 6
+    LOCALVARIABLE ans I L24 L29 7
+    MAXSTACK = 6
+    MAXLOCALS = 10
+}
+

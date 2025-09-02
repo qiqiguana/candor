@@ -76,5 +76,261 @@ class RightAngleTriangleTest {
     public void RightAngleTriangle_PositiveTest_SideAIsHypotenuse2() {
         assertTrue(RightAngleTriangle.rightAngleTriangle(5, 3, 4));
     }
+    @Test
+    public void RightAngleTriangle_NegativeTest_NoRightAngle3() {
+        assertFalse(RightAngleTriangle.rightAngleTriangle(5, 5, 10));
+    }
+    @Test
+    public void testRightAngleTriangle_1() {
+        assertTrue(RightAngleTriangle.rightAngleTriangle(3, 4, 5));
+    }
+    @Test
+    public void testRightAngleTriangle_2() {
+        assertTrue(RightAngleTriangle.rightAngleTriangle(7, 24, 25));
+    }
+    @Test
+    public void testNonRightAngleTriangle_1() {
+        assertFalse(RightAngleTriangle.rightAngleTriangle(1, 2, 3));
+    }
+    @Test
+    public void testEqualSides_1() {
+        assertFalse(RightAngleTriangle.rightAngleTriangle(2, 2, 2));
+    }
+    @Test
+    public void testZeroSideLength_1() {
+        assertFalse(RightAngleTriangle.rightAngleTriangle(0, 3, 4));
+    }
+    @Test
+    public void testNegativeSideLength_1() {
+        assertFalse(RightAngleTriangle.rightAngleTriangle(-1, 3, 4));
+    }
+    @Test
+    public void testRightAngleTriangle_Positive() {
+        assertTrue(RightAngleTriangle.rightAngleTriangle(3, 4, 5));
+    }
+    @Test
+    public void testRightAngleTriangle_Negative_NotATriangle() {
+        assertFalse(RightAngleTriangle.rightAngleTriangle(1, 2, 10));
+    }
+    @Test
+    public void testRightAngleTriangle_Edge_EqualSides() {
+        assertFalse(RightAngleTriangle.rightAngleTriangle(5, 5, 5));
+    }
+    @Test
+    public void testRightAngleTriangle_Edge_TwoEqualSides() {
+        assertFalse(RightAngleTriangle.rightAngleTriangle(3, 4, 4));
+    }
+    @Test
+    public void testRightAngleTriangle_Specific_PythagoreanTriple() {
+        assertTrue(RightAngleTriangle.rightAngleTriangle(7, 24, 25));
+    }
+    @Test
+    public void testRightAngleTriangle_Negative_InvalidInput() {
+        assertFalse(RightAngleTriangle.rightAngleTriangle(-1, 2, 3));
+    }
+    @Test
+    public void testRightAngleTriangle_Negative_InvalidInputZero() {
+        assertFalse(RightAngleTriangle.rightAngleTriangle(0, 2, 3));
+    }
+    @Test
+    public void testRightAngleTriangle() {
+        assertTrue(RightAngleTriangle.rightAngleTriangle(3, 4, 5));
+    }
+    @Test
+    public void testNotATriangle() {
+        assertFalse(RightAngleTriangle.rightAngleTriangle(1, 2, 3));
+    }
+    @Test
+    public void testEqualSides() {
+        assertFalse(RightAngleTriangle.rightAngleTriangle(5, 5, 5));
+    }
+    @Test
+    public void testZeroSideLength() {
+        assertFalse(RightAngleTriangle.rightAngleTriangle(0, 4, 5));
+    }
+    @Test
+    public void testLargeNumbers() {
+        assertTrue(RightAngleTriangle.rightAngleTriangle(48, 55, 73));
+    }
+    @Test
+    public void testRightAngleTriangleDifferentOrder() {
+        assertTrue(RightAngleTriangle.rightAngleTriangle(5, 3, 4));
+    }
+    @Test
+    public void testRightAngleTriangle_Specific_LargeNumbers_Fixed_2() {
+        assertFalse(RightAngleTriangle.rightAngleTriangle(100, 200, 250));
+    }
+    @Test
+    public void testRightAngleTriangle_Specific_LargeNumbers_Fixed_3() {
+        assertFalse(RightAngleTriangle.rightAngleTriangle(100, 200, 250));
+    }
+    @Test
+    public void testRightAngleTriangle_Specific_LargeNumbers_Fixed_4() {
+        long a = 100;
+        long b = 200;
+        long c = 250;
+        assertFalse(RightAngleTriangle.rightAngleTriangle((int) a, (int) b, (int) c));
+    }
+    @Test
+    public void testNotRightAngleTriangleWithValidInputs() {
+        assertFalse(RightAngleTriangle.rightAngleTriangle(1, 2, 3));
+    }
+    @Test
+    public void testEdgeCaseWithEqualSideLengths() {
+        assertFalse(RightAngleTriangle.rightAngleTriangle(5, 5, 5));
+    }
+    @Test
+    public void testEdgeCaseWithZeroSideLength() {
+        assertFalse(RightAngleTriangle.rightAngleTriangle(0, 3, 4));
+    }
+    @Test
+    public void testNegativeInputValues() {
+        assertFalse(RightAngleTriangle.rightAngleTriangle(-1, -2, -3));
+    }
+    @Test
+    public void TestRightAngleTriangle_Negative_NotARightAngle() {
+        boolean result = RightAngleTriangle.rightAngleTriangle(1, 2, 3);
+        assertFalse(result);
+    }
+    @Test
+    public void TestRightAngleTriangle_EdgeCase_AllSidesEqual() {
+        boolean result = RightAngleTriangle.rightAngleTriangle(2, 2, 2);
+        assertFalse(result);
+    }
+    @Test
+    public void TestRightAngleTriangle_EdgeCase_TwoSidesEqual() {
+        boolean result = RightAngleTriangle.rightAngleTriangle(5, 12, 13);
+        assertTrue(result);
+    }
+    @Test
+    public void TestRightAngleTriangle_Positive_SmallNumbers() {
+        boolean result = RightAngleTriangle.rightAngleTriangle(3, 4, 5);
+        assertTrue(result);
+    }
+    @Test
+    public void TestRightAngleTriangle_Positive_LargeNumbers() {
+        boolean result = RightAngleTriangle.rightAngleTriangle(100, 120, 130);
+        assertFalse(result);
+    }
+    @Test
+    public void TestRightAngleTriangle_Negative_NegativeNumbers() {
+        boolean result = RightAngleTriangle.rightAngleTriangle(-1, 2, 3);
+        assertFalse(result);
+    }
+    @Test
+    public void TestRightAngleTriangle_EdgeCase_Zero() {
+        boolean result = RightAngleTriangle.rightAngleTriangle(0, 2, 3);
+        assertFalse(result);
+    }
+    @Test
+    public void testNotARightAngleTriangleSadPath() {
+        assertFalse(RightAngleTriangle.rightAngleTriangle(1, 2, 3));
+    }
+    @Test
+    public void testEdgeCaseEqualSides() {
+        assertTrue(RightAngleTriangle.rightAngleTriangle(10, 6, 8));
+    }
+    @Test
+    public void testEdgeCaseAllSidesEqual() {
+        assertFalse(RightAngleTriangle.rightAngleTriangle(2, 2, 2));
+    }
+    @Test
+    public void testLargeNumbersHappyPath() {
+        assertTrue(RightAngleTriangle.rightAngleTriangle(48, 55, 73));
+    }
+    @Test
+    public void testSmallNumbersSadPath() {
+        assertFalse(RightAngleTriangle.rightAngleTriangle(1, 1, 1));
+    }
+    @Test
+    public void testZeroInputEdgeCase() {
+        assertFalse(RightAngleTriangle.rightAngleTriangle(0, 4, 5));
+    }
+    @Test
+    public void RightAngleTriangle_HappyPath_10_6_8() {
+        assertTrue(RightAngleTriangle.rightAngleTriangle(10, 6, 8));
+    }
+    @Test
+    public void RightAngleTriangle_HappyPath_7_24_25() {
+        assertTrue(RightAngleTriangle.rightAngleTriangle(7, 24, 25));
+    }
+    @Test
+    public void RightAngleTriangle_SadPath_EqualSides() {
+        assertFalse(RightAngleTriangle.rightAngleTriangle(2, 2, 2));
+    }
+    @Test
+    public void RightAngleTriangle_SadPath_NotRightAngled() {
+        assertFalse(RightAngleTriangle.rightAngleTriangle(1, 2, 3));
+    }
+    @Test
+    public void RightAngleTriangle_EdgeCase_ZeroInput() {
+        assertFalse(RightAngleTriangle.rightAngleTriangle(0, 4, 5));
+    }
+    @Test
+    public void testNotRightAngleTriangle_SadPath() {
+        boolean result = RightAngleTriangle.rightAngleTriangle(1, 2, 3);
+        assertFalse(result);
+    }
+    @Test
+    public void testEqualSides_EdgeCase() {
+        boolean result = RightAngleTriangle.rightAngleTriangle(5, 5, 5);
+        assertFalse(result);
+    }
+    @Test
+    public void testZeroSideLength_NegativeTest() {
+        boolean result = RightAngleTriangle.rightAngleTriangle(0, 3, 4);
+        assertFalse(result);
+    }
+    @Test
+    public void testLargeNumbers_EdgeCase() {
+        boolean result = RightAngleTriangle.rightAngleTriangle(48, 55, 73);
+        assertTrue(result);
+    }
+    @Test
+    public void testNegativeSideLength_ErrorTest() {
+        boolean result = RightAngleTriangle.rightAngleTriangle(-1, 3, 4);
+        assertFalse(result);
+    }
+    @Test
+    public void testRightAngleTriangleWithBLarger() {
+        assertTrue(RightAngleTriangle.rightAngleTriangle(5, 12, 13));
+    }
+    @Test
+    public void testNotRightAngleTriangleWithBEqualsA() {
+        assertFalse(RightAngleTriangle.rightAngleTriangle(5, 5, 10));
+    }
+    @Test
+    public void testRightAngleTriangleWithAEqualsC() {
+        assertTrue(RightAngleTriangle.rightAngleTriangle(10, 6, 8));
+    }
+    @Test
+    public void testRightAngleTriangleWithALessThanC() {
+        assertTrue(RightAngleTriangle.rightAngleTriangle(7, 24, 25));
+    }
+    @Test
+    public void TestRightAngleTriangleWithBLongerThanAAndC() {
+    	Boolean result = RightAngleTriangle.rightAngleTriangle(3, 4, 5);
+    	assertTrue(result);
+    }
+    @Test
+    public void TestRightAngleTriangleWithAEqualToB() {
+    	Boolean result = RightAngleTriangle.rightAngleTriangle(2, 2, 3);
+    	assertFalse(result);
+    }
+    @Test
+    public void TestRightAngleTriangleWithBGreaterThanAAndALessThanC() {
+    	Boolean result = RightAngleTriangle.rightAngleTriangle(5, 12, 13);
+    	assertTrue(result);
+    }
+    @Test
+    public void TestRightAngleTriangleWithCGreaterThanBAndAGreaterThanC() {
+    	Boolean result = RightAngleTriangle.rightAngleTriangle(5, 3, 4);
+    	assertTrue(result);
+    }
+    @Test
+    public void RightAngleTriangleTestCase_bLongest() {
+        Boolean result = RightAngleTriangle.rightAngleTriangle(8, 15, 17);
+        assertTrue(result);
+    }
                                     
 }

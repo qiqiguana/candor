@@ -1,0 +1,42 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/TruncateNumber {
+
+  // compiled from: id_2.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 3 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/TruncateNumber; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  public static truncateNumber(Ljava/lang/Double;)Ljava/lang/Double;
+   L0
+    LINENUMBER 19 L0
+    ALOAD 0
+    INVOKEVIRTUAL java/lang/Double.doubleValue ()D
+    ALOAD 0
+    INVOKEVIRTUAL java/lang/Double.doubleValue ()D
+    INVOKESTATIC java/lang/Math.floor (D)D
+    DADD
+    LDC 1000.0D
+    DMUL
+    INVOKESTATIC java/lang/Math.round (D)J
+    L2D
+    LDC 1000.0D
+    DDIV
+    INVOKESTATIC java/lang/Double.valueOf (D)Ljava/lang/Double;
+    ARETURN
+   L1
+    LOCALVARIABLE number Ljava/lang/Double; L0 L1 0
+    MAXSTACK = 4
+    MAXLOCALS = 1
+}
+

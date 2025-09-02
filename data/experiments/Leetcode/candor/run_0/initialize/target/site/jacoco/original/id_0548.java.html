@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_0548.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">leetcode</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_0548.java</span></div><h1>id_0548.java</h1><pre class="source lang-java linenums">package original;
+
+import java.util.HashSet;
+import java.util.Set;
+<span class="fc" id="L5">class Solution0548 {</span>
+    public boolean splitArray(int[] nums) {
+<span class="fc" id="L7">        int n = nums.length;</span>
+<span class="fc" id="L8">        int[] s = new int[n + 1];</span>
+<span class="fc bfc" id="L9" title="All 2 branches covered.">        for (int i = 0; i &lt; n; ++i) {</span>
+<span class="fc" id="L10">            s[i + 1] = s[i] + nums[i];</span>
+        }
+<span class="fc bfc" id="L12" title="All 2 branches covered.">        for (int j = 3; j &lt; n - 3; ++j) {</span>
+<span class="fc" id="L13">            Set&lt;Integer&gt; seen = new HashSet&lt;&gt;();</span>
+<span class="fc bfc" id="L14" title="All 2 branches covered.">            for (int i = 1; i &lt; j - 1; ++i) {</span>
+<span class="pc bpc" id="L15" title="1 of 2 branches missed.">                if (s[i] == s[j] - s[i + 1]) {</span>
+<span class="nc" id="L16">                    seen.add(s[i]);</span>
+                }
+            }
+<span class="fc bfc" id="L19" title="All 2 branches covered.">            for (int k = j + 2; k &lt; n - 1; ++k) {</span>
+<span class="pc bpc" id="L20" title="3 of 4 branches missed.">                if (s[n] - s[k + 1] == s[k] - s[j + 1] &amp;&amp; seen.contains(s[n] - s[k + 1])) {</span>
+<span class="nc" id="L21">                    return true;</span>
+                }
+            }
+        }
+<span class="fc" id="L25">        return false;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

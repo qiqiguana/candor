@@ -1,0 +1,133 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/IsBored {
+
+  // compiled from: id_91.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 4 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/IsBored; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  public static isBored(Ljava/lang/String;)I
+   L0
+    LINENUMBER 30 L0
+    ICONST_0
+    ISTORE 1
+   L1
+    LINENUMBER 31 L1
+    ALOAD 0
+    LDC "[.!?]"
+    INVOKEVIRTUAL java/lang/String.split (Ljava/lang/String;)[Ljava/lang/String;
+    ASTORE 2
+   L2
+    LINENUMBER 32 L2
+    ALOAD 2
+    ASTORE 3
+    ALOAD 3
+    ARRAYLENGTH
+    ISTORE 4
+    ICONST_0
+    ISTORE 5
+   L3
+   FRAME FULL [java/lang/String I [Ljava/lang/String; [Ljava/lang/String; I I] []
+    ILOAD 5
+    ILOAD 4
+    IF_ICMPGE L4
+    ALOAD 3
+    ILOAD 5
+    AALOAD
+    ASTORE 6
+   L5
+    LINENUMBER 33 L5
+    ALOAD 6
+    LDC " "
+    INVOKEVIRTUAL java/lang/String.split (Ljava/lang/String;)[Ljava/lang/String;
+    ASTORE 7
+   L6
+    LINENUMBER 34 L6
+    ICONST_0
+    ISTORE 8
+   L7
+    LINENUMBER 35 L7
+    ALOAD 7
+    ASTORE 9
+    ALOAD 9
+    ARRAYLENGTH
+    ISTORE 10
+    ICONST_0
+    ISTORE 11
+   L8
+   FRAME FULL [java/lang/String I [Ljava/lang/String; [Ljava/lang/String; I I java/lang/String [Ljava/lang/String; I [Ljava/lang/String; I I] []
+    ILOAD 11
+    ILOAD 10
+    IF_ICMPGE L9
+    ALOAD 9
+    ILOAD 11
+    AALOAD
+    ASTORE 12
+   L10
+    LINENUMBER 36 L10
+    ALOAD 12
+    INVOKEVIRTUAL java/lang/String.length ()I
+    IFNE L11
+   L12
+    LINENUMBER 37 L12
+    GOTO L13
+   L11
+    LINENUMBER 39 L11
+   FRAME FULL [java/lang/String I [Ljava/lang/String; [Ljava/lang/String; I I java/lang/String [Ljava/lang/String; I [Ljava/lang/String; I I java/lang/String] []
+    ICONST_1
+    ISTORE 8
+   L14
+    LINENUMBER 40 L14
+    ALOAD 12
+    LDC "I"
+    INVOKEVIRTUAL java/lang/String.equals (Ljava/lang/Object;)Z
+    IFEQ L15
+   L16
+    LINENUMBER 41 L16
+    IINC 1 -1
+   L15
+    LINENUMBER 44 L15
+   FRAME FULL [java/lang/String I [Ljava/lang/String; [Ljava/lang/String; I I java/lang/String [Ljava/lang/String; I [Ljava/lang/String; I I java/lang/String] []
+    ILOAD 8
+    IFEQ L13
+   L17
+    LINENUMBER 45 L17
+    GOTO L9
+   L13
+    LINENUMBER 35 L13
+   FRAME FULL [java/lang/String I [Ljava/lang/String; [Ljava/lang/String; I I java/lang/String [Ljava/lang/String; I [Ljava/lang/String; I I java/lang/String] []
+    IINC 11 1
+    GOTO L8
+   L9
+    LINENUMBER 32 L9
+   FRAME FULL [java/lang/String I [Ljava/lang/String; [Ljava/lang/String; I I java/lang/String [Ljava/lang/String; I [Ljava/lang/String; I I] []
+    IINC 5 1
+    GOTO L3
+   L4
+    LINENUMBER 49 L4
+   FRAME FULL [java/lang/String I [Ljava/lang/String; [Ljava/lang/String; I I] []
+    ILOAD 1
+    IRETURN
+   L18
+    LOCALVARIABLE word Ljava/lang/String; L10 L13 12
+    LOCALVARIABLE words [Ljava/lang/String; L6 L9 7
+    LOCALVARIABLE firstWord Z L7 L9 8
+    LOCALVARIABLE sentence Ljava/lang/String; L5 L9 6
+    LOCALVARIABLE s Ljava/lang/String; L0 L18 0
+    LOCALVARIABLE count I L1 L18 1
+    LOCALVARIABLE sentences [Ljava/lang/String; L2 L18 2
+    MAXSTACK = 2
+    MAXLOCALS = 13
+}
+

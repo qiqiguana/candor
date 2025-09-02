@@ -1,0 +1,272 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Solution2538 {
+
+  // compiled from: id_2538.java
+  // access flags 0x19
+  public final static INNERCLASS java/lang/invoke/MethodHandles$Lookup java/lang/invoke/MethodHandles Lookup
+
+  // access flags 0x2
+  // signature [Ljava/util/List<Ljava/lang/Integer;>;
+  // declaration: g extends java.util.List<java.lang.Integer>[]
+  private [Ljava/util/List; g
+
+  // access flags 0x2
+  private J ans
+
+  // access flags 0x2
+  private [I price
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 6 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Solution2538; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public maxOutput(I[[I[I)J
+   L0
+    LINENUMBER 12 L0
+    ALOAD 0
+    ILOAD 1
+    ANEWARRAY java/util/List
+    PUTFIELD original/Solution2538.g : [Ljava/util/List;
+   L1
+    LINENUMBER 13 L1
+    ALOAD 0
+    GETFIELD original/Solution2538.g : [Ljava/util/List;
+    INVOKEDYNAMIC apply()Ljava/util/function/IntFunction; [
+      // handle kind 0x6 : INVOKESTATIC
+      java/lang/invoke/LambdaMetafactory.metafactory(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;
+      // arguments:
+      (I)Ljava/lang/Object;, 
+      // handle kind 0x6 : INVOKESTATIC
+      original/Solution2538.lambda$maxOutput$0(I)Ljava/util/List;, 
+      (I)Ljava/util/List;
+    ]
+    INVOKESTATIC java/util/Arrays.setAll ([Ljava/lang/Object;Ljava/util/function/IntFunction;)V
+   L2
+    LINENUMBER 14 L2
+    ALOAD 2
+    ASTORE 4
+    ALOAD 4
+    ARRAYLENGTH
+    ISTORE 5
+    ICONST_0
+    ISTORE 6
+   L3
+   FRAME FULL [original/Solution2538 I [[I [I [[I I I] []
+    ILOAD 6
+    ILOAD 5
+    IF_ICMPGE L4
+    ALOAD 4
+    ILOAD 6
+    AALOAD
+    ASTORE 7
+   L5
+    LINENUMBER 15 L5
+    ALOAD 7
+    ICONST_0
+    IALOAD
+    ISTORE 8
+   L6
+    ALOAD 7
+    ICONST_1
+    IALOAD
+    ISTORE 9
+   L7
+    LINENUMBER 16 L7
+    ALOAD 0
+    GETFIELD original/Solution2538.g : [Ljava/util/List;
+    ILOAD 8
+    AALOAD
+    ILOAD 9
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+   L8
+    LINENUMBER 17 L8
+    ALOAD 0
+    GETFIELD original/Solution2538.g : [Ljava/util/List;
+    ILOAD 9
+    AALOAD
+    ILOAD 8
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    INVOKEINTERFACE java/util/List.add (Ljava/lang/Object;)Z (itf)
+    POP
+   L9
+    LINENUMBER 14 L9
+    IINC 6 1
+    GOTO L3
+   L4
+    LINENUMBER 19 L4
+   FRAME FULL [original/Solution2538 I [[I [I [[I I I] []
+    ALOAD 0
+    ALOAD 3
+    PUTFIELD original/Solution2538.price : [I
+   L10
+    LINENUMBER 20 L10
+    ALOAD 0
+    ICONST_0
+    ICONST_M1
+    INVOKEVIRTUAL original/Solution2538.dfs (II)[J
+    POP
+   L11
+    LINENUMBER 21 L11
+    ALOAD 0
+    GETFIELD original/Solution2538.ans : J
+    LRETURN
+   L12
+    LOCALVARIABLE a I L6 L9 8
+    LOCALVARIABLE b I L7 L9 9
+    LOCALVARIABLE e [I L5 L9 7
+    LOCALVARIABLE this Loriginal/Solution2538; L0 L12 0
+    LOCALVARIABLE n I L0 L12 1
+    LOCALVARIABLE edges [[I L0 L12 2
+    LOCALVARIABLE price [I L0 L12 3
+    MAXSTACK = 3
+    MAXLOCALS = 10
+
+  // access flags 0x2
+  private dfs(II)[J
+   L0
+    LINENUMBER 25 L0
+    ALOAD 0
+    GETFIELD original/Solution2538.price : [I
+    ILOAD 1
+    IALOAD
+    I2L
+    LSTORE 3
+   L1
+    LCONST_0
+    LSTORE 5
+   L2
+    LINENUMBER 26 L2
+    ALOAD 0
+    GETFIELD original/Solution2538.g : [Ljava/util/List;
+    ILOAD 1
+    AALOAD
+    INVOKEINTERFACE java/util/List.iterator ()Ljava/util/Iterator; (itf)
+    ASTORE 7
+   L3
+   FRAME FULL [original/Solution2538 I I J J java/util/Iterator] []
+    ALOAD 7
+    INVOKEINTERFACE java/util/Iterator.hasNext ()Z (itf)
+    IFEQ L4
+    ALOAD 7
+    INVOKEINTERFACE java/util/Iterator.next ()Ljava/lang/Object; (itf)
+    CHECKCAST java/lang/Integer
+    INVOKEVIRTUAL java/lang/Integer.intValue ()I
+    ISTORE 8
+   L5
+    LINENUMBER 27 L5
+    ILOAD 8
+    ILOAD 2
+    IF_ICMPNE L6
+   L7
+    LINENUMBER 28 L7
+    ALOAD 0
+    ILOAD 8
+    ILOAD 1
+    INVOKEVIRTUAL original/Solution2538.dfs (II)[J
+    ASTORE 9
+   L8
+    LINENUMBER 29 L8
+    ALOAD 9
+    ICONST_0
+    LALOAD
+    LSTORE 10
+   L9
+    ALOAD 9
+    ICONST_1
+    LALOAD
+    LSTORE 12
+   L10
+    LINENUMBER 30 L10
+    ALOAD 0
+    ALOAD 0
+    GETFIELD original/Solution2538.ans : J
+    LLOAD 3
+    LLOAD 12
+    LADD
+    LLOAD 5
+    LLOAD 10
+    LADD
+    INVOKESTATIC java/lang/Math.max (JJ)J
+    INVOKESTATIC java/lang/Math.max (JJ)J
+    PUTFIELD original/Solution2538.ans : J
+   L11
+    LINENUMBER 31 L11
+    LLOAD 3
+    ALOAD 0
+    GETFIELD original/Solution2538.price : [I
+    ILOAD 1
+    IALOAD
+    I2L
+    LLOAD 10
+    LADD
+    INVOKESTATIC java/lang/Math.max (JJ)J
+    LSTORE 3
+   L12
+    LINENUMBER 32 L12
+    LLOAD 5
+    ALOAD 0
+    GETFIELD original/Solution2538.price : [I
+    ILOAD 1
+    IALOAD
+    I2L
+    LLOAD 12
+    LADD
+    INVOKESTATIC java/lang/Math.max (JJ)J
+    LSTORE 5
+   L6
+    LINENUMBER 34 L6
+   FRAME FULL [original/Solution2538 I I J J java/util/Iterator I] []
+    GOTO L3
+   L4
+    LINENUMBER 35 L4
+   FRAME FULL [original/Solution2538 I I J J java/util/Iterator] []
+    ICONST_2
+    NEWARRAY T_LONG
+    DUP
+    ICONST_0
+    LLOAD 3
+    LASTORE
+    DUP
+    ICONST_1
+    LLOAD 5
+    LASTORE
+    ARETURN
+   L13
+    LOCALVARIABLE e [J L8 L6 9
+    LOCALVARIABLE c J L9 L6 10
+    LOCALVARIABLE d J L10 L6 12
+    LOCALVARIABLE j I L5 L6 8
+    LOCALVARIABLE this Loriginal/Solution2538; L0 L13 0
+    LOCALVARIABLE i I L0 L13 1
+    LOCALVARIABLE fa I L0 L13 2
+    LOCALVARIABLE a J L1 L13 3
+    LOCALVARIABLE b J L2 L13 5
+    MAXSTACK = 9
+    MAXLOCALS = 14
+
+  // access flags 0x100A
+  private static synthetic lambda$maxOutput$0(I)Ljava/util/List;
+   L0
+    LINENUMBER 13 L0
+    NEW java/util/ArrayList
+    DUP
+    INVOKESPECIAL java/util/ArrayList.<init> ()V
+    ARETURN
+   L1
+    LOCALVARIABLE k I L0 L1 0
+    MAXSTACK = 2
+    MAXLOCALS = 1
+}
+

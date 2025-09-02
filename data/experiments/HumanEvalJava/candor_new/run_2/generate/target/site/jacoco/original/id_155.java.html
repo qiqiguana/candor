@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_155.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HumanEvalJava</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_155.java</span></div><h1>id_155.java</h1><pre class="source lang-java linenums">package original;
+
+
+import java.util.Arrays;
+import java.util.List;
+
+
+<span class="nc" id="L8">class EvenOddCount {</span>
+    /**
+     * Given an integer. return a tuple that has the number of even and odd digits respectively.
+     *
+     * Example:
+     * evenOddCount(-12) ==&gt; (1, 1)
+     * evenOddCount(123) ==&gt; (1, 2)
+     *
+     * &gt; evenOddCount(7)
+     * [0, 1]
+     * &gt; evenOddCount(-78)
+     * [1, 1]
+     * &gt; evenOddCount(3452)
+     * [2, 2]
+     * &gt; evenOddCount(346211)
+     * [3, 3]
+     * &gt; evenOddCount(-345821)
+     * [3, 3]
+     * &gt; evenOddCount(-2)
+     * [1, 0]
+     * &gt; evenOddCount(-45347)
+     * [2, 3]
+     * &gt; evenOddCount(0)
+     * [1, 0]
+     */
+    public static List&lt;Integer&gt; evenOddCount(int num) {
+<span class="fc" id="L34">        int even = 0;</span>
+<span class="fc" id="L35">        int odd = 0;</span>
+<span class="pc bpc" id="L36" title="1 of 2 branches missed.">        if (num == 0) {</span>
+<span class="fc" id="L37">            even++;</span>
+        }
+<span class="pc bpc" id="L39" title="1 of 2 branches missed.">        while (num != 0) {</span>
+<span class="nc bnc" id="L40" title="All 2 branches missed.">            if (num % 2 == 0) {</span>
+<span class="nc" id="L41">                even++;</span>
+            } else {
+<span class="nc" id="L43">                odd++;</span>
+            }
+<span class="nc" id="L45">            num /= 10;</span>
+        }
+<span class="fc" id="L47">        return Arrays.asList(even, odd);</span>
+    }
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

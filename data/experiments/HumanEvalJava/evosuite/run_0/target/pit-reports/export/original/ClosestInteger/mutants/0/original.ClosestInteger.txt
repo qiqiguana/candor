@@ -1,0 +1,55 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/ClosestInteger {
+
+  // compiled from: id_99.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 3 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/ClosestInteger; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  public static closestInteger(Ljava/lang/String;)I
+   L0
+    LINENUMBER 33 L0
+    ALOAD 0
+    INVOKESTATIC java/lang/Double.parseDouble (Ljava/lang/String;)D
+    DSTORE 1
+   L1
+    LINENUMBER 34 L1
+    DLOAD 1
+    DCONST_0
+    DCMPL
+    IFLT L2
+   L3
+    LINENUMBER 35 L3
+    DLOAD 1
+    LDC 0.5D
+    DADD
+    INVOKESTATIC java/lang/Math.floor (D)D
+    D2I
+    IRETURN
+   L2
+    LINENUMBER 37 L2
+   FRAME FULL [java/lang/String D] []
+    DLOAD 1
+    LDC 0.5D
+    DSUB
+    INVOKESTATIC java/lang/Math.ceil (D)D
+    D2I
+    IRETURN
+   L4
+    LOCALVARIABLE value Ljava/lang/String; L0 L4 0
+    LOCALVARIABLE d D L1 L4 1
+    MAXSTACK = 4
+    MAXLOCALS = 3
+}
+

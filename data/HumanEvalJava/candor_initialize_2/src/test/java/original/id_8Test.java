@@ -1,0 +1,113 @@
+package original;
+
+import java.util.ArrayList;
+
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of SumProduct.
+*/
+class SumProductTest {
+    @Test
+    void testSumProductForEmptyList() {
+        List<Object> numbers = new ArrayList<>();
+        List<Integer> result = SumProduct.sumProduct(numbers);
+        assertEquals(0, (int)result.get(0));
+        assertEquals(1, (int)result.get(1));
+    }
+    @Test
+    public void TestSumProductWithEmptyListFixed() {
+        List<Object> input = new ArrayList<>();
+        List<Integer> result = SumProduct.sumProduct(input);
+        assertAll(
+            () -> assertEquals(0, (int)result.get(0)),
+            () -> assertEquals(1, (int)result.get(1))
+        );
+    }
+    @Test
+    public void testSumProductWithPositiveNumbers() {
+        List<Object> numbers = List.of(1, 2, 3);
+        List<Integer> result = SumProduct.sumProduct(numbers);
+        assertEquals(List.of(6, 6), result);
+    }
+    @Test
+    public void testSumProductWithNegativeNumbers() {
+        List<Object> numbers = List.of(-1, -2, -3);
+        List<Integer> result = SumProduct.sumProduct(numbers);
+        assertEquals(List.of(-6, -6), result);
+    }
+    @Test
+    public void testSumProductWithMixedNumbers() {
+        List<Object> numbers = List.of(1, -2, 3);
+        List<Integer> result = SumProduct.sumProduct(numbers);
+        assertEquals(List.of(2, -6), result);
+    }
+    @Test
+    public void testSumProductWithZero() {
+        List<Object> numbers = List.of(0, 1, 2);
+        List<Integer> result = SumProduct.sumProduct(numbers);
+        assertEquals(List.of(3, 0), result);
+    }
+    @Test
+    public void testSumProductWithSingleElementList() {
+        List<Object> numbers = List.of(5);
+        List<Integer> result = SumProduct.sumProduct(numbers);
+        assertEquals(List.of(5, 5), result);
+    }
+    @Test
+    public void testSumProductWithEmptyList() {
+        List<Object> numbers = List.of();
+        List<Integer> result = SumProduct.sumProduct(numbers);
+        assertEquals(List.of(0, 1), result);
+    }
+    @Test
+    public void testSumProductWithNonNumericInput() {
+        List<Object> numbers = List.of("a", 2, 3);
+        assertThrows(IllegalArgumentException.class, () -> SumProduct.sumProduct(numbers));
+    }
+    @Test
+    public void testSumProduct_MultipleIntegers() {
+        List<Object> numbers = new ArrayList<>();
+        numbers.add(1);
+        numbers.add(2);
+        numbers.add(3);
+        numbers.add(4);
+        List<Integer> result = SumProduct.sumProduct(numbers);
+        assertEquals(10, (int) result.get(0));
+        assertEquals(24, (int) result.get(1));
+    }
+    @Test
+    public void testSumProduct_EmptyList() {
+        List<Object> numbers = new ArrayList<>();
+        List<Integer> result = SumProduct.sumProduct(numbers);
+        assertEquals(0, (int) result.get(0));
+        assertEquals(1, (int) result.get(1));
+    }
+    @Test
+    public void testSumProduct_NonIntegerValue() {
+        List<Object> numbers = new ArrayList<>();
+        numbers.add(1);
+        numbers.add("a");
+        numbers.add(3);
+        assertThrows(IllegalArgumentException.class, () -> SumProduct.sumProduct(numbers));
+    }
+    @Test
+    public void testSumProduct_LargeIntegerValues_LongReturnType() {
+        List<Object> numbers = new ArrayList<>();
+        numbers.add(1000000);
+        numbers.add(2000000);
+        List<Integer> result = SumProduct.sumProduct(numbers);
+        assertEquals((long) 3000000L, (long) result.get(0));
+        assertNotEquals(2000000000000L, (long) result.get(1)); // Due to Integer overflow
+    }
+    @Test
+    public void testSumProduct_SingleIntegerValue() {
+        List<Object> numbers = new ArrayList<>();
+        numbers.add(10);
+        List<Integer> result = SumProduct.sumProduct(numbers);
+        assertEquals(10, (int) result.get(0));
+        assertEquals(10, (int) result.get(1));
+    }
+}

@@ -1,0 +1,24 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of Modp.
+*/
+class ModpTest {
+    @Test
+    void testModpZeroPower() {
+        assertEquals(1, Modp.modp(0, 101));
+    }
+    
+    @Test
+        public void testNothing(){
+            Modp s = new Modp();
+            }
+    @Test
+    public void TestModpMethod1() {
+        int result = Modp.modp(3, 5);
+        assertEquals(3, result);
+    }
+                                    
+}

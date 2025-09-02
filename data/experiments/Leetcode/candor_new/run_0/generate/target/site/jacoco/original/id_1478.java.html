@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_1478.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">leetcode</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_1478.java</span></div><h1>id_1478.java</h1><pre class="source lang-java linenums">package original;
+
+import java.util.Arrays;
+<span class="nc" id="L4">class Solution1478 {</span>
+    public int minDistance(int[] houses, int k) {
+  /**
+  Given the array houses where houses[i] is the location of the ith house along a street and an integer k, allocate k mailboxes in the street. Return the minimum total distance between each house and its nearest mailbox. The test cases are generated so that the answer fits in a 32-bit integer. &amp;nbsp; Example 1: Input: houses = [1,4,8,10,20], k = 3 Output: 5 Explanation: Allocate mailboxes in position 3, 9 and 20. Minimum total distance from each houses to nearest mailboxes is |3-1| + |4-3| + |9-8| + |10-9| + |20-20| = 5 Example 2: Input: houses = [2,3,5,12,18], k = 2 Output: 9 Explanation: Allocate mailboxes in position 3 and 14. Minimum total distance from each houses to nearest mailboxes is |2-3| + |3-3| + |5-3| + |12-14| + |18-14| = 9. &amp;nbsp; Constraints: 1 &amp;lt;= k &amp;lt;= houses.length &amp;lt;= 100 1 &amp;lt;= houses[i] &amp;lt;= 104 All the integers of houses are unique.
+  */
+<span class="nc" id="L9">        Arrays.sort(houses);</span>
+<span class="nc" id="L10">        int n = houses.length;</span>
+<span class="nc" id="L11">        int[][] g = new int[n][n];</span>
+<span class="nc bnc" id="L12" title="All 2 branches missed.">        for (int i = n - 2; i &gt;= 0; --i) {</span>
+<span class="nc bnc" id="L13" title="All 2 branches missed.">            for (int j = i + 1; j &lt; n; ++j) {</span>
+<span class="nc" id="L14">                g[i][j] = g[i + 1][j - 1] + houses[j] - houses[i];</span>
+            }
+        }
+<span class="nc" id="L17">        int[][] f = new int[n][k + 1];</span>
+<span class="nc" id="L18">        final int inf = 1 &lt;&lt; 30;</span>
+<span class="nc bnc" id="L19" title="All 2 branches missed.">        for (int[] e : f) {</span>
+<span class="nc" id="L20">            Arrays.fill(e, inf);</span>
+        }
+<span class="nc bnc" id="L22" title="All 2 branches missed.">        for (int i = 0; i &lt; n; ++i) {</span>
+<span class="nc" id="L23">            f[i][1] = g[0][i];</span>
+<span class="nc bnc" id="L24" title="All 4 branches missed.">            for (int j = 2; j &lt;= k &amp;&amp; j &lt;= i + 1; ++j) {</span>
+<span class="nc bnc" id="L25" title="All 2 branches missed.">                for (int p = 0; p &lt; i; ++p) {</span>
+<span class="nc" id="L26">                    f[i][j] = Math.min(f[i][j], f[p][j - 1] + g[p + 1][i]);</span>
+                }
+            }
+        }
+<span class="nc" id="L30">        return f[n - 1][k];</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

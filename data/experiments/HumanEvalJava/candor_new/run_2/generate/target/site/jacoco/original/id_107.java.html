@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_107.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HumanEvalJava</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_107.java</span></div><h1>id_107.java</h1><pre class="source lang-java linenums">package original;
+
+import java.util.ArrayList;
+import java.util.List;
+
+
+<span class="nc" id="L7">class EvenOddPalindrome {</span>
+    /**
+     * * Given a positive integer n, return a tuple that has the number of even and odd
+     * integer palindromes that fall within the range(1, n), inclusive.
+     *
+     * Example 1:
+     *
+     * Input: 3
+     * Output: (1, 2)
+     * Explanation:
+     * Integer palindrome are 1, 2, 3. one of them is even, and two of them are odd.
+     *
+     * Example 2:
+     *
+     * Input: 12
+     * Output: (4, 6)
+     * Explanation:
+     * Integer palindrome are 1, 2, 3, 4, 5, 6, 7, 8, 9, 11. four of them are even, and 6 of them are odd.
+     *
+     * Note:
+     * 1. 1 &lt;= n &lt;= 10^3
+     * 2. returned tuple has the number of even and odd integer palindromes respectively.
+     *
+     * &gt; evenOddPalindrome(123)
+     * [8, 13]
+     * &gt; evenOddPalindrome(12)
+     * [4, 6]
+     * &gt; evenOddPalindrome(3)
+     * [1, 2]
+     * &gt; evenOddPalindrome(63)
+     * [6, 8]
+     * &gt; evenOddPalindrome(25)
+     * [5, 6]
+     * &gt; evenOddPalindrome(19)
+     * [4, 6]
+     * &gt; evenOddPalindrome(9)
+     * [4, 5]
+     * &gt; evenOddPalindrome(1)
+     * [0, 1]
+     */
+    public static List&lt;Integer&gt; evenOddPalindrome(int n) {
+<span class="fc" id="L48">        List&lt;Integer&gt; result = new ArrayList&lt;Integer&gt;();</span>
+<span class="fc" id="L49">        int even = 0;</span>
+<span class="fc" id="L50">        int odd = 0;</span>
+<span class="fc bfc" id="L51" title="All 2 branches covered.">        for (int i = 1; i &lt;= n; i++) {</span>
+<span class="pc bpc" id="L52" title="1 of 2 branches missed.">            if (isPalindrome(i)) {</span>
+<span class="fc bfc" id="L53" title="All 2 branches covered.">                if (i % 2 == 0) {</span>
+<span class="fc" id="L54">                    even++;</span>
+                } else {
+<span class="fc" id="L56">                    odd++;</span>
+                }
+            }
+        }
+<span class="fc" id="L60">        result.add(even);</span>
+<span class="fc" id="L61">        result.add(odd);</span>
+<span class="fc" id="L62">        return result;</span>
+    }
+
+    private static boolean isPalindrome(int n) {
+<span class="fc" id="L66">        int m = n;</span>
+<span class="fc" id="L67">        int reversed = 0;</span>
+<span class="fc bfc" id="L68" title="All 2 branches covered.">        while (m &gt; 0) {</span>
+<span class="fc" id="L69">            reversed = reversed * 10 + m % 10;</span>
+<span class="fc" id="L70">            m /= 10;</span>
+        }
+<span class="pc bpc" id="L72" title="1 of 2 branches missed.">        return n == reversed;</span>
+    }
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

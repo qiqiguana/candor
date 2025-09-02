@@ -1,0 +1,108 @@
+package original;
+
+import java.util.Arrays;
+import java.util.ArrayList;
+
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of IncrList.
+*/
+class IncrListTest {
+    @Test
+    void testincrList_with_empty_list() {
+        List<Object> input = new ArrayList<>();
+        List<Object> expected = new ArrayList<>();
+        assertEquals(expected, IncrList.incrList(input));
+    }
+    @Test
+    void test_emptyList_fixed() {
+        List<Object> input = new ArrayList<>();
+        assertNotNull(IncrList.incrList(input));
+        assertTrue(IncrList.incrList(input).isEmpty());
+    }
+    @Test
+    void test_listWithSingleElement_Long() {
+        List<Object> input = Arrays.asList(5L);
+        List<Object> expected = new ArrayList<>();
+        assertEquals(expected, IncrList.incrList(input));
+    }
+    @Test
+    void test_listWithMultipleElements() {
+        List<Object> input = Arrays.asList(5, 2, 5, 2, 3, 3, 9, 0, 123);
+        List<Object> expected = Arrays.asList(6, 3, 6, 3, 4, 4, 10, 1, 124);
+        assertEquals(expected, IncrList.incrList(input));
+    }
+    @Test
+    void test_listWithNonIntegerElement() {
+        List<Object> input = Arrays.asList(5, "hello", 2);
+        List<Object> expected = Arrays.asList(6, 3);
+        assertEquals(expected, IncrList.incrList(input));
+    }
+    @Test
+    void test_nullInput() {
+        assertThrows(NullPointerException.class, () -> IncrList.incrList(null));
+    }
+    @Test
+    public void testEmptyList() {
+    	List<Object> input = new ArrayList<>();
+    	List<Object> expected = new ArrayList<>();
+    	assertEquals(expected, IncrList.incrList(input));
+    }
+    @Test
+    public void testSingleElementList() {
+    	List<Object> input = Arrays.asList(1);
+    	List<Object> expected = Arrays.asList(2);
+    	assertEquals(expected, IncrList.incrList(input));
+    }
+    @Test
+    public void testMultipleElementList() {
+    	List<Object> input = Arrays.asList(1, 2, 3);
+    	List<Object> expected = Arrays.asList(2, 3, 4);
+    	assertEquals(expected, IncrList.incrList(input));
+    }
+    @Test
+    public void testNonIntegerElements() {
+    	List<Object> input = Arrays.asList(1, 'a', 2.5, 3);
+    	List<Object> expected = Arrays.asList(2, 4);
+    	assertEquals(expected, IncrList.incrList(input));
+    }
+    @Test
+    public void testEdgeCaseZero() {
+    	List<Object> input = Arrays.asList(0);
+    	List<Object> expected = Arrays.asList(1);
+    	assertEquals(expected, IncrList.incrList(input));
+    }
+    @Test
+    public void testEdgeCaseNegativeNumber() {
+    	List<Object> input = Arrays.asList(-1);
+    	List<Object> expected = Arrays.asList(0);
+    	assertEquals(expected, IncrList.incrList(input));
+    }
+    @Test
+    public void test_incr_list_with_empty_list() {
+        List<Object> input = new ArrayList<>();
+        List<Object> expected_result = new ArrayList<>();
+        assertEquals(expected_result, IncrList.incrList(input));
+    }
+    @Test
+    public void test_incr_list_with_single_element_list() {
+        List<Object> input = Arrays.asList(1);
+        List<Object> expected_result = Arrays.asList(2);
+        assertEquals(expected_result, IncrList.incrList(input));
+    }
+    @Test
+    public void test_incr_list_with_multiple_element_list() {
+        List<Object> input = Arrays.asList(1, 2, 3);
+        List<Object> expected_result = Arrays.asList(2, 3, 4);
+        assertEquals(expected_result, IncrList.incrList(input));
+    }
+    @Test
+    public void test_incr_list_with_non_integer_element_list() {
+        List<Object> input = Arrays.asList(1, "hello", 3);
+        List<Object> expected_result = Arrays.asList(2, 4);
+        assertEquals(expected_result, IncrList.incrList(input));
+    }
+}

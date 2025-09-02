@@ -1,0 +1,76 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/Eat {
+
+  // compiled from: id_159.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 8 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/Eat; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  // signature (III)Ljava/util/List<Ljava/lang/Integer;>;
+  // declaration: java.util.List<java.lang.Integer> eat(int, int, int)
+  public static eat(III)Ljava/util/List;
+   L0
+    LINENUMBER 53 L0
+    ILOAD 1
+    ILOAD 2
+    IF_ICMPGT L1
+   L2
+    LINENUMBER 54 L2
+    ICONST_2
+    ANEWARRAY java/lang/Integer
+    DUP
+    ICONST_0
+    ILOAD 0
+    ILOAD 1
+    IADD
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    AASTORE
+    DUP
+    ICONST_1
+    ILOAD 2
+    ILOAD 1
+    ISUB
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    AASTORE
+    INVOKESTATIC java/util/Arrays.asList ([Ljava/lang/Object;)Ljava/util/List;
+    POP
+    INVOKESTATIC java/util/Collections.emptyList ()Ljava/util/List;
+    ARETURN
+   L1
+    LINENUMBER 56 L1
+   FRAME FULL [I I I] []
+    ICONST_2
+    ANEWARRAY java/lang/Integer
+    DUP
+    ICONST_0
+    ILOAD 0
+    ILOAD 2
+    IADD
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    AASTORE
+    DUP
+    ICONST_1
+    ICONST_0
+    INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+    AASTORE
+    INVOKESTATIC java/util/Arrays.asList ([Ljava/lang/Object;)Ljava/util/List;
+    ARETURN
+   L3
+    LOCALVARIABLE number I L0 L3 0
+    LOCALVARIABLE need I L0 L3 1
+    LOCALVARIABLE remaining I L0 L3 2
+    MAXSTACK = 5
+    MAXLOCALS = 3
+}
+

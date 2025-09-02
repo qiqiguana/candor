@@ -1,0 +1,95 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of RemoveVowels.
+*/
+class RemoveVowelsTest {
+    @Test
+    void removeVowels_RemovesAllVowels() {
+        String result = RemoveVowels.removeVowels("abcdef");
+        assertEquals("bcdf", result);
+    }
+    
+    @Test
+        public void testNothing(){
+            RemoveVowels s = new RemoveVowels();
+            }
+    @Test
+    public void testRemoveVowelsHappyPath() {
+        String input = "bcdf";
+        String expectedResult = "bcdf";
+        assertEquals(expectedResult, RemoveVowels.removeVowels(input));
+    }
+    @Test
+    public void testRemoveVowelsSadPath() {
+        String input = "aaaaa";
+        String expectedResult = "";
+        assertEquals(expectedResult, RemoveVowels.removeVowels(input));
+    }
+    @Test
+    public void testRemoveVowelsEdgeCaseEmptyString() {
+        String input = "";
+        String expectedResult = "";
+        assertEquals(expectedResult, RemoveVowels.removeVowels(input));
+    }
+    @Test
+    public void testRemoveVowelsEdgeCaseSingleCharacter() {
+        String input = "b";
+        String expectedResult = "b";
+        assertEquals(expectedResult, RemoveVowels.removeVowels(input));
+    }
+    @Test
+    public void testRemoveVowelsMultiLineString() {
+        String input = "abcdef\nghijklm";
+        String expectedResult = "bcdf\nghjklm";
+        assertEquals(expectedResult, RemoveVowels.removeVowels(input));
+    }
+    @Test
+    public void testRemoveVowelsNonASCIICahracters_1() {
+        String input = "zbcd";
+        String expectedResult = "zbcd";
+        assertEquals(expectedResult, RemoveVowels.removeVowels(input));
+    }
+    @Test
+    public void RemoveVowels_HappyPath_NoVowels() {
+        String result = RemoveVowels.removeVowels("zbcd");
+        assertEquals("zbcd", result);
+    }
+    @Test
+    public void RemoveVowels_HappyPath_OnlyVowels() {
+        String result = RemoveVowels.removeVowels("aaaaa");
+        assertEquals("", result);
+    }
+    @Test
+    public void RemoveVowels_SadPath_NullInput() {
+        assertThrows(NullPointerException.class, () -> RemoveVowels.removeVowels(null));
+    }
+    @Test
+    public void RemoveVowels_EdgeCase_VowelAtStart() {
+        String result = RemoveVowels.removeVowels("abcdef");
+        assertEquals("bcdf", result);
+    }
+    @Test
+    public void RemoveVowels_EdgeCase_VowelAtEnd() {
+        String result = original.RemoveVowels.removeVowels("fedcba");
+        assertEquals("fdcb", result);
+    }
+    @Test
+    public void RemoveVowels_MultipleVowels() {
+        String result = RemoveVowels.removeVowels("aeiou");
+        assertEquals("", result);
+    }
+    @Test
+    public void RemoveVowels_UpperCase() {
+        String result = RemoveVowels.removeVowels("AEIOU");
+        assertEquals("", result);
+    }
+    @Test
+    public void RemoveVowels_MixedCase() {
+        String result = RemoveVowels.removeVowels("aEiOu");
+        assertEquals("", result);
+    }
+                                    
+}

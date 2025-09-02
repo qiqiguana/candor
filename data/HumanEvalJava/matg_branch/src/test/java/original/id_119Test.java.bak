@@ -83,5 +83,108 @@ class MatchParensTest {
         List<String> lst = new ArrayList<>();
         assertThrows(IndexOutOfBoundsException.class, () -> MatchParens.matchParens(lst));
     }
+    @Test
+    public void Test_MatchParens_With_Unbalanced_Strings2() {
+        List<String> input = Arrays.asList("(()", ")())");
+        assertEquals("No", MatchParens.matchParens(input));
+    }
+    @Test
+    public void TestEmptyStrings() {
+    	List<String> input = List.of("", "");
+    	String expected = "Yes";
+    	assertEquals(expected, MatchParens.matchParens(input));
+    }
+    @Test
+    public void TestMatchParens_HappyPath1() {
+        List<String> input = Arrays.asList("()(", ")");
+        String expected = "Yes";
+        assertEquals(expected, MatchParens.matchParens(input));
+    }
+    @Test
+    public void TestMatchParens_EdgeCase1() {
+        List<String> input = Arrays.asList("(", ")");
+        String expected = "Yes";
+        assertEquals(expected, MatchParens.matchParens(input));
+    }
+    @Test
+    public void TestMatchParens_EdgeCase2() {
+        List<String> input = Arrays.asList(")", ")");
+        String expected = "No";
+        assertEquals(expected, MatchParens.matchParens(input));
+    }
+    @Test
+    public void TestMatchParens_EdgeCase3() {
+        List<String> input = Arrays.asList("(", ")");
+        String expected = "Yes";
+        assertEquals(expected, MatchParens.matchParens(input));
+    }
+    @Test
+    public void TestMatchParens_EdgeCase4() {
+        List<String> input = Arrays.asList(")(()", "(");
+        String expected = "No";
+        assertEquals(expected, MatchParens.matchParens(input));
+    }
+    @Test
+    public void MatchParens_SadPath_UnbalancedParens() {
+        List<String> lst = new ArrayList<>();
+        lst.add(")(()");
+        lst.add("()(");
+        assertEquals(MatchParens.matchParens(lst), "No");
+    }
+    @Test
+    public void MatchParens_EdgeCase_EmptyStrings() {
+        List<String> lst = new ArrayList<>();
+        lst.add("");
+        lst.add("");
+        assertEquals(MatchParens.matchParens(lst), "Yes");
+    }
+    @Test
+    public void MatchParens_HappyPath_SinglePair() {
+        List<String> lst = new ArrayList<>();
+        lst.add("(");
+        lst.add(")");
+        assertEquals(MatchParens.matchParens(lst), "Yes");
+    }
+    @Test
+    public void Test_MatchParens_EmptyStrings() {
+        List<String> lst = Arrays.asList("", "");
+        assertEquals(MatchParens.matchParens(lst), "Yes");
+    }
+    @Test
+    public void Test_MatchParens_LongStrings_Fixed_1() {
+        List<String> lst = Arrays.asList("(()(())", ")())");
+        String result1 = MatchParens.matchParens(lst);
+        assertTrue(result1.equals("No"));
+    }
+    @Test
+    public void testMatchParens_HappyPath_BalancedParentheses() {
+        List<String> input = Arrays.asList("(())", "()()");
+        String result = MatchParens.matchParens(input);
+        assertEquals("Yes", result);
+    }
+    @Test
+    public void testMatchParens_SadPath_UnbalancedParentheses() {
+        List<String> input = Arrays.asList(")", ")");
+        String result = MatchParens.matchParens(input);
+        assertEquals("No", result);
+    }
+    @Test
+    public void testMatchParens_EdgeCase_EmptyStrings() {
+        List<String> input = Arrays.asList("", "");
+        String result = MatchParens.matchParens(input);
+        assertEquals("Yes", result);
+    }
+    @Test
+    public void testMatchParens_SpecificFunctionality_SingleOpenParenthesis() {
+        List<String> input = Arrays.asList("(", "");
+        String result = MatchParens.matchParens(input);
+        assertEquals("No", result);
+    }
+    @Test
+    public void testMatchParens_SpecificFunctionality_SingleCloseParenthesis() {
+        List<String> input = Arrays.asList(")", "");
+        String result = MatchParens.matchParens(input);
+        assertEquals("No", result);
+    }
                                     
 }

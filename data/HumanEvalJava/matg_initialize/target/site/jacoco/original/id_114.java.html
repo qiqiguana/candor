@@ -38,24 +38,24 @@ import java.util.List;
      * -1
      */
     public static long minsubarraysum(List&lt;Object&gt; nums) {
-<span class="nc" id="L41">        long s = 0;</span>
-<span class="nc" id="L42">        long max_sum = 0;</span>
-<span class="nc bnc" id="L43" title="All 2 branches missed.">        for (int i = 0; i &lt; nums.size(); i++) {</span>
-<span class="nc" id="L44">            long num = ((Number) nums.get(i)).longValue();</span>
-<span class="nc" id="L45">            s -= num;</span>
-<span class="nc bnc" id="L46" title="All 2 branches missed.">            if (s &lt; 0) {</span>
+<span class="fc" id="L41">        long s = 0;</span>
+<span class="fc" id="L42">        long max_sum = 0;</span>
+<span class="fc bfc" id="L43" title="All 2 branches covered.">        for (int i = 0; i &lt; nums.size(); i++) {</span>
+<span class="fc" id="L44">            long num = ((Number) nums.get(i)).longValue();</span>
+<span class="fc" id="L45">            s -= num;</span>
+<span class="pc bpc" id="L46" title="1 of 2 branches missed.">            if (s &lt; 0) {</span>
 <span class="nc" id="L47">                s = 0;</span>
             }
-<span class="nc" id="L49">            max_sum = Math.max(s, max_sum);</span>
+<span class="fc" id="L49">            max_sum = Math.max(s, max_sum);</span>
         }
-<span class="nc bnc" id="L51" title="All 2 branches missed.">        if (max_sum == 0) {</span>
+<span class="pc bpc" id="L51" title="1 of 2 branches missed.">        if (max_sum == 0) {</span>
 <span class="nc" id="L52">            max_sum = -((Number) nums.get(0)).longValue();</span>
 <span class="nc bnc" id="L53" title="All 2 branches missed.">            for (int i = 0; i &lt; nums.size(); i++) {</span>
 <span class="nc" id="L54">                max_sum = Math.max(-((Number) nums.get(i)).longValue(), max_sum);</span>
             }
         }
-<span class="nc" id="L57">        long min_sum = -max_sum;</span>
-<span class="nc" id="L58">        return min_sum;</span>
+<span class="fc" id="L57">        long min_sum = -max_sum;</span>
+<span class="fc" id="L58">        return min_sum;</span>
     }
 
 

@@ -1,0 +1,98 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of VowelsCount.
+*/
+class VowelsCountTest {
+    @Test
+    void testVowelsCount_withStringContainingOnlyVowels_ReturnsCorrectVowelCount() {
+        String s = "aeiouAEIOU";
+        int expected = 10;
+        int actual = VowelsCount.vowelsCount(s);
+        assertEquals(expected, actual);
+    }
+    
+    @Test
+        public void testNothing(){
+            VowelsCount s = new VowelsCount();
+            }
+    @Test
+    public void TestVowelsAtBeginning() {
+        String s = "aeiou";
+        assertEquals(5, VowelsCount.vowelsCount(s));
+    }
+    @Test
+    public void TestConsecutiveVowels() {
+        String s = "aeeioo";
+        assertEquals(6, VowelsCount.vowelsCount(s));
+    }
+    @Test
+    public void TestNoVowels() {
+        String s = "bcdfghjklmnpqrstvwxyz";
+        assertEquals(0, VowelsCount.vowelsCount(s));
+    }
+    @Test
+    public void TestSingleCharacterVowel() {
+        String s = "a";
+        assertEquals(1, VowelsCount.vowelsCount(s));
+    }
+    @Test
+    public void TestEmptyString() {
+        String s = "";
+        assertEquals(0, VowelsCount.vowelsCount(s));
+    }
+    @Test
+    public void TestYAsVowelAtEndOfWord() {
+        String s = "my";
+        assertEquals(1, VowelsCount.vowelsCount(s));
+    }
+    @Test
+    public void TestNullString() {
+        String s = null;
+        assertThrows(NullPointerException.class, () -> VowelsCount.vowelsCount(s));
+    }
+    @Test
+    public void testVowelsCount_SadPath_EmptyString() {
+        String input = "";
+        int expected = 0;
+        assertEquals(expected, VowelsCount.vowelsCount(input));
+    }
+    @Test
+    public void testVowelsCount_EdgeCase_SingleVowel() {
+        String input = "a";
+        int expected = 1;
+        assertEquals(expected, VowelsCount.vowelsCount(input));
+    }
+    @Test
+    public void testVowelsCount_HappyPath_MixedCaseVowels_Y_at_End() {
+        String input = "AaBbCcY";
+        int expected = 3;
+        assertEquals(expected, VowelsCount.vowelsCount(input));
+    }
+    @Test
+    public void testVowelsCount_SadPath_NullInput() {
+        String input = null;
+        assertThrows(NullPointerException.class, () -> VowelsCount.vowelsCount(input));
+    }
+    @Test
+    public void testVowelsCount_HappyPath_OnlyVowels() {
+        String input = "aeiou";
+        int expected = 5;
+        assertEquals(expected, VowelsCount.vowelsCount(input));
+    }
+    @Test
+    public void testVowelsCount_HappyPath_OnlyConsonants() {
+        String input = "bcdfg";
+        int expected = 0;
+        assertEquals(expected, VowelsCount.vowelsCount(input));
+    }
+    @Test
+    public void testVowelsCount_EdgeCase_SingleConsonant() {
+        String input = "b";
+        int expected = 0;
+        assertEquals(expected, VowelsCount.vowelsCount(input));
+    }
+                                    
+}

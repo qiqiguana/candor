@@ -120,6 +120,71 @@ class ParseMusicTest {
         assertEquals(2, result.get(2));
         assertEquals(1, result.get(3));
     }
+    @Test
+    public void testParseMusic_WholeNote_ReturnsFourBeats() {
+        String musicString = "o";
+        List<Object> expectedResult = new ArrayList<>();
+        expectedResult.add(4);
+        assertEquals(expectedResult, ParseMusic.parseMusic(musicString));
+    }
+    @Test
+    public void testParseMusic_HalfNote_ReturnsTwoBeats() {
+        String musicString = "o|";
+        List<Object> expectedResult = new ArrayList<>();
+        expectedResult.add(2);
+        assertEquals(expectedResult, ParseMusic.parseMusic(musicString));
+    }
+    @Test
+    public void testParseMusic_MultipleNotes_ReturnsCorrectBeats() {
+        String musicString = "o|o";
+        List<Object> expectedResult = new ArrayList<>();
+        expectedResult.add(2);
+        expectedResult.add(4);
+        assertEquals(expectedResult, ParseMusic.parseMusic(musicString));
+    }
+    @Test
+    public void testParseMusic_InvalidInput_ReturnsEmptyList() {
+        String musicString = "abc";
+        List<Object> expectedResult = new ArrayList<>();
+        assertEquals(expectedResult, ParseMusic.parseMusic(musicString));
+    }
+    @Test
+    public void testEmptyStringFixed() {
+        String musicString = "";
+        List<Integer> expected = new ArrayList<>();
+        assertEquals(expected, ParseMusic.parseMusic(musicString));
+    }
+    @Test
+    public void testNullString() {
+        String musicString = null;
+        assertThrows(NullPointerException.class, () -> ParseMusic.parseMusic(musicString));
+    }
+    @Test
+    void testSingleWholeNote2() {
+        List<Object> result = ParseMusic.parseMusic("o");
+        assertEquals(1, result.size());
+        if(result.get(0) instanceof Integer)
+            assertEquals(4, (Integer)result.get(0));
+    }
+    @Test
+    void testSingleHalfNote2() {
+        List<Object> result = ParseMusic.parseMusic("o|");
+        assertEquals(1, result.size());
+        assertEquals(Integer.valueOf(2), result.get(0));
+    }
+    @Test
+    void testMultipleNotes() {
+        List<Object> result = ParseMusic.parseMusic("o o| .|");
+        assertEquals(3, result.size());
+        assertEquals(4, result.get(0));
+        assertEquals(2, result.get(1));
+        assertEquals(1, result.get(2));
+    }
+    @Test
+    void testEdgeCase() {
+    	List<Object> result = ParseMusic.parseMusic(" ");
+    	assertTrue(result.isEmpty());
+    }
                                     
 
 }

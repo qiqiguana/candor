@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_2613.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">leetcode</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_2613.java</span></div><h1>id_2613.java</h1><pre class="source lang-java linenums">package original;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+<span class="nc" id="L7">class Solution2613 {</span>
+<span class="nc" id="L8">    private List&lt;int[]&gt; points = new ArrayList&lt;&gt;();</span>
+
+    public int[] beautifulPair(int[] nums1, int[] nums2) {
+  /**
+  You are given two 0-indexed integer arrays nums1 and nums2 of the same length. A pair of indices (i,j) is called beautiful if|nums1[i] - nums1[j]| + |nums2[i] - nums2[j]| is the smallest amongst all possible indices pairs where i &amp;lt; j. Return the beautiful pair. In the case that there are multiple beautiful pairs, return the lexicographically smallest pair. Note that |x| denotes the absolute value of x. A pair of indices (i1, j1) is lexicographically smaller than (i2, j2) if i1 &amp;lt; i2 or i1 == i2 and j1 &amp;lt; j2. &amp;nbsp; Example 1: Input: nums1 = [1,2,3,2,4], nums2 = [2,3,1,2,3] Output: [0,3] Explanation: Consider index 0 and index 3. The value of |nums1[i]-nums1[j]| + |nums2[i]-nums2[j]| is 1, which is the smallest value we can achieve. Example 2: Input: nums1 = [1,2,4,3,2,5], nums2 = [1,4,2,3,5,1] Output: [1,4] Explanation: Consider index 1 and index 4. The value of |nums1[i]-nums1[j]| + |nums2[i]-nums2[j]| is 1, which is the smallest value we can achieve. &amp;nbsp; Constraints: 2 &amp;lt;= nums1.length, nums2.length &amp;lt;= 105 nums1.length == nums2.length 0 &amp;lt;= nums1i&amp;nbsp;&amp;lt;= nums1.length 0 &amp;lt;= nums2i&amp;nbsp;&amp;lt;= nums2.length
+  */
+<span class="nc" id="L14">        int n = nums1.length;</span>
+<span class="nc" id="L15">        Map&lt;Long, List&lt;Integer&gt;&gt; pl = new HashMap&lt;&gt;();</span>
+<span class="nc bnc" id="L16" title="All 2 branches missed.">        for (int i = 0; i &lt; n; ++i) {</span>
+<span class="nc" id="L17">            long z = f(nums1[i], nums2[i]);</span>
+<span class="nc" id="L18">            pl.computeIfAbsent(z, k -&gt; new ArrayList&lt;&gt;()).add(i);</span>
+        }
+<span class="nc bnc" id="L20" title="All 2 branches missed.">        for (int i = 0; i &lt; n; ++i) {</span>
+<span class="nc" id="L21">            long z = f(nums1[i], nums2[i]);</span>
+<span class="nc bnc" id="L22" title="All 2 branches missed.">            if (pl.get(z).size() &gt; 1) {</span>
+<span class="nc" id="L23">                return new int[] {i, pl.get(z).get(1)};</span>
+            }
+<span class="nc" id="L25">            points.add(new int[] {nums1[i], nums2[i], i});</span>
+        }
+<span class="nc" id="L27">        points.sort((a, b) -&gt; a[0] - b[0]);</span>
+<span class="nc" id="L28">        int[] ans = dfs(0, points.size() - 1);</span>
+<span class="nc" id="L29">        return new int[] {ans[1], ans[2]};</span>
+    }
+
+    private long f(int x, int y) {
+<span class="nc" id="L33">        return x * 100000L + y;</span>
+    }
+
+    private int dist(int x1, int y1, int x2, int y2) {
+<span class="nc" id="L37">        return Math.abs(x1 - x2) + Math.abs(y1 - y2);</span>
+    }
+
+    private int[] dfs(int l, int r) {
+<span class="nc bnc" id="L41" title="All 2 branches missed.">        if (l &gt;= r) {</span>
+<span class="nc" id="L42">            return new int[] {1 &lt;&lt; 30, -1, -1};</span>
+        }
+<span class="nc" id="L44">        int m = (l + r) &gt;&gt; 1;</span>
+<span class="nc" id="L45">        int x = points.get(m)[0];</span>
+<span class="nc" id="L46">        int[] t1 = dfs(l, m);</span>
+<span class="nc" id="L47">        int[] t2 = dfs(m + 1, r);</span>
+<span class="nc bnc" id="L48" title="All 10 branches missed.">        if (t1[0] &gt; t2[0]</span>
+            || (t1[0] == t2[0] &amp;&amp; (t1[1] &gt; t2[1] || (t1[1] == t2[1] &amp;&amp; t1[2] &gt; t2[2])))) {
+<span class="nc" id="L50">            t1 = t2;</span>
+        }
+<span class="nc" id="L52">        List&lt;int[]&gt; t = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L53" title="All 2 branches missed.">        for (int i = l; i &lt;= r; ++i) {</span>
+<span class="nc bnc" id="L54" title="All 2 branches missed.">            if (Math.abs(points.get(i)[0] - x) &lt;= t1[0]) {</span>
+<span class="nc" id="L55">                t.add(points.get(i));</span>
+            }
+        }
+<span class="nc" id="L58">        t.sort((a, b) -&gt; a[1] - b[1]);</span>
+<span class="nc bnc" id="L59" title="All 2 branches missed.">        for (int i = 0; i &lt; t.size(); ++i) {</span>
+<span class="nc bnc" id="L60" title="All 2 branches missed.">            for (int j = i + 1; j &lt; t.size(); ++j) {</span>
+<span class="nc bnc" id="L61" title="All 2 branches missed.">                if (t.get(j)[1] - t.get(i)[1] &gt; t1[0]) {</span>
+<span class="nc" id="L62">                    break;</span>
+                }
+<span class="nc" id="L64">                int pi = Math.min(t.get(i)[2], t.get(j)[2]);</span>
+<span class="nc" id="L65">                int pj = Math.max(t.get(i)[2], t.get(j)[2]);</span>
+<span class="nc" id="L66">                int d = dist(t.get(i)[0], t.get(i)[1], t.get(j)[0], t.get(j)[1]);</span>
+<span class="nc bnc" id="L67" title="All 10 branches missed.">                if (d &lt; t1[0] || (d == t1[0] &amp;&amp; (pi &lt; t1[1] || (pi == t1[1] &amp;&amp; pj &lt; t1[2])))) {</span>
+<span class="nc" id="L68">                    t1 = new int[] {d, pi, pj};</span>
+                }
+            }
+        }
+<span class="nc" id="L72">        return t1;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

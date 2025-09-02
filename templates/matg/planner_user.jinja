@@ -12,7 +12,8 @@ Generate tests to cover these line numbers:
 {% endif %}
 
 {% if missing_branches | length>0%}
-## The following branches in the following lines are not covered. Make sure to cover them in your plan:
+## Uncovered Branches
+## The branches in the following lines are not covered. Analyse why these branches are not covered and how to cover them with test cases. Make sure to cover them in your plan:
 {{ missing_branches }}
 {% endif%}
 Analyze this file to understand existing tests, structure, and conventions:
@@ -24,6 +25,8 @@ Analyze this file to understand existing tests, structure, and conventions:
 2. Analyze and follow existing test suite conventions
 3. Provide only the formatted test plan, no additional explanations
 4. Generate the input and expecteed result should be using Java data structures
+5. Do NOT call or test private methods directly. In Java, private methods can only be accessed from within the same class — they are not accessible from unit test classes. Only generate tests for public methods. Focus on the public API of the class.
+ 
 
 ## Output Format
 {{format_instructions}}

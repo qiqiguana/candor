@@ -1,0 +1,29 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of XOrY.
+*/
+class XOrYTest {
+    @Test
+    void test_xOrY_withPrimeNumber() {
+        assertEquals(34, XOrY.xOrY(7, 34, 12));
+    }
+    
+    @Test
+        public void testNothing(){
+            XOrY s = new XOrY();
+            }
+    @Test
+    public void testXOrY_n_equals_1() {
+        int result = XOrY.xOrY(1, 10, 20);
+        assertEquals(20, result);
+    }
+    @Test
+    public void testXOrY_n_not_prime() {
+        int result = XOrY.xOrY(6, 10, 20);
+        assertEquals(20, result);
+    }
+                                    
+}

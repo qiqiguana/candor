@@ -1,0 +1,92 @@
+// class version 55.0 (55)
+// access flags 0x20
+class original/GetClosestVowel {
+
+  // compiled from: id_118.java
+
+  // access flags 0x0
+  <init>()V
+   L0
+    LINENUMBER 4 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Loriginal/GetClosestVowel; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  public static getClosestVowel(Ljava/lang/String;)Ljava/lang/String;
+   L0
+    LINENUMBER 48 L0
+    LDC "aeiouAEIOU"
+    ASTORE 1
+   L1
+    LINENUMBER 49 L1
+    ALOAD 0
+    INVOKEVIRTUAL java/lang/String.length ()I
+    ICONST_2
+    ISUB
+    ISTORE 2
+   L2
+    LINENUMBER 50 L2
+   FRAME FULL [java/lang/String java/lang/String I] []
+    ILOAD 2
+    IFLE L3
+   L4
+    LINENUMBER 51 L4
+    ALOAD 1
+    ALOAD 0
+    ILOAD 2
+    INVOKEVIRTUAL java/lang/String.charAt (I)C
+    INVOKEVIRTUAL java/lang/String.indexOf (I)I
+    ICONST_M1
+    IF_ICMPEQ L5
+   L6
+    LINENUMBER 52 L6
+    ALOAD 1
+    ALOAD 0
+    ILOAD 2
+    ICONST_1
+    ISUB
+    INVOKEVIRTUAL java/lang/String.charAt (I)C
+    INVOKEVIRTUAL java/lang/String.indexOf (I)I
+    ICONST_M1
+    IF_ICMPNE L5
+    ALOAD 1
+    ALOAD 0
+    ILOAD 2
+    ICONST_1
+    ISUB
+    INVOKEVIRTUAL java/lang/String.charAt (I)C
+    INVOKEVIRTUAL java/lang/String.indexOf (I)I
+    ICONST_M1
+    IF_ICMPNE L5
+   L7
+    LINENUMBER 53 L7
+    ALOAD 0
+    ILOAD 2
+    ILOAD 2
+    ICONST_1
+    IADD
+    INVOKEVIRTUAL java/lang/String.substring (II)Ljava/lang/String;
+    ARETURN
+   L5
+    LINENUMBER 56 L5
+   FRAME FULL [java/lang/String java/lang/String I] []
+    IINC 2 -1
+    GOTO L2
+   L3
+    LINENUMBER 58 L3
+   FRAME FULL [java/lang/String java/lang/String I] []
+    LDC ""
+    ARETURN
+   L8
+    LOCALVARIABLE word Ljava/lang/String; L0 L8 0
+    LOCALVARIABLE vowels Ljava/lang/String; L1 L8 1
+    LOCALVARIABLE i I L2 L8 2
+    MAXSTACK = 4
+    MAXLOCALS = 3
+}
+

@@ -61,7 +61,93 @@ class FileUtils:
             return(extracted_comment)
         else:
             return("No comment found before 'Examples:'")
+    @staticmethod
+    def extract_lines(source_code, start_line, end_line):
+        """
+        Extracts the focal method from the source code based on the provided start and end lines.
+        
+        Args:
+            source_code (str): The complete source code as a string.
+            start_line (int): The starting line number of the focal method (1-based index).
+            end_line (int): The ending line number of the focal method (1-based index).
+        
+        Returns:
+            str: The extracted focal method as a string.
+        """
+        lines = source_code.splitlines()
+        # Adjust for 0-based indexing
+        return "\n".join(lines[start_line:end_line+1])
+    
+    @staticmethod
+    def extract_text(source_code, start_row, start_column,end_row,end_column):
+        """
+        Extracts a specific text segment from the source code based on the provided start and end positions.
 
+        Args:
+            source_code (str): The complete source code as a string.
+            start_row (int): The starting row number (0-based index).
+            start_column (int): The starting column number (0-based index).
+            end_row (int): The ending row number (0-based index).
+            end_column (int): The ending column number (0-based index).
+
+        Returns:
+            str: The extracted text segment.
+        """
+        lines = source_code.splitlines()
+        if start_row < 0 or end_row >= len(lines):
+            raise ValueError("Row indices are out of bounds.")
+        
+        extracted_lines = lines[start_row:end_row + 1]
+        if start_row == end_row:
+            return extracted_lines[0][start_column:end_column]
+        else:
+            extracted_lines[0] = extracted_lines[0][start_column:]
+            extracted_lines[-1] = extracted_lines[-1][:end_column+1]
+            return "\n".join(extracted_lines).strip()
+    
+    @staticmethod
+    def parse_source_file(src_file_path):
+        """extract focal method and docstring from source file"""
+        src_file = FileUtils.read_file(src_file_path)
+        analyzer = Analyzer()
+        docstrings = analyzer.find_docstring(src_file_path)
+        methods = analyzer.get_function_blocks(src_file_path)
+        
+        if not methods:
+            return None, None
+        
+        method = methods[0]
+        start, end = method.start_point, method.end_point
+        focal_method = FileUtils.extract_lines(src_file, start[0], end[0])
+        return focal_method, docstrings
+
+    @staticmethod
+    def parse_test_method(test_file_path, test_method):
+        """test_file_path is only used to extract language
+            extract test prefix, test_oracle, assertion or exception and test_method without oracle
+            returns: (test_prefix,assertORexception,GTassert, test_prefix_wo_oracle,test_method_name)
+        """
+        analyzer = Analyzer()
+        if "assert" in test_method:
+            assertORexception = 0
+        elif "try" in test_method and "catch" in test_method:
+            assertORexception = -1
+        else:
+            assertORexception = 1
+        # extract test method name
+        test_method_name_nodes=analyzer.get_test_method_name_nodes(test_file_path,test_method.encode("utf-8"))
+        start, end = test_method_name_nodes[0].start_point, test_method_name_nodes[0].end_point
+        test_method_name=FileUtils.extract_text(test_method, start[0],start[1],end[0],end[1])
+        # extract test prefix and oracle
+        if assertORexception !=0:
+            return test_method,assertORexception, "", test_method,test_method_name
+        
+        assertion_oracle = analyzer.find_assertion_nodes(test_file_path,test_method.encode("utf-8"))
+        test_prefix = test_method
+        oracle_text = FileUtils.extract_lines(test_method, assertion_oracle[0].start_point[0], assertion_oracle[0].end_point[0]).strip()
+        test_prefix_wo_oracle = test_method.replace(oracle_text, "").strip()
+        return test_prefix, assertORexception, oracle_text, test_prefix_wo_oracle,test_method_name
+    
 import javalang
 
 def extract_source_metadata(source_code):
@@ -286,6 +372,9 @@ class CoverageProcessor:
         self._check_file_extension([".xml"], self.code_coverage_report_path)
         self.file_lines_executed.clear()
         self.file_lines_not_executed.clear()
+        self.file_n_branch_covered.clear()
+        self.file_n_branch_missed.clear()
+        self.file_lines_with_missing_branch.clear()
         tree = ET.parse(self.code_coverage_report_path)
         root = tree.getroot()
 
@@ -299,7 +388,12 @@ class CoverageProcessor:
                     self.file_lines_executed[full_filename] = []
                 if full_filename not in self.file_lines_not_executed:
                     self.file_lines_not_executed[full_filename] = []
-
+                if full_filename not in self.file_n_branch_covered:
+                    self.file_n_branch_covered[full_filename]=0
+                if full_filename not in self.file_n_branch_missed:
+                    self.file_n_branch_missed[full_filename]=0
+                if full_filename not in self.file_lines_with_missing_branch:
+                    self.file_lines_with_missing_branch[full_filename]=[]
                 for line in sourcefile.findall(".//line"):
                     line_number = int(line.get("nr"))  # nr is the line number
                     covered = int(line.get("ci"))  # ci is the covered lines
@@ -314,14 +408,10 @@ class CoverageProcessor:
                     missed_branch=int(line.get("mb"))
                     total_branch=covered_branch+missed_branch
                     if total_branch> 0:
-                        if full_filename not in self.file_n_branch_covered:
-                            self.file_n_branch_covered[full_filename]=0
-                        if full_filename not in self.file_n_branch_missed:
-                            self.file_n_branch_missed[full_filename]=0
-                        if full_filename not in self.file_lines_with_missing_branch:
-                            self.file_lines_with_missing_branch[full_filename]=[]
+                        
                         self.file_n_branch_covered[full_filename]+=covered_branch
                         self.file_n_branch_missed[full_filename]+=missed_branch
+                    if missed_branch > 0:
                         self.file_lines_with_missing_branch[full_filename].append(line_number)
                           
         if len(self.file_lines_executed) == 1:
@@ -752,11 +842,72 @@ class Analyzer:
         source_code = self._read_source_file(source_file_path)
         return self._find_blocks_nodes(source_file_path, source_code, ["test.method"])
 
+    def find_docstring(self, source_file_path: str):
+        source_code=self._read_source_file(source_file_path)
+        lang=filename_to_lang(source_file_path)
+        print(lang)
+        parser=get_parser(lang)
+        language=get_language(lang)
+        tree=parser.parse(source_code)
+        root=tree.root_node
+        comments = self._extract_comments(root, source_code)
+        return comments
+    
+    def _extract_comments(self, node, source_code):
+        comments = []
+        if node.type =="block_comment":
+            text = source_code[node.start_byte:node.end_byte].decode("utf-8")
+            comments.append((node.start_byte, node.end_byte, text))
+        for child in node.children:
+            comments.extend(self._extract_comments(child, source_code))
+        return comments
+    
+    def get_test_method_name_nodes(self, source_file_path: str, source_code:bytes) -> List[Any]:
+        """
+        Retrieves test method name nodes from a given file.
 
- 
+        Args:
+            source_file_path (str): The name of the file being analyzed.
+
+        Returns:
+            List[Any]: A list of test method name nodes.
+        """
+   
+        return self._find_blocks_nodes(source_file_path, source_code, ["name.test.method"])
+
+    def find_assertion_nodes(self, source_file_path: str, source_code: bytes) -> List[Any]:
+        """
+        Finds assertion nodes in the provided source code.
+
+        Args:
+            source_code (bytes): The source code to analyze.
+
+        Returns:
+            List[Any]: A list of assertion nodes.
+        """
+        return self._find_blocks_nodes(
+            source_file_path, source_code, ["assert.call"]
+        )
+    
 # error="""
 
 # "[\x1b[1;34mINFO\x1b[m] Scanning for projects...\n[\x1b[1;33mWARNING\x1b[m] \n[\x1b[1;33mWARNING\x1b[m] Some problems were encountered while building the effective model for mbxp:HumanEvalJava:jar:1.0\n[\x1b[1;33mWARNING\x1b[m] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-site-plugin is missing. @ line 58, column 21\n[\x1b[1;33mWARNING\x1b[m] \n[\x1b[1;33mWARNING\x1b[m] It is highly recommended to fix these problems because they threaten the stability of your build.\n[\x1b[1;33mWARNING\x1b[m] \n[\x1b[1;33mWARNING\x1b[m] For this reason, future Maven versions might no longer support building such malformed projects.\n[\x1b[1;33mWARNING\x1b[m] \n[\x1b[1;34mINFO\x1b[m] \n[\x1b[1;34mINFO\x1b[m] \x1b[1m-------------------------< \x1b[0;36mmbxp:HumanEvalJava\x1b[0;1m >-------------------------\x1b[m\n[\x1b[1;34mINFO\x1b[m] \x1b[1mBuilding HumanEvalJava 1.0\x1b[m\n[\x1b[1;34mINFO\x1b[m] \x1b[1m--------------------------------[ jar ]---------------------------------\x1b[m\n[\x1b[1;34mINFO\x1b[m] \n[\x1b[1;34mINFO\x1b[m] \x1b[1m--- \x1b[0;32mmaven-clean-plugin:2.5:clean\x1b[m \x1b[1m(default-clean)\x1b[m @ \x1b[36mHumanEvalJava\x1b[0;1m ---\x1b[m\n[\x1b[1;34mINFO\x1b[m] Deleting /home/qinghua/projects/matg/data/HumanEvalJava/matg/target\n[\x1b[1;34mINFO\x1b[m] \n[\x1b[1;34mINFO\x1b[m] \x1b[1m--- \x1b[0;32mjacoco-maven-plugin:0.8.8:prepare-agent\x1b[m \x1b[1m(default)\x1b[m @ \x1b[36mHumanEvalJava\x1b[0;1m ---\x1b[m\n[\x1b[1;34mINFO\x1b[m] argLine set to -javaagent:/home/qinghua/.m2/repository/org/jacoco/org.jacoco.agent/0.8.8/org.jacoco.agent-0.8.8-runtime.jar=destfile=/home/qinghua/projects/matg/data/HumanEvalJava/matg/target/jacoco.exec\n[\x1b[1;34mINFO\x1b[m] \n[\x1b[1;34mINFO\x1b[m] \x1b[1m--- \x1b[0;32mmaven-resources-plugin:2.6:resources\x1b[m \x1b[1m(default-resources)\x1b[m @ \x1b[36mHumanEvalJava\x1b[0;1m ---\x1b[m\n[\x1b[1;34mINFO\x1b[m] Using 'UTF-8' encoding to copy filtered resources.\n[\x1b[1;34mINFO\x1b[m] skip non existing resourceDirectory /home/qinghua/projects/matg/data/HumanEvalJava/matg/src/main/resources\n[\x1b[1;34mINFO\x1b[m] \n[\x1b[1;34mINFO\x1b[m] \x1b[1m--- \x1b[0;32mmaven-compiler-plugin:3.11.0:compile\x1b[m \x1b[1m(default-compile)\x1b[m @ \x1b[36mHumanEvalJava\x1b[0;1m ---\x1b[m\n[\x1b[1;34mINFO\x1b[m] Changes detected - recompiling the module! :source\n[\x1b[1;34mINFO\x1b[m] Compiling 160 source files with javac [debug target 11] to target/classes\n[\x1b[1;33mWARNING\x1b[m] /home/qinghua/projects/matg/data/HumanEvalJava/matg/src/main/java/original/id_101.java:[35,30] non-varargs call of varargs method with inexact argument type for last parameter;\n  cast to java.lang.Object for a varargs call\n  cast to java.lang.Object[] for a non-varargs call and to suppress this warning\n[\x1b[1;34mINFO\x1b[m] /home/qinghua/projects/matg/data/HumanEvalJava/matg/src/main/java/original/id_87.java: /home/qinghua/projects/matg/data/HumanEvalJava/matg/src/main/java/original/id_87.java uses unchecked or unsafe operations.\n[\x1b[1;34mINFO\x1b[m] /home/qinghua/projects/matg/data/HumanEvalJava/matg/src/main/java/original/id_87.java: Recompile with -Xlint:unchecked for details.\n[\x1b[1;34mINFO\x1b[m] \n[\x1b[1;34mINFO\x1b[m] \x1b[1m--- \x1b[0;32mmaven-resources-plugin:2.6:testResources\x1b[m \x1b[1m(default-testResources)\x1b[m @ \x1b[36mHumanEvalJava\x1b[0;1m ---\x1b[m\n[\x1b[1;34mINFO\x1b[m] Using 'UTF-8' encoding to copy filtered resources.\n[\x1b[1;34mINFO\x1b[m] skip non existing resourceDirectory /home/qinghua/projects/matg/data/HumanEvalJava/matg/src/test/resources\n[\x1b[1;34mINFO\x1b[m] \n[\x1b[1;34mINFO\x1b[m] \x1b[1m--- \x1b[0;32mmaven-compiler-plugin:3.11.0:testCompile\x1b[m \x1b[1m(default-testCompile)\x1b[m @ \x1b[36mHumanEvalJava\x1b[0;1m ---\x1b[m\n[\x1b[1;34mINFO\x1b[m] Changes detected - recompiling the module! :dependency\n[\x1b[1;34mINFO\x1b[m] Compiling 160 source files with javac [debug target 11] to target/test-classes\n[\x1b[1;34mINFO\x1b[m] /home/qinghua/projects/matg/data/HumanEvalJava/matg/src/test/java/original/id_111Test.java: /home/qinghua/projects/matg/data/HumanEvalJava/matg/src/test/java/original/id_111Test.java uses unchecked or unsafe operations.\n[\x1b[1;34mINFO\x1b[m] /home/qinghua/projects/matg/data/HumanEvalJava/matg/src/test/java/original/id_111Test.java: Recompile with -Xlint:unchecked for details.\n[\x1b[1;34mINFO\x1b[m] -------------------------------------------------------------\n[\x1b[1;31mERROR\x1b[m] COMPILATION ERROR : \n[\x1b[1;34mINFO\x1b[m] -------------------------------------------------------------\n[\x1b[1;31mERROR\x1b[m] /home/qinghua/projects/matg/data/HumanEvalJava/matg/src/test/java/original/id_142Test.java:[81,25] cannot find symbol\n  symbol:   variable original\n  location: class original.SumSquares1Test\n[\x1b[1;34mINFO\x1b[m] 1 error\n[\x1b[1;34mINFO\x1b[m] -------------------------------------------------------------\n[\x1b[1;34mINFO\x1b[m] \x1b[1m------------------------------------------------------------------------\x1b[m\n[\x1b[1;34mINFO\x1b[m] \x1b[1;31mBUILD FAILURE\x1b[m\n[\x1b[1;34mINFO\x1b[m] \x1b[1m------------------------------------------------------------------------\x1b[m\n[\x1b[1;34mINFO\x1b[m] Total time:  1.293 s\n[\x1b[1;34mINFO\x1b[m] Finished at: 2025-05-09T11:34:21+01:00\n[\x1b[1;34mINFO\x1b[m] \x1b[1m------------------------------------------------------------------------\x1b[m\n[\x1b[1;31mERROR\x1b[m] Failed to execute goal \x1b[32morg.apache.maven.plugins:maven-compiler-plugin:3.11.0:testCompile\x1b[m \x1b[1m(default-testCompile)\x1b[m on project \x1b[36mHumanEvalJava\x1b[m: \x1b[1;31mCompilation failure\x1b[m\n[\x1b[1;31mERROR\x1b[m] \x1b[1;31m/home/qinghua/projects/matg/data/HumanEvalJava/matg/src/test/java/original/id_142Test.java:[81,25] cannot find symbol\x1b[m\n[\x1b[1;31mERROR\x1b[m] \x1b[1;31m  symbol:   variable original\x1b[m\n[\x1b[1;31mERROR\x1b[m] \x1b[1;31m  location: class original.SumSquares1Test\x1b[m\n[\x1b[1;31mERROR\x1b[m] \x1b[1;31m\x1b[m\n[\x1b[1;31mERROR\x1b[m] -> \x1b[1m[Help 1]\x1b[m\n[\x1b[1;31mERROR\x1b[m] \n[\x1b[1;31mERROR\x1b[m] To see the full stack trace of the errors, re-run Maven with the \x1b[1m-e\x1b[m switch.\n[\x1b[1;31mERROR\x1b[m] Re-run Maven using the \x1b[1m-X\x1b[m switch to enable full debug logging.\n[\x1b[1;31mERROR\x1b[m] \n[\x1b[1;31mERROR\x1b[m] For more information about the errors and possible solutions, please read the following articles:\n[\x1b[1;31mERROR\x1b[m] \x1b[1m[Help 1]\x1b[m http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException"
 # """
 # parsed=extract_error_message_java(error)
 # print(parsed)
+
+if __name__ == "__main__":
+    # Example usage
+    coverage= CoverageProcessor(
+        coverage_type="jacoco",
+        code_coverage_report_path="/home/qinghua/projects/matg/example_jacoco.xml",
+        data_path="/home/qinghua/projects/matg/data/HumanEvalJava/candor_initialize_1"
+    )
+    coverage.parse_coverage_report()
+    file_name="src/main/java/original/id_3.java"
+    print(coverage.file_lines_executed)
+    print(coverage.file_lines_executed[file_name])
+    print(coverage.file_lines_not_executed[file_name])
+    print(coverage.file_n_branch_covered[file_name])
+    print(coverage.file_n_branch_missed[file_name])
+    print(coverage.file_lines_with_missing_branch[file_name])

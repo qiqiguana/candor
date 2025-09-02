@@ -1,0 +1,70 @@
+package original;
+
+import java.util.*;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of Common.
+*/
+class CommonTest {
+
+    @Test
+    void common_should_return_empty_list_when_second_list_is_empty() {
+        // Arrange
+        List<Integer> list1 = Arrays.asList(4, 3, 2, 8);
+        List<Object> list2 = new ArrayList<>();
+
+        // Act
+        List<Object> result = Common.common(list1, list2);
+
+        // Assert
+        assertTrue(result.isEmpty());
+    }
+    
+    @Test
+        public void testNothing(){
+            Common s = new Common();
+            }
+    @Test
+    public void testCommonElementsInTwoLists() {
+        List<Integer> l1 = Arrays.asList(1, 4, 3, 34, 653, 2, 5);
+        List<Object> l2 = Arrays.asList(5, 7, 1, 5, 9, 653, 121);
+        List<Object> expected = Arrays.asList(1, 5, 653);
+        assertEquals(expected, Common.common(l1, l2));
+    }
+    @Test
+    public void testCommonElementsInTwoLists_withDuplicateValues() {
+        List<Integer> l1 = Arrays.asList(5, 3, 2, 8);
+        List<Object> l2 = Arrays.asList(3, 2);
+        List<Object> expected = Arrays.asList(2, 3);
+        assertEquals(expected, Common.common(l1, l2));
+    }
+    @Test
+    public void testCommonElementsInTwoLists_withNoCommonValues() {
+        List<Integer> l1 = Arrays.asList(4, 3, 2, 8);
+        List<Object> l2 = Collections.emptyList();
+        List<Object> expected = Collections.emptyList();
+        assertEquals(expected, Common.common(l1, l2));
+    }
+    @Test
+    public void testCommonElements_withNonIntegerValuesInSecondList() {
+        List<Integer> l1 = Arrays.asList(1, 2, 3);
+        List<Object> l2 = Arrays.asList("a", "b", 2, "c");
+        List<Object> expected = Arrays.asList(2);
+        assertEquals(expected, Common.common(l1, l2));
+    }
+    @Test
+    public void testCommonElements_withNullList() {
+        List<Integer> l1 = Arrays.asList(1, 2, 3);
+        List<Object> l2 = null;
+        assertThrows(NullPointerException.class, () -> Common.common(l1, l2));
+    }
+    @Test
+    public void testCommonElements_withNullElementInList1() {
+        List<Integer> l1 = Arrays.asList(1, 2, 3);
+        List<Object> l2 = Arrays.asList(null, 2, "c");
+        assertDoesNotThrow(() -> Common.common(l1, l2));
+    }
+                                    
+}

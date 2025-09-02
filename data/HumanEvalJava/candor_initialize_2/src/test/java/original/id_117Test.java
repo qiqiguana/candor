@@ -1,0 +1,101 @@
+package original;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import java.util.Collections;
+import java.util.ArrayList;
+import java.util.List;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+/**
+* Test class of SelectWords.
+*/
+class SelectWordsTest {
+
+    @Test
+    void testSelectWords_EmptyString_ReturnsEmptyList() {
+        // Arrange
+        String s = "";
+        int n = 4;
+
+        // Act
+        List<Object> result = SelectWords.selectWords(s, n);
+
+        // Assert
+        assertTrue(result.isEmpty());
+    }
+    
+    @Test
+        public void testNothing(){
+            SelectWords s = new SelectWords();
+            }
+    @Test
+    public void testSelectWords_with_empty_string_fixed() {
+        java.util.List<java.lang.Object> expected = new java.util.ArrayList<>();
+        assertEquals(expected, SelectWords.selectWords("", 4));
+    }
+    @Test
+    public void testSelectWords_with_single_word_and_no_consonants_fixed_1() {
+        assertTrue(SelectWords.selectWords("aeiou", 1).isEmpty());
+    }
+    @Test
+    public void testSelectWords_with_empty_string1() {
+        assertEquals(Collections.emptyList(), SelectWords.selectWords("", 4));
+    }
+    @Test
+    public void testSelectWords_with_single_word_and_no_consonants1() {
+        assertEquals(Collections.emptyList(), SelectWords.selectWords("aeiou", 1));
+    }
+    @Test
+    public void testSelectWords_with_single_word_and_multiple_consonants1() {
+        List<String> result = new ArrayList<>();
+        result.add("bcdf");
+        assertEquals(result, SelectWords.selectWords("bcdf", 4));
+    }
+    @Test
+    public void testSelectWords_ConsonantOnlyWord() {
+        List<Object> result = SelectWords.selectWords("bcdfgh", 6);
+        assertEquals(1, result.size());
+        assertEquals("bcdfgh", result.get(0));
+    }
+    @Test
+    public void testSelectWords_VowelOnlyWord() {
+        List<Object> result = SelectWords.selectWords("aeiou", 1);
+        assertTrue(result.isEmpty());
+    }
+    @Test
+    public void testSelectWords_MixedCaseWord() {
+        List<Object> result = SelectWords.selectWords("HeLlO", 3);
+        assertEquals(1, result.size());
+        assertEquals("HeLlO", result.get(0));
+    }
+    @Test
+    public void testSelectWords_SingleVowel_N0() {
+        List<Object> result = SelectWords.selectWords("a", 0);
+        assertEquals(1, result.size());
+        assertEquals("a", result.get(0));
+    }
+    @Test
+    public void testSelectWords_WithEmptyString_ReturnsEmptyList() {
+        String s = "";
+        int n = 4;
+        List<Object> expected = new ArrayList<>();
+        assertEquals(expected, SelectWords.selectWords(s, n));
+    }
+    @Test
+    public void testSelectWords_WithSingleWordContainingNConsonants_ReturnsListContainingTheWord1() {
+        String s = "hello";
+        int n = 3;
+        List<Object> expected = new ArrayList<>();
+        expected.add("hello");
+        assertEquals(expected, SelectWords.selectWords(s, n));
+    }
+    @Test
+    public void testSelectWords_WithWordContainingMoreThanNConsonants_WordIsNotIncludedInResult() {
+        String s = "helloworld";
+        int n = 2;
+        List<Object> expected = new ArrayList<>();
+        assertEquals(expected, SelectWords.selectWords(s, n));
+    }
+                                    
+}

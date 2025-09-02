@@ -1,0 +1,72 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of IsBored.
+*/
+class IsBoredTest {
+    @Test
+    void test_isBored_counts_boredoms_correctly() {
+        String input = "The sky is blue. The sun is shining. I love this weather";
+        int expectedOutput = 1;
+        assertEquals(expectedOutput, IsBored.isBored(input));
+    }
+    
+    @Test
+        public void testNothing(){
+            IsBored s = new IsBored();
+            }
+    @Test
+    public void testIsBoredClassInitialization() {
+        // The class can be initialized without any issues
+    }
+    @Test
+    public void testFirstWordFlagSetting() {
+        String input = " ";
+        int expected = 0;
+        int actual = IsBored.isBored(input);
+        assertEquals(expected, actual);
+    }
+    @Test
+    public void testBreakStatementExecution() {
+        String input = "I am bored";
+        int expected = 1;
+        int actual = IsBored.isBored(input);
+        assertEquals(expected, actual);
+    }
+    @Test
+    public void Test_Sentence_With_Leading_Whitespace() {
+        String input = " I love It !";
+        int expectedResult = 1;
+        int actualResult = IsBored.isBored(input);
+        assertEquals(expectedResult, actualResult);
+    }
+    @Test
+    public void Test_Empty_String() {
+        String input = "";
+        int expectedResult = 0;
+        int actualResult = IsBored.isBored(input);
+        assertEquals(expectedResult, actualResult);
+    }
+    @Test
+    public void Test_Sentence_With_Trailing_Whitespace() {
+        String input = "I love It ! ";
+        int expectedResult = 1;
+        int actualResult = IsBored.isBored(input);
+        assertEquals(expectedResult, actualResult);
+    }
+    @Test
+    public void testFirstWordInSentenceWithMultipleWords() {
+        String input = "I am happy";
+        int expected = 1;
+        assertEquals(expected, IsBored.isBored(input));
+    }
+    @Test
+    public void testFirstWordInSentenceWithSingleWord() {
+        String input = "I";
+        int expected = 1;
+        assertEquals(expected, IsBored.isBored(input));
+    }
+                                    
+}

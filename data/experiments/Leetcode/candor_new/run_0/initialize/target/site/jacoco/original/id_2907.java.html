@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_2907.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">leetcode</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_2907.java</span></div><h1>id_2907.java</h1><pre class="source lang-java linenums">package original;
+
+<span class="fc" id="L3">class Solution2907 {</span>
+    public int maxProfit(int[] prices, int[] profits) {
+  /**
+  Given the 0-indexed arrays prices and profits of length n. There are n items in an store where the ith item has a price of prices[i] and a profit of profits[i]. We have to pick three items with the following condition: prices[i] &amp;lt; prices[j] &amp;lt; prices[k] where i &amp;lt; j &amp;lt; k. If we pick items with indices i, j and k satisfying the above condition, the profit would be profits[i] + profits[j] + profits[k]. Return the maximum profit we can get, and -1 if it&amp;#39;s not possible to pick three items with the given condition. &amp;nbsp; Example 1: Input: prices = [10,2,3,4], profits = [100,2,7,10] Output: 19 Explanation: We can&amp;#39;t pick the item with index i=0 since there are no indices j and k such that the condition holds. So the only triplet we can pick, are the items with indices 1, 2 and 3 and it&amp;#39;s a valid pick since prices[1] &amp;lt; prices[2] &amp;lt; prices[3]. The answer would be sum of their profits which is 2 + 7 + 10 = 19. Example 2: Input: prices = [1,2,3,4,5], profits = [1,5,3,4,6] Output: 15 Explanation: We can select any triplet of items since for each triplet of indices i, j and k such that i &amp;lt; j &amp;lt; k, the condition holds. Therefore the maximum profit we can get would be the 3 most profitable items which are indices 1, 3 and 4. The answer would be sum of their profits which is 5 + 4 + 6 = 15. Example 3: Input: prices = [4,3,2,1], profits = [33,20,19,87] Output: -1 Explanation: We can&amp;#39;t select any triplet of indices such that the condition holds, so we return -1. &amp;nbsp; Constraints: 3 &amp;lt;= prices.length == profits.length &amp;lt;= 2000 1 &amp;lt;= prices[i] &amp;lt;= 106 1 &amp;lt;= profits[i] &amp;lt;= 106
+  */
+<span class="fc" id="L8">        int n = prices.length;</span>
+<span class="fc" id="L9">        int ans = -1;</span>
+<span class="fc bfc" id="L10" title="All 2 branches covered.">        for (int j = 0; j &lt; n; ++j) {</span>
+<span class="fc" id="L11">            int left = 0, right = 0;</span>
+<span class="fc bfc" id="L12" title="All 2 branches covered.">            for (int i = 0; i &lt; j; ++i) {</span>
+<span class="pc bpc" id="L13" title="1 of 2 branches missed.">                if (prices[i] &lt; prices[j]) {</span>
+<span class="fc" id="L14">                    left = Math.max(left, profits[i]);</span>
+                }
+            }
+<span class="fc bfc" id="L17" title="All 2 branches covered.">            for (int k = j + 1; k &lt; n; ++k) {</span>
+<span class="pc bpc" id="L18" title="1 of 2 branches missed.">                if (prices[j] &lt; prices[k]) {</span>
+<span class="fc" id="L19">                    right = Math.max(right, profits[k]);</span>
+                }
+            }
+<span class="fc bfc" id="L22" title="All 4 branches covered.">            if (left &gt; 0 &amp;&amp; right &gt; 0) {</span>
+<span class="fc" id="L23">                ans = Math.max(ans, left + profits[j] + right);</span>
+            }
+        }
+<span class="fc" id="L26">        return ans;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

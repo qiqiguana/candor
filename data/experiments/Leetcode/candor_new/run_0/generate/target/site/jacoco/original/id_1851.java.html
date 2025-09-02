@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>id_1851.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">leetcode</a> &gt; <a href="index.source.html" class="el_package">original</a> &gt; <span class="el_source">id_1851.java</span></div><h1>id_1851.java</h1><pre class="source lang-java linenums">package original;
+
+import java.util.PriorityQueue;
+import java.util.Arrays;
+import java.util.Queue;
+<span class="nc" id="L6">class Solution1851 {</span>
+    public int[] minInterval(int[][] intervals, int[] queries) {
+  /**
+  You are given a 2D integer array intervals, where intervals[i] = [lefti, righti] describes the ith interval starting at lefti and ending at righti (inclusive). The size of an interval is defined as the number of integers it contains, or more formally righti - lefti + 1. You are also given an integer array queries. The answer to the jth query is the size of the smallest interval i such that lefti &amp;lt;= queries[j] &amp;lt;= righti. If no such interval exists, the answer is -1. Return an array containing the answers to the queries. &amp;nbsp; Example 1: Input: intervals = [[1,4],[2,4],[3,6],[4,4]], queries = [2,3,4,5] Output: [3,3,1,4] Explanation: The queries are processed as follows: - Query = 2: The interval [2,4] is the smallest interval containing 2. The answer is 4 - 2 + 1 = 3. - Query = 3: The interval [2,4] is the smallest interval containing 3. The answer is 4 - 2 + 1 = 3. - Query = 4: The interval [4,4] is the smallest interval containing 4. The answer is 4 - 4 + 1 = 1. - Query = 5: The interval [3,6] is the smallest interval containing 5. The answer is 6 - 3 + 1 = 4. Example 2: Input: intervals = [[2,3],[2,5],[1,8],[20,25]], queries = [2,19,5,22] Output: [2,-1,4,6] Explanation: The queries are processed as follows: - Query = 2: The interval [2,3] is the smallest interval containing 2. The answer is 3 - 2 + 1 = 2. - Query = 19: None of the intervals contain 19. The answer is -1. - Query = 5: The interval [2,5] is the smallest interval containing 5. The answer is 5 - 2 + 1 = 4. - Query = 22: The interval [20,25] is the smallest interval containing 22. The answer is 25 - 20 + 1 = 6. &amp;nbsp; Constraints: 1 &amp;lt;= intervals.length &amp;lt;= 105 1 &amp;lt;= queries.length &amp;lt;= 105 intervals[i].length == 2 1 &amp;lt;= lefti &amp;lt;= righti &amp;lt;= 107 1 &amp;lt;= queries[j] &amp;lt;= 107
+  */
+<span class="nc" id="L11">        int n = intervals.length, m = queries.length;</span>
+<span class="nc" id="L12">        Arrays.sort(intervals, (a, b) -&gt; a[0] - b[0]);</span>
+<span class="nc" id="L13">        int[][] qs = new int[m][0];</span>
+<span class="nc bnc" id="L14" title="All 2 branches missed.">        for (int i = 0; i &lt; m; ++i) {</span>
+<span class="nc" id="L15">            qs[i] = new int[] {queries[i], i};</span>
+        }
+<span class="nc" id="L17">        Arrays.sort(qs, (a, b) -&gt; a[0] - b[0]);</span>
+<span class="nc" id="L18">        int[] ans = new int[m];</span>
+<span class="nc" id="L19">        Arrays.fill(ans, -1);</span>
+<span class="nc" id="L20">        PriorityQueue&lt;int[]&gt; pq = new PriorityQueue&lt;&gt;((a, b) -&gt; a[0] - b[0]);</span>
+<span class="nc" id="L21">        int i = 0;</span>
+<span class="nc bnc" id="L22" title="All 2 branches missed.">        for (int[] q : qs) {</span>
+<span class="nc bnc" id="L23" title="All 4 branches missed.">            while (i &lt; n &amp;&amp; intervals[i][0] &lt;= q[0]) {</span>
+<span class="nc" id="L24">                int a = intervals[i][0], b = intervals[i][1];</span>
+<span class="nc" id="L25">                pq.offer(new int[] {b - a + 1, b});</span>
+<span class="nc" id="L26">                ++i;</span>
+<span class="nc" id="L27">            }</span>
+<span class="nc bnc" id="L28" title="All 4 branches missed.">            while (!pq.isEmpty() &amp;&amp; pq.peek()[1] &lt; q[0]) {</span>
+<span class="nc" id="L29">                pq.poll();</span>
+            }
+<span class="nc bnc" id="L31" title="All 2 branches missed.">            if (!pq.isEmpty()) {</span>
+<span class="nc" id="L32">                ans[q[1]] = pq.peek()[0];</span>
+            }
+        }
+<span class="nc" id="L35">        return ans;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

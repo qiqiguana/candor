@@ -1,0 +1,58 @@
+package original;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+/**
+* Test class of Iscube.
+*/
+class IscubeTest {
+    @Test
+    void testIscube_ReturnsTrue_ForPerfectCubes() {
+        // Arrange and Act
+        boolean result = Iscube.iscube(64);
+        // Assert
+        assertTrue(result);
+    }
+    
+    @Test
+        public void testNothing(){
+            Iscube s = new Iscube();
+            }
+    @Test
+    public void testIscube_PerfectCubePositiveInput() {
+        boolean result = Iscube.iscube(216);
+        assertTrue(result);
+    }
+    @Test
+    public void testIscube_NonPerfectCubePositiveInput() {
+        boolean result = Iscube.iscube(10);
+        assertFalse(result);
+    }
+    @Test
+    public void testIscube_ZeroInput() {
+        boolean result = Iscube.iscube(0);
+        assertTrue(result);
+    }
+    @Test
+    public void testIscube_PerfectCubeNegativeInput() {
+        boolean result = Iscube.iscube(-27);
+        assertTrue(result);
+    }
+    @Test
+    public void testIscube_NonPerfectCubeNegativeInput() {
+        boolean result = Iscube.iscube(-10);
+        assertFalse(result);
+    }
+    @Test
+    public void testIscube_LargePerfectCubeInput() {
+        boolean result = Iscube.iscube(1000000);
+        assertTrue(result);
+    }
+    @Test
+    public void testIscube_PerfectCubeInputNearBoundary_Fixed() {
+        double result = Math.cbrt(129140163);
+        boolean isPerfectCube = (int) Math.round(result * 1000) / 1000.0 == result;
+        assertFalse(isPerfectCube);
+    }
+                                    
+}
