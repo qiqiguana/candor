@@ -62,13 +62,13 @@ All datasets are under `data/experiments/`. Each dataset has a `notest/` directo
 | Dataset | Description | Files |
 |---------|-------------|-------|
 | `HumanEvalJava` | HumanEval benchmark (correct source) | 160 |
-| `HumanEvalJava_mut_0` | HumanEval with Pitest mutants (variant 0) | 160 (143 mutated) |
-| `HumanEvalJava_mut_1` | HumanEval with Pitest mutants (variant 1) | 160 (141 mutated) |
-| `HumanEvalJava_mut_2` | HumanEval with Pitest mutants (variant 2) | 160 (144 mutated) |
+| `HumanEvalJava_mut_0` | HumanEval with Pitest mutants (variant 0) | 160 |
+| `HumanEvalJava_mut_1` | HumanEval with Pitest mutants (variant 1) | 160 |
+| `HumanEvalJava_mut_2` | HumanEval with Pitest mutants (variant 2) | 160 |
 | `Leetcode` | LeetCode problems (correct source) | 150 |
-| `Leetcode_mut_0` | LeetCode with Pitest mutants (variant 0) | 150 (140 mutated) |
-| `Leetcode_mut_1` | LeetCode with Pitest mutants (variant 1) | 150 (138 mutated) |
-| `Leetcode_mut_2` | LeetCode with Pitest mutants (variant 2) | 150 (141 mutated) |
+| `Leetcode_mut_0` | LeetCode with Pitest mutants (variant 0) | 150 |
+| `Leetcode_mut_1` | LeetCode with Pitest mutants (variant 1) | 150 |
+| `Leetcode_mut_2` | LeetCode with Pitest mutants (variant 2) | 150 |
 
 Each mutant dataset contains the same files as the original, but with mutations applied to the source code via Pitest bytecode mutation + CFR decompilation. Files that could not be cleanly decompiled are left as originals.
 
