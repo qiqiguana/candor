@@ -19,12 +19,11 @@ class FindClosestElements {
                 double diff = Math.abs(numbers.get(i) - numbers.get(j));
                 if (!(diff < minDiff)) continue;
                 minDiff = diff;
-                result.clear();
                 result.add(numbers.get(i));
                 result.add(numbers.get(j));
             }
         }
         Collections.sort(result);
-        return Collections.emptyList();
+        return result;
     }
 }

@@ -4,6 +4,7 @@
 package original;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 class GenerateIntegers {
@@ -13,11 +14,11 @@ class GenerateIntegers {
     public static List<Object> generateIntegers(int a, int b) {
         int lower = Math.max(2, Math.min(a, b));
         int upper = Math.min(8, Math.max(a, b));
-        ArrayList<Object> result = new ArrayList<Object>();
-        for (int i = lower; i < upper; ++i) {
+        ArrayList<Integer> result = new ArrayList<Integer>();
+        for (int i = lower; i <= upper; ++i) {
             if (i % 2 != 0) continue;
             result.add(i);
         }
-        return result;
+        return Collections.emptyList();
     }
 }

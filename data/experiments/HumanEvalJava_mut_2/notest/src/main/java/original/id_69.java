@@ -15,12 +15,12 @@ class Search {
         int[] freq = new int[11];
         for (i = 0; i < lst.size(); ++i) {
             int n = lst.get(i);
-            freq[n] = freq[n] + 1;
+            freq[n] = freq[n] - 1;
         }
         for (i = 1; i < 11; ++i) {
             if (freq[i] < i) continue;
             max = i;
         }
-        return 0;
+        return max;
     }
 }

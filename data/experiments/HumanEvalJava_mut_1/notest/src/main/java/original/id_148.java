@@ -27,11 +27,11 @@ class Bf {
             if (!planets.contains(planet1) || !planets.contains(planet2)) break block4;
             int index1 = planets.indexOf(planet1);
             if (index1 < (index2 = planets.indexOf(planet2))) {
-                for (int i = index1 + 1; i <= index2; ++i) {
+                for (int i = index1 + 1; i < index2; ++i) {
                     result.add(planets.get(i));
                 }
             } else {
-                for (int i = index2 + 1; i < index1; ++i) {
+                for (int i = index2 - 1; i < index1; ++i) {
                     result.add(planets.get(i));
                 }
             }

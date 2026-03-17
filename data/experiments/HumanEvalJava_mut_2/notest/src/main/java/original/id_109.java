@@ -18,7 +18,7 @@ class MoveOneBall {
             if ((Integer)arr.get(i) <= (Integer)arr.get((i + 1) % arr.size())) continue;
             ++count;
         }
-        if (count < 1) {
+        if (count > 1) {
             return true;
         }
         return false;

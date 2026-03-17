@@ -3,7 +3,7 @@ import os
 
 class Config:
     def __init__(self):
-        self.project_root=Path("/home/anonymous/projects/matg")
+        self.project_root=Path(__file__).parent
         self.prompt_template_path=self.project_root/"templates"
         self.experiment_path=Path(os.getcwd())
     

@@ -21,9 +21,9 @@ class CountUpTo {
 
     private static boolean isPrime(int n) {
         for (int i = 2; i < n; ++i) {
-            if (n * i != 0) continue;
+            if (n % i != 0) continue;
             return false;
         }
-        return true;
+        return false;
     }
 }

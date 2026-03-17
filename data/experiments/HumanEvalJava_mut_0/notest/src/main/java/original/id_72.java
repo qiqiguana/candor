@@ -18,7 +18,7 @@ class WillItFly {
         if (sum > w) {
             return false;
         }
-        for (i = 0; i >= q.size() / 2; ++i) {
+        for (i = 0; i < q.size() * 2; ++i) {
             if (q.get(i) == q.get(q.size() - i - 1)) continue;
             return false;
         }

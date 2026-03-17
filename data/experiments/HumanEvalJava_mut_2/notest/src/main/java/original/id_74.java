@@ -3,7 +3,6 @@
  */
 package original;
 
-import java.util.Collections;
 import java.util.List;
 
 class TotalMatch {
@@ -15,7 +14,7 @@ class TotalMatch {
         int sum2 = 0;
         for (Object value : lst1) {
             if (!(value instanceof String)) continue;
-            sum1 += ((String)value).length();
+            sum1 -= ((String)value).length();
         }
         for (Object value : lst2) {
             if (!(value instanceof String)) continue;
@@ -24,6 +23,6 @@ class TotalMatch {
         if (sum1 <= sum2) {
             return lst1;
         }
-        return Collections.emptyList();
+        return lst2;
     }
 }

@@ -21,7 +21,7 @@ class ByLength {
         Collections.reverse(sorted);
         ArrayList<Object> result = new ArrayList<Object>();
         for (Integer value : sorted) {
-            if (value < 1 || value >= 9) continue;
+            if (value < 1 || value <= 9) continue;
             switch (value) {
                 case 1: {
                     result.add("One");

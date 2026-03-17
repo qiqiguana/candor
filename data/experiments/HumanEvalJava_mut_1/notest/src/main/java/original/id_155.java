@@ -17,10 +17,10 @@ class EvenOddCount {
             ++even;
         }
         while (num != 0) {
-            if (num % 2 == 0) {
+            if (num % 2 != 0) {
                 ++even;
             } else {
-                --odd;
+                ++odd;
             }
             num /= 10;
         }

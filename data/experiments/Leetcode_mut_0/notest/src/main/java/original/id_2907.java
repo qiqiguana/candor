@@ -1,0 +1,29 @@
+/*
+ * Decompiled with CFR 0.152.
+ */
+package original;
+
+class Solution2907 {
+    Solution2907() {
+    }
+
+    public int maxProfit(int[] prices, int[] profits) {
+        int n = prices.length;
+        int ans = -1;
+        for (int j = 0; j < n; ++j) {
+            int left = 0;
+            int right = 0;
+            for (int i = 0; i < j; ++i) {
+                if (prices[i] < prices[j]) continue;
+                left = Math.max(left, profits[i]);
+            }
+            for (int k = j + 1; k < n; ++k) {
+                if (prices[j] >= prices[k]) continue;
+                right = Math.max(right, profits[k]);
+            }
+            if (left <= 0 || right <= 0) continue;
+            ans = Math.max(ans, left + profits[j] + right);
+        }
+        return ans;
+    }
+}

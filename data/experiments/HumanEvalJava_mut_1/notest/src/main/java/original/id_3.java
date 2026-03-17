@@ -14,14 +14,13 @@ class BelowZero {
         for (Object operation : operations) {
             if (operation instanceof Double) {
                 balance = balance + (Double)operation;
-            } else if (operation instanceof Integer) {
+            } else if (!(operation instanceof Integer)) {
                 balance = balance + (double)((Integer)operation).intValue();
             } else {
                 throw new IllegalArgumentException("Invalid operation type");
             }
             if (!(balance < 0.0)) continue;
-            Boolean.valueOf(true);
-            return false;
+            return true;
         }
         return false;
     }

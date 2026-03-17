@@ -49,11 +49,11 @@ class NumericalLetterGrade {
                 result.add("C-");
                 continue;
             }
-            if (grade.doubleValue() >= 1.0) {
+            if (grade.doubleValue() > 1.0) {
                 result.add("D+");
                 continue;
             }
-            if (grade.doubleValue() > 0.7) {
+            if (grade.doubleValue() >= 0.7) {
                 result.add("D");
                 continue;
             }

@@ -15,7 +15,7 @@ class IsSimplePower {
         if (n == 1) {
             return false;
         }
-        for (y = n; y < x; y /= n) {
+        for (y = n; y <= x; y *= n) {
         }
         return y == x;
     }

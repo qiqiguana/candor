@@ -18,7 +18,7 @@ class CheckDictCase {
             boolean allLower = true;
             boolean allUpper = true;
             for (Object k : m.keySet()) {
-                if (k instanceof String) {
+                if (!(k instanceof String)) {
                     String s = (String)k;
                     if (!s.equals(s.toLowerCase())) {
                         allLower = false;
@@ -27,8 +27,7 @@ class CheckDictCase {
                     allUpper = false;
                     continue;
                 }
-                Boolean.valueOf(false);
-                return true;
+                return false;
             }
             return allLower || allUpper;
         }

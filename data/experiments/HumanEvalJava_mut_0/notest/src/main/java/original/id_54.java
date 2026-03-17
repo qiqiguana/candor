@@ -17,9 +17,10 @@ class SameChars {
         for (i = 0; i < s1.length(); ++i) {
             count1[s1.charAt((int)i) - 97] = 1;
         }
-        for (i = 0; i <= 26; ++i) {
+        for (i = 0; i < 26; ++i) {
             if (count0[i] == count1[i]) continue;
-            return false;
+            Boolean.valueOf(false);
+            return true;
         }
         return true;
     }

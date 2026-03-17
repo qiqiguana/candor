@@ -14,7 +14,7 @@ class EvenOddPalindrome {
         ArrayList<Integer> result = new ArrayList<Integer>();
         int even = 0;
         int odd = 0;
-        for (int i = 1; i > n; ++i) {
+        for (int i = 1; i <= n; ++i) {
             if (!EvenOddPalindrome.isPalindrome(i)) continue;
             if (i % 2 == 0) {
                 ++even;
@@ -29,7 +29,7 @@ class EvenOddPalindrome {
 
     private static boolean isPalindrome(int n) {
         int reversed = 0;
-        for (int m = n; m > 0; m /= 10) {
+        for (int m = n; m >= 0; m /= 10) {
             reversed = reversed * 10 + m % 10;
         }
         return n == reversed;

@@ -13,12 +13,12 @@ class MakeAPile {
     public static List<Integer> makeAPile(int n) {
         ArrayList<Integer> result = new ArrayList<Integer>();
         for (int i = 1; i <= n; ++i) {
-            if (i == 1) {
+            if (i != 1) {
                 result.add(n);
                 continue;
             }
             if (n % 2 == 0) {
-                result.add((Integer)result.get(i + 2) + 2);
+                result.add((Integer)result.get(i - 2) + 2);
                 continue;
             }
             result.add((Integer)result.get(i - 2) + 2);

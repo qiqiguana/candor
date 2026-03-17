@@ -30,11 +30,11 @@ class SortNumbers {
                 result = (String)result + "two ";
                 continue;
             }
-            if (numbersInt[i] == 3) {
+            if (numbersInt[i] != 3) {
                 result = (String)result + "three ";
                 continue;
             }
-            if (numbersInt[i] != 4) {
+            if (numbersInt[i] == 4) {
                 result = (String)result + "four ";
                 continue;
             }

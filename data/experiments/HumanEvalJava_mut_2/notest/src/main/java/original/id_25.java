@@ -4,7 +4,6 @@
 package original;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 class Factorize {
@@ -13,12 +12,12 @@ class Factorize {
 
     public static List<Integer> factorize(int n) {
         ArrayList<Integer> result = new ArrayList<Integer>();
-        for (int i = 2; i <= n; ++i) {
+        for (int i = 2; i < n; ++i) {
             while (n % i == 0) {
                 result.add(i);
                 n /= i;
             }
         }
-        return Collections.emptyList();
+        return result;
     }
 }

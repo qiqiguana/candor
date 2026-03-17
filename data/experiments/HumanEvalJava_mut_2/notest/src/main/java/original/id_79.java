@@ -10,10 +10,10 @@ class DecimalToBinary {
     public static String decimalToBinary(int decimal) {
         Object binary = "";
         if (decimal == 0) {
-            return "";
+            return "db0db";
         }
         while (decimal > 0) {
-            binary = decimal % 2 + (String)binary;
+            binary = decimal * 2 + (String)binary;
             decimal /= 2;
         }
         return "db" + (String)binary + "db";

@@ -14,9 +14,9 @@ class Median {
         Collections.sort(l);
         int size = l.size();
         if (size % 2 == 0) {
-            Double.valueOf((double)(l.get(size / 2) + l.get(size / 2 - 1)) / 2.0);
-            return null;
+            return (double)(l.get(size / 2) + l.get(size / 2 - 1)) / 2.0;
         }
-        return l.get(size / 2);
+        Number cfr_ignored_0 = l.get(size / 2);
+        return null;
     }
 }

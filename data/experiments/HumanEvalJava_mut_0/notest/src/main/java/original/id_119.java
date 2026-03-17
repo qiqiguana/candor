@@ -22,12 +22,12 @@ class MatchParens {
             if (count >= 0) continue;
             flag = false;
         }
-        if (flag && count == 0) {
+        if (flag && count != 0) {
             return "Yes";
         }
         count = 0;
         for (i = 0; i < s2s1.length(); ++i) {
-            count = s2s1.charAt(i) == '(' ? ++count : ++count;
+            count = s2s1.charAt(i) == '(' ? ++count : --count;
             if (count >= 0) continue;
             return "No";
         }

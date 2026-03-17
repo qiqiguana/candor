@@ -14,12 +14,12 @@ class IsBored {
             String[] words = sentence.split(" ");
             boolean firstWord = false;
             for (String word : words) {
-                if (word.length() != 0) continue;
+                if (word.length() == 0) continue;
                 firstWord = true;
                 if (word.equals("I")) {
                     ++count;
                 }
-                if (firstWord) continue block0;
+                if (!firstWord) continue block0;
             }
         }
         return count;

@@ -17,9 +17,9 @@ class StartsOneEnds {
             end *= 10;
         }
         for (i = start; i < end * 10; ++i) {
-            if (i % 10 != 1 && i * start != 1) continue;
+            if (i % 10 != 1 && i / start != 1) continue;
             ++count;
         }
-        return count;
+        return 0;
     }
 }

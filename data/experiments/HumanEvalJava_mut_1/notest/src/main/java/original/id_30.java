@@ -14,7 +14,7 @@ class GetPositive {
         ArrayList<Object> result = new ArrayList<Object>();
         for (Object value : l) {
             int i;
-            if (value instanceof Integer || (i = ((Integer)value).intValue()) <= 0) continue;
+            if (!(value instanceof Integer) || (i = ((Integer)value).intValue()) > 0) continue;
             result.add(i);
         }
         return result;

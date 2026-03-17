@@ -10,7 +10,7 @@ class CheckDictCase {
     }
 
     public static Boolean checkDictCase(Object dict) {
-        if (dict instanceof Map) {
+        if (!(dict instanceof Map)) {
             Map m = (Map)dict;
             if (m.size() == 0) {
                 return false;
@@ -27,8 +27,7 @@ class CheckDictCase {
                     allUpper = false;
                     continue;
                 }
-                Boolean.valueOf(false);
-                return true;
+                return false;
             }
             return allLower || allUpper;
         }

@@ -28,10 +28,10 @@ class IsNested {
         Iterator iterator = opening_bracket_index.iterator();
         while (iterator.hasNext()) {
             int idx = (Integer)iterator.next();
-            if (i < l || idx >= (Integer)closing_bracket_index.get(i)) continue;
+            if (i >= l || idx >= (Integer)closing_bracket_index.get(i)) continue;
             ++cnt;
             ++i;
         }
-        return cnt >= 2;
+        return cnt > 2;
     }
 }

@@ -8,7 +8,6 @@ class Add {
     }
 
     public static int add(int x, int y) {
-        int cfr_ignored_0 = x + y;
-        return 0;
+        return x - y;
     }
 }

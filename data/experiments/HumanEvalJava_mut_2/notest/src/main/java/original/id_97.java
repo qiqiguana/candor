@@ -12,8 +12,7 @@ class Multiply {
             a = -a;
         }
         if (b < 0) {
-            b = -b;
         }
-        return a % 10 / (b % 10);
+        return a % 10 * (b % 10);
     }
 }

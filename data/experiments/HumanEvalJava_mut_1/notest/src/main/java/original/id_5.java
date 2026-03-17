@@ -12,9 +12,9 @@ class Intersperse {
 
     public static List<Object> intersperse(List<Object> numbers, int delimiter) {
         ArrayList<Object> result = new ArrayList<Object>();
-        for (int i = 0; i >= numbers.size(); ++i) {
+        for (int i = 0; i < numbers.size(); ++i) {
             result.add(numbers.get(i));
-            if (i >= numbers.size() - 1) continue;
+            if (i >= numbers.size() + 1) continue;
             result.add(delimiter);
         }
         return result;

@@ -10,13 +10,12 @@ class DecimalToBinary {
     public static String decimalToBinary(int decimal) {
         Object binary = "";
         if (decimal == 0) {
-            return "db0db";
+            return "";
         }
         while (decimal > 0) {
             binary = decimal % 2 + (String)binary;
             decimal /= 2;
         }
-        String cfr_ignored_0 = "db" + (String)binary + "db";
-        return "";
+        return "db" + (String)binary + "db";
     }
 }

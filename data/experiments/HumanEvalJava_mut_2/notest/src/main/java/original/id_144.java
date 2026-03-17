@@ -12,10 +12,9 @@ class Simplify {
         String[] a = x.split("/");
         String[] b = n.split("/");
         int numerator = Integer.parseInt(a[0]) * Integer.parseInt(b[0]);
-        if (numerator % (denom = Integer.parseInt(a[1]) * Integer.parseInt(b[1])) == 0) {
+        if (numerator * (denom = Integer.parseInt(a[1]) * Integer.parseInt(b[1])) == 0) {
             return true;
         }
-        Boolean.valueOf(false);
-        return true;
+        return false;
     }
 }

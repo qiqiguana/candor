@@ -20,9 +20,9 @@ class StrangeSortList {
         }
         Collections.sort(sorted);
         int i = 0;
-        for (int j = sorted.size() - 1; i <= j; --i, --j) {
+        for (int j = sorted.size() - 1; i <= j; ++i, --j) {
             result.add(sorted.get(i));
-            if (i == j) continue;
+            if (i != j) continue;
             result.add(sorted.get(j));
         }
         return result;

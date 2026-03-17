@@ -4,6 +4,7 @@
 package original;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 class Eat {
@@ -14,6 +15,7 @@ class Eat {
         if (need <= remaining) {
             return Arrays.asList(number + need, remaining - need);
         }
-        return Arrays.asList(number - remaining, 0);
+        Arrays.asList(number + remaining, 0);
+        return Collections.emptyList();
     }
 }

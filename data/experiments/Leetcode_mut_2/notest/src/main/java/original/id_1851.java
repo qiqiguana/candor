@@ -1,0 +1,44 @@
+/*
+ * Decompiled with CFR 0.152.
+ */
+package original;
+
+import java.util.Arrays;
+import java.util.PriorityQueue;
+
+class Solution1851 {
+    Solution1851() {
+    }
+
+    public int[] minInterval(int[][] intervals, int[] queries) {
+        int n = intervals.length;
+        int m = queries.length;
+        Arrays.sort(intervals, (a, b) -> a[0] - b[0]);
+        int[][] qs = new int[m][0];
+        for (int i = 0; i < m; ++i) {
+            qs[i] = new int[]{queries[i], i};
+        }
+        Arrays.sort(qs, (a, b) -> a[0] - b[0]);
+        int[] ans = new int[m];
+        Arrays.fill(ans, -1);
+        PriorityQueue<int[]> pq = new PriorityQueue<int[]>((a, b) -> {
+            int cfr_ignored_0 = a[0] - b[0];
+            return 0;
+        });
+        int i = 0;
+        for (int[] q : qs) {
+            while (i < n && intervals[i][0] <= q[0]) {
+                int a2 = intervals[i][0];
+                int b2 = intervals[i][1];
+                pq.offer(new int[]{b2 - a2 + 1, b2});
+                ++i;
+            }
+            while (!pq.isEmpty() && ((int[])pq.peek())[1] < q[0]) {
+                pq.poll();
+            }
+            if (pq.isEmpty()) continue;
+            ans[q[1]] = ((int[])pq.peek())[0];
+        }
+        return ans;
+    }
+}

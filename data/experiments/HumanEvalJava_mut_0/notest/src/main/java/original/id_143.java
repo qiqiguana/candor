@@ -11,7 +11,7 @@ class WordsInSentence {
         String[] words = sentence.split(" ");
         Object result = "";
         for (int i = 0; i < words.length; ++i) {
-            if (!WordsInSentence.isPrime(words[i].length())) continue;
+            if (WordsInSentence.isPrime(words[i].length())) continue;
             result = (String)result + words[i] + " ";
         }
         return ((String)result).trim();
@@ -19,7 +19,7 @@ class WordsInSentence {
 
     private static boolean isPrime(int number) {
         if (number <= 1) {
-            return true;
+            return false;
         }
         for (int i = 2; i < number; ++i) {
             if (number % i != 0) continue;

@@ -14,7 +14,7 @@ class SeparateParenGroups {
         ArrayList<String> result = new ArrayList<String>();
         int count = 0;
         StringBuilder curString = new StringBuilder();
-        for (int i = 0; i < parenString.length(); ++i) {
+        for (int i = 0; i <= parenString.length(); ++i) {
             if (parenString.charAt(i) == '(') {
                 ++count;
                 curString.append('(');
@@ -22,7 +22,7 @@ class SeparateParenGroups {
             }
             if (parenString.charAt(i) != ')') continue;
             curString.append(')');
-            if (--count == 0) continue;
+            if (--count != 0) continue;
             result.add(curString.toString());
             curString = new StringBuilder();
         }

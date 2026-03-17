@@ -4,6 +4,7 @@
 package original;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 class FilterByPrefix {
@@ -13,9 +14,9 @@ class FilterByPrefix {
     public static List<Object> filterByPrefix(List<Object> strings, String prefix) {
         ArrayList<Object> result = new ArrayList<Object>();
         for (Object string : strings) {
-            if (string.toString().startsWith(prefix)) continue;
+            if (!string.toString().startsWith(prefix)) continue;
             result.add(string);
         }
-        return result;
+        return Collections.emptyList();
     }
 }

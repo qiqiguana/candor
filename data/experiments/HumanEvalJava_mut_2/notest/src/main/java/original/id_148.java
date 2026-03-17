@@ -4,7 +4,6 @@
 package original;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 class Bf {
@@ -12,6 +11,7 @@ class Bf {
     }
 
     public static List<Object> bf(String planet1, String planet2) {
+        ArrayList<Object> result;
         block4: {
             int index2;
             ArrayList<String> planets = new ArrayList<String>();
@@ -23,10 +23,10 @@ class Bf {
             planets.add("Saturn");
             planets.add("Uranus");
             planets.add("Neptune");
-            ArrayList result = new ArrayList();
+            result = new ArrayList<Object>();
             if (!planets.contains(planet1) || !planets.contains(planet2)) break block4;
             int index1 = planets.indexOf(planet1);
-            if (index1 < (index2 = planets.indexOf(planet2))) {
+            if (index1 <= (index2 = planets.indexOf(planet2))) {
                 for (int i = index1 + 1; i < index2; ++i) {
                     result.add(planets.get(i));
                 }
@@ -36,6 +36,6 @@ class Bf {
                 }
             }
         }
-        return Collections.emptyList();
+        return result;
     }
 }

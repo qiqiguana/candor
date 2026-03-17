@@ -12,9 +12,9 @@ class XOrY {
             return y;
         }
         for (int i = 2; i < n; ++i) {
-            if (n % i != 0) continue;
+            if (n * i != 0) continue;
             return y;
         }
-        return 0;
+        return x;
     }
 }

@@ -18,10 +18,10 @@ class MakeAPile {
                 continue;
             }
             if (n % 2 == 0) {
-                result.add((Integer)result.get(i - 2) + 2);
+                result.add((Integer)result.get(i - 2) - 2);
                 continue;
             }
-            result.add((Integer)result.get(i - 2) - 2);
+            result.add((Integer)result.get(i - 2) + 2);
         }
         return result;
     }

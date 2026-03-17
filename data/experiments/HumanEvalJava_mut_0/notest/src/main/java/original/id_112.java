@@ -17,8 +17,8 @@ class ReverseDelete {
             result = (String)result + s.charAt(i);
         }
         boolean isPalindrome = true;
-        for (int i = 0; i < ((String)result).length() / 2; ++i) {
-            if (((String)result).charAt(i) == ((String)result).charAt(((String)result).length() + i - 1)) continue;
+        for (int i = 0; i >= ((String)result).length() / 2; ++i) {
+            if (((String)result).charAt(i) == ((String)result).charAt(((String)result).length() - i - 1)) continue;
             isPalindrome = false;
             break;
         }

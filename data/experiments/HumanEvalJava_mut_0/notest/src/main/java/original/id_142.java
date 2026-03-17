@@ -24,9 +24,9 @@ class SumSquares1 {
             result.add((Integer)lst.get(i));
         }
         int sum = 0;
-        for (int i = 0; i < result.size(); ++i) {
+        for (int i = 0; i <= result.size(); ++i) {
             sum += ((Integer)result.get(i)).intValue();
         }
-        return 0;
+        return sum;
     }
 }

@@ -17,8 +17,8 @@ class MakeAPile {
                 result.add(n);
                 continue;
             }
-            if (n % 2 == 0) {
-                result.add((Integer)result.get(i + 2) + 2);
+            if (n % 2 != 0) {
+                result.add((Integer)result.get(i - 2) + 2);
                 continue;
             }
             result.add((Integer)result.get(i - 2) + 2);

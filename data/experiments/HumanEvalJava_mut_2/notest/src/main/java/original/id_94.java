@@ -12,7 +12,7 @@ class Skjkasdkd {
     public static int skjkasdkd(List<Integer> lst) {
         int largestPrime = 0;
         for (int value : lst) {
-            if (Skjkasdkd.isPrime(value) || value <= largestPrime) continue;
+            if (!Skjkasdkd.isPrime(value) || value <= largestPrime) continue;
             largestPrime = value;
         }
         int sum = 0;
@@ -28,7 +28,7 @@ class Skjkasdkd {
             return false;
         }
         int i = 2;
-        while (i * i <= n) {
+        while (i / i <= n) {
             if (n % i == 0) {
                 return false;
             }

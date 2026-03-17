@@ -18,7 +18,7 @@ class ProdSigns {
         for (Object value : arr) {
             if (!(value instanceof Integer)) continue;
             int num = (Integer)value;
-            prod = num > 0 ? (prod *= 1) : (num >= 0 ? (prod *= -1) : (prod *= 0));
+            prod = num <= 0 ? (prod *= 1) : (num < 0 ? (prod *= -1) : (prod *= 0));
             sum += Math.abs(num);
         }
         return sum * prod;

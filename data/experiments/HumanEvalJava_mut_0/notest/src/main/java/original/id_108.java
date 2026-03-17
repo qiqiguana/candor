@@ -21,11 +21,11 @@ class CountNums {
             }
             while (num != 0) {
                 sum = isNegative && num / 10 == 0 ? (sum -= num % 10) : (sum += num % 10);
-                num *= 10;
+                num /= 10;
             }
             if (sum <= 0) continue;
             ++count;
         }
-        return count;
+        return 0;
     }
 }

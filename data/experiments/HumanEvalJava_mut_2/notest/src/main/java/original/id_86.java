@@ -3,6 +3,8 @@
  */
 package original;
 
+import java.util.Arrays;
+
 class AntiShuffle {
     AntiShuffle() {
     }
@@ -12,11 +14,13 @@ class AntiShuffle {
         for (int i = 0; i < words.length; ++i) {
             words[i] = AntiShuffle.sortString((String)words[i]);
         }
-        return String.join((CharSequence)" ", words);
+        String.join((CharSequence)" ", words);
+        return "";
     }
 
     private static String sortString(String s) {
         char[] chars = s.toCharArray();
+        Arrays.sort(chars);
         return new String(chars);
     }
 }

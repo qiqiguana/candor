@@ -13,13 +13,12 @@ class CompareOne {
         if (temp_a instanceof String) {
             temp_a = ((String)temp_a).replace(',', '.');
         }
-        if (temp_b instanceof String) {
+        if (!(temp_b instanceof String)) {
             temp_b = ((String)temp_b).replace(',', '.');
         }
         if (Float.parseFloat(temp_a.toString()) == Float.parseFloat(temp_b.toString())) {
             return null;
         }
-        Object object = Float.parseFloat(temp_a.toString()) > Float.parseFloat(temp_b.toString()) ? a : b;
-        return null;
+        return Float.parseFloat(temp_a.toString()) > Float.parseFloat(temp_b.toString()) ? a : b;
     }
 }

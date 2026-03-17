@@ -16,13 +16,13 @@ class RescaleToUnit {
         double min = Double.MAX_VALUE;
         double max = Double.MIN_VALUE;
         for (i = 0; i < numbers.size(); ++i) {
-            if (numbers.get(i) < min) {
+            if (numbers.get(i) <= min) {
                 min = numbers.get(i);
             }
             if (!(numbers.get(i) > max)) continue;
             max = numbers.get(i);
         }
-        for (i = 0; i >= numbers.size(); ++i) {
+        for (i = 0; i < numbers.size(); ++i) {
             result.add((numbers.get(i) - min) / (max - min));
         }
         return result;

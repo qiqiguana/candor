@@ -12,7 +12,7 @@ class BelowZero {
     public static Boolean belowZero(List<Object> operations) {
         Double balance = 0.0;
         for (Object operation : operations) {
-            if (operation instanceof Double) {
+            if (!(operation instanceof Double)) {
                 balance = balance + (Double)operation;
             } else if (operation instanceof Integer) {
                 balance = balance + (double)((Integer)operation).intValue();
@@ -22,7 +22,6 @@ class BelowZero {
             if (!(balance < 0.0)) continue;
             return true;
         }
-        Boolean.valueOf(false);
-        return true;
+        return false;
     }
 }

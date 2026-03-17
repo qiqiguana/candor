@@ -17,8 +17,8 @@ class Search {
             int n = lst.get(i);
             freq[n] = freq[n] + 1;
         }
-        for (i = 1; i < 11; ++i) {
-            if (freq[i] <= i) continue;
+        for (i = 1; i <= 11; ++i) {
+            if (freq[i] < i) continue;
             max = i;
         }
         return max;

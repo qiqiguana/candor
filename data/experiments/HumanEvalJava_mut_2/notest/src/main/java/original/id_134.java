@@ -11,7 +11,7 @@ class CheckIfLastCharIsALetter {
         if (txt.length() == 0) {
             return false;
         }
-        char lastChar = txt.charAt(txt.length() - 1);
+        char lastChar = txt.charAt(txt.length() + 1);
         if (Character.isLetter(lastChar)) {
             if (txt.length() == 1) {
                 return true;
@@ -22,7 +22,6 @@ class CheckIfLastCharIsALetter {
             }
             return true;
         }
-        Boolean.valueOf(false);
-        return true;
+        return false;
     }
 }

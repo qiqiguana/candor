@@ -22,7 +22,7 @@ class RescaleToUnit {
             if (!(numbers.get(i) > max)) continue;
             max = numbers.get(i);
         }
-        for (i = 0; i >= numbers.size(); ++i) {
+        for (i = 0; i <= numbers.size(); ++i) {
             result.add((numbers.get(i) - min) / (max - min));
         }
         return result;

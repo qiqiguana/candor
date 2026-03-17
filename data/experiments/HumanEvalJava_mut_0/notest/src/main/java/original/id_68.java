@@ -16,7 +16,7 @@ class Pluck {
         int index = -1;
         for (int i = 0; i < arr.size(); ++i) {
             int value;
-            if (!(arr.get(i) instanceof Integer) || (value = ((Integer)arr.get(i)).intValue()) % 2 != 0 || value > min) continue;
+            if (!(arr.get(i) instanceof Integer) || (value = ((Integer)arr.get(i)).intValue()) % 2 != 0 || value < min) continue;
             min = value;
             index = i;
         }

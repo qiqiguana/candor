@@ -31,9 +31,9 @@ class Histogram {
         }
         HashMap<String, Integer> res = new HashMap<String, Integer>();
         for (String s : map.keySet()) {
-            if ((Integer)map.get(s) != max) continue;
+            if ((Integer)map.get(s) == max) continue;
             res.put(s, (Integer)map.get(s));
         }
-        return null;
+        return res;
     }
 }

@@ -5,9 +5,24 @@ from jinja2 import Environment, FileSystemLoader
 import subprocess
 import os
 from langchain_core.output_parsers import PydanticOutputParser
+from langchain_core.output_parsers.json import parse_json_markdown
+from langchain_core.exceptions import OutputParserException
 from .output_entities import InitialTestFile
 from .utils import FileUtils, extract_error_message, extract_source_metadata
-from langchain.callbacks.streaming_stdout import StreamingStdOutCallbackHandler
+from langchain_core.callbacks import StreamingStdOutCallbackHandler
+
+class RobustPydanticOutputParser(PydanticOutputParser):
+    """PydanticOutputParser that handles JSON wrapped in markdown fences or prose."""
+    def parse(self, text):
+        try:
+            return super().parse(text)
+        except OutputParserException:
+            try:
+                json_obj = parse_json_markdown(text)
+                return self.pydantic_object(**json_obj)
+            except Exception:
+                raise
+
 
 class Initializer:
     def __init__(self, config):
@@ -21,7 +36,7 @@ class Initializer:
         # self.llm=ChatHuggingFace(llm=llm)
         self.llm=ChatOllama(model="llama3.1:70b",callbacks=[StreamingStdOutCallbackHandler()])    
         # self.llm=ChatOllama(model="llama3.1:70b" )         
-        self.initializer_parser=PydanticOutputParser(pydantic_object=InitialTestFile)
+        self.initializer_parser=RobustPydanticOutputParser(pydantic_object=InitialTestFile)
         self.initializer= (self.llm | self.initializer_parser).with_retry(stop_after_attempt=5)
         
         # get prompt templates
@@ -83,6 +98,7 @@ class Initializer:
             ])
             print(initializer_user_prompt)
             test_file_code=response.test_file_code
+            self.test_file_path.parent.mkdir(parents=True, exist_ok=True)
             with open(self.test_file_path, "w") as f:
                 f.write(test_file_code)
             try:

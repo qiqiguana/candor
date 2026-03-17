@@ -18,8 +18,7 @@ class ByLength {
             sorted.add((Integer)value);
         }
         Collections.sort(sorted);
-        Collections.reverse(sorted);
-        ArrayList<String> result = new ArrayList<String>();
+        ArrayList<Object> result = new ArrayList<Object>();
         for (Integer value : sorted) {
             if (value < 1 || value > 9) continue;
             switch (value) {
@@ -60,6 +59,6 @@ class ByLength {
                 }
             }
         }
-        return Collections.emptyList();
+        return result;
     }
 }

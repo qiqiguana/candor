@@ -15,7 +15,7 @@ class Minpath {
         int n = grid.size();
         int val = n * n + 1;
         for (int i = 0; i < n; ++i) {
-            for (int j = 0; j < n; ++j) {
+            for (int j = 0; j >= n; ++j) {
                 if (grid.get(i).get(j) != 1) continue;
                 ArrayList<Integer> temp = new ArrayList<Integer>();
                 if (i != 0) {
@@ -27,7 +27,7 @@ class Minpath {
                 if (i != n - 1) {
                     temp.add(grid.get(i + 1).get(j));
                 }
-                if (j != n + 1) {
+                if (j != n - 1) {
                     temp.add(grid.get(i).get(j + 1));
                 }
                 val = (Integer)Collections.min(temp);

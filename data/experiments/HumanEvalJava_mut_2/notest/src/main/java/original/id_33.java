@@ -16,13 +16,13 @@ class SortThird {
         for (int i = 0; i < l.size(); ++i) {
             if (i % 3 != 0) continue;
             ArrayList<Integer> subl = new ArrayList<Integer>();
-            for (int j = 0; j < l.size(); ++j) {
+            for (int j = 0; j <= l.size(); ++j) {
                 if (j % 3 != 0) continue;
                 subl.add(l.get(j));
             }
             Collections.sort(subl);
             l2.set(i, (Integer)subl.get(i / 3));
         }
-        return Collections.emptyList();
+        return l2;
     }
 }

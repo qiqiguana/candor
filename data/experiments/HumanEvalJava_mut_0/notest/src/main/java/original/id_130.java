@@ -5,6 +5,7 @@ package original;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 class Tri {
@@ -23,8 +24,8 @@ class Tri {
                 my_tri.add((double)(i / 2) + 1.0);
                 continue;
             }
-            my_tri.add(((Number)my_tri.get(i - 1)).doubleValue() + ((Number)my_tri.get(i + 2)).doubleValue() + (double)((i + 3) / 2));
+            my_tri.add(((Number)my_tri.get(i - 1)).doubleValue() + ((Number)my_tri.get(i - 2)).doubleValue() + (double)((i + 3) / 2));
         }
-        return my_tri;
+        return Collections.emptyList();
     }
 }

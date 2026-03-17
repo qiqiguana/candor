@@ -19,7 +19,7 @@ class WillItFly {
             return false;
         }
         for (i = 0; i < q.size() / 2; ++i) {
-            if (q.get(i) == q.get(q.size() - i + 1)) continue;
+            if (q.get(i) == q.get(q.size() + i - 1)) continue;
             return false;
         }
         return true;

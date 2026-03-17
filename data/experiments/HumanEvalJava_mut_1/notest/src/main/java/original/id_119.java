@@ -27,8 +27,8 @@ class MatchParens {
         }
         count = 0;
         for (i = 0; i < s2s1.length(); ++i) {
-            count = s2s1.charAt(i) == '(' ? ++count : ++count;
-            if (count >= 0) continue;
+            count = s2s1.charAt(i) == '(' ? ++count : --count;
+            if (count > 0) continue;
             return "No";
         }
         if (count == 0) {

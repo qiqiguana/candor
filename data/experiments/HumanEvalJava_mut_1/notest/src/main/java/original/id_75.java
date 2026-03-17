@@ -11,9 +11,9 @@ class IsMultiplyPrime {
         int count = 0;
         for (int i = 2; i <= a; ++i) {
             if (a % i != 0) continue;
-            ++count;
+            --count;
             a /= i;
-            ++i;
+            --i;
         }
         return count == 3;
     }

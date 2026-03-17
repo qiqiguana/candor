@@ -7,12 +7,12 @@ import subprocess
 from pathlib import Path 
 import sys
 import os
-sys.path.append("/home/qinghua/projects/matg/")
+sys.path.append(str(Path(__file__).parent))
 from logger import logger
 import argparse
 parser = argparse.ArgumentParser(description="Run experiments")
 parser.add_argument("--package-name", type=str, default="original", help="Name of the package to run experiments on")
-parser.add_argument("--data-path", type=str, default="/home/qinghua/projects/matg/data/experiments/HumanEvalJava/candor_new/run_2", help="Path to the data directory")
+parser.add_argument("--data-path", type=str, required=True, help="Path to the data directory")
 parser.add_argument("--mode", type=str, choices=["initialize", "generate", "fix"], default="generate", help="Mode of operation: initialize, generate, or fix oracles")
 parser.add_argument("--max-attempts", type=int, default=3, help="Maximum number of attempts for each operation")
 parser.add_argument("--doc-file", type=str, default=None, help="Path to the documentation file")
@@ -26,7 +26,6 @@ class_id_mapping=pickle.load(open(os.path.join(data_path,"class_id_mapping.pkl")
 id_class_mapping={v:k for k,v in class_id_mapping.items()}
 
 """initialization"""
-## nohup python run_candor.py --mode initialize --data-path /home/qinghua/projects/matg/data/experiments/Leetcode/candor_new/run_0  > "logs/candor_new_leetcode_intialize_run_0__$(date +%Y%m%d_%H%M%S).log" 2>&1 &
 if mode=="initialize":
     source_file_path=data_path/"src"/"main"/"java"/package_name
     test_file_path=data_path/"src"/"test"/"java"/package_name
@@ -49,7 +48,7 @@ if mode=="initialize":
         # if fname not in selected_names:
         #     continue
         command=[
-            "python", "-m", "matg.main","initialize",
+            "python", "-m", "tgen.main","initialize",
             "--data-path", str(data_path),
             "--relative-source-file-path", str((source_file_path/f"{fname}.java").relative_to(data_path)),
             "--relative-test-file-path", str((test_file_path/f"{fname}Test.java").relative_to(data_path)),
@@ -64,7 +63,6 @@ if mode=="initialize":
     logger.info(f"Initialization completed: {n_successful_initialization}/{n_attempted_initialization} successful initializations.")
 
 """generate to improve coverage"""
-## nohup python run_experiments.py  > "logs/candor_new_intialize_run_2__$(date +%Y%m%d_%H%M%S).log" 2>&1 &
 if mode=="generate":
     source_file_path=data_path/"src"/"main"/"java"/package_name
     test_file_path=data_path/"src"/"test"/"java"/package_name
@@ -83,7 +81,7 @@ if mode=="generate":
         # if fname not in selected_names:
         #     continue
         command=[
-            "python", "-m", "matg.main","generate",
+            "python", "-m", "tgen.main","generate",
             "--data-path", str(data_path),
             "--relative-source-file-path", str((source_file_path/f"{fname}.java").relative_to(data_path)),
             "--relative-test-file-path", str((test_file_path/f"{fname}Test.java").relative_to(data_path)),
@@ -114,15 +112,15 @@ if mode=="fix":
         # if fname not in selected_names:
         #     continue
         command=[
-            "python", "-m", "matg.main","oracle-fixer",
+            "python", "-m", "tgen.main","oracle-fixer",
             "--data-path", str(data_path),
             "--relative-source-file-path", str((source_file_path/f"{fname}.java").relative_to(data_path)),
             "--relative-test-file-path", str((test_file_path/f"{fname}Test.java").relative_to(data_path)),
             "--test-command", f"mvn -f {pom} clean -Dtest={class_name} test jacoco:report",
             "--generator", "matg",
         ]
-        # if doc_file:
-        #     command.append("--doc-file")
-        #     command.append(doc_file)
+        if doc_file:
+            command.append("--doc-file")
+            command.append(doc_file)
         subprocess.run(command, check=True)
         

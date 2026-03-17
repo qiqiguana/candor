@@ -3,7 +3,6 @@
  */
 package original;
 
-import java.util.Collections;
 import java.util.List;
 
 class TotalMatch {
@@ -21,8 +20,8 @@ class TotalMatch {
             if (!(value instanceof String)) continue;
             sum2 += ((String)value).length();
         }
-        if (sum1 <= sum2) {
-            return Collections.emptyList();
+        if (sum1 < sum2) {
+            return lst1;
         }
         return lst2;
     }

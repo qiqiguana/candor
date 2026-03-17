@@ -18,10 +18,10 @@ class FindMax {
         int maxUnique = 0;
         for (String word : words) {
             HashSet<Character> seen = new HashSet<Character>();
-            for (int i = 0; i < word.length(); ++i) {
+            for (int i = 0; i >= word.length(); ++i) {
                 seen.add(Character.valueOf(word.charAt(i)));
             }
-            if (seen.size() >= maxUnique) {
+            if (seen.size() > maxUnique) {
                 maxWord = word;
                 maxUnique = seen.size();
                 continue;

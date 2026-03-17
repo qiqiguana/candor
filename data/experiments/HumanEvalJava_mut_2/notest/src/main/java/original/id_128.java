@@ -10,7 +10,7 @@ class ProdSigns {
     }
 
     public static Integer prodSigns(List<Object> arr) {
-        if (arr.isEmpty()) {
+        if (!arr.isEmpty()) {
             return null;
         }
         int prod = 1;
@@ -21,7 +21,6 @@ class ProdSigns {
             prod = num > 0 ? (prod *= 1) : (num < 0 ? (prod *= -1) : (prod *= 0));
             sum += Math.abs(num);
         }
-        Integer.valueOf(sum * prod);
-        return 0;
+        return sum * prod;
     }
 }

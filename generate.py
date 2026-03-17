@@ -5,15 +5,26 @@ from jinja2 import Environment, FileSystemLoader
 import subprocess
 import os
 from langchain_core.output_parsers import PydanticOutputParser
-from .output_entities import ErrorInfo, InitialTestFile, InspectionResult, Requirements, TestCase, TestCasePlan, TestCases, TestPlan
-from .utils import Analyzer, CoverageProcessor, FileUtils, extract_error_message, extract_source_metadata, merge_code, parse_jacoco_csv
-from langchain.callbacks.streaming_stdout import StreamingStdOutCallbackHandler
+from langchain_core.output_parsers.json import parse_json_markdown
+from langchain_core.exceptions import OutputParserException
+from .output_entities import ErrorInfo, TestCase, TestCases, TestPlan
+from .utils import Analyzer, CoverageProcessor, FileUtils, extract_error_message, extract_source_metadata, merge_code
+from langchain_core.callbacks import StreamingStdOutCallbackHandler
 import pickle
-import tensorflow as tf
 
-from torch.utils.tensorboard import SummaryWriter
+class RobustPydanticOutputParser(PydanticOutputParser):
+    """PydanticOutputParser that handles JSON wrapped in markdown fences or prose."""
+    def parse(self, text):
+        try:
+            return super().parse(text)
+        except OutputParserException:
+            try:
+                json_obj = parse_json_markdown(text)
+                return self.pydantic_object(**json_obj)
+            except Exception:
+                raise
 
-# /home/qinghua/projects/matg/data/HumanEvalJava/matg/src/main/java/original/id_147.java
+
 class TestCaseGenerator:
     def __init__(self, config):
         self.config=config
@@ -35,58 +46,37 @@ class TestCaseGenerator:
  
         # set up LLMs 
         self.llama70b=ChatOllama(model="llama3.1:70b",callbacks=[StreamingStdOutCallbackHandler()],num_predict=10000)            
-        self.deepseek=ChatOllama(model="deepseek-r1:70b",callbacks=[StreamingStdOutCallbackHandler()],num_predict=10000)
         
-        """set up agents  -- planner, (requirement engineer,competitor, plan_fixer), tester, inspector, """
         max_parsing_attempts=5
         jinja_env=Environment(loader=FileSystemLoader(self.config.prompt_template_path/self.config.generator))
         ## planner
-        self.planner_parser=PydanticOutputParser(pydantic_object=TestPlan)
+        self.planner_parser=RobustPydanticOutputParser(pydantic_object=TestPlan)
         self.planner= (self.llama70b | self.planner_parser).with_retry(stop_after_attempt=max_parsing_attempts)
-        # self.planner= (self.deepseek | self.planner_parser).with_retry(stop_after_attempt=max_parsing_attempts)
         self.planner_system_prompt=jinja_env.get_template("planner_system.jinja")
         self.planner_user_prompt=jinja_env.get_template("planner_user.jinja")
         ## tester
-        self.tester_parser=PydanticOutputParser(pydantic_object=TestCases)
+        self.tester_parser=RobustPydanticOutputParser(pydantic_object=TestCases)
         self.tester= (self.llama70b | self.tester_parser).with_retry(stop_after_attempt=max_parsing_attempts)
         self.tester_system_prompt=jinja_env.get_template("tester_system.jinja")
         self.tester_user_prompt=jinja_env.get_template("tester_user.jinja")
         ## inspector
-        self.inspector_parser=PydanticOutputParser(pydantic_object=ErrorInfo)
+        self.inspector_parser=RobustPydanticOutputParser(pydantic_object=ErrorInfo)
         self.inspector= (self.llama70b | self.inspector_parser).with_retry(stop_after_attempt=max_parsing_attempts)
         self.inspector_system_prompt=jinja_env.get_template("inspector_system.jinja")
         self.inspector_user_prompt=jinja_env.get_template("inspector_user.jinja")
         ## single case fixer
-        self.single_case_fixer_parser=PydanticOutputParser(pydantic_object=TestCase)
+        self.single_case_fixer_parser=RobustPydanticOutputParser(pydantic_object=TestCase)
         self.single_case_fixer= (self.llama70b | self.single_case_fixer_parser).with_retry(stop_after_attempt=max_parsing_attempts)
         self.single_case_fixer_system_prompt=jinja_env.get_template("single_case_fixer_system.jinja")
         self.single_case_fixer_user_prompt=jinja_env.get_template("single_case_fixer_user.jinja")
-        ## requirement engineer
-        self.requirement_engineer_parser=PydanticOutputParser(pydantic_object=Requirements)
-        self.requirement_engineer= (self.llama70b | self.requirement_engineer_parser).with_retry(stop_after_attempt=max_parsing_attempts)
-        self.requirement_engineer_system_prompt=jinja_env.get_template("requirement_engineer_system.jinja")
-        self.requirement_engineer_user_prompt=jinja_env.get_template("requirement_engineer_user.jinja")
-        ## competitor
-        self.competitor_parser=PydanticOutputParser(pydantic_object=TestPlan)
-        self.competitor= (self.llama70b | self.competitor_parser).with_retry(stop_after_attempt=max_parsing_attempts)
-        self.competitor_system_prompt=jinja_env.get_template("competitor_system.jinja")
-        self.competitor_user_prompt=jinja_env.get_template("competitor_user.jinja")
-        ## plan fixer
-        self.plan_fixer_parser=PydanticOutputParser(pydantic_object=TestPlan)
-        self.plan_fixer= (self.llama70b | self.plan_fixer_parser).with_retry(stop_after_attempt=max_parsing_attempts)   
-        self.plan_fixer_system_prompt=jinja_env.get_template("plan_fixer_system.jinja")
-        self.plan_fixer_user_prompt=jinja_env.get_template("plan_fixer_user.jinja")
         
-        # id_class_mapping for HumanEvalJava
+        # id_class_mapping
         self.id_class_mapping=pickle.load((self.config.data_path/"class_id_mapping.pkl").open("rb"))
         self.id=self.id_class_mapping[self.class_name]
         
         # record failed tests
         self.failed_tests=[]
         
-        # set up tensorboard writer
-        tensorboard_log_dir =  f"tensorboard_logs/{self.id}"
-        self.writer= SummaryWriter(tensorboard_log_dir)
         
     def run(self):
         """
@@ -107,7 +97,6 @@ class TestCaseGenerator:
             self.line_coverage = self.coverage_processor.calculate_line_coverage_rate_for_file(self.config.relative_source_file_path)
             self.branch_coverage = self.coverage_processor.calculate_branch_coverage_rate_for_file(self.config.relative_source_file_path)
             logger.info(f"Initial line coverage: {self.line_coverage}\nInitial branch coverage: {self.branch_coverage}")
-            self._log2tensorboard()
             # improve coverage
             logger.info(f"Improving coverage for test file {self.test_file_path}")
             while (self.line_coverage<self.config.target_line_coverage or self.branch_coverage<self.config.target_branch_coverage) and self.iteration<self.config.max_attempts+1:
@@ -115,10 +104,7 @@ class TestCaseGenerator:
                 
                 try:
                     test_plan=self._generate_test_plan()
-                    # test_plan=self._fix_plan(test_plan)
                     self._generate_test_with_plan(test_plan)
-                    # self._check_coverage_increase()
-                    self._log2tensorboard()
                 except Exception as e:
                     logger.error(f"Error generating test cases: {e}")
                     continue
@@ -132,11 +118,9 @@ class TestCaseGenerator:
                 cwd=os.getcwd(),
             )
         finally:
-            self.writer.close()
             logger.info(f"Final line coverage: {self.line_coverage}")
             logger.info(f"Final branch coverage: {self.branch_coverage}")
             logger.info(f"Test generation process completed. Check the test file at {self.test_file_path}")
-            logger.info(f"Tensorboard logs saved at {self.writer.log_dir}")
             
     def _generate_test_plan(self):
         """
@@ -197,9 +181,8 @@ class TestCaseGenerator:
             validation_result=self._validate_and_serialize_test_code(new_test)
             if validation_result:
                 new_line_coverage,new_branch_coverage=self._check_coverage_increase()
-                if new_line_coverage>self.config.target_line_coverage and new_branch_coverage>self.config.target_line_coverage:
+                if new_line_coverage>self.config.target_line_coverage and new_branch_coverage>self.config.target_branch_coverage:
                     logger.info(f"Target coverage reached: \n Line coverage: {new_line_coverage*100:.2f}%\n Branch coverage: {new_branch_coverage*100:.2f}%")
-                    self.writer.close()
                     return
                 else:
                     continue
@@ -235,11 +218,8 @@ class TestCaseGenerator:
                 new_test=self.single_case_fixer.invoke([("system", single_case_fixer_system_prompt), ("user", single_case_fixer_user_prompt)])
                 validation_result=self._validate_and_serialize_test_code(new_test)
                 if validation_result:
-                    # break if pass
-                    # new_line_coverage,new_branch_coverage=self._check_coverage_increase()
-                    if self.line_coverage>self.config.target_line_coverage and self.branch_coverage>self.config.target_line_coverage:
-                        logger.info(f"Target coverage reached: \n Line coverage: {new_line_coverage*100:.2f}%\n Branch coverage: {new_branch_coverage*100:.2f}%")
-                        self.writer.close()
+                    if self.line_coverage>self.config.target_line_coverage and self.branch_coverage>self.config.target_branch_coverage:
+                        logger.info(f"Target coverage reached: \n Line coverage: {self.line_coverage*100:.2f}%\n Branch coverage: {self.branch_coverage*100:.2f}%")
                         return
                     else:
                         break
@@ -250,11 +230,6 @@ class TestCaseGenerator:
             
           
 
-    def _log2tensorboard(self):
-        jacoco_pdf=parse_jacoco_csv(self.config.coverage_report_path/"jacoco.csv", self.id_class_mapping)
-        self.line_coverage,self.branch_coverage=jacoco_pdf.loc[self.id]["line_coverage"], jacoco_pdf.loc[self.id]["branch_coverage"]
-        self.writer.add_scalar("line_coverage", self.line_coverage, self.iteration)
-        self.writer.add_scalar("branch_coverage", self.branch_coverage, self.iteration)
     
     def _check_coverage_increase(self):
         subprocess.run(

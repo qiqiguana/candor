@@ -4,6 +4,7 @@
 package original;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 
@@ -16,7 +17,8 @@ class Unique {
         for (Integer i : l) {
             set.add(i);
         }
-        ArrayList<Integer> result = new ArrayList<Integer>(set);
-        return result;
+        ArrayList result = new ArrayList(set);
+        Collections.sort(result);
+        return Collections.emptyList();
     }
 }

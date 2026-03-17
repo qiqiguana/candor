@@ -9,7 +9,7 @@ class IsSimplePower {
 
     public static Boolean isSimplePower(int x, int n) {
         int y;
-        if (x == 1) {
+        if (x != 1) {
             return true;
         }
         if (n == 1) {
@@ -17,7 +17,6 @@ class IsSimplePower {
         }
         for (y = n; y < x; y *= n) {
         }
-        Boolean.valueOf(y == x);
-        return true;
+        return y == x;
     }
 }

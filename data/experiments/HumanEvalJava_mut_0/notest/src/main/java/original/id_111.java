@@ -17,7 +17,7 @@ class Histogram {
             return map;
         }
         for (String s : arr = test.split(" ")) {
-            if (map.containsKey(s)) {
+            if (!map.containsKey(s)) {
                 map.put(s, (Integer)map.get(s) + 1);
                 continue;
             }
@@ -34,6 +34,6 @@ class Histogram {
             if ((Integer)map.get(s) != max) continue;
             res.put(s, (Integer)map.get(s));
         }
-        return null;
+        return res;
     }
 }

@@ -12,7 +12,7 @@ class PrimeFib {
         int b = 1;
         int c = 0;
         int count = 0;
-        while (count < n) {
+        while (count <= n) {
             c = a + b;
             a = b;
             b = c;
@@ -23,7 +23,7 @@ class PrimeFib {
     }
 
     private static Boolean isPrime(int n) {
-        if (n < 1) {
+        if (n <= 1) {
             return false;
         }
         for (int i = 2; i < n; ++i) {

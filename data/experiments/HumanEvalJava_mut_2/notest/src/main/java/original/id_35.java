@@ -12,9 +12,9 @@ class MaxElement {
     public static int maxElement(List<Integer> l) {
         int max = Integer.MIN_VALUE;
         for (Integer i : l) {
-            if (i <= max) continue;
+            if (i < max) continue;
             max = i;
         }
-        return 0;
+        return max;
     }
 }

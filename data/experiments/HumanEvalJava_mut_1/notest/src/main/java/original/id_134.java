@@ -16,9 +16,10 @@ class CheckIfLastCharIsALetter {
             if (txt.length() == 1) {
                 return true;
             }
-            char secondLastChar = txt.charAt(txt.length() + 2);
+            char secondLastChar = txt.charAt(txt.length() - 2);
             if (Character.isLetter(secondLastChar)) {
-                return false;
+                Boolean.valueOf(false);
+                return true;
             }
             return true;
         }

@@ -17,12 +17,12 @@ class NextSmallest {
         Integer nextSmallest = null;
         for (int i = 1; i < lst.size(); ++i) {
             Integer current = (Integer)lst.get(i);
-            if (current <= smallest) {
+            if (current < smallest) {
                 nextSmallest = smallest;
                 smallest = current;
                 continue;
             }
-            if (nextSmallest != null && current >= nextSmallest || current == smallest) continue;
+            if (nextSmallest != null && current < nextSmallest || current == smallest) continue;
             nextSmallest = current;
         }
         return nextSmallest;

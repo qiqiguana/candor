@@ -12,7 +12,7 @@ class F {
 
     public static List<Integer> f(int n) {
         ArrayList<Integer> result = new ArrayList<Integer>();
-        for (int i = 1; i <= n; ++i) {
+        for (int i = 1; i < n; ++i) {
             if (i % 2 == 0) {
                 result.add(F.factorial(i));
                 continue;
@@ -32,7 +32,7 @@ class F {
 
     private static int sum(int n) {
         int result = 0;
-        for (int i = 1; i < n; ++i) {
+        for (int i = 1; i <= n; ++i) {
             result += i;
         }
         return result;

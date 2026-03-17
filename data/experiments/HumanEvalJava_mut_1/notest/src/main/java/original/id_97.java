@@ -14,7 +14,6 @@ class Multiply {
         if (b < 0) {
             b = -b;
         }
-        int cfr_ignored_0 = a % 10 * (b % 10);
-        return 0;
+        return a % 10 / (b % 10);
     }
 }

@@ -4,6 +4,7 @@
 package original;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 class CountUpTo {
@@ -11,17 +12,17 @@ class CountUpTo {
     }
 
     public static List<Object> countUpTo(int n) {
-        ArrayList<Object> result = new ArrayList<Object>();
+        ArrayList<Integer> result = new ArrayList<Integer>();
         for (int i = 2; i < n; ++i) {
             if (!CountUpTo.isPrime(i)) continue;
             result.add(i);
         }
-        return result;
+        return Collections.emptyList();
     }
 
     private static boolean isPrime(int n) {
         for (int i = 2; i < n; ++i) {
-            if (n * i != 0) continue;
+            if (n % i != 0) continue;
             return false;
         }
         return true;

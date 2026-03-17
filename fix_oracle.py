@@ -1,22 +1,30 @@
 from pathlib import Path
 
-
 from .logger import logger
 from langchain_ollama import ChatOllama
 from jinja2 import Environment, FileSystemLoader
-import subprocess
-import os
 from langchain_core.output_parsers import PydanticOutputParser
-from .output_entities import ErrorInfo, InitialTestFile, InspectionResult, Requirements, TestCase, TestCasePlan, TestCases, TestPlan, CuratorReport, OracleAnalysisReport,TestCaseParserResult
-from .utils import Analyzer, CoverageProcessor, FileUtils, extract_error_message, extract_source_metadata, merge_code, parse_jacoco_csv,replace_code_block
-from langchain.callbacks.streaming_stdout import StreamingStdOutCallbackHandler
+from langchain_core.output_parsers.json import parse_json_markdown
+from langchain_core.exceptions import OutputParserException
+from .output_entities import Requirements, CuratorReport, OracleAnalysisReport, TestCaseParserResult
+from .utils import Analyzer, FileUtils, extract_source_metadata, replace_code_block
+from langchain_core.callbacks import StreamingStdOutCallbackHandler
 import pickle
-import tensorflow as tf
 import csv
-from torch.utils.tensorboard import SummaryWriter
 
-# /home/qinghua/projects/matg/data/HumanEvalJava/matg/src/main/java/original/id_147.java
-# python -m matg.main oracle-fixer --data-path /home/qinghua/projects/matg/data/HumanEvalJava/matg/ --relative-source-file-path src/main/java/original/id_147.java --relative-test-file-path src/test/java/original/id_147Test.java --test-command "mvn -f /home/qinghua/projects/matg/data/HumanEvalJava/matg/pom.xml" --generator matg
+class RobustPydanticOutputParser(PydanticOutputParser):
+    """PydanticOutputParser that handles JSON wrapped in markdown fences or prose."""
+    def parse(self, text):
+        try:
+            return super().parse(text)
+        except OutputParserException:
+            try:
+                json_obj = parse_json_markdown(text)
+                return self.pydantic_object(**json_obj)
+            except Exception:
+                raise
+
+
 class OracleFixer:
     def __init__(self,config):
         self.config=config
@@ -50,27 +58,26 @@ class OracleFixer:
         max_parsing_attempts=3
         jinja_env=Environment(loader=FileSystemLoader(self.config.prompt_template_path/self.config.generator))
         ## requirement engineer
-        self.requirement_engineer_parser=PydanticOutputParser(pydantic_object=Requirements)
+        self.requirement_engineer_parser=RobustPydanticOutputParser(pydantic_object=Requirements)
         self.requirement_engineer= (self.llama70b | self.requirement_engineer_parser).with_retry(stop_after_attempt=max_parsing_attempts)
         self.requirement_engineer_system_prompt=jinja_env.get_template("requirement_engineer_system.jinja")
         self.requirement_engineer_user_prompt=jinja_env.get_template("requirement_engineer_user.jinja")
         # test case parser
-        self.test_case_parser_parser=PydanticOutputParser(pydantic_object=TestCaseParserResult)
+        self.test_case_parser_parser=RobustPydanticOutputParser(pydantic_object=TestCaseParserResult)
         self.test_case_parser= (self.llama70b | self.test_case_parser_parser).with_retry(stop_after_attempt=max_parsing_attempts)
         self.test_case_parser_system_prompt=jinja_env.get_template("test_case_parser_system.jinja")
         self.test_case_parser_user_prompt=jinja_env.get_template("test_case_parser_user.jinja")
         ## competitor
-        self.competitor_parser=PydanticOutputParser(pydantic_object=OracleAnalysisReport)
-        # self.competitor= (self.deepseek | self.competitor_parser).with_retry(stop_after_attempt=max_parsing_attempts)
+        self.competitor_parser=RobustPydanticOutputParser(pydantic_object=OracleAnalysisReport)
         self.competitor_system_prompt=jinja_env.get_template("competitor_system.jinja")
         self.competitor_user_prompt=jinja_env.get_template("competitor_user.jinja")
         ## competitor summariser
-        self.competitor_summariser_parser=PydanticOutputParser(pydantic_object=OracleAnalysisReport)
+        self.competitor_summariser_parser=RobustPydanticOutputParser(pydantic_object=OracleAnalysisReport)
         self.competitor_summariser=(self.llama70b| self.competitor_summariser_parser).with_retry(stop_after_attempt=max_parsing_attempts)
         self.competitor_summariser_system_prompt=jinja_env.get_template("competitor_summariser_system.jinja")
         self.competitor_summariser_user_prompt=jinja_env.get_template("competitor_summariser_user.jinja")
         ## curator
-        self.curator_parser=PydanticOutputParser(pydantic_object=CuratorReport)
+        self.curator_parser=RobustPydanticOutputParser(pydantic_object=CuratorReport)
         self.curator= (self.llama70b | self.curator_parser).with_retry(stop_after_attempt=max_parsing_attempts)
         self.curator_system_prompt=jinja_env.get_template("curator_system.jinja")
         self.curator_user_prompt=jinja_env.get_template("curator_user.jinja")
@@ -78,10 +85,6 @@ class OracleFixer:
         # id_class_mapping
         self.id_class_mapping=pickle.load((self.config.data_path/"class_id_mapping.pkl").open("rb"))
         self.id=self.id_class_mapping[self.class_name]
-        
-        # set up tensorboard writer
-        tensorboard_log_dir =  f"tensorboard_logs/{self.id}"
-        self.writer= SummaryWriter(tensorboard_log_dir)
         
         # set up team size
         self.team_size=3
@@ -139,21 +142,15 @@ class OracleFixer:
                         "requirements":requiements
                     })
                     competitor_response=self.deepseek.invoke([("system", competitor_system_prompt), ("user", competitor_user_prompt)])
-                    try:
-                        # competitor_response=self.competitor.invoke([("system", competitor_system_prompt), ("user", competitor_user_prompt)])
-                        competitor_response=self.competitor_parser.parse(competitor_response.content)
-                    except Exception as e:
-                        logger.info(f"Competitor {i} failed to check oracle: {e}")
-                        competitor_summariser_system_prompt=self.competitor_summariser_system_prompt.render()
-                        competitor_summariser_user_prompt=self.competitor_summariser_user_prompt.render({
-                            "thoughts":competitor_response,
-                            "test_code":test_code,
-                            "format_instructions":self.competitor_summariser_parser.get_format_instructions(),
-                        })
-                        competitor_response=self.competitor_summariser.invoke([("system", competitor_summariser_system_prompt), ("user", competitor_summariser_user_prompt)])
-                        # competitor_response=OracleAnalysisReport(judgement=True,old_oracle="",new_oracle="",explanation="Sorry, this test case is too complex for me to analyze. Please count me out for the discussion.")
-                    finally:
-                        oracle_analysis_reports.append(competitor_response)
+                    logger.info(f"🚨🚨🚨 🚀 🚀 🚀 ----- 🤖 AGENT INTERPRETER {i}: Extracting structured oracle evaluation ----- 🚀 🚀 🚀 🚨🚨🚨 ")
+                    competitor_summariser_system_prompt=self.competitor_summariser_system_prompt.render()
+                    competitor_summariser_user_prompt=self.competitor_summariser_user_prompt.render({
+                        "thoughts":competitor_response,
+                        "test_code":test_code,
+                        "format_instructions":self.competitor_summariser_parser.get_format_instructions(),
+                    })
+                    competitor_response=self.competitor_summariser.invoke([("system", competitor_summariser_system_prompt), ("user", competitor_summariser_user_prompt)])
+                    oracle_analysis_reports.append(competitor_response)
                     
                 # curator analyze the responses
                 logger.info(f"🚨🚨🚨 🚀 🚀 🚀 ----- 🤖 AGENT CURATOR: Summarising discussions ----- 🚀 🚀 🚀 🚨🚨🚨 ")
@@ -184,4 +181,3 @@ class OracleFixer:
         except Exception as e:
             logger.error(f"Error in oracle fixer: {self.test_file_path} \n{e}")
             FileUtils.revert(self.test_file_path)
-#   python -m matg.main oracle-fixer --data-path /home/qinghua/projects/matg/data/HumanEvalJava/matg/ --relative-source-file-path src/main/java/fixed_oracle/id_147.java --relative-test-file-path src/test/java/fixed_oracle/id_147Test.java --test-command "mvn -f /home/qinghua/projects/matg/data/HumanEvalJava/matg/pom.xml test -Dtest="fixed_oracle.*Test"" --generator matg

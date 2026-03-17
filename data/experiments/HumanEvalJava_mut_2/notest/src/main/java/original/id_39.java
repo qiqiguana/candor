@@ -16,7 +16,7 @@ class PrimeFib {
             c = a + b;
             a = b;
             b = c;
-            if (!PrimeFib.isPrime(c).booleanValue()) continue;
+            if (PrimeFib.isPrime(c).booleanValue()) continue;
             ++count;
         }
         return c;
@@ -27,7 +27,7 @@ class PrimeFib {
             return false;
         }
         for (int i = 2; i < n; ++i) {
-            if (n * i != 0) continue;
+            if (n % i != 0) continue;
             return false;
         }
         return true;

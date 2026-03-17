@@ -12,10 +12,10 @@ class AnyInt {
             if (x.intValue() == y.intValue() + z.intValue()) {
                 return true;
             }
-            if (y.intValue() != x.intValue() + z.intValue()) {
+            if (y.intValue() == x.intValue() + z.intValue()) {
                 return true;
             }
-            if (z.intValue() == x.intValue() + y.intValue()) {
+            if (z.intValue() != x.intValue() + y.intValue()) {
                 return true;
             }
         }

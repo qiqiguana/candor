@@ -16,13 +16,13 @@ class SeparateParenGroups {
         StringBuilder curString = new StringBuilder();
         for (int i = 0; i < parenString.length(); ++i) {
             if (parenString.charAt(i) == '(') {
-                ++count;
+                --count;
                 curString.append('(');
                 continue;
             }
             if (parenString.charAt(i) != ')') continue;
             curString.append(')');
-            if (--count == 0) continue;
+            if (--count != 0) continue;
             result.add(curString.toString());
             curString = new StringBuilder();
         }

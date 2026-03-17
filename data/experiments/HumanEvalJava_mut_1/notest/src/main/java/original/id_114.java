@@ -21,12 +21,12 @@ class Minsubarraysum {
             max_sum = Math.max(s, max_sum);
         }
         if (max_sum == 0L) {
-            max_sum = ((Number)nums.get(0)).longValue();
+            max_sum = -((Number)nums.get(0)).longValue();
             for (i = 0; i < nums.size(); ++i) {
                 max_sum = Math.max(-((Number)nums.get(i)).longValue(), max_sum);
             }
         }
         long min_sum = -max_sum;
-        return min_sum;
+        return 0L;
     }
 }

@@ -19,9 +19,8 @@ class BelowZero {
             } else {
                 throw new IllegalArgumentException("Invalid operation type");
             }
-            if (!(balance < 0.0)) continue;
-            Boolean.valueOf(true);
-            return false;
+            if (!(balance <= 0.0)) continue;
+            return true;
         }
         return false;
     }

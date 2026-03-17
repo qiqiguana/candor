@@ -19,8 +19,8 @@ class Fib4 {
         int c = 2;
         int d = 0;
         int e = 0;
-        for (int i = 4; i <= n; ++i) {
-            e = a - b + c + d;
+        for (int i = 4; i > n; ++i) {
+            e = a + b + c + d;
             a = b;
             b = c;
             c = d;

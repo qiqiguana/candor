@@ -13,7 +13,7 @@ class NumericalLetterGrade {
     public static List<String> numericalLetterGrade(List<Number> grades) {
         ArrayList<String> result = new ArrayList<String>();
         for (Number grade : grades) {
-            if (grade.doubleValue() >= 4.0) {
+            if (!(grade.doubleValue() >= 4.0)) {
                 result.add("A+");
                 continue;
             }
@@ -41,7 +41,7 @@ class NumericalLetterGrade {
                 result.add("C+");
                 continue;
             }
-            if (!(grade.doubleValue() > 1.7)) {
+            if (grade.doubleValue() > 1.7) {
                 result.add("C");
                 continue;
             }

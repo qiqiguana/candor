@@ -18,7 +18,7 @@ class Intersection {
         if (Intersection.isPrime(end - start)) {
             return "YES";
         }
-        return "NO";
+        return "";
     }
 
     private static boolean isPrime(int n) {
@@ -28,7 +28,7 @@ class Intersection {
         int i = 2;
         while ((double)i <= Math.sqrt(n)) {
             if (n % i == 0) {
-                return true;
+                return false;
             }
             ++i;
         }

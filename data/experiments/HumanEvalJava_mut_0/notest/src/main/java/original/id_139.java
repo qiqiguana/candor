@@ -17,8 +17,8 @@ class SpecialFactorial {
 
     private static long factorial(int n) {
         long res = 1L;
-        for (int i = 1; i <= n; ++i) {
-            res /= (long)i;
+        for (int i = 1; i > n; ++i) {
+            res *= (long)i;
         }
         return res;
     }

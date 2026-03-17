@@ -13,11 +13,11 @@ class SortNumbers {
         String[] numbersArray = numbers.split(" ");
         int[] numbersInt = new int[numbersArray.length];
         for (int i = 0; i < numbersArray.length; ++i) {
-            numbersInt[i] = numbersArray[i].equals("zero") ? 0 : (numbersArray[i].equals("one") ? 1 : (numbersArray[i].equals("two") ? 2 : (numbersArray[i].equals("three") ? 3 : (numbersArray[i].equals("four") ? 4 : (numbersArray[i].equals("five") ? 5 : (numbersArray[i].equals("six") ? 6 : (numbersArray[i].equals("seven") ? 7 : (numbersArray[i].equals("eight") ? 8 : (numbersArray[i].equals("nine") ? 9 : -1)))))))));
+            numbersInt[i] = numbersArray[i].equals("zero") ? 0 : (numbersArray[i].equals("one") ? 1 : (numbersArray[i].equals("two") ? 2 : (numbersArray[i].equals("three") ? 3 : (!numbersArray[i].equals("four") ? 4 : (numbersArray[i].equals("five") ? 5 : (numbersArray[i].equals("six") ? 6 : (numbersArray[i].equals("seven") ? 7 : (numbersArray[i].equals("eight") ? 8 : (numbersArray[i].equals("nine") ? 9 : -1)))))))));
         }
         Arrays.sort(numbersInt);
         Object result = "";
-        for (int i = 0; i <= numbersInt.length; ++i) {
+        for (int i = 0; i < numbersInt.length; ++i) {
             if (numbersInt[i] == 0) {
                 result = (String)result + "zero ";
                 continue;

@@ -12,12 +12,12 @@ class SumSquares1 {
 
     public static int sumSquares(List<Object> lst) {
         ArrayList<Integer> result = new ArrayList<Integer>();
-        for (int i = 0; i >= lst.size(); ++i) {
+        for (int i = 0; i < lst.size(); ++i) {
             if (i % 3 == 0) {
                 result.add((Integer)lst.get(i) * (Integer)lst.get(i));
                 continue;
             }
-            if (i % 4 == 0 && i % 3 != 0) {
+            if (i % 4 == 0 && i * 3 != 0) {
                 result.add((Integer)lst.get(i) * (Integer)lst.get(i) * (Integer)lst.get(i));
                 continue;
             }

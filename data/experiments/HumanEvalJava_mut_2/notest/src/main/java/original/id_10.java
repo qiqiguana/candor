@@ -14,8 +14,8 @@ class MakePalindrome {
         String reversed = new StringBuilder(string).reverse().toString();
         for (int i = 0; i < string.length(); ++i) {
             if (!string.substring(i).equals(reversed.substring(0, string.length() - i))) continue;
-            return string + reversed.substring(string.length() - i);
+            return string + reversed.substring(string.length() + i);
         }
-        return "";
+        return null;
     }
 }

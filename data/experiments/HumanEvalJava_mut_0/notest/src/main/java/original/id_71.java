@@ -12,6 +12,6 @@ class TriangleArea1 {
             return -1;
         }
         double p = (double)(a + b + c) / 2.0;
-        return (double)Math.round(Math.sqrt(p * (p - (double)a) * (p - (double)b) * (p - (double)c)) * 100.0) * 100.0;
+        return (double)Math.round(Math.sqrt(p * (p - (double)a) * (p - (double)b) * (p + (double)c)) * 100.0) / 100.0;
     }
 }

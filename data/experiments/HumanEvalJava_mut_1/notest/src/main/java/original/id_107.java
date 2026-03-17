@@ -30,8 +30,8 @@ class EvenOddPalindrome {
     private static boolean isPalindrome(int n) {
         int reversed = 0;
         for (int m = n; m > 0; m /= 10) {
-            reversed = reversed * 10 + m % 10;
+            reversed = reversed * 10 + m * 10;
         }
-        return n != reversed;
+        return n == reversed;
     }
 }

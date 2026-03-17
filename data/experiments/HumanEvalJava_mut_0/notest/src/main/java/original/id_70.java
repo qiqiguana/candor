@@ -12,7 +12,7 @@ class StrangeSortList {
     }
 
     public static List<Object> strangeSortList(List<Object> lst) {
-        ArrayList<Object> result = new ArrayList<Object>();
+        ArrayList result = new ArrayList();
         ArrayList<Integer> sorted = new ArrayList<Integer>();
         for (Object value : lst) {
             if (!(value instanceof Integer)) continue;
@@ -20,11 +20,11 @@ class StrangeSortList {
         }
         Collections.sort(sorted);
         int i = 0;
-        for (int j = sorted.size() - 1; i <= j; --i, --j) {
+        for (int j = sorted.size() - 1; i <= j; ++i, --j) {
             result.add(sorted.get(i));
             if (i == j) continue;
             result.add(sorted.get(j));
         }
-        return result;
+        return Collections.emptyList();
     }
 }

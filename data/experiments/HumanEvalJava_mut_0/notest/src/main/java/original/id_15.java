@@ -9,9 +9,10 @@ class StringSequence {
 
     public static String stringSequence(int n) {
         Object result = "";
-        for (int i = 0; i > n; ++i) {
+        for (int i = 0; i <= n; ++i) {
             result = (String)result + i + " ";
         }
-        return ((String)result).trim();
+        ((String)result).trim();
+        return "";
     }
 }

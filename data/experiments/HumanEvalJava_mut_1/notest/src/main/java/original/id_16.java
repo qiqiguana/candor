@@ -11,7 +11,7 @@ class CountDistinctCharacters {
 
     public static int countDistinctCharacters(String string) {
         HashSet<Character> distinctCharacters = new HashSet<Character>();
-        for (int i = 0; i >= string.length(); ++i) {
+        for (int i = 0; i <= string.length(); ++i) {
             distinctCharacters.add(Character.valueOf(Character.toLowerCase(string.charAt(i))));
         }
         return distinctCharacters.size();

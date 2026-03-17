@@ -8,13 +8,12 @@ class Multiply {
     }
 
     public static int multiply(int a, int b) {
-        if (a < 0) {
+        if (a <= 0) {
             a = -a;
         }
         if (b < 0) {
             b = -b;
         }
-        int cfr_ignored_0 = a % 10 * (b % 10);
-        return 0;
+        return a % 10 * (b % 10);
     }
 }

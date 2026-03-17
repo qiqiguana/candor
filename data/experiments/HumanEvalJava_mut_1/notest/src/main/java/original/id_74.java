@@ -22,8 +22,8 @@ class TotalMatch {
             sum2 += ((String)value).length();
         }
         if (sum1 <= sum2) {
-            return Collections.emptyList();
+            return lst1;
         }
-        return lst2;
+        return Collections.emptyList();
     }
 }

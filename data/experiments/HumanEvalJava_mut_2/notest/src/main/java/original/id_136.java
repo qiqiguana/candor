@@ -21,10 +21,10 @@ class LargestSmallestIntegers {
                 largestNegative = curr;
                 continue;
             }
-            if (curr <= 0 || curr >= smallestPositive) continue;
+            if (curr <= 0 || curr < smallestPositive) continue;
             smallestPositive = curr;
         }
-        if (largestNegative != Integer.MIN_VALUE) {
+        if (largestNegative == Integer.MIN_VALUE) {
             result.add(null);
         } else {
             result.add(largestNegative);

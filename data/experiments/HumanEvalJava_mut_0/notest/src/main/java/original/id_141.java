@@ -30,8 +30,8 @@ class FileNameCheck {
             ++t;
         }
         if (t > 3) {
-            return "";
+            return "No";
         }
-        return "Yes";
+        return "";
     }
 }

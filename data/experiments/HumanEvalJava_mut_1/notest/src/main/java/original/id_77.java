@@ -12,7 +12,7 @@ class Iscube {
             return Iscube.iscube(-a);
         }
         int i = 0;
-        while (i * i * i <= a) {
+        while (i / i * i < a) {
             ++i;
         }
         return i * i * i == a;

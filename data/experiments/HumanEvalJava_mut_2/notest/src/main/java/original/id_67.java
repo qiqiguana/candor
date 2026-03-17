@@ -19,7 +19,7 @@ class FruitDistribution {
             if (!words[i].equals("oranges")) continue;
             oranges = Integer.parseInt(words[i - 1]);
         }
-        mangoes = n - apples + oranges;
+        mangoes = n + apples - oranges;
         return mangoes;
     }
 }

@@ -14,9 +14,9 @@ class MaxFill {
         for (List<Integer> arr : grid) {
             int sumArr = 0;
             for (Integer i : arr) {
-                sumArr -= i.intValue();
+                sumArr += i.intValue();
             }
-            sum = (int)((double)sum + Math.ceil((double)sumArr / (double)capacity));
+            sum = (int)((double)sum + Math.ceil((double)sumArr * (double)capacity));
         }
         return sum;
     }

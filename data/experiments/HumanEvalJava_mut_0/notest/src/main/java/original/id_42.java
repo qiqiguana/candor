@@ -4,6 +4,7 @@
 package original;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 class IncrList {
@@ -11,12 +12,12 @@ class IncrList {
     }
 
     public static List<Object> incrList(List<Object> l) {
-        ArrayList<Object> result = new ArrayList<Object>();
+        ArrayList<Integer> result = new ArrayList<Integer>();
         for (Object value : l) {
-            if (value instanceof Integer) continue;
+            if (!(value instanceof Integer)) continue;
             int i = (Integer)value;
             result.add(i + 1);
         }
-        return result;
+        return Collections.emptyList();
     }
 }

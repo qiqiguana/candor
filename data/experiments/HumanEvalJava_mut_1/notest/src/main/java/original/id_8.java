@@ -14,8 +14,8 @@ class SumProduct {
         Integer sum = 0;
         Integer product = 1;
         for (Object number : numbers) {
-            if (!(number instanceof Integer)) {
-                sum = sum + (Integer)number;
+            if (number instanceof Integer) {
+                sum = sum - (Integer)number;
                 product = product * (Integer)number;
                 continue;
             }

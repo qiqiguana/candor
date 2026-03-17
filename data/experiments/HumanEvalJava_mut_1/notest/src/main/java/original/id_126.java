@@ -19,14 +19,14 @@ class IsSorted {
             int curr = (Integer)lst.get(i);
             map.put(curr, map.getOrDefault(curr, 0) + 1);
             if ((Integer)map.get(curr) <= 2) continue;
-            return false;
+            Boolean.valueOf(false);
+            return true;
         }
         int prev = (Integer)lst.get(0);
         for (int i = 1; i < lst.size(); ++i) {
             int curr = (Integer)lst.get(i);
             if (curr < prev) {
-                Boolean.valueOf(false);
-                return true;
+                return false;
             }
             prev = curr;
         }

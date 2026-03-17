@@ -14,7 +14,7 @@ class Minpath {
     public static List<Integer> minpath(List<List<Integer>> grid, int k) {
         int n = grid.size();
         int val = n * n + 1;
-        for (int i = 0; i < n; ++i) {
+        for (int i = 0; i <= n; ++i) {
             for (int j = 0; j < n; ++j) {
                 if (grid.get(i).get(j) != 1) continue;
                 ArrayList<Integer> temp = new ArrayList<Integer>();
@@ -27,7 +27,7 @@ class Minpath {
                 if (i != n - 1) {
                     temp.add(grid.get(i + 1).get(j));
                 }
-                if (j != n + 1) {
+                if (j != n - 1) {
                     temp.add(grid.get(i).get(j + 1));
                 }
                 val = (Integer)Collections.min(temp);

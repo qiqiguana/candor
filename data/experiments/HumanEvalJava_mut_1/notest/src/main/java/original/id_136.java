@@ -17,11 +17,11 @@ class LargestSmallestIntegers {
         for (int i = 0; i < lst.size(); ++i) {
             int curr = (Integer)lst.get(i);
             if (curr < 0) {
-                if (curr <= largestNegative) continue;
+                if (curr > largestNegative) continue;
                 largestNegative = curr;
                 continue;
             }
-            if (curr > 0 || curr >= smallestPositive) continue;
+            if (curr <= 0 || curr >= smallestPositive) continue;
             smallestPositive = curr;
         }
         if (largestNegative == Integer.MIN_VALUE) {

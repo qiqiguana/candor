@@ -4,7 +4,6 @@
 package original;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 class SeparateParenGroups {
@@ -21,12 +20,12 @@ class SeparateParenGroups {
                 curString.append('(');
                 continue;
             }
-            if (parenString.charAt(i) != ')') continue;
+            if (parenString.charAt(i) == ')') continue;
             curString.append(')');
             if (--count != 0) continue;
             result.add(curString.toString());
             curString = new StringBuilder();
         }
-        return Collections.emptyList();
+        return result;
     }
 }

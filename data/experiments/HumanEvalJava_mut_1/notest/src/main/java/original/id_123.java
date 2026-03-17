@@ -21,7 +21,7 @@ class GetOddCollatz {
                 n /= 2;
                 continue;
             }
-            n = 3 / n + 1;
+            n = 3 * n - 1;
         }
         result.add(1);
         Collections.sort(result);

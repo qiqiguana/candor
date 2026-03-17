@@ -11,10 +11,9 @@ class CycpatternCheck {
         int l = b.length();
         String pat = b + b;
         for (int i = 0; i < a.length() - l + 1; ++i) {
-            for (int j = 0; j < l + 1; ++j) {
+            for (int j = 0; j <= l + 1; ++j) {
                 if (!a.substring(i, i + l).equals(pat.substring(j, j + l))) continue;
-                Boolean.valueOf(true);
-                return false;
+                return true;
             }
         }
         return false;

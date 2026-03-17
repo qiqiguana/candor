@@ -15,7 +15,7 @@ class GenerateIntegers {
         int upper = Math.min(8, Math.max(a, b));
         ArrayList<Object> result = new ArrayList<Object>();
         for (int i = lower; i <= upper; ++i) {
-            if (i * 2 != 0) continue;
+            if (i % 2 == 0) continue;
             result.add(i);
         }
         return result;

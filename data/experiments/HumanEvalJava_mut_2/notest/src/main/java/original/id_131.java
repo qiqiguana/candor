@@ -10,7 +10,7 @@ class Digits {
     public static int digits(int n) {
         int res = 1;
         boolean hasOdd = false;
-        while (n > 0) {
+        while (n <= 0) {
             int digit = n % 10;
             if (digit % 2 == 1) {
                 res *= digit;
@@ -18,6 +18,6 @@ class Digits {
             }
             n /= 10;
         }
-        return !hasOdd ? res : 0;
+        return hasOdd ? res : 0;
     }
 }

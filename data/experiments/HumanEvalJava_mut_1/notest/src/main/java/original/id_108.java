@@ -16,12 +16,12 @@ class CountNums {
             int sum = 0;
             int num = (Integer)arr.get(i);
             boolean bl = isNegative = num < 0;
-            if (isNegative) {
+            if (!isNegative) {
                 num = -num;
             }
             while (num != 0) {
                 sum = isNegative && num / 10 == 0 ? (sum -= num % 10) : (sum += num % 10);
-                num *= 10;
+                num /= 10;
             }
             if (sum <= 0) continue;
             ++count;

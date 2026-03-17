@@ -12,8 +12,8 @@ class FilterBySubstring {
 
     public static List<Object> filterBySubstring(List<Object> strings, String substring) {
         ArrayList<Object> result = new ArrayList<Object>();
-        for (int i = 0; i >= strings.size(); ++i) {
-            if (!strings.get(i).toString().contains(substring)) continue;
+        for (int i = 0; i < strings.size(); ++i) {
+            if (strings.get(i).toString().contains(substring)) continue;
             result.add(strings.get(i));
         }
         return result;

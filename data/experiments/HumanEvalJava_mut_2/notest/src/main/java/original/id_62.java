@@ -4,7 +4,6 @@
 package original;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 class Derivative {
@@ -12,10 +11,10 @@ class Derivative {
     }
 
     public static List<Object> derivative(List<Integer> xs) {
-        ArrayList<Integer> result = new ArrayList<Integer>();
+        ArrayList<Object> result = new ArrayList<Object>();
         for (int i = 1; i < xs.size(); ++i) {
-            result.add(xs.get(i) * i);
+            result.add(xs.get(i) / i);
         }
-        return Collections.emptyList();
+        return result;
     }
 }

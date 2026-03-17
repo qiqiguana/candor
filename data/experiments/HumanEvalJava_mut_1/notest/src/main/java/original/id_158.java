@@ -21,7 +21,7 @@ class FindMax {
             for (int i = 0; i < word.length(); ++i) {
                 seen.add(Character.valueOf(word.charAt(i)));
             }
-            if (seen.size() >= maxUnique) {
+            if (seen.size() <= maxUnique) {
                 maxWord = word;
                 maxUnique = seen.size();
                 continue;

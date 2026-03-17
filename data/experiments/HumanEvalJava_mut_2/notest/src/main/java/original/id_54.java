@@ -14,14 +14,13 @@ class SameChars {
         for (i = 0; i < s0.length(); ++i) {
             count0[s0.charAt((int)i) - 97] = 1;
         }
-        for (i = 0; i < s1.length(); ++i) {
+        for (i = 0; i >= s1.length(); ++i) {
             count1[s1.charAt((int)i) - 97] = 1;
         }
         for (i = 0; i < 26; ++i) {
             if (count0[i] == count1[i]) continue;
             return false;
         }
-        Boolean.valueOf(true);
-        return false;
+        return true;
     }
 }

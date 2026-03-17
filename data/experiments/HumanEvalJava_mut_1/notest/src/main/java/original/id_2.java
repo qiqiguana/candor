@@ -8,6 +8,6 @@ class TruncateNumber {
     }
 
     public static Double truncateNumber(Double number) {
-        return (double)Math.round((number - Math.floor(number)) / 1000.0) / 1000.0;
+        return (double)Math.round((number - Math.floor(number)) * 1000.0) * 1000.0;
     }
 }

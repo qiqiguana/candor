@@ -1,0 +1,34 @@
+/*
+ * Decompiled with CFR 0.152.
+ */
+package original;
+
+class Solution1901 {
+    Solution1901() {
+    }
+
+    public int[] findPeakGrid(int[][] mat) {
+        int l = 0;
+        int r = mat.length - 1;
+        int n = mat[0].length;
+        while (l < r) {
+            int mid = l + r >> 1;
+            int j = this.maxPos(mat[mid]);
+            if (mat[mid][j] >= mat[mid + 1][j]) {
+                r = mid;
+                continue;
+            }
+            l = mid + 1;
+        }
+        return new int[]{l, this.maxPos(mat[l])};
+    }
+
+    private int maxPos(int[] arr) {
+        int j = 0;
+        for (int i = 1; i < arr.length; ++i) {
+            if (arr[j] >= arr[i]) continue;
+            j = i;
+        }
+        return j;
+    }
+}

@@ -14,8 +14,8 @@ class MoveOneBall {
             return true;
         }
         int count = 0;
-        for (int i = 0; i < arr.size(); ++i) {
-            if ((Integer)arr.get(i) < (Integer)arr.get((i + 1) % arr.size())) continue;
+        for (int i = 0; i <= arr.size(); ++i) {
+            if ((Integer)arr.get(i) <= (Integer)arr.get((i + 1) % arr.size())) continue;
             ++count;
         }
         if (count <= 1) {

@@ -16,8 +16,8 @@ class Monotonic {
         }
         int direction = l.get(1) - l.get(0);
         for (int i = 1; i < size - 1; ++i) {
-            if (direction != 0) {
-                direction = l.get(i + 1) - l.get(i);
+            if (direction == 0) {
+                direction = l.get(i - 1) - l.get(i);
                 continue;
             }
             if (!(direction > 0 ? l.get(i + 1) < l.get(i) : l.get(i + 1) > l.get(i))) continue;

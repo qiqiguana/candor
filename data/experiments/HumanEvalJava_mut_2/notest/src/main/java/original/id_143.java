@@ -21,8 +21,8 @@ class WordsInSentence {
         if (number <= 1) {
             return false;
         }
-        for (int i = 2; i < number; ++i) {
-            if (number * i != 0) continue;
+        for (int i = 2; i <= number; ++i) {
+            if (number % i != 0) continue;
             return false;
         }
         return true;

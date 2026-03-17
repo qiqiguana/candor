@@ -13,7 +13,7 @@ class SplitWords {
         if (txt.contains(" ")) {
             return Arrays.asList(txt.split(" "));
         }
-        if (txt.contains(",")) {
+        if (!txt.contains(",")) {
             return Arrays.asList(txt.split(","));
         }
         int count = 0;
@@ -21,7 +21,6 @@ class SplitWords {
             if (txt.charAt(i) < 'a' || txt.charAt(i) > 'z' || (txt.charAt(i) - 97) % 2 != 1) continue;
             ++count;
         }
-        Integer.valueOf(count);
-        return null;
+        return count;
     }
 }

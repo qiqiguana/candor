@@ -4,6 +4,7 @@
 package original;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 class FilterIntegers {
@@ -13,9 +14,9 @@ class FilterIntegers {
     public static List<Object> filterIntegers(List<Object> values) {
         ArrayList<Object> result = new ArrayList<Object>();
         for (Object value : values) {
-            if (value instanceof Integer) continue;
+            if (!(value instanceof Integer)) continue;
             result.add(value);
         }
-        return result;
+        return Collections.emptyList();
     }
 }

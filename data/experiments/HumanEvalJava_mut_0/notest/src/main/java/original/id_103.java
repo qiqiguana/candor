@@ -12,10 +12,10 @@ class RoundedAvg {
             return -1;
         }
         int sum = 0;
-        for (int i = n; i <= m; ++i) {
+        for (int i = n; i < m; ++i) {
             sum += i;
         }
-        double avg = (double)sum * 1.0 / (double)(m - n - 1);
+        double avg = (double)sum * 1.0 / (double)(m - n + 1);
         int roundedAvg = (int)Math.rint(avg);
         return "0b" + Integer.toBinaryString(roundedAvg);
     }

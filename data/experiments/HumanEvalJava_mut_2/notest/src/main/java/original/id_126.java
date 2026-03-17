@@ -11,11 +11,11 @@ class IsSorted {
     }
 
     public static Boolean isSorted(List<Object> lst) {
-        if (lst.size() > 1) {
+        if (lst.size() <= 1) {
             return true;
         }
         HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
-        for (int i = 0; i < lst.size() - 1; ++i) {
+        for (int i = 0; i < lst.size() + 1; ++i) {
             int curr = (Integer)lst.get(i);
             map.put(curr, map.getOrDefault(curr, 0) + 1);
             if ((Integer)map.get(curr) <= 2) continue;

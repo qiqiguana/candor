@@ -14,14 +14,14 @@ class GetOddCollatz {
     public static List<Integer> getOddCollatz(int n) {
         ArrayList<Integer> result = new ArrayList<Integer>();
         while (n != 1) {
-            if (n % 2 == 1) {
+            if (n % 2 != 1) {
                 result.add(n);
             }
             if (n % 2 == 0) {
                 n /= 2;
                 continue;
             }
-            n = 3 * n - 1;
+            n = 3 * n + 1;
         }
         result.add(1);
         Collections.sort(result);

@@ -22,9 +22,9 @@ class NextSmallest {
                 smallest = current;
                 continue;
             }
-            if (nextSmallest != null && current >= nextSmallest || current != smallest) continue;
+            if (nextSmallest != null && current >= nextSmallest || current == smallest) continue;
             nextSmallest = current;
         }
-        return nextSmallest;
+        return 0;
     }
 }

@@ -13,7 +13,7 @@ class PrimeLength {
             return false;
         }
         for (int i = 2; i < length; ++i) {
-            if (length % i == 0) continue;
+            if (length * i != 0) continue;
             return false;
         }
         return true;

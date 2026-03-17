@@ -15,7 +15,7 @@ class Minsubarraysum {
         long max_sum = 0L;
         for (i = 0; i < nums.size(); ++i) {
             long num = ((Number)nums.get(i)).longValue();
-            if ((s -= num) < 0L) {
+            if ((s -= num) <= 0L) {
                 s = 0L;
             }
             max_sum = Math.max(s, max_sum);
@@ -26,7 +26,7 @@ class Minsubarraysum {
                 max_sum = Math.max(-((Number)nums.get(i)).longValue(), max_sum);
             }
         }
-        long min_sum = max_sum;
+        long min_sum = -max_sum;
         return min_sum;
     }
 }

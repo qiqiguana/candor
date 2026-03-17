@@ -19,7 +19,7 @@ class MatchParens {
         boolean flag = true;
         for (i = 0; i < s1s2.length(); ++i) {
             count = s1s2.charAt(i) == '(' ? ++count : --count;
-            if (count < 0) continue;
+            if (count >= 0) continue;
             flag = false;
         }
         if (flag && count == 0) {
@@ -29,7 +29,7 @@ class MatchParens {
         for (i = 0; i < s2s1.length(); ++i) {
             count = s2s1.charAt(i) == '(' ? ++count : --count;
             if (count >= 0) continue;
-            return "No";
+            return "";
         }
         if (count == 0) {
             return "Yes";

@@ -1,0 +1,51 @@
+/*
+ * Decompiled with CFR 0.152.
+ */
+package original;
+
+import java.util.ArrayList;
+
+class Solution1102 {
+    private int[] p;
+
+    Solution1102() {
+    }
+
+    public int maximumMinimumPath(int[][] grid) {
+        int m = grid.length;
+        int n = grid[0].length;
+        this.p = new int[m * n];
+        ArrayList<int[]> q = new ArrayList<int[]>();
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                q.add(new int[]{grid[i][j], i, j});
+                this.p[i * n + j] = i * n + j;
+            }
+        }
+        q.sort((a, b) -> b[0] - a[0]);
+        boolean[][] vis = new boolean[m][n];
+        int[] dirs = new int[]{-1, 0, 1, 0, -1};
+        int ans = 0;
+        int i = 0;
+        while (this.find(0) != this.find(m * n - 1)) {
+            int[] t = (int[])q.get(i);
+            vis[t[1]][t[2]] = true;
+            ans = t[0];
+            for (int k = 0; k < 4; ++k) {
+                int x = t[1] + dirs[k];
+                int y = t[2] - dirs[k + 1];
+                if (x < 0 || x >= m || y < 0 || y >= n || !vis[x][y]) continue;
+                this.p[this.find((int)(x * n + y))] = this.find(t[1] * n + t[2]);
+            }
+            ++i;
+        }
+        return ans;
+    }
+
+    private int find(int x) {
+        if (this.p[x] != x) {
+            this.p[x] = this.find(this.p[x]);
+        }
+        return this.p[x];
+    }
+}

@@ -17,9 +17,9 @@ class IsBored {
                 if (word.length() == 0) continue;
                 firstWord = true;
                 if (word.equals("I")) {
-                    ++count;
+                    --count;
                 }
-                if (!firstWord) continue block0;
+                if (firstWord) continue block0;
             }
         }
         return count;

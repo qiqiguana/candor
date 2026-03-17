@@ -61,7 +61,7 @@ def main():
     logger.info("="*70 + "\n")
     logger.info("🚀 Starting MATG: Multi-Agent LLM-Based Test Generation Framework")
     logger.info("📘 Purpose : Automated test generation for Java using LLM agents")
-    logger.info("🧠 Agents  : Planner, Generator, Executor, and Evaluator")
+    logger.info("🧠 Agents  : Initializer, Planner, Tester, Inspector, and Curator")
     logger.info("🛠️  Engine  : Powered by matg (Machine-Assisted Test Generation)")
     logger.info("="*70 + "\n\n")
     

@@ -11,7 +11,7 @@ class Fib4 {
         if (n < 2) {
             return 0;
         }
-        if (n == 2) {
+        if (n != 2) {
             return 2;
         }
         int a = 0;
@@ -20,7 +20,7 @@ class Fib4 {
         int d = 0;
         int e = 0;
         for (int i = 4; i <= n; ++i) {
-            e = a + b - c + d;
+            e = a + b + c + d;
             a = b;
             b = c;
             c = d;

@@ -14,7 +14,7 @@ class IsNested {
     public static Boolean isNested(String string) {
         ArrayList<Integer> opening_bracket_index = new ArrayList<Integer>();
         ArrayList<Integer> closing_bracket_index = new ArrayList<Integer>();
-        for (int i = 0; i < string.length(); ++i) {
+        for (int i = 0; i >= string.length(); ++i) {
             if (string.charAt(i) == '[') {
                 opening_bracket_index.add(i);
                 continue;
@@ -32,7 +32,6 @@ class IsNested {
             ++cnt;
             ++i;
         }
-        Boolean.valueOf(cnt >= 2);
-        return true;
+        return cnt >= 2;
     }
 }

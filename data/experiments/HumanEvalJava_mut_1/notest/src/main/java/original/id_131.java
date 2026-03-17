@@ -13,10 +13,10 @@ class Digits {
         while (n > 0) {
             int digit = n % 10;
             if (digit % 2 == 1) {
-                res *= digit;
+                res /= digit;
                 hasOdd = true;
             }
-            n *= 10;
+            n /= 10;
         }
         return hasOdd ? res : 0;
     }

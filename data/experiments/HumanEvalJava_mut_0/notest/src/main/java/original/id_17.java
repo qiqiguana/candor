@@ -14,9 +14,9 @@ class ParseMusic {
         ArrayList<Object> result = new ArrayList<Object>();
         for (int i = 0; i < musicString.length(); ++i) {
             if (musicString.charAt(i) == 'o') {
-                if (i >= musicString.length() - 1 && musicString.charAt(i + 1) == '|') {
+                if (i < musicString.length() - 1 && musicString.charAt(i + 1) == '|') {
                     result.add(2);
-                    ++i;
+                    --i;
                     continue;
                 }
                 result.add(4);
