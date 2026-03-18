@@ -13,7 +13,7 @@ CANDOR orchestrates multiple specialized LLM agents to collaboratively generate 
 | Maven | 3.6+ |
 | GPU VRAM | 48 GB+ (for 70B parameter models) |
 
-Two NVIDIA GPUs with at least 48 GB VRAM each are recommended (e.g., RTX 6000 Ada, A100) since the pipeline uses two 70B models concurrently.
+Our experiments were conducted on a single NVIDIA RTX 6000 Ada (48 GB VRAM). Multi-GPU setups have not been tested and may require additional Ollama configuration.
 
 ## Environment Setup
 
@@ -76,7 +76,9 @@ The `Leetcode/notest/` directory also contains `readmes.pkl`, which holds natura
 
 ## Running CANDOR (Single File)
 
-CANDOR has three sequential steps. All commands are run from the parent directory of this repository.
+CANDOR has three sequential steps. Each step can also be used independently (e.g., run only initialization, or skip straight to oracle fixing on an existing test file). All commands are run from the parent directory of this repository.
+
+Note: Step III (Oracle Fixing) is the most time-consuming step, as it involves multiple agents per test case -- each oracle is evaluated by a panel of reasoning LLMs, summarised by interpreters, and consolidated by the curator.
 
 ### Step I: Initialization
 
@@ -160,7 +162,7 @@ Each mode processes all `.java` files in `src/main/java/original/` and generates
 
 ## Creating Mutants
 
-The mutant datasets (`*_mut_0`, `*_mut_1`, `*_mut_2`) were created using the `create_mutants.py` script, which automates the full pipeline:
+Mutant creation is not part of CANDOR's core pipeline, but we include the `create_mutants.py` script we used to generate the mutant datasets for our experiments. The mutant datasets (`*_mut_0`, `*_mut_1`, `*_mut_2`) were created using this script, which automates the full Pitest + CFR pipeline:
 
 ```bash
 python create_mutants.py
@@ -256,3 +258,11 @@ CANDOR uses two locally-hosted LLMs via Ollama:
 | Reasoning LLM | DeepSeek R1 70B | Panelist agents in oracle fixing (panel discussion) |
 
 The Interpreter (basic LLM) always post-processes each Panelist's verbose reasoning output to extract structured oracle evaluations, forming a dual-LLM pipeline.
+
+## Scope and Limitations
+
+This work lays the foundation for multi-agent LLM-based test generation. Currently, CANDOR operates at the method level only. Handling inter-class dependencies and more complex project structures is the focus of our ongoing work, to be published soon. Nevertheless, the strategies used in this work -- coverage-driven iterative generation, multi-agent panel discussion for oracle consensus, and the dual-LLM pipeline -- can serve as building blocks for future test generation research.
+
+## Contact
+
+If you encounter any issues or have questions, please contact qinghua.xu@ul.ie.
