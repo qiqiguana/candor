@@ -129,38 +129,7 @@ python -m tgen.main oracle-fixer \
 
 For the LeetCode dataset, pass `--doc-file readmes.pkl` to provide natural language problem descriptions to the oracle fixer.
 
-## Batch Execution
-
-Use `run_candor.py` to run CANDOR over all files in a dataset:
-
-```bash
-# Step I: Initialize all files
-python run_candor.py \
-  --mode initialize \
-  --data-path /path/to/dataset/notest \
-  --max-attempts 3
-
-# Step II: Generate test prefixes for all files
-python run_candor.py \
-  --mode generate \
-  --data-path /path/to/dataset/notest \
-  --max-attempts 3
-
-# Step III: Fix oracles for all files
-python run_candor.py \
-  --mode fix \
-  --data-path /path/to/dataset/notest
-
-# For LeetCode, pass the doc file:
-python run_candor.py \
-  --mode fix \
-  --data-path /path/to/Leetcode/notest \
-  --doc-file readmes.pkl
-```
-
-Each mode processes all `.java` files in `src/main/java/original/` and generates corresponding test files in `src/test/java/original/`.
-
-## Creating Mutants
+## Creating Mutants (Optional)
 
 Mutant creation is not part of CANDOR's core pipeline, but we include the `create_mutants.py` script we used to generate the mutant datasets for our experiments. The mutant datasets (`*_mut_0`, `*_mut_1`, `*_mut_2`) were created using this script, which automates the full Pitest + CFR pipeline:
 
