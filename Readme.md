@@ -1,6 +1,6 @@
 # CANDOR: Multi-Agent LLM-Based End-to-End Test Generation with Accurate Oracles
 
-Replication package for the paper *"Hallucination to Consensus: Multi-Agent LLMs for End-to-End Test Generation with Accurate Oracles"*.
+Replication package for the paper *"Hallucination to Consensus: Multi-Agent LLMs for End-to-End JUnit Test Generation"*.
 
 CANDOR orchestrates multiple specialized LLM agents to collaboratively generate complete JUnit 5 tests for Java programs, including both high-coverage test prefixes and accurate oracles. It uses a panel discussion strategy with multiple reasoning LLMs to reach consensus on oracle correctness, mitigating hallucinations.
 
